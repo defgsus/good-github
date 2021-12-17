@@ -1,0 +1,8 @@
+*.json
+/stash/
+
+*.pyc
+__pycache__/
+.idea/
+env/
+venv/
