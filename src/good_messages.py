@@ -213,9 +213,10 @@ class GoodMessages:
     @classmethod
     def commit_to_markdown(cls, commit: dict) -> str:
         md = (
-            f'## [{commit["repo"]}@{commit["commit"]["sha"][:10]}...]'
+            f'## [{commit["repo"]}](https://github.com/{commit["repo"]})@'
+            f'[{commit["commit"]["sha"][:10]}...]'
             f'(https://github.com/{commit["repo"]}/commit/{commit["commit"]["sha"]})'
-            f'\n##### {commit["date"].replace("T", " ").replace("Z", "")}'
+            f'\n#### {commit["date"].replace("T", " ").replace("Z", "")}'
             f' by {commit["commit"]["author"]["name"]}'
         )
         md += "\n\n"
