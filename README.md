@@ -5,740 +5,567 @@ an [index](docs/messages.md).
 
 ---
 
-# [2021-02-28](docs/good-messages/2021/2021-02-28.md)
+# [2021-03-25](docs/good-messages/2021/2021-03-25.md)
 
 
-2,069,530 events, 1,184,680 push events, 1,701,507 commit messages, 94,575,058 characters
+3,257,513 events, 1,591,449 push events, 2,464,207 commit messages, 181,759,700 characters
 
 
-## [staebal/lsss-wip@2af768b86e...](https://github.com/staebal/lsss-wip/commit/2af768b86e3a5cfaa5cf4b66e3dacbb2fc04dff2)
-##### 2021-02-28 01:26:27 by Tyler
+## [sergeirocks100/Skyrat-tg@e3b36b1a33...](https://github.com/sergeirocks100/Skyrat-tg/commit/e3b36b1a33017c8deae7a1b8aae0bdc36667513e)
+##### 2021-03-25 00:59:20 by SkyratBot
 
-Bug fixes and credits update from design session
+[MIRROR] Moth tourist bots -- They ask for your hat (#4152)
 
-Apparently I forgot how parenting works in DOTS. That was such a stupid bug! I get that maybe someone would want to separate parenting from positioning, but at the same time, does that really justify needing to add two components to an entity to parent something?
+* Moth tourist bots -- They ask for your hat (#57563)
 
-Overall, the design session lead to a better mouse look, a material for the k-wings, a sound effect for the k-wings that is very satisfying (it sounds different from within the cockpit in a realistic way that I wasn't expecting), and more bugfixes.
+Adds a rare, once per restaurant venue, chance for a moth tourist bot to show up. Asks for the hat, gloves, or shoes you have on.
 
-I'll be slowly updating the designs throughout the week, but for now I need to get some more documentation done while my mind is weekend fresh.
+Closes #57541 if this is merged first, somehow. It includes the testing fix (since I needed to multiply all the weights to allow for rare bots anyway).
 
-I'm really cutting this close to a February release, and I really wish I had some help, but such is life I guess.
+Wings are randomized.
 
----
-## [NetBSD/pkgsrc@2a41e5986e...](https://github.com/NetBSD/pkgsrc/commit/2a41e5986e311f9345f6116e08a4a32f79af891d)
-##### 2021-02-28 08:38:58 by nia
+I thought it was funny, and it's infrequent enough for the gag to hopefully not lose its magic.
 
-games: add abbayedesmorts.
+Also a good test bench for the code to allow more dynamic customers. A lot of supporting code was added to make more customizable customers without influencing the surface area of the venue code too much.
 
-Cross-platform port of the indie game l'Abbaye des Morts.
+Co-authored-by: ATH1909 <42606352+ATH1909@ users.noreply.github.com>
 
-In the 13th century, the Cathars, clerics who preached about the poverty of
-Christ and defended life without material aspirations, were treated as
-heretics by the Catholic Church and expelled out of the Languedoc region in
-France. One of them, called Jean Raymond, found an old church in which to
-hide from crusaders, not knowing that beneath its ruins lay buried an ancient
-evil.
+* Moth tourist bots -- They ask for your hat
 
-l'Abbaye des Morts has been inspired by the tragic history of the Cathars
-and platform games for ZX Spectrum computers like Manic Miner, Jet Set Willy
-or Dynamite Dan.
+* Update _customer.dm
 
-Faith will be your only weapon in this platformer styled like a ZX Spectrum
-game. Black backgrounds, 1 color sprites and 1 bit sounds are a proper fit
-for a raw story. The lack of details turn on the player's imagination,
-creating a unique experience for each player.
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
+Co-authored-by: ATH1909 <42606352+ATH1909@ users.noreply.github.com>
+Co-authored-by: Gandalf2k15 <jzo123@hotmail.com>
 
 ---
-## [elias97850/spark@acc3629b07...](https://github.com/elias97850/spark/commit/acc3629b071119b40d3827677454177fdd95f5bd)
-##### 2021-02-28 09:10:27 by elias
+## [bminor/binutils-gdb@08c428aff4...](https://github.com/bminor/binutils-gdb/commit/08c428aff4a793b63c7dd2229ae172879623e3a2)
+##### 2021-03-25 01:02:02 by Nick Alcock
 
-Current: Limited chars of textfields, organized and cleaned up
+libctf: eliminate dtd_u, part 5: structs / unions
 
-Next: Complexity of password, full name for the users?, "Forgot Password" UI, Firebase accounts, more UX and comments.
+Eliminate the dynamic member storage for structs and unions as we have
+for other dynamic types.  This is much like the previous enum
+elimination, except that structs and unions are the only types for which
+a full-sized ctf_type_t might be needed.  Up to now, this decision has
+been made in the individual ctf_add_{struct,union}_sized functions and
+duplicated in ctf_add_member_offset.  The vlen machinery lets us
+simplify this, always allocating a ctf_lmember_t and setting the
+dtd_data's ctt_size to CTF_LSIZE_SENT: we figure out whether this is
+really justified and (almost always) repack things down into a
+ctf_stype_t at ctf_serialize time.
 
-Comment: I wasn't going to work on this today, I was going to "take a break", buuuuut... here I am ^.^
-I just feel like I'm not doing shit if I'm just watching series all day, idk, and this felt productive xD. AS LONG AS I CAN EVADE AN EXISTENTIAL CRISIS then it's all good.
-Hello from the past, hope you have/you're having/you had a great day! And here... https://youtu.be/HLiCZbhZdsM, an adventure awaits, but drink water and take care! << might be a bit cringe xD but it's because I'm listening to that song right now, so put it on 2:40 and read from "Hello from... take care!" and imagine me screaming and waving with a smile from half a mile a way as the sun sets. (I know, I'm very self-aware of how weird all this is xD, it is 5:05am, and I haven't slept, the life of a programmer? Maybe just the life of someone with a fucked up sleeping schedule) BYE!
+This allows us to eliminate the dynamic member paths from the iterators and
+query functions in ctf-types.c in favour of always using the large-structure
+vlen stuff for dynamic types (the diff is ugly but that's just because of the
+volume of reindentation this calls for).  This also means the large-structure
+vlen stuff gets more heavily tested, which is nice because it was an almost
+totally unused code path before now (it only kicked in for structures of size
+>4GiB, and how often do you see those?)
+
+The only extra complexity here is ctf_add_type.  Back in the days of the
+nondeduplicating linker this was called a ridiculous number of times for
+countless identical copies of structures: eschewing the repeated lookups of the
+dtd in ctf_add_member_offset and adding the members directly saved an amazing
+amount of time.  Now the nondeduplicating linker is gone, this is extreme
+overoptimization: we can rip out the direct addition and use ctf_member_next and
+ctf_add_member_offset, just like ctf_dedup_emit does.
+
+We augment a ctf_add_type test to try adding a self-referential struct, the only
+thing the ctf_add_type part of this change really perturbs.
+
+This completes the elimination of dtd_u.
+
+libctf/ChangeLog
+2021-03-18  Nick Alcock  <nick.alcock@oracle.com>
+
+	* ctf-impl.h (ctf_dtdef_t) <dtu_members>: Remove.
+	<dtd_u>: Likewise.
+	(ctf_dmdef_t): Remove.
+	(struct ctf_next) <u.ctn_dmd>: Remove.
+	* ctf-create.c (INITIAL_VLEN): New, more-or-less arbitrary initial
+	vlen size.
+	(ctf_add_enum): Use it.
+	(ctf_dtd_delete): Do not free the (removed) dmd; remove string
+	refs from the vlen on struct deletion.
+	(ctf_add_struct_sized): Populate the vlen: do it by hand if
+	promoting forwards.  Always populate the full-size
+	lsizehi/lsizelo members.
+	(ctf_add_union_sized): Likewise.
+	(ctf_add_member_offset): Set up the vlen rather than the dmd.
+	Expand it as needed, repointing string refs via
+	ctf_str_move_pending. Add the member names as pending strings.
+	Always populate the full-size lsizehi/lsizelo members.
+	(membadd): Remove, folding back into...
+	(ctf_add_type_internal): ... here, adding via an ordinary
+	ctf_add_struct_sized and _next iteration rather than doing
+	everything by hand.
+	* ctf-serialize.c (ctf_copy_smembers): Remove this...
+	(ctf_copy_lmembers): ... and this...
+	(ctf_emit_type_sect): ... folding into here. Figure out if a
+	ctf_stype_t is needed here, not in ctf_add_*_sized.
+	(ctf_type_sect_size): Figure out the ctf_stype_t stuff the same
+	way here.
+	* ctf-types.c (ctf_member_next): Remove the dmd path and always
+	use the vlen.  Force large-structure usage for dynamic types.
+	(ctf_type_align): Likewise.
+	(ctf_member_info): Likewise.
+	(ctf_type_rvisit): Likewise.
+	* testsuite/libctf-regression/type-add-unnamed-struct-ctf.c: Add a
+	self-referential type to this test.
+	* testsuite/libctf-regression/type-add-unnamed-struct.c: Adjusted
+	accordingly.
+	* testsuite/libctf-regression/type-add-unnamed-struct.lk: Likewise.
 
 ---
-## [nsheetz/perks@75af619d5e...](https://github.com/nsheetz/perks/commit/75af619d5e2705c0a1d048ef17aed1fd10c8db03)
-##### 2021-02-28 11:02:47 by nsheetz
+## [Aokiare/dracula@5626793282...](https://github.com/Aokiare/dracula/commit/562679328282dc51b373d885f144b4d4d8c2dfbd)
+##### 2021-03-25 02:58:47 by aokiare
 
-visual cleanup
+i fucking hate blurple jesus christ discord is so uglyt  god damn
 
--Remove great big title row taking up valuable page-inches and put more info in the <title>
--Replace "locked items" (since "locked" means something else for most of the UI) with "spoilers", which was really the point of adding this feature anyway.
--Typo fix in target zone toolbox
--Align hub enable label text right because it damn looks better. Still can't get it anywhere near the checkbox though. Curse you sometimes, bootstrap!
--Add missing close-quote on collector count label class that was fucking all kinds of things up while I was trying to manipulate that part of the DOM
--Hide hub-enable input if hubs are locked and spoilers are hidden, or if hubs are unlocked and maxed items are hidden.
+recolors:D
 
 ---
-## [mrakgr/The-Spiral-Language@5ca9169b58...](https://github.com/mrakgr/The-Spiral-Language/commit/5ca9169b58f4065fa6f68fbcece8aed838f061c2)
-##### 2021-02-28 12:01:57 by Marko Grdinić
-
-"9:50am. Let me finish chilling and then I will start.
-
-10:10am. Let me start. I need to focus.
-
-I set out to carve out my own path, and I am going to accept all that comes with it. By the end of next week I will know where I stand with respect with Spiral. Most likely the feedback will be poor.
-
-Ideally, I'd have had a good time with everyone seeing the advantages of Spiral right away. That would have been my golden ticket to a brighter timeline.
-
-To make the annoyance of actually reaching out to sponsors even remotely worth it, the path should be smooth. I should not have to think especially hard how to convince them of its benefits. But that way of thinking is just naive. Even though the benefits of having sponsors are so mediocre to the alternative.
-
-The demonic path beckons to me.
-
-I cannot rely on humans. I must draw out the power of the machines and make it my own. I should slaughter and pilage to get my resources.
-
-10:20am. This world is unfair. It would be so much better for everyone around if I could get benefits from Spiral based on its technical merits. But even though my skills are such a perfect fit for supporting the efforts of these hardware companies, I can already see the future where nothing comes from that.
-
-I made that ML library in 2018 for nothing.
-
-In the end, I'll get my benefits from being able to make UIs and concurrency.
-
-10:25am.
-
-```
-inl children l c =
-    inl len = listm.length l
-    inl in_front = a64.init len (fun _ => 0)
-    inl prev_widget = a64.init len (fun _ => None)
-    inl disp = disposablem.composite.create()
-    listm.fold (fun i x =>
-        inl subs = subscribe x fun x =>
-            match a64.index prev_widget i with
-            | None => loop.forDown' (nearFrom: i to: 0) (fun i => a64.set in_front i (a64.index in_front i + 1))
-            | Some: x => removeWidget x c
-            addWidget x (a64.index in_front i) c
-            a64.set prev_widget i (Some: x)
-        disposablem.composite.add disp subs
-        i+1
-        ) 0 l
-    |> fun _ => Some: toDisposable disp
-```
-
-10:30am. Doing a bit of cleaning and optimization.
-
-...I really am scared of reverse UIs. Teaching agents poker will be a piece of cake in contrast to teaching them how to interact with the world. I am going to have to draw out all my programming skill to deal with this.
-
-But if I could just deal with this I will be able to do anything.
-
-10:30am. Right now, I could be considered an expert programmer in terms of skill, but I not...a what? A true AI practitioner? A true seeker of the Singularity?
-
-I must go further. There is a level beyond the one I am currently. I am still too green to get what I want.
-
-Until I reach that level, this journal which is my inheritance will continue.
-
-At some point I will reach the threeshold of skill and make my passage into the shadows, but until then I might as well continue being a fool.
-
-10:35am. What bothers me the most right now?
-
-The fact that moving and deleting files is so messed up in Spiral! It is like having a bunch of garbage backing up the front porch. I can't stand it.
-
-Damn it. Once I manage to finish DREAM and agent training has started on NL Holdem, I am going to make some time, even a whole month if need be to iron the kinks out.
-
-Right now, I did a really good thing with those streams, but the very top level is such a mess.
-
-I am sending those errors to the server in a mutable fashion, I keep stale data around, I do the deletions directly. Some of the memoization optimizations are working against me...
-
-This just cannot stand. Even though I spent so much time working on this, I clearly haven't done it properly yet.
-
-10:45am. I did it for the sake of the ML library, but it really is such a joy to work on a language. After tasting bitter limitation in 2016, Spiral is giving me so much freedom right now.
-
-But if I want to gain benefits from that, I am going to have to keep working at it.
-
-...
-
-Let me focus on the task at hand.
-
-Before I can make my first UI, I need to put something else into the library. For buttons, I should do the event handler.
-
-```
-        def f(args):
-            args.text = "X"
-            label.text = "The button has been pressed."
-        btn.fbind("on_press",f)
-```
-
-Let me try out `fbind`.
-
-```
-btn.fbind("on_press",f)
-```
-
-Yes, this works. Ok.
-
-```
-open rx
-prototype on_press m : (() -> ()) -> m -> disposable
-```
-
-Let me make the prototype this. I'll ignore the first argument which is just the control itself.
-
-How do I create observables from a callback?
-
-```
-q = rx.disposable.disposable.Disposable(lambda *x: print("qwe"))
-x = rx.disposable.serialdisposable.SerialDisposable()
-x.disposable = q
-x.disposable = q
-x.disposable = q
-x.disposable = q
-```
-
-This gets disposed once. Ok, I see.
-
-```
-// Creates a disposable.
-inl create (f : () -> ()) : disposable = $"rx.disposable.disposable.Disposable(!f)"
-```
-
-This should do nicely.
-
-https://kivy.org/doc/stable/api-kivy.event.html#kivy.event.EventDispatcher.unbind_uid
-
-Actually instead of assuming the uid is u64, I should just leave it as an object.
-
-11:15am.
-
-```
-inl bind_zero (event_name : string) (f : () -> ()) x =
-    inl uid : obj = $"!x.fbind(!event_name,lambda x: !f())"
-    disposablem.create fun () => $"!x.unbind_uid(!event_name,!uid)"
-```
-
-Made this helper. Ok...
-
-```
-instance on_press button = helpers.bind_zero "on_press"
-```
-
-Let me move them in their own module.
-
-For now just being able to respond to button presses is enough.
-
-11:20am. Focus me. What comes next?
-
-...Besides realizing it is the end of the month, so I should download High Rise Invasion to spent a bit of my budget?
-
-Let me make a lithe test file. It is too early to run anything, but I should be able to write out a simple UI and see if the types match. That is what I should do here.
-
-```
--(orientation Vertical)
-```
-
-Whops, I got the - wrong.
-
-```
-inl (~-) f x c = f x c . None
-inl (~+) f x c = Some: subscribe x (fun x => f x c)
-inl (~@) f x c = Some: (f x c : disposable)
-inl (~#) f x c =
-```
-
-This is how I should have done it.
-
-Ok...
-
-```
-        children [
-
-            ]
-```
-
-Ah, crap. I should have allowed empty lists.
-
-```fs
-let sequence_body d = (many1 (indent (col d) (=) (sepBy1 operators (skip_op ";"))) |>> List.concat) d
-```
-
-Let me remove that outer `remove1`.
-
-Yeah, that should do it.
-
-This is worth a patch.
-
-```
-open kivy
-open lithe
-inl UI =
-    boxlayout [
-        -orientation Vertical
-        children [
-            label [-text "Press the button."]
-            button [
-                -text "Press me."
-                @on_press (fun () => $"print(\"The button has been pressed.\")")
-                ]
-            ]
-        ]
-```
-
-This actually matches. It compiles down to an `() -> observable widget`.
-
-Why don't I run it? I need to make an app, set the root and run this.
-
-```
-inl main () =
-    inl app = appm.create()
-    inl _ = rx.subscribe UI (appm.root app)
-    appm.run app
-```
-
-This seems good.
-
-Let me give it a try.
-
-```
-        v1 = kivy.uix.label.Label()
-        v2 = rx.disposable.compositedisposable.CompositeDisposable()
-            ^
-------------------------------------------------------------
-
-c:\Users\Marko\Source\Repos\The Spiral Language\Spiral Compilation Tests\cython_experiments\rx1\lithe_test.pyx:13:13: undeclared name not builtin: rx
-```
-
-Keeping track of imports sure is annoying.
-
-```
-Error compiling Cython file:
-------------------------------------------------------------
-...
-        v1 = kivy.uix.button.Button()
-        v2 = rx.disposable.compositedisposable.CompositeDisposable()
-        v1.text = "Press me."
-        v3 = Closure2()
-        v4 = v1.fbind("on_press",lambda x: v3())
-        del v3
-           ^
-------------------------------------------------------------
-
-c:\Users\Marko\Source\Repos\The Spiral Language\Spiral Compilation Tests\cython_experiments\rx1\lithe_test.pyx:48:12: can not delete variable 'v3' referenced in nested scope
-```
-
-You son of a bitch.
-
-I am talking to the Cython compiler.
-
-```
-open rx
-inl bind_zero (event_name : string) (f : () -> ()) x =
-    inl f (x : obj) = f ()
-    inl uid : obj = $"!x.fbind(!event_name,!f)"
-    disposablem.create fun () => $"!x.unbind_uid(!event_name,!uid)"
-```
-
-Let me try this for the time being.
-
-```
-def __call__(self, object v2):
-```
-
-It is telling me that this takes a single argument.
-
-11:55am. Mhhh, no there is something wrong. This v2 is the `observer`. Maybe it should also take in the scheduler?
-
-```
- AttributeError: module 'kivy.uix' has no attribute 'boxlayout'
-```
-
-Ah, the problem was in subscribe. I need to pass it the optional arg as well.
-
-But how will I get around the problem of the Cython lambdas being broken?
-
-12pm.
-
-```
-inl create forall a. (f : observer a -> disposable) : observable a = $"rx.create(!f)"
-```
-
-Actually, I meant to say create. This is not working for me. I am going to have to put in var args into the language.
-
-```
-def qwe(* a) : pass
-```
-
-Thankfully this is valid syntax.
-
-```
-inl create forall a. (f : observer a -> disposable) : observable a = inl f (x : tuple) = f $"!x[0]" in $"rx.create(!f)"
-```
-
-Let me do it like this.
-
-12:10pm. Wonderful.
-
-The UI shows up! And the solution I have now is more efficient that partially applying closures. Hopefully I won't run into functions that require callbacks which have both tuple and dict arguments. That would suck."
+## [fesh0r/mame-full@f2f52b28ff...](https://github.com/fesh0r/mame-full/commit/f2f52b28ff8f23c6778aa516d782a947e5679b66)
+##### 2021-03-25 04:14:26 by r09
+
+fmtowns_cd.xml: 13 new dumps, 12 replacements, 5 missing floppies added (#7874)
+
+* Added the missing floppy image to OASYS/Win 2.0 (still not working due to lack of DD floppy support). [cyo.the.vile]
+* Replaced the psydet5 and psydetf1 floppy images with cleaner unmodified copies. [cherokee]
+
+New working software list additions (fmtowns_cd.xml)
+-----------------------------------
+Alice no Yakata 3 (1995-05-16) [redump.org]
+Battle [redump.org]
+Ehon Writer V1.1 L10 [redump.org]
+Half Moon ni Kawaru made - Ramiya Ryou no Nijiiro Tamatebako [redump.org, wiggy2k]
+Never Land [redump.org]
+Oto to E no Deru Eigo Jisho No. 2 - English in Dream [redump.org]
+Populous II - Trials of the Olympian Gods - Expert [redump.org]
+Running Girls - Hashiri Onna II + Rance 4.1 / 4.2 Hint Disk [redump.org]
+Soreike! Anpanman - Tanoshii Eigo Asobi [redump.org]
+Toshiyuki Yoshino - Lullaby of BirdLand [redump.org]
+True Heart (alt) [redump.org]
+Viper GTS [redump.org]
+
+New not working software list additions (fmtowns_cd.xml)
+-----------------------------------
+Scavenger 4 (HME-217B) [redump.org]
+
+Replaced software list items (fmtowns_cd.xml)
+----------------------------
+Hanafuda de Pon! [redump.org]
+Indiana Jones and the Fate of Atlantis [redump.org]
+King's Quest V - Absence Makes the Heart Go Yonder [redump.org]
+Kyan Kyan Collection - Daifugouhen [redump.org]
+Kyuukyoku Tiger [redump.org]
+Legends of Valour - Gouyuu no Densetsu [redump.org]
+Life &amp; Death II - The Brain [redump.org]
+Menzoberranzan - Yami no Monshou [redump.org]
+Oshiete Noobow [redump.org]
+Princess Danger [redump.org]
+Scavenger 4 (HME-217A) [redump.org]
+Wrestle Angels Special [redump.org]
+
+Software list items promoted to working (fmtowns_cd.xml)
+---------------------------------------
+Nobunaga no Yabou - Sengoku Gun'yuuden [cherokee]
+Windows 3.1 L11 [cyo.the.vile]
 
 ---
-## [MariaMod/Young-Maria@62a5f1da4a...](https://github.com/MariaMod/Young-Maria/commit/62a5f1da4aa44a9065271ac2953c159f5ff1a719)
-##### 2021-02-28 17:39:03 by MilkyNail (MariaMod)
+## [JJawesomeJJ/jjawesome-3d@bc9d6dcf4a...](https://github.com/JJawesomeJJ/jjawesome-3d/commit/bc9d6dcf4aa1c2eec24d1f28b6a2b7e60679c19f)
+##### 2021-03-25 05:03:14 by zhaolijie
 
-Add files via upload
-
-Family Bitch mode update:
-- Now, when you start with the Family Bitch perk, the farm is already discovered + you have 50 points of relationship with Ralf, and you didn't see the very first scene with him (when you obtain the collar) + granddad has already seen you with him
-- Added a new item to the Dog girl magazine - a realistic dog dildo. Use it to add some FB Corruption for 20 Energy. The only blowjob is available for now
-- Now, you can use the cheat codes menu on your Smartphone while in FB mode. The cheat for Corruption will add FB Corruption points (but only in FB mode!)
-Other changes:
-- Added gifs for a Library scene. The one you see when reading erotic books
-- Increased the chance to get pregnant. Base chance - 5% instead of 1% and 15% instead of 2% if you started with the "Blessed mother" perk (you don't have to restart the game)
-- Now reading in the Library is not so useless. For 30 points of Energy (instead of 20) you can choose a new book - 'Social literature' and it will give you +1 to all family members' Relationship. Also, I changed the structure of this passage to add more books easier in the future
-- Added two scenes by Rachael. When you go to the school detention with non-consensual content enabled and not corrupted enough, you'll see the rape scenes (with male and female teachers). This counts as a 'first interaction,' and you won't see the standard first scene
+-water----normal life --
+--single life how long will continue
+--No mater how sadness of the life remember you are petty unique boy
+--fight young man the futher may be darkness but don't be fear,remember the beauty will always wait for you in the some which is not far away --2020-12-15
 
 ---
-## [mrakgr/The-Spiral-Language@6f51ab3d1f...](https://github.com/mrakgr/The-Spiral-Language/commit/6f51ab3d1f29e4b9931d5bd4925f9990d701c456)
-##### 2021-02-28 17:47:26 by Marko Grdinić
+## [home-assistant/home-assistant.io@5ddb6529c1...](https://github.com/home-assistant/home-assistant.io/commit/5ddb6529c13dd4ba8f5aa364b2560740a77bf178)
+##### 2021-03-25 09:50:39 by elyobelyob
 
-"2:15pm. Done with breakfast and chores. Let me start.
+I found that a 4pm or other non midnight required buffering. (#16182)
 
-2:30pm. I am thinking how to implement the loop.
+* Update history_stats.markdown
 
-```fs
-let update =
-    pump
-    |> Observable.scanInit init (fun model msg ->
-        match msg with
-        | Increment -> { model with Count = model.Count + model.Step }
-        | Decrement -> { model with Count = model.Count - model.Step }
-        | Reset -> init
-        | SetStep n -> { model with Step = n }
-        | TimerToggled on -> { model with TimerOn = on }
-        | TimedTick -> if model.TimerOn then { model with Count = model.Count + model.Step } else model
-        )
-    |> Observable.publishInitial init
+---
+title: History Stats
+description: Instructions about how to integrate historical statistics into Home Assistant.
+ha_category:
+  - Utility
+  - Sensor
+ha_iot_class: Local Polling
+ha_release: 0.39
+ha_quality_scale: internal
+ha_domain: history_stats
+---
+
+The `history_stats` sensor platform provides quick statistics about another integration or platforms, using data from the [`history`](/integrations/history/) integration.
+
+It can track how long the integration has been in a specific state, in a custom time period.
+
+Examples of what you can track:
+
+- How long you were at home this week
+- How long the lights were ON yesterday
+- How long you watched TV today
+
+## Configuration
+
+To enable the history statistics sensor, add the following lines to your `configuration.yaml`:
+
+{% raw %}
+
+```yaml
+# Example configuration.yaml entry
+sensor:
+  - platform: history_stats
+    name: Lamp ON today
+    entity_id: light.my_lamp
+    state: 'on'
+    type: time
+    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: '{{ now() }}'
 ```
 
-This is how I did in the first example...
+{% endraw %}
 
-```fs
-        let start_stream = Subject.Synchronize(Subject.broadcast,ThreadPoolScheduler.Instance)
-        let state =
-            let init = {server_count=0; client_count=0}
-            start_stream
-            |> Observable.map (fun StartExample ->
-                Observable.using (fun () ->
-                    run [|server (AddServer >> msg_stream.OnNext); client (AddClient >> msg_stream.OnNext)|]
-                    |> Disposable.compose (Disposable.Create(fun () -> server_stream.OnNext None; client_stream.OnNext None))
-                    ) <| fun _ ->
-                // Note: The follwoing mostly works fine, but can drop initial messages. It does not happen during
-                // the first subscription so it is only a small problem, but for a correct agent based implementation, check out
-                // the 05_ZeroMQ example.
-                msg_stream |> Observable.scanInit init (fun model msg ->
-                    let update (f : _ ISubject) i x = f.OnNext(Some(i, x)); i+1
-                    match msg with
-                    | AddServer x -> {model with server_count=update server_stream model.server_count x}
-                    | AddClient x -> {model with client_count=update client_stream model.client_count x}
-                    )
-                )
-            |> Observable.switch
-            |> Observable.publishInitial init
-            |> Observable.refCount
-            |> Observable.observeOn ui_scheduler
+{% configuration %}
+entity_id:
+  description: The entity you want to track.
+  required: true
+  type: string
+state:
+  description: The states you want to track.
+  required: true
+  type: [list, string]
+name:
+  description: Name displayed on the frontend. Note that it is used by Home Assistant to generate sensor's `object_id` so it is advisable to choose a unique one and change name for frontend using [customization](/docs/configuration/customizing-devices/#friendly_name) or via [Lovelace](/lovelace/entities/#name).
+  required: false
+  default: unnamed statistics
+  type: string
+type:
+  description: "The type of sensor: `time`, `ratio`, or `count`."
+  required: false
+  default: time
+  type: string
+start:
+  description: When to start the measure (timestamp or datetime).
+  required: false
+  type: template
+end:
+  description: When to stop the measure (timestamp or datetime).
+  required: false
+  type: template
+duration:
+  description: Duration of the measure.
+  required: false
+  type: time
+{% endconfiguration %}
+
+<div class='note'>
+
+  You have to provide **exactly 2** of `start`, `end` and `duration`.
+<br/>
+  You can use [template extensions](/topics/templating/#home-assistant-template-extensions) such as `now()` or `as_timestamp()` to handle dynamic dates, as shown in the examples below.
+
+</div>
+
+## Sensor type
+
+Depending on the sensor type you choose, the `history_stats` integration can show different values:
+
+- **time**: The default value, which is the tracked time, in hours
+- **ratio**: The tracked time divided by the length of your period, as a percentage
+- **count**: How many times the integration you track was changed to the state you track
+
+## Time periods
+
+The `history_stats` integration will execute a measure within a precise time period. You should always provide 2 of the following :
+- When the period starts (`start` variable)
+- When the period ends (`end` variable)
+- How long is the period (`duration` variable)
+
+As `start` and `end` variables can be either datetimes or timestamps, you can configure almost any period you want.
+
+### Duration
+
+The duration variable is used when the time period is fixed. Different syntaxes for the duration are supported, as shown below.
+
+```yaml
+# 6 hours
+duration: 06:00
 ```
 
-This is how I did in the zeromq example.
-
-```fs
-        let state =
-            start_stream
-            |> Observable.switchMap (fun StartExample ->
-                Observable.using (fun () ->
-                    // I changed to using an agent because on the weather example it is possible for messages to be sent before
-                    // the Observable.scan is ready. This error is present in the 04_Zero_HelloWorld example.
-                    let agent = FSharpx.Control.AutoCancelAgent.Start(fun mailbox -> async {
-                        let line_counts = Array.zeroCreate l.Length
-                        let rec loop () = async {
-                            let! (Add(i,x)) = mailbox.Receive()
-                            let count = line_counts.[i]
-                            (snd streams.[i]).OnNext(Some(count, x))
-                            line_counts.[i] <- count + 1
-                            do! loop()
-                            }
-                        do! loop ()
-                        })
-                    l |> Array.mapi (fun i (_,f) -> f (fun x -> agent.Post(Add(i,x))))
-                    |> Messaging.run
-                    |> Disposable.compose (Disposable.Create(fun () -> streams |> Array.iter (fun (_,x) -> x.OnNext None)))
-                    |> Disposable.compose agent
-                    ) (fun _ -> Observable.neverWitness ())
-                )
+```yaml
+# 1 minute, 30 seconds
+duration: 00:01:30
 ```
 
-This seemed easier back when I first wrote it.
-
-I am going to do things differently. This time. I ma not going to do scanInit or publish the observable.
-
-I'll simplify things to their limit.
-
-2:45pm.
-
-```
-inl UI dispatch (state : rx.observable state) =
-    inl (~+) f g = +f (rx.map g state)
-    boxlayout [
-        -orientation Vertical
-        children [
-            label [-text "Press the button."]
-            button [
-                +text (fun x => x.button_text)
-                @on_press (fun () => $"print(\"The button has been pressed.\")")
-                ]
-            ]
-        ]
+```yaml
+# 2 hours and 30 minutes
+duration:
+  # supports seconds, minutes, hours, days
+  hours: 2
+  minutes: 30
 ```
 
-Let me modify the + operator.
+<div class='note'>
 
-```
-inl (~+) x f g c = Some: subscribe x (fun x => f (g x) c)
-```
+  If the duration exceeds the number of days of history stored by the `recorder` component (`purge_keep_days`), the history statistics sensor will not have all the information it needs to look at the entire duration. For example, if `purge_keep_days` is set to 7, a history statistics sensor with a duration of 30 days will only report a value based on the last 7 days of history.
 
-How about this?
+</div>
 
-```
-inl UI dispatch (state : rx.observable state) =
-    inl (~+) x = +state x
-    boxlayout [
-        -orientation Vertical
-        children [
-            label [-text "Press the button."]
-            button [
-                +text (fun x => x.button_text)
-                @on_press (fun () => $"print(\"The button has been pressed.\")")
-                ]
-            ]
-        ]
+### Examples
+
+Here are some examples of periods you could work with, and what to write in your `configuration.yaml`:
+
+**Today**: starts at 00:00 of the current day and ends right now.
+
+{% raw %}
+
+```yaml
+    start: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    end: '{{ now() }}'
 ```
 
-```
-inl (~#) x f g c =
-    inl disp = disposablem.serial.create()
-    inl x = subscribe x (fun x => disposablem.serial.set disp (f (g x) c))
-    inl d = disposablem.composite.create()
-    listm.iter (disposablem.composite.add d) [x; toDisposable disp]
-    toDisposable d
-```
+{% endraw %}
 
-Let me do this one like so as well. Now I should have full satisfaction.
+**Yesterday**: ends today at 00:00, lasts 24 hours.
 
-```
-inl ui dispatch (state : rx.observable state) =
-    inl (~+) x = +state x
-    boxlayout [
-        -orientation Vertical
-        children [
-            label [-text "Press the button."]
-            button [
-                +text (fun x => x.button_text)
-                @on_press (fun () => dispatch Clicked)
-                ]
-            ]
-        ]
+{% raw %}
+
+```yaml
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    duration:
+      hours: 24
 ```
 
-Now let me work towards implementing this.
+{% endraw %}
 
-Let me make the loop.
+**This morning (6AM - 11AM)**: starts today at 6, lasts 5 hours.
 
-3:35pm.
+{% raw %}
 
-```
-inl loop init model view =
-    inl subject = subjectm.createBehavior init
-    inl state = mut init
-    inl dispatch msg =
-        inl x = model *state msg
-        state <- x
-        inl f (dt : obj) = subjectm.onNext subject x
-        !!!!Import("kivy.clock")
-        $"kivy.clock.Clock.schedule_once(!f)" : ()
-
-    view dispatch (subjectm.toObservable subject)
+```yaml
+    start: '{{ now().replace(hour=6, minute=0, second=0) }}'
+    duration:
+      hours: 5
 ```
 
-I wonder if there is a way of getting the value from the subject without subscribing to it.
+{% endraw %}
 
-```
-q = rx.subject.behaviorsubject.BehaviorSubject(4)
-print(q.value)
-```
+**Current week**: starts last Monday at 00:00, ends right now.
 
-Oh this works. Great!
+Here, last Monday is _today_ as a timestamp, minus 86400 times the current weekday (86400 is the number of seconds in one day, the weekday is 0 on Monday, 6 on Sunday).
 
-4:15pm. I did a large refactoring.
+{% raw %}
 
-```
-inl loop init model view =
-    inl subject = subjectm.behavior init
-    inl dispatch msg =
-        inl x = model (subjectm.value subject) msg
-        inl f (dt : obj) = onNext subject x
-        !!!!Import("kivy.clock")
-        $"kivy.clock.Clock.schedule_once(!f)" : ()
-
-    view dispatch (toObservable subject)
+```yaml
+    start: '{{ as_timestamp( now().replace(hour=0, minute=0, second=0) ) - now().weekday() * 86400 }}'
+    end: '{{ now() }}'
 ```
 
-And here is how this comes out now. Let me try compiling it.
+{% endraw %}
 
-...It works the first time. Nice.
+**Next 4pm **: ends today at 00:00, lasts 30 days. Easy one.
 
-Let me make it a bit more elaborate.
+{% raw %}
 
-4:30pm.
-
-```
-inl view dispatch (state : rx.observable state) =
-    inl (~+) x = +state x
-    boxlayout [
-        -orientation Vertical
-        children [
-            label [-text "Press the button."]
-            button [
-                +text fun {times_clicked} =>
-                    if times_clicked = 0 then "Click me."
-                    else $"f\"The button has been clicked {!times_clicked} times.\""
-                @on_press (fun () => dispatch Clicked)
-                ]
-            ]
-        ]
+```yaml
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    duration:
+      days: 30
 ```
 
-This works now. Fixed a little type error to get here.
+{% endraw %}
 
-```
-inl x = model (subjectm.value subject) msg
-```
+**Last 30 days**: ends today at 00:00, lasts 30 days. Easy one.
 
-Actually, using the subject value is not optimal here. In concurrent settings that could result in me getting a stale value.
+{% raw %}
 
-4:35pm. No, let me go with this for now.
-
-```
-    inl dispatch msg =
-        inl f (dt : obj) = onNext subject (model (subjectm.value subject) msg)
-        !!!!Import("kivy.clock")
-        $"kivy.clock.Clock.schedule_once(!f)" : ()
+```yaml
+    end: '{{ now().replace(hour=0, minute=0, second=0) }}'
+    duration:
+      days: 30
 ```
 
-Actually, let me go with this. This will be the ideal way of doing it.
+{% endraw %}
 
-4:40pm. Phew.
 
-With this I've implemented the Elm pattern.
+** 4PM always in the future**: ends in the future at 16:00, starts 24 hours before.
 
-```
-open kivy
-open lithe
+{% raw %}
 
-union msg =
-    | Clicked
-
-type state = {
-    times_clicked : u32
-    }
-
-inl model (x : state) = function
-    | Clicked => {x with times_clicked#=((+) 1)}
-
-let view dispatch (state : _ state) =
-    inl (~+) x = +state x
-    boxlayout [
-        -orientation Vertical
-        children [
-            label [-text "Press the button."]
-            button [
-                +text fun {times_clicked} =>
-                    if times_clicked = 0 then "Click me."
-                    else $"f\"The button has been clicked {!times_clicked} times.\""
-                @on_press (fun () => dispatch Clicked)
-                ]
-            ]
-        ]
-
-inl main () =
-    rx.rxImports()
-    inl app = appm.create()
-    inl _ = rx.subscribe (loop {times_clicked=0} model view) (appm.root app)
-    appm.run app
+```yaml
+    end: '{{ (now().replace(minute=0,second=0) + timedelta(hours=8)).replace(hour=16) }}'
+    duration:
+      hours: 24
 ```
 
-Just look at this beauty.
+{% endraw %}
 
-```
-inl RxImports =
-    !!!!Import("rx")
-    !!!!Import("rx.operators")
-    !!!!Import("rx.disposable")
-    !!!!Import("rx.subject")
-```
+**All your history** starts at timestamp = 0, and ends right now.
 
-I do not like having imports outside like this.
+{% raw %}
 
-Let me distribute them.
-
-4:50pm. Done. No need for those inits anymore. I'll have to do that in the PyTorch library as well, but I'll toe that line when it comes to it. Let me take a short break here.
-
-5:25pm. I am back. Let me put lithe in its own folder just to highlight that it is its own library.
-
-```
-packages: |core-
-modules:
-    rx/
-        types-
-        disposablem
-        subjectm
-        main-
-    kivy/
-        types-
-        helpers
-        appm
-        buttonm
-        labelm
-        boxlayoutm
-    lithe/
-        main-
-    rx_test
-    kivy_test
-    lithe_test
+```yaml
+    start: '{{ 0 }}'
+    end: '{{ now() }}'
 ```
 
-This is how the project file looks now. In Spiral it is not a good idea to split things up too much. When writing bindings I should favor large modules with lots of functions.
+{% endraw %}
 
+<div class='note'>
+
+  The `/developer-tools/template` page of your Home Assistant UI can help you check if the values for `start`, `end` or `duration` are correct. If you want to check if your period is right, just click on your component, the `from` and `to` attributes will show the start and end of the period, nicely formatted.
+
+</div>
+
+* $pm - 4pm example implemented
+
+* Tweak
+
+* Update source/_integrations/history_stats.markdown
+
+Very happy with this change ...
+
+Co-authored-by: Franck Nijhof <frenck@frenck.nl>
+
+* Update source/_integrations/history_stats.markdown
+
+Co-authored-by: Franck Nijhof <frenck@frenck.nl>
+
+---
+## [dloe/TheLastArray@ae6427a2b6...](https://github.com/dloe/TheLastArray/commit/ae6427a2b62034a4df7b6d954bad312218266662)
+##### 2021-03-25 15:12:26 by Necko21
+
+god damn it all
+
+Pushing UI changes because im getting bullied and made fun of. My team hates me
+
+---
+## [docker/docker.github.io@c6ef1e671d...](https://github.com/docker/docker.github.io/commit/c6ef1e671d637edfac4106988e14a7198317d278)
+##### 2021-03-25 16:03:19 by Andrew Grosser
+
+Added important disambiguation to swarm mode (#10987)
+
+* Added important disambiguation to swarm mode
+
+This really needs to be added, I had no idea people gave up on docker/swarm because of a misunderstanding, but it's common enough we need to clarify it.
+
+From Docker's public #swarm slack channel:
 ```
-// A lot of the functionality here could be adapted without much difficulty for other libraries, but
-// this particular instance of Lithe has functionality specific to the Kivy UI library for the Python language.
+andrew grosser  4:45 PM
+Hey @channel I am about to give a talk in San Francisco to a bunch of devops experts about swarm using my ingress and reverse proxy controller https://github.com/sfproductlabs/roo and one of the organizers said swarm was deprecated, is that so? It's so much easier than kubernetes, I can't imagine losing it.
+sfproductlabs/roo
+A zero config distributed edge-router & reverse-proxy (supporting multiple letsencrypt/https hosts). No dependencies.
+Stars
+40
+Language
+Go
+<https://github.com/sfproductlabs/roo|sfproductlabs/roo>sfproductlabs/roo | Apr 9th | Added by GitHub
+4:46
+Is there something we don't know?
+james_wells  4:48 PM
+As of the most recent official Docker release, no Swarm is still officially part of Docker...  They merely added native support for Kubernetes
+andrew grosser  4:49 PM
+:pray: Phew, is there an EOL?
+4:49
+Thanks @james_wells
+4:50
+I think they going to get the grenade launchers out if I can't answer these questions
+james_wells  4:51 PM
+Now that is a good question and my guess is that no, there is no plan to remove it, at least before Docker 3.
+andrew grosser  4:52 PM
+Amazing thx, I have a system that is a startups dream and is personally saving me more than 10x using swarm, so praying it stays
+bmitch:docker:  4:53 PM
+Classic container deployed swarm is deprecated (I believe). Swarm mode that's integrated into the engine is still being developed by Mirantis with no EOL set.
+4:53
+So if someone says swarm is deprecated, make sure to ask "which swarm" they are referring to.
+andrew grosser  4:54 PM
+Ok thanks @bmitch
+4:54
+Think that's a brand thing we'll need to help change
+james_wells  4:56 PM
+@bmitch I am not sure I understand what you are sayin there.  Could you please explain the differences
+bmitch:docker:  4:56 PM
+See the disambiguation section: https://hub.docker.com/r/dockerswarm/swarm
+james_wells  4:57 PM
+Excellent.  Thank you sir
+andrew grosser  5:02 PM
+Thanks
+bmitch:docker:  5:02 PM
+See also this link where they are getting ready to archive the standalone swarm, aka classic swarm. https://github.com/docker/classicswarm/issues/2985#issuecomment-640486361
+justincormackjustincormack
+Comment on #2985 Why have all issues been closed?
+The vast majority of issues were from 5 years ago when it was being actively developed, and the recent ones were all mistakes for swarmkit, other than some issues I resolved. Many were issues in components or Moby or other software and may be resolved. It is GitHubs (reasonable) recommendation that you close issues and PRs before archiving a repository so that people know they are not being worked on, and I was also looking to see if anyone came forward to say that they were still working on things or, indeed, actively using Swarm Classic.
+<https://github.com/docker/classicswarm|docker/classicswarm>docker/classicswarm | Jun 8th | Added by GitHub
+james_wells  5:08 PM
+That is really unfortunate...  Kubernetes is simply too expensive IMNSHO, Swarm is nice and lightweight.
+andrew grosser  5:08 PM
+Both the different swarms point to the same point in the documentation in the disambiguation @bmitch
+bmitch:docker:  5:09 PM
+Swarm mode, aka swarmkit is alive and well.
+andrew grosser  5:10 PM
+Whoa I can see why they were confused
+bmitch:docker:  5:10 PM
+If you type docker swarm init you are not running classic swarm
+andrew grosser  5:11 PM
+Can someone inside docker add this to the swarm docs page? I think it's important
+5:12
+I think something talking about 2014 was EOLd but this is still current and alive would help.
+bmitch:docker:  5:12 PM
+Docker themselves isn't maintaining it, that team went to Mirantis, so someone over there would need to submit the PR
+andrew grosser  5:12 PM
+OK, could I?
+bmitch:docker:  5:13 PM
+Docs are in GitHub
+andrew grosser  5:13 PM
+Thanks
 ```
 
-Let me add this note.
+* Minor edit to the wording to clarify the diff
 
-Ok...
+* Minor update
 
-Lithe itself is essentially complete. I've done all of its core functionality and did the functional declarative UI toy example. This is a tremendous achievement.
+Co-authored-by: Usha Mandya <47779042+usha-mandya@users.noreply.github.com>
 
-In order to increase the breadth of functionality, all I need to do now is add more controls and bindings to their properties.
+---
+## [wincent/liferay-portal@d63caa5140...](https://github.com/wincent/liferay-portal/commit/d63caa5140206e6dbee0091f48ad989c9e8a370f)
+##### 2021-03-25 17:28:28 by Greg Hurrell
 
-5:35pm. Right now I am thinking what comes next.
+LPS-127081 Port "render.es.js" to TS
 
-5:40pm. There are some things lacking in the Lithe library. Foremost, I am missing commands. But I don't have a good view of how those should be implemented. Nor do I have a particular use case I could try it out right now.
+Note this requires some horrible ugly casts for `Liferay`, because
+globals are nasty and all that. Figuring out how to declare that as an
+ambient type in some central location in the context of project
+references is going to be complicated enough, based on my reading of:
 
-What should my next goal be? I could do that counter sure. But, I know I can do that and I do not want to waste time doing arbitrary things for the sake of exercise.
+    https://github.com/microsoft/TypeScript/issues/29002
 
-Exercise serves the purpose of preparation for challenges one cannot take on. If you can take on the challenges, then you don't need practice. Make the challenge itself the practice.
+that I am going to leave it for a separate commit.
 
-6:05pm. Right now I am thinking how to rank poker hands of all things.
+There are a couple of `any` in here too, which I don't like (we've
+mostly been able to get away without any `any` at all in
+`frontend-js-react-web`) but I want to close up shop for the day so I am
+going to commit this and push what I have.
 
-I really should be thinking about game UIs instead, but my mind goes where it wants. At any rate, I will be able to handle ranking the games.
+---
+## [Aman-Tibrewal/Predictive-Component@af659b9577...](https://github.com/Aman-Tibrewal/Predictive-Component/commit/af659b95772df3eac04dc018d547faed3d88eff0)
+##### 2021-03-25 20:38:10 by Aman-Tibrewal
 
-6:40pm. Done with lunch.
+FINAL COMMIT
 
-I am still thinking. I need to focus on getting the Leduc poker game done. This will without a doubt be my next goal.
+With 7 Models
 
-Being able to integrate games with UI is something that would have astonished the me of 2016. This time I will do it. I will exceed my old high.
+Life is better now!
 
-Normies love to harp about social skills - well, UIs are the social skills of the programming domain. I just need to level them up and I will get to where I want to be."
+This mess was an interesting experience
+
+Dont revert to the commit 2 steps before this, you'll enjoy the mess though.
 
 ---
 
