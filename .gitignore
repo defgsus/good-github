@@ -2,6 +2,7 @@
 *.md
 *.txt
 /stash/
+/gharchive-dump/
 
 *.pyc
 __pycache__/

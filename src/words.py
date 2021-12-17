@@ -2,10 +2,12 @@ import re
 
 
 WEIGHTED_WORDS = {
+    0.1: [
+        "i ", "i'm", "i am", "i've", "i have", "i'd", "i had", "i'll", "i will",
+    ],
     1: [
-        #"i ", "i'm", "i am", "i've", "i have", "i'd", "i had", "i'll", "i will",
-        " my ", "myself", " he ", " she ", " his ", " her ", " you ", "you'", #"you'll", "you will",
-        "think", "thinking", "feeling", "beautiful", "happy", "sad ",
+        " my ", "myself", " he ", " she ", " his ", " her ", " you ", "you'",
+        "think", "thinking", "feeling", "beautiful", "happy", " sad ",
         re.compile("oo*ps"), "paradox", "worry",
         "days", "hours", "headache", "yesterday", "tomorrow",
         "music", "personal",
@@ -16,17 +18,28 @@ WEIGHTED_WORDS = {
         re.compile(" ba*h* "),
     ],
     3: [
+        "yeah",
+
         "funny", "hilarious", "ridiculous", "amazing",
-        "love", "hate", "fuck", "stupid", "awful", "silly", "curse", "damn", "joy ",
-        "frustrati", "humbug",
-        "ugly", "moral", " boy", "girl", "friend", "shame", "thoughts",
+        "stupid", "awful", "silly", "ugly",
+        "sadness",
+
+        "love", "hate", "fuck", "curse", "damn", "joy ",
+        "frustrati", "humbug", "gosh", "shit",
         "evil", " god ", "god's", "church", " verse", "faith ", "cthulhu",
-        "cheat", "breakfast", "life", "dream", "grief", "gosh", "god"
-        "heaven", "hell ", "hellish", "fantasy", "mystery", "magic",
+        "bless", "ascetic",
+        "heaven", " hell", "hellish", "fantasy", "mystery", "magic",
+        "moral", " boy", "girl", "friend", "shame", "thoughts",
+        "female", " male ", "cock",
+
+        "life", "dream", "grief",
         "paranoia", "paranoid", "society", "social", "forgive", "forgiving",
-        "sister", "brother", "bless", "shit", "mama", "papa", "cock", "ascetic",
-        "stunned", "stunning", "horribl", "yeah",
+
+        "cheat", "breakfast",
+
+        "sister", "brother", "mama", "papa",
+        "stunned", "stunning", "horribl",
         "humiliate", "inspiration", "experience", "darkness", "misery", "suffering",
-        "struggling", "obsess", "female", "ignorant",
+        "struggling", "obsess", "ignorant",
     ]
 }

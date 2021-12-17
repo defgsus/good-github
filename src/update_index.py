@@ -1,25 +1,38 @@
 import glob
 import datetime
 from pathlib import Path
+from typing import List, Tuple
 
-DOCS_PATH = Path(__file__).resolve().parent.parent / "docs"
+
+PROJECT_PATH = Path(__file__).resolve().parent.parent
+DOCS_PATH = PROJECT_PATH / "docs"
+TEMPLATE_PATH = PROJECT_PATH / "templates"
+MESSAGES_PATH = DOCS_PATH / "good-messages"
 
 
-def update_index():
+MessageFiles = List[Tuple[Tuple[str, str, str], Path]]
 
-    messages_path = DOCS_PATH / "good-messages"
 
-    files = []
-    for filename in glob.glob(str(messages_path / "????" / "????-??-??.md")):
-        filename = Path(filename)
+def update_index(verbose: bool):
+    files = get_message_files()
+    if verbose:
+        print("writing docs/messages.md")
+    update_messages_index(files)
+    if verbose:
+        print("writing README.md")
+    update_readme(files)
 
-        rel_path = filename.relative_to(DOCS_PATH)
-        name = filename.name
-        date = (name[:4], name[5:7], name[8:10])
-        files.append((date, rel_path))
 
-    files.sort()
+def update_readme(files: MessageFiles):
+    date = "-".join(files[-1][0])
+    messages = (DOCS_PATH / files[-1][1]).read_text()
 
+    md = (TEMPLATE_PATH / "README.md").read_text()
+    md %= {"date": date, "messages": messages}
+    (PROJECT_PATH / "README.md").write_text(md)
+
+
+def update_messages_index(files: MessageFiles):
     md = ""
     year = None
     month = None
@@ -36,3 +49,17 @@ def update_index():
     md += "\n"
 
     Path(DOCS_PATH / "messages.md").write_text(md)
+
+
+def get_message_files() -> MessageFiles:
+    files = []
+    for filename in glob.glob(str(MESSAGES_PATH / "????" / "????-??-??.md")):
+        filename = Path(filename)
+
+        rel_path = filename.relative_to(DOCS_PATH)
+        name = filename.name
+        date = (name[:4], name[5:7], name[8:10])
+        files.append((date, rel_path))
+
+    files.sort()
+    return files

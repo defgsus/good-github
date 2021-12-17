@@ -9,7 +9,7 @@ from tqdm import tqdm
 
 from src.gharchive import GHArchive
 from src.good_messages import GoodMessages
-from src.update_index import update_index
+from src.update_index import update_index, get_message_files
 
 
 ROOT_DIR = Path(__file__).resolve().parent
@@ -19,12 +19,16 @@ def parse_args() -> dict:
     parser = argparse.ArgumentParser()
     
     parser.add_argument(
-        "days", type=str, nargs="+",
+        "days", type=str, nargs="*",
         help="Days to scan, either YYYY[-MM[-DD]] or 'yesterday'"
     )
     parser.add_argument(
-        "path", type=str,
-        help="The path where to store the event ndjson files"
+        "--path", type=str, nargs="?", default="gharchive-dump",
+        help="The path where to store the event ndjson files (needs a lot of space!)"
+    )
+    parser.add_argument(
+        "-f", "--force", type=bool, nargs="?", default=False, const=True,
+        help="Force re-generation of the markdown files, even if existing",
     )
     parser.add_argument(
         "-v", "--verbose", type=bool, nargs="?", default=False, const=True,
@@ -39,15 +43,15 @@ def parse_args() -> dict:
             days.add(datetime.date.today() - datetime.timedelta(days=1))
         else:
             if len(day) == 10:
-                days.add(datetime.datetime.strptime(day, "%Y-%m-%d"))
+                days.add(datetime.datetime.strptime(day, "%Y-%m-%d").date())
             elif len(day) == 7:
-                date = datetime.datetime.strptime(day, "%Y-%m")
+                date = datetime.datetime.strptime(day, "%Y-%m").date()
                 month = date.month
                 while date.month == month:
                     days.add(date)
                     date += datetime.timedelta(days=1)
             elif len(day) == 4:
-                date = datetime.datetime.strptime(day, "%Y-%m")
+                date = datetime.datetime.strptime(day, "%Y").date()
                 year = date.year
                 while date.year == year:
                     days.add(date)
@@ -63,16 +67,31 @@ def main(
         days: List[datetime.date],
         path: str,
         verbose: bool,
+        force: bool,
 ):
+    existing_files = get_message_files()
+    existing_dates = [
+        datetime.date(int(d[0]), int(d[1].lstrip("0")), int(d[2].lstrip("0")))
+        for d, fn in existing_files
+    ]
+
     archive = GHArchive(
         raw_path=path,
         verbose=verbose,
     )
     for day in days:
+
+        if not force:
+            if day in existing_dates:
+                if verbose:
+                    print(f"Skipping {day}, use -f to overwrite")
+                continue
+
         proc = GoodMessages(verbose=verbose)
 
         stash_file = (ROOT_DIR / "stash" / str(day)[:4] / f"{str(day)[:10]}.json")
 
+        key_interrupt = False
         try:
             iterable = archive.iter_events(day)
             if verbose:
@@ -86,7 +105,7 @@ def main(
                     proc.dump_stats()
 
         except KeyboardInterrupt:
-            pass
+            key_interrupt = True
 
         if not stash_file.parent.exists():
             os.makedirs(stash_file.parent)
@@ -107,7 +126,10 @@ def main(
             + proc.render_markdown()
         )
 
-    update_index()
+        if key_interrupt:
+            break
+
+    update_index(verbose=verbose)
 
 
 if __name__ == "__main__":
