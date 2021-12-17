@@ -70,17 +70,25 @@ def main(
 
         if not stash_file.parent.exists():
             os.makedirs(stash_file.parent)
-        stash_file.write_text(json.dumps(proc.commits, indent=2))
+        proc.store_stash(stash_file)
         proc.store_words(stash_file.parent / f"{str(day)[:10]}-words.json")
 
     else:
-        proc.commits = json.loads(stash_file.read_text())
+        proc.load_stash(stash_file)
 
     proc.remove_duplicates()
 
     if verbose:
         print(len(proc.commits), "commits")
-    (ROOT_DIR / "README.md").write_text(proc.render_markdown())
+
+    md_file = (ROOT_DIR / "docs" / str(day)[:4] / f"{str(day)[:10]}.md")
+    if not md_file.parent.exists():
+        os.makedirs(md_file.parent)
+    md_file.write_text(
+        f"# *good github* {str(day)[:10]}\n\n"
+        + proc.render_stats_markdown() + "\n\n"
+        + proc.render_markdown()
+    )
 
 
 if __name__ == "__main__":
