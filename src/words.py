@@ -9,13 +9,14 @@ WEIGHTED_WORDS = {
         " my ", "myself", " he ", " she ", " his ", " her ", " you ", "you'",
         "think", "thinking", "feeling", "beautiful", "happy", " sad ",
         re.compile("oo*ps"), "paradox", "worry",
-        "days", "hours", "headache", "yesterday", "tomorrow",
-        "music", "personal",
+        "days", "hours", "headache", "yesterday", "today", "tomorrow",
+        "music", "personal", "brain", "cool", "interesting",
     ],
     2: [
         re.compile(" a+h+ "), re.compile(" o+h+ "),
         re.compile(" a+r+g+h* "), re.compile(" mm+h* "),
         re.compile(" ba*h* "),
+        "pandemic",
     ],
     3: [
         "yeah",
@@ -25,9 +26,9 @@ WEIGHTED_WORDS = {
         "sadness", "emotion",
 
         "love", "hate", "fuck", "curse", "damn", "joy ",
-        "frustrati", "humbug", "gosh", "shit", "blood",
+        "frustrati", "humbug", "gosh", "shit", "blood", "annoy",
         "evil", " god ", "god's", "church", " verse", "faith ", "cthulhu",
-        "bless", "ascetic",
+        "bless", "ascetic", "spirit",
         "heaven", " hell", "hellish", "fantasy", "mystery", "magic",
         "moral", " boy", "girl", "friend", "acquaintance",
         "shame", "thoughts",
