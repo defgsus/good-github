@@ -114,6 +114,8 @@ def main(
                         proc.dump_stats()
 
             except KeyboardInterrupt:
+                break
+                # for testing/development continue here to save the time to parse the whole day
                 key_interrupt = True
 
             if not stash_file.parent.exists():
