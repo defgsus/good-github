@@ -27,10 +27,11 @@ def update_readme(files: MessageFiles):
     date = "-".join(files[-1][0])
     messages = (DOCS_PATH / files[-1][1]).read_text()
 
-    # strip the header with the relative links
-    messages = messages.lstrip()
+    # strip the header and footer with the relative links
+    messages = messages.strip()
     messages = messages[messages.index("\n")+1:]
-    messages = f"# [{date}](docs/{files[-1][1]})\n\n" + messages
+    messages = messages[:messages.rindex("\n")].rstrip()
+    messages = f"# [{date}](docs/{files[-1][1]})\n\n" + messages + "\n"
 
     md = (TEMPLATE_PATH / "README.md").read_text()
     md %= {"date": date, "messages": messages}

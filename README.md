@@ -742,6 +742,3 @@ Normies love to harp about social skills - well, UIs are the social skills of th
 
 ---
 
-# [<](2021-02-27.md) 2021-02-28 [>](2021-03-01.md)
-
-
