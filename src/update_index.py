@@ -27,6 +27,11 @@ def update_readme(files: MessageFiles):
     date = "-".join(files[-1][0])
     messages = (DOCS_PATH / files[-1][1]).read_text()
 
+    # strip the header with the relative links
+    messages = messages.lstrip()
+    messages = messages[messages.index("\n")+1:]
+    messages = f"# [{date}](docs/{files[-1][1]})\n\n" + messages
+
     md = (TEMPLATE_PATH / "README.md").read_text()
     md %= {"date": date, "messages": messages}
     (PROJECT_PATH / "README.md").write_text(md)
@@ -44,7 +49,7 @@ def update_messages_index(files: MessageFiles):
             month = date[1]
             md += f"\n\n#### {datetime.date(2000, int(month.lstrip('0')), 1).strftime('%B')}\n\n"
 
-        md += f"[{date[2]}]({filename}) "
+        md += f"[{date[2]}]({filename})\n"
 
     md += "\n"
 

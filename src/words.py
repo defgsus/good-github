@@ -21,21 +21,23 @@ WEIGHTED_WORDS = {
         "yeah",
 
         "funny", "hilarious", "ridiculous", "amazing",
-        "stupid", "awful", "silly", "ugly",
-        "sadness",
+        "stupid", "awful", "silly", "ugly", "clunky", "creep",
+        "sadness", "emotion",
 
         "love", "hate", "fuck", "curse", "damn", "joy ",
-        "frustrati", "humbug", "gosh", "shit",
+        "frustrati", "humbug", "gosh", "shit", "blood",
         "evil", " god ", "god's", "church", " verse", "faith ", "cthulhu",
         "bless", "ascetic",
         "heaven", " hell", "hellish", "fantasy", "mystery", "magic",
-        "moral", " boy", "girl", "friend", "shame", "thoughts",
+        "moral", " boy", "girl", "friend", "acquaintance",
+        "shame", "thoughts",
         "female", " male ", "cock",
 
         "life", "dream", "grief",
         "paranoia", "paranoid", "society", "social", "forgive", "forgiving",
 
-        "cheat", "breakfast",
+        "cheat",
+        "breakfast", "dinner", "lunch",
 
         "sister", "brother", "mama", "papa",
         "stunned", "stunning", "horribl",

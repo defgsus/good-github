@@ -31,6 +31,10 @@ def parse_args() -> dict:
         help="Force re-generation of the markdown files, even if existing",
     )
     parser.add_argument(
+        "-s", "--stash", type=bool, nargs="?", default=False, const=True,
+        help="Use the stash, Luke! If stash file is present, render the markdown from there",
+    )
+    parser.add_argument(
         "-v", "--verbose", type=bool, nargs="?", default=False, const=True,
         help="Display stuff during run"
     )
@@ -68,6 +72,7 @@ def main(
         path: str,
         verbose: bool,
         force: bool,
+        stash: bool,
 ):
     existing_files = get_message_files()
     existing_dates = [
@@ -89,41 +94,57 @@ def main(
 
         proc = GoodMessages(verbose=verbose)
 
+        key_interrupt = False
         stash_file = (ROOT_DIR / "stash" / str(day)[:4] / f"{str(day)[:10]}.json")
 
-        key_interrupt = False
-        try:
-            iterable = archive.iter_events(day)
-            if verbose:
-                iterable = tqdm(iterable, desc=f"parsing events {str(day)[:10]}")
+        if stash and stash_file.exists():
+            proc.load_stash(stash_file)
 
-            for i, event in enumerate(iterable):
-                proc.process_event(event)
+        else:
+            try:
+                iterable = archive.iter_events(day)
+                if verbose:
+                    iterable = tqdm(iterable, desc=f"parsing events {str(day)[:10]}")
 
-                if verbose and i % 100_000 == 0:
-                    print()
-                    proc.dump_stats()
+                for i, event in enumerate(iterable):
+                    proc.process_event(event)
 
-        except KeyboardInterrupt:
-            key_interrupt = True
+                    if verbose and i % 100_000 == 0:
+                        print()
+                        proc.dump_stats()
 
-        if not stash_file.parent.exists():
-            os.makedirs(stash_file.parent)
-        proc.store_stash(stash_file)
-        proc.store_words(stash_file.parent / f"{str(day)[:10]}-words.json")
+            except KeyboardInterrupt:
+                key_interrupt = True
+
+            if not stash_file.parent.exists():
+                os.makedirs(stash_file.parent)
+            proc.store_stash(stash_file)
+            proc.store_words(stash_file.parent / f"{str(day)[:10]}-words.json")
 
         proc.remove_duplicates()
 
         if verbose:
-            print(len(proc.commits), "commits")
+            print(f"{day}: {len(proc.commits)} commits")
 
         md_file = (ROOT_DIR / "docs" / "good-messages" / str(day)[:4] / f"{str(day)[:10]}.md")
         if not md_file.parent.exists():
             os.makedirs(md_file.parent)
+
+        day_links = [
+            day - datetime.timedelta(days=1),
+            day + datetime.timedelta(days=1),
+        ]
+        for i, d in enumerate(day_links):
+            if d.year != d.year:
+                day_links[i] = f"../{d.year}/{str(d)[:10]}.md"
+            else:
+                day_links[i] = f"{str(d)[:10]}.md"
+
         md_file.write_text(
-            f"# {str(day)[:10]}\n\n"
+            f"# [<]({day_links[0]}) {str(day)[:10]} [>]({day_links[1]})\n\n"
             + proc.render_stats_markdown() + "\n\n"
             + proc.render_markdown()
+            + f"\n---\n\n# [<]({day_links[0]}) {str(day)[:10]} [>]({day_links[1]})\n\n"
         )
 
         if key_interrupt:
