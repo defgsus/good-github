@@ -5,502 +5,396 @@ an [index](docs/messages.md).
 
 ---
 
-# [2021-06-29](docs/good-messages/2021/2021-06-29.md)
+# [2021-08-24](docs/good-messages/2021/2021-08-24.md)
 
 
-3,149,732 events, 1,510,894 push events, 2,464,899 commit messages, 193,987,459 characters
+2,946,547 events, 1,470,740 push events, 2,334,109 commit messages, 181,077,786 characters
 
 
-## [hb432/storyteller@99324ba1f6...](https://github.com/hb432/storyteller/commit/99324ba1f6df222ef6fe3f12ef37058dfe3ff6a7)
-##### 2021-06-29 04:18:43 by hb432
+## [jroinc/TerraGov-Marine-Corps](https://github.com/jroinc/TerraGov-Marine-Corps)@[38be00e0a6...](https://github.com/jroinc/TerraGov-Marine-Corps/commit/38be00e0a6f61130b02d6ca447540eb665fa43df)
+#### Tuesday 2021-08-24 00:37:00 by jroinc
 
-when the impostor is F I X E D
-yeah i fixed that stupid default wav file issue lmao
-(and a ton of stuff too)
-- promises are no longer sussy
-- made overworld associations map private because nobody aint got time for dat shit
-- added "absolute" method on overworld and undertaleGame because we need to be able to get the in-game position of the bottom left corner of the rendered area for overlays and stuff
-- made render code less sussy by moving zero calculation to outside for loop
-- 'draw' event now fired on all rendered objects just before canvas application, could be used to inject stuff before draw
-- a HUGE issue with XSheet fixed (it was alwayhs blanking the texture before)
-- another HUGE issue with XRoom entity delete fixed, it was LITERALLY RECURSIVE ERROR 100% of the time!!! (so sus)
-- metadata is defined sorta now? idk seems kinda garbo1234 if you ask me
-- attributes instead of style for rectangle variable name becuase W H Y N O T lmao
-- removed dumbo overworld layer in UndertaleGame it was rather sus
-- dialogue push function in undertaleGame now works with no content (epic saucy?)
-- oh yeah i guess i added a battler thing too idk its kinda cool i guess
+Adds in a few researchchems
 
----
-## [CB-Mdk/CB-Mdk.github.io@98b2bbbb00...](https://github.com/CB-Mdk/CB-Mdk.github.io/commit/98b2bbbb00eb4dc64586633ca1fdc264a241c3b6)
-##### 2021-06-29 04:40:25 by unknown
+Quietus is a chemical that causes rapid, large amounts of oxyloss upon a patient entering critical condition. It causes trace stamina damage upon initial injection for about 2 minutes, warns the recipient once, then becomes latent. No OD given as generally having more of this is *bad* for you.
 
-I FUCKING HATE YOU. IF THIS SHIT DOESNT APPEARS IN @gitlost I SWEAR I WILL  KMS
+Upon the patient becoming unconscious for any reason, the chemical deals 25 oxyloss/tick, which should prevent bodydragging. Note that defibrilation sets the unconscious flag for a few seconds, more-or-less requiring dex+ or hypervene to allow a revive. This may require a rework to function properly, we'll see.
+
+Somolent is a chemical that heals rapidly, as long as the player is unconscious or sleeping. It heals 0.2 points of brute and burn per tick, multiplied by cycle counter, capped at 10 of each via cycle counter. Post-cap it shuts off, as it should already have fully healed the target. No OD as the requirement to sleep is stringent enough. The chemical does not put players to sleep, but can and should be combined with chems that do.
+
+A 2.5u inject heals 3 damage (of both types, for all these listed stats), a 5u inject heals 11 damage, a 7.5u inject heals 24 damage (and is now outhealing other, stacked chems), and a 10u inject 42 damage. A 15u inject heals a total of 93 damage of both types while it processes, and takes 25 ticks to do this. More than that heals progressively faster.
+
+Medical nanites are designed to allow use of blood as a secondary health bar. Upon implantation, they cause a significant amount of damage over approximately five minutes. Once they settle down and are functional, they build up to 30u at 0.5u/tick, using 2 blood/tick to do so.
+
+Upon taking either brute or burn damage while there are more than 5u of medical nanites, they heal 2 points per tick of each, using 1u/tick of nanites, for a total heal ratio of 1 point of damage healed per two units of blood. OD is at 36u, with 1 pt/tick of toxin damage.
+
+Now to add recipies, then figure out how much I screwed this shit up already.
 
 ---
-## [TotallyNotNero/terminal@1fc0997969...](https://github.com/TotallyNotNero/terminal/commit/1fc09979698a2ed5de674630171cd63c4599ef74)
-##### 2021-06-29 07:10:22 by Mike Griese
+## [Techno-code/Techno-code.github.io](https://github.com/Techno-code/Techno-code.github.io)@[c08504eed5...](https://github.com/Techno-code/Techno-code.github.io/commit/c08504eed51691b16be0f77eab500353ae451804)
+#### Tuesday 2021-08-24 02:20:49 by Techno-code
 
-Add a context menu entry to "Open Windows Terminal here" (#6100)
-
-## Summary of the Pull Request
-
-![image](https://user-images.githubusercontent.com/18356694/82586680-94447680-9b5d-11ea-9cf1-a85d2b32db10.png)
-
-I went with the simple option - just open the Terminal with the default profile in the selected directory. I'd love to add another entry for "Open Terminal here with Profile...", but that's going to be follow-up work, once we sort out pulling the Terminal Settings into their own dll.
-
-## References
-* I'm going to need to file a bunch of follow-ups on this one.
-  - We should add another entry to let the user select which profile
-  - We should add the icon - I've got to do it in `dllname.dll,1` format, which is annoying.
-  - These strings should be localized.
-  - Should this only appear on <kbd>Shift</kbd>+right click? Probably! However, I don't know how to do that.
-* [A Win7 Explorer Command Sample](https://github.com/microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/winui/shell/appshellintegration/ExplorerCommandVerb) which hasn't aged well
-* [cppwinrt tutorial](https://docs.microsoft.com/en-us/windows/uwp/cpp-and-winrt-apis/author-coclasses) on using COM in cppwinrt
-* [This is PowerToys' manifest](https://github.com/microsoft/PowerToys/blob/d2a60c7287eb5667b5282a519c92b759664c9e30/installer/MSIX/appxmanifest.xml#L53-L65) and then [their implementation](https://github.com/microsoft/PowerToys/blob/d16ebba9e0f06e7a0d41d981aeb1fd0a78192dc0/src/modules/powerrename/dll/PowerRenameExt.cpp) which were both helpful
-* [This ](https://docs.microsoft.com/en-us/windows/apps/desktop/modernize/desktop-to-uwp-extensions#instructions) was the sample I followed for how to actually set up the manifest, with the added magic that [`desktop5` lets you specify "Directory"](https://docs.microsoft.com/en-us/uwp/schemas/appxpackage/uapmanifestschema/element-desktop5-itemtype)
-
-## PR Checklist
-* [x] Closes #1060
-* [x] I work here
-* [ ] Tests added/passed
-* [n/a] Requires documentation to be updated
-
-## Detailed Description of the Pull Request / Additional comments
-
-This adds a COM class that implements `IExplorerCommand`, which is what lets us populate the context menu entry. We expose that type through a new DLL that is simply responsible for the shell extension, so that explorer doesn't need to load the entire Terminal just to populate that entry.
-
-The COM class is tied to the application through some new entries in the manifest. The Clsid values are IMPORTANT - they must match the UUID of the implementation type. However, the `Verb` in the manifest didn't seem important.
+how long can this summary go? kagja;gjaljkawdjvnwadafsdjfjjj my butt hurts ooooooooooooooooooooooooooooooooooooooooooooooooooooo  We're no strangers to love You know the rules and so do I A full commitment's what I'm thinking of You wouldn't get this from any other guy I just wanna tell you how I'm feeling Gotta make you understand Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye Never gonna tell a lie and hurt you We've known each other for so long Your heart's been aching but you're too shy to say it Inside we both know what's been going on We know the game and we're gonna play it And if you ask me how I'm feeling Don't tell me you're too blind to see Never gonna give you up Never gonna let you down Never gonna run around and desert you Never gonna make you cry Never gonna say goodbye my god
 
 ---
-## [naveenjohnsonv/kernel_xiaomi_sm8150@921be92355...](https://github.com/naveenjohnsonv/kernel_xiaomi_sm8150/commit/921be923551be5d7849bdc488617baacd39e2e4e)
-##### 2021-06-29 11:25:45 by Maciej Żenczykowski
+## [swbain/relisten-android](https://github.com/swbain/relisten-android)@[f9f111451f...](https://github.com/swbain/relisten-android/commit/f9f111451f0be7bf1b85e337cd99e8ed381d1f66)
+#### Tuesday 2021-08-24 04:16:50 by Stephen Bain
 
-FROMGIT: bpf: Do not change gso_size during bpf_skb_change_proto()
-
-This is technically a backwards incompatible change in behaviour, but I'm
-going to argue that it is very unlikely to break things, and likely to fix
-*far* more then it breaks.
-
-In no particular order, various reasons follow:
-
-(a) I've long had a bug assigned to myself to debug a super rare kernel crash
-on Android Pixel phones which can (per stacktrace) be traced back to BPF clat
-IPv6 to IPv4 protocol conversion causing some sort of ugly failure much later
-on during transmit deep in the GSO engine, AFAICT precisely because of this
-change to gso_size, though I've never been able to manually reproduce it. I
-believe it may be related to the particular network offload support of attached
-USB ethernet dongle being used for tethering off of an IPv6-only cellular
-connection. The reason might be we end up with more segments than max permitted,
-or with a GSO packet with only one segment... (either way we break some
-assumption and hit a BUG_ON)
-
-(b) There is no check that the gso_size is > 20 when reducing it by 20, so we
-might end up with a negative (or underflowing) gso_size or a gso_size of 0.
-This can't possibly be good. Indeed this is probably somehow exploitable (or
-at least can result in a kernel crash) by delivering crafted packets and perhaps
-triggering an infinite loop or a divide by zero... As a reminder: gso_size (MSS)
-is related to MTU, but not directly derived from it: gso_size/MSS may be
-significantly smaller then one would get by deriving from local MTU. And on
-some NICs (which do loose MTU checking on receive, it may even potentially be
-larger, for example my work pc with 1500 MTU can receive 1520 byte frames [and
-sometimes does due to bugs in a vendor plat46 implementation]). Indeed even just
-going from 21 to 1 is potentially problematic because it increases the number
-of segments by a factor of 21 (think DoS, or some other crash due to too many
-segments).
-
-(c) It's always safe to not increase the gso_size, because it doesn't result in
-the max packet size increasing.  So the skb_increase_gso_size() call was always
-unnecessary for correctness (and outright undesirable, see later). As such the
-only part which is potentially dangerous (ie. could cause backwards compatibility
-issues) is the removal of the skb_decrease_gso_size() call.
-
-(d) If the packets are ultimately destined to the local device, then there is
-absolutely no benefit to playing around with gso_size. It only matters if the
-packets will egress the device. ie. we're either forwarding, or transmitting
-from the device.
-
-(e) This logic only triggers for packets which are GSO. It does not trigger for
-skbs which are not GSO. It will not convert a non-GSO MTU sized packet into a
-GSO packet (and you don't even know what the MTU is, so you can't even fix it).
-As such your transmit path must *already* be able to handle an MTU 20 bytes
-larger then your receive path (for IPv4 to IPv6 translation) - and indeed 28
-bytes larger due to IPv4 fragments. Thus removing the skb_decrease_gso_size()
-call doesn't actually increase the size of the packets your transmit side must
-be able to handle. ie. to handle non-GSO max-MTU packets, the IPv4/IPv6 device/
-route MTUs must already be set correctly. Since for example with an IPv4 egress
-MTU of 1500, IPv4 to IPv6 translation will already build 1520 byte IPv6 frames,
-so you need a 1520 byte device MTU. This means if your IPv6 device's egress
-MTU is 1280, your IPv4 route must be 1260 (and actually 1252, because of the
-need to handle fragments). This is to handle normal non-GSO packets. Thus the
-reduction is simply not needed for GSO packets, because when they're correctly
-built, they will already be the right size.
-
-(f) TSO/GSO should be able to exactly undo GRO: the number of packets (TCP
-segments) should not be modified, so that TCP's MSS counting works correctly
-(this matters for congestion control). If protocol conversion changes the
-gso_size, then the number of TCP segments may increase or decrease. Packet loss
-after protocol conversion can result in partial loss of MSS segments that the
-sender sent. How's the sending TCP stack going to react to receiving ACKs/SACKs
-in the middle of the segments it sent?
-
-(g) skb_{decrease,increase}_gso_size() are already no-ops for GSO_BY_FRAGS
-case (besides triggering WARN_ON_ONCE). This means you already cannot guarantee
-that gso_size (and thus resulting packet MTU) is changed. ie. you must assume
-it won't be changed.
-
-(h) changing gso_size is outright buggy for UDP GSO packets, where framing
-matters (I believe that's also the case for SCTP, but it's already excluded
-by [g]).  So the only remaining case is TCP, which also doesn't want it
-(see [f]).
-
-(i) see also the reasoning on the previous attempt at fixing this
-(commit fa7b83bf3b156c767f3e4a25bbf3817b08f3ff8e) which shows that the current
-behaviour causes TCP packet loss:
-
-  In the forwarding path GRO -> BPF 6 to 4 -> GSO for TCP traffic, the
-  coalesced packet payload can be > MSS, but < MSS + 20.
-
-  bpf_skb_proto_6_to_4() will upgrade the MSS and it can be > the payload
-  length. After then tcp_gso_segment checks for the payload length if it
-  is <= MSS. The condition is causing the packet to be dropped.
-
-  tcp_gso_segment():
-    [...]
-    mss = skb_shinfo(skb)->gso_size;
-    if (unlikely(skb->len <= mss)) goto out;
-    [...]
-
-Thus changing the gso_size is simply a very bad idea. Increasing is unnecessary
-and buggy, and decreasing can go negative.
-
-Fixes: 6578171a7ff0 ("bpf: add bpf_skb_change_proto helper")
-Signed-off-by: Maciej Żenczykowski <maze@google.com>
-Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
-Cc: Dongseok Yi <dseok.yi@samsung.com>
-Cc: Willem de Bruijn <willemb@google.com>
-Link: https://lore.kernel.org/bpf/CANP3RGfjLikQ6dg=YpBU0OeHvyv7JOki7CyOUS9modaXAi-9vQ@mail.gmail.com
-Link: https://lore.kernel.org/bpf/20210617000953.2787453-2-zenczykowski@gmail.com
-
-(cherry picked from commit 364745fbe981a4370f50274475da4675661104df https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?id=364745fbe981a4370f50274475da4675661104df )
-Test: builds, TreeHugger
-Bug: 188690383
-Signed-off-by: Maciej Żenczykowski <maze@google.com>
-Change-Id: I0ef3174cbd3caaa42d5779334a9c0bfdc9ab81f5
+multi module di setup!!!! i love it when this shit works!!!!
 
 ---
-## [bhalevy/scylla@7014da9404...](https://github.com/bhalevy/scylla/commit/7014da9404abf6fafc03c051b27569500f9f1b30)
-##### 2021-06-29 15:19:51 by Pavel Emelyanov
+## [jooskim/transport-typescript](https://github.com/jooskim/transport-typescript)@[ec96c97765...](https://github.com/jooskim/transport-typescript/commit/ec96c97765a5707f39b4b15c30858bc1b5cd8320)
+#### Tuesday 2021-08-24 04:40:55 by Josh Kim
 
-storage_service: Unregister disk error handlers on stop
+Buffer sendResponseMessage and its variant methods
 
-Storage service install disk error handlers in constructor and these
-connections are not unregistered. It's not a problem in real life,
-because storage service is not stopped, but in some tests this can
-lead to use-after-frees.
+Internal testing on VMware Cloud UI revealed that there are certain
+conditions that could impact the performance of the Angular change
+detection system, or any other frontend frameworks that rely on the
+Event Loop of the JS engine.
 
-The sstables_datafile_test runs some of the testcases in cql_test_env
-which starts and (!) stops the storage service. Other testcases are
-run in a lightweight sstables_test_env which does not mess with the
-storage service at all. Now, if a case of the 2nd kind is run after
-the one of the 1st and (for whatever reason) generates a disk error
-it will trigger use-after-free -- after the 1st testcase the storage
-service disk error registration would remain, but the storage service
-itself would already be stopped, thus triggering the disk error will
-try to access stopped sharded storage service inside the .isolate().
+Currently every message being sent via the `sendResponseMessage()`,
+ `sendResponseMessageWithId()` or
+`sendResponseMessageWithIdAndVersion()` method is scheduled as a macro
+task, which means send message logic shares CPU resources with other
+macro tasks like DOM painting or other event handling. This way of
+sharing the CPU single thread with other tasks usually is benign enough
+not to cause much trouble if any.
 
-The fix is to keep the scoped connection on the storage service list
-of various listeners. On stop it will go away automagically.
+However, if 1) the send message method is called in rapid succesion,
+and 2) each macro task triggers a compute-intensive task such as a
+complete re-render of the view like Angular with default change
+detection strategy does, the UI will experience a significant
+performance hit that looks like a tight loop that could be observed
+in the Chrome Inspect Panel.
 
-tests: unit(dev), sstables_datafile_test with forced disk error
+A sensible solution to the problem is to buffer the payload by a
+certain interval and scheduling the macro tasks by chunks not by
+every single entry. By doing this it will limit the impact to the
+CPU because now the change detection will happen only as frequently
+as the buffer is flushed.
 
-Signed-off-by: Pavel Emelyanov <xemul@scylladb.com>
-Message-Id: <20210625062648.27812-1-xemul@scylladb.com>
+See the attached benchmarks for comparisons in CPU utilization.
 
----
-## [jak6jak/bevy@c893b99224...](https://github.com/jak6jak/bevy/commit/c893b992240fc058fd118c8247c70233931ec759)
-##### 2021-06-29 15:55:23 by Daniel McNab
-
-Optional `.system` (#2398)
-
-This can be your 6 months post-christmas present.
-
-# Objective
-
-- Make `.system` optional
-- yeet
-- It's ugly
-- Alternative title: `.system` is dead; long live `.system`
-- **yeet**
-
-## Solution
-
-- Use a higher ranked lifetime, and some trait magic.
-
-N.B. This PR does not actually remove any `.system`s, except in a couple of examples. Once this is merged we can do that piecemeal across crates, and decide on syntax for labels.
+Signed-off-by: Josh Kim <kjosh@vmware.com>
 
 ---
-## [pytorch/pytorch@9134b0e42f...](https://github.com/pytorch/pytorch/commit/9134b0e42fd6aad420d610f3786f90786079d559)
-##### 2021-06-29 16:36:50 by Brian Hirsh
+## [theY4Kman/experimentation](https://github.com/theY4Kman/experimentation)@[67ae7a8927...](https://github.com/theY4Kman/experimentation/commit/67ae7a892746a54d573d7336a22590e27be3e3d3)
+#### Tuesday 2021-08-24 08:21:50 by Zach "theY4Kman" Kanzler
 
-add a boxed CPU fallback kernel (#58065)
+fix(mandelbrot): resolve broken zoom-to-mouse; use mouse wheel now
+
+The zoom issue was due to the zoom matrix being in unit scale, instead of in mandelbrot scale. Now, instead of using values between 0.0 and 1.0 for the zoom matrix's x and y, we first translate those values into their corresponding mandelbrot coords. I might be able to get away with avoiding the intermediate normalization, but for now, this settles my biz.
+
+Also, I started experimenting with the colours. At the moment, she calculates the reverse number of iterations in a logarithmic scale (to the base of max # iterations), multiplies that by the highest 24-bit value (rounded to the nearest multiple of 25), and picks apart each 8 bit section into an RGB color. It's sorta psychedelic, and I don't hate it — but I would really like to display something with more depth. Also, I would love to do some kind of anti-aliasing.
+
+---
+## [christiankuhl/titanium](https://github.com/christiankuhl/titanium)@[cdde5d3f36...](https://github.com/christiankuhl/titanium/commit/cdde5d3f36f11ed5bb6b37a325df41fff981af5b)
+#### Tuesday 2021-08-24 08:41:10 by Christian Kuhl
+
+Fix stupid multithreading bug
+
+If I trestrict QEMU to one core with '-smp 1', there will be no simulated
+hardware interrupts, if the only thread it has is currently in a busy loop.
+:facepalm:
+Thank God I'm the only one on this project...
+
+---
+## [ethaninja/gamejam2021](https://github.com/ethaninja/gamejam2021)@[15ab993da6...](https://github.com/ethaninja/gamejam2021/commit/15ab993da6ec68e34e7609d428b6eb1fe10a7d63)
+#### Tuesday 2021-08-24 09:09:42 by Me Me Me
+
+Added Enemy Follow Script
+
+It's a bit janky currently but the enemy will now follow the player around.
+BE ADVISED: As I configured a lot of this in my scene and didn't make it some damn prefabs it won't work until you link up shit properly. So I will do so now and it shouldn't be a problem.
+
+Also, we need to move the movement/input/etc off the player_model and onto the base of the player :)  The model should only be the model and the parent Player object should drive everything
+
+---
+## [PrakharGupta36/Breathe](https://github.com/PrakharGupta36/Breathe)@[898c34c4da...](https://github.com/PrakharGupta36/Breathe/commit/898c34c4dab6b3869828ec8e9ec32d02c1c17fe9)
+#### Tuesday 2021-08-24 10:38:53 by prakhar_36
+
+Fuck You I am fucking tired and I am gonna come back tommorow and fix that bug
+
+---
+## [h2sm/Photobooth](https://github.com/h2sm/Photobooth)@[2cad3fb6aa...](https://github.com/h2sm/Photobooth/commit/2cad3fb6aaf1d65d33f4adab3073301744414156)
+#### Tuesday 2021-08-24 12:55:35 by Egor Fedorenko
+
+Boris Yeltsin said that his biggest mistake was mixing port wine with vodka. My biggest mistake is creating this fucking bullshit. Now i have to end it lol. btw i made deleting files from an admin panel, it looks so sick!! Sheesh.
+
+---
+## [SLASHEM-Extended/SLASHEM-Extended](https://github.com/SLASHEM-Extended/SLASHEM-Extended)@[4e7d593cd7...](https://github.com/SLASHEM-Extended/SLASHEM-Extended/commit/4e7d593cd733684017cf8b82a163c67133b294aa)
+#### Tuesday 2021-08-24 13:12:56 by AmyBSOD
+
+New monsters
+
+"Omg some of them have 'girl' in their name that's soooooo offensive." Also "where the hell does she find the time to add so much content" well, soon she won't, because her vacation ends today and then the rate of commits will plummet. But no one cares anyway, no one (except a few people who just goof around) is touching this game anymore and therefore no one will ever see any of the level 6+ monsters because the few people who play on esm just for fun will always die before their chars are strong enough to see the higher-level monsters. Yay.
+
+---
+## [Mohsenselseleh/CevicalCancer](https://github.com/Mohsenselseleh/CevicalCancer)@[30653d8cbc...](https://github.com/Mohsenselseleh/CevicalCancer/commit/30653d8cbcf3439a41254b313e862c7de6799ab8)
+#### Tuesday 2021-08-24 15:17:41 by Mohsen Selseleh
+
+Add files via upload
+
+Cervical-Cancer-Prediction
+In this data set, We have to predict the patients who are most likely to suffer from cervical cancer using Machine Learning algorithms for Classifications, Visualizations and Analysis.
+
+Description
+Cervical Cancer Risk Factors for Biopsy: This Dataset is Obtained from UCI Repository and kindly acknowledged!
+
+This file contains a List of Risk Factors for Cervical Cancer leading to a Biopsy Examination!
+
+About 11,000 new cases of invasive cervical cancer are diagnosed each year in the U.S. However, the number of new cervical cancer cases has been declining steadily over the past decades. Although it is the most preventable type of cancer, each year cervical cancer kills about 4,000 women in the U.S. and about 300,000 women worldwide. In the United States, cervical cancer mortality rates plunged by 74% from 1955 - 1992 thanks to increased screening and early detection with the Pap test. AGE Fifty percent of cervical cancer diagnoses occur in women ages 35 - 54, and about 20% occur in women over 65 years of age. The median age of diagnosis is 48 years. About 15% of women develop cervical cancer between the ages of 20 - 30. Cervical cancer is extremely rare in women younger than age 20. However, many young women become infected with multiple types of human papilloma virus, which then can increase their risk of getting cervical cancer in the future. Young women with early abnormal changes who do not have regular examinations are at high risk for localized cancer by the time they are age 40, and for invasive cancer by age 50. SOCIOECONOMIC AND ETHNIC FACTORS Although the rate of cervical cancer has declined among both Caucasian and African-American women over the past decades, it remains much more prevalent in African-Americans -- whose death rates are twice as high as Caucasian women. Hispanic American women have more than twice the risk of invasive cervical cancer as Caucasian women, also due to a lower rate of screening. These differences, however, are almost certainly due to social and economic differences. Numerous studies report that high poverty levels are linked with low screening rates. In addition, lack of health insurance, limited transportation, and language difficulties hinder a poor woman’s access to screening services. HIGH SEXUAL ACTIVITY Human papilloma virus (HPV) is the main risk factor for cervical cancer. In adults, the most important risk factor for HPV is sexual activity with an infected person. Women most at risk for cervical cancer are those with a history of multiple sexual partners, sexual intercourse at age 17 years or younger, or both. A woman who has never been sexually active has a very low risk for developing cervical cancer. Sexual activity with multiple partners increases the likelihood of many other sexually transmitted infections (chlamydia, gonorrhea, syphilis).Studies have found an association between chlamydia and cervical cancer risk, including the possibility that chlamydia may prolong HPV infection. FAMILY HISTORY Women have a higher risk of cervical cancer if they have a first-degree relative (mother, sister) who has had cervical cancer. USE OF ORAL CONTRACEPTIVES Studies have reported a strong association between cervical cancer and long-term use of oral contraception (OC). Women who take birth control pills for more than 5 - 10 years appear to have a much higher risk HPV infection (up to four times higher) than those who do not use OCs. (Women taking OCs for fewer than 5 years do not have a significantly higher risk.) The reasons for this risk from OC use are not entirely clear. Women who use OCs may be less likely to use a diaphragm, condoms, or other methods that offer some protection against sexual transmitted diseases, including HPV. Some research also suggests that the hormones in OCs might help the virus enter the genetic material of cervical cells. HAVING MANY CHILDREN Studies indicate that having many children increases the risk for developing cervical cancer, particularly in women infected with HPV. SMOKING Smoking is associated with a higher risk for precancerous changes (dysplasia) in the cervix and for progression to invasive cervical cancer, especially for women infected with HPV. IMMUNOSUPPRESSION Women with weak immune systems, (such as those with HIV / AIDS), are more susceptible to acquiring HPV. Immunocompromised patients are also at higher risk for having cervical precancer develop rapidly into invasive cancer. DIETHYLSTILBESTROL (DES) From 1938 - 1971, diethylstilbestrol (DES), an estrogen-related drug, was widely prescribed to pregnant women to help prevent miscarriages. The daughters of these women face a higher risk for cervical cancer. DES is no longer prsecribed.
+
+---
+## [aliz0908/Fylo-Dark-Theme-Landing-Page](https://github.com/aliz0908/Fylo-Dark-Theme-Landing-Page)@[f867a3e139...](https://github.com/aliz0908/Fylo-Dark-Theme-Landing-Page/commit/f867a3e139039acda06eade4e3030e50732dc521)
+#### Tuesday 2021-08-24 16:01:59 by aliz0908
+
+Update README.md
+
+# Frontend Mentor - Fylo dark theme landing page
+
+![Design preview for the Fylo dark theme landing page challenge](./design/desktop-preview.jpg)
+
+## Welcome! 👋
+
+Thanks for checking out this front-end coding challenge.
+
+[Frontend Mentor](https://www.frontendmentor.io) challenges help you improve your coding skills by building realistic projects.
+
+**To do this challenge you need a basic understanding of HTML and CSS.**
+
+## The challenge
+
+Your challenge is to build out this landing page and get it looking as close to the design as possible.
+
+You can use any tools you like to help you complete the challenge. So if you've got something you'd like to practice, feel free to give it a go.
+
+Your users should be able to: 
+
+- View the optimal layout for the site depending on their device's screen size
+- See hover states for all interactive elements on the page
+
+Want some support on the challenge? [Join our Slack community](https://www.frontendmentor.io/slack) and ask questions in the **#help** channel.
+
+## Where to find everything
+
+Your task is to build out the project to the designs inside the `/design` folder. You will find both a mobile and a desktop version of the design. 
+
+The designs are in JPG static format. Using JPGs will mean that you'll need to use your best judgment for styles such as `font-size`, `padding` and `margin`. 
+
+If you would like the design files (we provide Sketch & Figma versions) to inspect the design in more detail, you can [subscribe as a PRO member](https://www.frontendmentor.io/pro).
+
+You will find all the required assets in the `/images` folder. The assets are already optimized.
+
+There is also a `style-guide.md` file containing the information you'll need, such as color palette and fonts.
+
+## Building your project
+
+Feel free to use any workflow that you feel comfortable with. Below is a suggested process, but do not feel like you need to follow these steps:
+
+1. Initialize your project as a public repository on [GitHub](https://github.com/). Creating a repo will make it easier to share your code with the community if you need help. If you're not sure how to do this, [have a read-through of this Try Git resource](https://try.github.io/).
+2. Configure your repository to publish your code to a web address. This will also be useful if you need some help during a challenge as you can share the URL for your project with your repo URL. There are a number of ways to do this, and we provide some recommendations below.
+3. Look through the designs to start planning out how you'll tackle the project. This step is crucial to help you think ahead for CSS classes to create reusable styles.
+4. Before adding any styles, structure your content with HTML. Writing your HTML first can help focus your attention on creating well-structured content.
+5. Write out the base styles for your project, including general content styles, such as `font-family` and `font-size`.
+6. Start adding styles to the top of the page and work down. Only move on to the next section once you're happy you've completed the area you're working on.
+
+## Deploying your project
+
+As mentioned above, there are many ways to host your project for free. Our recommend hosts are:
+
+- [GitHub Pages](https://pages.github.com/)
+- [Vercel](https://vercel.com/)
+- [Netlify](https://www.netlify.com/)
+
+You can host your site using one of these solutions or any of our other trusted providers. [Read more about our recommended and trusted hosts](https://medium.com/frontend-mentor/frontend-mentor-trusted-hosting-providers-bf000dfebe).
+
+## Create a custom `README.md`
+
+We strongly recommend overwriting this `README.md` with a custom one. We've provided a template inside the [`README-template.md`](./README-template.md) file in this starter code.
+
+The template provides a guide for what to add. A custom `README` will help you explain your project and reflect on your learnings. Please feel free to edit our template as much as you like.
+
+Once you've added your information to the template, delete this file and rename the `README-template.md` file to `README.md`. That will make it show up as your repository's README file.
+
+## Submitting your solution
+
+Submit your solution on the platform for the rest of the community to see. Follow our ["Complete guide to submitting solutions"](https://medium.com/frontend-mentor/a-complete-guide-to-submitting-solutions-on-frontend-mentor-ac6384162248) for tips on how to do this.
+
+Remember, if you're looking for feedback on your solution, be sure to ask questions when submitting it. The more specific and detailed you are with your questions, the higher the chance you'll get valuable feedback from the community.
+
+## Sharing your solution
+
+There are multiple places you can share your solution:
+
+1. Share your solution page in the **#finished-projects** channel of the [Slack community](https://www.frontendmentor.io/slack). 
+2. Tweet [@frontendmentor](https://twitter.com/frontendmentor) and mention **@frontendmentor**, including the repo and live URLs in the tweet. We'd love to take a look at what you've built and help share it around.
+3. Share your solution on other social channels like LinkedIn.
+4. Blog about your experience building your project. Writing about your workflow, technical choices, and talking through your code is a brilliant way to reinforce what you've learned. Great platforms to write on are [dev.to](https://dev.to/), [Hashnode](https://hashnode.com/), and [CodeNewbie](https://community.codenewbie.org/).
+
+We provide templates to help you share your solution once you've submitted it on the platform. Please do edit them and include specific questions when you're looking for feedback. 
+
+The more specific you are with your questions the more likely it is that another member of the community will give you feedback.
+
+## Got feedback for us?
+
+We love receiving feedback! We're always looking to improve our challenges and our platform. So if you have anything you'd like to mention, please email hi[at]frontendmentor[dot]io.
+
+This challenge is completely free. Please share it with anyone who will find it useful for practice.
+
+**Have fun building!** 🚀
+
+---
+## [SLASHEM-Extended/SLASHEM-Extended](https://github.com/SLASHEM-Extended/SLASHEM-Extended)@[11a7b83d4d...](https://github.com/SLASHEM-Extended/SLASHEM-Extended/commit/11a7b83d4dd8e34a75c199d2eb131f866fee835e)
+#### Tuesday 2021-08-24 18:20:50 by AmyBSOD
+
+More new monsters
+
+Yeah I know, they're sooooo offensive and I'm such a bad, stupid, evil or whatever person. Blah to that I say, like I would care at this point. SLEX ain't gonna make a comeback on that server, that's for sure. Anyway, this is the last commit before my vacation ends, so from this point on I'll probably not be able to pump out nearly as many commits for a while.
+
+---
+## [Gmk07/apps](https://github.com/Gmk07/apps)@[54b3e13138...](https://github.com/Gmk07/apps/commit/54b3e1313845b1547c7eaa7fd30de01ac3f78c56)
+#### Tuesday 2021-08-24 18:51:02 by Gmk07
+
+Update sausage.json
+
+{
+"bodies": [
+{
+"step": "The Baby In Yellow 2 Tips (Unofficial) : It's Guide and Free The Baby In Yellow 2 Tips (Unofficial) 202for Free Games has a horror school in which there are many rooms. Each room of this scary granny creepy fun game has an unsolved mystery that you have to solve for your revenge.Every room of this scary nun horror school game will reveal Scary Teacher Halloween Secrets that help you to complete the given tasks. Be careful and avoid to catch by your creepy horror school teacher in this horror survival game."
+},
+{
+"step": "Story is about a The Baby In Yellow 2 Tips (Unofficial) for Free and her worst high school experience with naughty children. Say Goodbye to creepy teacher and go with your activities. Scary teacher 3D game is waiting for you, your survival in this spooky game depends on the teacher around you. Don’t get frightened from the scary creepy teacher during act."
+},
+{
+"step": "Move to The Baby In Yellow 2 Tips (Unofficial)creepy house and pick the items from there. Extreme missions in The Baby In Yellow 2 Tips (Unofficial) to detract her and caught her households for the fun and for the thrills…"
+},
+{
+"step": "Features :\n- Open World style haunted school\n- Different rooms with different unsolved stories\n- Horror themes and Easy controls\n- Scary ghost game missions\n- High-quality 3d Graphics and Realistic Sounds\n- Interesting Scared activities and addictive stories\nDISCLAMER!\n- We are not affiliated with Scary Teacher 3D game or Z & K Games company\n- The app maybe will not work on all devices"
+}
+],
+"admob_banner": "",
+"admob_inter": "",
+"facebook_banner": "",
+"facebook_inter": "",
+"sorryMessage": "We Are Sorry, The Application Not Available for this time, we are update our system, you can check the app after 24h, you can install the version pro.",
+"popAppLink": "h",
+"popAppName": "Les De",
+"popAppImage": "rw",
+"popAppPackage": "",
+"URL_APP": "s1=",
+"popAppIsActive": false,
+"APP_KEY": ""
+"BANNER_PLACEMENT": "DefaultBanner",
+"INTERSTITIAL_PLACEMENT": "DefaultInterstitial",
+"whichAds": 0
+}
+
+---
+## [MariaMod/Young-Maria](https://github.com/MariaMod/Young-Maria)@[6b51514094...](https://github.com/MariaMod/Young-Maria/commit/6b515140942f2feee1f59b02617a470fa2802dd3)
+#### Tuesday 2021-08-24 20:05:27 by MilkyNail (MariaMod)
+
+Add files via upload
+
+- School WCs no longer teleport you to the Night Club (I wish we had such bugs in real life)
+- Now you can make abort in Family Bitch mode. It will cost the same $700
+- Changed the pregnancy chance checking system. This will allow to increase/decrease the chance easier in the future (I have one idea..)
+- I removed one anti-grind system implemented by someone without my knowledge
+- Fixed the error that caused that pop-up window in the "Mother after dad's laps" scene
+- Made a few cosmetic changes
+- Fixed an error with infinitely masturbating brother
+- Added a small secret you need to find (it's not that hard and pretty useless)
+- Hid some code players don't need to see (my bad)
+- Removed a few webcam options from the list of what you can do on cam
+- Now training will take only 30 points of Energy, and showering at the gym doesn't require shampoo. I also started to work on an NSFW scene there, but it's not finished yet
+- Added another 6 gifs to webcam actions
+
+---
+## [kittstone/AxionPlus](https://github.com/kittstone/AxionPlus)@[2dcbbd4bc9...](https://github.com/kittstone/AxionPlus/commit/2dcbbd4bc9a77dd3125d400a23bb0664c4cea82c)
+#### Tuesday 2021-08-24 20:22:28 by kittstone
+
+FUCK FUCXK FUCK FUCK SHIT SHIT SHIT SHIT FUCK ASS DAMN IT :grief:
+
+---
+## [SAMTOMINDUSTRYS/stex2s-python](https://github.com/SAMTOMINDUSTRYS/stex2s-python)@[b6cdd131e3...](https://github.com/SAMTOMINDUSTRYS/stex2s-python/commit/b6cdd131e3bf70be8e7e8d0d9bf14c8d9ea02780)
+#### Tuesday 2021-08-24 20:35:25 by Sam Nicholls
+
+holy shit i just wanted to read from the fucking terminal
+
+---
+## [Buildstarted/linksfordevs](https://github.com/Buildstarted/linksfordevs)@[808abcf76f...](https://github.com/Buildstarted/linksfordevs/commit/808abcf76f9c2c53d4ef021f8bf8cc33cbe16c97)
+#### Tuesday 2021-08-24 22:09:37 by Ben Dornis
+
+Updating: 8/24/2021 10:00:00 PM
+
+ 1. Added: I used to love Bootstrap. God, now I just hate it
+    (https://ruky.me/2021/08/24/i-used-to-love-bootstrap-god-now-i-just-hate-it/)
+ 2. Added: The most underused browser feature
+    (https://frankgroeneveld.nl/2021/08/24/most-underused-browser-feature/)
+ 3. Added: The Rise Of User-Hostile Software
+    (https://den.dev/blog/user-hostile-software/)
+ 4. Added: Tools for thinking
+    (https://www.juliendesrosiers.com/2021/08/21/tools-for-thinking.php)
+ 5. Added: Record and publish your meeting
+    (https://beny23.github.io/posts/screen_record_meetings/)
+ 6. Added: Samsung Supports Retailers Affected By Looting  With Innovative Television Block Function
+    (https://news.samsung.com/za/samsung-supports-retailers-affected-by-looting-with-innovative-television-block-function)
+ 7. Added: My Journey as a Self-Taught Programmer
+    (https://blog.octachart.com/my-journey-as-a-self-taught-programmer)
+ 8. Added: Launching a mobile app, frustration, and creativity - making my own luck
+    (https://troyshu.com/2021/08/24/launching-a-mobile-app-frustration-and-creativity/)
+
+Generation took: 00:09:27.0133980
+ Maintenance update - cleaning up homepage and feed
+
+---
+## [facebookincubator/OnlineSchemaChange](https://github.com/facebookincubator/OnlineSchemaChange)@[917e8ae8ea...](https://github.com/facebookincubator/OnlineSchemaChange/commit/917e8ae8ea11d9e7fd5d201da9974e883fac0d42)
+#### Tuesday 2021-08-24 22:31:18 by Srinivasan Mohan
+
+Part1: Parse `partitions` config
 
 Summary:
-Pull Request resolved: https://github.com/pytorch/pytorch/pull/58065
+* Basic partitions parsing support
+* String to `pyparsing.ParseResults` alone for now (`model` TODO which should wrap around all the complexity)
+* What is supported:
+  * hash/key/range/list type partitions (+linear or columns type modifiers)
+  * partitions definitions
+* What is not supported
+  * subpartitions
+  * any partition definition property other than `ENGINE` / `COMMENT`
+* Parsing the `expr` for a `HASH` type partition is weird and ugly. If theres a cleaner way, I would love to do it right!
 
-This PR replaces the existing code-generated CPU fallback kernels that XLA uses with a single boxed CPU fallback.
+While this adds to `sqlparse.create` - the partitions parser is still quite separate and does not get called by the "main" table parsing logic. I will do that once we have a proper `models.PartitionConfig` setup. Grammar as defined in https://dev.mysql.com/doc/refman/8.0/en/create-table.html
 
-Current state: there are a couple different design ideas that I want to point out, but the logic for the actually kernel is mostly done and passing tests.
+Reviewed By: cenalulu
 
-### Design
+Differential Revision: D30443348
 
-To preface, I'm not 100% tied to the current design and I'm putting the PR up now for opinions and totally open to alternatives, some of which I listed below. Actually after writing this description, I'm leaning toward the following changes:
-* Confirm whether or not we can remove all C++ logging info directly in the yaml.
-
-**Current Design**
-
-All of the CPU fallback codegen is deleted. In its place, XLA (and other external backends, later) can choose to opt into a CPU fallback by adding the following code in a C++ file. I have an corresponding [xla-side PR with the xla changes](https://github.com/pytorch/xla/pull/2945/files#diff-1a005c10039f0cb11130a3b740f5de716d2f10acaea121017016025861886798R1).
-
-There's no actual requirement to split up the code into a .h and .cpp file, but that's necessary in the XLA case because they sometimes need to call the fallback directly from their handcrafted kernels.
-
-```
-// xla_cpu_fallback.h
-#include <ATen/native/CPUFallback.h>
-...
-void xla_cpu_fallback(const c10::OperatorHandle& op, torch::jit::Stack* stack);
-...
-```
-```
-// xla_cpu_fallback.cpp
-#include "torch_xla/csrc/aten_cpu_fallback.h"
-...
-void xla_cpu_fallback(const c10::OperatorHandle& op, torch::jit::Stack* stack) {
-  // Do custom logging here
-  ...
-  // Call the actual boxed CPU fallback.
-  at::native::cpu_fallback(op, stack);
-}
-
-TORCH_LIBRARY_IMPL(_, XLA, m) {
-  m.fallback(torch::CppFunction::makeFromBoxedFunction<&xla_cpu_fallback>());
-}
-```
-
-Now that the fallback is exposed in the backend, they can call it directly. Doing so requires converting from an unboxed to a boxed context, which we provide a utility function before. E.g.:
-```
-#include <ATen/native/CPUFallback.h>
-
-at::Tensor addmm(const at::Tensor& self,const at::Tensor& mat1,const at::Tensor& mat2,const at::Scalar& beta,const at::Scalar& alpha) {
-  ....
-  if (...call_fallback...) {
-    return at::native::call_fallback_fn<&xla_cpu_fallback, decltype(at::addmm)>::call("aten::addmm", self, mat1, mat2, beta, alpha);
-  }
-  ...
-}
-```
-
-That `decltype(at::addmm)` logic isn't actually used everywhere in the xla-side PR yet, since you hit issues with overloads. I could use it everywhere once #58092 lands.
-
-**Alternatives: The API for calling the CPU fallback directly is ugly, can we make it nicer?**
-We could change the api to use `at::redispatch`, which would make it look something like this:
-```
-at::Tensor addmm(const at::Tensor& self,const at::Tensor& mat1,const at::Tensor& mat2,const at::Scalar& beta,const at::Scalar& alpha) {
-  ....
-  if (...call_fallback...) {
-    return at::redispatch::addmm(c10::DispatchKeySet(c10::DispatchKey::CPUFallback), self, mat1, mat2, beta, alpha);
-  }
-  ...
-}
-```
-Which definitely feels cleaner, but also requires adding a new DispatchKey just for this use case. Conditionally calling the CPU fallback doesn't sound like a hugely important use case, so I don't know if giving up one of our 64 dispatch key slots is worth the API improvement. Totally open to other opinions though!
-
-Another more mild improvement that would avoid having to pass operator string names (including overloads) around would be to codegen (yet another) namespaced API. Something like this:
-```
-at::Tensor addmm(const at::Tensor& self,const at::Tensor& mat1,const at::Tensor& mat2,const at::Scalar& beta,const at::Scalar& alpha) {
-  ....
-  if (...call_fallback...) {
-    return at::fallback::addmm<&xla_cpu_fallback>(self, mat1, mat2, beta, alpha);
-  }
-  ...
-}
-```
-
-Writing that out actually I actually like it more (I think it'll let us get rid of `decltype(...)`). Maybe that is nice enough to warrant a new codegen API - I haven't tried adding that yet, but if people like it I'm happy to try it out.
-
-**More alternatives**
-The current design also involves the backend manually writing and registering the boxed fallback themselves, but an alternative would be for us to do it in codegen too: they would just need to pass in all of the C++ logging that they want done in the fallback, directly through the yaml. The main downsides:
-* Backend code that wants to call the fallback needs to abide by whatever convention our codegen uses to name the generated boxed fallback.
-* Passing custom C++ logging through yaml is just more fragile: right now xla uses an `iostream` to log each tensor arg in the operator, so we'd have to either force other backends into the same convention or figure something else out later.
-
-To be fair, we actually already do that: XLA has custom per-tensor-arg logging for all of the generated `out` wrappers in the codegen, which we do by passing their C++ logging info through the yaml. This seems unnecessary though, since `out` wrappers just call into a functional kernel, which is hand written with its own custom logging. So my take is: try to remove custom C++ logging from the yaml, and if it turns out to be really necessary, then we may as well take advantage of that to codegen the fallback.
-
-### Performance impact
-
-While ops that fall back to CPU aren't exactly hot path, we probably don't want to use a boxed fallback if it turns out to be an absolute perf killer.
-
-I ran my benchmarks using callgrind, benchmarking both `at::add` and `at::add_out` run on XLA. My callgrind benchmark for `at::add` can be found here (the add_out benchmark looks basically the same): https://www.internalfb.com/phabricator/paste/view/P415418587. I created the benchmark by hacking the existing xla C++ test build scripts and throwing in a reference to callgrind.
-
-I also attached the full callgrind output for each benchmark; the full output is actually pretty noise and hard to parse, but I focused on everything underneath the `at::add()` call in the output, which was much more stable. My guess is that it's due to some heavyweight async startup processing that xla does.
-
-`at::add`:
-before: 88,505,130 instructions. Full output: https://www.internalfb.com/phabricator/paste/view/P415421001
-after: 102,185,654 instructions. Full output: https://www.internalfb.com/phabricator/paste/view/P415421273
-delta: ~15.5% increase
-
-`at::add_out`:
-before: 63,897,395 instructions. Full output: https://www.internalfb.com/intern/everpaste/?handle=GBrrKwtAPlix9wUEAOZtrFXpdO5UbsIXAAAz
-after: 73,170,346 instructions. Full output: https://www.internalfb.com/phabricator/paste/view/P415423227
-delta: ~14.5% increase
-
-High level takeaway: A framework overhead increase of 10-20% doesn't seem too horrible for the CPU fallback use case.
-
-For structured, functional ops that requires a CPU fallback, we're actually in an unfortunate situation: we're doing even more work than necessary. Our codegen automatically creates a `CompositeExplicitAutograd` kernel which calls into the `out` operator. So the extra work that we end up doing is:
-* An extra dispatcher hop: (at::add -> CompositeExplicitAutograd -> CPUFallback -> at::native::add) instead of (at::add -> CPUFallback -> at::native::add)
-* An unnecessary tensor allocation (the CompositeExplicitAutograd kernel uses at::empty() to create an output tensor, which is immediately overwritten by the CPU fallback)
-* An unnecessary meta() call (the CompositeExplicitAutograd kernel calls it to create the output tensor, but we call it again in the CPU kernel).
-* unboxing->boxing->unboxing logic (this is the only strictly required piece)
-
-There are definitely ways to avoid the unnecessary work explained above: one would be to give the boxed fallback higher priority than composite keys (there's [an issue for it here](https://github.com/pytorch/pytorch/issues/55104)), and codegen fallthroughs for all composite ops. It'll require more infra to set up, so I see it as more of a perf knob that we can apply if we need it later.
-
-Unfortunately I couldn't dig much deeper into the differences aside from the aggregate change in instructions, since it looks like callgrind fudged some of the instruction attribution (`at::to_cpu` takes up a ton of instructions, but I don't see any attribution for the `at::native::add` kernel anywhere).
-
-Test Plan: Imported from OSS
-
-Reviewed By: jbschlosser
-
-Differential Revision: D28833085
-
-Pulled By: bdhirsh
-
-fbshipit-source-id: 537ebd5d7fb5858f1158764ff47132d503c3b92b
+fbshipit-source-id: 04339284d9c69f0f0a4a8c8bc61a6c9ad5057e0f
 
 ---
-## [aaaa1023/fulpstation@f4a04ca124...](https://github.com/aaaa1023/fulpstation/commit/f4a04ca1248ebd02b7f682f57a8770436097116e)
-##### 2021-06-29 16:57:31 by SgtHunk
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[6e3b74da04...](https://github.com/tgstation/tgstation/commit/6e3b74da049698fb186be306eb2d317c7e697107)
+#### Tuesday 2021-08-24 22:38:29 by Colovorat
 
-Updates Selenestation with directionals (#172)
+Fixes cable merging, changes merging code just a little bit (#60997)
 
-* a lot of directional
+Makes stack code support merging two different stacks with the same mats, but different mats_per_unit numbers by implementing averages.
 
-commiting before i experiment more
-
-* stuff before i continue
-
-* SHOULD BE ALL???
-
-* i dont want to play with you anymore
-
-updatepaths my beloved locket gif
-
-* yo mama
-
-gets rid of strays and fixes a few fucked-up displays
-
-Co-authored-by: Enricode <SgtHunk@users.noreply.github.com>
+It's in an attempt to support the stupid efficiency shit that protolathes do. It's not great, but it ought to work alright for now. Kinda a bandaid
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
 
 ---
-## [bingis-khan/BobiAutomata@20b520bfec...](https://github.com/bingis-khan/BobiAutomata/commit/20b520bfecb0155d67c0731ae1045edef113b7b9)
-##### 2021-06-29 18:22:38 by bingis-khan
+## [asigalov61/Optimus-VIRTUOSO](https://github.com/asigalov61/Optimus-VIRTUOSO)@[35fd37b5b9...](https://github.com/asigalov61/Optimus-VIRTUOSO/commit/35fd37b5b92b69987f26593e95c819c8eb5dfca8)
+#### Tuesday 2021-08-24 23:57:15 by Alex
 
-I'm kinda bored.
+Another beautiful RGA output sample
 
-A lot of things - big and small. I didn't make commits, because I was
-experimenting with a lot of stuff.
-1. I finished the "user" part of the application - it's possible to
-actually run it now like a normal human being. Wow.
-2. I understand Gradle better (like 1% overall, compared to 0.01%
-before) - got the build file cleaned up a bit.
-3. Oh, right. New task 'executable' to compile the whole thing to a
-sorta independent executable. The task adds a custom, jlinked JRE,
-launch4j's .exe and sample automata to a single folder.* Kinda cool.
-4. Added sample automatas.
+This was was generated from 0 (random seeding). You can see the pure original improvisation by the model in the very beginning. And then it of course resolves into what it remembers once the spooky (latent) memory saturates. WOW!! Absolutely amazing if you ask me!!!
 
-----------------------------------------------------------------------
+As always performance is incredible and it only takes ~10 minutes to generate 15 minutes (faster-than-real-time for music, lol)
 
-On that note, I'm kinda bored of this project.
-
-What's left:
-1. More flexible / less repetetive functions might never be implemented
-(for example, right now, the 'is' is part of the 'sum' function and
-every function returns boolean. Functions also can't overlap - something
-like 'north is [state]' and 'north west is [state]' is not possible - a
-task perfect for some kind of a FSM).
-2. Speed up the simulation. This project might actually be interesting
-to try and implement 'hashlife' in.
-For evaluating expressions, maybe something like a bytecode VM? That
-last one is probably overkill, it would be better after porting to C/C++
-or even Rust (as a learning exercise)?
-3. Improve the language. When trying to write a simple fluid simulation,
-I had to repeat a lot of cases (ex. 5 lines with 'FULL:' for example).
-So, a general 'switch-case' structure? A lot of writing, basically. It's
-interesting, because the language might be the greatest barrier in
-creating some interesting cellular automata.
-
-(3) is similar to (1) in a way, that we can increase the expressiveness
-of this language by better implementing function definitions.
-Instead of 4 times 'north is GOES_DOWN and random 1 in n chance ->
-[state]'
-Adding better functions can change it to: 'north is GOES_DOWN -> choose
-GOES_UP, GOES_DOWN, GOES_LEFT, GOES_RIGHT', where 'choose' is of type
-State.
-
-
-What's left, but might actually be implemented, because I'm not as tired
-of this project as I thought:
-1. Toroidal-ness.
-2. Setting (maximum) simulation speed. It ain't that fast and I don't
-know no 'hashlife'. Git outta here!
-3. Remove requirement for specyfing neighborhood type (like, it's not
-needed if the CA is not using it - random walk for example).
-4. Change the order of color definitions - originally there, because of
-code reuse (laziness) and that it kinda makes sense that states are
-differentiated by color first (what you see), then the state it belongs
-to (what it actually is). It breaks down on something like Langton's
-Ant, where multiple states are red. So, yeah, one-to-many: [state] is
-[color].
-5. Custom color, represented by a leading '#', then 6 hex digits. Should
-be added after implementing (4), because it'll look bad otherwise (ex.
-'#00FF00 is ON' vs 'ON is #00FF00').
-6. Parameters (and a system to handle them) to configure all these.
-7. Images instead of colors. The framework is there (State uses
-BufferedImage by default), but we might have to decouple creating states
-from parsing? (Suppose we specify the default image folder in 'Defualts'
-and reference images only by filename. We can do it while parsing, but
-it'll lead to some 'half-parameters' which are only valid inside the
-Parser object and would need to be removed after.)
-8. And, as always, finish pretty printing for error reporting. (^^^^^ to
-underline errors).
-
------------------------------------------------------------------------
-
-*I experimented with two ways to bundle an executable.
-1. Official - Making an installer. Why I didn't go for it? I don't feel
-like this manlet of an application should require a whole installation
-process.
-
-2. Hacky - Something called 'sfx' (self-extracting archive). I actually
-ended up making it work (manually), but, because it seems to be an
-untrustoworthy format
-(https://en.wikipedia.org/wiki/Self-extracting_archive#Disadvantages ),
-Windows always shows its password prompt, which is really annoying. So,
-I scrapped it, but the idea for both a JRE and a program bundled into a
-single executable (without it being obvious it uses a virtual machine)
-is interesting.
-Also, the fact that the jlink Gradle plugin also supports jpackage and
-creating the whole "image" structure, which I used for sfx, is a welcome
-surprise. (I'm not sure if this 'image structure' is the jpackage's or
-the plugin's doing.)
-
----
-## [LeandroBoog/gameification@c5203a36e7...](https://github.com/LeandroBoog/gameification/commit/c5203a36e795b6829eb80f256f4643d45efa4d4c)
-##### 2021-06-29 19:49:29 by Leandro Boog
-
-Oh my fucking god, teamstats now finally has own table like jesus christ why is sql so annoying, why was this so hard
-
----
-## [SwanX1/Swans-CI@afec415a80...](https://github.com/SwanX1/Swans-CI/commit/afec415a80ff16b9340791083baa94d0fb763b59)
-##### 2021-06-29 23:08:44 by SwanX1
-
-Rawr x3 *nuzzles* how are you *pounces on you* you're so warm o3o *notices you have a bulge* o: someone's happy ;) *nuzzles your necky wecky~* murr~ hehehe *rubbies your bulgy wolgy* you're so big :oooo *rubbies more on your bulgy wolgy* it doesn't stop growing ·///· *kisses you and lickies your necky* daddy likies (; *nuzzles wuzzles* I hope daddy really likes $: *wiggles butt and squirms* I want to see your big daddy meat~ *wiggles butt* I have a little itch o3o *wags tail* can you please get my itch~ *puts paws on your chest* nyea~ its a seven inch itch *rubs your chest* can you help me pwease *squirms* pwetty pwease *sad face* I need to be punished *runs paws down your chest and bites lip* like I need to be punished really good~ *paws on your bulge as I lick my lips* I'm getting thirsty. I can go for some milk *unbuttons your pants as my eyes glow* you smell so musky :v *licks shaft* mmmm~ so musky *drools all over your cock* your daddy meat I like *fondles* Mr. Fuzzy Balls hehe *puts snout on balls and inhales deeply* oh god im so hard~ *licks balls* punish me daddy~ nyea~ *squirms more and wiggles butt* I love your musky goodness *bites lip* please punish me *licks lips* nyea~ *suckles on your tip* so good *licks pre of your cock* salty goodness~ *eyes role back and goes balls deep* mmmm~ *moans and suckles* o3o
+Enjoy! :)
 
 ---
 
