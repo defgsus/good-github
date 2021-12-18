@@ -1,6 +1,7 @@
 import re
 import json
 import hashlib
+import datetime
 from pathlib import Path
 from typing import Optional
 
@@ -10,7 +11,7 @@ from .words import WEIGHTED_WORDS
 class GoodMessages:
 
     # ignore messages that contain these strings
-    IGNORE_THESE = [
+    IGNORE_THESE_CONTENTS = [
         # This is just getting on my nerves
         "or you for me Camilo Sasuke Thomas Borregaard Sørensen!!"
     ]
@@ -19,10 +20,15 @@ class GoodMessages:
     #   but do not really contain interesting messages
     IGNORE_REPOS = [
         "fbi-most-wanted-scraper",
+        # it's just posting the README
+        "kenneth558/Dysusing-dispensation-no-more",
     ]
 
     RE_TO_WHITESPACE = re.compile(r"[,.!?:\-'\"()[\]{}]")
-    RE_HEX_START = re.compile(r"^[a-f0-9]+")
+    RE_HEX_START = re.compile(r"^[\->\s]*[a-f0-9]+")
+
+    # at least this much word matching weight sum
+    MIN_RANK = 10
 
     def __init__(self, verbose: bool = False):
         self.verbose = verbose
@@ -88,7 +94,7 @@ class GoodMessages:
         if message.lstrip().startswith("Squashed '"):
             return "Starts with <Squashed '>"
 
-        for ignore_string in self.IGNORE_THESE:
+        for ignore_string in self.IGNORE_THESE_CONTENTS:
             if ignore_string in message:
                 return f"Ignored because of string '{ignore_string}'"
 
@@ -107,24 +113,25 @@ class GoodMessages:
             return  # f"Not enough spaces {num_spaces}/{len(message)}"
 
         message = self.normalize_message(message)
+        message_space_only = message.replace("\n", " ")
 
         rank = 0
         matched_words = []
         for weight, words in WEIGHTED_WORDS.items():
             for word in words:
                 if isinstance(word, str):
-                    is_match = word in message
+                    is_match = word in message_space_only
                     if is_match:
                         matched_words.append(word)
                 else:
-                    matches = word.findall(message)
+                    matches = word.findall(message_space_only)
                     is_match = bool(matches)
                     if is_match:
                         matched_words.append(matches[0])
                 if is_match:
                     rank += weight
 
-        if rank < 10:
+        if rank < self.MIN_RANK:
             return  # f"Rank too low: {rank}"
 
         exclude_msg = self.has_too_much_repetitive_line_starts(message)
@@ -221,11 +228,13 @@ class GoodMessages:
 
     @classmethod
     def commit_to_markdown(cls, commit: dict) -> str:
+        date = datetime.datetime.strptime(commit["date"][:10], "%Y-%m-%d")
+        weekday = date.strftime("%A")
         md = (
             f'## [{commit["repo"]}](https://github.com/{commit["repo"]})@'
             f'[{commit["commit"]["sha"][:10]}...]'
             f'(https://github.com/{commit["repo"]}/commit/{commit["commit"]["sha"]})'
-            f'\n#### {commit["date"].replace("T", " ").replace("Z", "")}'
+            f'\n#### {weekday} {commit["date"].replace("T", " ").replace("Z", "")}'
             f' by {commit["commit"]["author"]["name"]}'
         )
         md += "\n\n"
