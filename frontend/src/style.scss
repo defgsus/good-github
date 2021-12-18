@@ -19,18 +19,10 @@ body {
   position: relative;
 
   #app {
-    width: 90%;
-    //max-width: 1600px;
+    //width: 90%;
+    max-width: 1600px;
     margin-left: auto;
     margin-right: auto;
-
-    @media (max-width: 1300px) {
-      width: 90%;
-    }
-    @media (max-width: 900px) {
-      width: 98%;
-    }
-
 
     .hidden {
       display: none;
