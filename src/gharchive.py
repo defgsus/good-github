@@ -27,8 +27,11 @@ class GHArchive:
     ) -> Generator[dict, None, None]:
         id_set = set()
 
-        for hour in range(0, 24):
+        for hour in range(22, 24):
             filename = self.get_event_file(day, hour)
+            if not filename:
+                continue
+
             for event in iter_ndjson(filename):
 
                 # skip the old events
@@ -49,12 +52,17 @@ class GHArchive:
         filename = f"{day.year}-{day.month:02d}-{day.day:02d}-{hour}.json.gz"
         local_filename = self.raw_path / f"{day.year}" / filename
         if not local_filename.exists():
-            self._download(filename, local_filename)
+            if not self._download(filename, local_filename):
+                return
         return local_filename
 
-    def _download(self, filename: str, local_filename: Path, chunk_size: int = 64_000):
+    def _download(self, filename: str, local_filename: Path, chunk_size: int = 64_000) -> bool:
         with requests.get(f"https://data.gharchive.org/{filename}", stream=True) as r:
-            assert r.status_code == 200, f"{filename} got status {r.status_code}"
+            if r.status_code != 200:
+                if self.verbose:
+                    print(f"\n\nNOT FOUND {r.request.url}, got status {r.status_code}")
+                return False
+
             size = int(r.headers['content-length'])
             iterable = r.iter_content(chunk_size=chunk_size)
             if self.verbose:
@@ -63,6 +71,7 @@ class GHArchive:
                 with open(str(local_filename), "wb") as fp:
                     for data in iterable:
                         fp.write(data)
+                return True
             except:
                 # don't leave half files
                 os.remove(str(local_filename))

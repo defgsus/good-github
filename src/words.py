@@ -17,17 +17,17 @@ WEIGHTED_WORDS = {
         "music", "personal", "brain", "cool", "interesting",
         " offend", "frankly", "fortunate", "however",
         "didn't help", "thanks", "thank you", "anyway", " enjoy ",
-        re.compile(" a+h+ "), re.compile(" o+h+ "), re.compile("oo+ps"),
-        " do the tricks ",
+        re.compile(" a+h+ "), re.compile(" o+h+ "), re.compile("oo+ps "), re.compile(" oo+ps"),
+        " do the tricks ", " garbage", " depressing ",
     ],
     2: [
         re.compile(" a+rr+g+h* "), re.compile(" mm+h+ "),
-        re.compile(" ba+h+ "),
+        re.compile(" ba+h+ "), " haha ", " hahaha ",
         "pandemic", " war ", "science", "scientist",
-        " hack", " hacks", " wild ", " claw",
+        " hack", " hacks", " wild ", " claw", " crazy ",
         "drinking", " exhaustive", " headache",
         " poorly", " unreadable", " theory",
-        " diary", " wonder",
+        " diary", " wonder ", " depression "
         " intelligent machine",
     ],
     3: [
