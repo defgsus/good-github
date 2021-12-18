@@ -91,4 +91,6 @@ class Tests(unittest.TestCase):
 
         # TODO:
         #   99977cea1c4ab14dbd46866df8711d5a91af16f9 on 2021-12-16
-        #   mostly comma separated words should maybe filtered out?
+        #       mostly comma separated words should maybe filtered out?
+        #   https://github.com/Buildstarted/linksfordevs/commit/9d313e5f0dafbbb138fe3ceaafa6a8d0069e494d
+        #       should strip leading <number>. for line comparison
