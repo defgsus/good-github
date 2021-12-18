@@ -1,4 +1,6 @@
+import re
 import glob
+import json
 import datetime
 from pathlib import Path
 from typing import List, Tuple
@@ -16,10 +18,13 @@ MessageFiles = List[Tuple[Tuple[str, str, str], Path]]
 def update_index(verbose: bool):
     files = get_message_files()
     if verbose:
-        print("writing docs/messages.md")
-    update_messages_index(files)
+        print("writing", DOCS_PATH / "messages.md")
+    update_messages_index_markdown(files)
     if verbose:
-        print("writing README.md")
+        print("writing", MESSAGES_PATH / "index.json")
+    update_messages_index_json(files)
+    if verbose:
+        print("writing", PROJECT_PATH / "README.md")
     update_readme(files)
 
 
@@ -38,7 +43,7 @@ def update_readme(files: MessageFiles):
     (PROJECT_PATH / "README.md").write_text(md)
 
 
-def update_messages_index(files: MessageFiles):
+def update_messages_index_markdown(files: MessageFiles):
     md = ""
     year = None
     month = None
@@ -55,6 +60,21 @@ def update_messages_index(files: MessageFiles):
     md += "\n"
 
     Path(DOCS_PATH / "messages.md").write_text(md)
+
+
+def update_messages_index_json(files: MessageFiles):
+    RE_MESSAGE_TITLE = re.compile(r"^##\s\[[\w\d/_\-]+\]\(https://github.com/.*\)@", re.MULTILINE)
+
+    index = []
+    for date, filename in files:
+        md = (DOCS_PATH / filename).read_text()
+        repos = RE_MESSAGE_TITLE.findall(md)
+        index.append({
+            "date": "-".join(date),
+            "num_messages": len(repos),
+        })
+
+    Path(MESSAGES_PATH / "index.json").write_text(json.dumps({"index": index}))
 
 
 def get_message_files() -> MessageFiles:

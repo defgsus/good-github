@@ -9,3 +9,9 @@ __pycache__/
 .idea/
 env/
 venv/
+
+node_modules/
+.parcel-cache/
+/frontend/dist/
+package-lock.json
+yarn.lock

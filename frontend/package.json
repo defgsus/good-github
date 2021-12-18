@@ -1,0 +1,27 @@
+{
+  "name": "good-github",
+  "version": "0.0.1",
+  "description": "good gosh github",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build --no-source-maps --public-url /good-github/js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "bergi",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/transformer-sass": "^2.0.0",
+    "@types/react": "^17.0.34",
+    "@types/react-dom": "^17.0.11",
+    "parcel": "^2.0.0"
+  },
+  "dependencies": {
+    "immutable": "^4.0.0",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^7.1.1",
+    "remark-gfm": "^3.0.1"
+  }
+}

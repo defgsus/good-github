@@ -1,0 +1,135 @@
+:root {
+  --color-bg: #0d1117;
+  --color-link: #58a6ff;
+  --color-select-shadow: #e4f789;
+}
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji";
+  background: var(--color-bg);
+  color: #ddd;
+
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+  }
+}
+
+#app-container {
+  position: relative;
+
+  #app {
+    width: 90%;
+    //max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @media (max-width: 1300px) {
+      width: 90%;
+    }
+    @media (max-width: 900px) {
+      width: 98%;
+    }
+
+
+    .hidden {
+      display: none;
+    }
+
+    .clickable {
+      cursor: pointer;
+    }
+
+    .grid-x {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+
+      &.nowrap {
+        flex-wrap: nowrap;
+      }
+
+      &.margin-right > * {
+        margin-right: .5rem;
+      }
+      &.margin-bottom > * {
+        margin-bottom: .5rem;
+      }
+
+      .grow {
+        flex-grow: 1000;
+      }
+
+      .inline {
+        display: inline-block;
+        vertical-align: middle;
+      }
+    }
+
+    .error {
+      background: #caa;
+      padding: .5rem;
+    }
+
+    .good-messages {
+      .messages {
+        padding: .5rem .5rem .5rem 1.5rem;
+        //overflow: scroll;
+        //height: 500px;
+      }
+
+      .calendar-sidebar {
+
+        .year {
+          text-align: center;
+          font-weight: bold;
+          padding-top: .2rem;
+        }
+
+        .week-row {
+          .day {
+            //background: #444;
+            border: 1px solid var(--color-bg);
+            width: 1rem;
+            height: 1rem;
+
+            &.available {
+              background: #555;
+              border-color: #222;
+              cursor: pointer;
+            }
+            &.selected {
+              border-color: var(--color-select-shadow);
+              box-shadow: 0 0 .2rem .1rem var(--color-select-shadow), inset 0 0 .4rem var(--color-select-shadow);
+              z-index: 10;
+            }
+
+            &.level-1 {
+              background: #506850;
+            }
+
+            &.level-2 {
+              background: #585;
+            }
+
+            &.level-3 {
+              background: #5a5;
+            }
+
+            &.level-4 {
+              background: #5c5;
+            }
+
+            &.level-5 {
+              background: #50da50;
+            }
+
+            &.level-6 {
+              background: #5f5;
+            }
+          }
+        }
+      }
+    }
+  }
+}
