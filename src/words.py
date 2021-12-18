@@ -12,7 +12,7 @@ WEIGHTED_WORDS = {
         " we ", " we ll ", " we d ",
         " we should ", " i should", " he should", " she should",
         "think", "thinking", "feeling", "beautiful", "happy", " sad ",
-        "paradox", " worry", " wise", " sane ",
+        "paradox", " worry", " wise", " sane ", " weird ", " wierd "  # !sic
         " days ", "hours", "yesterday", "today", "tomorrow", "year",
         "music", "personal", "brain", "cool", "interesting",
         " offend", "frankly", "fortunate", "however",
@@ -36,7 +36,7 @@ WEIGHTED_WORDS = {
         " doesn't make sense", " confess", " remember",
         " funny", " hilarious", " ridiculous", " amazing", " wonky",
         " stupid", " awful", " silly", " ugly", " clunk", " creep",
-        " shut up", " suck", " sucking", " screw you", " idiot", " idiotic",
+        " shut up", " suck", " sucking", " sick ", " screw you", " idiot", " idiotic",
         " sadness", " emotion", " pain", " miracle", " despair", " despar",  # !sic
         " insane", " insanit", " rage ", " die ",
 
