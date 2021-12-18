@@ -16,3 +16,24 @@ class Tests(unittest.TestCase):
         self.assertTrue(
             proc.has_too_much_repetitive_line_starts(MESSAGE_02)
         )
+
+    def test_remove_duplicates(self):
+        proc = GoodMessages(verbose=True)
+        proc.commits = [
+            {"commit": {"message": "abcdefghijklmnopq"}},
+            {"commit": {"message": "123456789"}},
+            {"commit": {"message": "abcdefghijklmnopq"}},
+            {"commit": {"message": "blabla"}},
+            {"commit": {"message": "abcde123456789abcde"}},  # middle third still matches
+            {"commit": {"message": "blub"}},
+        ]
+        proc.remove_duplicates()
+        self.assertEqual(
+            [
+                {"commit": {"message": "abcdefghijklmnopq"}},
+                {"commit": {"message": "123456789"}},
+                {"commit": {"message": "blabla"}},
+                {"commit": {"message": "blub"}},
+            ],
+            proc.commits
+        )

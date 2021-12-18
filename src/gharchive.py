@@ -54,13 +54,19 @@ class GHArchive:
 
     def _download(self, filename: str, local_filename: Path, chunk_size: int = 64_000):
         with requests.get(f"https://data.gharchive.org/{filename}", stream=True) as r:
+            assert r.status_code == 200, f"{filename} got status {r.status_code}"
             size = int(r.headers['content-length'])
             iterable = r.iter_content(chunk_size=chunk_size)
             if self.verbose:
                 iterable = tqdm(iterable, total=size // chunk_size, desc=f"downloading {filename}")
-            with open(str(local_filename), "wb") as fp:
-                for data in iterable:
-                    fp.write(data)
+            try:
+                with open(str(local_filename), "wb") as fp:
+                    for data in iterable:
+                        fp.write(data)
+            except:
+                # don't leave half files
+                os.remove(str(local_filename))
+                raise
 
     @staticmethod
     def _sort_key(k: str):

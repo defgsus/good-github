@@ -84,6 +84,8 @@ def main(
         raw_path=path,
         verbose=verbose,
     )
+    written_hashes = set()
+
     for day in days:
 
         if not force:
@@ -93,6 +95,7 @@ def main(
                 continue
 
         proc = GoodMessages(verbose=verbose)
+        proc.written_hashes = written_hashes
 
         key_interrupt = False
         stash_file = (ROOT_DIR / "stash" / str(day)[:4] / f"{str(day)[:10]}.json")
@@ -115,7 +118,7 @@ def main(
 
             except KeyboardInterrupt:
                 break
-                # for testing/development continue here to save the time to parse the whole day
+                # for testing/development continue here and export a partial day
                 key_interrupt = True
 
             if not stash_file.parent.exists():

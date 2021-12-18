@@ -1,5 +1,6 @@
 import re
 import json
+import hashlib
 from pathlib import Path
 from typing import Optional
 
@@ -34,6 +35,7 @@ class GoodMessages:
             "num_commit_messages": 0,
             "num_commit_characters": 0,
         }
+        self.written_hashes = set()
 
     def dump_stats(self):
         msg = (
@@ -81,7 +83,7 @@ class GoodMessages:
         if "[bot]" in commit["author"]["email"]:
             return
 
-        # TODO: it's a bit radical but guess that no real commit message
+        # TODO: it's a bit radical but guess that no good message
         #   starts like this
         if message.lstrip().startswith("Squashed '"):
             return "Starts with <Squashed '>"
@@ -93,8 +95,13 @@ class GoodMessages:
         if len(message) < 50:
             return  # f"Too short {len(message)}"
 
+        message_hash = hashlib.sha256(commit["message"].encode("utf-8")).hexdigest()
+        if message_hash in self.written_hashes:
+            return  # "Skip already repeating message hash"
+
         # sometimes there's just a lot of random characters
-        #   without spaces
+        #   without spaces. that also excludes chinese texts
+        #   but they usually won't have much english words for ranking
         num_spaces = len([c for c in message if c == " "])
         if num_spaces / len(message) < 1 / 100:
             return  # f"Not enough spaces {num_spaces}/{len(message)}"
@@ -124,12 +131,14 @@ class GoodMessages:
         if exclude_msg:
             return exclude_msg
 
+        self.written_hashes.add(message_hash)
         self.commits.append({
             "date": event["created_at"],
             "repo": event["repo"]["name"],
             "rank": rank,
             "matched_words": sorted(matched_words),
             "commit": commit,
+            "hash": message_hash,
         })
         self.commits.sort(key=lambda c: c["rank"], reverse=True)
         if len(self.commits) > 100:
