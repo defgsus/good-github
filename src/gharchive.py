@@ -27,7 +27,7 @@ class GHArchive:
     ) -> Generator[dict, None, None]:
         id_set = set()
 
-        for hour in range(22, 24):
+        for hour in range(0, 24):
             filename = self.get_event_file(day, hour)
             if not filename:
                 continue

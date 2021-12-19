@@ -27,7 +27,7 @@ WEIGHTED_WORDS = {
         " hack", " hacks", " wild ", " claw", " crazy ",
         "drinking", " exhaustive", " headache",
         " poorly", " unreadable", " theory",
-        " diary", " wonder ", " depression "
+        " diary", " wonder ", " depression ", " revenge ",
         " intelligent machine",
     ],
     3: [
