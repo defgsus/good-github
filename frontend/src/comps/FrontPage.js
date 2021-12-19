@@ -21,7 +21,7 @@ const FrontPage = () => {
                 </div>
             </div>
 
-            {error ? <div className={"error"}>{error}</div> : null}
+            {error ? <div className={"error"}>{JSON.stringify(error)}</div> : null}
 
             <GoodMessages/>
 

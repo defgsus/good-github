@@ -26,7 +26,7 @@ function reducer_impl(state, action) {
     if (action.type.endsWith("_FAILED")) {
         state = {
             ...state,
-            error: action.event
+            error: `${action.type.slice(0, action.type.length-7)} failed`
         };
     }
 

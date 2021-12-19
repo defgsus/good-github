@@ -1,6 +1,7 @@
 :root {
   --color-bg: #0d1117;
   --color-bg-subtle: #172028;
+  --color-bg-error: #623333;
   --color-link: #58a6ff;
   --color-select-shadow: #e4f789;
   --max-width: 1600px;
@@ -61,7 +62,7 @@ body {
     }
 
     .error {
-      background: #caa;
+      background: var(--color-bg-error);
       padding: .5rem;
     }
 
