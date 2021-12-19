@@ -29,6 +29,12 @@ function reducer_impl(state, action) {
             error: `${action.type.slice(0, action.type.length-7)} failed`
         };
     }
+    if (action.type.endsWith("_SUCCESS")) {
+        state = {
+            ...state,
+            error: null
+        };
+    }
 
     switch (action.type) {
         case "SET_DATE":
