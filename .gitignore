@@ -2,6 +2,7 @@
 *.txt
 /stash/
 /gharchive-dump/
+/export/
 *.sh
 
 *.pyc
