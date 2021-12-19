@@ -26,6 +26,7 @@ class GoodMessages:
 
     RE_TO_WHITESPACE = re.compile(r"[,.!?:\-'\"()[\]{}]")
     RE_HEX_START = re.compile(r"^[\->\s]*[a-f0-9]+")
+    RE_WHITESPACE = re.compile(r"\s+")
 
     # at least this much word matching weight sum
     MIN_RANK = 10
@@ -250,10 +251,10 @@ class GoodMessages:
 
         to_remove = set()
         for i, c1 in enumerate(self.commits):
-            m1 = c1["commit"]["message"]
+            m1 = self.single_space(c1["commit"]["message"])
             for j, c2 in enumerate(self.commits[i+1:]):
                 j = i + j + 1
-                m2 = c2["commit"]["message"]
+                m2 = self.single_space(c2["commit"]["message"])
                 if m1 == m2 or _middle(m1) in m2 or _middle(m2) in m1:
                     to_remove.add(j)
 
@@ -261,3 +262,7 @@ class GoodMessages:
             c for i, c in enumerate(self.commits)
             if i not in to_remove
         ]
+
+    @classmethod
+    def single_space(cls, text: str) -> str:
+        return cls.RE_WHITESPACE.sub(" ", text.replace("\n", " "))

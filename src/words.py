@@ -3,32 +3,38 @@ import re
 
 WEIGHTED_WORDS = {
     0.15: [
-        " i ", " i m ", " i am ", " i ve ", " i have", " i d ", " i had ",
+        " i m ", " i am ", " i ve ", " i have", " i d ", " i had ",
         " i ll ", " i will ", " i won't ", " i wont ",
+
+        " today",
     ],
     1: [
         " i want ",
         " my ", " myself", " he ", " she ", " his ", " her ", " you ", " you d ", " you ll ",
         " we ", " we ll ", " we d ",
         " we should ", " i should", " he should", " she should",
-        "think", "thinking", "feeling", "beautiful", "happy", " sad ",
+        " think", " thinking", " feeling", " beautiful", " happy", " sad ",
         "paradox", " worry", " wise", " sane ", " weird ", " wierd "  # !sic
-        " days ", "hours", "yesterday", "today", "tomorrow", "year",
-        "music", "personal", "brain", "cool", "interesting",
-        " offend", "frankly", "fortunate", "however",
+        " days ", " hours ", " yesterday", " tomorrow", " year",
+        "music", " personal", " cool ", " interesting",
+        " offend", " frankly", " fortunate", " however ",
         "didn't help", "thanks", "thank you", "anyway", " enjoy ",
-        re.compile(" a+h+ "), re.compile(" o+h+ "), re.compile("oo+ps "), re.compile(" oo+ps"),
+        re.compile(" a+h+ "), re.compile(" o+h+ "), re.compile(" oo+ps "),
         " do the tricks ", " garbage", " depressing ",
+        " love", "love "
     ],
     2: [
         re.compile(" a+rr+g+h* "), re.compile(" mm+h+ "),
-        re.compile(" ba+h+ "), " haha ", " hahaha ",
+        re.compile(" ba+h+ "),
+        re.compile(" ha\s*ha "),re.compile(" ha\s*ha\s*ha "),
+        re.compile(" har\s*har "),
+        " my brain",
         "pandemic", " war ", "science", "scientist",
         " hack", " hacks", " wild ", " claw", " crazy ",
         "drinking", " exhaustive", " headache",
-        " poorly", " unreadable", " theory",
+        " poorly", " unreadable", " theory", " theorize",
         " diary", " wonder ", " depression ", " revenge ",
-        " intelligent machine",
+        " intelligent machine", "psychedelic",
     ],
     3: [
         " yeah", re.compile(" yah+ "),
@@ -38,9 +44,9 @@ WEIGHTED_WORDS = {
         " stupid", " awful", " silly", " ugly", " clunk", " creep",
         " shut up", " suck", " sucking", " sick ", " screw you", " idiot", " idiotic",
         " sadness", " emotion", " pain", " miracle", " despair", " despar",  # !sic
-        " insane", " insanit", " rage ", " die ",
+        " insane", " insanit", " rage ", " die ", " lynch",
 
-        " love", "love ", " lovely", " hate ", " hateful", " hating", " curse", "damn", " joy ",
+        " lovely", " hate ", " hateful", " hating", " curse", "damn", " joy ",
         " frustrati", "humbug", " gosh ", " blood", " annoy", " trouble",
         " evil", " god ", " devil ", " god s ", "praise", " holy ", "church", " verse ", " faith ",
         re.compile(" omg+ "),
