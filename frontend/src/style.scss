@@ -1,7 +1,9 @@
 :root {
   --color-bg: #0d1117;
+  --color-bg-subtle: #172028;
   --color-link: #58a6ff;
   --color-select-shadow: #e4f789;
+  --max-width: 1600px;
 }
 
 body {
@@ -20,7 +22,7 @@ body {
 
   #app {
     //width: 90%;
-    max-width: 1600px;
+    max-width: var(--max-width);
     margin-left: auto;
     margin-right: auto;
 
@@ -65,10 +67,22 @@ body {
 
     .good-messages {
       .messages {
-        max-width: 1400px;
+        max-width: 80%;
         padding: .5rem .5rem .5rem 1.5rem;
-        //overflow: scroll;
-        //height: 500px;
+        position: relative;
+
+        pre {
+          background: var(--color-bg-subtle);
+          max-width: var(--max-width);
+          overflow: scroll;
+          white-space: normal;
+          padding: .5rem;
+          border-radius: .2rem;
+        }
+        code {
+          word-break: normal;
+          white-space: pre;
+        }
       }
 
       .calendar-sidebar {
