@@ -105,7 +105,7 @@ def main(
 
         else:
             try:
-                iterable = archive.iter_events(day)
+                iterable = archive.iter_events(day, event_type="PushEvent")
                 if verbose:
                     iterable = tqdm(iterable, desc=f"parsing events {str(day)[:10]}")
 

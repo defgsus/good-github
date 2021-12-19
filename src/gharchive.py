@@ -24,15 +24,20 @@ class GHArchive:
     def iter_events(
             self,
             day: datetime.date,
+            event_type: Optional[str] = None,
     ) -> Generator[dict, None, None]:
         id_set = set()
 
-        for hour in range(0, 24):
+        filter = None
+        if event_type:
+            filter = lambda line: f'"type":"{event_type}"' in line
+
+        for hour in range(0, 3):
             filename = self.get_event_file(day, hour)
             if not filename:
                 continue
 
-            for event in iter_ndjson(filename):
+            for event in iter_ndjson(filename, filter=filter):
 
                 # skip the old events
                 if not event.get("id"):

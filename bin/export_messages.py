@@ -78,13 +78,21 @@ def main(
     num_commits = 0
     num_bytes_written = 0
 
+    def dump_stats():
+        print()
+        print(
+            f"\ndate:    {event['created_at']}"
+            f"\ncommits: {num_commits:,d}"
+            f"\nwritten: {num_bytes_written:,d}"
+        )
+
     archive = GHArchive(
         raw_path=path,
         verbose=verbose,
     )
     for day in days:
 
-        iterable = archive.iter_events(day)
+        iterable = archive.iter_events(day, event_type="PushEvent")
         if verbose:
             iterable = tqdm(iterable, desc=f"parsing events {str(day)[:10]}")
 
@@ -103,14 +111,10 @@ def main(
                     num_commits += 1
 
             if verbose and i % 100_000 == 0:
-                print()
-                print(
-                    f"\ndate:    {event['created_at']}"
-                    f"\ncommits: {num_commits:,d}"
-                    f"\nwritten: {num_bytes_written:,d}"
-                )
+                dump_stats()
 
     commits_file.close()
+    dump_stats()
 
 
 if __name__ == "__main__":

@@ -4,13 +4,18 @@ import glob
 import csv
 import io
 from pathlib import Path
-from typing import Union, Generator, IO
+from typing import Union, Generator, IO, Optional, Callable
 
 
-def iter_ndjson(file: Union[str, Path, IO], raise_error: bool = False, skip: int = 0) -> Generator[dict, None, None]:
+def iter_ndjson(
+        file: Union[str, Path, IO],
+        raise_error: bool = False, skip: int = 0,
+        filter: Optional[Callable[[str], bool]] = None,
+) -> Generator[dict, None, None]:
     for line in iter_lines(file, skip=skip):
         try:
-            yield json.loads(line)
+            if filter is None or filter(line):
+                yield json.loads(line)
         except json.JSONDecodeError as e:
             if raise_error:
                 raise
