@@ -1,17 +1,15 @@
 import re
-import subprocess
-from pathlib import Path
-
 
 """
-These are the words that pick out the commit messages. 
-A message is included if it gets 10 points or above. 
+
+These are the words that filter the commit messages. 
 
 Punctuations and new-lines are removed from the messages and
-the following strings are searched in the whole string.
+the following strings are searched in the whole message.
 
 Each matching string increases the rank-counter **once**
-and messages >= 10 are included!
+and messages with rank >= 10 are included.
+
 """
 
 
@@ -35,7 +33,7 @@ WEIGHTED_WORDS = {
         "didn't help", "thanks", "thank you", "anyway", " enjoy ",
         re.compile(" a+h+ "), re.compile(" o+h+ "), re.compile(" oo+ps "),
         " do the tricks ", " garbage", " depressing ",
-        " love", "love "
+        " love", "love ", " appease ",
     ],
     2: [
         re.compile(" a+rr+g+h* "), re.compile(" mm+h+ "),
@@ -92,12 +90,3 @@ WEIGHTED_WORDS = {
         " hate my life", "fuck you",
     ]
 }
-
-
-def get_words_commit_sha() -> str:
-    return subprocess.check_output(
-        [
-            "git", "log", "--max-count", "1", "--format=%H",
-            Path(__file__).resolve(),
-        ]
-    ).decode("utf-8").strip()

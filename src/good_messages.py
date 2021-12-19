@@ -2,10 +2,11 @@ import re
 import json
 import hashlib
 import datetime
+import subprocess
 from pathlib import Path
 from typing import Optional
 
-from .words import WEIGHTED_WORDS, get_words_commit_sha
+from .words import WEIGHTED_WORDS
 
 
 class GoodMessages:
@@ -222,7 +223,7 @@ class GoodMessages:
         return "\n---\n".join(md_commits)
 
     def render_stats_markdown(self) -> str:
-        sha = get_words_commit_sha()
+        sha = self.get_words_commit_sha()
         return (
             f'{self.stats["num_events"]:,d} events recorded by [gharchive.org](https://www.gharchive.org/)'
             f' of which {self.stats["num_push_events"]:,d} were push events'
@@ -271,3 +272,15 @@ class GoodMessages:
     @classmethod
     def single_space(cls, text: str) -> str:
         return cls.RE_WHITESPACE.sub(" ", text.replace("\n", " "))
+
+    @classmethod
+    def get_words_commit_sha(cls) -> str:
+        """
+        Returns the current commit sha of this file
+        """
+        return subprocess.check_output(
+            [
+                "git", "log", "--max-count", "1", "--format=%H",
+                Path(__file__).resolve().parent / "words.py",
+            ]
+        ).decode("utf-8").strip()
