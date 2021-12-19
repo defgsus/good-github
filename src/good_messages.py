@@ -5,7 +5,7 @@ import datetime
 from pathlib import Path
 from typing import Optional
 
-from .words import WEIGHTED_WORDS
+from .words import WEIGHTED_WORDS, get_words_commit_sha
 
 
 class GoodMessages:
@@ -22,6 +22,8 @@ class GoodMessages:
         "fbi-most-wanted-scraper",
         # it's just posting the README
         "kenneth558/Dysusing-dispensation-no-more",
+        # a minecraft trading archive ?
+        "skyblockz/pricecheckbot",
     ]
 
     RE_TO_WHITESPACE = re.compile(r"[,.!?:\-'\"()[\]{}]")
@@ -220,11 +222,14 @@ class GoodMessages:
         return "\n---\n".join(md_commits)
 
     def render_stats_markdown(self) -> str:
+        sha = get_words_commit_sha()
         return (
-            f'{self.stats["num_events"]:,d} events'
-            f', {self.stats["num_push_events"]:,d} push events'
-            f', {self.stats["num_commit_messages"]:,d} commit messages'
-            f', {self.stats["num_commit_characters"]:,d} characters'
+            f'{self.stats["num_events"]:,d} events recorded by [gharchive.org](https://www.gharchive.org/)'
+            f' of which {self.stats["num_push_events"]:,d} were push events'
+            f' containing {self.stats["num_commit_messages"]:,d} commit messages'
+            f' that amount to {self.stats["num_commit_characters"]:,d} characters'
+            f' filtered with [words.py@{sha[:10]}...](https://github.com/defgsus/good-github/blob/{sha}/src/words.py)'
+            f' to these {len(self.commits)} messages:'
         ) + "\n"
 
     @classmethod
