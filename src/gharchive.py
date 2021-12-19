@@ -32,7 +32,7 @@ class GHArchive:
         if event_type:
             filter = lambda line: f'"type":"{event_type}"' in line
 
-        for hour in range(0, 3):
+        for hour in range(0, 24):
             filename = self.get_event_file(day, hour)
             if not filename:
                 continue
