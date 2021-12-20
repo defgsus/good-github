@@ -1,9 +1,9 @@
 import unittest
 from pathlib import Path
 
-from .good_messages import GoodMessages
+from src.good_messages import GoodMessages
 
-PROJECT_PATH = Path(__file__).resolve().parent.parent
+PROJECT_PATH = Path(__file__).resolve().parent.parent.parent
 STASH_PATH = PROJECT_PATH / "stash"
 
 
@@ -13,7 +13,7 @@ REPEATING_LINES = [
 ]
 
 
-class Tests(unittest.TestCase):
+class TestStuff(unittest.TestCase):
 
     def test_repetitive_lines(self):
         proc = GoodMessages(verbose=True)
