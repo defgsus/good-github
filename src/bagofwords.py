@@ -41,10 +41,13 @@ def tokenize(text: str) -> List[str]:
 class BagOfWords:
 
     def __init__(self, data: Optional[WordBagArgument] = None):
-        self.bag = dict()
         self.is_normalized = False
-        if data:
-            self += data
+        if isinstance(data, dict):
+            self.bag = data
+        else:
+            self.bag = dict()
+            if data:
+                self += data
 
     def __copy__(self) -> "BagOfWords":
         bag = BagOfWords()
@@ -125,10 +128,10 @@ class BagOfWords:
         if self.is_normalized:
             return self.__copy__() if copy else self
 
-        bag = BagOfWords()
-        count = self.count() or 1
+        bag = self.copy()
+        factor = 1 / (self.count() or 1)
         bag.bag = {
-            key: value / count
+            key: value * factor
             for key, value in self.bag.items()
         }
         bag.is_normalized = True
@@ -157,70 +160,78 @@ class BagOfWords:
                     bag.bag[key] = value
         return bag
 
-    def sort(self):
+    def sort(self) -> "BagOfWords":
         self.bag = {
             key: self.bag[key]
             for key in sorted(sorted(self.bag), key=lambda k: -self.bag[k])
         }
+        return self
 
     def add_word(self, word: str, count: int = 1):
         self.bag[word] = self.bag.get(word, 0) + count
 
-    def subtract(self, other: WordBagArgument, amount: Optional[Union[str, int, float]] = None) -> "BagOfWords":
+    def subtract(self, other: WordBagArgument, amount: Optional[Number] = None) -> "BagOfWords":
         """
         Subtract value of other
         :param other: text, tokens, dict or BagOfWords
-        :param amount: None to leave values untouched, number to multiply,
-            "all" to remove all keys that are in 'other'
+        :param amount: optional number to multiply other's values
         :return: self
         """
         self.is_normalized = False
         other_dict = self._as_dict(other)
 
         if self.size() > len(other_dict):
-            for key, value in other_dict.items():
-                if key not in self.bag:
-                    continue
+            if amount is None:
+                for key, value in other_dict.items():
+                    if key not in self.bag:
+                        continue
 
-                if amount == "all":
-                    value = -1
-                elif amount is None:
                     value = self.bag[key] - value
-                else:
-                    value = self.bag[key] - amount * value
-
-                if value <= 0:
-                    del self.bag[key]
-                else:
-                    self.bag[key] = value
-        else:
-            has_zeros = False
-            for key, value in self.items():
-                if key in other_dict:
-
-                    if amount == "all":
-                        value = -1
-                    elif amount is None:
-                        value = value - other_dict[key]
-                    else:
-                        value = value - amount * other_dict[key]
-
-                    self.bag[key] = value
                     if value <= 0:
-                        has_zeros = True
+                        del self.bag[key]
+                    else:
+                        self.bag[key] = value
+            else:
+                for key, value in other_dict.items():
+                    if key not in self.bag:
+                        continue
 
-            if has_zeros:
-                self.bag = {
-                    key: value
-                    for key, value in self.items()
-                    if value > 0
-                }
+                    value = self.bag[key] - amount * value
+                    if value <= 0:
+                        del self.bag[key]
+                    else:
+                        self.bag[key] = value
+        else:
+            new_dict = dict()
+            self._subtract_dict(new_dict, other_dict, amount)
+            self.bag = new_dict
         return self
 
-    def subtracted(self, other: WordBagArgument, amount: Optional[float] = None) -> "BagOfWords":
-        new_bag = self.__copy__()
-        new_bag.subtract(other, amount=amount)
-        return new_bag
+    def subtracted(self, other: WordBagArgument, amount: Optional[Number] = None) -> "BagOfWords":
+        other_dict = self._as_dict(other)
+        bag = BagOfWords()
+        self._subtract_dict(bag.bag, other_dict, amount)
+        return bag
+
+    def _subtract_dict(self, new_bag: dict, other: dict, amount: Optional[Number]):
+        if amount is None:
+            for key, value in self.items():
+                if key not in other:
+                    new_bag[key] = value
+                else:
+                    value -= other[key]
+
+                    if value > 0:
+                        new_bag[key] = value
+        else:
+            for key, value in self.items():
+                if key not in other:
+                    new_bag[key] = value
+                else:
+                    value -= other[key] * amount
+
+                    if value > 0:
+                        new_bag[key] = value
 
     def union(self, other: WordBagArgument):
         bag = self.__copy__()

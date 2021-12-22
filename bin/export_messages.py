@@ -12,8 +12,6 @@ ROOT_DIR = Path(__file__).resolve().parent.parent
 sys.path.append(str(ROOT_DIR))
 
 from src.gharchive import GHArchive
-from src.good_messages import GoodMessages
-from src.update_index import update_index, get_message_files
 
 
 def parse_args() -> dict:

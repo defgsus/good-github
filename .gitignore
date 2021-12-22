@@ -3,6 +3,7 @@
 /stash/
 /gharchive-dump/
 /export/
+/scratchpad/
 *.sh
 
 *.pyc
