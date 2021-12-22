@@ -819,4 +819,8 @@
 [15](good-messages/2021/2021-12-15.md)
 [16](good-messages/2021/2021-12-16.md)
 [17](good-messages/2021/2021-12-17.md)
+[18](good-messages/2021/2021-12-18.md)
+[19](good-messages/2021/2021-12-19.md)
+[20](good-messages/2021/2021-12-20.md)
+[21](good-messages/2021/2021-12-21.md)
 
