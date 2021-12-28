@@ -828,4 +828,5 @@
 [24](good-messages/2021/2021-12-24.md)
 [25](good-messages/2021/2021-12-25.md)
 [26](good-messages/2021/2021-12-26.md)
+[27](good-messages/2021/2021-12-27.md)
 
