@@ -834,3 +834,24 @@
 [30](good-messages/2021/2021-12-30.md)
 [31](good-messages/2021/2021-12-31.md)
 
+
+### 2022
+
+
+
+#### January
+
+[01](good-messages/2022/2022-01-01.md)
+[02](good-messages/2022/2022-01-02.md)
+[03](good-messages/2022/2022-01-03.md)
+[04](good-messages/2022/2022-01-04.md)
+[05](good-messages/2022/2022-01-05.md)
+[06](good-messages/2022/2022-01-06.md)
+[07](good-messages/2022/2022-01-07.md)
+[08](good-messages/2022/2022-01-08.md)
+[09](good-messages/2022/2022-01-09.md)
+[10](good-messages/2022/2022-01-10.md)
+[11](good-messages/2022/2022-01-11.md)
+[12](good-messages/2022/2022-01-12.md)
+[13](good-messages/2022/2022-01-13.md)
+
