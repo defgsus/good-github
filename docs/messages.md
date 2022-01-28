@@ -867,4 +867,5 @@
 [24](good-messages/2022/2022-01-24.md)
 [25](good-messages/2022/2022-01-25.md)
 [26](good-messages/2022/2022-01-26.md)
+[27](good-messages/2022/2022-01-27.md)
 
