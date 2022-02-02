@@ -873,3 +873,8 @@
 [30](good-messages/2022/2022-01-30.md)
 [31](good-messages/2022/2022-01-31.md)
 
+
+#### February
+
+[01](good-messages/2022/2022-02-01.md)
+
