@@ -883,4 +883,5 @@
 [05](good-messages/2022/2022-02-05.md)
 [06](good-messages/2022/2022-02-06.md)
 [07](good-messages/2022/2022-02-07.md)
+[08](good-messages/2022/2022-02-08.md)
 
