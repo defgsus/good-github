@@ -911,4 +911,5 @@
 [01](good-messages/2022/2022-03-01.md)
 [02](good-messages/2022/2022-03-02.md)
 [03](good-messages/2022/2022-03-03.md)
+[04](good-messages/2022/2022-03-04.md)
 
