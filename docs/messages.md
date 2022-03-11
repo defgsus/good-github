@@ -917,4 +917,5 @@
 [07](good-messages/2022/2022-03-07.md)
 [08](good-messages/2022/2022-03-08.md)
 [09](good-messages/2022/2022-03-09.md)
+[10](good-messages/2022/2022-03-10.md)
 
