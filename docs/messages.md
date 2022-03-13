@@ -919,4 +919,5 @@
 [09](good-messages/2022/2022-03-09.md)
 [10](good-messages/2022/2022-03-10.md)
 [11](good-messages/2022/2022-03-11.md)
+[12](good-messages/2022/2022-03-12.md)
 
