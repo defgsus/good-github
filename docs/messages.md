@@ -925,4 +925,5 @@
 [15](good-messages/2022/2022-03-15.md)
 [16](good-messages/2022/2022-03-16.md)
 [17](good-messages/2022/2022-03-17.md)
+[18](good-messages/2022/2022-03-18.md)
 
