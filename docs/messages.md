@@ -947,4 +947,5 @@
 [02](good-messages/2022/2022-04-02.md)
 [03](good-messages/2022/2022-04-03.md)
 [04](good-messages/2022/2022-04-04.md)
+[05](good-messages/2022/2022-04-05.md)
 
