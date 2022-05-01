@@ -972,4 +972,5 @@
 [27](good-messages/2022/2022-04-27.md)
 [28](good-messages/2022/2022-04-28.md)
 [29](good-messages/2022/2022-04-29.md)
+[30](good-messages/2022/2022-04-30.md)
 
