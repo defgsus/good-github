@@ -978,4 +978,5 @@
 #### May
 
 [01](good-messages/2022/2022-05-01.md)
+[02](good-messages/2022/2022-05-02.md)
 
