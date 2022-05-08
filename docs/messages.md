@@ -983,4 +983,5 @@
 [04](good-messages/2022/2022-05-04.md)
 [05](good-messages/2022/2022-05-05.md)
 [06](good-messages/2022/2022-05-06.md)
+[07](good-messages/2022/2022-05-07.md)
 
