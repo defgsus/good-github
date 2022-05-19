@@ -994,4 +994,5 @@
 [15](good-messages/2022/2022-05-15.md)
 [16](good-messages/2022/2022-05-16.md)
 [17](good-messages/2022/2022-05-17.md)
+[18](good-messages/2022/2022-05-18.md)
 
