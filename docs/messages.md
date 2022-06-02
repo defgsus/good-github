@@ -1009,3 +1009,8 @@
 [30](good-messages/2022/2022-05-30.md)
 [31](good-messages/2022/2022-05-31.md)
 
+
+#### June
+
+[01](good-messages/2022/2022-06-01.md)
+
