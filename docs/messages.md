@@ -1013,4 +1013,5 @@
 #### June
 
 [01](good-messages/2022/2022-06-01.md)
+[02](good-messages/2022/2022-06-02.md)
 
