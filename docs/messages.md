@@ -1015,4 +1015,5 @@
 [01](good-messages/2022/2022-06-01.md)
 [02](good-messages/2022/2022-06-02.md)
 [03](good-messages/2022/2022-06-03.md)
+[04](good-messages/2022/2022-06-04.md)
 
