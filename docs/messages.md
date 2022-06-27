@@ -1037,4 +1037,5 @@
 [23](good-messages/2022/2022-06-23.md)
 [24](good-messages/2022/2022-06-24.md)
 [25](good-messages/2022/2022-06-25.md)
+[26](good-messages/2022/2022-06-26.md)
 
