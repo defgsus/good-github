@@ -5,239 +5,435 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-06-26](docs/good-messages/2022/2022-06-26.md)
+# [2022-06-27](docs/good-messages/2022/2022-06-27.md)
 
 
-1,540,819 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,540,819 were push events containing 2,065,223 commit messages that amount to 116,037,563 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 27 messages:
+1,669,861 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,669,861 were push events containing 2,493,197 commit messages that amount to 195,730,691 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 36 messages:
 
 
-## [timothymtorres/tgstation](https://github.com/timothymtorres/tgstation)@[9428d97a4f...](https://github.com/timothymtorres/tgstation/commit/9428d97a4fadf8a486b0c6fbe2ee345a2780e687)
-#### Sunday 2022-06-26 01:14:49 by Imaginos16
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[707fbfac7e...](https://github.com/tgstation/tgstation/commit/707fbfac7e11837865d70587011aa8197b1d0c35)
+#### Monday 2022-06-27 00:01:52 by san7890
 
-[MDB IGNORE] The Tilening V2 - Damaged Tile Overlays Edition (#67761)
+[MDB Ignore] Shifts all (sane) varedited signs to directionals  (#68004)
+
+* [MDB Ignore] Shifts all (sane) varedited signs to directionals
+
+Hey there,
+
+So we have these cool new sign directionals now, but we still have all of the old pixel-shifted pre-fabrications lying around. So, I added an UpdatePaths (as well as Updated the Paths) to be a bit better at using directionals, because directionals are pretty neato.
+
+This should update every single var_edit that used the proper 32 pixelshift (some of them used 28, and I'm unable to account for that automatically with current tooling) into a proper subtype. Mappers tend to learn by looking at well established maps, so it's always important to ensure that the well-established maps use the most recent tooling (i.e.: bring them up to the surface) and avoid needless excess lines in maps.
+
+* The Commit With All The Maps
+
+OH GOD OH FUCK
+
+* Renames the UpdatePaths
+
+---
+## [Will-Bohlen/Paradise](https://github.com/Will-Bohlen/Paradise)@[6082c95eb3...](https://github.com/Will-Bohlen/Paradise/commit/6082c95eb300a9f05b5422060db79f55fe91b9b3)
+#### Monday 2022-06-27 00:34:29 by LightFire53
+
+Relocates The Entertainment Offices and Custodial Closet on DeltaStation (#17480)
+
+* Location, Location, Location!
+
+* Lights and Pipes
+
+I am so sorry for how hacky that disposal piping is
+
+* TFW Disposals
+
+* Oh god, what if there is a fire?!
+
+* And a light switch...
+
+Maybe the final commit? Taking bets on if I managed to forget something else
+
+* If you bet on the requests console
+
+You would be right.
+
+* Bigger, Better, Janitor
+
+* Bloody requests console...
+
+---
+## [ArcaneMusic/TG-Station-Arcane-Remix](https://github.com/ArcaneMusic/TG-Station-Arcane-Remix)@[20e4add487...](https://github.com/ArcaneMusic/TG-Station-Arcane-Remix/commit/20e4add48712b59e9bcadd187beee54c02f98e38)
+#### Monday 2022-06-27 01:18:03 by Tim
+
+Change healing by sleeping to be affected by sanity, darkness (or blindfold), and earmuffs. (#65713)
 
 
 About The Pull Request
 
-Hello once more! As we near summer, I continued to reminisce on several PRs done throughout last year! One of them was the controversial, but rather positive Tilening V1, as done by me and Twaticus a while back (#58932), and felt I could've done a better job with how it was presented.
-
-And thus, thanks to @Fikou encouraging me with a very interesting find of a previous tile resprite attempt, I've successfully done it!
-
-Ladies and Gentlemen, I present to you all, Tilening Version Two!
-image
-
-Now this isn't your run of the mill tile resprite. While I did improve the appearance of several tiles I haven't touched last time (including the showroom/freezer tiles now), I decided to do something special that most mappers shall appreciate!
-
-Don't you hate it when of all damaged states, there's only ones for grey tiles when we have white, black, terracotta and a bunch of other materials? Don't you wish they were overlays instead?
-
-Well golly gee do I have good news for you!
-image
-image
-
-After painstakingly spending at least several hours trying to learn enough code to pull it off, I have successfully made it so most tiles display transparent versions of damage overlays over them! This means mappers can express their creativity that much better! And thanks to how the code is written, its super easy to snowflake certain tile types to make them use unique damaged states (looking at you wooden tiles), so fret not in that aspect.
-
-Credits to:
-@WJohn For actually making those damaged overlays! Wouldn't've done the PR if it wasn't for you.
-@dragomagol, @RigglePrime and @LemonInTheDark for helping me out in a VC at 10 PM to 12 AM troubleshooting the code to make this improvement work!
+Depending on the mob's sanity level, it can have a positive or negative boost to healing effects while sleeping. Sleeping in darkness, wearing a blindfold, and using earmuffs also counts as a healing bonus. Beauty sleep is very important for 2D spessmen.
 Why It's Good For The Game
 
-The shading is done better as compared to last time, making them feel more cubical and less like a pancake when seen from above! This PR also makes it so that we never ever have to touch damaged tiles ever again potentially, saving up some RSC regarding icons.
-
-However, due to how damaged tiles are currently mapped in, rather than overlayed as I envision in the future, it'll require a PR by San to be merged later that should make it safe to remove these icons.
+This is a small gameplay change that rewards players for keeping their sanity at good levels. Also depression has also been linked with impeding wound healing in real life. The placebo effect on peoples minds is strenuously documented and I think it would be cool to see it in the game.
 Changelog
 
-cl PositiveEntropy, WJohnston, Dragomagol, LemonInTheDark, Riggle
-imageadd: Resprites most variety of tiles into a better shaded version!
-code: Damaged floors are now damaged overlays, meaning that most tiles should properly display a damaged state!
+cl
+expansion: Healing by sleeping is now affected by sanity, sleeping in darkness (or using a blindfold), and using earmuffs. The healing from sleeping in a bed was slightly decreased.
 /cl
 
 ---
-## [TheBoondock/tgstation](https://github.com/TheBoondock/tgstation)@[763a10d1cc...](https://github.com/TheBoondock/tgstation/commit/763a10d1cc44c91720101d422d8709ad1aa0644d)
-#### Sunday 2022-06-26 01:48:45 by distributivgesetz
+## [awaffle1/tspfv](https://github.com/awaffle1/tspfv)@[2c5c37b038...](https://github.com/awaffle1/tspfv/commit/2c5c37b0385fdf8b0e14809f3a57c4ff85aa4066)
+#### Monday 2022-06-27 01:30:51 by im_a_waffle1
 
-Resonance cascade polishening, bugfixes and better logging (#67488)
+everything broke because i put a comma i think
 
-This PR rewrites almost all messages related to cascade events. Some messages felt kinda clunky to read or could have been written better. Overall, the new messages add to the experience as a cascade being a terrifying event in a way that I felt the old ones missed, and they make the event feel overall a lot sharper.
-
-While looking at the resonance cascade code, I noticed that there a lot of stuff about cascades in the air which was not touched on. So, as I do, this PR evolved into a polish and roundup PR for cascades. There was a lot of stuff still hanging out relating to the event, and although the big backend of it sits, there was still a bit left to be completed. Therefore this PR deserves more the title of the "Resonance cascade POLISHENING" instead of the "REFLAVAHRING". But yeah, you ever go on a massive tangent before?
-
----
-## [ynot01/Yogstation](https://github.com/ynot01/Yogstation)@[a297304eff...](https://github.com/ynot01/Yogstation/commit/a297304effcf85d7ba9828021df218ffea8f51b3)
-#### Sunday 2022-06-26 02:57:48 by LazennG
-
-makes some of the recent megafauna drops less shit (#14455)
-
-* this is everything i think idk it's 330am
-
-* polishes some things for now therell probably be more later
-
-* Update miscellaneous.dm
-
-* fuck it critical heal
-
-* you're able to the body entirely
+War. War never changes.
+Since the dawn of humankind, when our ancestors first discovered the killing power of rock and bone, blood has been spilled in the name of everything: from God to justice to simple, psychotic rage.
 
 ---
-## [Reinazhard/android_kernel_xiaomi_whyred](https://github.com/Reinazhard/android_kernel_xiaomi_whyred)@[f7e04454b7...](https://github.com/Reinazhard/android_kernel_xiaomi_whyred/commit/f7e04454b739fad79227f382a9e89031edfaeea8)
-#### Sunday 2022-06-26 04:49:32 by Peter Zijlstra
+## [RandomGamer123/tgstation](https://github.com/RandomGamer123/tgstation)@[8f0df7816b...](https://github.com/RandomGamer123/tgstation/commit/8f0df7816bae3c5dedf599611cda3e6039024e14)
+#### Monday 2022-06-27 01:35:35 by Kylerace
 
-sched/core: Fix ttwu() race
+(code bounty) The tram is now unstoppably powerful. it cannot be stopped, it cannot be slowed, it cannot be reasoned with. YOU HAVE NO IDEA HOW READY YOU ARE (#66657)
 
-Paul reported rcutorture occasionally hitting a NULL deref:
+ever see the tram take 10 milliseconds per movement to move 2100 objects? now you have
+https://user-images.githubusercontent.com/15794172/166198184-8bab93bd-f584-4269-9ed1-6aee746f8f3c.mp4
+About The Pull Request
 
-  sched_ttwu_pending()
-    ttwu_do_wakeup()
-      check_preempt_curr() := check_preempt_wakeup()
-        find_matching_se()
-          is_same_group()
-            if (se->cfs_rq == pse->cfs_rq) <-- *BOOM*
+fixes #66887
 
-Debugging showed that this only appears to happen when we take the new
-code-path from commit:
+done for the code bounty posted by @MMMiracles to optimize the tram so that it can be sped up. the tram is now twice as fast, firing every tick instead of every 2 ticks. and is now around 10x cheaper to move. also adds support for multiz trams, as in trams that span multiple z levels.
 
-  2ebb17717550 ("sched/core: Offload wakee task activation if it the wakee is descheduling")
+the tram on master takes around 10-15 milliseconds per movement with nothing on it other than its starting contents. why is this? because the tram is the canary in the coal mines when it comes to movement code, which is normally expensive as fuck. the tram does way more work than it needs to, and even finds new ways to slow the game down. I'll walk you through a few of the dumber things the tram currently does and how i fixed them.
 
-and only when @cpu == smp_processor_id(). Something which should not
-be possible, because p->on_cpu can only be true for remote tasks.
-Similarly, without the new code-path from commit:
+    the tram, at absolute minimum, has to move 55 separate industrial_lift platforms once per movement. this means that the tram has to unregister its entered/exited signals 55 times when "the tram" as a singular object is only entering 5 new turfs and exiting 5 old turfs every movement, this means that each of the 55 platforms calculates their own destination turfs and checks their contents every movement. The biggest single optimization in this pr was that I made the tram into a single 5x11 multitile object and made it only do entering/exiting checks on the 5 new and 5 old turfs in each movement.
+    way too many of the default tram contents are expensive to move for something that has to move a lot. fun fact, did you know that the walls on the tram have opacity? do you know what opacity does for movables? it makes them recalculate static lighting every time they move. did you know that the tram, this entire time, was taking JUST as much time spamming SSlighting updates as it was spending time in SStramprocess? well it is! now it doesnt do that, the walls are transparent. also, every window and every grille on the tram had the atmos_sensitive element applied to them which then added connect_loc to them, causing them to update signals every movement. that is also dumb and i got rid of that with snowflake overrides. Now we must take care to not add things that sneakily register to Moved() or the moved signal to the roundstart tram, because that is dumb, and the relative utility of simulating objects that should normally shatter due to heat and conduct heat from the atmosphere is far less than the cost of moving them, for this one object.
+    all tram contents physically Entered() and Exited() their destination and old turfs every movement, even though because they are on a tram they literally do not interact with the turf, the tram does. also, any objects that use connect_loc or connect_loc behalf that are on the same point on the tram also interact with each other because of this. now all contents of the tram act as if theyre being abstract_move()'d to their destination so that (almost) nothing thats in the destination turf or the exit turf can react to the event of "something laying on the tram is moving over you". the rare things that DO need to know what is physically entering or exiting their turf regardless of whether theyre interacting with the ground can register to the abstract entered and exited signals which are now always sent.
+    many of the things hooked into Moved(), whether it be overrides of Moved() itself, or handlers for the moved signal, add up to a LOT of processing time. especially for humans. now ive gotten rid of a lot of it, mostly for the tram but also for normal movement. i made footsteps (a significant portion of human movement cost) not do any work if the human themselves didnt do the movement. i optimized has_gravity() a fair amount, and then realized that since everything on the tram isnt changing momentum, i didnt actually need to check gravity for the purposes of drifting (newtonian_move() was taking a significant portion of the cost of movement at some points along the development process). so now it simply doesnt call newtonian_move() for movements that dont represent a change in momentum (by default all movements do).
 
-  c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+also i put effort into 1. better organizing tram/lift code so that most of it is inside of a dedicated modules folder instead of scattered around 5 generic folders and 2. moved a lot of behavior from lift platforms themselves into their lift_master_datum since ideally the platforms would just handle moving themselves, while any behavior involving the entire lift such as "move to destination" and "blow up" would be handled by the lift_master_datum.
 
-this would've unconditionally hit:
+also
+https://user-images.githubusercontent.com/15794172/166220129-ff2ea344-442f-4e3e-94f0-ec58ab438563.mp4
+multiz tram (this just adds the capability to map it like this, no tram does this)
+Actual Performance Differences
 
-  smp_cond_load_acquire(&p->on_cpu, !VAL);
+to benchmark this, i added a world.Profile(PROFILER_START) and world.Profile(PROFILER_START) to the tram moving, so that it generates a profiler output of all tram movement without any unrelated procs being recorded (except for world.Profile() overhead). this made it a lot easier to quantify what was slowing down both the tram and movement in general. and i did 3 types of tests on both master and my branch.
 
-and if: 'cpu == smp_processor_id() && p->on_cpu' is possible, this
-would result in an instant live-lock (with IRQs disabled), something
-that hasn't been reported.
+also i should note that i sped up the "master" tram test to move once per tick as well, simply because the normal movement speed seems unbearably slow now. so all recorded videos are done at twice the speed of the real tram on master. this doesnt affect the main thing i was trying to measure: cost for each movement.
 
-The NULL deref can be explained however if the task_cpu(p) load at the
-beginning of try_to_wake_up() returns an old value, and this old value
-happens to be smp_processor_id(). Further assume that the p->on_cpu
-load accurately returns 1, it really is still running, just not here.
+the first test was the base tram, containing only my player mob and the movables starting on the tram roundstart. on master, this takes around 13 milliseconds or so on my computer (which is pretty close to what it takes on the servers), on this branch, it takes between 0.9-1.3 milliseconds.
 
-Then, when we enqueue the task locally, we can crash in exactly the
-observed manner because p->se.cfs_rq != rq->cfs_rq, because p's cfs_rq
-is from the wrong CPU, therefore we'll iterate into the non-existant
-parents and NULL deref.
+ALSO in these benchmarks youll see that tram/proc/travel() will vary significantly between the master and optimized branches. this is 100% because there are 55 times more platforms moving on master compared to the master branch, and thus 55x more calls to this proc. every test was recorded with the exact same amount of distance moved
 
-The closest semi-plausible scenario I've managed to contrive is
-somewhat elaborate (then again, actual reproduction takes many CPU
-hours of rcutorture, so it can't be anything obvious):
+here are the master and optimized benchmark text files:
+master
+master base tram.txt
+https://user-images.githubusercontent.com/15794172/166210149-f118683d-6f6d-4dfb-b9e4-14f17b26aad8.mp4
+also this shows the increased SSlighting usage resulting from the tram on master spamming updates, which doesnt happen on the optimized branch
 
-					X->cpu = 1
-					rq(1)->curr = X
+optimized
+optimization base tram.txt
+https://user-images.githubusercontent.com/15794172/166206280-cd849aaa-ed3b-4e2f-b741-b8a5726091a9.mp4
 
-	CPU0				CPU1				CPU2
+the second test is meant to benchmark the best case scaling cost of moving objects, where nothing extra is registered to movement besides the bare minimum stuff on the /atom/movable level. Each of the open tiles of the tram had 1 bluespace rped filled with parts dumped onto it, to the point that the tram in total was moving 2100 objects. the vast majority of these objects did nothing special in movement so they serve as a good base case. only slightly off due to the rped's registering to movement.
 
-					// switch away from X
-					LOCK rq(1)->lock
-					smp_mb__after_spinlock
-					dequeue_task(X)
-					  X->on_rq = 9
-					switch_to(Z)
-					  X->on_cpu = 0
-					UNLOCK rq(1)->lock
+on master, this test takes over 100 milliseconds per movement
+master 2000 obj's.txt
+https://user-images.githubusercontent.com/15794172/166210560-f4de620d-7dc6-4dbd-8b61-4a48149af707.mp4
 
-									// migrate X to cpu 0
-									LOCK rq(1)->lock
-									dequeue_task(X)
-									set_task_cpu(X, 0)
-									  X->cpu = 0
-									UNLOCK rq(1)->lock
+when optimized, about 10 milliseconds per movement
+https://user-images.githubusercontent.com/15794172/166208654-bc10086b-bbfc-49fa-9987-d7558109cc1d.mp4
+optimization 2000 obj's.txt
 
-									LOCK rq(0)->lock
-									enqueue_task(X)
-									  X->on_rq = 1
-									UNLOCK rq(0)->lock
+the third test is 300 humans spawned onto the tram, meant to test all the shit added on to movement cost for humans/carbons. in retrospect this test is actually way too biased in favor of my optimizations since the humans are all in only 3 tiles, so all 100 humans on a tile are reacting to the other 99 humans movements, which wouldnt be as bad if they were distributed across 20 tiles like in the second test. so dont read into this one too hard.
 
-	// switch to X
-	LOCK rq(0)->lock
-	smp_mb__after_spinlock
-	switch_to(X)
-	  X->on_cpu = 1
-	UNLOCK rq(0)->lock
+on master, this test takes 200 milliseconds
+master 300 catgirls.txt
 
-	// X goes sleep
-	X->state = TASK_UNINTERRUPTIBLE
-	smp_mb();			// wake X
-					ttwu()
-					  LOCK X->pi_lock
-					  smp_mb__after_spinlock
+when optimized, this takes about 13-14 milliseconds.
+optimization 300 catgirls on ram ranch.txt
+Why It's Good For The Game
 
-					  if (p->state)
+the tram is literally 10x cheaper to move. and the code is better organized.
+currently on master the tram is as fast as running speed, meaning it has no real relative utility compared to just running the tracks (except for the added safety of not having to risk being ran over by the tram). now the tram of which we have an entire map based around can be used to its full potential.
 
-					  cpu = X->cpu; // =? 1
+also, has some fixes to things on the tram reacting to movement. for example on master if you are standing on a tram tile that contains a banana and the TRAM moves, you will slip if the banana was in that spot before you (not if you were there first however). this is because the banana has no concept of relative movement, you and it are in the same reference frame but the banana, which failed highschool physics, believes you to have moved onto it and thus subjected you to the humiliation of an unjust slipping. now since tram contents that dont register to abstract entered/exited cannot know about other tram contents on the same tile during a movement, this cannot happen.
 
-					  smp_rmb()
+also, you no longer make footstep sounds when the tram moves you over a floor
+TODO
 
-	// X calls schedule()
-	LOCK rq(0)->lock
-	smp_mb__after_spinlock
-	dequeue_task(X)
-	  X->on_rq = 0
+mainly opened it now so i can create a stopping point and attend to my other now staling prs, we're at a state of functionality far enough to start testmerging it anyways.
 
-					  if (p->on_rq)
+add a better way for admins to be notified of the tram overloading the server if someone purposefully stuffs it with as much shit as they can, and for admins to clear said shit.
+automatically slow down the tram if SStramprocess takes over like, 10 milliseconds complete. the tram still cant really check tick and yield without introducing logic holes, so making sure it doesnt take half of the tick every tick is important
+go over my code to catch dumb shit i forgot about, there always is for these kinds of refactors because im very messy
+remove the area based forced_gravity optimization its not worth figuring out why it doesnt work
+fix the inevitable merge conflict with master lol
+create an icon for the tram_tunnel area type i made so that objects on the tram dont have to enter and exit areas twice in a cross-station traversal
 
-					  smp_rmb();
+    add an easy way to vv tram lethality for mobs/things being hit by it. its an easy target in another thing i already wanted to do: a reinforced concept of shared variables from any particular tram platform and the entire tram itself. admins should be able to slow down the tram by vv'ing one platform and have it apply to the entire tram for example.
 
-					  if (p->on_cpu && ttwu_queue_wakelist(..)) [*]
+Changelog
 
-					  smp_cond_load_acquire(&p->on_cpu, !VAL)
-
-					  cpu = select_task_rq(X, X->wake_cpu, ...)
-					  if (X->cpu != cpu)
-	switch_to(Y)
-	  X->on_cpu = 0
-	UNLOCK rq(0)->lock
-
-However I'm having trouble convincing myself that's actually possible
-on x86_64 -- after all, every LOCK implies an smp_mb() there, so if ttwu
-observes ->state != RUNNING, it must also observe ->cpu != 1.
-
-(Most of the previous ttwu() races were found on very large PowerPC)
-
-Nevertheless, this fully explains the observed failure case.
-
-Fix it by ordering the task_cpu(p) load after the p->on_cpu load,
-which is easy since nothing actually uses @cpu before this.
-
-Fixes: c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
-Reported-by: Paul E. McKenney <paulmck@kernel.org>
-Tested-by: Paul E. McKenney <paulmck@kernel.org>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
-Signed-off-by: Adam W. Willis <return.of.octobot@gmail.com>
+cl
+balance: the tram is now twice as fast, pray it doesnt get any faster (it cant without raising world fps)
+performance: the tram is now about 10 times cheaper to move for the server
+add: mappers can now create trams with multiple z levels
+code: industrial_lift's now have more of their behavior pertaining to "the entire lift" being handled by their lift_master_datum as opposed to belonging to a random platform on the lift.
+/cl
 
 ---
-## [GamingMarine/gmid](https://github.com/GamingMarine/gmid)@[617c5ac024...](https://github.com/GamingMarine/gmid/commit/617c5ac0244a3d50a0f3ab30c79f088fbc17c3e8)
-#### Sunday 2022-06-26 05:27:39 by GamingMarine
+## [Koi-3088/ForkBot.NET](https://github.com/Koi-3088/ForkBot.NET)@[8825debea5...](https://github.com/Koi-3088/ForkBot.NET/commit/8825debea5875d7f149546950cabd4dae74bc63b)
+#### Monday 2022-06-27 02:44:03 by Koi
 
-I just want to get this thing done already
+Mr. Mime is a thing, unfortunately.
+Mild clean, some more Cherish set handling attempts.
+Exclude set MetDate from mystery gifts.
+Fix daycare enum parsing.
+Check for no result in case $qc was used or some other weird thing happens.
+Remove FixOT and TradeCord as routine types (FlexTrade handles both).
+Try to apply trainer info for Mystery gifts.
+Re-add fixed met date if not GO origin.
+Update DenBot distribution data, minor fixes.
+Fix Yamask-Galar in daycare, some more oopsies.
+-Add DenBot - a seed lookup and day skipper bot for raids.
+-Change AutoRoll's behavior to make use of some of DenBot's functionality.
+Minor clean.
+Revise TradeCord "traded" check, remove potential user path straggler entries because paranoia, some minor fixes.
+TradeCord fixes (shocker, I know).
+Extract Json serializer.
+Minor clean and fixes.
+Minor fixes.
+Fix Milcery when an Alcremie variant is a parent.
+Update to latest Core and ALM dependencies.
+Handle non-shiny events in a better way.
+Work around a race condition?
+Simplify and de-bugify trade completion check.
+Fix indexing, improve chance for Melmetal-Gmax because it's nigh impossible to get.
+Rework TradeCord internals, add new functionality:
+-Migrate user data from ".txt" files to a serialized Json (migration for a large amount of users will take a few minutes, be patient).
+-Make TradeCord configurable, add its own settings category.
+-Add some template events with an optional end timer (YYYY/MM/DD 8PM as an example, though any local time format should work).
+-Add barebones Pokedex (counter, flavor text).
+-Can check dex completion by typing `$dex`, check missing entries by typing `$dex missing`.
+-Completing the Pokedex will slightly improve shiny rate.
+-Can now mass release cherish event Pokemon and shinies ($massrelease shiny/cherish).
+-Various tweaks, improvements, and bugfixes.
 
--The GMBot now shoots its own rocket projectile, which is slower, less damaging, and overall makes them more forgiving
--Renamed all CVARs to prevent possible conflictions with other mods
--Removed scripted marines, as very few maps made use of them to make their inclusion worthwhile
--Gave the Changeling's projectiles a much less hideous light
--Nearly all the remaining Half-Life 1 sounds have been improved in quality, courtesy of Senn (aka @senn_twt)
--Added a better version of the blood drop sound effect, taken from Half-Life 2
--Fixed some offsets on the Shotgun and V-Gun Evil Marine sprites
--Added a new Tip of the Day
+Slightly change FixOT's behavior:
+-If a shown Pokemon is illegal and an event, attempt to find a match within the MGDB first.
+-Try to force users to trade away the shown Pokemon, log attempt to change shown Pokemon.
+Add consideration for easter eggs being enabled in settings, fix Suicune
+Change species rng for TradeCord, some bugfixes (I really need to rewrite this mess)
+Add check if we're using ListUtil for Giveaway instead of TradeCord.
+Amend commit since I'm squashing and force-pushing while bringing the fork in line with the main branch
+Add Giveaway module to Discord bot (#22)
+
+Thanks, rigrassm.
+Co-authored-by: Koi-3088 <61223145+Koi-3088@users.noreply.github.com>
+Specify USB port instead of adding the first result (can be found via Device Manager).
+Re-add boolean check because we don't want to fix everything
+FixOT will attempt to regenerate illegal Pokémon.
+Apply trash bytes for reasons.
+Minor TradeCord fixes and adjustments.
+Minor clean for C#9
+Use "GetValidPreEvolutions()" instead of "GetPreEvolutions()".
+Index forms correctly.
+Fix the fixed and re-introduced empty daycare index error.
+*an* Ultra Ball.
+Add EvoTree breeding for TradeCord.
+Remove unnecessary value declarations for pinging on encounter match.
+Mildly beautify EncounterBot mark output.
+Integrate Anubis' system update prevention into Soft Reset and Regigigas Encounter Modes.
+Rename "Regi" Encounter Mode to "Soft Reset".
+Speed up "A" clicks for Regigigas and Soft Reset modes.
+Add Mark logging output for EncounterBot.
+Fix oops (re-order logic, remove unnecessary lines).
+Add optional species and form specification for $massrelease
+Use an obscure string splitter because people like symbols in their names.
+Fix things that broke after rebasing to the latest main repo commit.
+Use a less unfortunate field name and value splitter...again.
+Fix Marowak-Alola always generating as an NPC trade.
+Add filters for "$list <species>" to narrow down results.
+Fix Cherish Pichu and Octillery
+Stop making dumb mistakes, me (implying the rest of it isn't a dumb mistake).
+Can't breed antiques.
+Use a less unfortunate embed name and value splitter
+Add Melmetal-Gmax to TradeCord.
+Add ability to search by caught ball.
+Have MassRelease ignore events.
+Add specific regional form breeding.
+Revise egg rate and egg shiny chance.
+Have trade evolutions hold an Everstone.
+Add an extra right click when navigating to settings for AutoRoll.
+Add reworked encounter/egg/fossil logs.
+Minor clean.
+Minor clean.
+Get rid of EncounterBot, FossilBot, EggFetch text logs until I properly rework them.
+Break on an empty page due to aggressive rounding
+Add multi-page lists for Tradecord.
+More random bugfixes.
+Fix some bugs before major clean
+Add Language parameter for TradeCord.
+Change trainer info input format for TradeCord.
+Move focus on Showdown set instead of randomizing a pkm file.
+Allow user to enter whatever they want for $list, handle edge cases like Kommo-o
+Add "$list all" to show non-duplicate caught species.
+Automatically remove from favorites if trading or gifting (small QOL thing).
+Change how favorites are removed from user file.
+Revert base egg shiny chance nerf.
+Fix daycare
+Add favorites command to TradeCord.
+Slightly nerf eggs.
+Fix TradeCord list for shinies
+Add TradeCord (my dumbest and messiest project so far, Archit pls don't hate the mess).
+Add Showdown output for Star/Square shinies and OTGender.
+Add optional link code input for FixOT.
+Change how OTName, TID, SID is displayed.
+Add Regigigas SR bot.
+Add SoJ Camp SR bot.
+Ribbons now work with EggTrade (remove ribbons if egg).
+Remove EggRoll.
+Add another filter for FixOT
+Fix.. FixOT
+Update offsets for EncounterBot catching.
+Slightly change StrongSpawn to work with Regi SR and make it its own mode.
+Make SpinTrade only available for USB-Botbase
+Update valid eggs for CT
+winforms: resize icon.ico to fix crash at startup on unix using mono
+Rework Spin, read initial in-game coordinates in order to correct drift
+Add TID, SID, Language output for Showdown
+Remove obsolete OT and Language parsing
+Very minor clean until I have time for a proper one.
+Detach controller when stopping USB bot.
+Actually set LastUsedBall for EncounterBot (missed when bringing in line with main repo)
+Move extra RaidBot timings following the official commit
+Remove PKHeX Discord invite from Readme.md
+
+Maybe fewer people will pester devs now about my unofficial fork?
+Update for latest main repo EncounterBot commits.
+Update README.md
+Add back best commit: Red's SpinTrade.
+Add egg trades, foreign Dittos and OT for Twitch.
+If ItemMule is enabled, also display the item a user is receiving.
+Add periodic time sync toggle for all methods of hosting (except for non-soft locked AutoRoll) to (hopefully) prevent den rollover during extended hosts.
+
+Add routine to exit a lobby for SoftLock if no players are ready in time (to preserve soft lock).
+
+Add a routine to recover from disbanded lobbies (when someone disconnects unexpectedly) for SoftLock.
+
+Add a routine to restart game if all else fails and we're stuck in a raid.
+
+Add a routine for adding and deleting friends if we're soft locked and raids go empty.
+
+Slightly reorganize settings, extract methods, minor clean.
+Don't use such a generic file name for stream assets.
+Check USB port index for running bots. Should fix adding additional USB bots when no config is saved.
+Add fixed met date for FixOT.
+How do I boolean
+Change airplane mode logic, tweak timings and routine for soft lock lobby exit
+Rework EggRoll cooldown (static list in favor of a txt file).
+Start clean up and refactor
+Add setting to increase delay after pressing "Home" after a date skip.
+Use USB port index for blocking and sprite pngs if connection type is USB
+Add option for airplane host (usb-botbase required)
+Add option to softlock on selected species for AutoRoll
+Add automatic compatibility for all console languages when date skipping (have to set ConsoleLanguage under ScreenDetection)
+Attempt to fix multiple USB device add and connect...again
+Minor clean
+Fix oops?
+Handle add/remove of bots
+Distinguish between multiple USB devices, tweak BotRemoteControl for USB, other various fixes
+Add SpA modifier for foreign Dittos
+Add alpha USB-Botbase support
+Fix DateTime parsing for European format for EggRoll
+Set fixed EggMetDate and MetDate for EggRoll
+More FixOT filters
+Remove Beheeyem. Oops.
+Split EggRoll into its own routine and trade type, only output "Receiving: Mysterious Egg" if routine is EggRoll, other minor tweaks and fixes
+Make FixOT its own queue with roles and counts
+Add a couple more OTs to $fix
+Parsing for EggRaffle auto-clear and $clearcooldown
+Adjust timings and split Watt collecting clicks for AutoRoll
+Fix oops with file attachments for Ditto
+Further improvements for OT, memes for invalid pokemon (disable EasterEggs)
+Add spaces, digits for OT
+Randomize memes, cut down bloat
+Fix miscellaneous bots after Anubis' recent QOL additions
+-Ignore events for OT because headache.
+-Add overlooked "$convert <generation>" input for OT.
+-Move $clearcooldown to SudoModule
+-Clear timer automatically if NoTrainerFound
+-More reliable Dittos
+-Foreign Dittos for $convert
+-Command to clear cooldown for EggRaffle in case trade gets disconnected
+-Fix "Trade finished" line to keep result secret
+-EggRaffle as a toggle, option to specify channels
+-Seed Check output to both DMs and Channel (apparently some want it)
+-Randomly generated egg raffle via a "$roll" command with a configurable cooldown
+-FixAdOT reworked, has its own command "$fix" and no longer overrides $clone
+-Ball: <value> output for Showdown sets
+-Fix oversight
+-Option to output Seed Check results to Discord channel with a User mention
+-Showdown set output for OT name and eggs
+-Basic "OT: <name>" option without Showdown set output
+-Initial $convert support for EggTrade
+-Egg moves for EggTrade test attempt
+-Minor update
+-EggTrade (by nicknaming a Pokémon "Egg" using $trade)
+-Failsafe for memes if enabled but field left blank or incomplete
+-Niche breedable Ditto trade mode.
+Add minimize button
+EggFetch text logs
+StrongSpawn mode for EncounterBot
+Re-add EncounterBot Master Ball catching
+More parsing for FixAdOTs
+Park Ball as held item instead of string
+Actually remove the offset instead of saying I did
+Initial DLC commit
+Faster code entry
+Removed catching for EncounterBot (need a new offset)
+CloneBot mode to fix Nickname and OT if adverts detected
 
 ---
-## [shruuub/bunkercoin](https://github.com/shruuub/bunkercoin)@[6ab5b59916...](https://github.com/shruuub/bunkercoin/commit/6ab5b59916453b0e4e5988c54b9294e6442a8504)
-#### Sunday 2022-06-26 07:10:04 by IdotMaster1
+## [Stevanus-Christian/terminal](https://github.com/Stevanus-Christian/terminal)@[77215d9d77...](https://github.com/Stevanus-Christian/terminal/commit/77215d9d77b99b48d1ee8302736178f2ec9f3a77)
+#### Monday 2022-06-27 07:23:07 by Mike Griese
 
-Revert "Here we go! This is it! (Soon)"
+Fix `ShowWindow(GetConsoleWindow())` (#13118)
 
-This reverts commit b070522fa9d8031686f67b69c0b3993571c1841c.
+A bad merge, that actually revealed a horrible bug.
 
-OH MY GOD IM A FUCKING MORON
+There was a secret conflict between the code in #12526 and #12515. 69b77ca was a bad merge that hid just how bad the issue was. Fixing the one line `nullptr`->`this` in `InteractivityFactory` resulted in a window that would flash uncontrollably, as it minimized and restored itself in a loop. Great. 
+
+This can seemingly be fixed by making sure that the conpty window is initially created with the owner already set, rather than relying on a `SetParent` call in post. This does pose some complications for the #1256 future we're approaching. However, this is a blocking bug _now_, and we can figure out the tearout/`SetParent` thing in post. 
+
+* fixes #13066.
+* Tested with the script in that issue.
+* Window doesn't flash uncontrollably.
+* `gci | ogv` still works right
+* I work here.
+* Opening a new tab doesn't spontaneously cause the window to minimize
+* Restoring from minimized doesn't yeet focus to an invisible window
+* Opening a new tab doesn't yeet focus to an invisible window
+* There _is_ a viable way to call `GetAncestor` s.t. it returns the Terminal's hwnd in Terminal, and the console's in Conhost
+
+
+The `SW_SHOWNOACTIVATE` change is also quite load bearing. With just `SW_NORMAL`, the pseudo window (which is invisible!) gets activated whenever the terminal window is restored from minimized. That's BAD.
+
+
+There's actually more to this as well. 
+
+
+Calling `SetParent` on a window that is `WS_VISIBLE` will cause the OS to hide the window, make it a _child_ window, then call `SW_SHOW` on the window to re-show it. `SW_SHOW`, however, will cause the OS to also set that window as the _foreground_ window, which would result in the pty's hwnd stealing the foreground away from the owning terminal window. That's bad.
+
+`SetWindowLongPtr` seems to do the job of changing who the window owner is, without all the other side effects of reparenting the window. 
+
+Without `SetParent`, however, the pty HWND is no longer a descendant of the Terminal HWND, so that means `GA_ROOT` can no longer be used to find the owner's hwnd. For even more insanity, without `WS_POPUP`, none of the values of `GetAncestor` will actually get the terminal HWND. So, now we also need `WS_POPUP` on the pty hwnd. To get at the Terminal hwnd, you'll need
+
+```c++
+GetAncestor(GetConsoleWindow(), GA_ROOTOWNER)
+```
 
 ---
-## [AndrewBeshay/terminal](https://github.com/AndrewBeshay/terminal)@[9ccd6ecd74...](https://github.com/AndrewBeshay/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
-#### Sunday 2022-06-26 07:27:15 by Mike Griese
+## [Stevanus-Christian/terminal](https://github.com/Stevanus-Christian/terminal)@[9ccd6ecd74...](https://github.com/Stevanus-Christian/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
+#### Monday 2022-06-27 07:23:07 by Mike Griese
 
 Manually copy trailing attributes on a resize (#12637)
 
@@ -280,1621 +476,67 @@ Closes #12567
 (cherry picked from commit 855e1360c0ff810decf862f1d90e15b5f49e7bbd)
 
 ---
-## [AndrewBeshay/terminal](https://github.com/AndrewBeshay/terminal)@[8962f88f90...](https://github.com/AndrewBeshay/terminal/commit/8962f88f907d86fd8684b66f7f3e32a2709e3237)
-#### Sunday 2022-06-26 07:27:15 by Dustin L. Howett
+## [davidbrochart/nbformat](https://github.com/davidbrochart/nbformat)@[68e399a8c0...](https://github.com/davidbrochart/nbformat/commit/68e399a8c0efa91dfd0e45ef38449cacf712df3c)
+#### Monday 2022-06-27 07:34:10 by Jason Grout
 
-Disable the VT color quirk for pwsh and modern inbox powershell (#13352)
+Allow notebook format version 4.1 mimebundle keys ending in `+json` to have arbitrary JSON
 
-In #6810, we introduced a "quirk" for all known versions of PowerShell
-that suppressed their requests for black background/gray foreground.
-This was done to avoid an [issue in PSReadline] where it would paint
-black bars all over the screen if the default background color wasn't
-the same as the ANSI black color.
+There are a number of people posting issues with nbformat 5 being stricter about validating notebook format 4.1, including:
 
-Years have passed since that quirk was introduced. The underlying bug
-was fixed, and the fix was released broadly long ago. It's time for us
-to remove the quirk... almost.
+https://github.com/jupyter/nbformat/issues/160
+https://github.com/jupyter/nbformat/issues/161
+https://github.com/jupyter-widgets/ipywidgets/issues/2553
+https://github.com/jupyter-widgets/ipywidgets/issues/2788
 
-Terminal still runs on versions of Windows that ship a broken version of
-PSReadline. We must maintain the quirk there -- the user can't do
-anything about it, and we would make their experience worse if we
-removed the quirk entirely.
 
-PowerShell 7.0 also ships a broken version of PSReadline. It is still in
-support for another 6 months, but updates have been available for some
-time. We can encourage users to update.
+Essentially, nbformat package version 4.x allowed noncompliant format 4.1 notebooks to be verified as valid, leading to many notebooks in the wild having major/minor format version 4.1, but with widgets and other json outputs that were technically invalid.
 
-Therefore, we only need the quirk for Windows PowerShell, and then only
-for specific versions of Windows.
+Upgrading to nbformat package 5.x correctly flagged these notebook as noncompliant. This is correct technically. However, practically it means that all these notebooks files tagged as format 4.1 that were working fine suddenly won't even open after upgrading to nbformat version 5. This is a pain.
 
-_Inside Windows_, we don't even need that: we're guaranteed to be built
-alongside a fixed version of PowerShell!
-
-Closes #6807
-
-[issue in PSReadline]: https://github.com/PowerShell/PSReadLine/issues/830#issuecomment-650508857
+This retroactively upgrades the format 4.1 schema to allow json in these cases, since in practice there are lots of notebooks labeled as format 4.1, I think by official Jupyter software, that have json in the mimebundle output. Essentially, this acknowledges that in the official implementations from Jupyter, notebook format 4.1 has indeed had arbitrary JSON values in mimebundles, and we cannot in good conscience decree it invalid.
 
 ---
-## [ddnet/ddnet-maps](https://github.com/ddnet/ddnet-maps)@[93d842f876...](https://github.com/ddnet/ddnet-maps/commit/93d842f8767f111ab022afe615e0d4a295d69461)
-#### Sunday 2022-06-26 08:56:30 by DDNet Maps
-
-M A Strange Dream, M Cemetery, M Generic Fly, M Highlife, M Intercepter, M Just Triple Fly, M Naufrage, M Nightly Tandem, M Stronghold 2, M Stronghold, M Yun Gu 2, M Yun Gu 3, M brainduck, M brainduck2, M nullptr, M TheVoiD, M Huanghu, M Liang, M Nebula, M TakeUrLuggage, A Tied up, M Vice City, M Back in Time 3, M Shockwave, M Aftermath, M Afternoon, A Baerchen, M Canyang, M Clarity, M Coffee I, M Coffee II, A DaoYu Night, M Just HookThrough, M PreciousDream, M SomewhereDistant, M Sunny Land, M Yeyou 1, M Yeyou 2, M Yeyou 3, M Yun Gu, M Absurd 3, M Beyond Light, M Light Grey, M 1Hook, M Aufnahmetest_AE, M Euthanasia, M Run_Aim, M climate-crisis, M frustrainleave, M hotrun, M nameless_run, M run_2Rockets, M run_2rocketstwo, M run_4lollipop, M run_4mystery, M run_4popi, M run_4popo, M run_4tzoy, M run_4xerhul, M run_4xerhul2, M run_FreezyFly, M run_Jellyfish_Fields, M run_alboni, M run_alkohol, M run_antibuguse, M run_birming, M run_birthday, M run_black_white, M run_blood_thirst, M run_blue, M run_crystal, M run_dfc, M run_escape_the_darkness, M run_experience_of_incredibleness, M run_firestorm, M run_for_ghost, M run_from_ice_to_grass, M run_frosty, M run_g6, M run_galaxy, M run_glowing_ice, M run_golden_toilet, M run_granit_stone, M run_grass_hell, M run_groove, M run_hard_hell, M run_hard_hundred, M run_harder_than_hard, M run_heaven_and_hell, M run_hot_or_not, M run_ice_castle, M run_inset_into_the_heavy_jungle, M run_inset_into_the_light, M run_keksi, M run_longWAR, M run_miniatur, M run_nightmare, M run_not_short, M run_out_jungle, M run_painted, M run_pencil, M run_pink.lila, M run_radioactive, M run_redbull, M run_shadow, M run_shutter, M run_skizz_loop1200, M run_skizzpopo, M run_skizzrettex, M run_spring, M run_stoned, M run_three, M run_toxic_green, M run_world_war_zero, M run_yellow_hell, M yoshiloop, M zelda, M 2of4, M 4of4, M Anaphore, M Autumn Sky, M Bullet Master, M DayLight, M GetSpeed 3, M GetSpeed, M GetSpeed2, M Joyride 2, M Killstreak 1, M Kobra 2 Solo, A Lets Climb, M Lonely Swim 3, M Lonely Swim 4, M Lucid Dream, M Mini Zero II, M Nytro, M Race_Sanktoras, M Raid, M SpaceIsKey, M Spallok, M TOPOS, M The Space Station, M Weird Cave, M run_guy_25
-
----
-## [GeoB99/reactos](https://github.com/GeoB99/reactos)@[61a6236b9f...](https://github.com/GeoB99/reactos/commit/61a6236b9f74082c828b10425c555c892db8ee57)
-#### Sunday 2022-06-26 09:21:38 by George Bișoc
-
-[NTOS:SE] Properly handle dynamic counters in token
-
-On current master, ReactOS faces these problems:
-
-- ObCreateObject charges both paged and non paged pool a size of TOKEN structure, not the actual dynamic contents of WHAT IS inside a token. For paged pool charge the size is that of the dynamic area (primary group + default DACL if any). This is basically what DynamicCharged is for.
-For the non paged pool charge, the actual charge is that of TOKEN structure upon creation. On duplication and filtering however, the paged pool charge size is that of the inherited dynamic charged space from an existing token whereas the non paged pool size is that of the calculated token body
-length for the new duplicated/filtered token. On current master, we're literally cheating the kernel by charging the wrong amount of quota not taking into account the dynamic contents which they come from UM.
-
-- Both DynamicCharged and DynamicAvailable are not fully handled (DynamicAvailable is pretty much poorly handled with some cases still to be taking into account). DynamicCharged is barely handled, like at all.
-
-- As a result of these two points above, NtSetInformationToken doesn't check when the caller wants to set up a new default token DACL or primary group if the newly DACL or the said group exceeds the dynamic charged boundary. So what happens is that I'm going to act like a smug bastard fat politician and whack
-the primary group and DACL of an token however I want to, because why in the hell not? In reality no, the kernel has to punish whoever attempts to do that, although we currently don't.
-
-- The dynamic area (aka DynamicPart) only picks up the default DACL but not the primary group as well. Generally the dynamic part is composed of primary group and default DACL, if provided.
-
-In addition to that, we aren't returning the dynamic charged and available area in token statistics. SepComputeAvailableDynamicSpace helper is here to accommodate that. Apparently Windows is calculating the dynamic available area rather than just querying the DynamicAvailable field directly from the token.
-My theory regarding this is like the following: on Windows both TokenDefaultDacl and TokenPrimaryGroup classes are barely used by the system components during startup (LSASS provides both a DACL and primary group when calling NtCreateToken anyway). In fact DynamicAvailable is 0 during token creation, duplication and filtering when inspecting a token with WinDBG. So
-if an application wants to query token statistics that application will face a dynamic available space of 0.
-
----
-## [darshan-/dot](https://github.com/darshan-/dot)@[57cb210fe2...](https://github.com/darshan-/dot/commit/57cb210fe20d661ab6788773f2f5e91dea03a2de)
-#### Sunday 2022-06-26 10:01:40 by Darshan-Josiah Barber
-
-Changing binding of enter to newline-and-indent completely breaks enter key in minibuffer.  Which is batshit crazy, insane, annoying, fucked up, and hard to believe.  But okay, found a workaround to what seems like the stupidest design ever.
-
----
-## [xavier-kong/chrome-extensions](https://github.com/xavier-kong/chrome-extensions)@[32184a7a7f...](https://github.com/xavier-kong/chrome-extensions/commit/32184a7a7fc11caf1c007066f34375abbcc65ac9)
-#### Sunday 2022-06-26 11:03:43 by xavier-kong
-
-One year, 365 days of coding. What shocked me the most was not that I learnt to code and got a software engineer job in a year, but that I was able to continue doing something without fail for a year. While I did not invent the next facebook while I was programming, I did learn to persevere. It could've been my ego reminding me of the shame of failure if I failed to commit for the day, but nevertheless, I persevered. And at the end of the day, that is what means the most to me. Life is too short for me to not aim higher and higher. See you at the top.
-
----
-## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[80859c472a...](https://github.com/mrakgr/The-Spiral-Language/commit/80859c472a55e3e00ec5e24cd58950e7661b9740)
-#### Sunday 2022-06-26 13:03:22 by Marko Grdinić
-
-"11:45am. I am up. I blame getting up so late on my addiction to Legendary Mechanic. So far I am on chapter 580.
-
-Let me chill a bit here and then I will start
-
-https://boards.4chan.org/ic/thread/6123500/thoughts-on-this-nigga
-
-I want to watch some of the vids in this thread.
-
-https://youtu.be/8o6-2DwWWc4
-●●の意見は、絶対に聞いちゃダメです。
-
-I'll start with this one.
-
-https://youtu.be/e7HvWvOM6jc
-【気まぐれ添削48】プロが解説します！上達のポイント！
-
-I do not feel like watching it all, let me also watch this for a bit. Then I'll post my work from yesterday on Twitter.
-
-12:25pm. 15m of this is enough. I am not a 2d painter just yet, so I do not need to watch this right now.
-
-https://www.youtube.com/watch?v=t1O7LpOTBfM
-Jade Moon Upon a Sea of Clouds - Disc 1: Glazed Moon Over the Tides｜Genshin Impact
-
-The Genshin Impact OST is 10/10.
-
-12:30pm. https://www.flickr.com/creativecommons/
-
-Before I post anything, let me just figure out what the license of the image I used was.
-
-Hmmm, I think I used a copy righted background. I should just find something else. Yeah, that means redoing the render and the style transfer, but it no big deal.
-
-No wait, where the hell does it say what the license is?
-
-Yeah, I see it. The one I used is definitely fully copyrighted.
-
-https://flic.kr/p/WycaKs
-
-Let me go with this instead.
-
-12:40pm. Let me redo the render.
-
-///
-
-I'll go with this as the finished image. It looks too much like an UFO instead of flying city, but it is fine. I only have a vague sense of what I want to do in my mind, and I can't exactly reverse the high level representation backwards through the layers to arrive at an image like a neural net could. In programming, such a high level representation coupled with some experience and skill is all that is needed to create a program, but in art being able to visualize details would be beneficial. I am guessing that to reach the apex skill as a human, one needs such an ability. Too bad, I do not have it, but I am not upset as even this good enough.
-
-Two days ago I had a scare that my computer is failing due to all the render time crashed. Since then I've realized that they are happening due to my CPU overheating. Also, that is probably why the Luxcore room render was crashing. I also forgot to set the GPU in the preferences, so it was doing all the processing on the CPU. 3.1 was set properly which is why it was more stable. The GPU was taking the load off the CPU. What I've done is open the side case to let the air come in, and the temp went down by 6C. This was enough to stabilize it completely.
-
-The original is pretty simple, this is how a sketchy style would look in 3d. Flats and simple shapes everywhere as well as lack of sufficient variation, unlike in 2d where the lines would be wild and unpolished. I thought of going for more elaborate models, but it does not matter. As long as it looks nice to look at, even a sketchy look is fine. At this point rather than focusing on improving the quality of my images, I should be focusing on the speed I am putting them out. This one took far too long to finish as it is.
-
-Let me calculate it. I am going to ignore the 7 days I wasted messing with procedural generation and kitbashing to no result. My serious attempt of doing it all by my own hand is 3-4 days. A lot of this time was spent on getting a grasp on Scatter 5. I also got a grasp on some auxiliary stuff like Blender scenes, its asset browser and view layers. Had I been more skilled a work like this would definitely have been possible in a single day. But it is fine. I am low 3/5, not the apex of humanity. I've just about reached the level where I am starting to form my own style.
-
-This time I was focusing on not repeating the mistake from my work on the room where I did too much detailing only to have the style transfer get rid of most of it. I did the right thing by focusing on the essentials.
-
-From here on out, I will stop work on the backgrounds and get back into sculpting for a while. I need to create the chara models. I've established a good foundation last year, but my sculpting skills are still half baked. I've only done a female base model without any clothing, hair or coloring. I also haven't rigged it. Still, I am confident it won't take me too long to get a grasp on those aspects.
-
-I guess I'll check out what Flycat has been up to. His vids really inspired me to get into sculpting. Digital sculpting is amazing, before I got into art, I never realized such an art form even existed. It is uniquely a 21st century invention. The style transfer that I am doing here is also unique to 21st century. In the future once more advanced NNs become affordable, prompt shaping will also enter the scene as a key skill. For that reason I do not want to invest myself too much into visual aesthetics. The image I am now is 3d style sketchy - and in the future I'll just tell the NN to fill in the blanks. This style will be so powerful that I might move to 2d at that time should I want to.
-
-I like 3d though. It is a good tool when it is not burdening you to do detailing, texturing, or crashing on you. When I form my style, the hard parts of learning it will be behind me, and I will be effective at using it for any kind of illustration.
-
-///
-
-1:30pm. Let me get breakfast here. Also it turns out that hotspot rig is not done yet. The uploads are messed up. Thankfully I know where to look now. I'll post the images on Twitter after the break.
-
-2:30pm. Let me resume. First order of business is to post the images on Twitter. Then I will have to look at that hotspot rig again. It just keeps hounding me. I hope that turning off GRO will be enough.
-
-2:55pm. Let me tweet the long chain. This time I'll just send all the style transfered images. This is one of the benefits of not having to bother with /wip/ anymore. Twitter gets pretty pictures and that place gets the middle finger. Even if I just ignore the guy slinging shit at me, why would I put in special effort in posting to that place which would give me no recognition or benefit? They think too highly of themselves.
-
-3pm. https://twitter.com/Ghostlike/status/1541043122582462466?s=20&t=zEORqaf6owSUmryUbu2n0Q
-
-Here it is.
-
-Let me commit here. What I have to do now is check out that hotspot again. Let me do it."
-
----
-## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[21dc98f470...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/21dc98f47084d3ad33cc59a55eb4c61756b25ec4)
-#### Sunday 2022-06-26 14:40:05 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
-
-you'll need a few hands if you need to go through this information -- 
-
-
-
-
-Changed paths:
-
-M C16 - DEALINGS -- UNFAIR DEALINGS AND INSIDER INFORMATION.html
-
-
-A LOAN 50074 - C16-93715 ANNEXED IN 153974 CARRIED OVER TO 1516523.html
-
-
-
-
--------- Forwarded Message --------
-Subject: 	[BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER] c4c86c: 93715 --- nov13 and Dec18 2021 - could have saved ...
-Date: 	Mon, 23 May 2022 05:02:16 -0700
-From: 	1212-5858 <noreply@github.com>
-To: 	MS60710444266@YAHOO.COM, BLOCK803LOT11@OUTLOOK.COM
-
-
-Branch: refs/heads/93715-CS16-93715-153974
-
-Home: https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER
-
-Commit: c4c86cdbcc0e0fa3ea2869b7cf97d6fb393ae7dd
-
-https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER/commit/c4c86cdbcc0e0fa3ea2869b7cf97d6fb393ae7dd
-
-Author: 1212-5858 <70865813+BSCPGROUPHOLDINGSLLC@users.noreply.github.com>
-
-Date: 2022-05-23 (Mon, 23 May 2022)
-
-
-
-Changed paths:
-
-M C16 - DEALINGS -- UNFAIR DEALINGS AND INSIDER INFORMATION.html
-
-A LOAN 50074 - C16-93715 ANNEXED IN 153974 CARRIED OVER TO 1516523.html
-
-
-
-Log Message:
-
------------
-
-93715 --- nov13 and Dec18 2021 - could have saved about 1.5 billion dollars by switching to BBO.
-
-
-
-ATTN: MR. MOORE & CO.
-
-ONE STATE FARM PLAZA, BLOOMINGTON, IL, 61710
-
-
-
-I REQUESTED AN ESTOPPEL
-
---- --- TO CEASE AND DESIST FROM ALL THE ACTIVITY
-
-
-
-addr.: STATE FARM
-
-
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=s5WAeCnxmd/hcOI4eTnbig==
-
-
-
-addr.: THE ZUCKER FAMILY & ITS COUNSELORS [ all of them ]
-
-
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=Jf3Un/JaVXZwF7kvbaee4w==
-
-
-
-NOTWITHSTANDING FOOLING AROUND WITH A 40' ACT MUTUAL FUND.
-
-IF YOU ARE LOOKING FOR AN EARLY RETIREMENT, IT DOESN'T HAVE TO BE THIS WAY.
-
-
-
-PLUS, THE NAME HASN'T CHANGED THIS YEAR YET - AND IT DOESN'T HAVE TO....
-
-
-
-TWENTY-FIVE MILLION US DOLLARS, UPFRONT
-
-
-
-AND CONSIDER THE MATTER CLOSED, WITH THE IMPLIED "COVERAGE" THEREAFTER.
-
-
-
-WITHOUT ANY LEGAL EXPOSURES, AND WITH MYSELF THERE TO ASSIST YOU PERSONALLY - UNTIL THE DISASTER YOUR ADVISORS HAVE LEFT YOU WITH IS CLEAR.
-
-
-
-UPFRONT – THAT IS MY COST, UNLESS YOU HAVE ANOTHER PROFESSIONAL TO DEAL WITH YOUR COMPANY'S AFFAIRS LEGITIMATELY AFTER THE FACT... AND NOT THE KIND OF PROFESSIONAL THE ZUCKER WOULD HIRE TO WATCH ME IN A HOTEL ROOM AT 5AM - JUST LKE THE ATTACHED FILE.
-
-
-
-A BETTER USE OF YOUR CREDIT LINE ANYWAYS, FOR ALL INTENSIVE PURPOSES.
-
-
-
-TIME SENSITIVE, AS ALWAYS.
-
-
-
-/S/ BO DINCER
-
-
-
-MS60710444266@YAHOO.COM
-
-BDINCER66@ICLOUD.COM
-
-TEL.: 646-256-3609
-
-
-
-CARRIES OVER, TRUST ME... I AM NOT A ZUCKER, AND THEY CAN NOT AFFORD ME - AT ANY PRICE.
-
-
-
-– YOUR $25 MILLION DOLLAR CREDIT LINE IS GOING TO BE ENOUGH TO COVER MY COSTS TO REPAIR THE FIRM.
-
-AND FOR FREE OF COURSE...
-
-BUT ONLY AFTER WE SETTLE.
-
-
-
-https://www.scribd.com/document/386161673/Bo-Dincer-New-York-City-Fixed-Income-Trader-Baris-Dincer-Maritime-Capital
-
-
-
-https://en.everybodywiki.com/Maritime_Capital_Partners_LP
-
-
-
-#GOCARDS.
-
-
-
-THANK FOR REACHING OUT, HAVE A GOOD NIGHT - AND SORRY I WAS WORKING HK HOURS AGAIN.
-
-
-
->> OUT OF COURT SETTLEMENT PRICE IN US DOLLARS $25,000,000.00
-
-
-
-WITH THE IMPLIED "COVERAGE" OF PRE-EXISTING MATTERS SETTLED
-
-
-
-#1
-
-THANKS DAVID FOR YOUR EMAIL AGAIN MR. MOORE.
-
-
-
-
-
-/S/ BO DINCER.
-
-you know what code to use, same as last
-
-646-256-3609
-
-
-
-#12-12.5858
-
-
-
-##1
-
----
-## [b3pio/AuthenticatorPro](https://github.com/b3pio/AuthenticatorPro)@[fd5737fd9b...](https://github.com/b3pio/AuthenticatorPro/commit/fd5737fd9b55b9e36f6e423d5d26bf880afe0ed6)
-#### Sunday 2022-06-26 14:45:27 by Robert Harnett
-
-56 New Icons + Complete Update of Existing Icons
-
-# Authenticator Pro Pull Request Changelog
-
-## TL;DR:
-- Added 56 New Icons
-- Updated any out of date icons (eg; Adobe).
-- Remade some icons that looked low quality (eg: onshape), I admit I don't know how noticeable this is when scaled down but it allows for greater flexibility in the future if you ever decide to alter icon scaling.)
-- Remade ones that were scaled incorrectly  to the 128x128 size (eg patreon).
-- Note there's a fair few where they look nearly identical to existing icons, on some, the logo's have changed a tiny little bit such as a small colour change, on others they are essentially identical. At the stage where I was comparing any of the existing icons to remade icons I had done, I had basically done the hard part already and would only need to save as png, so If I remade one and it turned out to be the same I decided to still export and replace the existing icon because it looked like there was no Anti-Aliasing on the existing icons. 'onshape.png' is the clearest example of this.
-- Deleted icons that are no longer needed, such as unnecessary dark mode versions, icons of services that don't exist, 'Version2' of any icons as these feel redundant, and icons of services that use a account under a different name eg: 'Yandex mail' falls under 'Yandex'.
-- Updated missing_icons.txt
-
-### Any feedback or issues please let me know, Im aware this is a large change so I don't expect it to be 100% perfect.
-
-## Full Changelog:
-
-### New Icons:
-- Addiko Bank
-- Advcash (+ Dark Mode)
-- Automate.io
-- Avanza
-- Betfair
-- BigMind
-- Bitgo
-- Brightbox
-- Cake defi
-- Call of Duty (+ Dark Mode)
-- Cisco
-- Clearscore (+ Dark Mode)
-- Clubhouse (+ Dark Mode)
-- Community America
-- Crashplan
-- Datto
-- Degiro
-- Ecobee[^Ecobee]
-- Fastly
-- Files.com
-- Gaijin
-- Google Cloud
-- Hey
-- Hodlenaut
-- IBM
-- ID.me
-- idrive.com
-- Intuit[^Intuit]
-- Ionos
-- Jovia
-- Koofr
-- Luno (+ Dark Mode)
-- MacStadium (+ Dark Mode)
-- Make
-- Mercury (+ Dark Mode)
-- Meta
-- Morgan Stanley (+ Dark Mode) (Easily the most boring logo I've ever seen, not much I could do here)
-- Nordlayer
-- Nutstore
-- Onehub
-- Optimizely
-- Oracle
-- Pusher (+ Dark Mode)
-- Rewind
-- Runescape (+ Dark Mode)
-- SEFCU
-- Sony (+ Dark Mode)
-- Standard Notes
-- Strato
-- Sync
-- Trading 212
-- Ubuntu One
-- VMware
-- VR Chat
-- Whois
-- Xero
-
-### Updated Icons:
-- 1and1
-- 1password
-- 3cx (Slightly darker grey)
-- Adobe
-- Airship
-- Allegro
-- Altaro
-- Amazon
-- Appveyor
-- Arduino
-- Asana
-- Ascendex
-- Atlassian
-- Autodesk (+ Dark Mode)
-- AWS (+ Dark Mode)
-- Azure
-- Basecamp
-- Best Buy
-- Binance
-- Bitcoin
-- Bitdefender
-- Bitfinex
-- Bitflyer
-- Bitstamp (+ Dark Mode)
-- Bittrex
-- Blizzard
-- Blockchain
-- Bluehost
-- Box
-- Buildkite
-- BunnyCDN
-- Codeberg (+ Dark Mode)
-- Codeship (+ Dark Mode)
-- Coinjar (+ Dark Mode)
-- Confluence
-- Contabo
-- Control D (+ Dark Mode)
-- Crypto.com (+ Dark Mode)
-- Dashlane (+ Dark Mode)
-- Deutschebahn
-- Direct Admin
-- Discogs (+ Dark Mode)
-- Discord
-- Docker
-- Dreamhost
-- Dropbox
-- Electronic Arts
-- Envato
-- Evernote
-- Facebook
-- Figma
-- Filen (+ Dark Mode)
-- Floatplane
-- fmfw
-- FTX
-- Gemini
-- Gitlab
-- Gmail
-- GoDaddy
-- Google
-- Google Drive
-- Google Fi
-- Google Fibre
-- Google Pay
-- Google Play
-- Grammarly
-- Hellosign
-- Heroku
-- Hitbtc
-- Home Assistant
-- Hotbit
-- Humble Bundle[^Humble Bundle]
-- Huobi
-- Instagram
-- Intigriti[^Intigriti]
-- InVision
-- IP Phone Forum
-- Itglue
-- Jagex
-- Jelastic
-- Jetbrains (+ Dark Mode)
-- Jira
-- Jottacloud
-- Kaspersky
-- Kraken
-- Leaseweb
-- Linkedin
-- Linode
-- Litebit
-- Local Cryptos
-- Local Monero
-- Login.gov
-- Maicoin
-- Mailbox.org
-- Mailchimp (+ Dark Mode)
-- Mail.com
-- Mailfence
-- Mailgun
-- Mailo
-- Mapbox (+ Dark Mode)
-- Mastodon
-- Matomo
-- Mega
-- Microsoft
-- Microsoft Todo
-- Migros
-- Mintos
-- Monday.com
-- Moneyforward
-- Moneytree
-- Moqups
-- Myheritage
-- Namecheap
-- Name.com (+ Dark Mode)
-- Netcup
-- Nintendo[^Nintendo]
-- Nuget
-- Nulab
-- NURI
-- Onedrive
-- Onshape
-- Origin
-- Outlook
-- ovh
-- Parsec
-- Patreon
-- Paykassa
-- Paypal
-- Paysafecard
-- Plex
-- Plurk
-- Poloniex_Dark
-- Private Internet Access
-- Proxmox_dark
-- Pushover
-- Pypi
-- Qnap
-- Rackspace
-- RealVNC
-- Robinhood
-- Roblox (+ Dark Mode)
-- Roboform
-- RocketbeansTV
-- Salesforce
-- Samsung[^Samsung]
-- Scaleway
-- Shortio
-- Simplelogin
-- Skype
-- Slack
-- Snapchat
-- Socketlabs
-- Solarwinds
-- Sproutsocial
-- Square
-- Squarespace
-- Stackpath (+ Dark Mode)
-- Statuspage
-- Steam (+ Dark Mode)
-- Stormgain
-- Surfshark
-- Synology
-- Team Viewer
-- Telnyx
-- Ting
-- T-Mobile
-- Tokopedia
-- Tor Guard (+ Dark Mode)
-- Trello
-- Tresorit
-- Tutanota
-- Twilio
-- Twitch
-- Twitter
-- Ultimaker
-- United Domains
-- Unlock Base
-- Unstoppable Domains
-- Updraft
-- UpTimeRobot
-- Visual Studio Online
-- VK
-- Voyager
-- Vultr
-- War Gaming
-- Web.de
-- Whale Fin
-- wordfence
-- Wyze (Again... Updated colour and text weight)
-- ynab
-- YoYo Games
-- Zoho
-- Zonda (+ Dark Mode)
-- Zoom
-- Zyxel (+ Dark)
-
-### Deleted Icons:
-Some of these have dark mode versions that are either not necessary because they are already legible in both light and dark mode or because they have an updated icon where this is now the case (I previewed them in my icon designer software with the same background colours used in the app to make sure they are clear to see).
-- 34sp (Dark Mode)
-- Adobe (Dark Mode)
-- BasicAttentionToken is a crypto currency by Brave, it's not a service on its own and does not require a icon.
-- Best Buy (Dark Mode)
-- Box (Dark Mode)
-- Crypton I can't find this service anywhere? Even reverse image searched the current icon and it seems it doesn't exist?
-- Electronic Arts (Dark Mode)
-- Google Cloud Platform (Now called 'Google Cloud')
-- Google Pay (Dark Mode)
-- Gildwars2 Uses Arenanet to login which already has a account.
-- Hangouts (The service no longer exists)
-- Integromat has rebranded into 'Make' have added a new icon for it.
-- Integrity was misnamed, has simply been named 'Intigriti', icon still exists.
-- Jetbrains2 (Removed the logo with the coloured line as it makes the logo really small, using just the square on its own is still within the brand guidelines.
-- Patreon (Dark Mode)
-- Netcup (Dark Mode)
-- Oculus now exists under the 'Meta' name. I have deleted the old logo and created one for Meta.
-- Office365 has rebranded as Microsoft365, I still wanted to keep a icon for office for user choice so have updated the icon and named it simply 'Office'
-- Samsung[^Samsung]
-- 'simpletax.co' looks 100% like a scam or very old proprietary software that almost no one uses. There's several hundred other services I would prefer we make an icon for first rather then this sketchy looking site. What caused this icon to be added? Was it a legitimate user request? I decided to remove it because I question it's legitimacy, while you could argue that's not for the job of someone submitting icons, I really hate this icon and don't want the icon selector to be clogged full of spammy random sites.
-- Smashcast no longer exists.
-- Starling Bank Developer (Renamed file to simply 'starlingbank')
-- Statusmail (Is this an actual service, it seems to just be part of 'statuspage' which already has an icon.
-- Synology (Dark Mode)
-- Uplay, it's rebranded to 'Ubisoft Connect' and uses a ubisoft account which already has an icon.
-- Yandex Mail (Uses a Yandex account which can be for multiple services, I have added a icon for 'Yandex'
-
-### Updated 'missing_icons.txt':
-- Removed names of added icons
-- 'NordVPN Teams' has rebranded as Nord Layer, icon added.
-- 'Bugzilla@Mozilla' uses the 'Mozilla' logo which already exists.
-- 'Hover.com' is already added.
-- TurboTax, Quickbooks, & Mint all use a shared 'Intuit' account
-- removed 'Ukraine' because... well idk what it is other then a country, and I don't think an entire country has 2FA. Well I suppose it probably in a way does have two factor authentication to enter it right now but that's a differant thing entirely.
-- Removed 'Samsung Smartthings' as far as im aware it uses a Samsung account.
-- 'Remote Desktop Manager' & 'Online' could be any number of services, Im removing them as I don't actually know what the services are.
-- 'Launchpad' uses Ubuntu One login, icon added.
-- join.me uses 'LogMeIn' which already has an icon.
-
-[^Ecobee]: Ecobee's Logo is rather thin text so this icon is based off of their app icon to improve legibility, funnily enough they seem to realise this problem themselves as they use the same solution for their favicon on their website.
-
-[^Intigriti]: Previously misnamed as 'Integrity', not deleted, just renamed.
-
-[^Intuit]: Their logo is just text which is hard to see so again I've based this icon off of their favicon.
-
-[^Humble Bundle]: Both the old 'H' icon and the bag icon are within official brand guidelines and can both be used, I decided to change to the bag to reduce the use of typography in the icon set, this is a personal preference so let me know if you prefer to use the 'H'.
-
-[^Nintendo]: Even on my Pixel 6 Pro which is both on the higher end of screen size and device PPI the current Nintendo logo is very small and hard to read, here I copied what Nintendo have done on their own website it regards to their favicon. This is again a personal preference to reduce the dependence on type heavy icons. Let me know if I should revert this change.
-
-[^Samsung]: Samsung no longer use the rounded blue logo, so I have deleted it and made the 'samsung2' icon the primary and only Samsung logo.
-
----
-## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[e93a3afd9c...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/e93a3afd9ca89155bc2f5e094e636290d49402e4)
-#### Sunday 2022-06-26 14:50:04 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
-
-#GOCARDS ( USC 26, ALSO WILLFULLY OBSTRUCTED under USC 18)
-
-Section 203(f) of the Advisers Act permits the Commission to sanction any person who, at the time of the misconduct, was associated with an investment adviser, if the Commission finds that the sanction is in the public interest and the person has been convicted of any offense specified in Section 203(e)(2) within ten years of the commencement of proceedings. 15 U.S.C. § 80b3(e)(2),(f).
-
-https://www.sec.gov/alj/aljdec/2015/id747ce.pdfconspiracy to commit securities fraud, in violation of 18 U.S.C. § 371; conspiracy to commit wire fraud, in violation of 18 U.S.C. § 1349; securities fraud, in violation of 15 U.S.C. §§ 78j(b), 78ff, and 17 CFR § 240.10b-5; wire fraud, in violation of 18 U.S.C. § 1343; and investment adviser fraud, in violation of 15 U.S.C. §§ 80b-6 and 80b-17. OIP at 2;
-
-On June 23, 2014, Balboa was sentenced to a prison term of fortyeight months, to run concurrently on all counts, followed by three years of supervised release, and ordered to pay restitution of $390,243,873.92 and to forfeit $2,223,000.
-
-15 U.S.C. § 80b3(e)(2)(A). Ex. C at 1-2; Exs. D, E. The superseding indictment charged Balboa with, among other things, engaging in a scheme to falsely inflate the value of illiquid securities between January 2008 and October 2008 and with committing wire fraud.
-
-15 U.S. Code § 78r - Liability for misleading statements (a)Persons liable; persons entitled to recover; defense of good faith; suit at law or in equity; costs, etc. Any person who shall make or cause to be made any statement in any application, report, or document filed pursuant to this chapter or any rule or regulation thereunder or any undertaking contained in a registration statement as provided in subsection (d) of section 78o of this title, which statement was at the time and in the light of the circumstances under which it was made false or misleading with respect to any material fact, shall be liable to any person (not knowing that such statement was false or misleading) who, in reliance upon such statement, shall have purchased or sold a security at a price which was affected by such statement, for damages caused by such reliance, unless the person sued shall prove that he acted in good faith and had no knowledge that such statement was false or misleading. A person seeking to enforce such liability may sue at law or in equity in any court of competent jurisdiction. In any such suit the court may, in its discretion, require an undertaking for the payment of the costs of such suit, and assess reasonable costs, including reasonable attorneys’ fees, against either party litigant.
-
-(b)Contribution Every person who becomes liable to make payment under this section may recover contribution as in cases of contract from any person who, if joined in the original suit, would have been liable to make the same payment.
-
-(c)Period of limitations No action shall be maintained to enforce any liability created under this section unless brought within one year after the discovery of the facts constituting the cause of action and within three years after such cause of action accrued.
-
-[SFITX] 15 U.S. Code § 78s - Registration, responsibilities, and oversight of self-regulatory organizations (5)The Commission shall consult with and consider the views of the Secretary of the Treasury prior to approving a proposed rule filed by a registered securities association that primarily concerns conduct related to transactions in government securities, except where the Commission determines that an emergency exists requiring expeditious or summary action and publishes its reasons therefor. If the Secretary of the Treasury comments in writing to the Commission on a proposed rule that has been published for comment, the Commission shall respond in writing to such written comment before approving the proposed rule. If the Secretary of the Treasury determines, and notifies the Commission, that such rule, if implemented, would, or as applied does (i) adversely affect the liquidity or efficiency of the market for government securities; or (ii) impose any burden on competition not necessary or appropriate in furtherance of the purposes of this section, the Commission shall, prior to adopting the proposed rule, find that such rule is necessary and appropriate in furtherance of the purposes of this section notwithstanding the Secretary’s determination.
-
-https://www.sec.gov/alj/aljdec/2015/id739ce.pdf[t]he proper functioning of the securities industry and markets depends on the integrity of industry participants and their commitment to transparent disclosure. Securities industry participation by persons with a history of fraudulent conduct is antithetical to the protection of investors. . . . We have long held that a history of egregious fraudulent conduct demonstrates unfitness for future participation in the securities industry even if the disqualifying conduct is not related to the professional capacity in which the respondent was acting when he or she engaged in the misconduct underlying the proceeding. The industry relies on the fairness and integrity of all persons associated with each of the professions covered by the collateral bar to forgo opportunities to defraud and abuse other market participants.
-
-TRANSACTIONS OF CERTAIN AFFILIATED PERSONS AND UNDERWRITERS -UNLAWFUL TRANSACTIONS SEC. 17. (a) It shall be unlawful for any affiliated person or pro- moter of or principal underwriter for a registered investment company (other than a company of the character described in section 12 (d) (3) (A) and (B)), or any affiliated person of such a person, promoter, or principal underwriter, acting as principal- (1) knowingly to sell any security or other property to such registered company or to any company controlled by such regis- tered company, unless such sale involves solely (A) securities of which the buyer is the issuer, (B) securities of which the seller is the issuer and which are part of a general offering to the holders of a class of its securities, or (C) securities deposited with the trustee of a unit investment trust or periodic payment plan by the depositor thereof;
-
-(2) knowingly to purchase from such registered company, or from any company controlled by such registered company, any security or other property (except securities of which the seller is the issuer)
-
-Liability of directors, etc., for willful misfeasance. SEC. 17. (h) After one year from the effective date of this title, neither the charter, certificate of incorporation, articles of association, indenture of trust, nor the by-laws of any registered investment company, nor any other instrument pursuant to which such a company is organized or administered, shall contain any provision which protects or purports to protect any director or officer of such company against any liability to the company or to its security holders to which he would otherwise be subject by reason of willful misfeasance, bad faith, gross negligence or reckless disregard of the duties involved in the conduct of his office.
-
-|In the event that any such instrument does not at the effective date of this Act comply with the requirements of this subsection (h) and is not amended to comply therewith prior to the expiration of said one year, such company may nevertheless continue to be a registered investment company and shall not be deemed to violate this subsection if prior to said expiration date each such director or officer shall have filed with the Commission a waiver in writing of any protective provision of the instrument to the extent that it does not comply with this subsection, and each such person subsequently elected or appointed shall before assuming office file a similar waiver. |
-
-(i) After one year from the effective date of this title no contract or agreement under which any person undertakes to act as investment adviser of, or principal underwriter for, a registered investment company shall contain any provision which protects or purports to protect such person against any liability to such company or its security holders to which he would otherwise be subject by reason of willful misfeasance, bad faith, or gross negligence, in the performance of his duties, or by reason of his reckless disregard of his obligations and duties under such contract or agreement.
-
-Injunctions against gross abuse. SEC. 36. The Commission is authorized to bring an action in the proper district court of the United States or United States court of any Territory or other place subject to the jurisdiction of the United States, alleging that a person serving or acting in one or more of the following capacities has been guilty, after the enactment of this title and within five years of the commencement of the action, of gross misconduct or gross abuse of trust in respect of any registered investment company for which such person so serves or acts: (1) as officer, director, member of an advisory board, investment adviser, or depositor; or (2) as principal underwriter, if such registered company is an open-end company, unit investment trust, or face-amount certificate company. If the Commission's allegations of such gross misconduct or gross abuse of trust are established, the court shall enjoin such person from acting in such capacity or capacities either permanently or for such period of time as it in its discretion shall deem appropriate.
-
-SEC. 32. (c) The Commission is authorized, by rules and regulations or order in the public interest or for the protection of investors, to require accountants and auditors to keep reports, work sheets, and other documents and papers relating to registered investment companies for such period or periods as the Commission may prescribe, and to make the same available for inspection by the Commission or any member or representative thereof.
-
-DESTRUCTION AND FALSIFICATION OF REPORTS AND RECORDS SEC. 34.
-
-(a) It shall be unlawful for any person, except as permitted by rule, regulation, or order of the Commission, willfully to destroy, mutilate, or alter any account, book, or other document the preservation of which has been required pursuant to section 31 (a) or 32 (c). (b) It shall be unlawful for any person to make any untrue statement of a material fact in any registration statement, application, report, account, record, or other document filed or transmitted pursuant to this title or the keeping of which is required pursuant to section 31 (a).
-
-It shall be unlawful for any person so filing, transmitting, or keeping any such document to omit to state therein any fact necessary in order to prevent the statements made therein, in the light of the circumstances under which they were made, from being materially misleading. For the purposes of this subsection, any part of any such document which is signed or certified by an accountant or auditor in his capacity as such shall be deemed to be made, filed, transmitted, or kept by such accountant or auditor, as well as by the person filing, transmitting, or keeping the complete document.
-
-ty FDIC
-
-------------------------------------------------------------------------
-
-From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 19:13:39 UTC-5:00 Subject: Fwd:Fwd:Fwd:Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM
-
-|From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:37:39 UTC-5:00 To: Susan Byrne (WESTWOOD MANAGEMENT ) , Julie Hoyer (STATE FARM MUTUAL AU ) , Greg Shull (STATE FARM MUTUAL AU ) , Jeffrey Attwood (STATE FARM MUTUAL AU ) , John Malito (STATE FARM MUTUAL AU ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , Robert Stephan (STATE FARM MUTUAL AU ) , Lisa Rogers (STATE FARM MUTUAL AU ) , Elena Khoziaeva (BRIDGEWAY CAPITAL MA ) , Bill Trauner (STATE FARM MUTUAL AU ) , Heather Caldwell (STATE FARM MUTUAL AU ) , Theresa Baker (STATE FARM MUTUAL AU ) , Tammy Gipson (STATE FARM MUTUAL AU ) , Brent Reeder (NORTHERN TRUST COMPA ) , Michael Whipple (BRIDGEWAY CAPITAL MA ) , Michael Zaroogian (STATE FARM MUTUAL AU ) , Terence Lynch (GAINSCO SERVICE CORP ) , Rebekah Holt (STATE FARM MUTUAL AU ) , Katie Hubbard (STATE FARM MUTUAL AU ) , Leigh Ann Rogalski (STATE FARM MUTUAL AU ) , Chad Moser (STATE FARM MUTUAL AU ) , Tim Zelgert (STATE FARM MUTUAL AU ) , Ray Renken (STATE FARM MUTUAL AU ) , Kara Olson (STATE FARM MUTUAL AU ) , Jim Chan (BLACKROCK INSTITUTIO ) , Matt Harvey (STATE FARM MUTUAL AU ) , Steve Brucker (STATE FARM MUTUAL AU ) , John Socha (STATE FARM MUTUAL AU ) , Jennifer Hsui (BLACKROCK INSTITUTIO ) , Joe Young (STATE FARM MUTUAL AU ) , Wade Reinthaler (STATE FARM MUTUAL AU ) , Scott Reid (STATE FARM MUTUAL AU ) , Adam Hallman (STATE FARM MUTUAL AU ) , Tyler Smith (STATE FARM MUTUAL AU ) , Wei Hao (STATE FARM MUTUAL AU ) , Chris Minter (STATE FARM MUTUAL AU ) , Shelly Marsh (STATE FARM MUTUAL AU ) , Hollie Marsh (STATE FARM MUTUAL AU ) , Matthew Lockridge (WESTWOOD MANAGEMENT ) , Rich Rebholz (STATE FARM MUTUAL AU ) , Michael Mayberger (STATE FARM MUTUAL AU ) , Ashley Smock (STATE FARM MUTUAL AU ) , Brian Bengtson (STATE FARM MUTUAL AU ) , Cory Swartzlander (STATE FARM MUTUAL AU ) , Scott Lawson (WESTWOOD MANAGEMENT ) , Ayman Bari (STATE FARM MUTUAL AU ) , Adam Vales (STATE FARM MUTUAL AU ) , Robert Middleton (STATE FARM MUTUAL AU ) , Shane Jent (STATE FARM MUTUAL AU ) , Kevin Rock (STATE FARM MUTUAL AU ) , Mark Dunford (STATE FARM MUTUAL AU ) , Jean-Francois Ducrest (DUCREST, JEAN-FRANCO ) , Caroline Dirks (STATE FARM MUTUAL AU ) , Kyle Gilmore (STATE FARM MUTUAL AU ) , Diane Hsiung (GEODE CAPITAL MANAGE ) , Hunter Rose (STATE FARM MUTUAL AU ) , Cameron Kurak (STATE FARM MUTUAL AU ) , Mark Broughton (FIRST REPUBLIC BANK ) , Betsey Euliss (STATE FARM MUTUAL AU ) , Kim Bretz (STATE FARM MUTUAL AU ) , Jon Wilson (STATE FARM MUTUAL AU ) , Numan Ahmed (STATE FARM MUTUAL AU ) , Walter Ruane (STATE FARM MUTUAL AU ) , Shawna Barlow (STATE FARM MUTUAL AU ) , Philip Kroger (STATE FARM MUTUAL AU ) , Gabrielle Poole (STATE FARM MUTUAL AU ) , Ricardo Correa (STATE FARM MUTUAL AU ) , Felipe Castella (STATE FARM MUTUAL AU ) , Matt Krebsbach (STATE FARM MUTUAL AU ) , Gabriel Prado Correa (STATE FARM MUTUAL AU ) , Larnita Gates (STATE FARM MUTUAL AU ) , Ketrick Karsten (STATE FARM MUTUAL AU ) , Sophie Kim (STATE FARM MUTUAL AU ) , Vicki Trimpe (STATE FARM MUTUAL AU ) , Christin Higham (STATE FARM MUTUAL AU ) , BD DINCER (COLUMBIA UNIVERSITY ) , b.dincer@columbia.edu Cc: Kerri Saperstein (MORGAN STANLEY & CO. ) , COLIN.BROOKS@MORGAN.STANLEY.COM Subject: Fwd:Fwd:Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:34:02 UTC-5:00 To: Kerri Saperstein (MORGAN STANLEY & CO. ) , colin.brooks@morgan.stanley.com Cc: james.gorman@morganstanley.com Subject: Fwd:Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:27:46 UTC-5:00 To: james.gorman@morgan.stanley.com Cc: Christina Constantine (FINRA ) , Ms Hy (MORGAN STANLEY INVES ) , Ms Hyld (MORGAN STANLEY ) , Peter Melley (FINRA ) , Susan Byrne (WESTWOOD MANAGEMENT ) , Julie Hoyer (STATE FARM MUTUAL AU ) , Greg Shull (STATE FARM MUTUAL AU ) , Jeffrey Attwood (STATE FARM MUTUAL AU ) , John Malito (STATE FARM MUTUAL AU ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , Robert Stephan (STATE FARM MUTUAL AU ) , Lisa Rogers (STATE FARM MUTUAL AU ) , Elena Khoziaeva (BRIDGEWAY CAPITAL MA ) , Bill Trauner (STATE FARM MUTUAL AU ) , Heather Caldwell (STATE FARM MUTUAL AU ) , Theresa Baker (STATE FARM MUTUAL AU ) , Tammy Gipson (STATE FARM MUTUAL AU ) , Brent Reeder (NORTHERN TRUST COMPA ) , Michael Whipple (BRIDGEWAY CAPITAL MA ) , Michael Zaroogian (STATE FARM MUTUAL AU ) , Terence Lynch (GAINSCO SERVICE CORP ) , Rebekah Holt (STATE FARM MUTUAL AU ) , Katie Hubbard (STATE FARM MUTUAL AU ) , Leigh Ann Rogalski (STATE FARM MUTUAL AU ) , Chad Moser (STATE FARM MUTUAL AU ) , Tim Zelgert (STATE FARM MUTUAL AU ) , Ray Renken (STATE FARM MUTUAL AU ) , Kara Olson (STATE FARM MUTUAL AU ) , Jim Chan (BLACKROCK INSTITUTIO ) , Matt Harvey (STATE FARM MUTUAL AU ) , Steve Brucker (STATE FARM MUTUAL AU ) , John Socha (STATE FARM MUTUAL AU ) , Jennifer Hsui (BLACKROCK INSTITUTIO ) , Joe Young (STATE FARM MUTUAL AU ) , Wade Reinthaler (STATE FARM MUTUAL AU ) , Scott Reid (STATE FARM MUTUAL AU ) , Adam Hallman (STATE FARM MUTUAL AU ) , Tyler Smith (STATE FARM MUTUAL AU ) , Wei Hao (STATE FARM MUTUAL AU ) , Chris Minter (STATE FARM MUTUAL AU ) , Shelly Marsh (STATE FARM MUTUAL AU ) , Hollie Marsh (STATE FARM MUTUAL AU ) , Matthew Lockridge (WESTWOOD MANAGEMENT ) , Rich Rebholz (STATE FARM MUTUAL AU ) , Michael Mayberger (STATE FARM MUTUAL AU ) , Ashley Smock (STATE FARM MUTUAL AU ) , Brian Bengtson (STATE FARM MUTUAL AU ) , Cory Swartzlander (STATE FARM MUTUAL AU ) , Scott Lawson (WESTWOOD MANAGEMENT ) , Ayman Bari (STATE FARM MUTUAL AU ) , Adam Vales (STATE FARM MUTUAL AU ) , Robert Middleton (STATE FARM MUTUAL AU ) , Shane Jent (STATE FARM MUTUAL AU ) , Kevin Rock (STATE FARM MUTUAL AU ) , Mark Dunford (STATE FARM MUTUAL AU ) , Jean-Francois Ducrest (DUCREST, JEAN-FRANCO ) , Caroline Dirks (STATE FARM MUTUAL AU ) , Kyle Gilmore (STATE FARM MUTUAL AU ) , Diane Hsiung (GEODE CAPITAL MANAGE ) , Hunter Rose (STATE FARM MUTUAL AU ) , Cameron Kurak (STATE FARM MUTUAL AU ) , Mark Broughton (FIRST REPUBLIC BANK ) , Betsey Euliss (STATE FARM MUTUAL AU ) , Kim Bretz (STATE FARM MUTUAL AU ) , Jon Wilson (STATE FARM MUTUAL AU ) , Numan Ahmed (STATE FARM MUTUAL AU ) , Walter Ruane (STATE FARM MUTUAL AU ) , Shawna Barlow (STATE FARM MUTUAL AU ) , Philip Kroger (STATE FARM MUTUAL AU ) , Gabrielle Poole (STATE FARM MUTUAL AU ) , Ricardo Correa (STATE FARM MUTUAL AU ) , Felipe Castella (STATE FARM MUTUAL AU ) , Matt Krebsbach (STATE FARM MUTUAL AU ) , Gabriel Prado Correa (STATE FARM MUTUAL AU ) , Larnita Gates (STATE FARM MUTUAL AU ) , Ketrick Karsten (STATE FARM MUTUAL AU ) , Sophie Kim (STATE FARM MUTUAL AU ) , Vicki Trimpe (STATE FARM MUTUAL AU ) , Christin Higham (STATE FARM MUTUAL AU ) , BD DINCER (COLUMBIA UNIVERSITY ) , Donald Rizer (FINRA ) , Paul Aragon (FINRA ) , b.dincer@columbia.edu, chair@sec.gov Subject: Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:22:33 UTC-5:00 To: Kerri Saperstein (MORGAN STANLEY & CO. ) , james.gorman@morganstanley.com Cc: bd2561@columbia.edu Subject: Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:15:44 UTC-5:00 To: Ms. Hayashi (NOMURA SECURITIES CO ) , Morgan32 Stanley (MORGAN STANLEY ADVTG ) , Morgan Stanley154 (MORGAN STANLEY ADVTG ) , Morgan Stanley15 (MORGAN STANLEY ADVTG ) , Ms Hy (MORGAN STANLEY INVES ) , Ms Hyld (MORGAN STANLEY ) Cc: Kerri Saperstein (MORGAN STANLEY & CO. ) , Cmo Citibank (CITIBANK NA ) , Samriddi Abney (FEDERAL HOME LOAN BA ) , Federated Mmktops (FEDERATED INVESTMENT ) , Jesse Aguilar (FEDERAL HOME LOAN BA ) , Shafat Alam (FEDERAL RESERVE BANK ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , bd2561@columbia.edu, colin.brooks@morgan.stanley.com Subject: Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM Hey SAPS... Merry Christmas! You think this guy will figure it out??? - THE 6MM? Brent Reeder Fund Manager Northern Trust Company, The +1-312-557-0153 (o) 181 W Madison St bdr11@bloomberg.net (w) Chicago IL 60602-4510, US Focus Large Cap Stocks, Growth Investing, United States, Equities, Mid Cap Stocks, Small Cap Stocks, Global, United Kingdom, | More » Funds Managed (43 Funds/51.6B Total Assets in USD) | More » » » » » » » 590xxxx » » » » » » ??????? Investment Information Analyst State Farm Mutual Automobile Ins Co +1-309-735-2705 (o) 1 State Farm Plz +1-309-530-1865 (m) Investment Department E-8 krock5@bloomberg.net (w) Bloomington IL 61701, US You think this guy will figure it out??? - THE 6MM? Phil Supple 1 Views Today Spokesperson Career State Farm Life Insurance Co Current +1-800-782-8332 (o) 1 State Farm Plaza State Farm Life Insurance Co phil.supple.hid9@statefarm.com (w Bloomington IL 61710, US How funny was Benny ......... I like Benny also... Plus no problems after that. Right? |
-
-From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 19:13:39 UTC-5:00 Subject: Fwd:Fwd:Fwd:Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM
-
-|From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:37:39 UTC-5:00 To: Susan Byrne (WESTWOOD MANAGEMENT ) , Julie Hoyer (STATE FARM MUTUAL AU ) , Greg Shull (STATE FARM MUTUAL AU ) , Jeffrey Attwood (STATE FARM MUTUAL AU ) , John Malito (STATE FARM MUTUAL AU ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , Robert Stephan (STATE FARM MUTUAL AU ) , Lisa Rogers (STATE FARM MUTUAL AU ) , Elena Khoziaeva (BRIDGEWAY CAPITAL MA ) , Bill Trauner (STATE FARM MUTUAL AU ) , Heather Caldwell (STATE FARM MUTUAL AU ) , Theresa Baker (STATE FARM MUTUAL AU ) , Tammy Gipson (STATE FARM MUTUAL AU ) , Brent Reeder (NORTHERN TRUST COMPA ) , Michael Whipple (BRIDGEWAY CAPITAL MA ) , Michael Zaroogian (STATE FARM MUTUAL AU ) , Terence Lynch (GAINSCO SERVICE CORP ) , Rebekah Holt (STATE FARM MUTUAL AU ) , Katie Hubbard (STATE FARM MUTUAL AU ) , Leigh Ann Rogalski (STATE FARM MUTUAL AU ) , Chad Moser (STATE FARM MUTUAL AU ) , Tim Zelgert (STATE FARM MUTUAL AU ) , Ray Renken (STATE FARM MUTUAL AU ) , Kara Olson (STATE FARM MUTUAL AU ) , Jim Chan (BLACKROCK INSTITUTIO ) , Matt Harvey (STATE FARM MUTUAL AU ) , Steve Brucker (STATE FARM MUTUAL AU ) , John Socha (STATE FARM MUTUAL AU ) , Jennifer Hsui (BLACKROCK INSTITUTIO ) , Joe Young (STATE FARM MUTUAL AU ) , Wade Reinthaler (STATE FARM MUTUAL AU ) , Scott Reid (STATE FARM MUTUAL AU ) , Adam Hallman (STATE FARM MUTUAL AU ) , Tyler Smith (STATE FARM MUTUAL AU ) , Wei Hao (STATE FARM MUTUAL AU ) , Chris Minter (STATE FARM MUTUAL AU ) , Shelly Marsh (STATE FARM MUTUAL AU ) , Hollie Marsh (STATE FARM MUTUAL AU ) , Matthew Lockridge (WESTWOOD MANAGEMENT ) , Rich Rebholz (STATE FARM MUTUAL AU ) , Michael Mayberger (STATE FARM MUTUAL AU ) , Ashley Smock (STATE FARM MUTUAL AU ) , Brian Bengtson (STATE FARM MUTUAL AU ) , Cory Swartzlander (STATE FARM MUTUAL AU ) , Scott Lawson (WESTWOOD MANAGEMENT ) , Ayman Bari (STATE FARM MUTUAL AU ) , Adam Vales (STATE FARM MUTUAL AU ) , Robert Middleton (STATE FARM MUTUAL AU ) , Shane Jent (STATE FARM MUTUAL AU ) , Kevin Rock (STATE FARM MUTUAL AU ) , Mark Dunford (STATE FARM MUTUAL AU ) , Jean-Francois Ducrest (DUCREST, JEAN-FRANCO ) , Caroline Dirks (STATE FARM MUTUAL AU ) , Kyle Gilmore (STATE FARM MUTUAL AU ) , Diane Hsiung (GEODE CAPITAL MANAGE ) , Hunter Rose (STATE FARM MUTUAL AU ) , Cameron Kurak (STATE FARM MUTUAL AU ) , Mark Broughton (FIRST REPUBLIC BANK ) , Betsey Euliss (STATE FARM MUTUAL AU ) , Kim Bretz (STATE FARM MUTUAL AU ) , Jon Wilson (STATE FARM MUTUAL AU ) , Numan Ahmed (STATE FARM MUTUAL AU ) , Walter Ruane (STATE FARM MUTUAL AU ) , Shawna Barlow (STATE FARM MUTUAL AU ) , Philip Kroger (STATE FARM MUTUAL AU ) , Gabrielle Poole (STATE FARM MUTUAL AU ) , Ricardo Correa (STATE FARM MUTUAL AU ) , Felipe Castella (STATE FARM MUTUAL AU ) , Matt Krebsbach (STATE FARM MUTUAL AU ) , Gabriel Prado Correa (STATE FARM MUTUAL AU ) , Larnita Gates (STATE FARM MUTUAL AU ) , Ketrick Karsten (STATE FARM MUTUAL AU ) , Sophie Kim (STATE FARM MUTUAL AU ) , Vicki Trimpe (STATE FARM MUTUAL AU ) , Christin Higham (STATE FARM MUTUAL AU ) , BD DINCER (COLUMBIA UNIVERSITY ) , b.dincer@columbia.edu Cc: Kerri Saperstein (MORGAN STANLEY & CO. ) , COLIN.BROOKS@MORGAN.STANLEY.COM Subject: Fwd:Fwd:Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:34:02 UTC-5:00 To: Kerri Saperstein (MORGAN STANLEY & CO. ) , colin.brooks@morgan.stanley.com Cc: james.gorman@morganstanley.com Subject: Fwd:Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:27:46 UTC-5:00 To: james.gorman@morgan.stanley.com Cc: Christina Constantine (FINRA ) , Ms Hy (MORGAN STANLEY INVES ) , Ms Hyld (MORGAN STANLEY ) , Peter Melley (FINRA ) , Susan Byrne (WESTWOOD MANAGEMENT ) , Julie Hoyer (STATE FARM MUTUAL AU ) , Greg Shull (STATE FARM MUTUAL AU ) , Jeffrey Attwood (STATE FARM MUTUAL AU ) , John Malito (STATE FARM MUTUAL AU ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , Robert Stephan (STATE FARM MUTUAL AU ) , Lisa Rogers (STATE FARM MUTUAL AU ) , Elena Khoziaeva (BRIDGEWAY CAPITAL MA ) , Bill Trauner (STATE FARM MUTUAL AU ) , Heather Caldwell (STATE FARM MUTUAL AU ) , Theresa Baker (STATE FARM MUTUAL AU ) , Tammy Gipson (STATE FARM MUTUAL AU ) , Brent Reeder (NORTHERN TRUST COMPA ) , Michael Whipple (BRIDGEWAY CAPITAL MA ) , Michael Zaroogian (STATE FARM MUTUAL AU ) , Terence Lynch (GAINSCO SERVICE CORP ) , Rebekah Holt (STATE FARM MUTUAL AU ) , Katie Hubbard (STATE FARM MUTUAL AU ) , Leigh Ann Rogalski (STATE FARM MUTUAL AU ) , Chad Moser (STATE FARM MUTUAL AU ) , Tim Zelgert (STATE FARM MUTUAL AU ) , Ray Renken (STATE FARM MUTUAL AU ) , Kara Olson (STATE FARM MUTUAL AU ) , Jim Chan (BLACKROCK INSTITUTIO ) , Matt Harvey (STATE FARM MUTUAL AU ) , Steve Brucker (STATE FARM MUTUAL AU ) , John Socha (STATE FARM MUTUAL AU ) , Jennifer Hsui (BLACKROCK INSTITUTIO ) , Joe Young (STATE FARM MUTUAL AU ) , Wade Reinthaler (STATE FARM MUTUAL AU ) , Scott Reid (STATE FARM MUTUAL AU ) , Adam Hallman (STATE FARM MUTUAL AU ) , Tyler Smith (STATE FARM MUTUAL AU ) , Wei Hao (STATE FARM MUTUAL AU ) , Chris Minter (STATE FARM MUTUAL AU ) , Shelly Marsh (STATE FARM MUTUAL AU ) , Hollie Marsh (STATE FARM MUTUAL AU ) , Matthew Lockridge (WESTWOOD MANAGEMENT ) , Rich Rebholz (STATE FARM MUTUAL AU ) , Michael Mayberger (STATE FARM MUTUAL AU ) , Ashley Smock (STATE FARM MUTUAL AU ) , Brian Bengtson (STATE FARM MUTUAL AU ) , Cory Swartzlander (STATE FARM MUTUAL AU ) , Scott Lawson (WESTWOOD MANAGEMENT ) , Ayman Bari (STATE FARM MUTUAL AU ) , Adam Vales (STATE FARM MUTUAL AU ) , Robert Middleton (STATE FARM MUTUAL AU ) , Shane Jent (STATE FARM MUTUAL AU ) , Kevin Rock (STATE FARM MUTUAL AU ) , Mark Dunford (STATE FARM MUTUAL AU ) , Jean-Francois Ducrest (DUCREST, JEAN-FRANCO ) , Caroline Dirks (STATE FARM MUTUAL AU ) , Kyle Gilmore (STATE FARM MUTUAL AU ) , Diane Hsiung (GEODE CAPITAL MANAGE ) , Hunter Rose (STATE FARM MUTUAL AU ) , Cameron Kurak (STATE FARM MUTUAL AU ) , Mark Broughton (FIRST REPUBLIC BANK ) , Betsey Euliss (STATE FARM MUTUAL AU ) , Kim Bretz (STATE FARM MUTUAL AU ) , Jon Wilson (STATE FARM MUTUAL AU ) , Numan Ahmed (STATE FARM MUTUAL AU ) , Walter Ruane (STATE FARM MUTUAL AU ) , Shawna Barlow (STATE FARM MUTUAL AU ) , Philip Kroger (STATE FARM MUTUAL AU ) , Gabrielle Poole (STATE FARM MUTUAL AU ) , Ricardo Correa (STATE FARM MUTUAL AU ) , Felipe Castella (STATE FARM MUTUAL AU ) , Matt Krebsbach (STATE FARM MUTUAL AU ) , Gabriel Prado Correa (STATE FARM MUTUAL AU ) , Larnita Gates (STATE FARM MUTUAL AU ) , Ketrick Karsten (STATE FARM MUTUAL AU ) , Sophie Kim (STATE FARM MUTUAL AU ) , Vicki Trimpe (STATE FARM MUTUAL AU ) , Christin Higham (STATE FARM MUTUAL AU ) , BD DINCER (COLUMBIA UNIVERSITY ) , Donald Rizer (FINRA ) , Paul Aragon (FINRA ) , b.dincer@columbia.edu, chair@sec.gov Subject: Fwd:Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:22:33 UTC-5:00 To: Kerri Saperstein (MORGAN STANLEY & CO. ) , james.gorman@morganstanley.com Cc: bd2561@columbia.edu Subject: Fwd:Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:15:44 UTC-5:00 To: Ms. Hayashi (NOMURA SECURITIES CO ) , Morgan32 Stanley (MORGAN STANLEY ADVTG ) , Morgan Stanley154 (MORGAN STANLEY ADVTG ) , Morgan Stanley15 (MORGAN STANLEY ADVTG ) , Ms Hy (MORGAN STANLEY INVES ) , Ms Hyld (MORGAN STANLEY ) Cc: Kerri Saperstein (MORGAN STANLEY & CO. ) , Cmo Citibank (CITIBANK NA ) , Samriddi Abney (FEDERAL HOME LOAN BA ) , Federated Mmktops (FEDERATED INVESTMENT ) , Jesse Aguilar (FEDERAL HOME LOAN BA ) , Shafat Alam (FEDERAL RESERVE BANK ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , bd2561@columbia.edu, colin.brooks@morgan.stanley.com Subject: Fwd:STATE FARM - BLOOMINGTON » Northern Trust Company. ACRIS 6MM Hey SAPS... Merry Christmas! You think this guy will figure it out??? - THE 6MM? Brent Reeder Fund Manager Northern Trust Company, The +1-312-557-0153 (o) 181 W Madison St bdr11@bloomberg.net (w) Chicago IL 60602-4510, US Focus Large Cap Stocks, Growth Investing, United States, Equities, Mid Cap Stocks, Small Cap Stocks, Global, United Kingdom, | More » Funds Managed (43 Funds/51.6B Total Assets in USD) | More » » » » » » » 590xxxx » » » » » » ??????? Investment Information Analyst State Farm Mutual Automobile Ins Co +1-309-735-2705 (o) 1 State Farm Plz +1-309-530-1865 (m) Investment Department E-8 krock5@bloomberg.net (w) Bloomington IL 61701, US You think this guy will figure it out??? - THE 6MM? Phil Supple 1 Views Today Spokesperson Career State Farm Life Insurance Co Current +1-800-782-8332 (o) 1 State Farm Plaza State Farm Life Insurance Co phil.supple.hid9@statefarm.com (w Bloomington IL 61710, US How funny was Benny ......... I like Benny also... Plus no problems after that. Right? From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 18:03:41 UTC-5:00 To: Susan Byrne (WESTWOOD MANAGEMENT ) , Julie Hoyer (STATE FARM MUTUAL AU ) , Greg Shull (STATE FARM MUTUAL AU ) , Jeffrey Attwood (STATE FARM MUTUAL AU ) , John Malito (STATE FARM MUTUAL AU ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , Robert Stephan (STATE FARM MUTUAL AU ) , Lisa Rogers (STATE FARM MUTUAL AU ) , Elena Khoziaeva (BRIDGEWAY CAPITAL MA ) , Bill Trauner (STATE FARM MUTUAL AU ) , Heather Caldwell (STATE FARM MUTUAL AU ) , Theresa Baker (STATE FARM MUTUAL AU ) , Tammy Gipson (STATE FARM MUTUAL AU ) , Brent Reeder (NORTHERN TRUST COMPA ) , Michael Whipple (BRIDGEWAY CAPITAL MA ) , Michael Zaroogian (STATE FARM MUTUAL AU ) , Terence Lynch (GAINSCO SERVICE CORP ) , Rebekah Holt (STATE FARM MUTUAL AU ) , Katie Hubbard (STATE FARM MUTUAL AU ) , Leigh Ann Rogalski (STATE FARM MUTUAL AU ) , Chad Moser (STATE FARM MUTUAL AU ) , Tim Zelgert (STATE FARM MUTUAL AU ) , Ray Renken (STATE FARM MUTUAL AU ) , Kara Olson (STATE FARM MUTUAL AU ) , Jim Chan (BLACKROCK INSTITUTIO ) , Matt Harvey (STATE FARM MUTUAL AU ) , Steve Brucker (STATE FARM MUTUAL AU ) , John Socha (STATE FARM MUTUAL AU ) , Jennifer Hsui (BLACKROCK INSTITUTIO ) , Joe Young (STATE FARM MUTUAL AU ) , Wade Reinthaler (STATE FARM MUTUAL AU ) , Scott Reid (STATE FARM MUTUAL AU ) , Adam Hallman (STATE FARM MUTUAL AU ) , Tyler Smith (STATE FARM MUTUAL AU ) , Wei Hao (STATE FARM MUTUAL AU ) , Chris Minter (STATE FARM MUTUAL AU ) , Shelly Marsh (STATE FARM MUTUAL AU ) , Hollie Marsh (STATE FARM MUTUAL AU ) , Matthew Lockridge (WESTWOOD MANAGEMENT ) , Rich Rebholz (STATE FARM MUTUAL AU ) , Michael Mayberger (STATE FARM MUTUAL AU ) , Ashley Smock (STATE FARM MUTUAL AU ) , Brian Bengtson (STATE FARM MUTUAL AU ) , Cory Swartzlander (STATE FARM MUTUAL AU ) , Scott Lawson (WESTWOOD MANAGEMENT ) , Ayman Bari (STATE FARM MUTUAL AU ) , Adam Vales (STATE FARM MUTUAL AU ) , Robert Middleton (STATE FARM MUTUAL AU ) , Shane Jent (STATE FARM MUTUAL AU ) , Kevin Rock (STATE FARM MUTUAL AU ) , Mark Dunford (STATE FARM MUTUAL AU ) , Jean-Francois Ducrest (DUCREST, JEAN-FRANCO ) , Caroline Dirks (STATE FARM MUTUAL AU ) , Kyle Gilmore (STATE FARM MUTUAL AU ) , Diane Hsiung (GEODE CAPITAL MANAGE ) , Hunter Rose (STATE FARM MUTUAL AU ) , Cameron Kurak (STATE FARM MUTUAL AU ) , Mark Broughton (FIRST REPUBLIC BANK ) , Betsey Euliss (STATE FARM MUTUAL AU ) , Kim Bretz (STATE FARM MUTUAL AU ) , Jon Wilson (STATE FARM MUTUAL AU ) , Numan Ahmed (STATE FARM MUTUAL AU ) , Walter Ruane (STATE FARM MUTUAL AU ) , Shawna Barlow (STATE FARM MUTUAL AU ) , Philip Kroger (STATE FARM MUTUAL AU ) , Gabrielle Poole (STATE FARM MUTUAL AU ) , Ricardo Correa (STATE FARM MUTUAL AU ) , Felipe Castella (STATE FARM MUTUAL AU ) , Matt Krebsbach (STATE FARM MUTUAL AU ) , Gabriel Prado Correa (STATE FARM MUTUAL AU ) , Larnita Gates (STATE FARM MUTUAL AU ) , Ketrick Karsten (STATE FARM MUTUAL AU ) , Sophie Kim (STATE FARM MUTUAL AU ) , Vicki Trimpe (STATE FARM MUTUAL AU ) , Christin Higham (STATE FARM MUTUAL AU ) , BD DINCER (COLUMBIA UNIVERSITY ) , b.dincer@columbia.edu Cc: Kerri Saperstein (MORGAN STANLEY & CO. ) , newyork@sec.gov, chair@sec.gov, colin.brooks@morgan.stanley.com Subject: Fwd:STATE FARM - BLOOMINGTON krock5@bloomberg.net (w) Bloomington IL 61701, US See also: TCRReport... Thanks! From: BD DINCER (COLUMBIA UNIVERSITY) At: 12/18/21 16:13:57 UTC-5:00 To: Greg Shull (STATE FARM MUTUAL AU ) , Bill Trauner (STATE FARM MUTUAL AU ) , Theresa Baker (STATE FARM MUTUAL AU ) , Tammy Gipson (STATE FARM MUTUAL AU ) , Leigh Ann Rogalski (STATE FARM MUTUAL AU ) , Chad Moser (STATE FARM MUTUAL AU ) , Ray Renken (STATE FARM MUTUAL AU ) , Matt Harvey (STATE FARM MUTUAL AU ) , Steve Brucker (STATE FARM MUTUAL AU ) , Wade Reinthaler (STATE FARM MUTUAL AU ) , Tyler Smith (STATE FARM MUTUAL AU ) , Rich Rebholz (STATE FARM MUTUAL AU ) , Brian Bengtson (STATE FARM MUTUAL AU ) , Kyle Gilmore (STATE FARM MUTUAL AU ) , Numan Ahmed (STATE FARM MUTUAL AU ) , Walter Ruane (STATE FARM MUTUAL AU ) , Vicki Trimpe (STATE FARM MUTUAL AU ) , Brent Reeder (NORTHERN TRUST COMPA ) , Steven Santiccioli (NORTHERN TRUST COMPA ) , sjs5@ntrs.com, rebecca.coyle@statefarm.com, nicole.bowyer@statefarm.com, phil.supple.hid9@statefarm.com, dick.luedke.h2hj@statefarm.com, brian.hodgson.nyz6@statefarm.com Cc: Christin Higham (STATE FARM MUTUAL AU ) , Sophie Kim (STATE FARM MUTUAL AU ) , Ketrick Karsten (STATE FARM MUTUAL AU ) , Larnita Gates (STATE FARM MUTUAL AU ) , Gabriel Prado Correa (STATE FARM MUTUAL AU ) , Matt Krebsbach (STATE FARM MUTUAL AU ) , Felipe Castella (STATE FARM MUTUAL AU ) , Susan Byrne (WESTWOOD MANAGEMENT ) , Julie Hoyer (STATE FARM MUTUAL AU ) , Jeffrey Attwood (STATE FARM MUTUAL AU ) , John Malito (STATE FARM MUTUAL AU ) , Robert Stephan (STATE FARM MUTUAL AU ) , Lisa Rogers (STATE FARM MUTUAL AU ) , Elena Khoziaeva (BRIDGEWAY CAPITAL MA ) , Heather Caldwell (STATE FARM MUTUAL AU ) , Michael Whipple (BRIDGEWAY CAPITAL MA ) , Michael Zaroogian (STATE FARM MUTUAL AU ) , Terence Lynch (GAINSCO SERVICE CORP ) , Rebekah Holt (STATE FARM MUTUAL AU ) , Katie Hubbard (STATE FARM MUTUAL AU ) , Tim Zelgert (STATE FARM MUTUAL AU ) , Kara Olson (STATE FARM MUTUAL AU ) , Jim Chan (BLACKROCK INSTITUTIO ) , John Socha (STATE FARM MUTUAL AU ) , Jennifer Hsui (BLACKROCK INSTITUTIO ) , Joe Young (STATE FARM MUTUAL AU ) , Scott Reid (STATE FARM MUTUAL AU ) , Adam Hallman (STATE FARM MUTUAL AU ) , Wei Hao (STATE FARM MUTUAL AU ) , Chris Minter (STATE FARM MUTUAL AU ) , Shelly Marsh (STATE FARM MUTUAL AU ) , Hollie Marsh (STATE FARM MUTUAL AU ) , Matthew Lockridge (WESTWOOD MANAGEMENT ) , Michael Mayberger (STATE FARM MUTUAL AU ) , Ashley Smock (STATE FARM MUTUAL AU ) , Cory Swartzlander (STATE FARM MUTUAL AU ) , Scott Lawson (WESTWOOD MANAGEMENT ) , Ayman Bari (STATE FARM MUTUAL AU ) , Adam Vales (STATE FARM MUTUAL AU ) , Robert Middleton (STATE FARM MUTUAL AU ) , Shane Jent (STATE FARM MUTUAL AU ) , Kevin Rock (STATE FARM MUTUAL AU ) , Mark Dunford (STATE FARM MUTUAL AU ) , Jean-Francois Ducrest (DUCREST, JEAN-FRANCO ) , Caroline Dirks (STATE FARM MUTUAL AU ) , Diane Hsiung (GEODE CAPITAL MANAGE ) , Hunter Rose (STATE FARM MUTUAL AU ) , Cameron Kurak (STATE FARM MUTUAL AU ) , Mark Broughton (FIRST REPUBLIC BANK ) , Betsey Euliss (STATE FARM MUTUAL AU ) , Kim Bretz (STATE FARM MUTUAL AU ) , Jon Wilson (STATE FARM MUTUAL AU ) , Shawna Barlow (STATE FARM MUTUAL AU ) , Philip Kroger (STATE FARM MUTUAL AU ) , Gabrielle Poole (STATE FARM MUTUAL AU ) , Ricardo Correa (STATE FARM MUTUAL AU ) , BO.DINCER@YAHOO.COM, bd2561@columbia.edu Subject: STATE FARM - BLOOMINGTON TY. Kevin Rock Investment Information Analyst State Farm Mutual Automobile Ins Co +1-309-735-2705 (o) 1 State Farm Plz +1-309-530-1865 (m) Investment Department E-8 krock5@bloomberg.net (w) Bloomington IL 61701, US Phil Supple 1 Views Today Spokesperson Career State Farm Life Insurance Co Current +1-800-782-8332 (o) 1 State Farm Plaza State Farm Life Insurance Co phil.supple.hid9@statefarm.com (w Bloomington IL 61710, US Spokesperson Nicole Tamilyn Bowyer Attorney State Farm Insurance +1-504-840-4900 (o) 853 Fincastle Turnpike +1-504-840-4941 (f) North Tazewell VA 24630 nicole.bowyer@statefarm.com (w) Focus Legal Rebecca Coyle 1 Views Today Analyst:Public Policy Career State Farm Life Insurance Co Current +1-309-766-2311 (o) 1900 M Street NW State Farm Life Insurance Co rebecca.coyle@statefarm.com (w) Washington DC 20036, US Analyst:Public Policy 2012-Present Steven Santiccioli VP:Quantitative Management Northern Trust Company, The +1-3124444419 (o) Addl Contact Info » 312-444-5777 (o) 181 W Madison St steve@bloomberg.net (w) Chicago IL 60602-4510, sjs5@ntrs.com (w) I would work harder on my marriage if there was a retirement plan. Focus Large Cap Stocks, Growth Investing, Global, Equities, Thematic Investing, United States, Developed Markets Funds Managed (7 Funds/7.7B Total Assets in USD) | More » Fund Name Tot Ast YTD Ret 3M Px Objective Status 21) Northern International Equity In 5.5B 7.8 Foreign Blend ACTV 22) Northern Global Sustainability In 1.3B 20.5 Thematic Sector ACTV 23) Green Century Equity Fund 552.1M 25.2 Thematic Sector ACTV Recent News | More » 41) Northern Funds: 497 2019/07/02 EDG 07/2019 |
-
-<< HAPPY HOLIDAYS and Merry xmas >>
-
-------------------------------------------------------------------------
-
-*** 2021-2022 ANNUAL FILINGhttps://www.sec.gov/Archives/edgar/data/0000093715/000114554922006149/xslFormN-CEN_X01/primary_doc.xml
-
-... WITHOUT BEING REGISTERED IN THE STATE OF NEW YORK TO CONDUCT ANY FORM OF INVESTMENT BANKING, THE DIRECTOR OF STATE FARM INSURANCE LLC AS THE MANAGING MEMBER OF STATE FARM MORTGAGE LLC - IS ALSO NOW HOLDING A NOTE "NOT COVERS" AS A FIDUCIARY WHICH HOLDS THE TAX LIABILITY, AND AVOIDANCE TO PROSECUTION WHEREBY THE PREMIUMS AND INSURANCE COLLECTED ON A LETTER OF CREDIT... HOWEVER "INDEMNIFIED...BY "SULLIVAN PROPERTIES LP" WHO HAS ASSURED IN WRITING THAT THEY WILL REIMBURSE "STATE FARM" IN THE EVENT OF A DEFAULT, OR LATE PAYMENT. ANNEXED IN NYSCEF 153974/2020
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=IY8iDH_PLUS_UpVanEtcRioef3A==
-
-+++ I SENT THIS TO THE SUPREME COURT JUSTICES INDEPENDENTLY IN NOVEMBER AS WELL, BTW.
-
-NOTICE TO STATE FARM:https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=n_PLUS_CvSQR36fqPKko6L47FFQ==
-
-THE FAILED TO DISCLOSE TO NOT GET FINED IN TEXAS? THEY ALSO FAILED DISCLOSE IT FOR THE NEW INVESTORS OF THE TICKERS BELOW AFTER LOSING THE UPPER BOUND OF $940,000,000.00 WITH RESPECT TO BRK-B IS NOT A JOB WELL DONE, IN-DEED. TO PROTECT TAX EVASION AND THE FINES, PENALTIES AND CERTAIN PRISON TIME... WHILE COLLECTING PREMIUMS AND INTEREST FOR THE PROPERTIES WHICH ARE GOING TO NEED DENTURES ("FINANCIALLY") UPON REALIZING THEY "STATE FARM" IS LIABLE FOR 5 OTHERS UNDER 26 CFR § 1.6662
-
-  * ACCOUNTED FOR, AND BY YOURS TRULY - WAS ANNEXED IN THE MATTER OF
-    153974/2020 WHICH ANY GENERAL COUNSELOR OF LAW WOULD UNDERSTAND IN
-    THEIR FIDUCIARY ROLES, NOTWITHSTANDING AN INVESTMENT PROFESSIONAL.
-    P.S. #GOCARDS...
-
-Instructions.
-
- 1.
-
-    Item G.1.a.i. Legal proceedings. (a) If the Registrant responded
-    "YES" to Item B.11.a., provide a brief description of the
-    proceedings. -- As part of the description, provide the case or
-    docket number (if any), and the full names of the principal parties
-    to the proceeding. (b) If the Registrant responded "YES" to Item
-    B.11.b., identify the proceeding and give its date of termination.
-
- 2.
-
-    Item G.1.a.ii. Provision of financial support. If the Registrant
-    responded "YES" to Item B.14., provide the following information
-    (unless the Registrant is a Money Market Fund): (a) Description of
-    nature of support. (b) Person providing support. (c) Brief
-    description of relationship between the person providing support and
-    the Registrant. (d) Date support provided. (e) Amount of support.
-    (f) Security supported (if applicable). Disclose the full name of
-    the issuer, the title of the issue (including coupon or yield, if
-    applicable) and at least two identifiers, if available (e.g., CIK,
-    CUSIP, ISIN, LEI). (g) Value of security supported on date support
-    was initiated (if applicable). (h) Brief description of reason for
-    support. (i) Term of support. (j) Brief description of any
-    contractual restrictions relating to support.
-
- 3.
-
-    Item G.1.a.iii.
-
-Independent public accountant's report on internal control (management investment companies other than small business investment companies only). Each management investment company shall furnish a report of its independent public accountant on the company's system of internal accounting controls. The accountant's report shall be based on the review, study and evaluation of the accounting system, internal accounting controls, and procedures for safeguarding securities made during the audit of the financial statements for the reporting period. The report should disclose any material weaknesses in: (a) the accounting system; (b) system of internal accounting control; or (c) procedures for safeguarding securities which exist as of the end of the Registrant's fiscal year. The accountant's report shall be furnished as an exhibit to the form and shall: (1) be addressed to the Registrant's shareholders and board of directors; (2) be dated; (3) be signed manually; and (4) indicate the city and state where issued. Attachments that include a report that discloses a material weakness should include an indication by the Registrant of any corrective action taken or proposed. The fact that an accountant's report is attached to this form shall not be regarded as acknowledging any review of this form by the independent public accountant. 4. Item G.1.a.iv. Change in accounting principles and practices. If the Registrant responded "YES" to Item B.21, provide an attachment that describes the change in accounting principles or practices, or the change in the method of applying any such accounting principles or practices. State the date of the change and the reasons therefor. A letter from the Registrant's independent accountants, approving or otherwise commenting on the change, shall accompany the description. 5. Item G.1.a.v. Information required to be filed pursuant to exemptive orders. File as an attachment any information required to be reported on Form N-CEN or any predecessor form to Form N-CEN (e.g., Form N-SAR) pursuant to exemptive orders issued by the Commission and relied on by the Registrant. 6. Item G.1.a.vi. Other information required to be included as an attachment pursuant to Commission rules and regulations. File as an attachment any other information required to be included as an attachment pursuant to Commission rules and regulations. Pursuant to the requirements of the Investment Company Act of 1940, the Registrant has duly caused this report to be signed on its behalf by the undersigned hereunto duly authorized.
-
-Instructions to Item C.16 and Item C.17.
-
-https://www.sec.gov/Archives/edgar/data/0000093715/000114554922006149/xslFormN-CEN_X01/primary_doc.xml
-
-https://www.sec.gov/Archives/edgar/data/0000093715/000119312521278180/d222043dn8f.htm
-
-------------------------------------------------------------------------
-
-ATTACHED DEED AND NYC DEPT OF FINANCE TAX RECORDS FOR THE 10-YEARS PRIOR.
-LOAN DOCKET 50074 - NYSCEF MATTER 153974/2020 LETTER OF CREDIT FOR $6,000,000.00 SECURED BY UNLAWFUL LEASES AND RENTS. USC 18.21, 18.225, 18.215, 18.4, 18.3, 18.229B ++ Tax records & unlawful income. [ LOAN 50074 EST++ ] FILED AND KNOWN AS REFERENCED IN THE SEQUENCE OF EXHIBITS FILED IN THE MATTER OF NYSCEF 153974/2020https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
-
-STATE FARM (ADDRESSED IN THE STATE OF ILLINOIS) ISSUED THIS TO THE BENEFIT OF THE FOLLOWING CORPORATIONS AND UNDER THE AUSPICE OF THEIR DIRECTORS, AS FOLLOWS:
-
-|A. SULLIVAN PROPERTIES LP. B. SULLIVAN GP LLC. C. MANHATTAN SKYLINE MANAGEMENT CORP. D. THE ZUCKER ORGANIZATION. |
-
-NOTARIZED BY DONALD ZUCKER ON MAY 13TH, 2020 THEN FILED WITH THE NYC DEPT. OF FINANCE REGISTER.
-
-USC 26 NOTE.
-
-AS REFERENCED ABOVE, WAS FILED WITH THE NY FINANCE REGISTER AND IN NEW YORK SUPREME COURT CIVIL PART, PRIOR TO THE SEMI-ANNUAL REPORT WAS FILED BY STATE FARM UNDER PAUL SMITH AND TERRANCE LUDWIG [ IN HIS 40-17G FILINGS ] NEGLECTED OVER SEVERAL REPORTING PERIODS TO INCLUDE THE MATERIAL SUBSTANCE AND EXPOSURES AS IMPLIED BY THE RISKS OF THE OUTCOME OF NYSCEF MATTER 153974/2020 - WHICH NEVER WAS QUASHED OR FORGIVEN, OR WAIVED TO ANY EFFECT.
-
-THE PROCEEDINGS WERE OBSTRUCTED BY THE CORPORATIONS, THEIR DIRECTORS, AND ATTORNEYS AS SEEN IN THOSE PROCEEDINGS WERE AWARE OF ALL CONFIRMATIONS FILED, NOTWITHSTANDING THE NOTARY SERVICES OF MISS ASHLEY HUMPHRIES WHO ALSO PARTICIPATED IN THE CASE.
-
-ALSO ANNEXED AND FILED THEIR DISTRIBUTION OF PRIVATE VIDEOS AND PHOTOGRAPHS FROM THE INTERIOR OF MY APARTMENT - TAKEN WITHOUT MY CONSENT.
-
-THESE VIDEOS WERE ADULTERED, PHOTO-SHOPPED, HOSTED, AND ALSO CONVERTED AND EMAILED INTO *.MOV FILES AS SEEN IN THE DOCKETS ENTERED AND ADMITTED BY THEIR COUNSELORS, WERE AWARE AND WILLFULLY CONTINUED TO OBSTRUCT JUSTICE IN ORDER TO AVOID ANY DELUGE OF INFORMATION BY STATE FARM AND TO UNLAWFULLY SECURE A LOAN FOR $6,000,000.00 WAS DISTRIBUTED BY AND BETWEEN THOSE MEMBERS BELOW (IN SALARIES, WAGES, AND FOR WHATEVER PURPOSES THEY WOULD OTHERWISE USE THOSE FUNDS) WERE PRESENTED TO THE CLERK AND JUDGE ALONG WITH MY REQUESTS FOR THEM TO CEASE AND DESIST FROM ANY FURTHERANCE AND TO STOP FILMING AND PHOTOGRAPHING THE INTERIOR OF APARTMENT - FELT THAT IT WOULD BE ENTERTAINING TO CONTINUE TO HARASS BOTH MY TIME - AS WELL AS THE STATE'S RESOURCES DURING THE HEIGHT OF THE COVID-19 PANDEMIC. THE TAX RECEIPTS WERE ALSO FILED AND DISTRIBUTED TO ALL MATERIAL PARTIES UPON DISCOVERY, AS FOLLOWS [A SHORT LIST OF 10 INDIVIDUALS, WITHOUT HAVING TO NAME ALL OF STATE FARM'S ENTITIES]:
-
-|1. MR. DONALD ZUCKER. 2. MS. LAURIE ZUCKER. |
-
-THE ATTORNEYS IN NYSCEF 153974/2020 - FOR CONFIRMATION CONTINUED IN THEIR AFFAIR OVER A PERIOD OF SEVERAL MONTHS, BEGINNING FIRST ON JUNE 5TH, 2020 - BEGAN FILING ARBITRARY CLAIMS WITHOUT ANY DEMAND FOR MONEY, OR A CLAIM UPON WHICH ANY MERIT FOR AWARD EXISTS, ABSENT OF THOSE WHICH I DEMANDED FROM THE COURTS AND ALSO FILED UPON MY ADVERSARIES IN THE MATTER - HAVE NOT RETURNED AN EMAIL, PHONE CALL, OR THE UNLAWFUL RENTS WHICH THEY COLLECTED - WERE USED AS AN ARTIFACT OF "CREDIBILITY" TO OBTAIN A LOAN FROM STATE FARM.
-
-|3. MS. SHARI LASKOWITZ. 4. MR. PAUL REGAN. 5. MR. CORY WEISS. 6. MS. ASHLEY HUMPHRIES. 7. MR. JOSEPH GIAMBOI. >> LETTER OF OBSTRUCTION [ DOCKET 399 ] >> CAUSED - IN PART - A BREACH OF THE SARBANES-OXLEY AND THE OMISSIONS AS EXPRESSED BELOW. >> FAILURE TO DISCLOSE BY PRICE WATERHOUSE COOPERS IN TWO SEMI-ANNUAL REPORTS. >> BOTH FILED WITH THE SECURITIES & EXCHANGE COMMISSION UNDER CIK FILER 93715 AND 1516523. >> FAILURE TO DISCLOSE BY PRICE WATERHOUSE COOPERS IN TWO ANNUAL REPORTS.  >> BOTH FILED WITH THE SECURITIES & EXCHANGE COMMISSION UNDER CIK FILER 93715 AND 1516523. |
-
-STATE FARM
-
-THEIR DIRECTORS.
-
-|8. MR. TERRENCE LUDWIG. >> FAILS TO DISCLOSE ANY MATERIAL LEGAL ACTIONS, CLAIMS. >> NOT COVERED FOR LOSSES AS A RESULT OF OMISSIONS.  >>>> CERTIFIED UNDER CERT-99 AND A BREACH UNDER 63.18 OF THE SARBANES-OXLEY (FILED WITH THE SECURITIES AND EXCHANGE COMMISSION) IN SEVERAL REPORTING PERIODS. >>>> ASSERTED THE SAME AND IN FISCAL REPORTING PERIODS 2020, 2021, AND 2022 UNDER CIK FILER 93715 AND 1516523. 9. MR. JOE MONK, JR. 10. MR. PAUL SMITH. |
-
-LOAN 50074 EST++https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
-
-RE: JP MORGAN CHASE RE: MORGAN STANLEY & CO (USED TWO CRD INDICATORS UNDER CIK FILER 93715 AND 1516523)
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=R9aac7D6DBJZ1wsiq0b38A==
-
-  * Unlawful custody and deposits AT A US BANK - is unlawful, per the
-    FDIC. this was also obstructed by the assisted services at the
-    towers of EARL.
-
-Does this make sense, Miss Hochul
-
-  *
-
-    for a C5 edifice in ZIP CODE 10012 in the following tax periods for
-    the 20 units at 111 SULLIVAN STREET, NEW YORK, NY, 10012?
-
-  *
-
-    ALL SIX PROPERTIES CONTAIN A FULL OR PARTIAL ABSENCE OF A
-    CERTIFICATE OF OCCUPANCY, OR INSPECTION AT ALL RELEVANT TIMES.
-
-DOCKET 386https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=IY8iDH_PLUS_UpVanEtcRioef3A==
-
-tax receipts ATTACHED. BRB. #GOCARDS. P.S. PULL29 ATTACHED COMPOUND. WAS RE-DIRECTED PROPERLY BY THE PRECINCTS LATER BY THIS OTHER OFFICER NANCY... I FORGOT WHO I SPOKE WITH. I THINK WITH WAS NANCY, DEFINITELY NANCY...
-
--------- Forwarded Message -------- Subject: Tax records & unlawful income USC 18.21, 18.225 Date: Fri, 24 Jun 2022 21:54:47 +0000 (UTC) From:6462563609@mms.att.netTo:bdincer66@icloud.com,kaaperstein2@bloomberg.net,josephine.vella@finra.org,ms60710444266@yahoo.com,chair@sec.gov,chicago@sec.gov,bbrief@bloomberg.net,tips@latimes.com,pronewsletter@dowjones.com,praghuram2@bloomberg.net,blawre@bloomberg.net,mediainquiries@point72.com,mshy15@morganstanley.com,jpminvestorrelations@jpmchase.com,tips@vibe.com,tips@nytimes.com,mutualfunds@statefarm.com,bofamarkets@bofa.com
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=R9aac7D6DBJZ1wsiq0b38A==^^ unlawful custody of SECURITY
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
-
-tax receipts (#GOCARDS)
-
----
-## [sudocanttype/youtube-playlist-shuffler](https://github.com/sudocanttype/youtube-playlist-shuffler)@[a3b3dd5e7f...](https://github.com/sudocanttype/youtube-playlist-shuffler/commit/a3b3dd5e7f8beb6b76f4b9ed072a9af8ae77f952)
-#### Sunday 2022-06-26 17:16:13 by sudocanttype
-
-Merge pull request #1 from sudocanttype/express-back-impl-FUCK-YOUTUBE
-
-rework backend to use express rather than electron
-
----
-## [sudocanttype/youtube-playlist-shuffler](https://github.com/sudocanttype/youtube-playlist-shuffler)@[84161ecbad...](https://github.com/sudocanttype/youtube-playlist-shuffler/commit/84161ecbada496f608c157f135b252103592b759)
-#### Sunday 2022-06-26 17:17:36 by sudocanttype
-
-Merge pull request #2 from sudocanttype/express-back-impl-FUCK-YOUTUBE
-
-remove some boilerplate files
-
----
-## [newstools/2022-express](https://github.com/newstools/2022-express)@[cb98289aa4...](https://github.com/newstools/2022-express/commit/cb98289aa4ad9167440f4572b24fec28078a7dab)
-#### Sunday 2022-06-26 17:30:26 by Billy Einkamerer
-
-Created Text For URL [www.express.co.uk/life-style/garden/1631223/ideal-time-of-day-to-water-houseplants-summer-morning-evening-gardening-tips-hacks]
-
----
-## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[f6079e6fdb...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/f6079e6fdb03b5fd0fd579f2ee926f9f2ffc9bc5)
-#### Sunday 2022-06-26 17:32:39 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
-
-TAKEN FROM INSIDE OF MY CLOSET --- I CAN SEE THE HOLE OF THE CAMERA..JPG
-
-https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER/pull/5
-
-
-VIOLATION OF PRIVACY.
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=fXMaXgeyzvA85ViWMmvfAQ==
-
-or tax evasion.. whichever gets the ZUCKERS and their accomplice more time in Prison.
--- the money... a seperate matter.
-
-https://github.com/BSCPGROUPHOLDINGSLLC/WILSONELSER-ZUCKER/issues/16
-
-
--------- Forwarded Message --------
-Subject: 	--- FAXED THEIR TAX EVASION PAPERS AND INCLUDED THESE VIOLATION OF PRIVACY DOCUMENTS.
-Date: 	Tue, 24 May 2022 02:09:41 -0500
-From: 	B D2022 <ms60710444266@yahoo.com>
-To: 	Alisa Maksimova [FRB-NY] <Alisa.Maksimova@ny.frb.org>, Solis, Anita <anita.solis@chi.frb.org>, Cynthia.H.Francis@frb.gov, dallas-reserve-mgmt@dal.frb.org <dallas-reserve-mgmt@dal.frb.org>, Mielke, Evan P <evan.p.mielke@chi.frb.org>, general.info@ny.frb.com <general.info@ny.frb.com>, general.info@ny.frb.org <general.info@ny.frb.org>, kenneth.j.fraser@frb.gov, media@chi.frb.org <media@chi.frb.org>, ny.public.information@ny.frb.org, ny.reserves@ny.frb.org <ny.reserves@ny.frb.com>, ny.reserves@ny.frb.org <ny.reserves@ny.frb.org>, nyreporting.forms@ny.frb.org <nyreporting.forms@ny.frb.org>, oighotline@frb.gov <oighotline@frb.gov>, reserves@chi.frb.org <reserves@chi.frb.org>, info@bressler.com <info@bressler.com>, JPMCinvestorrelations@jpmchase.com <JPMCinvestorrelations@jpmchase.com>, ir@expedia.com, hotel.plazanewyorktimessquare@riu.com, Hilton Hotels & Resorts <hiltonhonors@hilton.com>, jagosto@triumphhotels.com, newyork@cravath.com <newyork@cravath.com>, emil.herzog@goodnewsjail.org, Dow Jones <wsjprosupport@dowjones.com>, Jennifer.Levitz@wsj.com, Tennesse <sbarchenger@tennessean.com>
-CC: 	odonned@assembly.state.ny.us <odonned@assembly.state.ny.us>, assessments@fdic.gov <assessments@fdic.gov>
-
-
-Monday, March 7: Day 10
-A Nashville jury awarded Andrews $55 million. Jurors found Barrett 51 percent at fault in the case, which would mean he would have to pay $51 percent of the award. The jury said Windsor Capital Group and the hotel owner, West End Hotel Partners, also were at fault
-and were on the hook for the remaining 49 percent.
-
-Friday, March 4: Day 9
-Attorneys hashed out jury instructions and delivered their closing arguments. Andrews' attorneys said Barrett was a liar who the jury should not believe. Barrett testified via video deposition - after he was forced to do so by a judge - that he got Andrews' room number using an administrative phone at the hotel.
-
-Defense attorneys want the jury to believe that story. They say Barrett was an insurance executive who traveled more than 200 nights a year and thus knew how to deceive the system to get access to Andrews.
-
-But Andrews' attorney, Bruce Broillet, said Barrett was not believable because of documents that show he requested a room next door, and say that even if he used a staffonly phone, the hotel is still liable because it should not have given him access.
-Barrett has already been deemed liable to some extent. But the jury will weigh additional questions: Is Windsor Capitol Group at fault? Was Windsor an agent of West End Hotel Partners?
-
-(A "yes" answer to this question would mean West End Hotel Partners could have to pay damages). What portion of the fault are each Barrett and Windsor responsible for? How much should be awarded in total damages?
-Thursday, March 3: Day 8
-
-The defense rested its case about 1:30 p.m., and Andrews' lawyers did not put on what are called rebuttal (or extra) witnesses.
-
-The defense's last witness was former NFL player Jesse Palmer, who worked on ESPN's Thursday night college football crew with Andrews in 2008 and 2009. He said he was amazed at Andrews' on-air performance at her first game back after the videos were leaked,
-calling her a professional. He also said she was subject to sexual comments before the videos were leaked, and said she had additional security after the incident. Jacqueline Dement, who checked Barrett into the Nashville hotel the day he recorded the video, said she would not have seen his request to room next to Andrews. If she had seen the request, Dement said she would have followed procedure to first check with Andrews. (Andrews testified previously that never happened.)
-
-Dement was speaking generally, however, and said she did not specifically remember checking Barrett into the hotel.
-Wednesday, March 2: Day 7
-
-Stephen Barth, a professor at the University of Houston's Conrad N. Hilton hospitality management college, testified for the defense that based on his review of the case, hotel staff did not violate procedures in place in 2008. He suggested Andrews’ lawyers were asking the jury to make assumptions about what actions hotel staff might have taken to let Barrett book the room next door to the television broadcaster. Erin Andrews' stalker a terrorist, expert says Herman Turk, a vice president for Windsor, oversaw the hotel in 2008. He said he had full confidence that the staff followed rules and procedures, and said it was very unlikely front desk staff would have seen Barrett’s request to room next to Andrews that was taken at a reservation center.
-
-He said the local hotel excelled in a secret inspection performed by Marriott three months before Barrett checked in. Kimberly Brown, a psychologist at Vanderbilt University, said she evaluated Andrews three times, diagnosing her with mild post-traumatic stress disorder. She said she believed
-Andrews’ symptoms would disappear with treatment.
-
-Tuesday, March 1: Day 6
-Andrews' lawyers closed their case after the television broadcaster's testimony. Andrews started the day on the witness stand to continue her direct testimony, but soon faced crossexamination by Marc Dedman, an attorney for the hotel operator. Dedman suggested in his
-questioning that the nude videos had helped Andrews' career more than hurt it. He asked Andrews to confirm numerous commercials and other endorsements she's made since the videos.
-
-As an early witness in the defense case, Patrick Donaher testified via his video deposition that Andrews seemed nervous when she covered her first football game after the videos
-were released, but that she was still well liked and respected. Donaher was a talent coach who critiqued Andrews' on-the-job performance.
-
-Lewis Kay, Andrews' publicist and manager, testified via video deposition and said that the stalking case did influence Andrews' decisions on what jobs to take on. He noted she was very successful and said one goal of his was to expand her audience beyond sports.
-
-
-Monday, Feb. 29: Day 5 Andrews took the stand and in tearful testimony described how she got bombarded by media coverage after the videos went viral, and how she feared for her safety before her stalker was arrested. She said people bring up the videos or jeer at her each time she covers
-a game. The 37-year-old said hotel staff never notified her a man was trying to stay next door. If she had known, she said, she would have called police. Andrews said she knew filing her civil lawsuit would revive media coverage, which she blamed for part of her humiliation, but said she had to stand up for herself and others. In emotional plea, Erin Andrews blames hotel Andrews' mother, Paula Andrews, sobbed during her daughter's testimony and rested her head on her husband Steve's shoulder. Paula Andrews said her daughter was driven to succeed despite her fear the videos would end her career.
-
-"I almost think she’s trying to compensate and keep in control that aspect of her life," Paula
-
-
-Barrett testified via video deposition earlier Monday. He said he filmed about 10 women through hotel peepholes, but targeted Andrews because she was popular online and he wanted to sell the videos of her for money. He said he called to confirm Andrews was staying at the hotel by making it seem it was his own reservation. In a hotel restaurant he used a house phone and asked to be transferred to her room. The hotel phone showed her room number, he said.
-
-Thursday, Feb. 25: Day 4
-The jury watched two videos of Andrews taken by her stalker: 4½ minutes of footage from the Nashville Marriott and a six-second clip shot in an Ohio hotel. One woman on the jury occasionally looked away from the videos. A tearful Andrews left the courtroom while the videos played. Bernard "Jim" Jansen, a computer scientist and professor at Penn State, was hired by Andrews' team. He said he searched the Web and determined the videos or still images of Andrews nude had been seen by more than 16.8 million people between July 2009 and January 2016.
-
-Expert says 16.8 million saw Erin Andrews nude  Andrews’ psychotherapist, Loren Comstock, testified that repeated media coverage of what has been dubbed by some as the “peephole case” has bred anxiety in Andrews.
-
-Comstock’s testimony was via video of her deposition taken in May 2015. She said Andrews became obsessed with checking media coverage each morning and feared she would be known for the nude video and not her work as a sports broadcaster. “She couldn’t get through the day without fear and anxiety,” Comstock said, adding that Andrews was still functioning and doing her job.
-
-
-
-THANK YOU FOR THE PROMPT DELIVERY OF THE ACRIS REPORTS I REQUESTED YOU P.O.S.
-
- 
-
-- I STILL NEED TO FIND OUT IF THEY FOLLOWED ME TO LAS VEGAS AS WELL IF YOU CAN LOOK INTO THAT.
-
-
-THESE ARE THE DAMAGES WHICH HAVE BEEN OBSTRUCTED, BEYOND THE CHANGE IN VALUE FOR TICKERS STFGX, STFBC, SFITX, SFBDX
-
-
-1. INVESTMENT ADVISOR = HAS CEASED TO EXIST = ZERO ASSETS UNDER MANAGEMENT.
-
-2. THE NEW ADVISOR, HOLDS THE LIABILITY OF LEGAL RECOURSE AND HAS TO FACE ME IN COURT.
-
-3. THE CONBINED INDENDURED SERVANTS OF THE ZUCKER CANNOT AFFORD THE PENALTIES, PRISON SENTENCES, AND MONIES WHICH ARE STILL OWED TO ME IN ARREARS.
-
-
-         
-    " STATE FARM AUTOMOBILE INSURANCE COMPANY "
-    --- NOT LICENSED IN THE STATE OF NEW YORK TO CONDUCT INVESTMENT BANKING
-    --- NOT LICENSED IN THE STATE OF NEW YORK TO CONDUCT SECURITIES TRANSACTIONS.
-
-
-    __________________________________________________________________________________________
-    
-
-    Item B.14. Provision of financial support.
-
-        Did an affiliated person, promoter, or principal underwriter of the
-        Registrant, or an affiliated person of such a person, provide any
-        form of financial support to the Registrant during the reporting period?
-
-  2020
-    https://www.sec.gov/Archives/edgar/data/0000093715/000114554921006167/xslFormN-CEN_X01/primary_doc.xml
-    
-  2021
-    https://www.sec.gov/Archives/edgar/data/0000093715/000114554922006149/xslFormN-CEN_X01/primary_doc.xml
-    
-  2021-09-30
-    https://www.sec.gov/Archives/edgar/data/0001516523/000114554921074536/xslFormN-CEN_X01/primary_doc.xml
-    
-    Report of Independent Registered Public Accounting Firm
-    https://www.sec.gov/Archives/edgar/data/0001516523/000119312521347485/d221423dncsr.htm
-
-  2022
-    https://www.sec.gov/Archives/edgar/data/0001516523/000114554921074536/xslFormN-CEN_X01/primary_doc.xml
-    2020: The Northern Trust Company
-            Custody records, Administrative records, and Shareholder records.
-             
-    https://www.sec.gov/Archives/edgar/data/0001516523/000119312522025502/d207567d4017g.htm
-    [40-17G]         ADVISERS INVESTMENT TRUST       
-                    BOND PERIOD: January 1, 2022 to January 1, 2023
-                    Bond Number: 70436972
-                   
-                        Chubb Group of Insurance Companies
-                        202B Hall’s Mill Road
-                        Whitehouse Station, NJ 08889\
-                       
-                            CRYSTAL IBC LLC
-                            ATTN: Matthew Flynn 32
-                            OLD SLIP - 29TH FL.
-                            NEW YORK, NY 10005
-
-
-
-https://www.sec.gov/comments/s7-14-18/s71418-4531826-176079.pdf
-
-FOR THOSE WHO ARE INVOLED..
-
-HERE IS THE HANDBOOK FOR AIDING & ABETTING AS WELL AS OBSTRUCTION OF JUSTICE WITH RESPECT TO TAX EVASION:
-
-    https://www.irs.gov/pub/irs-utl/tax_crimes_handbook.pdf
-
-
-
-
-Notice to Regulators.
-    Tax Receipts— tax evasion
-https://saaze2311prdsra.blob.core.windows.net/clean/0363e59f23d6ec11a7b5000d3a1afadb/BB-117taxFiles.pd
-
-Insider Trading Dockets
-    2022-04-12 EY - PWC - MSCO NOTICE 2
-https://saaze2311prdsra.blob.core.windows.net/clean/b67c1a2d29d6ec11a7b5002248307b90/04.12.2022.151652.EY.PWC.MSCO-.pdf
-
-VIOLATION OF PRIVACY CARRIES A FEW YEARS IN FEDERAL & STATE FACILITIES, BUT DON'T WORRY ABOUT THE FINANCIAL I'M DEALING WITH THEM.
-- THANKS AGAINN FOR THE WAIVER.
-
-
-February 20, 2022
-
-Your fax (ID: #30666994) to IRS CRIMINAL INVESTIGATIONS at 267-466-1115
-
-" has been delivered successfully at 11:44 PM Eastern Daylight Time"
-
-https://faxzero.com/status/30666994/5790f17018611119e07814be9e36110d164afaa6
-
-
---- I ALSO FAXED THEIR TAX EVASION PAPERS WITH CERTIFICATE OF OCCUPANCY
----- THAT DID NOT AND DON'T EXIST, WHICH I ALREADY DID.
-
-
-March 26th, 2022.
-
-Your fax (ID: #30852826) to JOE MONK at 8164714832 has been delivered successfully at 4:42 AM Eastern Daylight Time on March 26th, 2022.
-
-https://faxzero.com/status/30852826/92a1a0570d178d0311eb3764f01842d3ceb65513
-
-
-
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=fXMaXgeyzvA85ViWMmvfAQ==
-
--- THE BURDEN OF THE TORTS, NOTWITHSTANDING THE "VIOLATION OF PROVACY" HAVE ALSO CARRIED-OVER TO THE NEW "HOLDERS" OF THE LEASES AND
-    RENTS, AND UNDER THE NEW FILER 1516523 - WHERE OBSTRUCTION OF JUSTICE CONTINUES.
-
--- PER THE TERMS OF 255 AFFIDAVIT (LETTER OF CREDIT & LOAN) BETWEEN THE PARTIES ABOVE, THE CARRIED INTEREST OF TAX EVASION DOLLARS
- OVER TIME HAS BEEN AIDED AND ABETTED BY THE COUNSELORS AND ASSOCIATES OF THE ZUCKERS.
- 
-
-- Gross valuation misstatements, and the discovery of those interests could have been disclosed earlier.
--- DEMONSTRATES HOW THE SIX PROPERTIES AND INCOME IN THE ZIPCODE 10012 WERE NOT PROPERTLY ASSSESSED AND VALUED
--- have been further OBSTRUCTED by eggeregious and BY parties who will be adjudicated with at a later time, UPON DISCOVERY
-
-
--- I TOOK THE INITIATIVE TO REPORT THIS TO ALL MATERIAL PARTIES, AND UPON NOTICE HAVE FILED WITH THE RESPECTIVE REGULATORY AGENCIES.
-NOTWITHSTANDING, THE IRS "CRIMINAL INVESTIGATIONS DEPARTMENT, AND ALSO TO THE NY SUPREME COURT
-
-VIA FAX: 212-401-9146 AND ALSO ON THE 22ND OF DECEMBER, 2021 AT 7:27PM EST
-
-February 20, 2022
-
-Your fax (ID: #30666994) to IRS CRIMINAL INVESTIGATIONS at 267-466-1115
-
-" has been delivered successfully at 11:44 PM Eastern Daylight Time"
-
-https://faxzero.com/status/30666994/5790f17018611119e07814be9e36110d164afaa6
-
-
---- I ALSO FAXED THEIR TAX EVASION PAPERS WITH CERTIFICATE OF OCCUPANCY
----- THAT DID NOT AND DON'T EXIST, WHICH I ALREADY DID.
-
-
-March 26th, 2022.
-
-Your fax (ID: #30852826) to JOE MONK at 8164714832 has been delivered successfully at 4:42 AM Eastern Daylight Time on March 26th, 2022.
-
-https://faxzero.com/status/30852826/92a1a0570d178d0311eb3764f01842d3ceb65513
-
-
-
-
-https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER/blob/WILSON-ELSER-DICKER-LLP/-%20-%20153974.2020%20---%2020201005%20-%20email%20from%20iPhone%204%20-%20facetime.pdf
-
-
-            no certificate of occupancy
-            2022 03 02
-            https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER/files/8608563/2022.03.02.-.Property.Profile.Overview.-.111.sullivan.street.REAR.-.NO.CERTIFICATE.OF.OCCUPANCE.pdf
-           
-       
-            https://user-images.githubusercontent.com/70865813/166412249-b4f53181-4497-4e23-b1f7-7482261497e2.PNG
-
-    ############################################################################
-
-    Item B.14. Provision of financial support.
-
-        Did an affiliated person, promoter, or principal underwriter of the
-        Registrant, or an affiliated person of such a person, provide any
-        form of financial support to the Registrant during the reporting period?
-
-    ############################################################################       
-
-                  
-Illinois Official Reports Appellate Court Andrews v. Marriott International, Inc., 2016 IL App (1st) 122731 Appellate Court Caption ERIN ANDREWS, Plaintiff-Appellant, v. MARRIOTT INTERNATIONAL, INC., a Delaware Corporation; WEST END HOTEL PARTNERS, LLC, d/b/a Nashville Marriott at Vanderbilt University, a Delaware Limited Liability Company; WINDSOR CAPITAL GROUP, INC., a Colorado Corporation; RADISSON HOTELS INTERNATIONAL, INC., a Delaware Corporation; ASREL, INC., d/b/a Radisson Hotel Milwaukee Airport, a Wisconsin Corporation; THE OHIO STATE UNIVERSITY, d/b/a The Blackwell Inn; and MICHAEL DAVID BARRETT, an Individual, Defendants (Preferred Hotel Group, Inc., d/b/a Summit Hotels and Resorts, a Delaware Corporation, Defendant-Appellee). District & No. First District, Second Division Docket No. 1-12-2731 Rule 23 order filed Rule 23 order withdrawn Opinion filed August 23, 2016 September 1, 2016 September 6, 2016 Decision Under Review Appeal from the Circuit Court of Cook County, No. 10-L-8186; the Hon. Kathy Flanagan, Judge, presiding. Judgment Affirmed. Digitally signed by Reporter of Decisions Reason: I attest to the accuracy and integrity of this document Date: 2016.11.07 10:38:25 -06'00' - 2 - Counsel on Appeal Power Rogers & Smith, P.C., of Chicago (Sean M. Houlihan, of counsel), and Greene Broillet & Wheeler, of Santa Monica, California (Bruce A. Broillet, Scott H. Carr, Alan Van Gelder, and Tobin M. Lanzetta, of counsel), for appellant. Pretzel & Stouffer, Chtrd., of Chicago (Robert Marc Chemers and Scott L. Howie, of counsel), for appellee. Panel PRESIDING JUSTICE PIERCE delivered the judgment of the court, with opinion. Justices Neville and Hyman concurred in the judgment and opinion. OPINION ¶ 1 In 2008, while plaintiff, Erin Andrews, was a guest of The Blackwell Inn (Blackwell), she was secretly recorded on video in the privacy of her hotel room by another guest, Michael David Barrett. Plaintiff filed this action sounding in negligence and invasion of privacy against defendant, Preferred Hotel Group (Preferred),1 the service provider of Blackwell’s online reservation system, for, among other things, Blackwell’s disclosure of the details of her hotel stay to Barrett. Plaintiff’s theory of liability is that Preferred was either (1) engaged in a joint venture operation of the hotel or (2) voluntarily assumed a duty to protect plaintiff’s privacy. Preferred moved to dismiss the complaint pursuant to sections 2-615 and 2-619(a)(9) of the Code of Civil Procedure (Code) (735 ILCS 5/2-615, 2-619(a)(9) (West 2010)) arguing that it did not owe a duty to plaintiff and was not engaged in a joint venture to operate Blackwell. After two years of discovery, the circuit court granted Preferred’s section 2-619(a)(9) motion to dismiss. Plaintiff appeals from the dismissal, which we affirm for the following reasons. ¶ 2 BACKGROUND ¶ 3 Relevant to plaintiff’s claims against Preferred, the following facts are taken from the complaint. On February 4, 2008, Andrews was a guest at Blackwell located in Columbus, Ohio. Blackwell is owned and operated by Ohio State University (OSU). In the days leading up to her hotel stay, Illinois resident Michael David Barrett contacted Blackwell by phone to confirm that Andrews was staying at the hotel and asked to be assigned the room next door to her. Blackwell granted Barrett’s requests. After checking into the hotel on February 4, Barrett retrofitted the peephole on Andrew’s hotel room door. In doing so, he was able to record video of her activities in the room, including changing and dressing. Eventually, he posted these videos on the Internet. 1 Plaintiff’s complaint also contained allegations against other defendants for similar events that occurred at other hotels on other dates. Those counts were all dismissed on procedural grounds. - 3 - ¶ 4 Defendant Preferred is a corporation with its principal place of business in Chicago, Illinois. It provides marketing, sales and reservation services to its network of hotels for a fee. Blackwell is a member of Preferred’s network and utilizes Preferred’s marketing and Internet reservation services. Andrews alleged that Preferred is liable for Blackwell’s staff disclosing her hotel stay and room number to Barrett and assigning him the room next door to her, without her prior consent thereby allowing him to engage in his tortious activities. ¶ 5 Plaintiff’s theory of liability is that Preferred “owned, operated, controlled, maintained, managed, supervised, handled reservations for and/or were otherwise responsible for The Blackwell Inn” and that Blackwell “was the agent and/or joint venture of Preferred *** acting within the course, scope and authority of said agency and/or venture.” Preferred “had a duty to exercise reasonable and ordinary care and action in and about the ownership, management, maintenance, supervision, control and operation of Blackwell and its reservation system, and each of their employees, agents, servants and independent contractors, all to the benefit of the guests.” Preferred was “negligent in the selection, hiring, training and supervision of each and every other defendant as an agent and/or joint venturer.” Plaintiff also alleged that Preferred and OSU were associated with the purpose of “carrying out a specific enterprise for profit.” Preferred and OSU had a community of interest and proprietary interest in Blackwell; Preferred had a right to govern the hotel’s policies and share in the hotel’s profits and losses. Based on this theory, plaintiff alleged claims against Preferred for negligent infliction of emotional distress and invasion of privacy. ¶ 6 In response to the complaint, Preferred filed a hybrid motion to dismiss under section 2-619.1 of the Code, which permits a party to combine a section 2-615 motion to dismiss with a section 2-619 motion to dismiss. 735 ILCS 5/2-619.1 (West 2010). Preferred argued that the claims must be dismissed pursuant to section 2-615 of the Code because plaintiff failed to allege sufficient facts to support the conclusory allegation that Preferred owed plaintiff a legal duty. Preferred also argued dismissal of the claims pursuant to section 2-619(a)(9) of the Code because Preferred did not owe a duty to plaintiff for the acts of Blackwell’s staff, there was no principal-agent or joint venture relationship between Preferred and Blackwell and Preferred had no knowledge that Andrews was a guest at the hotel. ¶ 7 Attached to Preferred’s motion to dismiss was a written agreement governing the relationship between Preferred and OSU. The preamble to the agreement provides that Preferred “is a service organization designed to provide marketing, sales and reservation services to member hotels.” In return for these services, Blackwell pays membership and booking fees to Preferred, it agrees to “conform strictly” with Preferred’s “Quality Assurance Program” (Standards of Excellence) and allows Preferred “to evaluate the quality of the property and related services rendered at the hotel *** from time to time *** and bear the cost of these evaluations.” The agreement explains that Preferred will invoice Blackwell every 30 days for any amounts owed and if any amounts remain unpaid after 60 days, Preferred has the right to suspend all services and charge 1.5% per month on the unpaid sums. ¶ 8 The affidavit of Xen Riggs, the associate vice president of administration and planning at OSU, was also attached to Preferred’s motion to dismiss. In this affidavit, Mr. Riggs attested that Blackwell is owned by OSU, its operations are governed by OSU’s board of trustees and it is managed by OSU’s office of administration and planning. Blackwell runs a deficit, but if it were to make a profit, any profit would solely benefit OSU. Preferred does not have any - 4 - employees at Blackwell, does not handle any phone calls to Blackwell, and does not have any involvement in the operations or management of Blackwell. ¶ 9 Also supporting Preferred’s motion was the affidavit of Ken Mastrandrea, Preferred’s executive managing director of corporate operations. Mr. Mastrandrea averred that Preferred provides online hotel reservation services to Blackwell via Preferred’s Internet booking engine (iBook). Blackwell maintains a link to iBook on its website. Preferred’s involvement with reservations made with Blackwell are limited to those made through the iBook platform. A guest inputs the reservation information into iBook, which then electronically sends the reservation request to Blackwell’s computer system, and if accepted, the guest receives electronic confirmation including the room rate and type. Preferred’s involvement with reservations at Blackwell is limited to providing the platform for the electronic transmittal of reservation confirmation to and from the hotel and its guests via the Internet. If room reservations are made other than through iBook, Preferred does not have access to any guest identity or information. Preferred never has had access to Blackwell’s guest list or any guest’s room number. Preferred has no access to any information regarding guests who booked their rooms directly through the hotel or through any other means. Because Preferred does not have access to guest identities or guest room numbers, if someone called their office requesting this information, Preferred could not give the caller any such information. ¶ 10 Mr. Mastrandrea also attested that Preferred has no ownership interest in the hotel and does not share in its profits or losses. Preferred charges Blackwell a fee for membership in the network and for its booking services. Preferred has no involvement in the operation or management of its member hotels, including Blackwell’s policies and procedures regarding safety and/or privacy. There are no “Preferred” employees at Blackwell or any of its member hotels and it does not handle phone calls placed to the member hotels. According to Preferred’s records, Andrews’s reservation was not made through Preferred’s system, and therefore, it had no knowledge that Andrews was a guest at the hotel. Barrett made a reservation through iBook on Blackwell’s website for which Preferred was paid a service fee. However, Preferred’s actions in respect to Barrett’s reservation were limited to the electronic reservation request automatically generated through the hotel’s computer system and a confirmation notice sent to Barrett over the Internet. ¶ 11 At plaintiff’s request, the circuit court permitted discovery regarding the matters raised in the motion to dismiss. This discovery was conducted over a two-year period and included the deposition of Mr. Mastrandrea. ¶ 12 At his deposition, Mastrandrea testified that Preferred’s “Standards of Excellence” are comprised of “1600 items of guest service standards that we provide to the hotel to manage their service to guests.” Member hotels are required to comply with the standards. Once a year, third-party independent inspectors perform a check to determine the level of compliance. The inspectors prepare a report that informs the hotels of their aggregate compliance score and ways to improve. A follow-up inspection is required only if a hotel falls below 70% compliance. The compliance reports are reviewed by one of Preferred’s regional managers. A Preferred executive only reviews an inspection report if the compliance score is lower than 70%. Preferred relies on the hotels to make the inspector’s suggested corrections. If corrections are not successfully made, Preferred might request an improvement plan from the hotel and follow up as needed. If a hotel still fails to remediate, then Preferred reviews the results and possibly extends the improvement plan or takes further action. Preferred has close to 800 - 5 - member hotels. In its history Preferred has terminated its relationship with only three or four hotels. All of Blackwell’s inspections have exceeded a 70% compliance rate, and therefore, no executive at Preferred has been referred to review Blackwell’s reports. There are no standards or inspection criteria that address hotel staff informing a third party about other guests staying at the hotel or granting a guest’s request to be placed in the hotel room next to another guest without prior consent. ¶ 13 After completion of discovery, plaintiff filed a written response to the motion to dismiss. Plaintiff argued that Preferred’s motion should be denied because it was a “disguised motion for summary judgment,” Preferred’s “ ‘evidence’ ” merely refutes plaintiff’s ultimate facts, which does not constitute affirmative matter, and a question of fact exists as to whether Preferred owed a duty of care to plaintiff. Plaintiff asserted that Preferred owed her a duty of care because either it was in a joint venture with OSU in the operation of Blackwell or Preferred voluntarily assumed a duty of care. Plaintiff contended that because Preferred requires its member hotels to comply with the “Standards of Excellence” that includes matters of privacy (communicating a guest’s room number in writing rather than verbally and requiring identification before issuing a duplicate key), Preferred voluntarily assumed a duty to protect the privacy of guests at its member hotels. Plaintiff also argued that Preferred exercised control over the safety measures and policies of Blackwell and these actions created a joint venture, giving rise to Preferred’s liability for the actions of Blackwell’s staff. ¶ 14 After the hearing, the circuit court granted Preferred’s motion to dismiss pursuant to section 2-619(a)(9) of the Code. The circuit court found that the parties’ discovery established that “[t]he relationship between Preferred and Blackwell was limited to services provided for electronic transmittal of requests to Blackwell in transmission of confirmation numbers back to guests.” The agreement between Preferred and OSU/Blackwell was the “limitation of the undertaking,” and the discovery established that Preferred does not have access to room numbers or other information concerning guests. Preferred is simply “a contract service provider; they charge for their services and they get paid for their services.” Although plaintiff alleged that Preferred and OSU were engaged in a joint venture, plaintiff was unable to provide the court with any evidence to dispute Preferred and OSU’s “contractual relationship.” Preferred and OSU’s written agreement for services defined their duties “which do *** not cover the conduct alleged in the complaint,” and therefore, Preferred cannot be held liable to plaintiff for the acts of Blackwell’s staff. In view of this ruling, the circuit court found Preferred’s section 2-615 motion to dismiss moot and also ordered that there was “not [sic] just reason for delay of appeal or enforcement of this order.” Thereafter, plaintiff timely filed this appeal. ¶ 15 ANALYSIS ¶ 16 First, plaintiff argues that Preferred’s motion was improperly designated as a motion to dismiss and, therefore, should have been denied outright. Plaintiff contends that the motion was a “disguised” summary judgment motion that did not involve an “affirmative matter” but merely refuted plaintiff’s well-pled allegations. In response, defendant disagrees and argues that if its arguments for dismissal were more appropriate for summary judgment rather than section 2-619 dismissal, reversal is only required where the nonmovant was prejudiced by the misdesignation. - 6 - ¶ 17 “The purpose of a section 2-619 motion to dismiss is to dispose of issues of law and easily proved issues of fact at the outset of litigation” (Van Meter v. Darien Park District, 207 Ill. 2d 359, 367 (2003)) and is “similar to a summary judgment motion because [it] ‘*** essentially amounts to a summary judgment procedure.’ ” Peterson v. Randhava, 313 Ill. App. 3d 1, 9 (2000) (quoting Malanowski v. Jabamoni, 293 Ill. App. 3d 720, 724 (1997)). These types of motions are similar because in order to rule on them we must determine “whether the existence of a genuine issue of material fact should have precluded the dismissal or, absent such an issue of fact, whether the dismissal is proper as a matter of law.” Raintree Homes, Inc. v. Village of Long Grove, 209 Ill. 2d 248, 254 (2004). Misdesignation of a motion for summary judgment as a motion to dismiss is not fatal to the movant’s right to prevail where the nonmoving party did not suffer any prejudice or unfair surprise due to the error. Peterson, 313 Ill. App. 3d at 9. ¶ 18 Here, the affirmative matter presented in Preferred’s motion is that it did not owe a duty of care to plaintiff because it did not have a principal-agent or joint venture relationship with the hotel and did not otherwise voluntarily undertake a duty of care. To support its motion, Preferred attached to its motion a copy of the written agreement between Preferred and OSU/Blackwell and the Riggs and Mastrandrea affidavits. Over the course of two years, the circuit court permitted the parties to conduct written and oral discovery on the matters raised in Preferred’s motion. Therefore, in this instance, where a defined issue was raised in Preferred’s motion and plaintiff was granted time to conduct lengthy discovery on Preferred’s assertions, we find that, whether viewed as a motion to dismiss or a motion for summary judgment, plaintiff was not prejudiced in the designation of the motion to dismiss as a motion under section 2-619(a)(9) of the Code. ¶ 19 The circuit court dismissed plaintiff’s complaint pursuant to section 2-619(a)(9) of the Code, which permits the involuntary dismissal of a claim where the claim asserted is “barred by other affirmative matter avoiding the legal effect of or defeating the claim.” 735 ILCS 5/2-619(a)(9) (West 2010). Affirmative matter is “something in the nature of a defense which negates the cause of action completely or refutes crucial conclusions of law or conclusions of material fact contained in or inferred from the complaint.” Illinois Graphics Co. v. Nickum, 159 Ill. 2d 469, 486 (1994). “Unless the affirmative matter is already apparent on the face of the complaint, the defendant must support the affirmative matter with an affidavit or with some other material that could be used to support a motion for summary judgment.” Pleasant Hill Cemetery Ass’n v. Morefield, 2013 IL App (4th) 120645, ¶ 21. Once a defendant has presented adequate affidavits or other evidence of support, “ ‘the defendant [has] satisfie[d] the initial burden of going forward on the motion’ ” and the burden then shifts to the plaintiff who is required to establish that the affirmative matter is either unfounded or involves an issue of material fact. Reynolds v. Jimmy John’s Enterprises, LLC, 2013 IL App (4th) 120139, ¶ 37 (quoting Kedzie & 103rd Currency Exchange, Inc. v. Hodge, 156 Ill. 2d 112, 116 (1993). A plaintiff may overcome this burden by presenting “affidavits or other proof.” 735 ILCS 5/2-619(c) (West 2010). However, a plaintiff cannot rely on the allegations from his own complaint to refute such evidence. Hollingshead v. A.G. Edwards & Sons, Inc., 396 Ill. App. 3d 1095, 1101-02 (2009). In addition, if a plaintiff does not come forward with a counteraffidavit refuting the evidentiary facts in the defendant’s affidavit or other evidence, those facts may be admitted and the motion may be granted on the basis that plaintiff “failed to carry the shifted burden of going forward.” Hodge, 156 Ill. 2d at 116; Pleasant Hill Cemetery Ass’n, 2013 IL App (4th) 120645, ¶ 21. - 7 - ¶ 20 The affirmative matter raised by Preferred in its motion to dismiss, and supported with affidavits and deposition testimony, is that it did not owe a duty of care to plaintiff and it was not in a joint venture with Blackwell, and therefore, it could not be held liable for Blackwell’s disclosure of details regarding plaintiff’s hotel stay to Barrett or the assignment of Barrett to the room next to plaintiff without her prior consent. ¶ 21 Plaintiff argues that Preferred can be held liable for the events that occurred at Blackwell because either (1) Preferred was a member of a joint venture with Blackwell to operate the hotel or (2) Preferred voluntarily assumed a duty of care to plaintiff. She contends that these theories of liability involve questions of fact that should have precluded dismissal of her claims. ¶ 22 Joint Venture ¶ 23 A joint venture is an association of two or more persons to carry out a single enterprise for profit. O’Brien v. Cacciatore, 227 Ill. App. 3d 836, 843 (1992). Members of a joint venture are vicariously liable for the joint venturers’ negligent acts committed during the course of the venture. Hiatt v. Western Plastics, Inc., 2014 IL App (2d) 140178, ¶ 72. Ordinarily whether a joint venture exists is a question of fact; however, where there is no evidence to support the existence of a joint venture, its existence can be decided as a matter of law. Anderson v. Boy Scouts of America, Inc., 226 Ill. App. 3d 440, 444 (1992); Oliveira-Brooks v. Re/Max International, Inc., 372 Ill. App. 3d 127, 134 (2007). “The existence of a joint venture is shown by allegations demonstrating (1) a community of interest in the purpose of the joint association, (2) a right of each member to direct and govern the policy and conduct of the other members, and (3) a right to joint control and management of the property used in the enterprise.” Romanek v. Connelly, 324 Ill. App. 3d 393, 405 (2001) (citing Behr v. Club Med, Inc., 190 Ill. App. 3d 396, 409 (1989)). A formal agreement is not essential to establish a joint venture (Hiatt, 2014 IL App (2d) 140178, ¶ 73), and its existence “may be inferred from the facts and circumstances demonstrating that the parties in fact entered into a joint venture” (O’Brien, 227 Ill. App. 3d at 843). However, the most significant element to consider in determining whether a joint venture exists is the intent of the parties. Thompson v. Hiter, 356 Ill. App. 3d 574, 582 (2005). ¶ 24 Plaintiff claims Preferred is liable for Blackwell’s actions because Preferred and OSU were engaged in a joint venture to operate Blackwell. Plaintiff argues Preferred and OSU/Blackwell’s course of conduct created a joint venture, specifically, Preferred’s control over the operations and policies of Blackwell and the sharing of reservation fees. We disagree and find that, on the record before us, Preferred and OSU were nothing more than two separate entities contracting with one another for a particular service from which each would derive their own individual profit. ¶ 25 The record before us includes a written agreement between Preferred and OSU that governs their relationship regarding limited services for Blackwell. Under the agreement, Preferred provides OSU/Blackwell with marketing, sales, and reservation services in exchange for a fee. The agreement does not mention the creation of a joint venture or enterprise, and Preferred and OSU’s rights and obligations under the agreement are different from one another. In fact, we found nothing in the agreement to infer that Preferred and OSU intended to operate Blackwell as a joint venture enterprise. Furthermore, as we discuss below, plaintiff has not provided any “affidavits or other proof” to refute Preferred’s affidavits and testimony - 8 - supporting the affirmative matter that Preferred and OSU/Blackwell did nothing to create a joint venture either through the written agreement or through their conduct. ¶ 26 Common Interest ¶ 27 As to the first element necessary to establish a joint venture, plaintiff contends that a community of interest is evidenced by Blackwell becoming a member of Preferred’s hotel network and Blackwell having access to Preferred’s iBook reservation system, which evidences a joint venture relationship. We are not persuaded. Nothing in the parties’ agreement or conduct, as developed from the discovery in the record, supports the conclusion that they shared a community of interest in association with Blackwell. Certainly, both parties expected to benefit from their contractual association, but this does not indicate the intention to create a joint venture to operate Blackwell. See Kaporovskiy v. Grecian Delight Foods, Inc., 338 Ill. App. 3d 206, 212 (2003). In fact, the agreement indicates that Preferred and Blackwell had two different interests in doing business with one another. Preferred would allow Blackwell the use of its reservation system so that Internet users could book a hotel stay, and Preferred would be paid a fee for reserving a room using its iBook service. This fee would be earned regardless of whether the reservation proved profitable to Blackwell. In return, Blackwell would sell a room and generate revenue from that and other services. There is no evidence Preferred would financially benefit beyond the fee earned through iBook. Simply put, two distinct entities doing business together does not equate to the establishment of a joint venture. See id. ¶ 28 Right to Govern Blackwell’s Policy and Joint Control Over the Enterprise ¶ 29 Next, as to the second and third joint venture elements, plaintiff suggests that Preferred’s contractual requirement that its member hotels comply with its “Standards of Excellence” equates to Preferred’s right to direct the conduct and policy of Blackwell and exert control over its operation. Contractual agreements that require one party to perform or forbid performance of a particular act does not equate to control of management for the purpose of imposing a joint venture. Kaporovskiy, 338 Ill. App. 3d at 212 (limiting one contracting party from selling competing food products did not equate to “control over property” or policy); Barton v. Evanston Hospital, 159 Ill. App. 3d 970, 974-75 (1987) (“mutuality of control” absent in a contractual relationship where doctor has discretion in patient treatment even though hospital supplied doctor with necessary equipment and personnel). ¶ 30 Here, the written agreement does not give Preferred any degree of joint control over the operation of Blackwell. Although Preferred requires that its member hotels follow the “Standards of Excellence,” the evidence before us establishes that member hotels, including Blackwell, are not required to be in complete compliance with Preferred’s standards and the hotels may interpret the standards and make adjustments or improvements at their discretion. Preferred merely provides a list of standards that it wants its member hotels to meet at a 70% or higher level, but Preferred does not actually engage in any management or control over the hotel, its operations, or its staff. According to Mr. Mastrandrea’s affidavit and deposition testimony, which has not been refuted by plaintiff through “affidavits or other proof,” Preferred does not have any employees at Blackwell, Preferred does not and never had access to Blackwell’s guest list or the assignment of hotel room numbers. Therefore, we find that Preferred and Blackwell did not have “mutuality of control” over the hotel’s property and policies necessary to establish that element of a joint venture. - 9 - ¶ 31 Although plaintiff also contends that there was a sharing in the profits and the losses of Blackwell, there is no evidence in the record to support this conclusion. Preferred’s receiving a fee for its marketing and reservation services is not akin to having a common interest and sharing profits in the operation of Blackwell. Landers-Scelfo v. Corporate Office Systems, Inc., 356 Ill. App. 3d 1060, 1066 (2005) (cooperation between two entities consisting of one handling of the payroll and human resources function of another company for a fee is insufficient as a matter of law to show a joint venture existed). There is nothing in the record to suggest that Preferred and Blackwell were anything other than two separate entities doing business with one another for their separate financial benefit. More than a mere interest in another entity’s success must be asserted to allege a joint venture. Two businesses entering into a service agreement “seeking to mutually profit from it” is not enough to turn a business relationship into a joint venture sufficient to impose vicarious liability on a contracting party. Kaporovskiy, 338 Ill. App. 3d at 212. While Preferred may have hoped for Blackwell’s continued success so that it could earn more fees through its booking and reservation services, this is not enough to support the legal conclusion that these entities were engaged in a joint venture. Finally, after two years of discovery, a further indication that no joint venture existed is the evidence that Preferred would collect booking fees even if Blackwell operated at a financial loss. ¶ 32 In the absence of any one of the required elements, a joint venture cannot be found to exist in fact or in law. Powell v. Dean Foods Co., 2013 IL App (1st) 082513-B, ¶ 76. It is plaintiff’s burden to show that she can support her claim that Preferred engaged in a joint venture to operate Blackwell. Petry v. Chicago Title & Trust Co., 51 Ill. App. 3d 1053, 1057 (1977). Beyond mere conclusory allegations, plaintiff has failed to support her legal conclusion or establish that a question of fact exists as to the existence of a joint venture. Therefore, we affirm the ruling of the circuit court that Preferred did not have a duty to plaintiff on this basis. ¶ 33 Voluntary Undertaking ¶ 34 Next, plaintiff argues that whether Preferred voluntarily assumed a duty to protect her privacy as a guest of Blackwell is a question of fact that precludes dismissal under section 2-619(a)(9) of the Code. We disagree and find that no genuine issue of material fact exists as to whether Preferred voluntarily undertook a duty to protect the privacy of Blackwell’s guests. ¶ 35 Negligence cannot be established unless the defendant owed the plaintiff a duty of care. LaFever v. Kemlite Co., 185 Ill. 2d 380, 388 (1998). Whether a duty of care exists is a question of law. Id.; Chelkova v. Southland Corp., 331 Ill. App. 3d 716, 722 (2002). Illinois courts have adopted section 324A of the Restatement (Second) of Torts (1965), which provides that one may be liable to a third person for the negligent performance of a voluntary undertaking. The relevant sections of section 324A of the Restatement provide as follows: “One who undertakes, gratuitously or for consideration, to render services to another which he should recognize as necessary for the protection of a third person or his things, is subject to liability to the third person for physical harm resulting from his failure to exercise reasonable care to protect his undertaking, if: (a) his failure to exercise reasonable care increases the risk of such harm, or (b) he has undertaken to perform a duty owed by the other to the third person, or - 10 - (c) the harm is suffered because of reliance of the other or the third person upon the undertaking.” Restatement (Second) of Torts § 324A (1965). See Bell v. Hutsell, 2011 IL 110724, ¶¶ 12-14; Pippin v. Chicago Housing Authority, 78 Ill. 2d 204 (1979). Under this theory, the scope of an assumed duty “ ‘is limited to the extent of the undertaking’ ” and must be narrowly construed. Jablonski v. Ford Motor Co., 2011 IL 110096, ¶ 123 (quoting Bell, 2011 IL 110724, ¶ 12); Siklas v. Ecker Center for Mental Health, Inc., 248 Ill. App. 3d 124, 131 (1993); Frye v. Medicare-Glaser Corp., 153 Ill. 2d 26, 32 (1992). To determine the extent of the voluntary undertaking we consider, on a case by case basis, both the specific act undertaken and a reasonable assessment of its underlying purpose. Bourgonje v. Machev, 362 Ill. App. 3d 984 (2005). ¶ 36 Plaintiff argues that Preferred’s voluntary undertaking was evidenced by several factors: (1) Preferred’s requirement that its member hotels comply with its “Standards of Excellence,” which included two standards involving guest privacy; (2) Preferred’s hiring of independent inspectors to review compliance with these standards; and (3) the appearance of Preferred’s signage in the hotel informing hotel guests that the hotel is a member in Preferred’s network. Plaintiff contends that, because Preferred has two privacy-related standards (that the hotel communicate the room rate and room number in writing at check-in and proof of identity must be shown before a duplicate key is issued), the absence of a standard relating to disclosing guest identity and room number or placing a guest next to another on request is a breach of voluntary undertaking to protect a guest’s privacy. Further, plaintiff argues that Preferred negligently failed to prevent Blackwell from disclosing the identity of Andrews, the dates of her stay, her r
-
-
-
-
-
-     https://saaze2311prdsra.blob.core.windows.net/clean/492607eac7d7ec11a7b5000d3a1afadb/CRD149777_GORMAN4026328-6048300.pdf
-
-    
-     https://saaze2311prdsra.blob.core.windows.net/clean/f07de67079d5ec11a7b5000d3a1af965/2020-05-Jpetit-cbrooks7.png
-    
-     https://saaze2311prdsra.blob.core.windows.net/clean/61f910a979d5ec11a7b5000d3a1af965/2020-06-03%20Notice%20and%20Obstruction.png
-    
-    https://saaze2311prdsra.blob.core.windows.net/clean/2f7c8ae375d5ec11a7b5002248307b90/Screenshot_20220516-013630_Chrome.jpg
-    
-    
-    2010-10-05        REQUEST TO QUASH
-    
-    https://saaze2311prdsra.blob.core.windows.net/clean/f39766e089d5ec11a7b5000d3a1afadb/email.20201005-wilsonElser-Quash.pdf
-    
-    
-            https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER/pull/35
-         
-    " STATE FARM LLOYDS "
-    https://www.tdi.texas.gov/commissioner/disciplinary-orders/documents/20153854.pdf
-    ---BROKERCHECK RANDALL HOUSTON HARBERT [MEMBER 2992788]
-    
-       
-           
-                           
-
-       
-
-https://saaze2311prdsra.blob.core.windows.net/clean/f07de67079d5ec11a7b5000d3a1af965/2020-05-Jpetit-cbrooks7.png
-
-DOOR
-https://saaze2311prdsra.blob.core.windows.net/clean/e4fd40a036d6ec11a7b5002248307f33/Door-221606_Gallery.jpg.PDF
-
-2021-11-16    Morgan Stanley PLEASE FORWARD TO COMPLIANCE
-https://saaze2311prdsra.blob.core.windows.net/clean/6a91074b24d6ec11a7b50022483079c1/Compliance%202021-11-16.pdf
-
-2021-11-16 - STATE FARM AND SULLIVAN PROPS
-https://saaze2311prdsra.blob.core.windows.net/clean/521e9ac936d6ec11a7b5000d3a1af965/Nov.16-StateFarm.SullivanProps.PDF
-
-2021-11-16    DOC NOTICE
-https://saaze2311prdsra.blob.core.windows.net/clean/3c87e47421d6ec11a7b5002248307f33/2021-11-16-483docNotice.png
-
-2021-11-17 - 483 MATERIAL CORPORATE ACTION
-https://saaze2311prdsra.blob.core.windows.net/clean/0010c00837d6ec11a7b5000d3a1afadb/Nov.17.483MATERIALCORPORATEACT.PDF
-
-2021-12-18
-https://saaze2311prdsra.blob.core.windows.net/clean/8de5f89e10d3ec11a7b5002248286421/CE48526B-6A0E-4B2A-89B9-93BD202498A9.jpeg
-
-2021-12-18 93715 C.16 --- BROKERS
-https://saaze2311prdsra.blob.core.windows.net/clean/db5e3c6a10d3ec11a7b5000d3a132789/8A5FDA9F-D641-4B62-9D15-3AF4205617AC.jpeg
-
-
-*** Tax Receipts— tax evasion - 117 SULLIVAN STREET
-https://saaze2311prdsra.blob.core.windows.net/clean/0363e59f23d6ec11a7b5000d3a1afadb/BB-117taxFiles.pdf
-
-2020-03-10    ice data service PROVIDERS
-https://saaze2311prdsra.blob.core.windows.net/clean/3217723b20d6ec11a7b5002248307f33/2020-03-10%E2%80%94ICE%20Data%20Services.PDF
-
-2020-03-10    ice data service PROVIDERS
-https://saaze2311prdsra.blob.core.windows.net/clean/3217723b20d6ec11a7b5002248307f33/2020-03-10—ICE%20Data%20Services.PDF
-
-2022-05-09    MSCO INSIDERS
-https://saaze2311prdsra.blob.core.windows.net/clean/46c8dc8e20d6ec11a7b50022483079c1/2022-05-09-InsiderTrading.PDF
-
-2022-05-11
-https://saaze2311prdsra.blob.core.windows.net/clean/d585ccd85fd3ec11a7b5000d3a1326fe/TAX%20EVASION%20%20attachments%20%252F%20Omissions.%20.pdf
-
-DOI NOTICE
-https://saaze2311prdsra.blob.core.windows.net/clean/7391818e24d6ec11a7b5000d3a1af965/DoiNotice-TaxEvasion%20and%20Continued%20OPS.PDF
-
-05-09-2022
-https://saaze2311prdsra.blob.core.windows.net/clean/46c8dc8e20d6ec11a7b50022483079c1/2022-05-09-InsiderTrading.PDF
-
-EY - PWC - MSCO NOTICE 04-12-2022
-https://saaze2311prdsra.blob.core.windows.net/clean/b67c1a2d29d6ec11a7b5002248307b90/04.12.2022.151652.EY.PWC.MSCO-.pdf
- 
-Docket 348
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=TxAa7cNVIHKtnJU/ni/zvg==
-
-Docket 53
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=LMUE9g_PLUS_k6vCmKgfCSJEzuQ==
-       
-
-       
-_________________________________________________________________________________________________________
-    
-##################################
-##################################
-https://saaze2311prdsra.blob.core.windows.net/clean/2bffec7889d5ec11a7b50022483079c1/AA-CEASEORDR.pdf
-https://user-images.githubusercontent.com/70865813/153544431-27d6b33b-d34a-4e37-9532-aad92b15264c.png
-https://saaze2311prdsra.blob.core.windows.net/clean/2bffec7889d5ec11a7b50022483079c1/AA-CEASEORDR.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/397718d1fcd8ec11a7b5002248307aa9/Case%20Number_%20%20ref1.pdf
-
-
-#BIN-CODES PAR-ID, IN THE DECK. QUARTERLY
-
-
-
-DOOR DOES NOT WORK.
-https://saaze2311prdsra.blob.core.windows.net/clean/e4fd40a036d6ec11a7b5002248307f33/Door-221606_Gallery.jpg.PDF
-https://saaze2311prdsra.blob.core.windows.net/clean/2df8ebfad2d7ec11a7b50022483079c1/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/25aff4b997d3ec11a7b500224828654e/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/5380dd8997d3ec11a7b5000d3a132789/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/e9eb965d97d3ec11a7b5000d3a1326fe/[STATE%20FARM%20VP%2043036]$%203487%20$.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/25aff4b997d3ec11a7b500224828654e/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/ff91792a95d3ec11a7b50022482864f0/[sfVP43036]%20$2876793%20-%20david.moore%20$3487%20-%20IA%208018184.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/af081f4095d3ec11a7b50022482864f0/[STATE%20FARM%20VP%2043036]%20$3231040-2004555.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/d88e25ae5fd3ec11a7b5002248286997/StateFarmVP%20Management%20Corp-CRD%2343036.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/172de37992d3ec11a7b500224828654e/[sfVP%2043036]%204971235-%20$SMITH%20-%20SEMI.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/bee2b76c92d3ec11a7b5002248286997/[SF.VP%2043036]%202876793%20-%20$david%20moore%20$3487%20-%20IA%208018184.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/9194266492d3ec11a7b500224828654e/[sf%20VP%2043036-$3487]%201943922-%20$%20tipsord%20$%20STATE%20FARM%20mutual%20automobile%20insurance%20company-$3487.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/172de37992d3ec11a7b500224828654e/%5BsfVP%2043036%5D%204971235-%20$SMITH%20-%20SEMI.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/bee2b76c92d3ec11a7b5002248286997/[SF.VP%2043036]%202876793%20-%20$david%20moore%20$3487%20-%20IA%208018184.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/9194266492d3ec11a7b500224828654e/[sf%20VP%2043036-$3487]%201943922-%20$%20tipsord%20$%20STATE%20FARM%20mutual%20automobile%20insurance%20company-$3487.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/e9eb965d97d3ec11a7b5000d3a1326fe/[STATE%20FARM%20VP%2043036]$%203487%20$.pdf
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=TxAa7cNVIHKtnJU/ni/zvg==
-https://a836-acris.nyc.gov/DS/DocumentSearch/DocumentImageView?doc_id=2020052000291003
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=_PLUS_TlrEGCsUUcCcvtJ8O/dfg==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=gcMSDaFzm0ynPeXZKSHgLQ==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=gcMSDaFzm0ynPeXZKSHgLQ==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=TxAa7cNVIHKtnJU/ni/zvg==
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=LMUE9g_PLUS_k6vCmKgfCSJEzuQ==
-https://portal.311.nyc.gov/sr-details/?id=4296b0c3-c4a2-ec11-826d-0003ff86900c
-https://saaze2311prdsra.blob.core.windows.net/clean/d585ccd85fd3ec11a7b5000d3a1326fe/TAX%20EVASION%20%20attachments%20%252F%20Omissions.%20.pdf
-https://saaze2311prdsra.blob.core.windows.net/clean/f2d6a0fe5fd3ec11a7b5000d3a1326fe/Fwd:%20unlawful%20RENT%20and%20PAYMENTS%20in%20CUSTODY%20at%20JP%20MORGAN%20CHASE%20BANK.pdf
-https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
-    
-    
-https://saaze2311prdsra.blob.core.windows.net/clean/2f7c8ae375d5ec11a7b5002248307b90/Screenshot_20220516-013630_Chrome.jpg
-
-
-21 JULY 2020 - REQUEST TO DEFENDANTS TO CEASE AND DESIST [ DESC EXHIBIT ].png
-
-0 PHOTOGRAPH OF MY APARTMENT - BEFORE THEY DECIDED TO FILM AND DOCUMENT MY EVERY MOVEMENT AND DISCUSSION.JPG
-
-1 CAMERA IS MOUNTED ON THE SECOND STORY AND AIMED AT MY BED - PILLOWSN - AND LAPTOP.JPG
-
-1 CAMERA IS MOUNTED ON THE SECOND STORY AND AIMED INTO MY APARTMENT.JPG
-
-2 PHOTOGRAPH OF MY CLOSET --- TAKEN BY THEIR PORTER.JPG
-
-3 ANOTHER PHOTOGRAPH --- TAKEN BY THEIR PORTER NOTE (BLACKOUT TINTS).JPG
-
-4 ANOTHER PHOTOGRAPH --- TAKEN SHORTLY AFTER THEY MOUNTED THE CAMERA WHICH WAS AIMED AT MY WINDOW.JPG
-
-5 ANOTHER PHOTOGRAPH --- TAKEN SHORTLY AFTER THEY MOUNTED THE CAMERA WHICH WAS AIMED AT MY LAPTOP.JPG
-
-6 ANOTHER PHOTOGRAPH --- CAN THAT CAMERA ZOOM IN AND OUT AND VIEW MY LAPTOP ON AUGUST 10TH 2020.JPG
-
-7 ANOTHER PHOTOGRAPH --- CAN THAT CAMERA FILM ME IN THE EVENINGS.JPG
-
-8 ANOTHER PHOTOGRAPH --- CAN THAT CAMERA FILM ME IN THE DAYTIME.JPG
-
-9 ANOTHER PHOTOGRAPH --- CAN THAT CAMERA FILM IN COLOR AND BE EDITED TO DOWNSAMPLE THE PIXELS.JPG
-
-9 ANOTHER PHOTOGRAPH --- WAS I WEARING A SHIRT --- LOOKS LIKE NO IN THAT ONE --- WHAT ABOUT ALL THE OTHER ONES ----.JPG
-
-9 ANOTHER PHOTOGRAPH --- WAS I WEARING A SHIRT EARLIER --- BUT HOW ANGRY IS THE POWERWASHER GUY.JPG
-
-10 AREYNOSO@MSKYLINE.COM --- APPARENTLY HIS EMAIL ALSO DOESNT WORK ANYMORE..JPG
-
-10 CHANN --- JGIAMBOI@MSKYLINE.COM -- LZUCKER@MSKYLINE.COM -- LEGAL@MSKYLINE.COM --- CWEISS@INGRAMLLP.COM [MOV].JPG
-
-10 JGIAMBOI@MSKYLINE.COM --- APPARENTLY HIS EMAIL ALSO DOESNT WORK ANYMORE..JPG
-
-10 ROSALIA CHANN --- DISTRIBUTED LINKS TO THE INTERNET -- CONVERTED INTO MOV FILES AND CIRCULATED.JPG
-
-10 TESCHMANN@MSKYLINE.COM --- APPARENTLY HIS EMAIL ALSO DOESNT WORK ANYMORE..JPG
-
-11 HERES A VIDEO OF ME SHANKING SOMEONE IN THE YARD.JPG
-
-11 NOPE... NEVERMIND --- JUST ANOTHER VIDEO OF JHIM RECYLING --- LETS GO AHEAD AND VIDEOTAPE IT ANYWAYS.JPG
-
-12 ROSALIA CHANN --- ON-DEMAND VIDEOS (NOT FOR SALE THOUGH) SAME AS THE ONE FROM THE [MOV] EARLIER IN CASE YOU MISSED THAT.JPG
-
-12 ROSALIA CHANN --- ON-DEMAND VIDEOS (NOT FOR SALE THOUGH).JPG
-
-13 JULY 6 2020 - CAMERA IS STILL THERE --- MAYBE ITS AN ISSUE --- SEE ALSO --- OTHER REQUESTS.JPG
-
-14 VIDEO OF MY ENTRY WAY --- USING RODENT INSULATION THAT WENT THROUGH A HOLE IN THEIR WALL..JPG
-
-14 VIDEO OF MY ENTRY WAY --- USING RODENT INSULATION WENT THROUGH A HOLE IN THEIR WALL -- A LITTLE DEEP FOR A CORRIDOR.JPG
-
-15 THEY JJUST ADDRESS ME IN CARE OF [THE BUILDING ] NO NEED FOR AN APARTMENT NUMBER I GUESS - WORD GETS AROUND.JPG
-
-16 A REQUEST FOR JUDICIARY INTERVENTION ADDRESSED IN CARE OF THE BUILDING - NO APARTMENT NUMBER --- GOOD TO GO..JPG
-
-16 NOTE --- APARTMENT CONDITION ---- POST KEEBLER ELVES SURVEILLANCE AND HARASSSMENT OPERATIONS.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS --- THE LEAD KEEBLER ELF IN HER 10 MINUTE PLAY-BY-PLAY ---- GOES ON AND ON.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 7.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 10.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 12.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 17 --- CAN WE GET A COUNT ON THE NUMBER OF TIMES THE DOOR WAS OPENED IM CURIOUS.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 21 ----- EVERYBODY --- EMERGENCY ----- MIWA HAS FOUND A MASK DURING THE COVID PANDEMIC.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 23 --- IF YOURE LOCKED OUT AND NEED THE RESTROOM ---- WAIT WAS I EVEN HOME.JPG
-
-21 MIWAKO G MESSERS DAILY REPORTS NUMBER 27 --- HENCE --- THE HOUSE OF KEEBLER ELVES RUNNING UP AND DOWN TO COMPLETE THEIR TASKS.JPG
-
-TAKEN FROM INSIDE OF MY CLOSET --- I CAN SEE THE HOLE OF THE CAMERA..JPG
-
----
-## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[5a897f987c...](https://github.com/mrakgr/The-Spiral-Language/commit/5a897f987c554fb8b3e33f730c7f6d7c1f6367bd)
-#### Sunday 2022-06-26 18:24:01 by Marko Grdinić
-
-"https://groups.google.com/a/grasehotspot.org/g/grase-hotspot/c/HI4iHL8k67k/m/q5wvvQ0OEQAJ
-Upload rate near zero with Grase
-
-///
-
-hey there! its been a long time since i've been here.
-
-i had the same problem and i did solve it with turning gro off on the lan interface of the hotspot.
-
-u can do it by installing ethtool (shell: sudo apt-get install ethtool), and using it to turn of the gro on selected interface (example: ethtool -K eth1 gro off)
-
-hope i've helped. don't know the reason, but this worked for me.
-
-btw. i had this problem with http, for some reason https upload was working (at least better than http!)
-
-///
-
-I asked this question almost 6 years ago and it is still relevant.
-
-Let me get that laptop.
-
-3:40pm.
-
-///
-
-1. burn Ubuntu 14 server in DD mode
-2. install LAMP and SSH server during install - optional, will be downloaded off the net automatically in case you forgot
-3. sudo apt-get update & sudo apt-get upgrade - dpkg will give a weird error if it is out of date
-4.
-    ifconfig - remember the MAC of main card for the later steps
-	sudo nano /etc/default/grub
-	edit it so: GRUB_CMDLINE_LINUX="net.ifnames=0 biosdevname=0"
-	sudo update-grub
-	reset - this will create the rules file
-	sudo nano /etc/udev/rules.d/70-persistent-net.rules
-	swap router names as needed
-5.
-	sudo nano /etc/network/interfaces
-	edit to refer to eth0 instead of p1p1 - grase needs eth0 to be the internet connection
-6. wget http://packages.grasehotspot.org/pool/main/g/grase-repo/grase-repo_1.8_all.deb
-7. sudo dpkg -i grase-repo_1.8_all.deb
-8. sudo apt-get update
-9. sudo apt-get install grase-www-portal grase-conf-freeradius
-10. if uploads are slow
-    ethtool -K eth1 tso off gro off gso off
-    this setting doesn't need a restart
-///
-
-Here is the update hotspot tip. It turns out just turning gro off is not enough, there are also two extras. Dad managed to find those somehow, I am amazed. Sometimes he exceeds me when it comes to looking up stuff on Google.
-
-Great. This time I am done for good with that rig. Freedom.
-
-3:45pm. Now I need to think about what to do next.
-
-4pm. Let me take a break so I can get in the mood.
-
-4:05pm. Yeah, what I need to do now is cultivate a special skill that I didn't have time to before. That is drawing characters. Sculpting is only an excuse. I should give drawing them in CSP a serious try. I'll get that model and draw over them.
-
-4:20pm. Done with the break. Let me start.
-
-I'll admit, drawing is hard, but that is only the situtation when you can't just trace over the image. If you have a model like the ones CSP gives you how hard could it be?
-
-4:25pm. Compared to 2d, 3d does have a lot of advantages when it comes to doing environments and composing complex scenes. The scattering capabilities of it as something trad painters can only dream of. Ray tracing rendering is hugely helpful for such things. But when it comes to drawing anime style characters, that should not be necessary.
-
-4:30pm. Given how easy I expected drawing anime characters would be, I did not bother putting too much concern into learning it.
-
-Still, even though will be easy, the chara illustrations will contribute 30-50% to Heaven's Key visual quality. So I can't neglect them too much.
-
-4:40pm. One side goal which I've been neglecting is going through those 900 VN cover images. I need to refine my main styles. I'll kick out some of the drawings and add some more interesting ones from the wikiart dataset.
-
-4:45pm. Now forget that. I need to focus on the task at hand instead of just living in my head for 45m straight. Though it is cliche, let me start off with a tutorial.
-
-https://youtu.be/MWvKqyAqFVE
-3 helpful steps for character sketches | Inma R
-
-I need something to show me how to use the 3d models. I did that last year, but by now that knowledge has faded away. I need a refresher. That should be my first priority right now. I'll switch between doing this and sculpting as I go along. I am not in a hurry.
-
-4:50pm. One thing I am going to have to get out of the way is getting up early at like 6am when it is cool, and moving that big wood pile inside the sheed. I did that last year, and now it is time to get busy with that again. Since I am done with the cover and the first scene.
-
-4:55pm. Focus me, let me just watch the above. I'll dedicate at least a month to chara modeling and drawing. My env skills are quite decent now, so it is time to tackle this.
-
-https://youtu.be/MWvKqyAqFVE?t=17
-
-Yep, this is what I mean. Compared to doing it raw, this should be a lot easier.
-
-https://youtu.be/MWvKqyAqFVE?t=102
-
-Let me try immitating this step.
-
-5:05pm. Ok, I've put the model onto the canvas, but it is pretty confusing as to how to use it after that. I am going to have to spend some time familiarizing myself. I need to make a choice, or rather, let the battle play out. I need to test both sculpting and texturing everything in 3d, in other words doing everything in 3d vs using CSP and using some of its aids to do chara design.
-
-2d vs 3d. I need to sit which method is more fitting for me. Figuring this out will no doubt take my time. Right now, let just focus on watching CSP tutorials. I'll watch the one I am currently on and then watch some 3d specific ones.
-
-5:20pm. https://www.youtube.com/results?search_query=clip+studio+3d
-
-This is what I should be focusing on.
-
-Let me watch some of these. Given how late it is I really don't feel like starting work on anything new, but that does not matter. What I should focusing is simply on playing around with CSP's 3d capabilities. Once I have a handle on that, then I can start thinking what to do with it. And not just poses, but other 3d assets as well.
-
-https://youtu.be/22DNGGvYy-Y?t=50
-2D ARTISTS should use 3D MODELS 🎓 Clip Studio Paint Tutorial
-
-Yes, this is what I need.
-
-https://youtu.be/22DNGGvYy-Y?t=166
-
-I got this far before. Since I am pirating CSP, it does not seem I can use its asset store, but that does not matter. Right now I just want to do simple chara design.
-
-5:55pm. https://youtu.be/22DNGGvYy-Y?t=343
-
-This hand posing stuff is interesting. I am really having trouble getting used to how the camera works in this. Does it have to use the gizmos for everything?
-
-6pm. Now I am reading Ayakahi Triangle. Ah whatever, let me take a break. I do not feel like struggling so much. I'll get it done.
-
-6:15pm. https://youtu.be/22DNGGvYy-Y?t=596
-
-This is so boring. That I am not into it is a problem. And it is the main problem.
-
-If I can't get into it, I will step away from the screen, take naps, and charge up my motivation until I feel like doing it.
-
-https://youtu.be/22DNGGvYy-Y?t=962
-
-Hmmm, it supports characters. I wonder how that works?
-
-6:30pm. https://youtu.be/u0GWW7BPqP4
-Making reusable backgrounds with 3D models! | Vampbyte
-
-Let me watch this. My focus is low and so is my motivation, but I need to give 2d a honest chance.
-
-https://youtu.be/u0GWW7BPqP4?t=153
-
-I wonder how these 3d scenes can be created for CSP. I got lucky that I picked Blender for doing my room. If I had to parent a subobject, that would be a pain in the ass in Clarisse. If you ignore the huge poly count processing advantages of Clarisse, Blender is better than it in every way possible.
-
-6:40pm. https://youtu.be/_gXlUm_qGdM
-Backgrounds with 3D in Clip Studio Paint
-
-Let me check this out.
-
-6:45pm. At this point, I am wondering when the food is going to arrive. I expected it would get here by now.
-
-https://youtu.be/_gXlUm_qGdM?t=9
-
-This is a nice city block. Really buildings can be done with just cubes of various sorts. After kitbashing failed, my desire to do any kind of complex modeling hit an all time low.
-
-7pm. Let have lunch here. It finally arrived.
-
-7:25pm. Done with lunch. Let me finish that video and then I will close for the day. Tomorrow what I am going to do is try the simplest thing possible. I will just use the model as a base and try tracing over it, trying to get to a proper anime character. I'll play around like that.
-
-7:30pm. Focus me. Let me resume the video.
-
-https://youtu.be/_gXlUm_qGdM?t=92
-
-Why do left and right mouse buttons both zoom? I do not know how to rotate with the mouse.
-
-7:40pm. https://youtu.be/_gXlUm_qGdM?t=228
-
-Ah, fuck this. I can't take it anymore. None of this matters for me. Let me just figure out how to use the mouse so it rotates without having to touch the gizmo.
-
-https://www.reddit.com/r/ClipStudio/comments/mmspc7/3d_posing_rant/
-
-I can't find my question anywhere. Let me just ask on the relevant sub.
-
-https://www.reddit.com/r/ClipStudio/comments/vla76o/how_to_rotate_the_3d_camera_using_the_mouse/
-
-I'll get an answer here.
-
-7:50pm. Oh, I did not notice I got a PM by the Scatter author. Nevermind, I might have replied 8h later than I should, but I still got to it.
-
-7:55pm. I am going to close here. Tomorrow I am going to give drawing another shot. This was actually my plan 9 months ago. I was well aware that for most of my needs I can just trace. Me putting effort into 3d, was just me being prideful.
-
-If I look at Royal Road or Scribble Hub, all of those stories basically have no art. There is a huge entreprenurial opportunity for potential artists to ally themselves with the writters, and yet I do not see that happening. It is really a shame, but it also an opportunity. If I do my own art, not to mention music, that will allow me to stand out and reach the top of the charts.
-
-This is playing it smart. If I competed with other artists using art, I'd never get anywhere, but if I competed with writers using art, that would get me somewhere.
-
-Not that I do not have confidence in my writing, the story will be unlike anything those on that site have ever seen before, but more is better. Even if I could win using just writing, that would not be enough for me to develop a path. Only art will allow me to bridge the gap with.
-
-I thought that deep learning had jumped a shark, but diffusion models like DALLE are a crystallization of the field. Deep learning is completely unsuitable for RL, but is exactly suitable for the kind of self supervised learning powering the diffusion models. They mark the end of the first wave.
-
-They will stand out, even in the future when we have efficient brain-like algorithms capable operating in the real world.
-
-I am here so I should grab a piece of that pie. I'd rather compete for that than spend my precious time as a human wage slaving.
-
-8:10pm. Before I close, I want to ask if it is possible to do the manga perspective thing in Blender. Purely out of curiosity rather than need.
-
-https://youtu.be/22DNGGvYy-Y?t=618
-
-I'll post this on the Blender sub. I've never had an answer to any of my questions on /3/.
-
-https://www.reddit.com/r/blender/comments/vlatnb/is_it_possible_to_emulate_clip_studio_paints/
-
-Maybe I should have courage and post some of my own work on this sub? What is the worst that could happen?"
-
----
-## [Will-Bohlen/Paradise](https://github.com/Will-Bohlen/Paradise)@[6082c95eb3...](https://github.com/Will-Bohlen/Paradise/commit/6082c95eb300a9f05b5422060db79f55fe91b9b3)
-#### Sunday 2022-06-26 19:01:10 by LightFire53
-
-Relocates The Entertainment Offices and Custodial Closet on DeltaStation (#17480)
-
-* Location, Location, Location!
-
-* Lights and Pipes
-
-I am so sorry for how hacky that disposal piping is
-
-* TFW Disposals
-
-* Oh god, what if there is a fire?!
-
-* And a light switch...
-
-Maybe the final commit? Taking bets on if I managed to forget something else
-
-* If you bet on the requests console
-
-You would be right.
-
-* Bigger, Better, Janitor
-
-* Bloody requests console...
-
----
-## [HorridModz/Pixel-Gun-3D-Resources](https://github.com/HorridModz/Pixel-Gun-3D-Resources)@[2fd4a60bb5...](https://github.com/HorridModz/Pixel-Gun-3D-Resources/commit/2fd4a60bb56f6ce4a61fae4a1f154c74a032aedd)
-#### Sunday 2022-06-26 19:27:33 by HorridModz
-
-Add files via upload
-
-Pixel Gun 3D Methods and ClassesRespository by HorridModz (User123456789#6424).
-This resource is PUBLIC. You can DISTRIBUTE it to ANYONE with credit.
-
-This respository took tens and tens of hours to make. It is the combined work of searching for every single possible string I could think of and writing down the results.
-I am sorry it is so messy. It was meant to be for personal notes, but it became so big! Not everything will do what it's caption says. Most things are untested.
-
-This repository includes:
--Labeled methods, classes, fields, and notes. Most of these are from pixel gun 3d version 16.6.1, 22.3.2, 22.4.0, or 22.4.3.
--Notes about how to find things and deobfuscate them
--Script templates
-
-How to use this repository:
--This is not a tutorial or a mod. It is just a document of my personal notes. This is a resource for hex patching or creating mod menus. If you do not know what you are doing, do not use this.
--Search for a keyword such as "silent aim" or "unlock all"
--Choose one of the methods (or fields or whatever) to use
--Try to find this in the current game version
--Make a mod menu or gameguardian script using the offset
--Test it and see what it does. Feel free to change the caption if it does not do what it said it does. Most don't, as they are untested.
-
-I hope you enjoy using this resource. I can make repositories like this for any game. (Of course,as long as you have an unobfuscated and unprotected version of the game. I'm not going to give you a bunch of free fire hacks xD I'm not that smart.) Tell me if you would like a respository for a certain game.
-
----
-## [dartmouth-outing-club/fyt-bus-packet-generator](https://github.com/dartmouth-outing-club/fyt-bus-packet-generator)@[729604e4b3...](https://github.com/dartmouth-outing-club/fyt-bus-packet-generator/commit/729604e4b32e1dd9824010237a9b50821f6f2bcf)
-#### Sunday 2022-06-26 20:03:53 by Alexander Petros
-
-Convert HTML model to ES6 Classes
-
-I caved on this one. Generally speaking I am not a proponent of using
-classes because you should not write JavaScript like it's Java, and
-functions offer a far more flexible and far less verbose way of
-accomplishing many of the same things.
-
-However, in this case, what I need to do is group the storage of some
-data (a direction step, a direction leg) with its presentation. I guess
-that I could probably create an object with a function and override the
-toString prototype, but that's essentially what the ES6 syntax does and
-its far less intuitive. I think that in this case not using classes
-would be dogmatic and silly.
-
-Shame I have to use the "new" keyword in maps now. Oh well.
+## [jeremygurr/dcss-minor](https://github.com/jeremygurr/dcss-minor)@[1352289c90...](https://github.com/jeremygurr/dcss-minor/commit/1352289c90d15a53f9c472dac9343ad61d9104a7)
+#### Monday 2022-06-27 08:53:19 by Nicholas Feinberg
+
+New species: Meteoran
+
+Time pressure often creates exciting gameplay and interesting
+tradeoffs. Baseline Dungeon Crawl uses the Zot Clock to add a
+very weak form of time pressure, but there's so much variety
+between the playstyles of different species and backgrounds
+that a tight clock for some would be almost impossible for
+others.
+
+So, let's try limiting that gameplay to just one species!
+Meteorae have an exciting variety of bonuses - great attributes
+and aptitudes across the board, passive mapping, and exploration
+healing, regaining HP and MP when viewing new territory. In
+exchange, they have one big downside: instead of getting 6,000
+turns of Zot clock for each floor, they get 600!
+
+The big concern here is whether this species can be made fun
+without also being made wildly, boringly 'overpowered'. Lots of
+levers and knobs to tweak, so let's give it a shot!
+
+Extra notes:
+- Meteorae are humanoid beings. (In the night sky, they look
+  like dots because they're very far up.) Hat tip to Neil Gaiman's
+  Stardust.
+- This commit has a silly 'flavour' gimmick where Meteorae's LOS
+  radius decreases by 2 when they have less than 50 turns left
+  of Zot clock, and again when they have less than 10. Darkness
+  is closing in...
+- Meteorae glow in the dark. Permanent backlit status (not halo!):
+  +enemy to hit, -stealth, disables invis. Suppressed in forms.
+  Seems funny.
+
+Credit to hellmonk for the initial version of this species and
+pushing to make 'em happen. :)
 
 ---
 ## [metabase/metabase](https://github.com/metabase/metabase)@[9c4e73899e...](https://github.com/metabase/metabase/commit/9c4e73899e8914fd41e85987d4a652a9b6058d8a)
-#### Sunday 2022-06-26 21:00:21 by dpsutton
+#### Monday 2022-06-27 09:52:16 by dpsutton
 
 Enterprise settings (#23441)
 
@@ -1996,77 +638,1792 @@ not.
 * Cleanup ns
 
 ---
-## [DomMcsweeney/Devil-Fuzz](https://github.com/DomMcsweeney/Devil-Fuzz)@[e2ca7b3f07...](https://github.com/DomMcsweeney/Devil-Fuzz/commit/e2ca7b3f07a45ccf11e3775d0005a4c5bf5c53ca)
-#### Sunday 2022-06-26 21:33:45 by Dom Mcsweeney
+## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[e86dbe8d99...](https://github.com/mrakgr/The-Spiral-Language/commit/e86dbe8d999d96639986ac727d19d68a69c7acf5)
+#### Monday 2022-06-27 10:11:51 by Marko Grdinić
 
-Create README.md
+"10am. Let me do the chores here for a bit. I finally got up earlier.
 
-Overdrive / Distortion / Fuzz Pedal Plugin for Windows. 
-VST 3 Only 
+10:25am. Done with chores. Let me chill for a bit and then I will start grinding drawings. What I am going to do here is the simplest thing ever, just trace over the model, color and then shade it.
 
-Install it by downloading it and putting it in your plugins folder of choice.
-Controls: 
-Hell for Gain
-Pain for Tone
-Suffering for Volume
+Also I've decided to change the intro scene a bit. Rather than the foggy halo which looks like an UFO is beaming up the city, I am going to do a bloom effect. and maybe some sun beams after that. That will get me what I want. Instead of using the renderer, I'll use the compositor to make the scene properly impactful.
 
-Things will change, so don't share this around yet, just enjoy it privately until I give the go ahead to announce it.
+https://youtu.be/SN8nJXn7CqI
+How to add BLOOM effect in CYCLES with ease - Blender
+
+Let me refresh my memory of this.
+
+https://youtu.be/SN8nJXn7CqI?t=94
+
+He is using glare, not blur. This is the only thing I wasn't really sure of.
+
+10:35am. Ok, I see. Let me chill a bit here and then I will start.
+
+10:50am. Let me start. It is time to draw this. Genshin Impact is downloading in the background. And at 5pm I have an appointment with a haircutter. I'll leave that out of mind and just get cracking. Let me draw Gnosis and Luna. This should not be that difficult if I use vector lines.
+
+10:55am. This is really strange, why is it rotating with the left mouse button all of a sudden?
+
+11:20am. Yesterday I said: 'How difficult can it be?'
+
+Right now, even with tracing I think it is very difficult in fact.
+
+Let me focus on just the face. Forget the body. I'll zoom in the 3d camera so I have proper room.
+
+Also forget the vector lines. Let me try being loose and seeing where that gets me. If I can grasp the face, I'll be able to grasp anything else. If I can't do it, I'll just go back to Blender and make some 3d models. I am sure I could do those. Maybe I'll use Genshin Impact as inspiration.
+
+11:40am. No, forget it. I am giving up on 2d.
+
+Take programming, my skills in it at a very high level, and the way I reason out programs is not something I'd ever be able to teach anybody else. It is like my brain has a MCTS engine built in that it uses to sample possible programs and it gradually builds up features, guiding me towards the completed product.
+
+As I write code, there is a feedback loop between that internal process and writing. The code on the screen acts as another form of memory, and this greatly resembles sketching in art.
+
+I am not sure if even 1 in a 1,000 people could do it at my level. And since that is the case, it is not strange for me that my brain wiring might not be suitable in other domains such as art, while others' could. It is suitable for one thing, and might not be suitable for another thing. If drawing or painting was that easy, I bet a lot of the RR writers would be doing it. I am probably not the only one who had this great entrepreneurial idea. I was just the one willing to put in effort.
+
+11:50am. I have the high level vision, but it is really difficult convert that into an actual drawing.
+
+This is not to say that the high level features are useless, just that process itself is difficult. I've put all my effort in the past 9 months into 3d, and there is little transfer between that and 2d. I am not going to be able to draw unless I spend a significant time practicing it.
+
+Forget it. There are other paths I can take. I'll just just put 'blender anime head' into Youtube and move from there. I already know how to sculpt heads, and will be able to use that skill as the basis.
+
+12pm. https://www.youtube.com/results?search_query=blender+anime+head
+
+Isn't 2022 grand. Imagine trying to take this path 10 years ago. I'd have gotten nowhere and needed to give up.
+
+https://www.youtube.com/watch?v=t1O7LpOTBfM
+Jade Moon Upon a Sea of Clouds - Disc 1: Glazed Moon Over the Tides｜Genshin Impact
+
+This OST is 10/10. I actually downloaded and installed the game just because of it, but I won't run it right now otherwise I'd just spend the rest of the day playing it. Right now it is time for breakfast.
+
+After that it is the usual - a ton of tutorials. All of these are hour long so it will take me a few days to go through them, but after that I'll have my charas done and ready.
+
+12:05pm. You know, while I am at it, why not investigate Genshin's style? And that Arcana thing which made waves? I've never watched it. I might as well properly get into the 3d anime style.
+
+Giving up has bad connotations, but if you are going to give up, it is best to do that quickly. It is like selling a stock that is down only 10%. You might taken a loss, but you still have 90% of the capital that you can put into something else. It is better to take a 10% loss and put it into a potential winner than hold it for years and lose 50% and more.
+
+12:10pm. Ok, breakfast."
 
 ---
-## [fischerling/wrapdb](https://github.com/fischerling/wrapdb)@[7e69bfce97...](https://github.com/fischerling/wrapdb/commit/7e69bfce97df6ef5d70e556ca4059e8f5f38af3f)
-#### Sunday 2022-06-26 21:50:37 by Eli Schwartz
+## [Crozzers/screen_brightness_control](https://github.com/Crozzers/screen_brightness_control)@[55566fd5b9...](https://github.com/Crozzers/screen_brightness_control/commit/55566fd5b9604081443a74cddc6d0a0a5b8a767c)
+#### Monday 2022-06-27 10:56:22 by Crozzers
 
-openjp2: Use wrap fallbacks instead of thirdparty
+Enable cross platform documentation building regardless of OS specific imports.
 
-The thirdparty directory provided by upstream contains (old) versions of
-projects we already have in the wrapdb. There is zero value in
-permitting or encouraging this usage.
+So when Pdoc would try to import `windows.py`, it would fail if you were building docs on Linux because `windows.py` imports various Windows only libraries that aren't available on Linux.
+Furthermore, some of these Windows only objects are used in type hints which are evaluated by Pdoc, meaning I cannot just do what I did in commit 5d5d085.
 
-Also, the actual dependency lookups suck. e.g. the zlib logic, even when
-probing for system versions, tries to find a pkg-config dependency, then
-probes for 3 different library names, falls back to subproject() on a
-subproject that doesn't exist in the wrap itself, with incorrect usage
-of found(), and finally subdirs into the custom copy.
+What we do instead is override Pdoc's module import function (`pdoc.extract.load_module`) to intercept ImportError/ModuleNotFoundError exceptions. Using the exception we then can figure
+out what it is that cannot be imported, eg: `from ctypes.wintypes import BOOL`. Once we know this, we then create a fake library in a temporary directory like so:
 
-Half of this doesn't work, and all of it is redundant since meson
-includes its own robust finder logic that does library probing correctly
-in a cross-platform manner under the name... "zlib", just like the
-pkg-config dependency.
+dummy_imports/dummies/
+|-- ctypes/
+   |-- __init__.py
+   |-- wintypes.py
 
-Furthermore, ***upstream agrees with us***. To quote their own README:
-
+These fake libraries contain module-level `__getattr__` functions that respond to any request (eg: `from ctypes.wintypes import BOOL`) and return a dummy object that looks like
+what you asked for, but is worthless. This allows OS specific imports and type hints to exist as long as the dummy objects are never used within actual code.
+This is roughly how these fake modules and dummy objects behave:
 ```
-This directory contains 3rd party libs (PNG, ZLIB)...
-
-They are convinient copy of code from people outside of the OpenJPEG community.
-They are solely provided for ease of build of OpenJPEG on system where those
-3rd party libs are not easily accessible (typically non-UNIX).
-
-The OpenJPEG does not recommend using those 3rd party libs over your system
-installed libs. The OpenJPEG does not even guarantee that those libraries will
-work for you.
+from ctypes import rando_object
+type(rando_object)
+> <class 'dummy_imports.DummyObject'>
+repr(rando_object)
+> 'ctypes.rando_object'
 ```
 
-This is so un-recommended by literally everyone everywhere, that
-continuing to provide broken versions here is an intolerable thing.
+Honestly, this is a hack but it's kinda cool at the same time.
 
-What upstream wanted, really, was a build system that supported meson wraps.
-Then they could have never included a thirdparty directory, but provided
-subprojects/*.wrap "solely for ease of build on systems where those libs
-are not easily accessible". It's a match made in heaven!
+---
+## [TymurShatillo/Yogstation](https://github.com/TymurShatillo/Yogstation)@[a297304eff...](https://github.com/TymurShatillo/Yogstation/commit/a297304effcf85d7ba9828021df218ffea8f51b3)
+#### Monday 2022-06-27 11:13:56 by LazennG
 
-...
+makes some of the recent megafauna drops less shit (#14455)
 
-Also while we are at it, ditch the commented out copy of astyle, which
-was built as an executable because a manually run maintainer shellscript
-would execute the forked "openjpstyle" for you. It's totally unneeded by
-the wrap, and even if it was considered interesting, it must go through
-the standard wrap review && release process.
+* this is everything i think idk it's 330am
 
-Move the remaining simple dependency() calls to the subdir that needs
-them, which is already guarded by a project option.
+* polishes some things for now therell probably be more later
 
-Co-authored-by: Xavier Claessens <xavier.claessens@collabora.com>
+* Update miscellaneous.dm
+
+* fuck it critical heal
+
+* you're able to the body entirely
+
+---
+## [nekoyoubi/bitburner](https://github.com/nekoyoubi/bitburner)@[45eab596d9...](https://github.com/nekoyoubi/bitburner/commit/45eab596d90987a8edc5004fb593136679e1d558)
+#### Monday 2022-06-27 11:38:25 by Nekoyoubi
+
+1.2 - 2.1 - 4.3 - 5.1 - [6.1] - 10.1
+
+- not sure how my gang management script wasn't in there, but it is now... o.0
+  - consolidated gang scripts, and added a fair amount of content... whoops  ;x
+- server buying stopped assuming norms
+- the `Overview` UI script got rid of the preemptive Intelligence display
+  - I love that the real one was apparently a dead-ringer for my vision  ;p
+  - made Karma tracking more of an average of time; tooltips still give raw numbers
+- updated the attack script to affect the market, decrease hack amount, and add a thread min of 1 to avoid over-hack
+- created an augmentation listing/buying script because I was tired of forgetting the red pill
+- made a script to go and backdoor everything; pretty useless, really
+- updated the carpet bomber to be more in-line with my other attack scripts
+  - I wanted `loic.js` and `carpet.js` to have similar outcomes
+- increased the threshold on buying `SQLInject.exe`
+- made the faction script stop Kool-Aid-Man-ing other tasks to hack the auto-hacks
+- wrote a terrible little market script; I have some serious work to do there...
+- started working on a sleeve script, but they're honestly too much fun to not handle manually right now
+- wrote a target script to ease the burden of custom targeting
+- made a workout script that I aliased as "gym" for some reason... may rename in the future
+
+---
+## [alphagov/govuk-prototype-kit](https://github.com/alphagov/govuk-prototype-kit)@[c012f0ae9e...](https://github.com/alphagov/govuk-prototype-kit/commit/c012f0ae9e9fbd97eb915b55b4b81b7a4fcbac27)
+#### Monday 2022-06-27 12:04:31 by Laurence de Bruxelles
+
+Change tests to generate a release archive only once
+
+Use a lockfile to make sure that if the test helper `mkReleaseArchive()`
+is called more than once, it won't create more than one
+`create-release-archive` process. The behaviour we want is that it all
+calls will block until the initial process has finished.
+
+The way I figured to do that was that all calls try and acquire a
+lockfile (atomically), if that lockfile is already held that means
+another call is already creating the release archive. When the lockfile
+is released, the process should have successfully created a release
+archive, so no extra work is needed.
+
+Unfortunately, in Node.js it seems there is no way to block waiting for
+a lockfile to be released, so we have to rewrite the test utils and all
+relevant tests to be asynchronous. To be fair they should have been
+asynchronous in the first place, but it was still a very painful
+process.
+
+Note that I haven't rewritten the scripts in `cypress/scripts` to use
+async functions; without the use of top-level await it was a bit more
+effort than I was prepared to do, compounded with the fact that
+there doesn't seem to be an easy way to await `child_process.spawn()`
+(`util.promisify` doesn't work), and async `child_process.exec()` and
+`child_process.execFile()` don't do `stdio: 'inherit'`. Maybe the only
+way around it is to use the `execa` library (: Anyway I couldn't be
+dealing with that, so now we have to deal with duplication in
+`__tests__/util`. There are ...ways... to reduce the duplication
+(proper-lockfile does this with its `lib/adapter` module) but they are a
+bit magic, and plus it means writing our code using callbacks, which is
+just... woof. No.
+
+Anyway as you can tell this is has been a great learning opporunity :')
+Just use async the first time and save myself the pain later!!
+
+---
+## [james-wallace-ghub/mame](https://github.com/james-wallace-ghub/mame)@[ba63081d10...](https://github.com/james-wallace-ghub/mame/commit/ba63081d109c904902958c6324b013cb10b42732)
+#### Monday 2022-06-27 12:18:33 by 0kmg
+
+gameboy.xml: Added 21 more prototypes. (#9962)
+
+* gameboy.xml: Added 21 more prototypes.
+
+New working software list additions
+-----------------------------------
+Astérix (earlier prototype) [VGHF, Hidden Palace]
+Astérix (early prototype) [VGHF, Hidden Palace]
+Asteroids (prototype) [VGHF, Hidden Palace]
+Barbie - Game Girl (prototype) [VGHF, Hidden Palace]
+Battle Ships (Spain, prototype) [VGHF, Hidden Palace]
+Blaster Master Boy (USA, prototype) [VGHF, Hidden Palace]
+Bomb Jack (earlier prototype) [VGHF, Hidden Palace]
+Bomb Jack (later prototype) [VGHF, Hidden Palace]
+Bonk's Adventure (USA, prototype) [VGHF, Hidden Palace]
+Bubble Ghost (prototype) [VGHF, Hidden Palace]
+Catrap (prototype) [Forest of Illusion, Swanhubstream]
+Cosmo Tank (USA, prototype) [VGHF, Hidden Palace]
+Dropzone (prototype, alt) [VGHF, Hidden Palace]
+Gauntlet II (prototype) [Forest of Illusion, Rezrospect]
+Ghostbusters II (prototype) [VGHF, Hidden Palace]
+Kung-Fu Master (prototype) [Forest of Illusion, FNeogeo]
+Mysterium (prototype) [Forest of Illusion, Rezrospect]
+Obélix (Europe, French / German, prototype) [Forest of Illusion]
+Prince of Persia (prototype) [Forest of Illusion, FNeogeo]
+The Blues Brothers (prototype) [Forest of Illusion, FNeogeo]
+Triumph (prototype) [Gaming Alexandria]
+
+---
+## [RocketChat/Rocket.Chat](https://github.com/RocketChat/Rocket.Chat)@[5a37518e42...](https://github.com/RocketChat/Rocket.Chat/commit/5a37518e42dec114e0ed1a71b5d103b4a62e9b58)
+#### Monday 2022-06-27 12:49:10 by Ben Wiederhake
+
+[FIX] Client-generated sort parameters in channel directory  (#25768)
+
+## Proposed changes (including videos or screenshots)
+- In the web-client, sorting the channel directory by "Last Message" raises the error "Invalid sort parameter provided".
+
+I don't think a screenshot is necessary, but if you'd like one anyway, here it is:
+
+![Bildschirmfoto_2022-06-06_12-54-34](https://user-images.githubusercontent.com/2690845/172147996-e9942daf-6819-4eee-afa4-b1c6bce7a650.png)
+
+
+## Issue(s)
+Closes #25695
+
+## Steps to test or reproduce
+
+- Open the web client, i.e. navigate your browser to `https://rocketchat.$DOMAIN/home`
+- Click the "Directory" button in the top left, (or just navigate directly to `https://rocketchat.$DOMAIN/directory/channels`)
+- In the table header, click on "Last message" once
+- In the table header, click on "Last message" again
+
+Expected behavior: Clicking "Last message" turns on and then toggles sorting by the date of the last message, either first ascending and then descending, or the other way around.
+
+Actual behavior: The first click sorts the messages in ascending order (good!), the second click shows a red warning box "FIXME", the table content disappears, and is replaced by throbbing grey placeholders.
+
+### "Good" request (ascending order):
+
+`https://rocketchat.domain.org/api/v1/directory?query=%7B%22type%22%3A%22channels%22%2C%22text%22%3A%22%22%2C%22workspace%22%3A%22local%22%7D&sort=%7B%22lastMessage%22%3A1%7D&count=25`
+
+More easily readable GET parameters:
+
+```
+query | {"type":"channels","text":"","workspace":"local"}
+sort | {"lastMessage":1}
+count | 25
+```
+
+Response:
+```
+{"result":[{"_id":"AAAAAAAAAAAAAAAAA","name":"foobar","fname":"foobar","t":"c","usersCount":10,"ts":"2019-01-01T00:00:00.000Z","default":false,"lastMessage":{"_id":"AAAAAAAAAAAAAAAAA","rid":"AAAAAAAAAAAAAAAAA","msg":"Hello, World!","ts":"2019-01-01T00:00:00.000Z","u":{"_id":"AAAAAAAAAAAAAAAAA","username":"normaluser","name":"normaluser"},"unread":true,"_updatedAt":"2019-01-01T00:00:00.000Z","urls":[],"mentions":[],"channels":[]},"description":"Obviously, this JSON response is heavily censored."}],"count":25,"offset":0,"total":52,"success":true}
+```
+
+(Obviously, this JSON response is heavily censored, but you get the gist: It was successful.)
+
+### "Bad" request (descending order):
+
+`https://rocketchat.domain.org/api/v1/directory?query=%7B%22type%22%3A%22channels%22%2C%22text%22%3A%22%22%2C%22workspace%22%3A%22local%22%7D&sort=%7B%22lastMessage%22%3A0%7D&count=25`
+
+More easily readable GET parameters:
+
+```
+query | {"type":"channels","text":"","workspace":"local"}
+sort | {"lastMessage":0}
+count | 25
+```
+
+Response:
+```
+{"success":false,"error":"Invalid sort parameter provided: \"{\"lastMessage\":0}\" [error-invalid-sort]","errorType":"error-invalid-sort","details":{"helperMethod":"parseJsonQuery"}}
+```
+
+## Further comments
+
+Version on the server where I noticed this: `https://rocketchat.$DOMAIN/api/info` returns `{"version":"4.8","success":true}`. According to the "Releases" page, this version appeared 5 days ago, so I believe this is up to date.
+
+### The journey to here
+
+For some reason, the descending order uses the wrong magic number "0", and the server can't interpret that. However, this *used* to work, so I'm not very sure about this.
+
+The error message appears in the source code of the entire organization exactly once: https://github.com/RocketChat/Rocket.Chat/blob/31ae30f30ad71d9e5a1b0cad494b3471a7dd8807/apps/meteor/app/api/server/helpers/parseJsonQuery.ts#L42
+So I'll guess that this is the line of code that generated this particular message.
+
+A few lines above we see that the server only knows 1 and -1 as magic numbers for the sorting:
+https://github.com/RocketChat/Rocket.Chat/blob/31ae30f30ad71d9e5a1b0cad494b3471a7dd8807/apps/meteor/app/api/server/helpers/parseJsonQuery.ts#L35
+This matches the observed bug: The browser sends 1 (which works) and 0 (which doesn't work).
+
+Generally, it seems that the web client actually uses the strings "asc" and "desc" internally, which are hard to mix up. So I assume that it's the conversion of that is broken somehow.
+
+Exactly this seems to be the case here:
+https://github.com/RocketChat/Rocket.Chat/blob/31ae30f30ad71d9e5a1b0cad494b3471a7dd8807/apps/meteor/client/views/directory/hooks.js#L11
+
+The code around it produces exactly the kind of query seen in the network log, and can also produce the buggy parameter `sort: 0`. This either fixes bug #25695, or a different bug of the same kind.
+
+I am not sure how to add tests for this, can someone do this for me or show me where to start? I'm actually just an end-user and "accidentally" found the fix for the bug while writing the bug report ^^'
+
+EDIT: Rebased for convenience, and to re-check CI.
+
+---
+## [canalplus/rx-player](https://github.com/canalplus/rx-player)@[ebfaf7498c...](https://github.com/canalplus/rx-player/commit/ebfaf7498c0803b0dc38ffdea3096c8422d388ef)
+#### Monday 2022-06-27 13:40:23 by Paul Berberian
+
+Update most dependencies but Jest
+
+This commit update almost all dependencies but jest.
+
+This is because Jest 28 seems to break while running code, presumably
+due to `import`/`export` declarations in imported RxJS files (but I do
+not think RxJS is at fault here) that lead to an `unexpected token` when
+running through Jest.
+
+You could think that the fault is linked to node not understanding
+`import`/`export` (linked to CommonJS/ES6 import shenanigans) but it is
+even trickier than that as Jest already performed some JavaScript
+transformation at that point, which made the import/export inside an
+IIFE - and I'm not sure that this is supported anywhere.
+
+After taking ~a day (much more time than I should) trying to play around
+to remove that issue, I gave up and avoided updating Jest to its v28.
+
+In the future, I guess we should either:
+
+  - understand what we're supposed to do here to make it work with Jest
+    28 (Jest documentation was poor - even without considering the
+    sometimes incomprehensible google-translated french one I get each
+    time by default on their docusaurus-based documentation)
+
+    Opened GitHub issues were 100% for angular-based applications - as it
+    seems the RxJS+TypeScript cocktail is very majoritarily those. Those
+    have their own "fix" through another magical angular dependency.
+
+    Moreover, it does not help that Jest's philosophy seems to be trying to be
+    extremely simple for users at the cost of some complex behaviors (as an
+    example, it looks like it auto-picks a `babel.config.js` file if it
+    sees one at the root of the project. If like us you have multiple build
+    files at the root depending on the building context, it is not a good
+    idea to silently pick random files like that by default).
+
+    I couldn't understand under an acceptable time where the issue was - and
+    at which step it happened.
+    I just browsed dozens of doc pages, GitHub and StackOverflow issues
+    which just proposed to add yet other automagic dependencies (looked like a
+    parody of what JavaScript haters talk about!) - which all seemed to have
+    no effect whatsoever.
+
+    I also asked for help from other teams at Canal+, but those in the
+    same situation (TypeScript and RxJS) also seem to have random issue
+    preventing them from doing the switch.
+
+  - Remove RxJS from the code. It's presumably not its fault yet we
+    already started doing that, so maybe we'll just raise the jest
+    version once RxJS is definitely removed from the RxPlayer.
+
+  - Wait for some kind of Jest fix or new way of handling those?
+
+  - Remove Jest and go with another testing framework.
+
+    I almost did that due to being fed-up with Jest, but it might no be
+    as easy as it seems, mostly the module-mocking part as I'm unsure of
+    how other framework handle that now and if it is as convenient as
+    Jest's way.
+
+---
+## [tannerhelland/PhotoDemon](https://github.com/tannerhelland/PhotoDemon)@[8442fbcb41...](https://github.com/tannerhelland/PhotoDemon/commit/8442fbcb41967c7ace2dfb4658ba62147470b868)
+#### Monday 2022-06-27 13:41:40 by Tanner
+
+Language file editor: start overhaul to prepare for legit auto-translation capabilities
+
+I'm tired of shipping semi-complete localizations for languages that used to have regular contributors, but no longer do.  Machine translation has come a long way and can likely help, but instead of my past garbage efforts like scraping Google translate results, I want to actually use a proper translation service (DeepL) via a formal API.
+
+Before setting that up, however, I need to rework PD's language editor a bit.  I have now removed the Language Editor dialog from PD's localizer - this means the dialog will always appear in en-US, and the option for localized text on this dialog will not even appear in PD's language files.  I'm doing this because this dialog contains a *lot* of text (almost 700 words - nearly 6% of PhotoDemon's total word count!) and I don't want volunteer translators wasting time here.  This this dialog will only be used by a handful of people, and we know they will already be semi-fluent in en-US (because that's a prerequisite for translating PD's native en-US text).  My sincerest apologies to translators who already localized text here.  I should have resolved this sooner.
+
+After this commit, I'm going to look at using curl to interface with DeepL's API (because curl is what I'm most familiar with; I don't have a lot of experience with native WAPI interfaces for Rest APIs alas).  This should finally provide me with the ability to auto-translate missing phrases with a higher degree of quality.  Note that like any service, DeepL requires you to create an account before handing out an API key - I won't be shipping my API key, obviously, but this will still allow volunteer translators an option to use the "suggest translation" feature if they don't mind grabbing their own API key.  (I'll add an option for this to the UI as part of overhauling the auto-translator.)
+
+Reworking the underlying engine for this dialog could also finally allow me to add things like a "report a localization bug" to all dialogs in nightly builds, which would remove another barrier to long-term language maintenance...
+
+---
+## [rrthomas/fontoxpath](https://github.com/rrthomas/fontoxpath)@[8508f2f42b...](https://github.com/rrthomas/fontoxpath/commit/8508f2f42be29cef13056625b50042f05d2a9c15)
+#### Monday 2022-06-27 15:37:07 by Martin Middel
+
+[minor] Add a new ResultType.ALL_RESULTS that does no magic
+
+The ANY result type is annoying. It returns a single node, empty arrays, filled arrays, objects,
+etcetera.
+
+This was a mistake from the beginning on. While it is very cool to have an XPath 'just work', it
+causes bugs and the ugly pattern `if (!Array.isArray(result)) {result = [result])`. Also, attribute
+nodes are atomized.
+
+No longer! Just use the ALL_RESULTS type that does _what you expect_. This also deprecates the ANY
+result type. FontoXPath 4.0 _will_ drop support for ANY!
+
+---
+## [greenbueller/lef-legacy-of-48](https://github.com/greenbueller/lef-legacy-of-48)@[970181d5a7...](https://github.com/greenbueller/lef-legacy-of-48/commit/970181d5a719e294f0d70a943b04a94a8c043862)
+#### Monday 2022-06-27 16:02:41 by RanWithAPlan
+
+Removed Jam's shitfuckery
+
+This mod is called Liberty, Egality, Fraternity: legacy of '48. It is based of a world where mnay of the 1848 revolutions succeed, which leads to a weaker europe and a vey different world. This mod was produced with the help and assisstance of RanWithAPlan, (put your name here) and we hope you'll enjoy it.
+Have fun,
+    The Dev Team
+
+---
+## [dcunited001/ellipsis](https://github.com/dcunited001/ellipsis)@[2ac58183e0...](https://github.com/dcunited001/ellipsis/commit/2ac58183e0b76e4e7bd812eaa3c5372c2a4c9773)
+#### Monday 2022-06-27 16:08:47 by David Conner
+
+you don't collect on exponential gains if you stop
+
+see? i stopped. i was this close. if you're forced to turn
+your linux/emacs upside down, you don't make gains. i'll
+forget pretty much everything. there are 10000 things i've
+learned that i haven't tried or habituated yet:
+
++ org-noter + org-ref + a doi-indexed folder structure
++ org-latex with snippets
++ snippets for anything, really (snippets help me habituate
+  code patterns since i can't remember shit unless i surround
+  with cheatsheets that become disorganized the second i move
+  my laptop)
++ custom kernel builds. build farm.
++ accessing remote directories with tramp (req. ssh)
++ accessing I2C/serial terminals via a comint-mode derivative
++ finally configuring an LSP server ..... literally any LSP server
++ actually using clojure
+
+improperly configuring the lexical-binding for my emacs config gave
+mode than 12 months of crashes in sway and emacs ..... now it actually
+works. but if i stop. that meaningless pain and self-imposed isolation
+without an IRL convo about emacs? it remains meaningless.
+
+... but now sympy and TF work within julia.
+
+(and i haven't hit a conda lib or patched bin in conda path yet...)
+
+---
+## [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach)@[0a3447944a...](https://github.com/cockroachdb/cockroach/commit/0a3447944ae259b725ebff7d84cecd1b6a1de19c)
+#### Monday 2022-06-27 17:39:12 by craig[bot]
+
+Merge #80894 #81200 #81330 #81406
+
+80894: build,gcp: enable nightly config to run GCP unit tests r=adityamaru a=adityamaru
+
+Previously, the `pkg/cloud/gcp` tests package was skipped on CI
+because most of the tests require credentials, and we risked exfiltration
+of these secrets when running on public teamcity agents.
+
+With the ability to run tests on agents that are not part of the public
+pool we now have a `Cloud Unit Test` config that runs these tests nightly.
+This change adds the script invoked by the config and cleans up the unit
+tests to be more uniform in their authentication and environment variable
+checks.
+
+Informs: https://github.com/cockroachdb/cockroach/issues/80877
+
+Release note: None
+
+81200: ui: Improve time picker keyboard input r=jocrl a=jocrl
+
+Fixes #80655, mostly.
+
+Previously, users had to type `1:03 PM (UTC)` in order to enter text into the time picker.
+
+This commit modifies the time picker so that users would instead type either
+- `1:03`, or
+- `01:03`
+
+to enter text into the time picker. Copying and re-pasting the text from a time picker still works.
+
+Alternate approaches not pursued (these are not needed with the removal of AM/PM).
+
+1) Make our own time picker component, and style it to look like antd's. There's
+a general issue of antd's components not being keyboard friendly:
+https://github.com/ant-design/ant-design/issues/5685
+
+2) Upgrade to `antd` version 4, and use an undocumented prop type. `antd`'s time
+picker uses the time picker from the `rc-picker` library under the hood. In
+`rc-picker`, the `format` prop is of type `String | String[]`, where if it's an
+array the first value will be used for display and the remaining ones will be
+used for parsing, as documented [here](https://react-component.github.io/picker). In theory, `antd` passes `format`
+(and also any remaining, additional props in addition to the specified ones) to
+the `rc-picker` component. So even though the `antd` `TimePicker` component
+`format` prop is not documented to take in a string array, one might think that
+passing in a string array anyway would work. In practice, passing in a string
+array works in `antd` version `4.20.4`, as tested in the [antd sandbox](https://ant.design/docs/react/getting-started) 
+(render `<TimePicker format={
+["h:mm A", "h:mma"]}/>`). However, this does not work in our codebase
+(which installs `antd` `v3.25.2`), or in the `antd` version `3.x` [sandbox](https://3x.ant.design/docs/react/getting-started). The errors that appear in
+these two situations are different, and in a way demonstrate the potential for
+breakage from using an undocumented feature in future upgrades from a version
+that we've to work. If we do this, we should add a test.
+
+3) Dead end: The `antd` `TimePicker` component takes an `onChange` prop with a
+second `timeString` paramater. However, `onChange` only fires if the input is
+of the correct, parsable format. The specific code that ignores text input that
+is not of a parsable format is in `rc-picker`, [here](https://github.com/react-component/picker/blob/5306c8938aded49c5d6f6b6d4761ddab25e3cce9/src/Picker.tsx#L237).
+This prevents us from being the one to do the fuzzy matching and passing the
+value back to the component.
+
+Release note (ui): The time picker component has been improved such that users
+can use keyboard input to select a time without having to type `" (UTC)"`
+
+81330: authors: add annrpom to authors r=annrpom a=annrpom
+
+Release note: None
+
+81406: geomfn: check NaN coordinates for ST_MinimumBoundingCircle r=rafiss a=otan
+
+Resolves #81277
+
+Release note (bug fix): Fix a bug where ST_MinimumBoundingCircle with
+NaN coordinates could panic.
+
+Co-authored-by: Aditya Maru <adityamaru@gmail.com>
+Co-authored-by: Josephine Lee <josephine@cockroachlabs.com>
+Co-authored-by: Annie Pompa <annie.pompa@cockroachlabs.com>
+Co-authored-by: Oliver Tan <otan@cockroachlabs.com>
+
+---
+## [The-Aerec/LSB](https://github.com/The-Aerec/LSB)@[ccf500070d...](https://github.com/The-Aerec/LSB/commit/ccf500070d4448d1e2acbdb711190d5b4e21c4e6)
+#### Monday 2022-06-27 18:15:27 by neuromancerxi
+
+Add scripts and adjust plumbing for many temp items (#670)
+
+* Add scripts and adjust plumbing for many temp items
+
+Adds Scripts for items.
+Adds Effect scripts for X_BOOST_II
+Updates Effect scripts for the following:
+
+ACCURACY_BOOST
+ATTACK_BOOST
+INTENSION
+MAGIC_SHIELD
+MULTI_STRIKES
+MULTI_SHOTS
+PAX
+PHYSICAL_SHIELD
+POTENCY
+RAMPART
+
+Adjusts item_usable use times to 1s.
+
+Notes on effects:
+
+Ascetics Tonic/Gambir - +25/+50 MATT/MACC
+A big Thank You to Nyu for confirming the Intension effect for MACC.
+https://www.bg-wiki.com/bg/Ascetic's_Tonic
+https://www.bg-wiki.com/bg/Ascetic's_Gambir
+
+Bravers Drink - +15 to All Stats
+https://www.bg-wiki.com/bg/Braver's%20Drink
+Reference to Icons/Effects - https://youtu.be/JYT5a_pTA3o?t=20
+
+Champions Tonic - +15 Haste / +3 Crit rate
+Champions Drink/Gambir - +18 Haste / +5% Crit rate
+Expected Haste effect to be Magic pool based on BG comment (18 and 15)
+Critical Hit rate, no data available from community sources, conservative value of 5 (Drink/Gambir) 3 (Tonic)
+Both BG and 'clopedia sources confirm Critical Hit Rate (as does the effect description), however, only BG has a reference to Haste value.
+https://www.bg-wiki.com/bg/Champion's_Tonic
+
+Gnostics Drink - Enmity -10
+No community resources confirm this value, using SCH Animus Minuo as an reference.
+https://www.bg-wiki.com/bg/Gnostic's%20Drink
+https://www.bg-wiki.com/bg/Animus_Minuo
+
+Monarchs Drink - Regain +3 (30/1000 per tick) for 3 minutes.
+https://www.bg-wiki.com/bg/Monarch's_Drink
+
+Stalwart's Tonic/Gambir - ACC/RACC 50/100 ATTP/RATTP 25/50
+A big Thank You to Nyu for confirming the effects apply ACC/RACC and ATTP/RATTP across two effects.
+https://www.bg-wiki.com/bg/Stalwart's_Tonic
+https://www.bg-wiki.com/bg/Stalwart's_Gambir
+
+Berserker's Tonic/Drink - DA 50/100
+Thanks to Nyu for confirming the MULTI_STRIKES effect and 1m duration.
+https://ffxiclopedia.fandom.com/wiki/Berserker%27s_Drink
+No full data on DA rate, minus 'clopedia which has verification tags. Working on the expectation that this follows a good portion of the other items and follows the half potency values for the lesser item.
+
+Swiftshot Tonic/Drink - Double Shot 50/100
+https://www.ffxiah.com/forum/topic/28603/fools-tonic-broken#1749569
+
+Dusty Scroll of Reraise - Reraise III, 10m duration.
+https://www.bg-wiki.com/bg/Dusty_Reraise
+
+Spiritual Incense/Fools Drink/Tonic/Powder: See effects/magic_shield
+Carnal Incense/Fanatics Drink/Tonic/Powder: See effects/physical_shield
+
+* Removed copypasta subp and trailing whitespace.
+
+* Item script clean-up and move effect functions to item_utils.
+
+* Resolve Conflicts
+
+Convert namespace in scripts from item_utils to xi.item_utils
+PHYS_ABSORB to Percent from 10000 Scale
+
+---
+## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[d2e5bc799f...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/d2e5bc799f4cdca0fc4d5a34b30ec8cfb80abb70)
+#### Monday 2022-06-27 19:00:23 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
+
+SCHEDULE OF FINES >> SORRY THIS P.O.S. LAPTOP IS GOING TO BE THE END OF THIS GROUP.
+
+USC 18,§215. Receipt of commissions or gifts for procuring loans
+
+    (a) Whoever-
+        (1) corruptly gives, offers, or promises anything of value to any person, with intent to influence or reward an officer, director, employee, agent, or attorney of a financial institution in connection with any business or transaction of such institution; or
+        (2) as an officer, director, employee, agent, or attorney of a financial institution, corruptly solicits or demands for the benefit of any person, or corruptly accepts or agrees to accept, anything of value from any person, intending to be influenced or rewarded in connection with any business or transaction of such institution;
+        -shall be fined not more than $1,000,000 or three times the value of the thing given, offered, promised, solicited, demanded, accepted, or agreed to be accepted, whichever is greater, or imprisoned not more than 30 years, or both, but if the value of the thing given, offered, promised, solicited, demanded, accepted, or agreed to be accepted does not exceed $1,000, shall be fined under this title or imprisoned not more than one year, or both.
+    (c) This section shall not apply to bona fide salary, wages, fees, or other compensation paid, or expenses paid or reimbursed, in the usual course of business.
+    (d) Federal agencies with responsibility for regulating a financial institution shall jointly establish such guidelines as are appropriate to assist an officer, director, employee, agent, or attorney of a financial institution to comply with this section. Such agencies shall make such guidelines available to the public.
+
+        FILED WITH THE SECURITIES AND EXCHANGE COMMISSION IN 2021,
+
+            UNDER CIK FILER 93715, (1) STATE FARM ASSURANCES FUNDS TRUST.
+            - DISCLOSE (2) STATE FARM LIFE INSURANCE COMPANY AS AN OUTSIDE BUSINESS IN THEIR FIRMS CRD FILINGS WITH FINRA, THE SAME ENTITY THAT NOTARIZED AND COUNTERSIGNED ON LOAN 50074, DUALLY BY (3) DONALD ZUCKER WAS EXECUTED ON MAY 13, 2020 - REPRESENTED BY THE ATTORNEYS ON BEHALF OF (4) SULLIVAN PROPERTIES, LP, BELOW FOR CONVENIENCE.
+
+        THE DIRECTORS OF STATE FARM, WHO FILED WITH THE SECURITIES AND EXCHANGE COMISSION.
+
+            BY:     (5) DAVID MOORE, (6) JOESEPH MONK, (7)PAUL J SMITH, AND UNDER (8)TERRENCE LUDWIG [AND OTHER DIRECTORS OF STATE FARM]
+
+        THE DIRECTORS OF STATE FARM, WHO FILED WITH THE FINANCIAL INDUSTRY REGULATORY AUTHORITY ON BEHALF OF (16) STATE FARM VP MANAGEMENT CORP.
+
+            BY: (8) TERRENCE LUDWIG
+
+                        A TOTAL AMOUNT WAS ACCEPTED FOR A "SUCCESSFUL MERGER",
+
+                        APPROXIMATELY $412,500 USD IN COMPENSATION WAS FILED WITH THE SEC.
+
+USC 18, §241. Conspiracy against rights.
+    - If two or more persons conspire to injure, oppress, threaten, or intimidate any person in any State, Territory, Commonwealth, Possession, or District in the free exercise or enjoyment of any right or privilege secured to him by the Constitution or laws of the United States, or because of his having so exercised the same; or
+    - If two or more persons go in disguise on the highway, or on the premises of another, with intent to prevent or hinder his free exercise or enjoyment of any right or privilege so secured—
+
+
+            EXHIBITS FILED AND ANNEXED IN THE DOCKETS IN NY SUPREME COURT CIVIL MATTER
+
+            NYSCEF 153974/2020
+
+USC 18,§225. Continuing financial crimes enterprise
+    (a) Whoever-
+        (1) organizes, manages, or supervises a continuing financial crimes enterprise; and
+        (2) receives $5,000,000 or more in gross receipts from such enterprise during any 24-month period
+    -shall be fined not more than $10,000,000 if an individual, or $20,000,000 if an organization, and imprisoned for a term of not less than 10 years and which may be life.
+    (b) For purposes of subsection (a), the term "continuing financial crimes enterprise" means a series of violations under section 215, 656, 657, 1005, 1006, 1007, 1014, 1032, or 1344 of this title, or section 1341 or 1343 affecting a financial institution, committed by at least 4 persons acting in concert.        
+              [ LOAN 50074: $6,000,000 ] ANNEXED IN DOCKETS 309-315 IN NYSCEF MATTER 153974/2020
+
+                    ANNEXED IN NY SUPREME COURT MATTER 153974/2020
+                    REPRESENTATIVES OF (9) SULLIVAN PROPERTIES LP, (10) SULLIVAN GP LLC, (11) MANHATTAN SKYLINE MANAGEMENT CORP.
+                   
+
+                    BY:     (12) SHARI LASKOWITZ, (13) ASHLEY HUMPHRIES, (14) CORY WEISS, AND (15) PAUL REGAN
+
+                        DOCKETS ANNEXED IN NYSCEF 153974/2020 AND ALSO FILED WITH THE NY DEPT OF FINANCE.
+
+                    OBO:     (3) DONALD ZUCKER, (17) LAURIE ZUCKER, AND OTHERS WHO I AM UNFAMILIAR TO THEIR RESPECTIVE SHARES HELD AS LIMITED PARTNERS OF SULLIVAN PROPERTIES LP.
+
+                    UNLAWFULLY (USC 18.21) PRESENTED THE IMPLIED RETURNS FOR 6 PROPERTIES WHICH WERE ALSO FILED, AND
+                    >PUBLICLY AVAILABLE TO ALL REGULAR /COMPETENT PERSONS.
+
+                    USED TO PROCURE AND OBTAIN A LOAN FOR $6,000,000.00 ( SIX MILLION US DOLLARS) AND USED THE FOLLOWING ENTITY ON THE COVER PAGE:
+
+                    (18) THE ZUCKER ORGANIZATION LLC
+USC 18, § 373 - Solicitation to commit a crime of violence
+
+(a) Whoever, with intent that another person engage in conduct constituting a felony that has as an element the use, attempted use, or threatened use of physical force against property or against the person of another in violation of the laws of the United States, and under circumstances strongly corroborative of that intent, solicits, commands, induces, or otherwise endeavours to persuade such other person to engage in such conduct, shall be imprisoned not more than one-half the maximum term of imprisonment or (notwithstanding section 3571) fined not more than one-half of the maximum fine prescribed for the punishment of the crime solicited, or both; or if the crime solicited is punishable by life imprisonment or death, shall be imprisoned for not more than twenty years.
+
+                (15)<voicemail attached>
+
+(b) It is an affirmative defence to a prosecution under this section that, under circumstances manifesting a voluntary and complete renunciation of his criminal intent, the defendant prevented the commission of the crime solicited. A renunciation is not "voluntary and complete" if it is motivated in whole or in part by a decision to postpone the commission of the crime until another time or to substitute another victim or another but similar objective. If the defendant raises the affirmative defence at trial, the defendant has the burden of proving the defence by a preponderance of the evidence.
+    (c) It is not a defence to a prosecution under this section that the person solicited could not be convicted of the crime because he lacked the state of mind required for its commission, because he was incompetent or irresponsible, or because he is immune from prosecution or is not subject to prosecution.
+USC 18 [ FORFEITURES ] >> RISKS HELD UNDER STATE FARM AT THE OBSTRUCTION OF THE COUNSELORS IN NYSCEF 153974/2020
+
+§229B. Criminal forfeitures; destruction of weapons
+    (a) Property Subject to Criminal Forfeiture.
+    -Any person convicted under section 229A(a) shall forfeit to the United States irrespective of any provision of State law-
+        (1) any property, real or personal, owned, possessed, or used by a person involved in the offense;
+        (2) any property constituting, or derived from, and proceeds the person obtained, directly or indirectly, as the result of such violation; and
+        (3) any of the property used in any manner or part, to commit, or to facilitate the commission of, such violation.
+
+    The court, in imposing sentence on such person, shall order, in addition to any other sentence imposed pursuant to section 229A(a), that the person forfeit to the United States all property described in this subsection. In lieu of a fine otherwise authorized by section 229A(a), a defendant who derived profits or other proceeds from an offense may be fined not more than twice the gross profits or other proceeds.
+    (b) Procedures.-
+        (1) General.
+        -Property subject to forfeiture under this section, any seizure and disposition thereof, and any administrative or judicial proceeding in relation thereto, shall be governed by subsections (b) through (p) of section 413 of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853), except that any reference under those subsections to-
+            (A) "this subchapter or subchapter II" shall be deemed to be a reference to section 229A(a); and
+            (B) "subsection (a)" shall be deemed to be a reference to subsection (a) of this section.
+        (2) Temporary restraining orders.-
+            (A)     In general.-For the purposes of forfeiture proceedings under this section, a temporary restraining order may be entered upon application of the United States without notice or opportunity for a hearing when an information or indictment has not yet been filed with respect to the property, if, in addition to the circumstances described in section 413(e)(2) of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853(e)(2)), the United States demonstrates that there is probable cause to believe that the property with respect to which the order is sought would, in the event of conviction, be subject to forfeiture under this section and exigent circumstances exist that place the life or health of any person in danger.
+            (B)     Warrant of seizure.-If the court enters a temporary restraining order under this paragraph, it shall also issue a warrant authorizing the seizure of such property.
+            (C)     Applicable procedures.-The procedures and time limits applicable to temporary restraining orders under section 413(e)(2) and (3) of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853(e)(2) and (3)) shall apply to temporary restraining orders under this paragraph.   
+    (c) Affirmative Defense.
+        -It is an affirmative defense against a forfeiture under subsection (b) that the property-
+        (1) is for a purpose not prohibited under the Chemical Weapons Convention; and
+        (2) is of a type and quantity that under the circumstances is consistent with that purpose.
+    (d) Destruction or Other Disposition.-The Attorney General shall provide for the destruction or other appropriate disposition of any chemical weapon seized and forfeited pursuant to this section.
+    (e) Assistance.
+    (f) Owner Liability.
+        -The owner or possessor of any property seized under this section shall be liable to the United States for any expenses incurred incident to the seizure, including any expenses relating to the handling, storage, transportation, and destruction or other disposition of the seized property
+USC 18, §218. Voiding transactions in violation of chapter; recovery by the United States
+
+    In addition to any other remedies provided by law the President or, under regulations prescribed by him, the head of any department or agency involved, may declare void and rescind any contract, loan, grant, subsidy, license, right, permit, franchise, use, authority, privilege, benefit, certificate, ruling, decision, opinion, or rate schedule awarded, granted, paid, furnished, or published, or the performance of any service or transfer or delivery of any thing to, by or for any agency of the United States or officer or employee of the United States or person acting on behalf thereof, in relation to which there has been a final conviction for any violation of this chapter, and the United States shall be entitled to recover in addition to any penalty prescribed by law or in a contract the amount expended or the thing transferred or delivered on its behalf, or the reasonable value thereof.
+
+
+NOTE: I OFFERED THE DEFAULT CLAUSE OF THE LOAN SO THAT STATE FARM CAN CANCEL THE LOAN, EXECUTED AND FILED THE SAME AS EXHIBIT 420 IN NYSCEF MATTER 153974/2020. NONE OF THE INDIVUALS FROM STATE FARM HAVE RESPONDED TO THIS EFFECT SINCE THEN, AND MOST RECENTLY, MR. DAVID MOORE ATTEMPTED TO PLACE A CO-WORKER IN HIS PLACE, MISS JANNA UNDERWOOD WHO I UNDERSTAND IS NOT A DIRECTOR OF STATE FARM, ON THE BASIS OF FILINGS AND DOCUMENTS THAT ARE AVAILABLE, PER THE FINANCIAL INDUSTRY REGULATORY AUTHORITY AND THE SECURITIES AND EXCHANGE COMMISSION UNDER CIK FILER 93715, AND CIK FILER 1516523.
+
+
+USC 18, §216. Penalties and injunctions
+    (a) The punishment for an offense under section 203, 204, 205, 207, 208, or 209 of this title is the following:
+        (1) Whoever engages in the conduct constituting the offense shall be imprisoned for not more than one year or fined in the amount set forth in this title, or both.
+        (2) Whoever willfully engages in the conduct constituting the offense shall be imprisoned for not more than five years or fined in the amount set forth in this title, or both.
+    (b)     The Attorney General may bring a civil action in the appropriate United States district court against any person who engages in conduct constituting an offense under section 203, 204, 205, 207, 208, or 209 of this title and, upon proof of such conduct by a preponderance of the evidence, such person shall be subject to a civil penalty of not more than $50,000 for each violation or the amount of compensation which the person received or offered for the prohibited conduct, whichever amount is greater. The imposition of a civil penalty under this subsection does not preclude any other criminal or civil statutory, common law, or administrative remedy, which is available by law to the United States or any other person.
+    (c) If the Attorney General has reason to believe that a person is engaging in conduct constituting an offense under section 203, 204, 205, 207, 208, or 209 of this title, the Attorney General may petition an appropriate United States district court for an order prohibiting that person from engaging in such conduct. The court may issue an order prohibiting that person from engaging in such conduct if the court finds that the conduct constitutes such an offense. The filing of a petition under this section does not preclude any other remedy which is available by law to the United States or any other person.
+
+
+A LITTLE WIGGLE ROOM HERE IN THIS GREY AREA.
+
+§246. Deprivation of relief benefits
+    Whoever directly or indirectly deprives, attempts to deprive, or threatens to deprive any person of any employment, position, work, compensation, or other benefit provided for or made possible in whole or in part by any Act of Congress appropriating funds for work relief or relief purposes, on account of political affiliation, race, color, sex, religion, or national origin, shall be fined under this title, or imprisoned not more than one year, or both.
+
+
+§220. Illegal remunerations for referrals to recovery homes, clinical treatment facilities, and laboratories
+(a) Offense.-Except as provided in subsection (b), whoever, with respect to services covered by a health care benefit program, in or affecting interstate or foreign commerce, knowingly and willfully-
+    (1) solicits or receives any remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind, in return for referring a patient or patronage to a recovery home, clinical treatment facility, or laboratory; or
+    (2) pays or offers any remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind-
+        (A) to induce a referral of an individual to a recovery home, clinical treatment facility, or laboratory; or
+        (B) in exchange for an individual using the services of that recovery home, clinical treatment facility, or laboratory,
+    -shall be fined not more than $200,000, imprisoned not more than 10 years, or both, for each occurrence.
+
+(b) Applicability.-Subsection (a) shall not apply to-
+    (1) a discount or other reduction in price obtained by a provider of services or other entity under a health care benefit program if the reduction in price is properly disclosed and appropriately reflected in the costs claimed or charges made by the provider or entity;
+    (2) a payment made by an employer to an employee or independent contractor (who has a bona fide employment or contractual relationship with such employer) for employment, if the employee's payment is not determined by or does not vary by-
+        (A) the number of individuals referred to a particular recovery home, clinical treatment facility, or laboratory;
+        (B) the number of tests or procedures performed; or
+        (C) the amount billed to or received from, in part or in whole, the health care benefit program from the individuals referred to a particular recovery home, clinical treatment facility, or laboratory;
+    (3) a discount in the price of an applicable drug of a manufacturer that is furnished to an applicable beneficiary under the Medicare coverage gap discount program under section 1860D–14A(g) of the Social Security Act (42 U.S.C. 1395w–114a(g));
+    (4) a payment made by a principal to an agent as compensation for the services of the agent under a personal services and management contract that meets the requirements of section 1001.952(d) of title 42, Code of Federal Regulations, as in effect on the date of enactment of this section;
+    (5) a waiver or discount (as defined in section 1001.952(h)(5) of title 42, Code of Federal Regulations, or any successor regulation) of any coinsurance or copayment by a health care benefit program if-
+        (A) the waiver or discount is not routinely provided; and
+        (B) the waiver or discount is provided in good faith;
+    (6) a remuneration described in section 1128B(b)(3)(I) of the Social Security Act (42 U.S.C. 1320a–7b(b)(3)(I));
+    (7) a remuneration made pursuant to an alternative payment model (as defined in section 1833(z)(3)(C) of the Social Security Act) or pursuant to a payment arrangement used by a State, health insurance issuer, or group health plan if the Secretary of Health and Human Services has determined that such arrangement is necessary for care coordination or value-based care; or
+    (8) any other payment, remuneration, discount, or reduction as determined by the Attorney General, in consultation with the Secretary of Health and Human Services, by regulation.
+    
+    (c) Regulations.
+    -The Attorney General, in consultation with the Secretary of Health and Human Services, may promulgate regulations to clarify the exceptions described in subsection (b).
+    (d) Preemption.-
+        (1) Federal law.-This section shall not apply to conduct that is prohibited under section 1128B of the Social Security Act (42 U.S.C. 1320a–7b).
+        (2) State law.-Nothing in this section shall be construed to occupy the field in which any provisions of this section operate to the exclusion of State laws on the same subject matter.
+
+    (e) Definitions.-In this section-
+        (1) the terms "applicable beneficiary" and "applicable drug" have the meanings given those terms in section 1860D–14A(g) of the Social Security Act (42 U.S.C. 1395w–114a(g));
+        (2) the term "clinical treatment facility" means a medical setting, other than a hospital, that provides detoxification, risk reduction, outpatient treatment and care, residential treatment, or rehabilitation for substance use, pursuant to licensure or certification under State law;
+        (3) the term "health care benefit program" has the meaning given the term in section 24(b);
+        (4) the term "laboratory" has the meaning given the term in section 353 of the Public Health Service Act (42 U.S.C. 263a); and
+        (5) the term "recovery home" means a shared living environment that is, or purports to be, free from alcohol and illicit drug use and centered on peer support and connection to services that promote sustained recovery from substance use disorders.
+
+ – SO I HOPE YOU UNDERSTAND WHERE THIS ALSO PRESENTS A CONFLICT, AS HE BELIEVES THIS TO BE TRUE.
+1_u.s._v._brian_benjamin_indictment (1).pdf
+-------- Forwarded Message --------
+Subject: 	Voicemail from Mr. PAUL regan
+Date: 	Sun, 26 Jun 2022 16:51:47 -0400
+From: 	BO DINCER <bondstrt007@gmail.com>
+To: 	customerservice@nypost.com, espnfrontrow@espn.com, teschmann@mskyline.com, Joseph Giamboi, ESQ <joseph.giamboi@brooklaw.edu>, LZUCKER@mskyline.com, sgo2107@columbia.edu, letters@nypost.com, Laskowitz, Shari <slaskowitz@ingramllp.com>, dallas-reserve-mgmt@dal.frb.org, 23pctdvo@nypd.com, 23pctyco@nypd.org, 1pctdvo@nypd.org, 1pctyco@nypd.org, praghuram2@bloomberg.net, PRIYA.RAGHURAM@MORGANSTANLEY.COM <PRIYA.RAGHURAM@morganstanley.com>, JAMES GORMAN [MORGAN STANLEY] <james.gorman@morganstanley.com>, Dow Jones <wsjprosupport@dowjones.com>, paul.jones@tudor.com, Paul Regan <LEGAL@mskyline.com>, LEGALASST@mskyline.com, MSKYLINE <anne@thehighlandpartners.com>, cweiss@ingramllp.com, info@statefarm.com, State Farm <mutualfunds@statefarm.com>, David Moore <david.moore.ct95@statefarm.com>, hillary.davis@latimes.com, Scott Holcomb <scott@holcombward.com>, SOHO HOUSE <membership@sohohouse.com>
+CC: 	KATHY HOCHUL <governor.hochul@exec.ny.gov>, BBO 121 <ms60710444266@yahoo.com>, MIT Sloan Executive Education <executive_education@mailsvc.sloan.mit.edu>, Marc Lavigne <tessier3@stanford.edu>, NYSCEF PROCESS HD <oca_hd_processor@nycourts.gov>, The New York Times <help@nytimes.com>, administration@mskyline.com, MANHATTAN SKYLINE, LLC. <ADMINISTRATOR@mskyline.com>
+
+
+I am terrified, where is he ? Touching himself or making videos with my Glamour shots.
+
+Thats actually a compound, in the scope of avoidance to prosecution. 
+
+Truly a delusional group, never met them.
+
+---
+## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[0a5062184e...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/0a5062184ea1450f59a97f0a4db39bba7f757f0c)
+#### Monday 2022-06-27 19:20:29 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
+
+USC 18, §216. Penalties and injunctions
+
+USC 18. VIOLATIONS ANNEXED IN NYSCEF 153974/2020 [ LOAN 50074 ]
+
+§21. Stolen or counterfeit nature of property for certain crimes defined
+    (a) Wherever in this title it is an element of an offense that-
+        (1) any property was embezzled, robbed, stolen, converted, taken, altered, counterfeited, falsely made, forged, or obliterated; and
+        (2) the defendant knew that the property was of such character;
+            -such element may be established by proof that the defendant, after or as a result of an official representation as to the nature of the property, believed the property to be embezzled, robbed, stolen, converted, taken, altered, counterfeited, falsely made, forged, or obliterated.
+            -(b) For purposes of this section, the term "official representation" means any representation made by a Federal law enforcement officer (as defined in section 115) or by another person at the direction or with the approval of such an officer.
+
+
+    §2. - Principals (a) Whoever commits an offense against the United States or aids, abets, counsels, commands, induces or procures its commission, is punishable as a principal. (b) Whoever willfully causes an act to be done which if directly performed by him or another would be an offense against the United States, is punishable as a principal.
+
+    §3. - Accessory after the fact Whoever, knowing that an offense against the United States has been committed, receives, relieves, comforts or assists the offender in order to hinder or prevent his apprehension, trial or punishment, is an accessory after the fact. Except as otherwise expressly provided by any Act of Congress, an accessory after the fact shall be imprisoned not more than one-half the maximum term of imprisonment or (notwithstanding section 3571) fined not more than one-half the maximum fine prescribed for the punishment of the principal, or both; or if the principal is punishable by life imprisonment or death, the accessory shall be imprisoned not more than 15 years.
+
+    §4. Misprision of felony Whoever, having knowledge of the actual commission of a felony cognizable by a court of the United States, conceals and does not as soon as possible make known the same to some judge or other person in civil or military authority under the United States, shall be fined under this title or imprisoned not more than three years, or both.
+
+USC 18,§215. Receipt of commissions or gifts for procuring loans
+
+    (a) Whoever-
+        (1) corruptly gives, offers, or promises anything of value to any person, with intent to influence or reward an officer, director, employee, agent, or attorney of a financial institution in connection with any business or transaction of such institution; or
+        (2) as an officer, director, employee, agent, or attorney of a financial institution, corruptly solicits or demands for the benefit of any person, or corruptly accepts or agrees to accept, anything of value from any person, intending to be influenced or rewarded in connection with any business or transaction of such institution;
+        -shall be fined not more than $1,000,000 or three times the value of the thing given, offered, promised, solicited, demanded, accepted, or agreed to be accepted, whichever is greater, or imprisoned not more than 30 years, or both, but if the value of the thing given, offered, promised, solicited, demanded, accepted, or agreed to be accepted does not exceed $1,000, shall be fined under this title or imprisoned not more than one year, or both.
+    (c) This section shall not apply to bona fide salary, wages, fees, or other compensation paid, or expenses paid or reimbursed, in the usual course of business.
+    (d) Federal agencies with responsibility for regulating a financial institution shall jointly establish such guidelines as are appropriate to assist an officer, director, employee, agent, or attorney of a financial institution to comply with this section. Such agencies shall make such guidelines available to the public.
+
+        FILED WITH THE SECURITIES AND EXCHANGE COMMISSION IN 2021,
+
+            UNDER CIK FILER 93715, (1) STATE FARM ASSURANCES FUNDS TRUST.
+            - DISCLOSE (2) STATE FARM LIFE INSURANCE COMPANY AS AN OUTSIDE BUSINESS IN THEIR FIRMS CRD FILINGS WITH FINRA, THE SAME ENTITY THAT NOTARIZED AND COUNTERSIGNED ON LOAN 50074, DUALLY BY (3) DONALD ZUCKER WAS EXECUTED ON MAY 13, 2020 - REPRESENTED BY THE ATTORNEYS ON BEHALF OF (4) SULLIVAN PROPERTIES, LP, BELOW FOR CONVENIENCE.
+
+        THE DIRECTORS OF STATE FARM, WHO FILED WITH THE SECURITIES AND EXCHANGE COMISSION.
+
+            BY:     (5) DAVID MOORE, (6) JOESEPH MONK, (7)PAUL J SMITH, AND UNDER (8)TERRENCE LUDWIG [AND OTHER DIRECTORS OF STATE FARM]
+
+        THE DIRECTORS OF STATE FARM, WHO FILED WITH THE FINANCIAL INDUSTRY REGULATORY AUTHORITY ON BEHALF OF (16) STATE FARM VP MANAGEMENT CORP.
+
+            BY: (8) TERRENCE LUDWIG
+
+                        A TOTAL AMOUNT WAS ACCEPTED FOR A "SUCCESSFUL MERGER",
+
+                        APPROXIMATELY $412,500 USD IN COMPENSATION WAS FILED WITH THE SEC.
+
+USC 18, §241. Conspiracy against rights.
+    - If two or more persons conspire to injure, oppress, threaten, or intimidate any person in any State, Territory, Commonwealth, Possession, or District in the free exercise or enjoyment of any right or privilege secured to him by the Constitution or laws of the United States, or because of his having so exercised the same; or
+    - If two or more persons go in disguise on the highway, or on the premises of another, with intent to prevent or hinder his free exercise or enjoyment of any right or privilege so secured—
+
+
+            EXHIBITS FILED AND ANNEXED IN THE DOCKETS IN NY SUPREME COURT CIVIL MATTER
+
+                    NYSCEF 153974/2020
+
+USC 18,§225. Continuing financial crimes enterprise
+    (a) Whoever-
+        (1) organizes, manages, or supervises a continuing financial crimes enterprise; and
+        (2) receives $5,000,000 or more in gross receipts from such enterprise during any 24-month period
+    -shall be fined not more than $10,000,000 if an individual, or $20,000,000 if an organization, and imprisoned for a term of not less than 10 years and which may be life.
+    (b) For purposes of subsection (a), the term "continuing financial crimes enterprise" means a series of violations under section 215, 656, 657, 1005, 1006, 1007, 1014, 1032, or 1344 of this title, or section 1341 or 1343 affecting a financial institution, committed by at least 4 persons acting in concert.        
+              [ LOAN 50074: $6,000,000 ] ANNEXED IN DOCKETS 309-315 IN NYSCEF MATTER 153974/2020
+
+                    ANNEXED IN NY SUPREME COURT MATTER 153974/2020
+                    REPRESENTATIVES OF
+
+                    (9) SULLIVAN PROPERTIES LP, (10) SULLIVAN GP LLC, (11) MANHATTAN SKYLINE MANAGEMENT CORP.
+                   
+
+                    BY:     COUNSELORS FOR PLAINTIFFS IN NYSCEF 153974/2020 [ ANNEXED THEREIN ] THE VIOLATION OF PRIVACY, AS SUPPLEMENT...
+
+                    (12) SHARI LASKOWITZ, (13) ASHLEY HUMPHRIES, (14) CORY WEISS, AND (15) PAUL REGAN
+
+                        DOCKETS ANNEXED IN NYSCEF 153974/2020 AND ALSO FILED WITH THE NY DEPT OF FINANCE.
+
+                    OBO:     (3) DONALD ZUCKER, (17) LAURIE ZUCKER, AND OTHERS WHO I AM UNFAMILIAR TO THEIR RESPECTIVE SHARES HELD AS LIMITED PARTNERS OF SULLIVAN PROPERTIES LP.
+
+                    UNLAWFULLY (USC 18.21) PRESENTED THE IMPLIED RETURNS FOR 6 PROPERTIES WHICH WERE ALSO FILED, AND
+                    >PUBLICLY AVAILABLE TO ALL REGULAR /COMPETENT PERSONS.
+
+                    USED TO PROCURE AND OBTAIN A LOAN FOR $6,000,000.00 ( SIX MILLION US DOLLARS) AND USED THE FOLLOWING ENTITY ON THE COVER PAGE:
+
+                    (18) THE ZUCKER ORGANIZATION LLC
+USC 18, § 373 - Solicitation to commit a crime of violence
+
+(a) Whoever, with intent that another person engage in conduct constituting a felony that has as an element the use, attempted use, or threatened use of physical force against property or against the person of another in violation of the laws of the United States, and under circumstances strongly corroborative of that intent, solicits, commands, induces, or otherwise endeavours to persuade such other person to engage in such conduct, shall be imprisoned not more than one-half the maximum term of imprisonment or (notwithstanding section 3571) fined not more than one-half of the maximum fine prescribed for the punishment of the crime solicited, or both; or if the crime solicited is punishable by life imprisonment or death, shall be imprisoned for not more than twenty years.
+
+                (15)    <voicemail attached>
+
+(b) It is an affirmative defence to a prosecution under this section that, under circumstances manifesting a voluntary and complete renunciation of his criminal intent, the defendant prevented the commission of the crime solicited. A renunciation is not "voluntary and complete" if it is motivated in whole or in part by a decision to postpone the commission of the crime until another time or to substitute another victim or another but similar objective. If the defendant raises the affirmative defence at trial, the defendant has the burden of proving the defence by a preponderance of the evidence.
+    (c) It is not a defence to a prosecution under this section that the person solicited could not be convicted of the crime because he lacked the state of mind required for its commission, because he was incompetent or irresponsible, or because he is immune from prosecution or is not subject to prosecution.
+USC 18 [ FORFEITURES ] >> RISKS HELD UNDER STATE FARM AT THE OBSTRUCTION OF THE COUNSELORS IN NYSCEF 153974/2020
+
+§229B. Criminal forfeitures; destruction of weapons
+    (a) Property Subject to Criminal Forfeiture.
+    -Any person convicted under section 229A(a) shall forfeit to the United States irrespective of any provision of State law-
+        (1) any property, real or personal, owned, possessed, or used by a person involved in the offense;
+        (2) any property constituting, or derived from, and proceeds the person obtained, directly or indirectly, as the result of such violation; and
+        (3) any of the property used in any manner or part, to commit, or to facilitate the commission of, such violation.
+
+    The court, in imposing sentence on such person, shall order, in addition to any other sentence imposed pursuant to section 229A(a), that the person forfeit to the United States all property described in this subsection. In lieu of a fine otherwise authorized by section 229A(a), a defendant who derived profits or other proceeds from an offense may be fined not more than twice the gross profits or other proceeds.
+    (b) Procedures.-
+        (1) General.
+        -Property subject to forfeiture under this section, any seizure and disposition thereof, and any administrative or judicial proceeding in relation thereto, shall be governed by subsections (b) through (p) of section 413 of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853), except that any reference under those subsections to-
+            (A) "this subchapter or subchapter II" shall be deemed to be a reference to section 229A(a); and
+            (B) "subsection (a)" shall be deemed to be a reference to subsection (a) of this section.
+        (2) Temporary restraining orders.-
+            (A)     In general.-For the purposes of forfeiture proceedings under this section, a temporary restraining order may be entered upon application of the United States without notice or opportunity for a hearing when an information or indictment has not yet been filed with respect to the property, if, in addition to the circumstances described in section 413(e)(2) of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853(e)(2)), the United States demonstrates that there is probable cause to believe that the property with respect to which the order is sought would, in the event of conviction, be subject to forfeiture under this section and exigent circumstances exist that place the life or health of any person in danger.
+            (B)     Warrant of seizure.-If the court enters a temporary restraining order under this paragraph, it shall also issue a warrant authorizing the seizure of such property.
+            (C)     Applicable procedures.-The procedures and time limits applicable to temporary restraining orders under section 413(e)(2) and (3) of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853(e)(2) and (3)) shall apply to temporary restraining orders under this paragraph.   
+    (c) Affirmative Defense.
+        -It is an affirmative defense against a forfeiture under subsection (b) that the property-
+        (1) is for a purpose not prohibited under the Chemical Weapons Convention; and
+        (2) is of a type and quantity that under the circumstances is consistent with that purpose.
+    (d) Destruction or Other Disposition.-The Attorney General shall provide for the destruction or other appropriate disposition of any chemical weapon seized and forfeited pursuant to this section.
+    (e) Assistance.
+    (f) Owner Liability.
+        -The owner or possessor of any property seized under this section shall be liable to the United States for any expenses incurred incident to the seizure, including any expenses relating to the handling, storage, transportation, and destruction or other disposition of the seized property
+USC 18, §218. Voiding transactions in violation of chapter; recovery by the United States
+
+    In addition to any other remedies provided by law the President or, under regulations prescribed by him, the head of any department or agency involved, may declare void and rescind any contract, loan, grant, subsidy, license, right, permit, franchise, use, authority, privilege, benefit, certificate, ruling, decision, opinion, or rate schedule awarded, granted, paid, furnished, or published, or the performance of any service or transfer or delivery of any thing to, by or for any agency of the United States or officer or employee of the United States or person acting on behalf thereof, in relation to which there has been a final conviction for any violation of this chapter, and the United States shall be entitled to recover in addition to any penalty prescribed by law or in a contract the amount expended or the thing transferred or delivered on its behalf, or the reasonable value thereof.
+
+
+NOTE.     I OFFERED THE DEFAULT CLAUSE OF THE LOAN SO THAT STATE FARM CAN CANCEL THE LOAN, EXECUTED AND FILED THE SAME AS EXHIBIT 420 IN NYSCEF MATTER 153974/2020. NONE OF THE INDIVUALS FROM STATE FARM HAVE RESPONDED TO THIS EFFECT SINCE THEN, AND MOST RECENTLY, MR. DAVID MOORE ATTEMPTED TO PLACE A CO-WORKER IN HIS PLACE, MISS JANNA UNDERWOOD WHO I UNDERSTAND IS NOT A DIRECTOR OF STATE FARM, ON THE BASIS OF FILINGS AND DOCUMENTS THAT ARE AVAILABLE, PER THE FINANCIAL INDUSTRY REGULATORY AUTHORITY AND THE SECURITIES AND EXCHANGE COMMISSION UNDER CIK FILER 93715, AND CIK FILER 1516523.
+USC 18, §216. Penalties and injunctions
+
+    (a) The punishment for an offense under section 203, 204, 205, 207, 208, or 209 of this title is the following:
+        (1) Whoever engages in the conduct constituting the offense shall be imprisoned for not more than one year or fined in the amount set forth in this title, or both.
+        (2) Whoever willfully engages in the conduct constituting the offense shall be imprisoned for not more than five years or fined in the amount set forth in this title, or both.
+    (b)     The Attorney General may bring a civil action in the appropriate United States district court against any person who engages in conduct constituting an offense under section 203, 204, 205, 207, 208, or 209 of this title and, upon proof of such conduct by a preponderance of the evidence, such person shall be subject to a civil penalty of not more than $50,000 for each violation or the amount of compensation which the person received or offered for the prohibited conduct, whichever amount is greater. The imposition of a civil penalty under this subsection does not preclude any other criminal or civil statutory, common law, or administrative remedy, which is available by law to the United States or any other person.
+    (c) If the Attorney General has reason to believe that a person is engaging in conduct constituting an offense under section 203, 204, 205, 207, 208, or 209 of this title, the Attorney General may petition an appropriate United States district court for an order prohibiting that person from engaging in such conduct. The court may issue an order prohibiting that person from engaging in such conduct if the court finds that the conduct constitutes such an offense. The filing of a petition under this section does not preclude any other remedy which is available by law to the United States or any other person.
+
+
+*****    *****    *****    *****    *****     *****    *****    *****
+
+GREY AREA
+
+
+HERE IN THIS GREY AREA, WITH THE PROPER RESOURCES TO FURTHER THE CHARGES THAT WERE FILED WITH THE NEW YORK SUPREME COURT, CIVIL PART AND THE SECURITIES AND EXCHANGE COMMISSION ARE PROBABLE FOR CAUSE.
+
+§25. Use of minors in crimes of violence
+    (a) Definitions.-In this section, the following definitions shall apply:
+        (1) Crime of violence.-The term "crime of violence" has the meaning set forth in section 16.
+        (2) Minor.-The term "minor" means a person who has not reached 18 years of age.
+        (3) Uses.-The term "uses" means employs, hires, persuades, induces, entices, or coerces.
+
+    (b) Penalties.
+    -Any person who is 18 years of age or older, who intentionally uses a minor to commit a crime of violence for which such person may be prosecuted in a court of the United States, or to assist in avoiding detection or apprehension for such an offense, shall-
+        (1) for the first conviction, be subject to twice the maximum term of imprisonment and twice the maximum fine that would otherwise be authorized for the offense; and
+        (2) for each subsequent conviction, be subject to 3 times the maximum term of imprisonment and 3 times the maximum fine that would otherwise be authorized for the offense.
+
+§151. Definition
+
+    As used in this chapter, the term "debtor" means a debtor concerning whom a petition has been filed under title 11.
+
+    §152. Concealment of assets; false oaths and claims; bribery
+    A person who-
+        (1) knowingly and fraudulently conceals from a custodian, trustee, marshal, or other officer of the court charged with the control or custody of property, or, in connection with a case under title 11, from creditors or the United States Trustee, any property belonging to the estate of a debtor;
+        (2) knowingly and fraudulently makes a false oath or account in or in relation to any case under title 11;
+        (3) knowingly and fraudulently makes a false declaration, certificate, verification, or statement under penalty of perjury as permitted under section 1746 of title 28, in or in relation to any case under title 11;
+        (4) knowingly and fraudulently presents any false claim for proof against the estate of a debtor, or uses any such claim in any case under title 11, in a personal capacity or as or through an agent, proxy, or attorney;
+        (5) knowingly and fraudulently receives any material amount of property from a debtor after the filing of a case under title 11, with intent to defeat the provisions of title 11;
+        (6) knowingly and fraudulently gives, offers, receives, or attempts to obtain any money or property, remuneration, compensation, reward, advantage, or promise thereof for acting or forbearing to act in any case under title 11;
+        (7) in a personal capacity or as an agent or officer of any person or corporation, in contemplation of a case under title 11 by or against the person or any other person or corporation, or with intent to defeat the provisions of title 11, knowingly and fraudulently transfers or conceals any of his property or the property of such other person or corporation;
+        (8) after the filing of a case under title 11 or in contemplation thereof, knowingly and fraudulently conceals, destroys, mutilates, falsifies, or makes a false entry in any recorded information (including books, documents, records, and papers) relating to the property or financial affairs of a debtor; or
+        (9) after the filing of a case under title 11, knowingly and fraudulently withholds from a custodian, trustee, marshal, or other officer of the court or a United States Trustee entitled to its possession, any recorded information (including books, documents, records, and papers) relating to the property or financial affairs of a debtor,
+    -shall be fined under this title, imprisoned not more than 5 years, or both.
+
+§246. Deprivation of relief benefits
+
+    Whoever directly or indirectly deprives, attempts to deprive, or threatens to deprive any person of any employment, position, work, compensation, or other benefit provided for or made possible in whole or in part by any Act of Congress appropriating funds for work relief or relief purposes, on account of political affiliation, race, color, sex, religion, or national origin, shall be fined under this title, or imprisoned not more than one year, or both.
+§220. Illegal remunerations for referrals to recovery homes, clinical treatment facilities, and laboratories
+
+(a) Offense.-Except as provided in subsection (b), whoever, with respect to services covered by a health care benefit program, in or affecting interstate or foreign commerce, knowingly and willfully-
+    (1) solicits or receives any remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind, in return for referring a patient or patronage to a recovery home, clinical treatment facility, or laboratory; or
+    (2) pays or offers any remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind-
+        (A) to induce a referral of an individual to a recovery home, clinical treatment facility, or laboratory; or
+        (B) in exchange for an individual using the services of that recovery home, clinical treatment facility, or laboratory,
+    -shall be fined not more than $200,000, imprisoned not more than 10 years, or both, for each occurrence.
+
+(b) Applicability.-Subsection (a) shall not apply to-
+    (1) a discount or other reduction in price obtained by a provider of services or other entity under a health care benefit program if the reduction in price is properly disclosed and appropriately reflected in the costs claimed or charges made by the provider or entity;
+    (2) a payment made by an employer to an employee or independent contractor (who has a bona fide employment or contractual relationship with such employer) for employment, if the employee's payment is not determined by or does not vary by-
+        (A) the number of individuals referred to a particular recovery home, clinical treatment facility, or laboratory;
+        (B) the number of tests or procedures performed; or
+        (C) the amount billed to or received from, in part or in whole, the health care benefit program from the individuals referred to a particular recovery home, clinical treatment facility, or laboratory;
+    (3) a discount in the price of an applicable drug of a manufacturer that is furnished to an applicable beneficiary under the Medicare coverage gap discount program under section 1860D–14A(g) of the Social Security Act (42 U.S.C. 1395w–114a(g));
+    (4) a payment made by a principal to an agent as compensation for the services of the agent under a personal services and management contract that meets the requirements of section 1001.952(d) of title 42, Code of Federal Regulations, as in effect on the date of enactment of this section;
+    (5) a waiver or discount (as defined in section 1001.952(h)(5) of title 42, Code of Federal Regulations, or any successor regulation) of any coinsurance or copayment by a health care benefit program if-
+        (A) the waiver or discount is not routinely provided; and
+        (B) the waiver or discount is provided in good faith;
+    (6) a remuneration described in section 1128B(b)(3)(I) of the Social Security Act (42 U.S.C. 1320a–7b(b)(3)(I));
+    (7) a remuneration made pursuant to an alternative payment model (as defined in section 1833(z)(3)(C) of the Social Security Act) or pursuant to a payment arrangement used by a State, health insurance issuer, or group health plan if the Secretary of Health and Human Services has determined that such arrangement is necessary for care coordination or value-based care; or
+    (8) any other payment, remuneration, discount, or reduction as determined by the Attorney General, in consultation with the Secretary of Health and Human Services, by regulation.
+    
+    (c) Regulations.
+    -The Attorney General, in consultation with the Secretary of Health and Human Services, may promulgate regulations to clarify the exceptions described in subsection (b).
+    (d) Preemption.-
+        (1) Federal law.-This section shall not apply to conduct that is prohibited under section 1128B of the Social Security Act (42 U.S.C. 1320a–7b).
+        (2) State law.-Nothing in this section shall be construed to occupy the field in which any provisions of this section operate to the exclusion of State laws on the same subject matter.
+
+    (e) Definitions.-In this section-
+        (1) the terms "applicable beneficiary" and "applicable drug" have the meanings given those terms in section 1860D–14A(g) of the Social Security Act (42 U.S.C. 1395w–114a(g));
+        (2) the term "clinical treatment facility" means a medical setting, other than a hospital, that provides detoxification, risk reduction, outpatient treatment and care, residential treatment, or rehabilitation for substance use, pursuant to licensure or certification under State law;
+        (3) the term "health care benefit program" has the meaning given the term in section 24(b);
+        (4) the term "laboratory" has the meaning given the term in section 353 of the Public Health Service Act (42 U.S.C. 263a); and
+        (5) the term "recovery home" means a shared living environment that is, or purports to be, free from alcohol and illicit drug use and centered on peer support and connection to services that promote sustained recovery from substance use disorders.
+USC 18, §214. Offer for procurement of Federal Reserve bank loan and discount of commercial paper
+
+    Whoever stipulates for or gives or receives, or consents or agrees to give or receive, any fee, commission, bonus, or thing of value for procuring or endeavoring to procure from any Federal Reserve bank any advance, loan, or extension of credit or discount or purchase of any obligation or commitment with respect thereto, either directly from such Federal Reserve bank or indirectly through any financing institution, unless such fee, commission, bonus, or thing of value and all material facts with respect to the arrangement or understanding therefor shall be disclosed in writing in the application or request for such advance, loan, extension of credit, discount, purchase, or commitment, shall be fined under this title or imprisoned not more than one year, or both.
+
+
+*****    *****    *****    *****    *****     *****    *****    *****
+
+
+*****    *****    *****    *****    *****     *****    *****    *****
+
+
+**** YOU'LL HAVE TO ASK THE FBI/NSA TO SEE IF THEY WILL VERIFY THIS *****
+
+*****    USC 18, §208. Acts affecting a personal financial interest
+    (a) Except as permitted by subsection (b) hereof, whoever, being an officer or employee of the executive branch of the United States Government, or of any independent agency of the United States, a Federal Reserve bank director, officer, or employee, or an officer or employee of the District of Columbia, including a special Government employee, participates personally and substantially as a Government officer or employee, through decision, approval, disapproval, recommendation, the rendering of advice, investigation, or otherwise, in a judicial or other proceeding, application, request for a ruling or other determination, contract, claim, controversy, charge, accusation, arrest, or other particular matter in which, to his knowledge, he, his spouse, minor child, general partner, organization in which he is serving as officer, director, trustee, general partner or employee, or any person or organization with whom he is negotiating or has any arrangement concerning prospective employment, has a financial interest-
+    -Shall be subject to the penalties set forth in section 216 of this title.
+    (b) Subsection (a) shall not apply-
+        (1) if the officer or employee first advises the Government official responsible for appointment to his or her position of the nature and circumstances of the judicial or other proceeding, application, request for a ruling or other determination, contract, claim, controversy, charge, accusation, arrest, or other particular matter and makes full disclosure of the financial interest and receives in advance a written determination made by such official that the interest is not so substantial as to be deemed likely to affect the integrity of the services which the Government may expect from such officer or employee;
+        (2) if, by regulation issued by the Director of the Office of Government Ethics, applicable to all or a portion of all officers and employees covered by this section, and published in the Federal Register, the financial interest has been exempted from the requirements of subsection (a) as being too remote or too inconsequential to affect the integrity of the services of the Government officers or employees to which such regulation applies;
+        (3) in the case of a special Government employee serving on an advisory committee within the meaning of the Federal Advisory Committee Act (including an individual being considered for an appointment to such a position), the official responsible for the employee's appointment, after review of the financial disclosure report filed by the individual pursuant to the Ethics in Government Act of 1978, certifies in writing that the need for the individual's services outweighs the potential for a conflict of interest created by the financial interest involved; or
+        (4) if the financial interest that would be affected by the particular matter involved is that resulting solely from the interest of the officer or employee, or his or her spouse or minor child, in birthrights-
+            (A) in an Indian tribe, band, nation, or other organized group or community, including any Alaska Native village corporation as defined in or established pursuant to the Alaska Native Claims Settlement Act, which is recognized as eligible for the special programs and services provided by the United States to Indians because of their status as Indians,
+            (B) in an Indian allotment the title to which is held in trust by the United States or which is inalienable by the allottee without the consent of the United States, or
+            (C) in an Indian claims fund held in trust or administered by the United States,
+        -if the particular matter does not involve the Indian allotment or claims fund or the Indian tribe, band, nation, organized group or community, or Alaska Native village corporation as a specific party or parties.
+    (c)(1) For the purpose of paragraph (1) of subsection (b), in the case of class A and B directors of Federal Reserve banks, the Board of Governors of the Federal Reserve System shall be deemed to be the Government official responsible for appointment.
+    (2) The potential availability of an exemption under any particular paragraph of subsection (b) does not preclude an exemption being granted pursuant to another paragraph of subsection (b).
+    (d)(1) Upon request, a copy of any determination granting an exemption under subsection (b)(1) or (b)(3) shall be made available to the public by the agency granting the exemption pursuant to the procedures set forth in section 105 of the Ethics in Government Act of 1978. In making such determination available, the agency may withhold from disclosure any information contained in the determination that would be exempt from disclosure under section 552 of title 5. For purposes of determinations under subsection (b)(3), the information describing each financial interest shall be no more extensive than that required of the individual in his or her financial disclosure report under the Ethics in Government Act of 1978.
+    (2) The Office of Government Ethics, after consultation with the Attorney General, shall issue uniform regulations for the issuance of waivers and exemptions under subsection (b) which shall-
+        (A) list and describe exemptions; and
+        (B) provide guidance with respect to the types of interests that are not so substantial as to be deemed likely to affect the integrity of the services the Government may expect from the employee.
+
+*****    §118. Interference with certain protective functions
+    Any person who knowingly and willfully obstructs, resists, or interferes with a Federal law enforcement agent engaged, within the United States or the special maritime territorial jurisdiction of the United States, in the performance of the protective functions authorized under section 37 of the State Department Basic Authorities Act of 1956 (22 U.S.C. 2709) or section 103 of the Diplomatic Security Act (22 U.S.C. 4802) shall be fined under this title, imprisoned not more than 1 year, or both.
+
+*****    §119. Protection of individuals performing certain official duties
+    (a) In General.
+        -Whoever knowingly makes restricted personal information about a covered person, or a member of the immediate family of that covered person, publicly available-
+            (1) with the intent to threaten, intimidate, or incite the commission of a crime of violence against that covered person, or a member of the immediate family of that covered person; or
+            (2) with the intent and knowledge that the restricted personal information will be used to threaten, intimidate, or facilitate the commission of a crime of violence against that covered person, or a member of the immediate family of that covered person,
+        -shall be fined under this title, imprisoned not more than 5 years, or both.
+        (b) Definitions.-In this section-
+            (1) the term "restricted personal information" means, with respect to an individual, the Social Security number, the home address, home phone number, mobile phone number, personal email, or home fax number of, and identifiable to, that individual;
+            (2) the term "covered person" means-
+                (A) an individual designated in section 1114;
+                (B) a grand or petit juror, witness, or other officer in or of, any court of the United States, or an officer who may be, or was, serving at any examination or other proceeding before any United States magistrate judge or other committing magistrate;
+                (C) an informant or witness in a Federal criminal investigation or prosecution; or
+                (D) a State or local officer or employee whose restricted personal information is made publicly available because of the participation in, or assistance provided to, a Federal criminal investigation by that officer or employee;
+            (3) the term "crime of violence" has the meaning given the term in section 16; and
+            (4) the term "immediate family" has the meaning given the term in section 115(c)(2).
+
+
+*****    §115. Influencing, impeding, or retaliating against a Federal official by threatening or injuring a family member
+    (a)(1) Whoever-
+        (A) assaults, kidnaps, or murders, or attempts or conspires to kidnap or murder, or threatens to assault, kidnap or murder a member of the immediate family of a United States official, a United States judge, a Federal law enforcement officer, or an official whose killing would be a crime under section 1114 of this title; or
+        (B) threatens to assault, kidnap, or murder, a United States official, a United States judge, a Federal law enforcement officer, or an official whose killing would be a crime under such section,
+    -with intent to impede, intimidate, or interfere with such official, judge, or law enforcement officer while engaged in the performance of official duties, or with intent to retaliate against such official, judge, or law enforcement officer on account of the performance of official duties, shall be punished as provided in subsection (b).
+
+    (2) Whoever assaults, kidnaps, or murders, or attempts or conspires to kidnap or murder, or threatens to assault, kidnap, or murder, any person who formerly served as a person designated in paragraph (1), or a member of the immediate family of any person who formerly served as a person designated in paragraph (1), with intent to retaliate against such person on account of the performance of official duties during the term of service of such person, shall be punished as provided in subsection (b).
+
+    §(b)
+    (1)     The punishment for an assault in violation of this section is-
+            (A) a fine under this title; and
+            (B)
+                (i)     if the assault consists of a simple assault, a term of imprisonment for not more than 1 year;
+                (ii)     if the assault involved physical contact with the victim of that assault or the intent to commit another felony, a term of imprisonment for not more than 10 years;
+                (iii)     if the assault resulted in bodily injury, a term of imprisonment for not more than 20 years; or
+                (iv)     if the assault resulted in serious bodily injury (as that term is defined in section 1365 of this title, and including any conduct that, if the conduct occurred in the special maritime and territorial jurisdiction of the United States, would violate section 2241 or 2242 of this title) or a dangerous weapon was used during and in relation to the offense, a term of imprisonment for not more than 30 years.
+    (2)        A kidnapping, attempted kidnapping, or conspiracy to kidnap in violation of this section shall be punished as provided in section 1201 of this title for the kidnapping or attempted kidnapping of, or a conspiracy to kidnap, a person described in section 1201(a)(5) of this title.
+        (3) A murder, attempted murder, or conspiracy to murder in violation of this section shall be punished as provided in sections 1111, 1113, and 1117 of this title.
+        (4) A threat made in violation of this section shall be punished by a fine under this title or imprisonment for a term of not more than 10 years, or both, except that imprisonment for a threatened assault shall not exceed 6 years.
+        (c) As used in this section, the term-
+            (1) "Federal law enforcement officer" means any officer, agent, or employee of the United States authorized by law or by a Government agency to engage in or supervise the prevention, detection, investigation, or prosecution of any violation of Federal criminal law;
+            (2) "immediate family member" of an individual means-
+                (A) his spouse, parent, brother or sister, child or person to whom he stands in loco parentis; or
+                (B) any other person living in his household and related to him by blood or marriage;
+            (3) "United States judge" means any judicial officer of the United States, and includes a justice of the Supreme Court and a United States magistrate judge; and
+            (4) "United States official" means the President, President-elect, Vice President, Vice President-elect, a Member of Congress, a member-elect of Congress, a member of the executive branch who is the head of a department listed in 5 U.S.C. 101, or the Director of the Central Intelligence Agency.
+        (d) This section shall not interfere with the investigative authority of the United States Secret Service, as provided under sections 3056, 871, and 879 of this title.
+        (e) There is extraterritorial jurisdiction over the conduct prohibited by this section.
+§116. Female genital mutilation
+
+***** YOU'LL HAVE TO ASK THE FBI/NSA TO SEE IF THEY WILL VERIFY THIS *****
+
+
+
+ 
+
+– I HOPE YOU UNDERSTAND WHERE THIS ALSO PRESENTS A CONFLICT, AS HE BELIEVES THIS TO BE TRUE.
+                                                    1_u.s._v._brian_benjamin_indictment (1).pdf
+
+    NYSCEF MATTER 153974/2020
+    - SHARED ADDRESS WITH THE WILSON ELSER LAW FIRM, BELOW.
+
+    Filing User Shari Laskowitz | slaskowitz@ingramllp.com | 2129079600
+
+    150 East 42nd Street 19th Floor, New York, NY 10017 Filed: 07/21/2020
+
+-------- Forwarded Message --------
+Subject: 	Voicemail from Mr. PAUL regan
+Date: 	Sun, 26 Jun 2022 16:51:47 -0400
+From: 	BO DINCER <bondstrt007@gmail.com>
+To: 	customerservice@nypost.com, espnfrontrow@espn.com, teschmann@mskyline.com, Joseph Giamboi, ESQ <joseph.giamboi@brooklaw.edu>, LZUCKER@mskyline.com, sgo2107@columbia.edu, letters@nypost.com, Laskowitz, Shari <slaskowitz@ingramllp.com>, dallas-reserve-mgmt@dal.frb.org, 23pctdvo@nypd.com, 23pctyco@nypd.org, 1pctdvo@nypd.org, 1pctyco@nypd.org, praghuram2@bloomberg.net, PRIYA.RAGHURAM@MORGANSTANLEY.COM <PRIYA.RAGHURAM@morganstanley.com>, JAMES GORMAN [MORGAN STANLEY] <james.gorman@morganstanley.com>, Dow Jones <wsjprosupport@dowjones.com>, paul.jones@tudor.com, Paul Regan <LEGAL@mskyline.com>, LEGALASST@mskyline.com, MSKYLINE <anne@thehighlandpartners.com>, cweiss@ingramllp.com, info@statefarm.com, State Farm <mutualfunds@statefarm.com>, David Moore <david.moore.ct95@statefarm.com>, hillary.davis@latimes.com, Scott Holcomb <scott@holcombward.com>, SOHO HOUSE <membership@sohohouse.com>
+CC: 	KATHY HOCHUL <governor.hochul@exec.ny.gov>, BBO 121 <ms60710444266@yahoo.com>, MIT Sloan Executive Education <executive_education@mailsvc.sloan.mit.edu>, Marc Lavigne <tessier3@stanford.edu>, NYSCEF PROCESS HD <oca_hd_processor@nycourts.gov>, The New York Times <help@nytimes.com>, administration@mskyline.com, MANHATTAN SKYLINE, LLC. <ADMINISTRATOR@mskyline.com>
+
+
+I am terrified, where is he ? Touching himself or making videos with my Glamour shots.
+
+Thats actually a compound, in the scope of avoidance to prosecution. 
+
+Truly a delusional group, never met them.
+
+---
+## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[08aa928f35...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/08aa928f3580e2c32382dfccee3df312ca10e534)
+#### Monday 2022-06-27 19:27:23 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
+
+Truly a delusional group, never met them.
+
+101 west 55th street, new york, ny 10019
+103 west 55th street, new york, ny, 10019
+150 east 42nd street, new york, ny 10017
+
+USC 18. VIOLATIONS ANNEXED IN NYSCEF 153974/2020 [ LOAN 50074 ], also filed with the Financial Industry Regulatory Authority, and the Securities and Exchange Commission - Notwithstanding the New York State Supreme Court, the New York Department of Finance, and the NYC Finance Register - as referenced below.
+
+
+§21. Stolen or counterfeit nature of property for certain crimes defined
+    (a) Wherever in this title it is an element of an offense that-
+        (1) any property was embezzled, robbed, stolen, converted, taken, altered, counterfeited, falsely made, forged, or obliterated; and
+        (2) the defendant knew that the property was of such character;
+            -such element may be established by proof that the defendant, after or as a result of an official representation as to the nature of the property, believed the property to be embezzled, robbed, stolen, converted, taken, altered, counterfeited, falsely made, forged, or obliterated.
+            -(b) For purposes of this section, the term "official representation" means any representation made by a Federal law enforcement officer (as defined in section 115) or by another person at the direction or with the approval of such an officer.
+
+
+    §2. - Principals (a) Whoever commits an offense against the United States or aids, abets, counsels, commands, induces or procures its commission, is punishable as a principal. (b) Whoever willfully causes an act to be done which if directly performed by him or another would be an offense against the United States, is punishable as a principal.
+
+    §3. - Accessory after the fact Whoever, knowing that an offense against the United States has been committed, receives, relieves, comforts or assists the offender in order to hinder or prevent his apprehension, trial or punishment, is an accessory after the fact. Except as otherwise expressly provided by any Act of Congress, an accessory after the fact shall be imprisoned not more than one-half the maximum term of imprisonment or (notwithstanding section 3571) fined not more than one-half the maximum fine prescribed for the punishment of the principal, or both; or if the principal is punishable by life imprisonment or death, the accessory shall be imprisoned not more than 15 years.
+
+    §4. Misprision of felony Whoever, having knowledge of the actual commission of a felony cognizable by a court of the United States, conceals and does not as soon as possible make known the same to some judge or other person in civil or military authority under the United States, shall be fined under this title or imprisoned not more than three years, or both.
+USC Title 18, §1962. Prohibited activities
+
+(a) It shall be unlawful for any person who has received any income derived, directly or indirectly, from a pattern of racketeering activity or through collection of an unlawful debt in which such person has participated as a principal within the meaning of section 2, title 18, United States Code, to use or invest, directly or indirectly, any part of such income, or the proceeds of such income, in acquisition of any interest in, or the establishment or operation of, any enterprise which is engaged in, or the activities of which affect, interstate or foreign commerce. A purchase of securities on the open market for purposes of investment, and without the intention of controlling or participating in the control of the issuer, or of assisting another to do so, shall not be unlawful under this subsection if the securities of the issuer held by the purchaser, the members of his immediate family, and his or their accomplices in any pattern or racketeering activity or the collection of an unlawful debt after such purchase do not amount in the aggregate to one percent of the outstanding securities of any one class, and do not confer, either in law or in fact, the power to elect one or more directors of the issuer.
+
+(b) It shall be unlawful for any person through a pattern of racketeering activity or through collection of an unlawful debt to acquire or maintain, directly or indirectly, any interest in or control of any enterprise which is engaged in, or the activities of which affect, interstate or foreign commerce.
+
+(c) It shall be unlawful for any person employed by or associated with any enterprise engaged in, or the activities of which affect, interstate or foreign commerce, to conduct or participate, directly or indirectly, in the conduct of such enterprise's affairs through a pattern of racketeering activity or collection of unlawful debt.
+
+(d) It shall be unlawful for any person to conspire to violate any of the provisions of subsection (a), (b), or (c) of this section.
+
+USC Title 18, §1963. Criminal penalties
+
+(a) Whoever violates any provision of section 1962 of this chapter shall be fined under this title or imprisoned not more than 20 years (or for life if the violation is based on a racketeering activity for which the maximum penalty includes life imprisonment), or both, and shall forfeit to the United States, irrespective of any provision of State law- (1) any interest the person has acquired or maintained in violation of section 1962; (2) any- (A) interest in; (B) security of; (C) claim against; or (D) property or contractual right of any kind affording a source of influence over; any enterprise which the person has established, operated, controlled, conducted, or participated in the conduct of, in violation of section 1962; and (3) any property constituting, or derived from, any proceeds which the person obtained, directly or indirectly, from racketeering activity or unlawful debt collection in violation of section 1962. The court, in imposing sentence on such person shall order, in addition to any other sentence imposed pursuant to this section, that the person forfeit to the United States all property described in this subsection. In lieu of a fine otherwise authorized by this section, a defendant who derives profits or other proceeds from an offense may be fined not more than twice the gross profits or other proceeds. (b) Property subject to criminal forfeiture under this section includes- (1) real property, including things growing on, affixed to, and found in land; and (2) tangible and intangible personal property, including rights, privileges, interests, claims, and securities.
+
+
+
+USC Title 18, 18,§215. Receipt of commissions or gifts for procuring loans
+
+    (a) Whoever-
+        (1) corruptly gives, offers, or promises anything of value to any person, with intent to influence or reward an officer, director, employee, agent, or attorney of a financial institution in connection with any business or transaction of such institution; or
+        (2) as an officer, director, employee, agent, or attorney of a financial institution, corruptly solicits or demands for the benefit of any person, or corruptly accepts or agrees to accept, anything of value from any person, intending to be influenced or rewarded in connection with any business or transaction of such institution;
+        -shall be fined not more than $1,000,000 or three times the value of the thing given, offered, promised, solicited, demanded, accepted, or agreed to be accepted, whichever is greater, or imprisoned not more than 30 years, or both, but if the value of the thing given, offered, promised, solicited, demanded, accepted, or agreed to be accepted does not exceed $1,000, shall be fined under this title or imprisoned not more than one year, or both.
+    (c) This section shall not apply to bona fide salary, wages, fees, or other compensation paid, or expenses paid or reimbursed, in the usual course of business.
+    (d) Federal agencies with responsibility for regulating a financial institution shall jointly establish such guidelines as are appropriate to assist an officer, director, employee, agent, or attorney of a financial institution to comply with this section. Such agencies shall make such guidelines available to the public.
+
+        FILED WITH THE SECURITIES AND EXCHANGE COMMISSION IN 2021,
+
+            UNDER CIK FILER 93715, (1) STATE FARM ASSURANCES FUNDS TRUST.
+            - DISCLOSE (2) STATE FARM LIFE INSURANCE COMPANY AS AN OUTSIDE BUSINESS IN THEIR FIRMS CRD FILINGS WITH FINRA, THE SAME ENTITY THAT NOTARIZED AND COUNTERSIGNED ON LOAN 50074, DUALLY BY (3) DONALD ZUCKER WAS EXECUTED ON MAY 13, 2020 - REPRESENTED BY THE ATTORNEYS ON BEHALF OF (4) SULLIVAN PROPERTIES, LP, BELOW FOR CONVENIENCE.
+
+        THE DIRECTORS OF STATE FARM, WHO FILED WITH THE SECURITIES AND EXCHANGE COMISSION.
+
+            BY:     (5) DAVID MOORE, (6) JOESEPH MONK, (7)PAUL J SMITH, AND UNDER (8)TERRENCE LUDWIG [AND OTHER DIRECTORS OF STATE FARM]
+
+        THE DIRECTORS OF STATE FARM, WHO FILED WITH THE FINANCIAL INDUSTRY REGULATORY AUTHORITY ON BEHALF OF (16) STATE FARM VP MANAGEMENT CORP.
+
+            BY: (8) TERRENCE LUDWIG
+
+                        A TOTAL AMOUNT WAS ACCEPTED FOR A "SUCCESSFUL MERGER",
+
+                        APPROXIMATELY $412,500 USD IN COMPENSATION WAS FILED WITH THE SEC.
+
+USC 18, §241. Conspiracy against rights.
+    - If two or more persons conspire to injure, oppress, threaten, or intimidate any person in any State, Territory, Commonwealth, Possession, or District in the free exercise or enjoyment of any right or privilege secured to him by the Constitution or laws of the United States, or because of his having so exercised the same; or
+    - If two or more persons go in disguise on the highway, or on the premises of another, with intent to prevent or hinder his free exercise or enjoyment of any right or privilege so secured—
+
+
+            EXHIBITS FILED AND ANNEXED IN THE DOCKETS IN NY SUPREME COURT CIVIL MATTER
+
+                    NYSCEF 153974/2020
+
+USC 18,§225. Continuing financial crimes enterprise
+    (a) Whoever-
+        (1) organizes, manages, or supervises a continuing financial crimes enterprise; and
+        (2) receives $5,000,000 or more in gross receipts from such enterprise during any 24-month period
+    -shall be fined not more than $10,000,000 if an individual, or $20,000,000 if an organization, and imprisoned for a term of not less than 10 years and which may be life.
+    (b) For purposes of subsection (a), the term "continuing financial crimes enterprise" means a series of violations under section 215, 656, 657, 1005, 1006, 1007, 1014, 1032, or 1344 of this title, or section 1341 or 1343 affecting a financial institution, committed by at least 4 persons acting in concert.        
+              [ LOAN 50074: $6,000,000 ] ANNEXED IN DOCKETS 309-315 IN NYSCEF MATTER 153974/2020
+
+                    ANNEXED IN NY SUPREME COURT MATTER 153974/2020
+                    REPRESENTATIVES OF
+
+                    (9) SULLIVAN PROPERTIES LP, (10) SULLIVAN GP LLC, (11) MANHATTAN SKYLINE MANAGEMENT CORP.
+                   
+
+                    BY:     COUNSELORS FOR PLAINTIFFS IN NYSCEF 153974/2020 [ ANNEXED THEREIN ] THE VIOLATION OF PRIVACY, AS SUPPLEMENT...
+
+                    (12) SHARI LASKOWITZ, (13) ASHLEY HUMPHRIES, (14) CORY WEISS, AND (15) PAUL REGAN
+
+                        DOCKETS ANNEXED IN NYSCEF 153974/2020 AND ALSO FILED WITH THE NY DEPT OF FINANCE.
+
+                    OBO:     (3) DONALD ZUCKER, (17) LAURIE ZUCKER, AND OTHERS WHO I AM UNFAMILIAR TO THEIR RESPECTIVE SHARES HELD AS LIMITED PARTNERS OF SULLIVAN PROPERTIES LP.
+
+                    UNLAWFULLY (USC 18.21) PRESENTED THE IMPLIED RETURNS FOR 6 PROPERTIES WHICH WERE ALSO FILED, AND
+                    >PUBLICLY AVAILABLE TO ALL REGULAR /COMPETENT PERSONS.
+
+                    USED TO PROCURE AND OBTAIN A LOAN FOR $6,000,000.00 ( SIX MILLION US DOLLARS) AND USED THE FOLLOWING ENTITY ON THE COVER PAGE:
+
+                    (18) THE ZUCKER ORGANIZATION LLC
+USC 18, § 373 - Solicitation to commit a crime of violence
+
+(a) Whoever, with intent that another person engage in conduct constituting a felony that has as an element the use, attempted use, or threatened use of physical force against property or against the person of another in violation of the laws of the United States, and under circumstances strongly corroborative of that intent, solicits, commands, induces, or otherwise endeavours to persuade such other person to engage in such conduct, shall be imprisoned not more than one-half the maximum term of imprisonment or (notwithstanding section 3571) fined not more than one-half of the maximum fine prescribed for the punishment of the crime solicited, or both; or if the crime solicited is punishable by life imprisonment or death, shall be imprisoned for not more than twenty years.
+
+                (15)    <voicemail attached>
+
+(b) It is an affirmative defence to a prosecution under this section that, under circumstances manifesting a voluntary and complete renunciation of his criminal intent, the defendant prevented the commission of the crime solicited. A renunciation is not "voluntary and complete" if it is motivated in whole or in part by a decision to postpone the commission of the crime until another time or to substitute another victim or another but similar objective. If the defendant raises the affirmative defence at trial, the defendant has the burden of proving the defence by a preponderance of the evidence.
+    (c) It is not a defence to a prosecution under this section that the person solicited could not be convicted of the crime because he lacked the state of mind required for its commission, because he was incompetent or irresponsible, or because he is immune from prosecution or is not subject to prosecution.
+USC 18 [ FORFEITURES ] >> RISKS HELD UNDER STATE FARM AT THE OBSTRUCTION OF THE COUNSELORS IN NYSCEF 153974/2020
+
+§229B. Criminal forfeitures; destruction of weapons
+    (a) Property Subject to Criminal Forfeiture.
+    -Any person convicted under section 229A(a) shall forfeit to the United States irrespective of any provision of State law-
+        (1) any property, real or personal, owned, possessed, or used by a person involved in the offense;
+        (2) any property constituting, or derived from, and proceeds the person obtained, directly or indirectly, as the result of such violation; and
+        (3) any of the property used in any manner or part, to commit, or to facilitate the commission of, such violation.
+
+    The court, in imposing sentence on such person, shall order, in addition to any other sentence imposed pursuant to section 229A(a), that the person forfeit to the United States all property described in this subsection. In lieu of a fine otherwise authorized by section 229A(a), a defendant who derived profits or other proceeds from an offense may be fined not more than twice the gross profits or other proceeds.
+    (b) Procedures.-
+        (1) General.
+        -Property subject to forfeiture under this section, any seizure and disposition thereof, and any administrative or judicial proceeding in relation thereto, shall be governed by subsections (b) through (p) of section 413 of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853), except that any reference under those subsections to-
+            (A) "this subchapter or subchapter II" shall be deemed to be a reference to section 229A(a); and
+            (B) "subsection (a)" shall be deemed to be a reference to subsection (a) of this section.
+        (2) Temporary restraining orders.-
+            (A)     In general.-For the purposes of forfeiture proceedings under this section, a temporary restraining order may be entered upon application of the United States without notice or opportunity for a hearing when an information or indictment has not yet been filed with respect to the property, if, in addition to the circumstances described in section 413(e)(2) of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853(e)(2)), the United States demonstrates that there is probable cause to believe that the property with respect to which the order is sought would, in the event of conviction, be subject to forfeiture under this section and exigent circumstances exist that place the life or health of any person in danger.
+            (B)     Warrant of seizure.-If the court enters a temporary restraining order under this paragraph, it shall also issue a warrant authorizing the seizure of such property.
+            (C)     Applicable procedures.-The procedures and time limits applicable to temporary restraining orders under section 413(e)(2) and (3) of the Comprehensive Drug Abuse Prevention and Control Act of 1970 (21 U.S.C. 853(e)(2) and (3)) shall apply to temporary restraining orders under this paragraph.   
+    (c) Affirmative Defense.
+        -It is an affirmative defense against a forfeiture under subsection (b) that the property-
+        (1) is for a purpose not prohibited under the Chemical Weapons Convention; and
+        (2) is of a type and quantity that under the circumstances is consistent with that purpose.
+    (d) Destruction or Other Disposition.-The Attorney General shall provide for the destruction or other appropriate disposition of any chemical weapon seized and forfeited pursuant to this section.
+    (e) Assistance.
+    (f) Owner Liability.
+        -The owner or possessor of any property seized under this section shall be liable to the United States for any expenses incurred incident to the seizure, including any expenses relating to the handling, storage, transportation, and destruction or other disposition of the seized property
+USC 18, §218. Voiding transactions in violation of chapter; recovery by the United States
+
+    In addition to any other remedies provided by law the President or, under regulations prescribed by him, the head of any department or agency involved, may declare void and rescind any contract, loan, grant, subsidy, license, right, permit, franchise, use, authority, privilege, benefit, certificate, ruling, decision, opinion, or rate schedule awarded, granted, paid, furnished, or published, or the performance of any service or transfer or delivery of any thing to, by or for any agency of the United States or officer or employee of the United States or person acting on behalf thereof, in relation to which there has been a final conviction for any violation of this chapter, and the United States shall be entitled to recover in addition to any penalty prescribed by law or in a contract the amount expended or the thing transferred or delivered on its behalf, or the reasonable value thereof.
+
+
+NOTE.     I OFFERED THE DEFAULT CLAUSE OF THE LOAN SO THAT STATE FARM CAN CANCEL THE LOAN, EXECUTED AND FILED THE SAME AS EXHIBIT 420 IN NYSCEF MATTER 153974/2020. NONE OF THE INDIVUALS FROM STATE FARM HAVE RESPONDED TO THIS EFFECT SINCE THEN, AND MOST RECENTLY, MR. DAVID MOORE ATTEMPTED TO PLACE A CO-WORKER IN HIS PLACE, MISS JANNA UNDERWOOD WHO I UNDERSTAND IS NOT A DIRECTOR OF STATE FARM, ON THE BASIS OF FILINGS AND DOCUMENTS THAT ARE AVAILABLE, PER THE FINANCIAL INDUSTRY REGULATORY AUTHORITY AND THE SECURITIES AND EXCHANGE COMMISSION UNDER CIK FILER 93715, AND CIK FILER 1516523.
+USC 18, §216. Penalties and injunctions
+
+    (a) The punishment for an offense under section 203, 204, 205, 207, 208, or 209 of this title is the following:
+        (1) Whoever engages in the conduct constituting the offense shall be imprisoned for not more than one year or fined in the amount set forth in this title, or both.
+        (2) Whoever willfully engages in the conduct constituting the offense shall be imprisoned for not more than five years or fined in the amount set forth in this title, or both.
+    (b)     The Attorney General may bring a civil action in the appropriate United States district court against any person who engages in conduct constituting an offense under section 203, 204, 205, 207, 208, or 209 of this title and, upon proof of such conduct by a preponderance of the evidence, such person shall be subject to a civil penalty of not more than $50,000 for each violation or the amount of compensation which the person received or offered for the prohibited conduct, whichever amount is greater. The imposition of a civil penalty under this subsection does not preclude any other criminal or civil statutory, common law, or administrative remedy, which is available by law to the United States or any other person.
+    (c) If the Attorney General has reason to believe that a person is engaging in conduct constituting an offense under section 203, 204, 205, 207, 208, or 209 of this title, the Attorney General may petition an appropriate United States district court for an order prohibiting that person from engaging in such conduct. The court may issue an order prohibiting that person from engaging in such conduct if the court finds that the conduct constitutes such an offense. The filing of a petition under this section does not preclude any other remedy which is available by law to the United States or any other person.
+
+
+*****    *****    *****    *****    *****     *****    *****    *****
+
+GREY AREA
+
+
+HERE IN THIS GREY AREA, WITH THE PROPER RESOURCES TO FURTHER THE CHARGES THAT WERE FILED WITH THE NEW YORK SUPREME COURT, CIVIL PART AND THE SECURITIES AND EXCHANGE COMMISSION ARE PROBABLE FOR CAUSE.
+
+§25. Use of minors in crimes of violence
+    (a) Definitions.-In this section, the following definitions shall apply:
+        (1) Crime of violence.-The term "crime of violence" has the meaning set forth in section 16.
+        (2) Minor.-The term "minor" means a person who has not reached 18 years of age.
+        (3) Uses.-The term "uses" means employs, hires, persuades, induces, entices, or coerces.
+
+    (b) Penalties.
+    -Any person who is 18 years of age or older, who intentionally uses a minor to commit a crime of violence for which such person may be prosecuted in a court of the United States, or to assist in avoiding detection or apprehension for such an offense, shall-
+        (1) for the first conviction, be subject to twice the maximum term of imprisonment and twice the maximum fine that would otherwise be authorized for the offense; and
+        (2) for each subsequent conviction, be subject to 3 times the maximum term of imprisonment and 3 times the maximum fine that would otherwise be authorized for the offense.
+
+§151. Definition
+
+    As used in this chapter, the term "debtor" means a debtor concerning whom a petition has been filed under title 11.
+
+    §152. Concealment of assets; false oaths and claims; bribery
+    A person who-
+        (1) knowingly and fraudulently conceals from a custodian, trustee, marshal, or other officer of the court charged with the control or custody of property, or, in connection with a case under title 11, from creditors or the United States Trustee, any property belonging to the estate of a debtor;
+        (2) knowingly and fraudulently makes a false oath or account in or in relation to any case under title 11;
+        (3) knowingly and fraudulently makes a false declaration, certificate, verification, or statement under penalty of perjury as permitted under section 1746 of title 28, in or in relation to any case under title 11;
+        (4) knowingly and fraudulently presents any false claim for proof against the estate of a debtor, or uses any such claim in any case under title 11, in a personal capacity or as or through an agent, proxy, or attorney;
+        (5) knowingly and fraudulently receives any material amount of property from a debtor after the filing of a case under title 11, with intent to defeat the provisions of title 11;
+        (6) knowingly and fraudulently gives, offers, receives, or attempts to obtain any money or property, remuneration, compensation, reward, advantage, or promise thereof for acting or forbearing to act in any case under title 11;
+        (7) in a personal capacity or as an agent or officer of any person or corporation, in contemplation of a case under title 11 by or against the person or any other person or corporation, or with intent to defeat the provisions of title 11, knowingly and fraudulently transfers or conceals any of his property or the property of such other person or corporation;
+        (8) after the filing of a case under title 11 or in contemplation thereof, knowingly and fraudulently conceals, destroys, mutilates, falsifies, or makes a false entry in any recorded information (including books, documents, records, and papers) relating to the property or financial affairs of a debtor; or
+        (9) after the filing of a case under title 11, knowingly and fraudulently withholds from a custodian, trustee, marshal, or other officer of the court or a United States Trustee entitled to its possession, any recorded information (including books, documents, records, and papers) relating to the property or financial affairs of a debtor,
+    -shall be fined under this title, imprisoned not more than 5 years, or both.
+
+§246. Deprivation of relief benefits
+
+    Whoever directly or indirectly deprives, attempts to deprive, or threatens to deprive any person of any employment, position, work, compensation, or other benefit provided for or made possible in whole or in part by any Act of Congress appropriating funds for work relief or relief purposes, on account of political affiliation, race, color, sex, religion, or national origin, shall be fined under this title, or imprisoned not more than one year, or both.
+§220. Illegal remunerations for referrals to recovery homes, clinical treatment facilities, and laboratories
+
+(a) Offense.-Except as provided in subsection (b), whoever, with respect to services covered by a health care benefit program, in or affecting interstate or foreign commerce, knowingly and willfully-
+    (1) solicits or receives any remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind, in return for referring a patient or patronage to a recovery home, clinical treatment facility, or laboratory; or
+    (2) pays or offers any remuneration (including any kickback, bribe, or rebate) directly or indirectly, overtly or covertly, in cash or in kind-
+        (A) to induce a referral of an individual to a recovery home, clinical treatment facility, or laboratory; or
+        (B) in exchange for an individual using the services of that recovery home, clinical treatment facility, or laboratory,
+    -shall be fined not more than $200,000, imprisoned not more than 10 years, or both, for each occurrence.
+
+(b) Applicability.-Subsection (a) shall not apply to-
+    (1) a discount or other reduction in price obtained by a provider of services or other entity under a health care benefit program if the reduction in price is properly disclosed and appropriately reflected in the costs claimed or charges made by the provider or entity;
+    (2) a payment made by an employer to an employee or independent contractor (who has a bona fide employment or contractual relationship with such employer) for employment, if the employee's payment is not determined by or does not vary by-
+        (A) the number of individuals referred to a particular recovery home, clinical treatment facility, or laboratory;
+        (B) the number of tests or procedures performed; or
+        (C) the amount billed to or received from, in part or in whole, the health care benefit program from the individuals referred to a particular recovery home, clinical treatment facility, or laboratory;
+    (3) a discount in the price of an applicable drug of a manufacturer that is furnished to an applicable beneficiary under the Medicare coverage gap discount program under section 1860D–14A(g) of the Social Security Act (42 U.S.C. 1395w–114a(g));
+    (4) a payment made by a principal to an agent as compensation for the services of the agent under a personal services and management contract that meets the requirements of section 1001.952(d) of title 42, Code of Federal Regulations, as in effect on the date of enactment of this section;
+    (5) a waiver or discount (as defined in section 1001.952(h)(5) of title 42, Code of Federal Regulations, or any successor regulation) of any coinsurance or copayment by a health care benefit program if-
+        (A) the waiver or discount is not routinely provided; and
+        (B) the waiver or discount is provided in good faith;
+    (6) a remuneration described in section 1128B(b)(3)(I) of the Social Security Act (42 U.S.C. 1320a–7b(b)(3)(I));
+    (7) a remuneration made pursuant to an alternative payment model (as defined in section 1833(z)(3)(C) of the Social Security Act) or pursuant to a payment arrangement used by a State, health insurance issuer, or group health plan if the Secretary of Health and Human Services has determined that such arrangement is necessary for care coordination or value-based care; or
+    (8) any other payment, remuneration, discount, or reduction as determined by the Attorney General, in consultation with the Secretary of Health and Human Services, by regulation.
+    
+    (c) Regulations.
+    -The Attorney General, in consultation with the Secretary of Health and Human Services, may promulgate regulations to clarify the exceptions described in subsection (b).
+    (d) Preemption.-
+        (1) Federal law.-This section shall not apply to conduct that is prohibited under section 1128B of the Social Security Act (42 U.S.C. 1320a–7b).
+        (2) State law.-Nothing in this section shall be construed to occupy the field in which any provisions of this section operate to the exclusion of State laws on the same subject matter.
+
+    (e) Definitions.-In this section-
+        (1) the terms "applicable beneficiary" and "applicable drug" have the meanings given those terms in section 1860D–14A(g) of the Social Security Act (42 U.S.C. 1395w–114a(g));
+        (2) the term "clinical treatment facility" means a medical setting, other than a hospital, that provides detoxification, risk reduction, outpatient treatment and care, residential treatment, or rehabilitation for substance use, pursuant to licensure or certification under State law;
+        (3) the term "health care benefit program" has the meaning given the term in section 24(b);
+        (4) the term "laboratory" has the meaning given the term in section 353 of the Public Health Service Act (42 U.S.C. 263a); and
+        (5) the term "recovery home" means a shared living environment that is, or purports to be, free from alcohol and illicit drug use and centered on peer support and connection to services that promote sustained recovery from substance use disorders.
+USC 18, §214. Offer for procurement of Federal Reserve bank loan and discount of commercial paper
+
+    Whoever stipulates for or gives or receives, or consents or agrees to give or receive, any fee, commission, bonus, or thing of value for procuring or endeavoring to procure from any Federal Reserve bank any advance, loan, or extension of credit or discount or purchase of any obligation or commitment with respect thereto, either directly from such Federal Reserve bank or indirectly through any financing institution, unless such fee, commission, bonus, or thing of value and all material facts with respect to the arrangement or understanding therefor shall be disclosed in writing in the application or request for such advance, loan, extension of credit, discount, purchase, or commitment, shall be fined under this title or imprisoned not more than one year, or both.
+
+GREY AREA
+
+*****    *****    *****    *****    *****     *****    *****    *****
+
+
+
+
+
+
+*****
+
+
+**** YOU'LL HAVE TO ASK THE FBI/NSA TO SEE IF THEY WILL VERIFY THIS *****
+
+*****    USC 18, §208. Acts affecting a personal financial interest
+    (a) Except as permitted by subsection (b) hereof, whoever, being an officer or employee of the executive branch of the United States Government, or of any independent agency of the United States, a Federal Reserve bank director, officer, or employee, or an officer or employee of the District of Columbia, including a special Government employee, participates personally and substantially as a Government officer or employee, through decision, approval, disapproval, recommendation, the rendering of advice, investigation, or otherwise, in a judicial or other proceeding, application, request for a ruling or other determination, contract, claim, controversy, charge, accusation, arrest, or other particular matter in which, to his knowledge, he, his spouse, minor child, general partner, organization in which he is serving as officer, director, trustee, general partner or employee, or any person or organization with whom he is negotiating or has any arrangement concerning prospective employment, has a financial interest-
+    -Shall be subject to the penalties set forth in section 216 of this title.
+    (b) Subsection (a) shall not apply-
+        (1) if the officer or employee first advises the Government official responsible for appointment to his or her position of the nature and circumstances of the judicial or other proceeding, application, request for a ruling or other determination, contract, claim, controversy, charge, accusation, arrest, or other particular matter and makes full disclosure of the financial interest and receives in advance a written determination made by such official that the interest is not so substantial as to be deemed likely to affect the integrity of the services which the Government may expect from such officer or employee;
+        (2) if, by regulation issued by the Director of the Office of Government Ethics, applicable to all or a portion of all officers and employees covered by this section, and published in the Federal Register, the financial interest has been exempted from the requirements of subsection (a) as being too remote or too inconsequential to affect the integrity of the services of the Government officers or employees to which such regulation applies;
+        (3) in the case of a special Government employee serving on an advisory committee within the meaning of the Federal Advisory Committee Act (including an individual being considered for an appointment to such a position), the official responsible for the employee's appointment, after review of the financial disclosure report filed by the individual pursuant to the Ethics in Government Act of 1978, certifies in writing that the need for the individual's services outweighs the potential for a conflict of interest created by the financial interest involved; or
+        (4) if the financial interest that would be affected by the particular matter involved is that resulting solely from the interest of the officer or employee, or his or her spouse or minor child, in birthrights-
+            (A) in an Indian tribe, band, nation, or other organized group or community, including any Alaska Native village corporation as defined in or established pursuant to the Alaska Native Claims Settlement Act, which is recognized as eligible for the special programs and services provided by the United States to Indians because of their status as Indians,
+            (B) in an Indian allotment the title to which is held in trust by the United States or which is inalienable by the allottee without the consent of the United States, or
+            (C) in an Indian claims fund held in trust or administered by the United States,
+        -if the particular matter does not involve the Indian allotment or claims fund or the Indian tribe, band, nation, organized group or community, or Alaska Native village corporation as a specific party or parties.
+    (c)(1) For the purpose of paragraph (1) of subsection (b), in the case of class A and B directors of Federal Reserve banks, the Board of Governors of the Federal Reserve System shall be deemed to be the Government official responsible for appointment.
+    (2) The potential availability of an exemption under any particular paragraph of subsection (b) does not preclude an exemption being granted pursuant to another paragraph of subsection (b).
+    (d)(1) Upon request, a copy of any determination granting an exemption under subsection (b)(1) or (b)(3) shall be made available to the public by the agency granting the exemption pursuant to the procedures set forth in section 105 of the Ethics in Government Act of 1978. In making such determination available, the agency may withhold from disclosure any information contained in the determination that would be exempt from disclosure under section 552 of title 5. For purposes of determinations under subsection (b)(3), the information describing each financial interest shall be no more extensive than that required of the individual in his or her financial disclosure report under the Ethics in Government Act of 1978.
+    (2) The Office of Government Ethics, after consultation with the Attorney General, shall issue uniform regulations for the issuance of waivers and exemptions under subsection (b) which shall-
+        (A) list and describe exemptions; and
+        (B) provide guidance with respect to the types of interests that are not so substantial as to be deemed likely to affect the integrity of the services the Government may expect from the employee.
+
+*****    §118. Interference with certain protective functions
+    Any person who knowingly and willfully obstructs, resists, or interferes with a Federal law enforcement agent engaged, within the United States or the special maritime territorial jurisdiction of the United States, in the performance of the protective functions authorized under section 37 of the State Department Basic Authorities Act of 1956 (22 U.S.C. 2709) or section 103 of the Diplomatic Security Act (22 U.S.C. 4802) shall be fined under this title, imprisoned not more than 1 year, or both.
+
+*****    §119. Protection of individuals performing certain official duties
+    (a) In General.
+        -Whoever knowingly makes restricted personal information about a covered person, or a member of the immediate family of that covered person, publicly available-
+            (1) with the intent to threaten, intimidate, or incite the commission of a crime of violence against that covered person, or a member of the immediate family of that covered person; or
+            (2) with the intent and knowledge that the restricted personal information will be used to threaten, intimidate, or facilitate the commission of a crime of violence against that covered person, or a member of the immediate family of that covered person,
+        -shall be fined under this title, imprisoned not more than 5 years, or both.
+        (b) Definitions.-In this section-
+            (1) the term "restricted personal information" means, with respect to an individual, the Social Security number, the home address, home phone number, mobile phone number, personal email, or home fax number of, and identifiable to, that individual;
+            (2) the term "covered person" means-
+                (A) an individual designated in section 1114;
+                (B) a grand or petit juror, witness, or other officer in or of, any court of the United States, or an officer who may be, or was, serving at any examination or other proceeding before any United States magistrate judge or other committing magistrate;
+                (C) an informant or witness in a Federal criminal investigation or prosecution; or
+                (D) a State or local officer or employee whose restricted personal information is made publicly available because of the participation in, or assistance provided to, a Federal criminal investigation by that officer or employee;
+            (3) the term "crime of violence" has the meaning given the term in section 16; and
+            (4) the term "immediate family" has the meaning given the term in section 115(c)(2).
+
+
+*****    §115. Influencing, impeding, or retaliating against a Federal official by threatening or injuring a family member
+    (a)(1) Whoever-
+        (A) assaults, kidnaps, or murders, or attempts or conspires to kidnap or murder, or threatens to assault, kidnap or murder a member of the immediate family of a United States official, a United States judge, a Federal law enforcement officer, or an official whose killing would be a crime under section 1114 of this title; or
+        (B) threatens to assault, kidnap, or murder, a United States official, a United States judge, a Federal law enforcement officer, or an official whose killing would be a crime under such section,
+    -with intent to impede, intimidate, or interfere with such official, judge, or law enforcement officer while engaged in the performance of official duties, or with intent to retaliate against such official, judge, or law enforcement officer on account of the performance of official duties, shall be punished as provided in subsection (b).
+
+    (2) Whoever assaults, kidnaps, or murders, or attempts or conspires to kidnap or murder, or threatens to assault, kidnap, or murder, any person who formerly served as a person designated in paragraph (1), or a member of the immediate family of any person who formerly served as a person designated in paragraph (1), with intent to retaliate against such person on account of the performance of official duties during the term of service of such person, shall be punished as provided in subsection (b).
+
+    §(b)
+    (1)     The punishment for an assault in violation of this section is-
+            (A) a fine under this title; and
+            (B)
+                (i)     if the assault consists of a simple assault, a term of imprisonment for not more than 1 year;
+                (ii)     if the assault involved physical contact with the victim of that assault or the intent to commit another felony, a term of imprisonment for not more than 10 years;
+                (iii)     if the assault resulted in bodily injury, a term of imprisonment for not more than 20 years; or
+                (iv)     if the assault resulted in serious bodily injury (as that term is defined in section 1365 of this title, and including any conduct that, if the conduct occurred in the special maritime and territorial jurisdiction of the United States, would violate section 2241 or 2242 of this title) or a dangerous weapon was used during and in relation to the offense, a term of imprisonment for not more than 30 years.
+    (2)        A kidnapping, attempted kidnapping, or conspiracy to kidnap in violation of this section shall be punished as provided in section 1201 of this title for the kidnapping or attempted kidnapping of, or a conspiracy to kidnap, a person described in section 1201(a)(5) of this title.
+        (3) A murder, attempted murder, or conspiracy to murder in violation of this section shall be punished as provided in sections 1111, 1113, and 1117 of this title.
+        (4) A threat made in violation of this section shall be punished by a fine under this title or imprisonment for a term of not more than 10 years, or both, except that imprisonment for a threatened assault shall not exceed 6 years.
+        (c) As used in this section, the term-
+            (1) "Federal law enforcement officer" means any officer, agent, or employee of the United States authorized by law or by a Government agency to engage in or supervise the prevention, detection, investigation, or prosecution of any violation of Federal criminal law;
+            (2) "immediate family member" of an individual means-
+                (A) his spouse, parent, brother or sister, child or person to whom he stands in loco parentis; or
+                (B) any other person living in his household and related to him by blood or marriage;
+            (3) "United States judge" means any judicial officer of the United States, and includes a justice of the Supreme Court and a United States magistrate judge; and
+            (4) "United States official" means the President, President-elect, Vice President, Vice President-elect, a Member of Congress, a member-elect of Congress, a member of the executive branch who is the head of a department listed in 5 U.S.C. 101, or the Director of the Central Intelligence Agency.
+        (d) This section shall not interfere with the investigative authority of the United States Secret Service, as provided under sections 3056, 871, and 879 of this title.
+        (e) There is extraterritorial jurisdiction over the conduct prohibited by this section.
+§116. Female genital mutilation
+
+***** YOU'LL HAVE TO ASK THE FBI/NSA TO SEE IF THEY WILL VERIFY THIS *****
+
+
+
+ 
+
+– I HOPE YOU UNDERSTAND WHERE THIS ALSO PRESENTS A CONFLICT, AS HE BELIEVES THIS TO BE TRUE.
+                                                    1_u.s._v._brian_benjamin_indictment (1).pdf
+
+    NYSCEF MATTER 153974/2020
+    - SHARED ADDRESS WITH THE WILSON ELSER LAW FIRM, BELOW.
+
+    Filing User Shari Laskowitz | slaskowitz@ingramllp.com | 2129079600
+
+    150 East 42nd Street 19th Floor, New York, NY 10017 Filed: 07/21/2020
+
+-------- Forwarded Message --------
+Subject: 	Voicemail from Mr. PAUL regan
+Date: 	Sun, 26 Jun 2022 16:51:47 -0400
+From: 	BO DINCER <bondstrt007@gmail.com>
+To: 	customerservice@nypost.com, espnfrontrow@espn.com, teschmann@mskyline.com, Joseph Giamboi, ESQ <joseph.giamboi@brooklaw.edu>, LZUCKER@mskyline.com, sgo2107@columbia.edu, letters@nypost.com, Laskowitz, Shari <slaskowitz@ingramllp.com>, dallas-reserve-mgmt@dal.frb.org, 23pctdvo@nypd.com, 23pctyco@nypd.org, 1pctdvo@nypd.org, 1pctyco@nypd.org, praghuram2@bloomberg.net, PRIYA.RAGHURAM@MORGANSTANLEY.COM <PRIYA.RAGHURAM@morganstanley.com>, JAMES GORMAN [MORGAN STANLEY] <james.gorman@morganstanley.com>, Dow Jones <wsjprosupport@dowjones.com>, paul.jones@tudor.com, Paul Regan <LEGAL@mskyline.com>, LEGALASST@mskyline.com, MSKYLINE <anne@thehighlandpartners.com>, cweiss@ingramllp.com, info@statefarm.com, State Farm <mutualfunds@statefarm.com>, David Moore <david.moore.ct95@statefarm.com>, hillary.davis@latimes.com, Scott Holcomb <scott@holcombward.com>, SOHO HOUSE <membership@sohohouse.com>
+CC: 	KATHY HOCHUL <governor.hochul@exec.ny.gov>, BBO 121 <ms60710444266@yahoo.com>, MIT Sloan Executive Education <executive_education@mailsvc.sloan.mit.edu>, Marc Lavigne <tessier3@stanford.edu>, NYSCEF PROCESS HD <oca_hd_processor@nycourts.gov>, The New York Times <help@nytimes.com>, administration@mskyline.com, MANHATTAN SKYLINE, LLC. <ADMINISTRATOR@mskyline.com>
+
+
+I am terrified, where is he ? Touching himself or making videos with my Glamour shots.
+
+Thats actually a compound, in the scope of avoidance to prosecution. 
+
+Truly a delusional group, never met them.
+
+---
+## [OhMyVenyx/kernel_xiaomi_ysl](https://github.com/OhMyVenyx/kernel_xiaomi_ysl)@[bc18d64ba1...](https://github.com/OhMyVenyx/kernel_xiaomi_ysl/commit/bc18d64ba16ed06117f137d378b33c0c7d5e2a59)
+#### Monday 2022-06-27 19:57:39 by Angelo G. Del Regno
+
+Merge: Performance improvements.
+
+This patchset brings some performance improvements and the addition of the LZO-RLE
+algorithm to the kernel, also usable in zram (yup, tested, works but LZ4 is still ok for us).
+
+The main performance improvement is for SWAP space: the locking has changed and
+the swap cache is now split in 64MB trunks.
+This gives us a reduction of the median page fault latency of 375%, from 15uS to 4uS,
+and an improvement of 192% on the swap throughput (this includes "virtual" swap
+devices, like zRAM!). The real world user experience improvement of this on a mobile
+device is seen after a day or two of usage, where it usually starts losing just a little
+performance due to the large amount of apps kept open in background: now I cannot
+notice any more performance loss and the user experience is now basically the same as
+if the phone was in its first 2 hours of boot life.
+
+Other performance improvements include, in short:
+
+    UDP v4/v6: 10% more performance on single RX queue
+    Userspace applications will be faster when checking running time of threads
+    2-5% improvements on heavy multipliers (yeah, not a lot, but was totally free...)
+    Improvements on rare conditions during sparsetruncate of about 0.3% to a
+    way more rare around 20% improvement (that's never gonna happen, but there
+    is no performance drop anywhere).
+
+Tested on SoMC Tama Akatsuki RoW
+
+This was taken from
+Repo:
+https://github.com/sonyxperiadev/kernel
+PR: 2039 ([2.3.2.r1.4] Performance improvements)
+
+Signed-off-by: R.A.P <rhmd.19801@gmail.com>
+
+---
+## [dashpay/dash](https://github.com/dashpay/dash)@[67ceda1b5a...](https://github.com/dashpay/dash/commit/67ceda1b5aa0c51f1fdce4fb71ccba1922e880f6)
+#### Monday 2022-06-27 19:58:35 by fanquake
+
+Merge #18295: scripts: add MACHO lazy bindings check to security-check.py
+
+5ca90f8b598978437340bb8467f527b9edfb2bbf scripts: add MACHO lazy bindings check to security-check.py (fanquake)
+
+Pull request description:
+
+  This is a slightly belated follow up to #17686 and some discussion with Cory. It's not entirely clear if we should make this change due to the way the macOS dynamic loader appears to work. However I'm opening this for some discussion. Also related to #17768.
+
+  #### Issue:
+  [`LD64`](https://opensource.apple.com/source/ld64/) doesn't set the [MH_BINDATLOAD](https://opensource.apple.com/source/xnu/xnu-6153.11.26/EXTERNAL_HEADERS/mach-o/loader.h.auto.html) bit in the header of MACHO executables, when building with `-bind_at_load`. This is in contradiction to the [documentation](https://opensource.apple.com/source/ld64/ld64-450.3/doc/man/man1/ld.1.auto.html):
+  ```bash
+  -bind_at_load
+       Sets a bit in the mach header of the resulting binary which tells dyld to
+       bind all symbols when the binary is loaded, rather than lazily.
+  ```
+
+  The [`ld` in Apples cctools](https://opensource.apple.com/source/cctools/cctools-927.0.2/ld/layout.c.auto.html) does set the bit, however the [cctools-port](https://github.com/tpoechtrager/cctools-port/) that we use for release builds, bundles `LD64`.
+
+  However; even if the linker hasn't set that bit, the dynamic loader ([`dyld`](https://opensource.apple.com/source/dyld/)) doesn't seem to ever check for it, and from what I understand, it looks at a different part of the header when determining whether to lazily load symbols.
+
+  Note that our release binaries are currently working as expected, and no lazy loading occurs.
+
+  #### Example:
+
+  Using a small program, we can observe the behaviour of the dynamic loader.
+
+  Conducted using:
+  ```bash
+  clang++ --version
+  Apple clang version 11.0.0 (clang-1100.0.33.17)
+  Target: x86_64-apple-darwin18.7.0
+
+  ld -v
+  @(#)PROGRAM:ld  PROJECT:ld64-530
+  BUILD 18:57:17 Dec 13 2019
+  LTO support using: LLVM version 11.0.0, (clang-1100.0.33.17) (static support for 23, runtime is 23)
+  TAPI support using: Apple TAPI version 11.0.0 (tapi-1100.0.11)
+  ```
+
+  ```cpp
+  #include <iostream>
+  int main() {
+  	std::cout << "Hello World!\n";
+  	return 0;
+  }
+  ```
+
+  Compile and check the MACHO header:
+  ```bash
+  clang++ test.cpp -o test
+  otool -vh test
+  ...
+  Mach header
+        magic cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags
+  MH_MAGIC_64  X86_64        ALL LIB64     EXECUTE    16       1424   NOUNDEFS DYLDLINK TWOLEVEL WEAK_DEFINES BINDS_TO_WEAK PIE
+
+  # Run and dump dynamic loader bindings:
+  DYLD_PRINT_BINDINGS=1 DYLD_PRINT_TO_FILE=no_bind.txt ./test
+  Hello World!
+  ```
+
+  Recompile with `-bind_at_load`. Note still no `BINDATLOAD` flag:
+  ```bash
+  clang++ test.cpp -o test -Wl,-bind_at_load
+  otool -vh test
+  Mach header
+        magic cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags
+  MH_MAGIC_64  X86_64        ALL LIB64     EXECUTE    16       1424   NOUNDEFS DYLDLINK TWOLEVEL WEAK_DEFINES BINDS_TO_WEAK PIE
+  ...
+  DYLD_PRINT_BINDINGS=1 DYLD_PRINT_TO_FILE=bind.txt ./test
+  Hello World!
+  ```
+
+  If we diff the outputs, you can see that `dyld` doesn't perform any lazy bindings when the binary is compiled with `-bind_at_load`, even if the `BINDATLOAD` flag is not set:
+  ```diff
+  @@ -1,11 +1,27 @@
+  +dyld: bind: test:0x103EDF030 = libc++.1.dylib:__ZNKSt3__16locale9use_facetERNS0_2idE, *0x103EDF030 = 0x7FFF70C9FA58
+  +dyld: bind: test:0x103EDF038 = libc++.1.dylib:__ZNKSt3__18ios_base6getlocEv, *0x103EDF038 = 0x7FFF70CA12C2
+  +dyld: bind: test:0x103EDF068 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_, *0x103EDF068 = 0x7FFF70CA12B6
+  +dyld: bind: test:0x103EDF070 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev, *0x103EDF070 = 0x7FFF70CA1528
+  +dyld: bind: test:0x103EDF080 = libc++.1.dylib:__ZNSt3__16localeD1Ev, *0x103EDF080 = 0x7FFF70C9FAE6
+  <trim>
+  -dyld: lazy bind: test:0x10D4AC0C8 = libsystem_platform.dylib:_strlen, *0x10D4AC0C8 = 0x7FFF73C5C6E0
+  -dyld: lazy bind: test:0x10D4AC068 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_, *0x10D4AC068 = 0x7FFF70CA12B6
+  -dyld: lazy bind: test:0x10D4AC038 = libc++.1.dylib:__ZNKSt3__18ios_base6getlocEv, *0x10D4AC038 = 0x7FFF70CA12C2
+  -dyld: lazy bind: test:0x10D4AC030 = libc++.1.dylib:__ZNKSt3__16locale9use_facetERNS0_2idE, *0x10D4AC030 = 0x7FFF70C9FA58
+  -dyld: lazy bind: test:0x10D4AC080 = libc++.1.dylib:__ZNSt3__16localeD1Ev, *0x10D4AC080 = 0x7FFF70C9FAE6
+  -dyld: lazy bind: test:0x10D4AC070 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev, *0x10D4AC070 = 0x7FFF70CA1528
+  ```
+
+  Note: `dyld` also has a `DYLD_BIND_AT_LAUNCH=1` environment variable, that when set, will force any lazy bindings to be non-lazy:
+  ```bash
+  dyld: forced lazy bind: test:0x10BEC8068 = libc++.1.dylib:__ZNSt3__113basic_ostream
+  ```
+
+  #### Thoughts:
+  After looking at the dyld source, I can't find any checks for `MH_BINDATLOAD`. You can see the flags it does check for, such as MH_PIE or MH_BIND_TO_WEAK [here](https://opensource.apple.com/source/dyld/dyld-732.8/src/ImageLoaderMachO.cpp.auto.html).
+
+  It seems that the lazy binding of any symbols depends on whether or not [lazy_bind_size](https://opensource.apple.com/source/xnu/xnu-6153.11.26/EXTERNAL_HEADERS/mach-o/loader.h.auto.html) from the `LC_DYLD_INFO_ONLY` load command is > 0. Which was mentioned in [#17686](https://github.com/bitcoin/bitcoin/pull/17686#issue-350216254).
+
+  #### Changes:
+  This PR is one of [Corys commits](https://github.com/theuni/bitcoin/commit/7b6ba26178d2754568a1308d3d44e038e9ebf450), that I've rebased and modified to make build. I've also included an addition to the `security-check.py` script to check for the flag.
+
+  However, given the above, I'm not entirely sure this patch is the correct approach. If the linker no-longer inserts it, and the dynamic loader doesn't look for it, there might be little benefit to setting it. Or, maybe this is an oversight from Apple and needs some upstream discussion. Looking for some thoughts / Concept ACK/NACK.
+
+  One alternate approach we could take is to drop the patch and modify security-check.py to look for `lazy_bind_size` == 0 in the `LC_DYLD_INFO_ONLY` load command, using `otool -l`.
+
+ACKs for top commit:
+  theuni:
+    ACK 5ca90f8b598978437340bb8467f527b9edfb2bbf
+
+Tree-SHA512: 444022ea9d19ed74dd06dc2ab3857a9c23fbc2f6475364e8552d761b712d684b3a7114d144f20de42328d1a99403b48667ba96885121392affb2e05b834b6e1c
+
+---
+## [macownersclub/melpa](https://github.com/macownersclub/melpa)@[570bde6b4b...](https://github.com/macownersclub/melpa/commit/570bde6b4b89eb74eaf47dda64004cd575f9d953)
+#### Monday 2022-06-27 20:14:04 by Jonas Bernoulli
+
+Cosmetic changes to numerous recipes
+
+This commit only touches recipes whose `:files' property contains an
+`:exclude' element, because I had to look at all those recipes for an
+only marginally related reason.
+
+To an extend these changes only reflect my own personal preference, so
+I will explain the types of changes I have made.  This should serve as
+a starting point for a future discussion in case we want to encourage
+a certain style or even enforce it.
+
+- Lines should be intended as `indent-for-tab-command' would, except
+  in special-cases such as in the recipe of `use-package', which is
+  also a macro with special indentation rules; we override those
+  because the `use-package' in use-package's recipe is not that macro,
+  it is just a symbol appearing as the first element of a data list.
+
+- I prefer it if there is a newline between the package symbol (the
+  car) and the plist that follows, but usually only add it to existing
+  recipes when lines would otherwise get to long.  I also do not
+  change this if I am not making any other changes that affect more
+  than one line.
+
+- Either the complete list should be on a single line or each line
+  should contain only one key/value pair.  The first pair may share a
+  line with the package symbol (see previous point).  If the recipe
+  needs more than one line, then two key/value pairs should never
+  appear on one line.  Newline characters are cheap enough these days.
+
+- `:fetcher' should come before `:url' or `:repo', not least because
+  the former dictates which of the latter two is required/valid.  You
+  can also think of the fetcher as the type or class of the recipe,
+  which IMO should come first, like in code: (git-fetcher :url val).
+
+- The most common keywords should be specified in this order:
+  `:fetcher', `:url'/`:repo', `:files'.  Other keywords should go
+  either before or after `:files' (but preferable not on both sides
+  of that for any given recipe).
+
+- A common value of `:files' is: (:defaults (:exclude "...")).
+  This could be split across multiple lines, but writing everything
+  on one line makes it easier to read it as 'use the defaults, except
+  exclude "..."':
+
+    :files (:defaults (:exclude "..."))
+
+- If the value of `:files' is too long for one line, then place
+  newlines "semantically", instead of trying to "save space".  For
+  example any element that is a list should appear on its own line.
+  Two sibling lists should never appear on the same line.  String
+  siblings should also not appear on one line in many cases, though
+  it might makes sense (but isn't my preference) to group them by
+  "type" as in:
+
+    (:defaults
+     "foo/*.el" "bar/*.el"
+     "docs/foo/*.texi" "docs/bar/*.texi"
+     (:exclude "..."))
+
+- While there may be multiple (:exclude ...) elements, I've merged
+  them into one.  Mostly for future proofing.
+
+- The position of `:exclude' elements in `:files' value is significant
+  in theory.  However in most cases it already appears at the very end
+  and I have moved it there in cases where the order is not
+  significant.  Mostly for future proofing.
+
+---
+## [AttorneyOnline/akashi](https://github.com/AttorneyOnline/akashi)@[01fb5c143b...](https://github.com/AttorneyOnline/akashi/commit/01fb5c143b1cff7a3d7ae43438e8c0d3b4129d48)
+#### Monday 2022-06-27 20:47:10 by Salanto
+
+For the love of all that is holy why the fuck do you not work
+
+---
+## [newstools/2022-express](https://github.com/newstools/2022-express)@[371e219e8b...](https://github.com/newstools/2022-express/commit/371e219e8bfb2e4a167c4a0582710dfdc9dde1d7)
+#### Monday 2022-06-27 21:22:22 by Billy Einkamerer
+
+Created Text For URL [www.express.co.uk/sport/tennis/1631311/Does-Emma-Raducanu-have-a-boyfriend-British-star-love-life-tennis-news]
+
+---
+## [fighterslam/Pariah-Station](https://github.com/fighterslam/Pariah-Station)@[23aef65ad5...](https://github.com/fighterslam/Pariah-Station/commit/23aef65ad58754e8327151ece4c0efa6d810e1ed)
+#### Monday 2022-06-27 22:18:34 by SabreML
+
+Refactors how legs are displayed so they no longer appear above one-another when looking EAST or WEST (#66607) (#704)
+
+So, for over 5 years, left legs have been displaying over right legs. Never noticed it? Don't blame you.
+Here's a nice picture provided by #20603 (Bodypart sprites render with incorrect layering), that clearly displays the issue that was happening:
+
+It still happened to this day.
+Notice how the two directions don't look the same? That's because the left leg is always displaying above the right one.
+
+Obviously, that's no good, and I was like "oh, that's a rendering issue, so there's nothing I can do about it, it's an issue with BYOND".
+
+Until it struck me.
+
+"What if we used a mask that would cut out the parts of the right leg, from the left leg, so that it doesn't actually look as if it's above it?"
+
+Here I am, after about 25 hours of work, 15 of which of very painful debugging due to BYOND's icon documentation sucking ass.
+
+So, how does it work?
+
+Basically, we create a mask of a left leg (that'll be explained later down the line), more specifically, a cutout of JUST the WEST dir of the left leg, with every other dir being just white squares. We then cache that mask in a static list on the right leg, so we don't generate it every single time, as that can be expensive. All that happens in update_body_parts(), where I've made it so legs are handled separately, to avoid having to generate limb icons twice in a row, due to it being expensive. In that, when we generate_limb_icon() a right leg, we apply the proper left leg mask if necessary.
+
+Now, why masking the right leg, if the issue was the left leg?
+Because, see, when you actually amputated someone, and gave them a leg again, it would end up being that new leg that would be displayed below the other leg. So I fixed that, by making it so that bodyparts would be sorted correctly, before the end of update_body_parts(). Which means that right legs ended up displaying above left legs, which meant that I had to change everything I had written to work on right legs rather than left legs.
+
+I spent so much time looking up BYOND documentation for MapColors() and filters and all icon and image vars and procs, I decided to make a helper proc called generate_icon_alpha_mask(), because honestly it would've saved me at least half a day of pure code debugging if I had it before working on this refactor.
+
+I tried to put as much documentation down as I could, because this shit messes with your brain if you spend too long looking at it. icon and image are two truly awful classes to work with, and I don't look forward to messing with them more in the future.
+
+Anyway. It's nice, because it requires no other effort from anyone, no matter what the shape of the leg is actually like. It's all handled dynamically, and only one per type of leg, meaning that it's not actually too expensive either, which is very nice. Especially since it's very downstreams-friendly from being done this way.
+
+
+It fixes #20603 (Bodypart sprites render with incorrect layering), an issue that has been around for over half a decade, as well as probably many more issues that I just didn't bother sifting through.
+
+Plus, it just looks so much better.
+
+Co-authored-by: GoldenAlpharex <58045821+GoldenAlpharex@users.noreply.github.com>
+
+---
+## [fighterslam/Pariah-Station](https://github.com/fighterslam/Pariah-Station)@[95db2c6bfc...](https://github.com/fighterslam/Pariah-Station/commit/95db2c6bfc84871f2fa51eeef253f681dc46a632)
+#### Monday 2022-06-27 22:18:34 by Kapu1178
+
+Makes glass floors override platings. Fixes glass floor openspace bug. (#66301) (#696)
+
+About The Pull Request
+
+Fixes #63868. Actual one liner fix for this one here. If this pr dies feel free to atomize this one.
+AND it turns out to not be tim's fault.
+
+Fixes #63548. But i really shouldnt say fixed. The original implementation was causing the invincible plating bug. When tim's refactor got in it instead relies on the element state, which was broken from the get go, removing the invincible plating bug which was in a sense "intended" its all messy man I hate this code. Thats why im removing the plating thing. Let the turf handle the turf change themselves this complicates things.
+
+Mapped in glass floors have openspace (now baseturf bottom) as their baseturfs, while built ones have plating under them. Which doesnt make sense to be honest. Why would things be visible if a plating is under the glass. They are also crowbarrable on top of this, which to be fair is my main reasoning behind the PR.
+
+To solve this, I am instead making glass floors replace the plating instead of building over it. This is made to be generalizable for every tile in game, as long as their initial baseturf is the same and the tile wants it to happen.
+
+do after of three seconds is completely arbitrary. If any maint want it changed let me know.
+Why It's Good For The Game
+
+First one solves a bug
+Second one makes more sense
+And er, icebox is currently using the glass floors in sec, they can be crowbarred very easily. This might be a good idea from a gameplay perspective.
+Changelog
+
+cl
+del: Removed adding glass floors to plating
+balance: Allows you to replace plating with glass floors instead. 3 second timer.
+del: Removed deconstructing the glass floors. No replacement for this one, use a rcd.
+fix: Fixed metastation glassfloor spawning a weird turf when crowbarred.
+/cl
+
+Co-authored-by: vincentiusvin <54709710+vincentiusvin@users.noreply.github.com>
+
+---
+## [gitster/git](https://github.com/gitster/git)@[9c986917b0...](https://github.com/gitster/git/commit/9c986917b00fd81bc7427ff46da768582f518633)
+#### Monday 2022-06-27 23:02:29 by Glen Choo
+
+setup.c: create `discovery.bare`
+
+There is a known social engineering attack that takes advantage of the
+fact that a working tree can include an entire bare repository,
+including a config file. A user could run a Git command inside the bare
+repository thinking that the config file of the 'outer' repository would
+be used, but in reality, the bare repository's config file (which is
+attacker-controlled) is used, which may result in arbitrary code
+execution. See [1] for a fuller description and deeper discussion.
+
+A simple mitigation is to forbid bare repositories unless specified via
+`--git-dir` or `GIT_DIR`. In environments that don't use bare
+repositories, this would be minimally disruptive.
+
+Create a config variable, `discovery.bare`, that tells Git whether or
+not to die() when it discovers a bare repository. This only affects
+repository discovery, thus it has no effect if discovery was not
+done, e.g. if the user passes `--git-dir=my-dir`, discovery will be
+skipped and my-dir will be used as the repo regardless of the
+`discovery.bare` value.
+
+This config is an enum of:
+
+- "always": always allow bare repositories (this is the default)
+- "never": never allow bare repositories
+
+If we want to protect users from such attacks by default, neither value
+will suffice - "always" provides no protection, but "never" is
+impractical for bare repository users. A more usable default would be to
+allow only non-embedded bare repositories ([2] contains one such
+proposal), but detecting if a repository is embedded is potentially
+non-trivial, so this work is not implemented in this series.
+
+[1]: https://lore.kernel.org/git/kl6lsfqpygsj.fsf@chooglen-macbookpro.roam.corp.google.com
+[2]: https://lore.kernel.org/git/5b969c5e-e802-c447-ad25-6acc0b784582@github.com
+
+Signed-off-by: Glen Choo <chooglen@google.com>
+Signed-off-by: Junio C Hamano <gitster@pobox.com>
 
 ---
 
