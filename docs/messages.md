@@ -1040,4 +1040,5 @@
 [26](good-messages/2022/2022-06-26.md)
 [27](good-messages/2022/2022-06-27.md)
 [28](good-messages/2022/2022-06-28.md)
+[29](good-messages/2022/2022-06-29.md)
 
