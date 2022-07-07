@@ -1051,4 +1051,5 @@
 [03](good-messages/2022/2022-07-03.md)
 [04](good-messages/2022/2022-07-04.md)
 [05](good-messages/2022/2022-07-05.md)
+[06](good-messages/2022/2022-07-06.md)
 

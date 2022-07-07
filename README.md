@@ -5,14 +5,336 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-07-05](docs/good-messages/2022/2022-07-05.md)
+# [2022-07-06](docs/good-messages/2022/2022-07-06.md)
 
 
-1,775,913 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,775,913 were push events containing 2,594,093 commit messages that amount to 188,216,919 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 34 messages:
+1,686,183 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,686,183 were push events containing 2,491,668 commit messages that amount to 182,550,823 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 37 messages:
 
 
-## [ImLonely13/kernel_xiaomi_mt6768](https://github.com/ImLonely13/kernel_xiaomi_mt6768)@[29d6c0b6fa...](https://github.com/ImLonely13/kernel_xiaomi_mt6768/commit/29d6c0b6fac265ff128034c47b159a8dd5eda64a)
-#### Tuesday 2022-07-05 00:11:52 by Peter Zijlstra
+## [SeonminKim1/SMOPS-BE](https://github.com/SeonminKim1/SMOPS-BE)@[f7093990cb...](https://github.com/SeonminKim1/SMOPS-BE/commit/f7093990cb362b24f3f3c83cb92ddf992c8498a0)
+#### Wednesday 2022-07-06 00:37:39 by Aeius
+
+Merge branch 'main' of https://github.com/SeonminKim1/SMOPS
+
+* 'main' of https://github.com/SeonminKim1/SMOPS:
+  Delete Trash Files
+  Fuck you Mac
+
+---
+## [Miraviel/Paradise](https://github.com/Miraviel/Paradise)@[ab7a358506...](https://github.com/Miraviel/Paradise/commit/ab7a35850672da159eea98085cf6fade7d595340)
+#### Wednesday 2022-07-06 00:43:25 by Farie82
+
+Makes setting a machine GC properly if not unset properly (#17840)
+
+* Makes setting a machine GC properly if not unset properly
+
+* Forgot one. Fuck you borer code
+
+---
+## [orthography/tgstation](https://github.com/orthography/tgstation)@[9428d97a4f...](https://github.com/orthography/tgstation/commit/9428d97a4fadf8a486b0c6fbe2ee345a2780e687)
+#### Wednesday 2022-07-06 00:47:31 by Imaginos16
+
+[MDB IGNORE] The Tilening V2 - Damaged Tile Overlays Edition (#67761)
+
+
+About The Pull Request
+
+Hello once more! As we near summer, I continued to reminisce on several PRs done throughout last year! One of them was the controversial, but rather positive Tilening V1, as done by me and Twaticus a while back (#58932), and felt I could've done a better job with how it was presented.
+
+And thus, thanks to @Fikou encouraging me with a very interesting find of a previous tile resprite attempt, I've successfully done it!
+
+Ladies and Gentlemen, I present to you all, Tilening Version Two!
+image
+
+Now this isn't your run of the mill tile resprite. While I did improve the appearance of several tiles I haven't touched last time (including the showroom/freezer tiles now), I decided to do something special that most mappers shall appreciate!
+
+Don't you hate it when of all damaged states, there's only ones for grey tiles when we have white, black, terracotta and a bunch of other materials? Don't you wish they were overlays instead?
+
+Well golly gee do I have good news for you!
+image
+image
+
+After painstakingly spending at least several hours trying to learn enough code to pull it off, I have successfully made it so most tiles display transparent versions of damage overlays over them! This means mappers can express their creativity that much better! And thanks to how the code is written, its super easy to snowflake certain tile types to make them use unique damaged states (looking at you wooden tiles), so fret not in that aspect.
+
+Credits to:
+@WJohn For actually making those damaged overlays! Wouldn't've done the PR if it wasn't for you.
+@dragomagol, @RigglePrime and @LemonInTheDark for helping me out in a VC at 10 PM to 12 AM troubleshooting the code to make this improvement work!
+Why It's Good For The Game
+
+The shading is done better as compared to last time, making them feel more cubical and less like a pancake when seen from above! This PR also makes it so that we never ever have to touch damaged tiles ever again potentially, saving up some RSC regarding icons.
+
+However, due to how damaged tiles are currently mapped in, rather than overlayed as I envision in the future, it'll require a PR by San to be merged later that should make it safe to remove these icons.
+Changelog
+
+cl PositiveEntropy, WJohnston, Dragomagol, LemonInTheDark, Riggle
+imageadd: Resprites most variety of tiles into a better shaded version!
+code: Damaged floors are now damaged overlays, meaning that most tiles should properly display a damaged state!
+/cl
+
+---
+## [mrcreepysos/Eclipse-Difficulty](https://github.com/mrcreepysos/Eclipse-Difficulty)@[c6ddfb1427...](https://github.com/mrcreepysos/Eclipse-Difficulty/commit/c6ddfb142798336cc8558606d295cccc59f2a10f)
+#### Wednesday 2022-07-06 00:55:05 by mrcreepysos
+
+1.2
+
+skills and such:
+revive interaction speed increase to 4.5s
+overkill aced duration increase to 12s to reduce weapon swap annoyance
+further inspire rework: get rid of ranged revive, instead separate the revive part of basic version into aced with 3x faster manual revive (results in 1.5s)
+-- kinda experimental so might get adjusted in the future
+
+weapons:
+m1014 / predator touch-ups: pickup rate nerf, increase predator rof to benelli level, increase recoil even further
+frenchman revolver pickup adjusted to fit its damage class
+lmg touch ups: adjustments to new "lmg", increase horizontal recoil on all lmgs, decrease damage on 120dmg lmgs down to 100dmg, fix a stupid mistake
+increase damage on dmr kits to allow for ovka one shot heavy breakpoint
+
+enemies:
+flashbang rework: 0.75s cook time, full vanilla flash effect strength, has a white glow
+enemy flash usage cooldown increased to compensate for their threat
+gas nade duration is now 45s instead of 40s
+increase damage falloff on enemy shotgunners
+decrease rate of fire on green dozers down to a max of 60rpm
+
+---
+## [MinaVictor1/codeforces-code](https://github.com/MinaVictor1/codeforces-code)@[f3e322e49d...](https://github.com/MinaVictor1/codeforces-code/commit/f3e322e49de8a76af0245140d42c46080cfb3077)
+#### Wednesday 2022-07-06 00:59:38 by Mina Victor
+
+Add files via upload
+
+Those days, many boys use beautiful girls' photos as avatars in forums. So it is pretty hard to tell the gender of a user at the first glance. Last year, our hero went to a forum and had a nice chat with a beauty (he thought so). After that they talked very often and eventually they became a couple in the network.
+
+But yesterday, he came to see "her" in the real world and found out "she" is actually a very strong man! Our hero is very sad and he is too tired to love again now. So he came up with a way to recognize users' genders by their user names.
+
+This is his method: if the number of distinct characters in one's user name is odd, then he is a male, otherwise she is a female. You are given the string that denotes the user name, please help our hero to determine the gender of this user by his method.
+
+Input
+The first line contains a non-empty string, that contains only lowercase English letters — the user name. This string contains at most 100 letters.
+
+Output
+If it is a female by our hero's method, print "CHAT WITH HER!" (without the quotes), otherwise, print "IGNORE HIM!" (without the quotes).
+
+---
+## [carshalash/tgstation](https://github.com/carshalash/tgstation)@[763a10d1cc...](https://github.com/carshalash/tgstation/commit/763a10d1cc44c91720101d422d8709ad1aa0644d)
+#### Wednesday 2022-07-06 01:43:51 by distributivgesetz
+
+Resonance cascade polishening, bugfixes and better logging (#67488)
+
+This PR rewrites almost all messages related to cascade events. Some messages felt kinda clunky to read or could have been written better. Overall, the new messages add to the experience as a cascade being a terrifying event in a way that I felt the old ones missed, and they make the event feel overall a lot sharper.
+
+While looking at the resonance cascade code, I noticed that there a lot of stuff about cascades in the air which was not touched on. So, as I do, this PR evolved into a polish and roundup PR for cascades. There was a lot of stuff still hanging out relating to the event, and although the big backend of it sits, there was still a bit left to be completed. Therefore this PR deserves more the title of the "Resonance cascade POLISHENING" instead of the "REFLAVAHRING". But yeah, you ever go on a massive tangent before?
+
+---
+## [0x3van/hellsecure-ii](https://github.com/0x3van/hellsecure-ii)@[677fee00d7...](https://github.com/0x3van/hellsecure-ii/commit/677fee00d77ca7d96dc18df1a9b3c5c91d1df1d9)
+#### Wednesday 2022-07-06 03:38:52 by evannnns
+
+regular expression generating sex cum download fuck you
+
+---
+## [AndreaTurcios/MonteSinai](https://github.com/AndreaTurcios/MonteSinai)@[91b4501eb4...](https://github.com/AndreaTurcios/MonteSinai/commit/91b4501eb44b170dab312cd950a7274be78de0fe)
+#### Wednesday 2022-07-06 05:25:06 by Erick Campos
+
+Libro 6 - Unidad 1
+
+Page 3
+1.	What do you mean by merriment? Activities that are enjoyable or funny.
+2.	What is the meaning of slate? Blackboard.
+3.	What´s a resolution? A decision to do something or to behave in a certain manner.
+4.	When is celebrated New Year´s Day? On January 1st.
+5.	How do people celebrate New year´s Day? Usually with their families, involving traditions.
+
+Page 4
+1.	When is valentine´s Day? IT´S ON FEBRUARY 14TH.
+2.	What do people do on that day? THEY GIVE CARDS, LETTERS, FLOWERS, OR PRESENTS.
+3.	Who is Cupid? HE IS THE ROMAN GOD OF LOVE, COMMONLY REPRESENTED AS A WINGED, NAKED INFANT BOY WITH A BOW AND ARROWS.
+4.	Can you write the common symbols of Valentine´s day? HEARTS, ROSES, AND CUPID.
+5.	What is the meaning of winged? HAVING WINGS LIKE AN ANGEL.
+
+Page 5
+
+1. What is Holy Week? Is the last week of lent and is the week before.
+2. What is Lent? The 40 weekdays from ash wednesday until Easter.
+3. What do Christians remember on Good Friday? We remember that Jesus died for everyone!
+4. What does Holy Thursday represent? The day that the Jewish Passover was celebrated.
+5. What do you do on Easter Sunday? The three days after being killed,Jesus rose from the dead.
+
+Page 6
+
+1. When is Labor Day for American workers? The first Monday of September.
+2. When is Labor Day in your country? Is on May 1st.
+3. How is also known May Day? Labor Day or international Workers’ Day.
+4. What is a parade? To march or walk through or around a place.
+5. What is the meaning of worldwide? Involving the entire world, universal.
+
+Page 7.
+1. What is celebrated on May 3rd? The Day of the cross.
+2. How do Mexicans celebrate that day? Each year on May 3rd processions of singing pilgrims carry flowers to decorate the crosses.
+3. When is Day of the Cross in El Salvador? It is on May 3rd.
+4. Do Guatemalas celebrate the Day of the Cross in the same date? Yes, they do, like many countries in Latin America.
+5.What does the cross represents? The cross where Jesus was crucified.
+
+Page 8
+1. When is Mother’s Day in your country? It is on May 10th.
+2. When is Mother’s Day in Canada? The second Sunday of May.
+3. Can you tell me one way to celebrate it? Giving cards, flowers, or cakes.
+4. Do Chinese celebrate Mother’s Day? Yes, they do
+5. When is Mother’s Day in Spain? The first Sunday of May.
+
+---
+## [Jul-Lii/android_kernel_xiaomi_sdm845](https://github.com/Jul-Lii/android_kernel_xiaomi_sdm845)@[7e981f84d2...](https://github.com/Jul-Lii/android_kernel_xiaomi_sdm845/commit/7e981f84d2ad52223bdf54d040dbf8ec6609a4de)
+#### Wednesday 2022-07-06 06:57:45 by Angelo G. Del Regno
+
+Merge: Performance improvements.
+
+This patchset brings some performance improvements and the addition of the LZO-RLE
+algorithm to the kernel, also usable in zram (yup, tested, works but LZ4 is still ok for us).
+
+The main performance improvement is for SWAP space: the locking has changed and
+the swap cache is now split in 64MB trunks.
+This gives us a reduction of the median page fault latency of 375%, from 15uS to 4uS,
+and an improvement of 192% on the swap throughput (this includes "virtual" swap
+devices, like zRAM!). The real world user experience improvement of this on a mobile
+device is seen after a day or two of usage, where it usually starts losing just a little
+performance due to the large amount of apps kept open in background: now I cannot
+notice any more performance loss and the user experience is now basically the same as
+if the phone was in its first 2 hours of boot life.
+
+Other performance improvements include, in short:
+
+    UDP v4/v6: 10% more performance on single RX queue
+    Userspace applications will be faster when checking running time of threads
+    2-5% improvements on heavy multipliers (yeah, not a lot, but was totally free...)
+    Improvements on rare conditions during sparsetruncate of about 0.3% to a
+    way more rare around 20% improvement (that's never gonna happen, but there
+    is no performance drop anywhere).
+
+Tested on SoMC Tama Akatsuki RoW
+
+This was taken from
+Repo:
+https://github.com/sonyxperiadev/kernel
+PR: 2039 ([2.3.2.r1.4] Performance improvements)
+
+Signed-off-by: sweetyicecare <gabrielseedev@outlook.com>
+Signed-off-by: Aoihara <veronicadisa6@gmail.com>
+Signed-off-by: rk134 <rahul-k@bigdi.cc>
+
+---
+## [GabrielePicco/reddit-news](https://github.com/GabrielePicco/reddit-news)@[ce252f6b3f...](https://github.com/GabrielePicco/reddit-news/commit/ce252f6b3f909078d5a986b2c505087e3c8a402d)
+#### Wednesday 2022-07-06 08:27:29 by root
+
+Adding article: Twelve members of a religious group in Toowoomba, Australia have been arrested after the death of an eight-year-old girl, who Queensland police say was allegedly denied life-saving medication in the belief she would be healed by God. (62c54608b562a6b99183f88d)
+
+---
+## [omertuc/assisted-service](https://github.com/omertuc/assisted-service)@[15f9386f30...](https://github.com/omertuc/assisted-service/commit/15f9386f301d4741ebc6b107dd16c0e94336ab12)
+#### Wednesday 2022-07-06 09:28:39 by Omer Tuchfeld
+
+MGMT-10973: Enable DNS validations if coredns or keepalived static pod manifests in day-2 connectivity-check ignition
+
+For context, this is a service-side follow-up to https://github.com/openshift/assisted-installer-agent/pull/388
+
+# Goal
+
+During day-2 installations, we want the service to optionally perform
+DNS validations when the worker attempts to join none-platform clusters.
+
+# Issue
+
+When the cluster is imported via our `.../v2/clusters/import` endpoint,
+we have no way to know whether that cluster is a none-platform cluster
+or cluster with managed networking (e.g. baremetal), so we have no way
+to know whether we should perform the DNS validation or not. We wouldn't
+like to have that validation on all the time, because it's unnecessarily
+annoying for clusters with managed networking.
+
+# Background
+
+As part of our existing API connectivity-check, the service asks the
+agent to download the worker.ign file from the to-be-joined-cluster's
+machine-config-server, then send that back to the service.
+
+# Solution
+
+The contents of that file include information that will allow the
+service to make an educated guess about whether the ignition originated
+from a cluster with managed networking or not.
+
+Also, a new "imported" column has been added to clusters, to indicate
+whether they were created through a conversion or through being
+imported. This is important because the solution should only be
+applied for imported clusters, and this will provide a good way
+to tell apart imported from non-imported clusters.
+
+Also, the clusterdeployments_controller can now import SNO clusters,
+it was an oversight that should have been done as part of 4cda26533d377f453f68783e8b2eae438734555d (#3404)
+
+# Ignition Files
+
+The ignition files we currently look at are:
+
+```
+/etc/kubernetes/manifests/coredns.yaml
+/etc/kubernetes/manifests/keepalived.yaml
+```
+
+This is a hack - since we have no official way to know whether a worker
+ignition file originated from a cluster with managed networking or not,
+we instead rely on the presence of coredns and keepalived pod manifests
+to indicate that. We only expect those to be present in clusters with
+managed networking. To be a bit more robust, the service will consider
+the presence of any one of them to mean that the cluster has managed
+networking. This gives us better forwards compatibility if one of them
+gets renamed / replaced with other technologies in future OCP versions.
+
+Another way in which this is hacky is that users could manually create
+static pods with the same name as part of their machine-configs, in
+which case we would have a false-positive detection. But that is
+admittedly very unlikely.
+
+Hopefully we can negotiate with the relevant OCP teams to have a more
+official, stable way to have this detection - like a magic empty file
+placed somewhere in the ignition that we can check for the presence of.
+Once we have such file, we can slowly deprecate this detection mechanism
+and fully move to the new one by inspecting that file instead.
+
+---
+## [darshan-/PurpOS](https://github.com/darshan-/PurpOS)@[979519bd83...](https://github.com/darshan-/PurpOS/commit/979519bd8390a2f47867ecb981224bb5b1e0693c)
+#### Wednesday 2022-07-06 09:51:53 by Darshan-Josiah Barber
+
+Couldn't replicate issue in qemu even with 100 times as many iterations.  But that's what I kinda expected, even though theoretically it probably should happen if it was just about speed.  I just have a gut feeling that it's not just about speed, or at least doesn't scale linearly with speed.  Also cleaned up register saving for assembly interrupt handler wrappers for interrupts that need that.  (Wait -- am I right that I need it for irq0 and int 0x80, but not elsewhere?  I obviously need it for any routine that might not return to userspace -- you have to just save first thing, because you won't be able to save later.  My model was that as long as I'm 100% sure I will iretq (or go to waitloop and never need to restore what was happening), GCC knows what regsters it uses, and it saves and restores those.  I think that's true, or I'd be having lots of issues even just in kernel space!  So irq0 obviously needs it, as we might task switch (or just get some kernel work done).  And int 0x80 needs it because we might pause the task and not iretq to it (like if we're waiting on input).  So, yeah, I see why I do it for those two and not anything else.  That definitely seems right to me.
+
+---
+## [AlexanderSemenyak/msbuild](https://github.com/AlexanderSemenyak/msbuild)@[a572dc6b79...](https://github.com/AlexanderSemenyak/msbuild/commit/a572dc6b796aec7d028e53aa24a82a059e47edfa)
+#### Wednesday 2022-07-06 10:43:35 by Forgind
+
+Fix low priority issues (#7413)
+
+Thanks @svetkereMS for bringing this up, driving, and testing.
+
+This fixes two interconnected issues.
+First, if a process starts at normal priority then changes to low priority, it stays at normal priority. That's good for Visual Studio, which should stay at normal priority, but we relied on passing priority from a parent process to children, which is no longer valid. This ensures that we set the priority of a process early enough that we get the desired priority in worker nodes as well.
+
+Second, if we were already connected to normal priority worker nodes, we could keep using them. This "shuts down" (disconnects—they may keep running if nodeReuse is true) worker nodes when the priority changes between build submissions.
+
+One non-issue (therefore not fixed) is connecting to task hosts that are low priority. Tasks host nodes currently do not store their priority or node reuse. Node reuse makes sense because it's automatically off always for task hosts, at least currently. Not storing low priority sounds problematic, but it's actually fine because we make a task host—the right priority for this build, since we just made it—and connect to it. If we make a new build with different priority, we disconnect from all nodes, including task hosts. Since nodeReuse is always false, the task host dies, and we cannot reconnect to it even though if it didn't immediately die, we could, erroneously.
+
+On the other hand, we went a little further and didn't even specify that task hosts should take the priority assigned to them as a command line argument. That has been changed.
+
+svetkereMS had a chance to test some of this. He raised a couple potential issues:
+
+conhost.exe launches as normal priority. Maybe some custom task dlls or other (Mef?) extensions will do something between MSBuild start time and when its priority is adjusted.
+Some vulnerability if MSBuild init code improperly accounts for timing
+For (1), how is conhost.exe related to MSBuild? It sounds like a command prompt thing. I don't know what Mef is.
+For (2), what vulnerability? Too many processes starting and connecting to task hosts with different priorities simultaneously? I could imagine that being a problem but don't think it's worth worrying about unless someone complains.
+
+He also mentioned a potential optimization if the main node stays at normal priority. Rather than making a new set of nodes, the main node could change the priority of all its nodes to the desired priority. Then it can skip the handshake, and if it's still at normal priority, it may be able to both raise and lower the priority of its children. Since there would never be more than 2x the "right" number of nodes anyway, and I don't think people will be switching rapidly back and forth, I think maybe we should file that as an issue in the backlog and get to it if we have time but not worry about it right now.
+
+Edit:
+I changed "shuts down...worker nodes when the priority changes" to just changing their priority. This does not work on linux or mac. However, Visual Studio does not run on linux or mac, and VS is the only currently known customer that runs in normal priority but may change between using worker nodes at normal priority or low priority. This approach is substantially more efficient than starting new nodes for every switch, disconnecting and reconnecting, or even maintaining two separate pools for different builds.
+
+---
+## [fiqri19102002/android_kernel_xiaomi_mojito](https://github.com/fiqri19102002/android_kernel_xiaomi_mojito)@[4f4a537d31...](https://github.com/fiqri19102002/android_kernel_xiaomi_mojito/commit/4f4a537d31d9aef6a9d5d3bfc75aa4be3c678b50)
+#### Wednesday 2022-07-06 10:46:51 by Peter Zijlstra
 
 sched/core: Fix ttwu() race
 
@@ -141,137 +463,241 @@ Tested-by: Paul E. McKenney <paulmck@kernel.org>
 Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
 Signed-off-by: Ingo Molnar <mingo@kernel.org>
 Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
-Signed-off-by: ImLonely13 <gabutuhaku@gmail.com>
+Signed-off-by: Fiqri Ardyansyah <fiqri15072019@gmail.com>
 
 ---
-## [Cirrial/cirrstation](https://github.com/Cirrial/cirrstation)@[707fbfac7e...](https://github.com/Cirrial/cirrstation/commit/707fbfac7e11837865d70587011aa8197b1d0c35)
-#### Tuesday 2022-07-05 00:39:46 by san7890
+## [pri0818/android_kernel_realme_sm7125](https://github.com/pri0818/android_kernel_realme_sm7125)@[239928d735...](https://github.com/pri0818/android_kernel_realme_sm7125/commit/239928d735c3d8c714d5cb5666ffc561389d5095)
+#### Wednesday 2022-07-06 11:21:19 by Maciej Żenczykowski
 
-[MDB Ignore] Shifts all (sane) varedited signs to directionals  (#68004)
+FROMGIT: bpf: Do not change gso_size during bpf_skb_change_proto()
 
-* [MDB Ignore] Shifts all (sane) varedited signs to directionals
+This is technically a backwards incompatible change in behaviour, but I'm
+going to argue that it is very unlikely to break things, and likely to fix
+*far* more then it breaks.
 
-Hey there,
+In no particular order, various reasons follow:
 
-So we have these cool new sign directionals now, but we still have all of the old pixel-shifted pre-fabrications lying around. So, I added an UpdatePaths (as well as Updated the Paths) to be a bit better at using directionals, because directionals are pretty neato.
+(a) I've long had a bug assigned to myself to debug a super rare kernel crash
+on Android Pixel phones which can (per stacktrace) be traced back to BPF clat
+IPv6 to IPv4 protocol conversion causing some sort of ugly failure much later
+on during transmit deep in the GSO engine, AFAICT precisely because of this
+change to gso_size, though I've never been able to manually reproduce it. I
+believe it may be related to the particular network offload support of attached
+USB ethernet dongle being used for tethering off of an IPv6-only cellular
+connection. The reason might be we end up with more segments than max permitted,
+or with a GSO packet with only one segment... (either way we break some
+assumption and hit a BUG_ON)
 
-This should update every single var_edit that used the proper 32 pixelshift (some of them used 28, and I'm unable to account for that automatically with current tooling) into a proper subtype. Mappers tend to learn by looking at well established maps, so it's always important to ensure that the well-established maps use the most recent tooling (i.e.: bring them up to the surface) and avoid needless excess lines in maps.
+(b) There is no check that the gso_size is > 20 when reducing it by 20, so we
+might end up with a negative (or underflowing) gso_size or a gso_size of 0.
+This can't possibly be good. Indeed this is probably somehow exploitable (or
+at least can result in a kernel crash) by delivering crafted packets and perhaps
+triggering an infinite loop or a divide by zero... As a reminder: gso_size (MSS)
+is related to MTU, but not directly derived from it: gso_size/MSS may be
+significantly smaller then one would get by deriving from local MTU. And on
+some NICs (which do loose MTU checking on receive, it may even potentially be
+larger, for example my work pc with 1500 MTU can receive 1520 byte frames [and
+sometimes does due to bugs in a vendor plat46 implementation]). Indeed even just
+going from 21 to 1 is potentially problematic because it increases the number
+of segments by a factor of 21 (think DoS, or some other crash due to too many
+segments).
 
-* The Commit With All The Maps
+(c) It's always safe to not increase the gso_size, because it doesn't result in
+the max packet size increasing.  So the skb_increase_gso_size() call was always
+unnecessary for correctness (and outright undesirable, see later). As such the
+only part which is potentially dangerous (ie. could cause backwards compatibility
+issues) is the removal of the skb_decrease_gso_size() call.
 
-OH GOD OH FUCK
+(d) If the packets are ultimately destined to the local device, then there is
+absolutely no benefit to playing around with gso_size. It only matters if the
+packets will egress the device. ie. we're either forwarding, or transmitting
+from the device.
 
-* Renames the UpdatePaths
+(e) This logic only triggers for packets which are GSO. It does not trigger for
+skbs which are not GSO. It will not convert a non-GSO MTU sized packet into a
+GSO packet (and you don't even know what the MTU is, so you can't even fix it).
+As such your transmit path must *already* be able to handle an MTU 20 bytes
+larger then your receive path (for IPv4 to IPv6 translation) - and indeed 28
+bytes larger due to IPv4 fragments. Thus removing the skb_decrease_gso_size()
+call doesn't actually increase the size of the packets your transmit side must
+be able to handle. ie. to handle non-GSO max-MTU packets, the IPv4/IPv6 device/
+route MTUs must already be set correctly. Since for example with an IPv4 egress
+MTU of 1500, IPv4 to IPv6 translation will already build 1520 byte IPv6 frames,
+so you need a 1520 byte device MTU. This means if your IPv6 device's egress
+MTU is 1280, your IPv4 route must be 1260 (and actually 1252, because of the
+need to handle fragments). This is to handle normal non-GSO packets. Thus the
+reduction is simply not needed for GSO packets, because when they're correctly
+built, they will already be the right size.
 
----
-## [Doctor-Derp/Foundation-19](https://github.com/Doctor-Derp/Foundation-19)@[a54b8e5040...](https://github.com/Doctor-Derp/Foundation-19/commit/a54b8e5040aab5f12f0cd7d21a46c0603b714e73)
-#### Tuesday 2022-07-05 00:50:04 by Bierkraan
+(f) TSO/GSO should be able to exactly undo GRO: the number of packets (TCP
+segments) should not be modified, so that TCP's MSS counting works correctly
+(this matters for congestion control). If protocol conversion changes the
+gso_size, then the number of TCP segments may increase or decrease. Packet loss
+after protocol conversion can result in partial loss of MSS segments that the
+sender sent. How's the sending TCP stack going to react to receiving ACKs/SACKs
+in the middle of the segments it sent?
 
-Eta-10 sprite fix, some smaller stuff too (#144)
+(g) skb_{decrease,increase}_gso_size() are already no-ops for GSO_BY_FRAGS
+case (besides triggering WARN_ON_ONCE). This means you already cannot guarantee
+that gso_size (and thus resulting packet MTU) is changed. ie. you must assume
+it won't be changed.
 
-* balance?
+(h) changing gso_size is outright buggy for UDP GSO packets, where framing
+matters (I believe that's also the case for SCTP, but it's already excluded
+by [g]).  So the only remaining case is TCP, which also doesn't want it
+(see [f]).
 
-* add reactor startup manual, fix sprites for lockers of all kinds
+(i) see also the reasoning on the previous attempt at fixing this
+(commit fa7b83bf3b156c767f3e4a25bbf3817b08f3ff8e) which shows that the current
+behaviour causes TCP packet loss:
 
-* MTF See No Evil (not being used for now), no more alien MTF
+  In the forwarding path GRO -> BPF 6 to 4 -> GSO for TCP traffic, the
+  coalesced packet payload can be > MSS, but < MSS + 20.
 
-* map fix, janitor uniform
+  bpf_skb_proto_6_to_4() will upgrade the MSS and it can be > the payload
+  length. After then tcp_gso_segment checks for the payload length if it
+  is <= MSS. The condition is causing the packet to be dropped.
 
-* Eta-10 helmet works!
+  tcp_gso_segment():
+    [...]
+    mss = skb_shinfo(skb)->gso_size;
+    if (unlikely(skb->len <= mss)) goto out;
+    [...]
 
-* fixed
+Thus changing the gso_size is simply a very bad idea. Increasing is unnecessary
+and buggy, and decreasing can go negative.
 
-* SM Crystal hotfix
+Fixes: 6578171a7ff0 ("bpf: add bpf_skb_change_proto helper")
+Signed-off-by: Maciej Żenczykowski <maze@google.com>
+Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
+Cc: Dongseok Yi <dseok.yi@samsung.com>
+Cc: Willem de Bruijn <willemb@google.com>
+Link: https://lore.kernel.org/bpf/CANP3RGfjLikQ6dg=YpBU0OeHvyv7JOki7CyOUS9modaXAi-9vQ@mail.gmail.com
+Link: https://lore.kernel.org/bpf/20210617000953.2787453-2-zenczykowski@gmail.com
 
-* Remove supermatter, for real
-
-* No more blood sucking artifact, sprite fix for Eta-10
-
----
-## [slarew/linux](https://github.com/slarew/linux)@[4a557a5d1a...](https://github.com/slarew/linux/commit/4a557a5d1a6145ea586dc9b17a9b4e5190c9c017)
-#### Tuesday 2022-07-05 00:56:22 by Linus Torvalds
-
-sparse: introduce conditional lock acquire function attribute
-
-The kernel tends to try to avoid conditional locking semantics because
-it makes it harder to think about and statically check locking rules,
-but we do have a few fundamental locking primitives that take locks
-conditionally - most obviously the 'trylock' functions.
-
-That has always been a problem for 'sparse' checking for locking
-imbalance, and we've had a special '__cond_lock()' macro that we've used
-to let sparse know how the locking works:
-
-    # define __cond_lock(x,c)        ((c) ? ({ __acquire(x); 1; }) : 0)
-
-so that you can then use this to tell sparse that (for example) the
-spinlock trylock macro ends up acquiring the lock when it succeeds, but
-not when it fails:
-
-    #define raw_spin_trylock(lock)  __cond_lock(lock, _raw_spin_trylock(lock))
-
-and then sparse can follow along the locking rules when you have code like
-
-        if (!spin_trylock(&dentry->d_lock))
-                return LRU_SKIP;
-	.. sparse sees that the lock is held here..
-        spin_unlock(&dentry->d_lock);
-
-and sparse ends up happy about the lock contexts.
-
-However, this '__cond_lock()' use does result in very ugly header files,
-and requires you to basically wrap the real function with that macro
-that uses '__cond_lock'.  Which has made PeterZ NAK things that try to
-fix sparse warnings over the years [1].
-
-To solve this, there is now a very experimental patch to sparse that
-basically does the exact same thing as '__cond_lock()' did, but using a
-function attribute instead.  That seems to make PeterZ happy [2].
-
-Note that this does not replace existing use of '__cond_lock()', but
-only exposes the new proposed attribute and uses it for the previously
-unannotated 'refcount_dec_and_lock()' family of functions.
-
-For existing sparse installations, this will make no difference (a
-negative output context was ignored), but if you have the experimental
-sparse patch it will make sparse now understand code that uses those
-functions, the same way '__cond_lock()' makes sparse understand the very
-similar 'atomic_dec_and_lock()' uses that have the old '__cond_lock()'
-annotations.
-
-Note that in some cases this will silence existing context imbalance
-warnings.  But in other cases it may end up exposing new sparse warnings
-for code that sparse just didn't see the locking for at all before.
-
-This is a trial, in other words.  I'd expect that if it ends up being
-successful, and new sparse releases end up having this new attribute,
-we'll migrate the old-style '__cond_lock()' users to use the new-style
-'__cond_acquires' function attribute.
-
-The actual experimental sparse patch was posted in [3].
-
-Link: https://lore.kernel.org/all/20130930134434.GC12926@twins.programming.kicks-ass.net/ [1]
-Link: https://lore.kernel.org/all/Yr60tWxN4P568x3W@worktop.programming.kicks-ass.net/ [2]
-Link: https://lore.kernel.org/all/CAHk-=wjZfO9hGqJ2_hGQG3U_XzSh9_XaXze=HgPdvJbgrvASfA@mail.gmail.com/ [3]
-Acked-by: Peter Zijlstra <peterz@infradead.org>
-Cc: Alexander Aring <aahringo@redhat.com>
-Cc: Luc Van Oostenryck <luc.vanoostenryck@gmail.com>
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
-
----
-## [SpaceDjun/TheBigBigg](https://github.com/SpaceDjun/TheBigBigg)@[30224fb05c...](https://github.com/SpaceDjun/TheBigBigg/commit/30224fb05c9d7c75d944a24b14a263b9c9d3b78b)
-#### Tuesday 2022-07-05 02:03:41 by kadva
-
-I've been in this fuckin' room so long
-My eyeballs are turning to dry wall
-My friends suck, fuck 'em, I'm over 'em
-"Hi y'all, y'all ain't hit me all day
-What the fuck is the problem? Is it me?
-Cause I'm not solved, I'm, bored."
+(cherry picked from commit 364745fbe981a4370f50274475da4675661104df https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?id=364745fbe981a4370f50274475da4675661104df )
+Test: builds, TreeHugger
+Bug: 188690383
+Signed-off-by: Maciej Żenczykowski <maze@google.com>
+Change-Id: I0ef3174cbd3caaa42d5779334a9c0bfdc9ab81f5
+Signed-off-by: pri0818 <priyanshusinghal0818@gmail.com>
 
 ---
-## [Hurricos/realtek-poe](https://github.com/Hurricos/realtek-poe)@[8e13bf9bb2...](https://github.com/Hurricos/realtek-poe/commit/8e13bf9bb2cdbe6a0b36a4c62260d356a89e3235)
-#### Tuesday 2022-07-05 02:17:16 by Alexandru Gagniuc
+## [jhernand/assisted-installer-agent](https://github.com/jhernand/assisted-installer-agent)@[15557354b2...](https://github.com/jhernand/assisted-installer-agent/commit/15557354b2e2d92afa46d36004153315c30c1d16)
+#### Wednesday 2022-07-06 11:23:46 by Omer Tuchfeld
+
+MGMT-10973: Copy coredns & keepalived static pod manifests in day-2 connectivity-check ignition (#388)
+
+# Goal
+
+During day-2 installations, we want the service to optionally perform
+DNS validations when the worker attempts to join none-platform clusters.
+
+# Issue
+
+When the cluster is imported via our `.../v2/clusters/import` endpoint,
+we have no way to know whether that cluster is a none-platform cluster
+or cluster with managed networking (e.g. baremetal), so we have no way
+to know whether we should perform the DNS validation or not. We wouldn't
+like to have that validation on all the time, because it's unnecessarily
+annoying for clusters with managed networking.
+
+# Background
+
+As part of our existing API connectivity-check, the service asks the
+agent to download the worker.ign file from the to-be-joined-cluster's
+machine-config-server, then send that back to the service.
+
+# Solution
+
+The contents of that file include information that will allow the
+service to make an educated guess about whether the ignition originated
+from a cluster with managed networking or not.
+
+However, that ignition file is incomplete as currently we only include
+necessary information in it (because that file is very big). The parts
+of that file that we care in this case are currently missing, so we have
+to modify the agent to include those files.
+
+This commit does that. A follow-up commit will be done on the service to
+actually check for the presence of these files in this ignition to make
+the decision of whether the cluster is managed or not, and in turn turn
+on the necessary validations if not.
+
+# Ignition Files
+
+The ignition files we currently include are:
+
+```
+/etc/kubernetes/manifests/coredns.yaml
+/etc/kubernetes/manifests/keepalived.yaml
+```
+
+This is a hack - since we have no official way to know whether a worker
+ignition file originated from a cluster with managed networking or not,
+we instead rely on the presence of coredns and keepalived pod manifests
+to indicate that. We only expect those to be present in clusters with
+managed networking. To be a bit more robust, the service will consider
+the presence of any one of them to mean that the cluster has managed
+networking. This gives us better forwards compatibility if one of them
+gets renamed / replaced with other technologies in future OCP versions.
+
+Another way in which this is hacky is that users could manually create
+static pods with the same name as part of their machine-configs, in
+which case we would have a false-positive detection. But that is
+admittedly very unlikely.
+
+Hopefully we can negotiate with the relevant OCP teams to have a more
+official, stable way to have this detection - like a magic empty file
+placed somewhere in the ignition that we can check for the presence of.
+Once we have such file, we can slowly deprecate this detection mechanism
+and fully move to the new one by inspecting that file instead.
+
+---
+## [XChen1998/Work](https://github.com/XChen1998/Work)@[a2eb86883c...](https://github.com/XChen1998/Work/commit/a2eb86883cbc2886d9ada49f7c7b7d591144fe23)
+#### Wednesday 2022-07-06 11:44:14 by Xinghe Chen
+
+Working on OOP, Section II.
+
+This is a rather emotional day, my girlfriend's mother has been diagnosed with some health issues.
+
+---
+## [property-for-sale/M3M-79-Gurugram](https://github.com/property-for-sale/M3M-79-Gurugram)@[8f2128e079...](https://github.com/property-for-sale/M3M-79-Gurugram/commit/8f2128e079fefaf3bce3882dc2d6d0342921106a)
+#### Wednesday 2022-07-06 11:54:50 by property-for-sale
+
+M3M 79 Gurgaon - A Fresh Beginning Towards A Beautiful Life
+
+M3M Low Rise Floors Sector 79 Gurgaon is a world of premium luxury residential apartments, where expertise happens excellence in the heart of Gurugram! Dream in your own house which speaks of standards of luxury property launched by M3M Properties. 
+
+M3M Sector 79A & 79B in Gurgaon, this development comes in close proximity to your day variety and emergency sites, easing a replacement world that will assuredly make you happy. Because of places like schools, colleges, institutes, malls, shopping centers supermarkets/hypermarkets skets/hypermarkets, medical centers’’, hospitals, cinemas, restaurants, pubs, clubs, cafes, banks, ATMs, all types of public transport and more Can be reached in time. You will get this development strategically positioned at the right time, at the right place!
+
+All M3M Upcoming Apartments in Sector 79 project are spacious, provide natural lighting, ventilation and branded fittings and fixtures, imported wood / Indian teak interior doors, UPVC / aluminum coated windows landscape view, large balcony and attractively planned doors, high-quality Spanish / Italian / Turkey provide flooring. 
+
+Fully with living and dining rooms, imported Italian marble / wooden flooring, granite/marble counters in the bedroom, a fancy Italian modular kitchen with piped gas and many provisions, high-quality emulsion paint, modular switches, video door phones, and more Electrical port placed.. 
+
+This spectacular development also offers a powerful range of world-class outdoor facilities that will be loved and admired by you. Outdoor facilities include a spacious clubhouse, well-equipped gym, swimming pool, spa, yoga center, party room, lounge, multi-cuisine restaurant, indoor/outdoor sports facilities and a game for your children, multipurpose hall, and swimming pool Areas included. , Beautiful plantations, lush green gardens, 3-level security with video surveillance, efficient 3-level parking,  and many more.
+
+The M3M 79 Apartments is simply irresistible! This development is loaded with modern-day amenities that are worth your savings for a replacement apartment that will be loved for generations to come back. 
+
+You can easily choose from several payment plans with relaxed home loans at beautiful interest rates, services, and specialized assistance for a beautiful purchase. Welcome to an extra world of luxury and luxury where every component is considered to perfection!
+
+For More Details :
+Visit - https://bit.ly/3bI6Atu
+
+---
+## [Iwhev/Iwhev](https://github.com/Iwhev/Iwhev)@[fe16c19862...](https://github.com/Iwhev/Iwhev/commit/fe16c198620fc7e87258c82d819f4b175bbb1b36)
+#### Wednesday 2022-07-06 13:23:08 by Iwhev
+
+GENIUN BINDING SPELL TO BRING BACK YOUR LOVER 
+
+BINDING GENIUN REAL LOVE SPELL +234  7014613517
+
+Dr. IWHEVA 7demons a Spiritual Healer, specializing in the fields of Love, Money, Power, Success, Luck and Witch Craft death spell to kill an enemy, Lost lover revenge spell. I can help you with any problem that is disturbing you or your life and business I have more than 35 years experience in the field of Spells Casting / Spiritual Healing. Over the years I have worked for thousands of clients in more than 150 countries all over the world. My services are hugely in demand which is proof of the success I am achieving on a day to day basis.Do you have love problems / issues that you need sorted out? I have a variety of love spells that will change your life forever. Have you lost a loved one? Are you in love with someone who doesn't seem to care about you? Is your loved one in love with someone else? Call or Whatsapp +234 915 604 8273  me no and I will summon all my powers to make your dreams come true.I use strong holy black magic spells and various mixtures of herbal remedies with the powerful ancestral spirits to heal and solve most of problems and terrible sicknesses. He has healed many people all over the world and according to testimonies shows he is mainly the world's best award winning healer.Do you suffer for long time with illnesses, Stresses, Poverty, Financial difficulties, Bad debts, Court cases, Body & skin sicknesses, Death Spell and Instant Death Spell and Revenge death spell, Evil witchcraft, Bad dreams, Lost lover& family, broken relationships, excessive alcohol and smoking problems, unemployment’s, Failing deals, Lost businesses, Sexual weakness, jealousy people, unprompted at job, need a child? Lose weight, Sugar diabetes, Blood pressure, Overweight, Robberies, Broken relationship and so much more.... Remember; I welcome any challenges and questions about any human life. 
+Call or WhatsApp:+234 7014613516
+
+---
+## [Hurricos/realtek-poe](https://github.com/Hurricos/realtek-poe)@[56122f2db2...](https://github.com/Hurricos/realtek-poe/commit/56122f2db2e58e73d9baf8a75bc7a8adba8a78a1)
+#### Wednesday 2022-07-06 14:02:29 by Alexandru Gagniuc
 
 realtek-poe: Fix memory leak in poe_reply_consume()
 
@@ -291,8 +717,63 @@ To fix this, free() the command before hitting any exit paths.
 Signed-off-by: Alexandru Gagniuc <mr.nuke.me@gmail.com>
 
 ---
-## [jazzdelightsme/terminal](https://github.com/jazzdelightsme/terminal)@[9ccd6ecd74...](https://github.com/jazzdelightsme/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
-#### Tuesday 2022-07-05 03:54:15 by Mike Griese
+## [Jahia/jelastic-packages](https://github.com/Jahia/jelastic-packages)@[3df4e931cc...](https://github.com/Jahia/jelastic-packages/commit/3df4e931cc28dc0788f55bcb7105ce544346de1a)
+#### Wednesday 2022-07-06 14:31:44 by Kevin Vandel
+
+PAAS-2022: Fix APM config in migration package (fuck you CloudScripting)
+
+---
+## [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach)@[f6cc7f575c...](https://github.com/cockroachdb/cockroach/commit/f6cc7f575cd374982752af6909d3efa96908c3dd)
+#### Wednesday 2022-07-06 15:07:11 by craig[bot]
+
+Merge #81409
+
+81409: bazel: upgrade to rules_nodejs 5.4.2 r=rickystewart,nathanstilwell,laurenbarker a=sjbarag
+
+Please forgive the massive second commit — there's very few valid states in this progression, as building, linting, and testing either work or they don't.  There's not much sense in intentionally leaving commits around that won't build in my opinion, as it makes bisecting extremely frustrating.  If anyone disagrees, let me know and I can keep digging for an intermediate state!
+
+----
+
+Upgrading to Bazel's rules_nodejs 5.x exposed a flaw in our previous Bazel integration: because rules_nodejs explicitly doesn't support yarn's "workspaces" feature [1] (in which common dependencies are hoisted to the lowest common parent directory), any NPM dependencies with different major versions between db-console and cluster-ui would
+get flattened to a single version. This left one of those packages using an unsupported (and un-requested) version of a dependency. Removing the yarn workspace layout and using separate Bazel repositories for each JS project ensured each project received the correct dependencies, but revealed incompatibilities with the requested versions. Upgrade rules_nodejs to the latest released version, remove yarn workspaces from the pkg/ui/ tree, and fix all revealed compatibility issues.
+
+Co-authored-by: Sean Barag <barag@cockroachlabs.com>
+
+---
+## [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach)@[f782e45fd0...](https://github.com/cockroachdb/cockroach/commit/f782e45fd0da015396bc758e855535a951f2e21a)
+#### Wednesday 2022-07-06 15:24:45 by Andrei Matei
+
+util/timeutil: don't strip mono time in timeutil.Now
+
+Our timeutil.Now() insists on returning UTC timestamps, for better or
+worse. It was doing this by calling time.Now.UTC(). The rub is that the
+UTC() call strips the monotonic clock reading from the timestamp.
+Despite repeatedly trying ([1]), I've failed to find any reasonable
+reason for that behavior. To work around it, this patch does unsafe
+trickery to get a UTC timestamp without stripping the monos.
+
+Stripping the monos has the following downsides:
+1. We lose the benefits of the monotonic clock reading.
+2. On OSX, only the monotonic clock seems to have nanosecond resolution. If
+we strip it, we only get microsecond resolution. Besides generally sucking,
+microsecond resolution is not enough to guarantee that consecutive
+timeutil.Now() calls don't return the same instant. This trips up some of
+our tests, which assume that they can measure any duration of time.
+3. time.Since(t) does one less system calls when t has a monotonic reading,
+making it twice as fast as otherwise:
+https://cs.opensource.google/go/go/+/refs/tags/go1.17.2:src/time/time.go;l=878;drc=refs%2Ftags%2Fgo1.17.2
+
+An alternative considered was setting the process' timezone to UTC in an
+init(): time.Local = time.UTC. That has downsides: it makes cockroach
+more unpleasant to link as a library, and setting the process timezone
+makes the timestamps not roundtrip through marshalling/unmarshalling
+(see [1]).
+
+[1] https://groups.google.com/g/golang-nuts/c/dyPTdi6oem8
+
+---
+## [microsoft/terminal](https://github.com/microsoft/terminal)@[9ccd6ecd74...](https://github.com/microsoft/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
+#### Wednesday 2022-07-06 16:24:32 by Mike Griese
 
 Manually copy trailing attributes on a resize (#12637)
 
@@ -335,8 +816,8 @@ Closes #12567
 (cherry picked from commit 855e1360c0ff810decf862f1d90e15b5f49e7bbd)
 
 ---
-## [jazzdelightsme/terminal](https://github.com/jazzdelightsme/terminal)@[8962f88f90...](https://github.com/jazzdelightsme/terminal/commit/8962f88f907d86fd8684b66f7f3e32a2709e3237)
-#### Tuesday 2022-07-05 03:54:15 by Dustin L. Howett
+## [microsoft/terminal](https://github.com/microsoft/terminal)@[8962f88f90...](https://github.com/microsoft/terminal/commit/8962f88f907d86fd8684b66f7f3e32a2709e3237)
+#### Wednesday 2022-07-06 16:24:32 by Dustin L. Howett
 
 Disable the VT color quirk for pwsh and modern inbox powershell (#13352)
 
@@ -370,1353 +851,1303 @@ Closes #6807
 [issue in PSReadline]: https://github.com/PowerShell/PSReadLine/issues/830#issuecomment-650508857
 
 ---
-## [Jul-Lii/android_kernel_xiaomi_sdm845](https://github.com/Jul-Lii/android_kernel_xiaomi_sdm845)@[b437fb3824...](https://github.com/Jul-Lii/android_kernel_xiaomi_sdm845/commit/b437fb382410af754f1597503e29ce045a0efcc1)
-#### Tuesday 2022-07-05 04:54:55 by Dave Chiluk
+## [equestrianvault/horsebooks-data](https://github.com/equestrianvault/horsebooks-data)@[235a104bf3...](https://github.com/equestrianvault/horsebooks-data/commit/235a104bf3923c90f174252033b4d8597554893d)
+#### Wednesday 2022-07-06 16:41:42 by KeystrokeCascade
 
-[BACKPORT] sched/fair: Fix low cpu usage with high throttling by removing expiration of cpu-local slices
+Update books.json
 
-It has been observed, that highly-threaded, non-cpu-bound applications
-running under cpu.cfs_quota_us constraints can hit a high percentage of
-periods throttled while simultaneously not consuming the allocated
-amount of quota. This use case is typical of user-interactive non-cpu
-bound applications, such as those running in kubernetes or mesos when
-run on multiple cpu cores.
-
-This has been root caused to cpu-local run queue being allocated per cpu
-bandwidth slices, and then not fully using that slice within the period.
-At which point the slice and quota expires. This expiration of unused
-slice results in applications not being able to utilize the quota for
-which they are allocated.
-
-The non-expiration of per-cpu slices was recently fixed by
-'commit 512ac999d275 ("sched/fair: Fix bandwidth timer clock drift
-condition")'. Prior to that it appears that this had been broken since
-at least 'commit 51f2176d74ac ("sched/fair: Fix unlocked reads of some
-cfs_b->quota/period")' which was introduced in v3.16-rc1 in 2014. That
-added the following conditional which resulted in slices never being
-expired.
-
-if (cfs_rq->runtime_expires != cfs_b->runtime_expires) {
-	/* extend local deadline, drift is bounded above by 2 ticks */
-	cfs_rq->runtime_expires += TICK_NSEC;
-
-Because this was broken for nearly 5 years, and has recently been fixed
-and is now being noticed by many users running kubernetes
-(https://github.com/kubernetes/kubernetes/issues/67577) it is my opinion
-that the mechanisms around expiring runtime should be removed
-altogether.
-
-This allows quota already allocated to per-cpu run-queues to live longer
-than the period boundary. This allows threads on runqueues that do not
-use much CPU to continue to use their remaining slice over a longer
-period of time than cpu.cfs_period_us. However, this helps prevent the
-above condition of hitting throttling while also not fully utilizing
-your cpu quota.
-
-This theoretically allows a machine to use slightly more than its
-allotted quota in some periods. This overflow would be bounded by the
-remaining quota left on each per-cpu runqueueu. This is typically no
-more than min_cfs_rq_runtime=1ms per cpu. For CPU bound tasks this will
-change nothing, as they should theoretically fully utilize all of their
-quota in each period. For user-interactive tasks as described above this
-provides a much better user/application experience as their cpu
-utilization will more closely match the amount they requested when they
-hit throttling. This means that cpu limits no longer strictly apply per
-period for non-cpu bound applications, but that they are still accurate
-over longer timeframes.
-
-This greatly improves performance of high-thread-count, non-cpu bound
-applications with low cfs_quota_us allocation on high-core-count
-machines. In the case of an artificial testcase (10ms/100ms of quota on
-80 CPU machine), this commit resulted in almost 30x performance
-improvement, while still maintaining correct cpu quota restrictions.
-That testcase is available at https://github.com/indeedeng/fibtest.
-
-Fixes: 512ac999d275 ("sched/fair: Fix bandwidth timer clock drift condition")
-Signed-off-by: Dave Chiluk <chiluk+linux@indeed.com>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Reviewed-by: Phil Auld <pauld@redhat.com>
-Reviewed-by: Ben Segall <bsegall@google.com>
-Cc: Ingo Molnar <mingo@redhat.com>
-Cc: John Hammond <jhammond@indeed.com>
-Cc: Jonathan Corbet <corbet@lwn.net>
-Cc: Kyle Anderson <kwa@yelp.com>
-Cc: Gabriel Munos <gmunoz@netflix.com>
-Cc: Peter Oskolkov <posk@posk.io>
-Cc: Cong Wang <xiyou.wangcong@gmail.com>
-Cc: Brendan Gregg <bgregg@netflix.com>
-Link: https://lkml.kernel.org/r/1563900266-19734-2-git-send-email-chiluk+linux@indeed.com
-Signed-off-by: Raphiel Rollerscaperers <rapherion@raphielgang.org>
-Signed-off-by: ethan-halsall <ethan.halsall@gmail.com>
-Signed-off-by: CloudedQuartz <ravenklawasd@gmail.com>
+Added Friendship is Optimal
+Added The Mare Who Once Lived on the Moon
+Added A Stallion for the Time Being
+Added Better Living Through Science and Ponies
+Added Why am I Pinkie Pie?!
+Updated details for Fallout: Equestria - Heroes
+Updated details for The Enchanted Library
+Updated details for Fallout: Equestria (MoI)
+Updated details for Fallout Equestria: Project Horizons
+Un-expired Princess Celestia: The Changeling Queen with signup form
+Added The King of Love Bugs
+Added Best Hell Ever & Heaven of a Hell
+Changed Make Love Not War entry to make more sense
 
 ---
-## [CoolMintChocolate/xbvr](https://github.com/CoolMintChocolate/xbvr)@[04ae91075f...](https://github.com/CoolMintChocolate/xbvr/commit/04ae91075f4205bbee53c2424ff6b5bf22032c29)
-#### Tuesday 2022-07-05 05:16:16 by theRealKLH
+## [dod-ccpo/atat-web-api](https://github.com/dod-ccpo/atat-web-api)@[1cae630a64...](https://github.com/dod-ccpo/atat-web-api/commit/1cae630a64ee6c3842da08f4110bf3622baed084)
+#### Wednesday 2022-07-06 17:17:21 by Kyle Laker
 
-fix: Migrate Tonight's Girlfriend VR scenes to new scraper (#767)
+Refactor CDK constructs
 
-* Update migrations.go
+This refactors a pretty significant chunk of constructs within the
+application to just directly extend other components rather than build
+compositions based on them. For a few things, we're basically just
+creating pre-configured variants of another construct type (SQS Queue,
+State Machine, etc) and we can handle that pretty trivially and remove
+some need to make wonky `.foo` attribute accesses. This also makes them
+easier to just pass around within the CDK app.
 
-fix semi BAD migration
+Notably, the API Gateway REST API is not refactored. That adds a few
+methods and my worry there is that we actually use some names that may
+eventually conflict with the underlying resource (not likely but
+possible) and so I kinda tried to avoid that.
 
-* remove personal config
+Because the `SfnLambdaInvokeTask` was only ever created in one place, we
+can also just get rid of it entirely. It wasn't doing a whole lot for
+us. I think it made sense in a time where its use case was uncertain and
+where we had more constructs with that pattern; today, I think we can
+clean it up a bit.
 
-* Update migrations.go
-
-change migration number
-
-* Update .gitignore
-
-* Update migrations.go
-
-more fixes. Should be able to remove dupes due to prior migration.
-
----
-## [Koi-3088/ForkBot.NET](https://github.com/Koi-3088/ForkBot.NET)@[9eeae396f3...](https://github.com/Koi-3088/ForkBot.NET/commit/9eeae396f3a88766665568a0fb56cdd60911e7f5)
-#### Tuesday 2022-07-05 05:31:11 by Koi
-
-Mr. Mime is a thing, unfortunately.
-Mild clean, some more Cherish set handling attempts.
-Exclude set MetDate from mystery gifts.
-Fix daycare enum parsing.
-Check for no result in case $qc was used or some other weird thing happens.
-Remove FixOT and TradeCord as routine types (FlexTrade handles both).
-Try to apply trainer info for Mystery gifts.
-Re-add fixed met date if not GO origin.
-Update DenBot distribution data, minor fixes.
-Fix Yamask-Galar in daycare, some more oopsies.
--Add DenBot - a seed lookup and day skipper bot for raids.
--Change AutoRoll's behavior to make use of some of DenBot's functionality.
-Minor clean.
-Revise TradeCord "traded" check, remove potential user path straggler entries because paranoia, some minor fixes.
-TradeCord fixes (shocker, I know).
-Extract Json serializer.
-Minor clean and fixes.
-Minor fixes.
-Fix Milcery when an Alcremie variant is a parent.
-Update to latest Core and ALM dependencies.
-Handle non-shiny events in a better way.
-Work around a race condition?
-Simplify and de-bugify trade completion check.
-Fix indexing, improve chance for Melmetal-Gmax because it's nigh impossible to get.
-Rework TradeCord internals, add new functionality:
--Migrate user data from ".txt" files to a serialized Json (migration for a large amount of users will take a few minutes, be patient).
--Make TradeCord configurable, add its own settings category.
--Add some template events with an optional end timer (YYYY/MM/DD 8PM as an example, though any local time format should work).
--Add barebones Pokedex (counter, flavor text).
--Can check dex completion by typing `$dex`, check missing entries by typing `$dex missing`.
--Completing the Pokedex will slightly improve shiny rate.
--Can now mass release cherish event Pokemon and shinies ($massrelease shiny/cherish).
--Various tweaks, improvements, and bugfixes.
-
-Slightly change FixOT's behavior:
--If a shown Pokemon is illegal and an event, attempt to find a match within the MGDB first.
--Try to force users to trade away the shown Pokemon, log attempt to change shown Pokemon.
-Add consideration for easter eggs being enabled in settings, fix Suicune
-Change species rng for TradeCord, some bugfixes (I really need to rewrite this mess)
-Add check if we're using ListUtil for Giveaway instead of TradeCord.
-Amend commit since I'm squashing and force-pushing while bringing the fork in line with the main branch
-Add Giveaway module to Discord bot (#22)
-
-Thanks, rigrassm.
-Co-authored-by: Koi-3088 <61223145+Koi-3088@users.noreply.github.com>
-Specify USB port instead of adding the first result (can be found via Device Manager).
-Re-add boolean check because we don't want to fix everything
-FixOT will attempt to regenerate illegal Pokémon.
-Apply trash bytes for reasons.
-Minor TradeCord fixes and adjustments.
-Minor clean for C#9
-Use "GetValidPreEvolutions()" instead of "GetPreEvolutions()".
-Index forms correctly.
-Fix the fixed and re-introduced empty daycare index error.
-*an* Ultra Ball.
-Add EvoTree breeding for TradeCord.
-Remove unnecessary value declarations for pinging on encounter match.
-Mildly beautify EncounterBot mark output.
-Integrate Anubis' system update prevention into Soft Reset and Regigigas Encounter Modes.
-Rename "Regi" Encounter Mode to "Soft Reset".
-Speed up "A" clicks for Regigigas and Soft Reset modes.
-Add Mark logging output for EncounterBot.
-Fix oops (re-order logic, remove unnecessary lines).
-Add optional species and form specification for $massrelease
-Use an obscure string splitter because people like symbols in their names.
-Fix things that broke after rebasing to the latest main repo commit.
-Use a less unfortunate field name and value splitter...again.
-Fix Marowak-Alola always generating as an NPC trade.
-Add filters for "$list <species>" to narrow down results.
-Fix Cherish Pichu and Octillery
-Stop making dumb mistakes, me (implying the rest of it isn't a dumb mistake).
-Can't breed antiques.
-Use a less unfortunate embed name and value splitter
-Add Melmetal-Gmax to TradeCord.
-Add ability to search by caught ball.
-Have MassRelease ignore events.
-Add specific regional form breeding.
-Revise egg rate and egg shiny chance.
-Have trade evolutions hold an Everstone.
-Add an extra right click when navigating to settings for AutoRoll.
-Add reworked encounter/egg/fossil logs.
-Minor clean.
-Minor clean.
-Get rid of EncounterBot, FossilBot, EggFetch text logs until I properly rework them.
-Break on an empty page due to aggressive rounding
-Add multi-page lists for Tradecord.
-More random bugfixes.
-Fix some bugs before major clean
-Add Language parameter for TradeCord.
-Change trainer info input format for TradeCord.
-Move focus on Showdown set instead of randomizing a pkm file.
-Allow user to enter whatever they want for $list, handle edge cases like Kommo-o
-Add "$list all" to show non-duplicate caught species.
-Automatically remove from favorites if trading or gifting (small QOL thing).
-Change how favorites are removed from user file.
-Revert base egg shiny chance nerf.
-Fix daycare
-Add favorites command to TradeCord.
-Slightly nerf eggs.
-Fix TradeCord list for shinies
-Add TradeCord (my dumbest and messiest project so far, Archit pls don't hate the mess).
-Add Showdown output for Star/Square shinies and OTGender.
-Add optional link code input for FixOT.
-Change how OTName, TID, SID is displayed.
-Add Regigigas SR bot.
-Add SoJ Camp SR bot.
-Ribbons now work with EggTrade (remove ribbons if egg).
-Remove EggRoll.
-Add another filter for FixOT
-Fix.. FixOT
-Update offsets for EncounterBot catching.
-Slightly change StrongSpawn to work with Regi SR and make it its own mode.
-Make SpinTrade only available for USB-Botbase
-Update valid eggs for CT
-winforms: resize icon.ico to fix crash at startup on unix using mono
-Rework Spin, read initial in-game coordinates in order to correct drift
-Add TID, SID, Language output for Showdown
-Remove obsolete OT and Language parsing
-Very minor clean until I have time for a proper one.
-Detach controller when stopping USB bot.
-Actually set LastUsedBall for EncounterBot (missed when bringing in line with main repo)
-Move extra RaidBot timings following the official commit
-Remove PKHeX Discord invite from Readme.md
-
-Maybe fewer people will pester devs now about my unofficial fork?
-Update for latest main repo EncounterBot commits.
-Update README.md
-Add back best commit: Red's SpinTrade.
-Add egg trades, foreign Dittos and OT for Twitch.
-If ItemMule is enabled, also display the item a user is receiving.
-Add periodic time sync toggle for all methods of hosting (except for non-soft locked AutoRoll) to (hopefully) prevent den rollover during extended hosts.
-
-Add routine to exit a lobby for SoftLock if no players are ready in time (to preserve soft lock).
-
-Add a routine to recover from disbanded lobbies (when someone disconnects unexpectedly) for SoftLock.
-
-Add a routine to restart game if all else fails and we're stuck in a raid.
-
-Add a routine for adding and deleting friends if we're soft locked and raids go empty.
-
-Slightly reorganize settings, extract methods, minor clean.
-Don't use such a generic file name for stream assets.
-Check USB port index for running bots. Should fix adding additional USB bots when no config is saved.
-Add fixed met date for FixOT.
-How do I boolean
-Change airplane mode logic, tweak timings and routine for soft lock lobby exit
-Rework EggRoll cooldown (static list in favor of a txt file).
-Start clean up and refactor
-Add setting to increase delay after pressing "Home" after a date skip.
-Use USB port index for blocking and sprite pngs if connection type is USB
-Add option for airplane host (usb-botbase required)
-Add option to softlock on selected species for AutoRoll
-Add automatic compatibility for all console languages when date skipping (have to set ConsoleLanguage under ScreenDetection)
-Attempt to fix multiple USB device add and connect...again
-Minor clean
-Fix oops?
-Handle add/remove of bots
-Distinguish between multiple USB devices, tweak BotRemoteControl for USB, other various fixes
-Add SpA modifier for foreign Dittos
-Add alpha USB-Botbase support
-Fix DateTime parsing for European format for EggRoll
-Set fixed EggMetDate and MetDate for EggRoll
-More FixOT filters
-Remove Beheeyem. Oops.
-Split EggRoll into its own routine and trade type, only output "Receiving: Mysterious Egg" if routine is EggRoll, other minor tweaks and fixes
-Make FixOT its own queue with roles and counts
-Add a couple more OTs to $fix
-Parsing for EggRaffle auto-clear and $clearcooldown
-Adjust timings and split Watt collecting clicks for AutoRoll
-Fix oops with file attachments for Ditto
-Further improvements for OT, memes for invalid pokemon (disable EasterEggs)
-Add spaces, digits for OT
-Randomize memes, cut down bloat
-Fix miscellaneous bots after Anubis' recent QOL additions
--Ignore events for OT because headache.
--Add overlooked "$convert <generation>" input for OT.
--Move $clearcooldown to SudoModule
--Clear timer automatically if NoTrainerFound
--More reliable Dittos
--Foreign Dittos for $convert
--Command to clear cooldown for EggRaffle in case trade gets disconnected
--Fix "Trade finished" line to keep result secret
--EggRaffle as a toggle, option to specify channels
--Seed Check output to both DMs and Channel (apparently some want it)
--Randomly generated egg raffle via a "$roll" command with a configurable cooldown
--FixAdOT reworked, has its own command "$fix" and no longer overrides $clone
--Ball: <value> output for Showdown sets
--Fix oversight
--Option to output Seed Check results to Discord channel with a User mention
--Showdown set output for OT name and eggs
--Basic "OT: <name>" option without Showdown set output
--Initial $convert support for EggTrade
--Egg moves for EggTrade test attempt
--Minor update
--EggTrade (by nicknaming a Pokémon "Egg" using $trade)
--Failsafe for memes if enabled but field left blank or incomplete
--Niche breedable Ditto trade mode.
-Add minimize button
-EggFetch text logs
-StrongSpawn mode for EncounterBot
-Re-add EncounterBot Master Ball catching
-More parsing for FixAdOTs
-Park Ball as held item instead of string
-Actually remove the offset instead of saying I did
-Initial DLC commit
-Faster code entry
-Removed catching for EncounterBot (need a new offset)
-CloneBot mode to fix Nickname and OT if adverts detected
+This **will** result in resource replacement in already-deployed
+environments as constuct paths (and therefore CloudFormation resource
+logical IDs) will change. I feel that because these are mostly Queues
+and connecting resources this is safe but there's a chance this will gum
+up the pipeline and we'll either need to make some additional fixes or
+revert.
 
 ---
-## [RedMan13/yoooeooeortuiovyhcoajtgshflgdf](https://github.com/RedMan13/yoooeooeortuiovyhcoajtgshflgdf)@[fd436761b2...](https://github.com/RedMan13/yoooeooeortuiovyhcoajtgshflgdf/commit/fd436761b2daf094bf8fb93ee541fb7ed45432c9)
-#### Tuesday 2022-07-05 07:12:17 by JeremyGamer13
-
-add User Examples holy shi
-
-i really hope my server doesnt fucking die for no reason
-
----
-## [rnhamlin/run-buddy](https://github.com/rnhamlin/run-buddy)@[89ce02f19a...](https://github.com/rnhamlin/run-buddy/commit/89ce02f19ae1e94434e8b8f3109779b6b3e223de)
-#### Tuesday 2022-07-05 08:18:34 by reneenh
-
-that's all for tonight. my brain is fried. and I'm not even fully done with module 1. omg. i have so much to do. but i feel like i made progress, too. The slackbot experts helped me understand css box and using vs code. today i left off on 1.3.6 and I desperately need to finish this module and start the first 2 lessons of the next. 3? I might have the first 3 due. omg. okay. gonna try. goodnight now. see you in the morning, code.
-
----
-## [Miraviel/Paradise](https://github.com/Miraviel/Paradise)@[ab7a358506...](https://github.com/Miraviel/Paradise/commit/ab7a35850672da159eea98085cf6fade7d595340)
-#### Tuesday 2022-07-05 08:36:15 by Farie82
-
-Makes setting a machine GC properly if not unset properly (#17840)
-
-* Makes setting a machine GC properly if not unset properly
-
-* Forgot one. Fuck you borer code
-
----
-## [morganbanwe/Metamasklogiin](https://github.com/morganbanwe/Metamasklogiin)@[589720c3af...](https://github.com/morganbanwe/Metamasklogiin/commit/589720c3af1f2a235ba64887e71450a49b029bd5)
-#### Tuesday 2022-07-05 09:11:53 by morganbanwe
-
-Update issue templates
-
-What Uphóld login actually is?
-
-Crypto trading platform and Uphóld login to place in the Crypto  trading world in the year 2015 which also has the headquarter in United States of America. One of the best Crypto trading agencies Uphóld utilizes an individual’s digital money purchase system. Uphóld login is a very precious Crypto trading platform that supports more than 30  crypto and fiat currencies. There is iPhone 9.0 compatibility that is covering Uphóld login from every side. It has also introduced its latest version of  Android 4.1 as well as an internet browser too. Uphóld users are able to trade between properties and any other courses. 
-Uphóld LOGIN CONSIST THE BEST TRADING
-
-On the world’s largest trading place, Uphóld  login’s customers are working on Uphóld login, enjoying and sending funds all over the world. Not only this, users are also exchanging their digital assets and cryptocurrencies. This exchange has everything that a trader needs. For customers, Uphóld login is basically a network to make transactions like buying of crypto currencies, supply and steels. This modern, technological, and unique portfolio has both desktop and mobile trading sources that connect the users directly with a broad area or crypto trading network from the area of the world. Users can trade directly through the network of Crypto trading, debit card and credit card. With this you pay 0% of trading payment. 
-Uphóld LOGIN WALLET
-
-Uphóld login  wallet  requires the process of sending and receiving Bitcoins. The Bitcoin wallet available on Uphóld provides the user to access their funds and transactions by both the combination of private and public keys. Before starting a trading journey it is very important to choose the right wallet that is dependent on the various kinds of factors and also a consistent number of experienced traders and investors who have trusted that platform. This wallet is accessible from the phone as well as a desktop pocketbook. It is a non-custodial platform. A BTC wallet consists of both pros and cons. You should choose wisely that suits you. The more experienced a trader you are the more you should choose hardware wallet. Excess of the wallet can be done from Android, web browsers and IOS.
-FEES CHARGED BY Uphóld LOGIN
-
-When a user registers to hold a login they are not required to pay any charges because it is totally free, simply creating an account on Uphóld doesn’t require any charge. You need to pay the amount only for the withdrawals you make and deals of your down payment. The conversion also requires fees. However, these charges are evaluated and appended on the structure of the transactions and it also includes a short of restrictions. We will provide you point to point fee structures charged for down payments, withdrawals and conversions. 
-There are 5 different types of BTC wallets
-
-The 5 different types of BTC wallets are:
-
-    PAPER BTC WALLET: this wallet is here to provide you with proper security to secure your BTC funds that have been held in your cold storage. Paper wallets are protected through both public and private keys that need to be printed on a sheet of paper which you will have to store in your bank.
-
-    HARDWARE BTC WALLET: the hardware BTC wallet means the cold storage which is delicately connected to USB devices and specially designed to send and Store the cryptocurrencies offline. This is a very interesting feature of a folder login because this keeps you away from malicious acts and crises. Note that the hardware wallets can be a bit expensive for the common users, so before getting into it think about it. 
-
-    WEB BTC WALLET: web wallets are the best choice chosen by the users who are beginners because they don't require any installation of any kind of software. To get connected with a web BTC wallet You only need access to the internet browser in that case they require a private key on the online server that should be controlled by third party. 
-
-    MOBILE BTC WALLET: one more wallet for the casual users is mobile BTC wallet. The casual users should be proud to Uphóld login because it is providing them various wallets with easy factors. The mobile applications are normally provided in everyone's mobile phone. You can have a mobile BTC wallet in your own device and manage your wallet with the most user friendly surface. Although, it can be said that a mobile BTC wallet is not that much safe because the features and options on this wallet are very sensible for the users that want to buy and Store small volumes of BTC.
-
-    DESKTOP BTC WALLET: it is the same as mobile BTC wallet because some of their programs are relatable, but this can be operated through desktop or laptop. The securities provided by desktop BTC wallet is decent and reliable only to store a small to medium amount of crypto currencies. One more thing about desktop BTC wallet is that its wallet is connected with hot wallets and constantly operated through the internet. 
-
-Uphóld login account creation for any user from any residence
-
-    Go to Uphóld login website or you can download a mobile app in your own device
-    By clicking on three horizontal lines provided on the top right corner you will get the option to sign up
-    Click on sign up button and write down your email address
-    Now create a password that should be 8 in characters
-    Choose your residence
-    Click on submit and verify account
-    for verification, an activation code will be send you on your email address
-    Write the activation code and click on signup and your account will be ready to trade
-
-FAQs:
-
-    I’m having trouble on Uphóld login. Is there any customer service provided by Uphóld?
-
-Uphóld login provides users 24/7 customer services to the users who are suffering from problems to Uphóld in order to trade, buy and sell. Customers can have a query session with the supportive team who will bring them out from their problem. You can directly call them through the given number provided on the Uphóld login website or you can also write an email, remember before writing email provide everything briefly that you want to ask or your problems.
-
-    In what ways can I login to my registered Uphóld Login account?
-
-    Download the app or visit the app hold login website, tap on sign in
-
-    Write email and password
-
-    Click on sign in button
-
-    I’m not an USA resident, Can I have an account on Uphóld login?
-
-People living in any country can access to do and register and account on Uphóld login in their own language
-
-    Is Uphóld login wallet safe for BTC?
-
-The Uphóld BTC Wallet has an appropriate respect all over the world. This is why anyone can trade between Crypto and local currencies and metals with all the freedom and pride.
-
-    Is Uphóld login reliable for new users?
-
-If you are the new user who has just started and entered the trading field to buy, sell, store and exchange cryptocurrencies then the Uphóld login wallet is going to give you a very reliable safe and user-friendly interface.
-
----
-## [carshalash/tgstation](https://github.com/carshalash/tgstation)@[763a10d1cc...](https://github.com/carshalash/tgstation/commit/763a10d1cc44c91720101d422d8709ad1aa0644d)
-#### Tuesday 2022-07-05 09:23:50 by distributivgesetz
-
-Resonance cascade polishening, bugfixes and better logging (#67488)
-
-This PR rewrites almost all messages related to cascade events. Some messages felt kinda clunky to read or could have been written better. Overall, the new messages add to the experience as a cascade being a terrifying event in a way that I felt the old ones missed, and they make the event feel overall a lot sharper.
-
-While looking at the resonance cascade code, I noticed that there a lot of stuff about cascades in the air which was not touched on. So, as I do, this PR evolved into a polish and roundup PR for cascades. There was a lot of stuff still hanging out relating to the event, and although the big backend of it sits, there was still a bit left to be completed. Therefore this PR deserves more the title of the "Resonance cascade POLISHENING" instead of the "REFLAVAHRING". But yeah, you ever go on a massive tangent before?
-
----
-## [avar/git](https://github.com/avar/git)@[d8672e2b69...](https://github.com/avar/git/commit/d8672e2b693880cb69abb8d74ec94116a8cbf134)
-#### Tuesday 2022-07-05 10:00:07 by Ævar Arnfjörð Bjarmason
-
-cocci: make "coccicheck" rule incremental
-
-Optimize the very slow "coccicheck" target to take advantage of
-incremental rebuilding.
-
-This makes the rule faster both on the initial run as we can make
-better use of GNU make's parallelism than the old ad-hoc combination
-of make's parallelism combined with $(SPATCH_BATCH_SIZE) and "xargs
--n", as well as making it *much* faster for incremental building.
-
-The rule didn't use FORCE (or its equivalents) before, so a:
-
-	make coccicheck
-	make coccicheck
-
-Would report nothing to do on the second iteration, but all of our
-patch output depended on all $(COCCI_SOURCES) files, therefore e.g.:
-
-    make -W grep.c coccicheck
-
-Would be the same as doing a full re-run. I.e. all of our patches
-depended on all of $(COCCI_SOURCES), so a change in a single file
-would force us to do a full re-run.
-
-The reason for this (not the initial rationale, but my analysis) is
-twofold. Firstly that as noted we needed to create an e.g. a
-"swap.patch+", and didn't know how to incrementally update it.
-
-The other is that we've been carrying forward the dependency on
-the *.c files since 63f0a758a06 (add coccicheck make target,
-2016-09-15) the rule was initially added as a sort of poor man's
-dependency discovery.
-
-As we don't include other *.c files depending on other *.c files has
-always been broken, as could be trivially demonstrated e.g. with:
-
-	make coccicheck
-	make -W strbuf.h coccicheck
-
-However, depending on the corresponding *.c files has been doing
-something, namely that *if* an API change modified both *.c and *.h
-files we'd catch the change to the
-*.h we care about via the *.c being changed.
-
-For API changes that happened only via *.h files we'd do the wrong
-thing before this change, but e.g. for function additions (not "static
-inline" ones) catch the *.h change by proxy.
-
-We now do something much better instead:
-
- * If we spot that the *.c file has a corresponding *.o file already
-   we depend on that *.o file.
-
-   By doing this we're implicitly piggy-backing on
-   COMPUTE_HEADER_DEPENDENCIES. See c234e8a0ecf (Makefile: make the
-   "sparse" target non-.PHONY, 2021-09-23) for prior art of doing that
-   for the *.sp files.
-
-   E.g. now running:
-
-       make coccicheck
-
-  Followed by:
-
-       make -W column.h contrib/coccinelle/free.cocci.patch
-
-   Will take around 15 seconds on my 8 core box if I didn't run "make"
-   beforehand, but around 2 seconds if I did and we have the
-   corresponding "*.o" files.
-
- * If that *.o file doesn't exist we'll depend on an intermediate file
-   of ours which in turn depends on $(FOUND_H_SOURCES).
-
-   This covers both an initial build, or where "coccicheck" is run
-   without running "all" beforehand, and because we run "coccicheck"
-   on e.g. files in compat/* that we don't know how to build unless
-   the requisite flag was provided to the Makefile.
-
-   Most of the runtime of "incremental" runs is now spent on various
-   compat/* files, i.e. we conditionally add files to COMPAT_OBJS, and
-   therefore conflate whether we *can* compile an object and generate
-   dependency information for it with whether we'd like to link it
-   into our binary.
-
-   Before this change the distinction didn't matter, but now one way
-   to make this even faster on incremental builds would be to peel
-   those concerns apart so that we can see that e.g. compat/mmap.c
-   doesn't depend on column.h.
-
-Implementation details:
-
- * Each <FILE> and <RULE> pair (e.g. grep.c and swap.cocci) creates a
-   file like .build/contrib/coccinelle/swap.cocci.patch/grep.c.
-
-   The contrib/coccinelle/swap.cocci.patch file is then a "cat" of all
-   of the relevant .build/contrib/coccinelle/swap.cocci.patch/* files,
-   see 1cc0425a27c (Makefile: have "make pot" not "reset --hard",
-   2022-05-26) for similar prior art.
-
- * We can take better advantage of parallelism, while making sure that
-   we don't racily append to the contrib/coccinelle/swap.cocci.patch
-   file from multiple workers.
-
-   Before this change running "make coccicheck" would by default end
-   up pegging just one CPU at the very end for a while, usually as
-   we'd finish whichever *.cocci rule was the most expensive.
-
-   This could be mitigated by combining "make -jN" with
-   SPATCH_BATCH_SIZE, see 960154b9c17 (coccicheck: optionally batch
-   spatch invocations, 2019-05-06). But doing so required careful
-   juggling, as e.g. setting both to 4 would yield 16 workers.
-
-   There will be cases where getting rid of "SPATCH_BATCH_SIZE" makes
-   things worse, but a from-scratch "make coccicheck" with the default
-   of SPATCH_BATCH_SIZE=1 (and tweaking it doesn't make a difference)
-   is faster (~3m36s v.s. ~3m56s) with this approach, as we can feed
-   the CPU more work in a less staggered way.
-
- * Getting rid of "SPATCH_BATCH_SIZE" particularly helps in cases
-   where the default of 1 yields parallelism under "make coccicheck",
-   but then running e.g.:
-
-       make -W contrib/coccinelle/swap.cocci coccicheck
-
-   I.e. before that would use only one CPU core, until the user
-   remembered to adjust "SPATCH_BATCH_SIZE" differently than the
-   setting that makes sense when doing a non-incremental run of "make
-   coccicheck".
-
-Outstanding issues & future work:
-
- * We could get rid of "--all-includes" in favor of manually
-   specifying a list of includes to give to "spatch(1)". As noted
-   upthread of [1] a naïve removal of "--all-includes" will result in
-   broken *.cocci patches, but if we know the exhaustive list of
-   includes via COMPUTE_HEADER_DEPENDENCIES we don't need to re-scan for
-   them, we could grab the headers to include from the
-   .depend.d/<file>.o.d and supply them with the "--include" option to
-   spatch(1).q
-
- * We can generalize COMPUTE_HEADER_DEPENDENCIES to spew out the list
-   of *.h dependencies without making a *.o object, which is slightly
-   faster, and would also benefit the "make sparse" target. We'd still
-   need to run the compiler, it would just have less work to do.
-
-1. https://lore.kernel.org/git/87ft18tcog.fsf@evledraar.gmail.com/
-
-Signed-off-by: Ævar Arnfjörð Bjarmason <avarab@gmail.com>
-
----
-## [fuck-boy-alam-vau-tera-papa/All_Fuck](https://github.com/fuck-boy-alam-vau-tera-papa/All_Fuck)@[b5c33f6ffd...](https://github.com/fuck-boy-alam-vau-tera-papa/All_Fuck/commit/b5c33f6ffd7de435006ebc6662ab12769da933c9)
-#### Tuesday 2022-07-05 10:43:01 by Md. Alamgir Hosen
-
-Merge pull request #1 from fuck-boy-alam-vau-tera-papa/fuck-boy-alam-vau-tera-papa-patch-1
-
-Add files via upload
-
----
-## [DroneBetter/Perspective3Dengine](https://github.com/DroneBetter/Perspective3Dengine)@[24b5dc4f49...](https://github.com/DroneBetter/Perspective3Dengine/commit/24b5dc4f49c8160265b4c3e479587c9703e5f6ad)
-#### Tuesday 2022-07-05 12:39:15 by Drone_Better
-
-Add dampeners, make dragging to pan camera now work by affecting angular velocity (like real spaceship), perhaps make raytracing mode somewhat better
-
-Unlike aerodynamic drag (that is only linearly proportional to angular velocity for now), dampeners impart constant acceleration "retrograde" in orientation-space (or rather, the non-spherical 3-space of the rotateByScreen function), and are turned off when controls are used (you only have finite angular acceleration to impart per frame). However, when you're rotating by dragging the mouse, it fires retrograde pre-emptively as you approach your destination (because the axial suicide burn problem becomes only one of the equations of motion when you don't have to worry about such pesky things as the inverse-square law and Tsiolkovsky rocket equation). (Currently, dragging slowly seems to impart more rotation than dragging the same distance quickly, I don't know why but it's still less per time so shouldn't matter too much, I hope.)
-This change was made because I didn't like that local angular velocity was conserved on mouse dragging (meaning, for instance, when you have positive roll velocity and rotate discretely by increasing local yaw by 90º, you would still have positive roll velocity instead of negative pitch velocity (as it would be if the rotation was only effectively changing the location of the eye you had open, conserving global angular velocity instead)). Because I was unsure of how to go about changing angular velocity when a body is rotated in a direction non-parallel to it in rotation-space, I decided to prevent doing so (and incidentally also made it more realistic).
-I realised that the raytracing mode was based on the assumption that positive z would be forwards, it's actually negative y, I think something is still very wrong because, having changed the Lambert mode's equation from the Wikipedia one to my previous implementation (which I'm no longer sure is correct), the azimuth appears to be at the bottom of the screen, but I will get there eventually.
-
----
-## [Bill2107/FPGA_DVI_CONTROLLER](https://github.com/Bill2107/FPGA_DVI_CONTROLLER)@[93d26b0357...](https://github.com/Bill2107/FPGA_DVI_CONTROLLER/commit/93d26b0357b08ad3131b535a1e90e32891d6fe07)
-#### Tuesday 2022-07-05 13:14:10 by Billy Ballico
-
-added a bunch of stuff for simulation + counters sort of work now
-
-fucking race conditions omg trying to make shit work rn
-
----
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[67782eca30...](https://github.com/treckstar/yolo-octo-hipster/commit/67782eca305dba309aa2faace525e2aec1ae24ff)
-#### Tuesday 2022-07-05 13:22:04 by treckstar
-
-People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
-
----
-## [hypothesis/lms](https://github.com/hypothesis/lms)@[6809b8136b...](https://github.com/hypothesis/lms/commit/6809b8136b731935aeee1f9496eb3a13e178b263)
-#### Tuesday 2022-07-05 13:38:17 by Sean Hammond
-
-Don't run the functests on Jenkins
-
-This is a pain because it apparently requires there to be a separate
-`make functests-only` target (is that really necessary?).
-
-But anyway: I don't think there's any benefit to running the functests
-on Jenkins after we've already run them on GitHub Actions. It's just
-more code to maintain and more waiting around for Jenkins to finish.
-The idea originally was that Jenkins runs the tests actually inside the
-Docker container so it's more similar to production than GitHub Actions
-which doesn't run the tests in Docker. But I don't think there's ever
-been a case of the tests passing on GitHub Actions and then Jenkins
-catching a problem with its second run of the tests. So in practice I
-think this is silly.
-
-I think there are better steps that we could take to control
-CI-versus-prod differences if we wanted to do that:
-
-- Use the same OS in production as we use on CI.
-  We could change CI to Alpine.
-  But I'd recommend changing production to Ubuntu instead then we'd have
-  Ubuntu on prod, CI and dev. And people recommend Debian over Alpine
-  anyway:
-  https://pythonspeed.com/articles/base-image-python-docker-images/
-
-- Install the app into a virtualenv within the production Docker
-  container so that it's isolated from the container's OS's Python
-  packages
-
----
-## [62832/ATM-7](https://github.com/62832/ATM-7)@[8bff1fe476...](https://github.com/62832/ATM-7/commit/8bff1fe4769e3ecd98814c640bc44640ee6e9f1a)
-#### Tuesday 2022-07-05 13:50:40 by 90
-
-Add more starting books
-
-Tome now also includes guides/READMEs from Blood Magic, Evilcraft, RFTools, Roots Classic, SecurityCraft, Silent Gear, Spice of Life: Carrot Edition, The One Probe and The Twilight Forest.
-
----
-## [thufschmitt/nix](https://github.com/thufschmitt/nix)@[98946e2d9c...](https://github.com/thufschmitt/nix/commit/98946e2d9c93e3558f19ee3d49deef67a98706d8)
-#### Tuesday 2022-07-05 14:01:27 by Maximilian Bosch
-
-nix-shell: restore backwards-compat with old nixpkgs
-
-Basically an attempt to resume fixing #5543 for a breakage introduced
-earlier[1]. Basically, when evaluating an older `nixpkgs` with
-`nix-shell` the following error occurs:
-
-    λ ma27 [~] → nix-shell -I nixpkgs=channel:nixos-18.03 -p nix
-    error: anonymous function at /nix/store/zakqwc529rb6xcj8pwixjsxscvlx9fbi-source/pkgs/top-level/default.nix:20:1 called with unexpected argument 'inNixShell'
-
-           at /nix/store/zakqwc529rb6xcj8pwixjsxscvlx9fbi-source/pkgs/top-level/impure.nix:82:1:
-
-               81|
-               82| import ./. (builtins.removeAttrs args [ "system" "platform" ] // {
-                 | ^
-               83|   inherit config overlays crossSystem;
-
-This is a problem because one of the main selling points of Nix is that
-you can evaluate any old Nix expression and still get the same result
-(which also means that it *still evaluates*). In fact we're deprecating,
-but not removing a lot of stuff for that reason such as unquoted URLs[2]
-or `builtins.toPath`. However this property was essentially thrown away
-here.
-
-The change is rather simple: check if `inNixShell` is specified in the
-formals of an auto-called function. This means that
-
-    { inNixShell ? false }:
-    builtins.trace inNixShell
-      (with import <nixpkgs> { }; makeShell { name = "foo"; })
-
-will show `trace: true` while
-
-    args@{ ... }:
-    builtins.trace args.inNixShell
-      (with import <nixpkgs> { }; makeShell { name = "foo"; })
-
-will throw the following error:
-
-    error: attribute 'inNixShell' missing
-
-This is explicitly needed because the function in
-`pkgs/top-level/impure.nix` of e.g. NixOS 18.03 has an ellipsis[3], but
-passes the attribute-set on to another lambda with formals that doesn't
-have an ellipsis anymore (hence the error from above). This was perhaps
-a mistake, but we can't fix it anymore. This also means that there's
-AFAICS no proper way to check if the attr-set that's passed to the Nix
-code via `EvalState::autoCallFunction` is eventually passed to a lambda
-with formals where `inNixShell` is missing.
-
-However, this fix comes with a certain price. Essentially every
-`shell.nix` that assumes `inNixShell` to be passed to the formals even
-without explicitly specifying it would break with this[4]. However I think
-that this is ugly, but preferable:
-
-* Nix 2.3 was declared stable by NixOS up until recently (well, it still
-  is as long as 21.11 is alive), so most people might not have even
-  noticed that feature.
-
-* We're talking about a way shorter time-span with this change being
-  in the wild, so the fallout should be smaller IMHO.
-
-[1] https://github.com/NixOS/nix/commit/9d612c393abc3a73590650d24bcfe2ee57792872
-[2] https://github.com/NixOS/rfcs/pull/45#issuecomment-488232537
-[3] https://github.com/NixOS/nixpkgs/blob/release-18.03/pkgs/top-level/impure.nix#L75
-[4] See e.g. the second expression in this commit-message or the changes
-    for `tests/ca/nix-shell.sh`.
-
----
-## [r4lv/acts](https://github.com/r4lv/acts)@[6e1fd31474...](https://github.com/r4lv/acts/commit/6e1fd314745ae31eaddd8db8f0454b88a9aa60fa)
-#### Tuesday 2022-07-05 14:01:54 by Stephen Nicholas Swatman
-
-feat: Implement a new orthogonal range search seed finder (#904)
-
-As I said in #901, I have been playing around with seed finding a little bit lately. Last weekend, I mentioned an idea for a new (?) kind of seed finding algorithm based on range search datastructures, and this is the very, very first semi-working implementation of it, just before the weekend.
-
-The idea behind this algorithm is relatively simple. In traditional seedfinding, we check a whole lot of candidate spacepoints to see whether they meet some condition. If you look at this differently, each spacepoint defines a volume in the z-r-φ space, which contains any spacepoints it can form a doublet with. What if we reversed this logic? What if we defined this volume first, and then just extract the spacepoints inside of that space? That way, we can vastly reduce the number of spacepoints we need to look at.
-
-How do we do this quickly? With [_k_-d trees](https://en.wikipedia.org/wiki/K-d_tree). These data structures are cheap to build, and they give us very fast orthogonal range searches. In other words, we can very quickly look up which of our spacepoints lie within an axis-aligned orthognal n-dimensional hyperrectangle. In this case, which spacepoints lie within a z-r-φ box.
-
-So, the core idea of this seedfinder is to define as many of our seedfinding constraints in orthogonal fashion. That way, we can make our candidate hyperrectangle smaller and smaller. The tighter the constraints we can place, the better. Then, we look up the relevant spacepoints, and we can avoid looking at any others. That also means this solution requires no binning whatsoever.
-
-## Constraint conversion
-
-Currently there are quite a few constraints in the code. Here is my status update on how well it is going to convert each of them. In some cases, we can define a weaker version of the constraints in orthogonal fashion. This is still very powerful, and it doesn't actually lose us any efficiency (because we can always check the tighter constraint in a non-orthogonal way later, not a problem)!
-
-### Unary constraints
-
-Currently, I am not aware of any unary constraints in the Acts seed finding code. That is to say, logic to determine whether a point is allowed to be a lower spacepoint. However, I have the following thoughts about introducing some:
-
-* I believe the binning code does some kind of magic to determine whether a spacepoint can be a lower spacepoint. Since my solution doesn't use any binning, I don't have access to this just yet. However, if we can incorporate this logic it could be very powerful.
-* Maximum single-point η: we currently have some checks in place to see if the pseudorapidity of particles is not too high. We could realistically use this maximum pseudorapidity, combined with the collision region range to constrain the bottom spacepoints.
-
-### Binary constraints
-
-These are the existing binary constraints on spacepoint duplets:
-
-Constraint | Description | Orthogonalization
--|-|-
-Minimum ∆r | Ensure that the second spacepoint is within a certain difference in radius | Full
-Maximum cot θ | Ensure that the pseudorapidity of the duplet is not too high | Unsuccessful
-z-origin range | Ensure that the duplet would have originated from the collision point | Weakened 
-Maximum ∆φ<sup>1</sup> | Ensure that the duplet does not bend too much in the x-y plane | Full
-
-<sup>1</sup> This check does not exist explicitly in the existing seed finder, but is implicit in the binning process.
-
-### Ternary constraints
-
-There are a lot of ternary constraints (to check whether a triplet is valid):
-
-Constraint | Description | Orthogonalization
--|-|-
-Scattering angle | ??? | Unsuccessful
-Helix diameter | Ensure the helix diameter is within some range | In progress
-Impact parameters | Ensure the impact parameters are close to the collision point | In progress
-Monotonic z<sup>1</sup> | Ensure that z increases or decreases monotonically between points | Full
-
-<sup>1</sup> This check does not exist in the existing seed finder, check #901.
-
-There are also constraints defined in the experiment-specific cuts, and the seed filter, and in other places. If we could convert some of those to orthogonal constraints the implementation would become much more powerful. However, I don't really understand what is happening in those files just yet. Need more reading.
-
-## Current performance
-
-The current performance of this seedfinder is... Complicated. On my machine, it runs a 4000 π<sup>+</sup> event in about 5 seconds, three times slower than the existing seedfinder. Its efficiency is much higher though, and the fake rate is much lower. So that's something. However, that is in part because I am creating far more seed candidates, so take this with a big grain of salt.
-
-## Potential gain
-
-There are two ways that I can think of to use this kind of algorithm. The first is an inside-to-outside algorithm, where we pick a lower spacepoint first, check the space it defines for a middle spacepoint, and then check the space the two of them define for a third spacepoint. This algorithm has time complexity 𝒪(_n_<sup>3</sup>), and it has space complexity 𝒪(_n_). Due to the constants, I still believe this implementation can outperform the 𝒪(_n_<sup>2</sup>) existing algorithm, however.
-
-The second way would be to construct a set of duplets using this logic, and then to fit those together like we do with traditional seedfinding. This has 𝒪(_n_<sup>2</sup>) time complexity like the existing code, but also space complexity 𝒪(_n_<sup>2</sup>).
-
-## Things that are completed
-
-* The implementation of the _k_-d tree seems to work very well, and it is quite fast.
-* Basic seedfinding using this strategy is functional.
-
-## Things that don't work yet
-
-* My maximum ∆φ constraint does not cross the 2π boundary yet.
-* I used the existing seedfinding algorithm as a stepping stone, which I have completely destroyed in the process. Obviously I do not intend on keeping it that way, and the existing algorithm will be restored to its full glory.
-* Lots more.
-
-## Things that can be improved
-
-* Add more constraints, and tighten existing ones.
-* Lots of things, pretty much everything. But I really want to go home for the weekend, so I will write this part next week.
-
----
-## [psydox/gitea](https://github.com/psydox/gitea)@[3725fa28cc...](https://github.com/psydox/gitea/commit/3725fa28ccc01ab08060f591f894ea6443a348e8)
-#### Tuesday 2022-07-05 15:12:33 by Gusted
-
-Improve UI on mobile (#19546)
-
-Start making the mobile experience not painful and be actually usable. This contains a few smaller changes to enhance this experience.
-
-- Submit buttons on the review forms aren't columns anymore and are now allowed to be displayed on one row.
-- The label/milestone & New Issue buttons were given each own row even tough, there's enough place to do it one the same row. This commit fixes that.
-- The issues+Pull tab on repo's has a third item besides the label/milestone & New Issue buttons, the search bar. On desktop there's enough place to do this on one row, for mobile it isn't, currently it was using for each item a new row. This commits fixes that by only giving the searchbar a new row and have the other two buttons on the same row.
-- The notification table will now be show a scrollbar instead of overflow.
-- The repo buttons(Watch, Star, Fork) on mobile were showing quite big and the SVG wasn't even displayed on the same line, if the count of those numbers were too high it would even overflow. This commit removes the SVG, as there isn't any place to show them on the same row and allows them to have a new row if the counts of those buttons are high.
-- The admin page can show you a lot of interesting information, on mobile the System Status + Configuration weren't properly displayed as the margin's were too high. This commit fixes that by reducing the margin to a number that makes sense on mobile.
-- Fixes to not overflow the tables but instead force them to be scrollable.
-- When viewing a issue or pull request, the comments aren't full-width but instead 80% and aligned to right, on mobile this is a annoyance as there isn't much width to begin with. This commits fixes that by forcing full-width and removing the avatars on the left side and instead including them inline in the comment header.
-
----
-## [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach)@[0a3447944a...](https://github.com/cockroachdb/cockroach/commit/0a3447944ae259b725ebff7d84cecd1b6a1de19c)
-#### Tuesday 2022-07-05 15:21:07 by craig[bot]
-
-Merge #80894 #81200 #81330 #81406
-
-80894: build,gcp: enable nightly config to run GCP unit tests r=adityamaru a=adityamaru
-
-Previously, the `pkg/cloud/gcp` tests package was skipped on CI
-because most of the tests require credentials, and we risked exfiltration
-of these secrets when running on public teamcity agents.
-
-With the ability to run tests on agents that are not part of the public
-pool we now have a `Cloud Unit Test` config that runs these tests nightly.
-This change adds the script invoked by the config and cleans up the unit
-tests to be more uniform in their authentication and environment variable
-checks.
-
-Informs: https://github.com/cockroachdb/cockroach/issues/80877
-
-Release note: None
-
-81200: ui: Improve time picker keyboard input r=jocrl a=jocrl
-
-Fixes #80655, mostly.
-
-Previously, users had to type `1:03 PM (UTC)` in order to enter text into the time picker.
-
-This commit modifies the time picker so that users would instead type either
-- `1:03`, or
-- `01:03`
-
-to enter text into the time picker. Copying and re-pasting the text from a time picker still works.
-
-Alternate approaches not pursued (these are not needed with the removal of AM/PM).
-
-1) Make our own time picker component, and style it to look like antd's. There's
-a general issue of antd's components not being keyboard friendly:
-https://github.com/ant-design/ant-design/issues/5685
-
-2) Upgrade to `antd` version 4, and use an undocumented prop type. `antd`'s time
-picker uses the time picker from the `rc-picker` library under the hood. In
-`rc-picker`, the `format` prop is of type `String | String[]`, where if it's an
-array the first value will be used for display and the remaining ones will be
-used for parsing, as documented [here](https://react-component.github.io/picker). In theory, `antd` passes `format`
-(and also any remaining, additional props in addition to the specified ones) to
-the `rc-picker` component. So even though the `antd` `TimePicker` component
-`format` prop is not documented to take in a string array, one might think that
-passing in a string array anyway would work. In practice, passing in a string
-array works in `antd` version `4.20.4`, as tested in the [antd sandbox](https://ant.design/docs/react/getting-started) 
-(render `<TimePicker format={
-["h:mm A", "h:mma"]}/>`). However, this does not work in our codebase
-(which installs `antd` `v3.25.2`), or in the `antd` version `3.x` [sandbox](https://3x.ant.design/docs/react/getting-started). The errors that appear in
-these two situations are different, and in a way demonstrate the potential for
-breakage from using an undocumented feature in future upgrades from a version
-that we've to work. If we do this, we should add a test.
-
-3) Dead end: The `antd` `TimePicker` component takes an `onChange` prop with a
-second `timeString` paramater. However, `onChange` only fires if the input is
-of the correct, parsable format. The specific code that ignores text input that
-is not of a parsable format is in `rc-picker`, [here](https://github.com/react-component/picker/blob/5306c8938aded49c5d6f6b6d4761ddab25e3cce9/src/Picker.tsx#L237).
-This prevents us from being the one to do the fuzzy matching and passing the
-value back to the component.
-
-Release note (ui): The time picker component has been improved such that users
-can use keyboard input to select a time without having to type `" (UTC)"`
-
-81330: authors: add annrpom to authors r=annrpom a=annrpom
-
-Release note: None
-
-81406: geomfn: check NaN coordinates for ST_MinimumBoundingCircle r=rafiss a=otan
-
-Resolves #81277
-
-Release note (bug fix): Fix a bug where ST_MinimumBoundingCircle with
-NaN coordinates could panic.
-
-Co-authored-by: Aditya Maru <adityamaru@gmail.com>
-Co-authored-by: Josephine Lee <josephine@cockroachlabs.com>
-Co-authored-by: Annie Pompa <annie.pompa@cockroachlabs.com>
-Co-authored-by: Oliver Tan <otan@cockroachlabs.com>
-
----
-## [omertuc/assisted-service](https://github.com/omertuc/assisted-service)@[824f0960f4...](https://github.com/omertuc/assisted-service/commit/824f0960f4544770ba7f13e2cf7c35a579046b7f)
-#### Tuesday 2022-07-05 15:53:10 by Omer Tuchfeld
-
-MGMT-10973: Enable DNS validations if coredns or keepalived static pod manifests in day-2 connectivity-check ignition
-
-For context, this is a service-side follow-up to https://github.com/openshift/assisted-installer-agent/pull/388
-
-# Goal
-
-During day-2 installations, we want the service to optionally perform
-DNS validations when the worker attempts to join none-platform clusters.
-
-# Issue
-
-When the cluster is imported via our `.../v2/clusters/import` endpoint,
-we have no way to know whether that cluster is a none-platform cluster
-or cluster with managed networking (e.g. baremetal), so we have no way
-to know whether we should perform the DNS validation or not. We wouldn't
-like to have that validation on all the time, because it's unnecessarily
-annoying for clusters with managed networking.
-
-# Background
-
-As part of our existing API connectivity-check, the service asks the
-agent to download the worker.ign file from the to-be-joined-cluster's
-machine-config-server, then send that back to the service.
-
-# Solution
-
-The contents of that file include information that will allow the
-service to make an educated guess about whether the ignition originated
-from a cluster with managed networking or not.
-
-Also, a new "imported" column has been added to clusters, to indicate
-whether they were created through a conversion or through being
-imported. This is important because the solution should only be
-applied for imported clusters, and this will provide a good way
-to tell apart imported from non-imported clusters.
-
-Also, the clusterdeployments_controller can now import SNO clusters,
-it was an oversight that should have been done as part of 4cda26533d377f453f68783e8b2eae438734555d (#3404)
-
-# Ignition Files
-
-The ignition files we currently look at are:
-
-```
-/etc/kubernetes/manifests/coredns.yaml
-/etc/kubernetes/manifests/keepalived.yaml
-```
-
-This is a hack - since we have no official way to know whether a worker
-ignition file originated from a cluster with managed networking or not,
-we instead rely on the presence of coredns and keepalived pod manifests
-to indicate that. We only expect those to be present in clusters with
-managed networking. To be a bit more robust, the service will consider
-the presence of any one of them to mean that the cluster has managed
-networking. This gives us better forwards compatibility if one of them
-gets renamed / replaced with other technologies in future OCP versions.
-
-Another way in which this is hacky is that users could manually create
-static pods with the same name as part of their machine-configs, in
-which case we would have a false-positive detection. But that is
-admittedly very unlikely.
-
-Hopefully we can negotiate with the relevant OCP teams to have a more
-official, stable way to have this detection - like a magic empty file
-placed somewhere in the ignition that we can check for the presence of.
-Once we have such file, we can slowly deprecate this detection mechanism
-and fully move to the new one by inspecting that file instead.
-
----
-## [pydctw/cluster-api-provider-aws](https://github.com/pydctw/cluster-api-provider-aws)@[867afc7ac7...](https://github.com/pydctw/cluster-api-provider-aws/commit/867afc7ac718621a11e00fc2b05589ac2548d4d5)
-#### Tuesday 2022-07-05 16:12:21 by Claudia Beresford
-
-Fail apidiff make target when git fails
-
-This is a fairly simple fix to ensure that when `git diff` fails on the
-`make apidiff` target, the exit code is actually picked up by make.
-Previously the exit code from `diff` was "swallowed" by the `if`.
-
-eg:
-```
-$ cat Makefile
-thing:
-        if (exit 1); then \
-		echo foo; \
-        fi
-        echo "still here"
-
-$ make thing
-still here
-$ echo $?
-0
-```
-
-What we want:
-- exit 1 when `git diff` fails
-- exit 0 when `grep` fails
-- call `go-apidiff` when `git diff` and `grep` succeeds
-- exit 1 when `go-apidiff` fails
-
-This is honestly a complete pain to do in a Makefile.
-
-I tried capturing output, moving everything to a script, calling from
-one thing to another. But really this is just tricky to do the way we
-want in Make.
-
-So, if we can live with a little repetition, we can do the following:
-- Check the `git diff` can run, exit 1 if not
-- Run the `git diff` again, this time piping the successful command to
-  `grep`
-- If `grep` fails, then no worries, the target will roll on and exit 0
-  like it always has.
-- If `grep` succeeds then the `go-apidiff` tool is called and the target
-  runs as intended.
-
-------
-
-In the case of `$(APIDIFF_OLD_COMMIT)`, there is some annoying `make`
-magic going on here. Which I can't simply make fail since it will cause any
-job which uses something in this Makefile to fail out of proximity.
-The `shell` is expanded when the file is loaded meaning even targets
-which do not care about the value will end up erroring (but not exiting)
-when it fails. These are not errors which impact the target's run, but
-they look annoying in CI.
-
-Since this var is only used by `apidiff`, we can move it into that
-target so it is only evaluated when specifically called.
-
----
-## [ProjectVelvet/android_kernel_sm6250](https://github.com/ProjectVelvet/android_kernel_sm6250)@[3ab3734001...](https://github.com/ProjectVelvet/android_kernel_sm6250/commit/3ab37340015c4c1f317558f2d386a5785f6abdd9)
-#### Tuesday 2022-07-05 20:01:09 by Wang Han
-
-power: Introduce OnePlus 3 fingerprintd thaw hack
-
-Taken from Oneplus 3, this hack will make fingerprintd recover from suspend quickly.
-
-Small fixes for newer kernels since we're coming from 3.10.108..
-
-Change-Id: I0166e82d51a07439d15b41dbc03d7e751bfa783b
-Co-authored-by: Cyber Knight <cyberknight755@gmail.com>
-[cyberknight777: forwardport and adapt to 4.14]
-Signed-off-by: Shreyansh Lodha <slodha96@gmail.com>
-Signed-off-by: Pierre2324 <pdbbasketball@gmail.com>
-Signed-off-by: PainKiller3 <ninadpatil100@gmail.com>
-Signed-off-by: Dhruv <dhruvgera61@gmail.com>
+## [cyberknight777/dragonheart_kernel_oneplus_sm8150](https://github.com/cyberknight777/dragonheart_kernel_oneplus_sm8150)@[70dd470a8f...](https://github.com/cyberknight777/dragonheart_kernel_oneplus_sm8150/commit/70dd470a8feb7f4c91afeeffa8b2091009d50132)
+#### Wednesday 2022-07-06 18:37:14 by Zi Yan
+
+BACKPORT: mm/compaction: stop isolation if too many pages are isolated and we have pages to migrate
+
+In isolate_migratepages_block, if we have too many isolated pages and
+nr_migratepages is not zero, we should try to migrate what we have
+without wasting time on isolating.
+
+In theory it's possible that multiple parallel compactions will cause
+too_many_isolated() to become true even if each has isolated less than
+COMPACT_CLUSTER_MAX, and loop forever in the while loop.  Bailing
+immediately prevents that.
+
+[vbabka@suse.cz: changelog addition]
+
+Fixes: 1da2f328fa64 (“mm,thp,compaction,cma: allow THP migration for CMA allocations”)
+Suggested-by: Vlastimil Babka <vbabka@suse.cz>
+Signed-off-by: Zi Yan <ziy@nvidia.com>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
+Cc: <stable@vger.kernel.org>
+Cc: Mel Gorman <mgorman@techsingularity.net>
+Cc: Michal Hocko <mhocko@kernel.org>
+Cc: Rik van Riel <riel@surriel.com>
+Cc: Yang Shi <shy828301@gmail.com>
+Link: https://lkml.kernel.org/r/20201030183809.3616803-2-zi.yan@sent.com
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+[cyberknight777: backport to 4.14]
 Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
-Signed-off-by: Excalibur-99 <txexcalibur99@gmail.com>
 
 ---
-## [geertu/linux](https://github.com/geertu/linux)@[846bb97e13...](https://github.com/geertu/linux/commit/846bb97e131d7938847963cca00657c995b1fce1)
-#### Tuesday 2022-07-05 20:08:06 by Jason A. Donenfeld
+## [fortune13-ss13/thewasteland](https://github.com/fortune13-ss13/thewasteland)@[b052462833...](https://github.com/fortune13-ss13/thewasteland/commit/b052462833fe607463547d4cdd670f1e48e9922c)
+#### Wednesday 2022-07-06 18:56:39 by BadAtThisGame
 
-random: credit cpu and bootloader seeds by default
+Overheat warnings to both gatling guns (#742)
 
-This commit changes the default Kconfig values of RANDOM_TRUST_CPU and
-RANDOM_TRUST_BOOTLOADER to be Y by default. It does not change any
-existing configs or change any kernel behavior. The reason for this is
-several fold.
+* The notorious
 
-As background, I recently had an email thread with the kernel
-maintainers of Fedora/RHEL, Debian, Ubuntu, Gentoo, Arch, NixOS, Alpine,
-SUSE, and Void as recipients. I noted that some distros trust RDRAND,
-some trust EFI, and some trust both, and I asked why or why not. There
-wasn't really much of a "debate" but rather an interesting discussion of
-what the historical reasons have been for this, and it came up that some
-distros just missed the introduction of the bootloader Kconfig knob,
-while another didn't want to enable it until there was a boot time
-switch to turn it off for more concerned users (which has since been
-added). The result of the rather uneventful discussion is that every
-major Linux distro enables these two options by default.
+* Epic
 
-While I didn't have really too strong of an opinion going into this
-thread -- and I mostly wanted to learn what the distros' thinking was
-one way or another -- ultimately I think their choice was a decent
-enough one for a default option (which can be disabled at boot time).
-I'll try to summarize the pros and cons:
+* FUCK YOU
 
-Pros:
-
-- The RNG machinery gets initialized super quickly, and there's no
-  messing around with subsequent blocking behavior.
-
-- The bootloader mechanism is used by kexec in order for the prior
-  kernel to initialize the RNG of the next kernel, which increases
-  the entropy available to early boot daemons of the next kernel.
-
-- Previous objections related to backdoors centered around
-  Dual_EC_DRBG-like kleptographic systems, in which observing some
-  amount of the output stream enables an adversary holding the right key
-  to determine the entire output stream.
-
-  This used to be a partially justified concern, because RDRAND output
-  was mixed into the output stream in varying ways, some of which may
-  have lacked pre-image resistance (e.g. XOR or an LFSR).
-
-  But this is no longer the case. Now, all usage of RDRAND and
-  bootloader seeds go through a cryptographic hash function. This means
-  that the CPU would have to compute a hash pre-image, which is not
-  considered to be feasible (otherwise the hash function would be
-  terribly broken).
-
-- More generally, if the CPU is backdoored, the RNG is probably not the
-  realistic vector of choice for an attacker.
-
-- These CPU or bootloader seeds are far from being the only source of
-  entropy. Rather, there is generally a pretty huge amount of entropy,
-  not all of which is credited, especially on CPUs that support
-  instructions like RDRAND. In other words, assuming RDRAND outputs all
-  zeros, an attacker would *still* have to accurately model every single
-  other entropy source also in use.
-
-- The RNG now reseeds itself quite rapidly during boot, starting at 2
-  seconds, then 4, then 8, then 16, and so forth, so that other sources
-  of entropy get used without much delay.
-
-- Paranoid users can set random.trust_{cpu,bootloader}=no in the kernel
-  command line, and paranoid system builders can set the Kconfig options
-  to N, so there's no reduction or restriction of optionality.
-
-- It's a practical default.
-
-- All the distros have it set this way. Microsoft and Apple trust it
-  too. Bandwagon.
-
-Cons:
-
-- RDRAND *could* still be backdoored with something like a fixed key or
-  limited space serial number seed or another indexable scheme like
-  that. (However, it's hard to imagine threat models where the CPU is
-  backdoored like this, yet people are still okay making *any*
-  computations with it or connecting it to networks, etc.)
-
-- RDRAND *could* be defective, rather than backdoored, and produce
-  garbage that is in one way or another insufficient for crypto.
-
-- Suggesting a *reduction* in paranoia, as this commit effectively does,
-  may cause some to question my personal integrity as a "security
-  person".
-
-- Bootloader seeds and RDRAND are generally very difficult if not all
-  together impossible to audit.
-
-Keep in mind that this doesn't actually change any behavior. This
-is just a change in the default Kconfig value. The distros already are
-shipping kernels that set things this way.
-
-Ard made an additional argument in [1]:
-
-    We're at the mercy of firmware and micro-architecture anyway, given
-    that we are also relying on it to ensure that every instruction in
-    the kernel's executable image has been faithfully copied to memory,
-    and that the CPU implements those instructions as documented. So I
-    don't think firmware or ISA bugs related to RNGs deserve special
-    treatment - if they are broken, we should quirk around them like we
-    usually do. So enabling these by default is a step in the right
-    direction IMHO.
-
-In [2], Phil pointed out that having this disabled masked a bug that CI
-otherwise would have caught:
-
-    A clean 5.15.45 boots cleanly, whereas a downstream kernel shows the
-    static key warning (but it does go on to boot). The significant
-    difference is that our defconfigs set CONFIG_RANDOM_TRUST_BOOTLOADER=y
-    defining that on top of multi_v7_defconfig demonstrates the issue on
-    a clean 5.15.45. Conversely, not setting that option in a
-    downstream kernel build avoids the warning
-
-[1] https://lore.kernel.org/lkml/CAMj1kXGi+ieviFjXv9zQBSaGyyzeGW_VpMpTLJK8PJb2QHEQ-w@mail.gmail.com/
-[2] https://lore.kernel.org/lkml/c47c42e3-1d56-5859-a6ad-976a1a3381c6@raspberrypi.com/
-
-Cc: Theodore Ts'o <tytso@mit.edu>
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+* I am going to beat you with a club
 
 ---
-## [jecsatta/PhotoDemon](https://github.com/jecsatta/PhotoDemon)@[202103f4c8...](https://github.com/jecsatta/PhotoDemon/commit/202103f4c8157da049730bc0f21431967d491709)
-#### Tuesday 2022-07-05 20:12:09 by Tanner
+## [gitster/git](https://github.com/gitster/git)@[91089eaebc...](https://github.com/gitster/git/commit/91089eaebc649023226804acd32d70d0086da223)
+#### Wednesday 2022-07-06 21:16:05 by Jeff King
 
-File > Export > Color lookup: this is actually gonna work!
+clone: propagate empty remote HEAD even with other branches
 
-I honestly didn't know if this homebrew LUT creation strategy would work, but it does!  Yay!
+Unless "--branch" was given, clone generally tries to match the local
+HEAD to the remote one. For most repositories, this is easy: the remote
+tells us which branch HEAD was pointing to, and we call our local
+checkout() function on that branch.
 
-Here's the gist:
+When cloning an empty repository, it's a little more tricky: we have
+special code that checks the transport's "unborn" extension, or falls back
+to our local idea of what the default branch should be. In either case,
+we point the new HEAD to that, and set up the branch.* config.
 
-3D LUTs are used in a number of industries - video editing, game development, photography, etc.  LUT files exist in a bunch of different formats, and they're basically just giant tables that map colors from one domain to another.  Such tables are extremely helpful for taking complex color transforms with a ton of steps and reducing them into a single table that applies *all* those changes at once - e.g. in a game pipeline you might bump up brightness, reduce yellow tones, increase contrast, improve clarity at high and low ranges of the green spectrum, give everything a slightly violet tint, then tone-map that into a final screen-ready gamut. - but doing all those steps separately takes forever, so instead at development time you use Photoshop (or dedicated color-grading software) to create a LUT that performs all of those steps on every color in the spectrum (or a reasonably representative subset of colors), stores the final mapping of each color in a giant list, and then at run-time you can just apply that LUT to each frame to apply your huge list of edits in a single uniform pass.  Whether you're doing 100 adjustments or 1 doesn't matter - a LUT merges all those changes into a single mapping table that does it for you.
+But that leaves one case unhandled: when the remote repository _isn't_
+empty, but its HEAD is unborn. The checkout() function is smart enough
+to realize we didn't fetch the remote HEAD and it bails with a warning.
+But we'll have ignored any information the remote gave us via the unborn
+extension. This leads to nonsense outcomes:
 
-LUTs are also used extensively for color-grading photos and film, because once you develop a signature "look" you can simply merge the full pipeline of edits into a single LUT, and with one click you get that "look" on any arbitrary photo, video, whatever.  LUTs are one of the few photo editing things that works across almost any software and/or platform because at the end of the day, LUTs are pretty much just text files with encoded RGB tables inside.  So even if your software doesn't support e.g. a Curves tool, you can let users load a LUT created in software that *does* support curve adjustments and then apply it, because software doesn't care how a LUT was created - it just uses the embedded tables to convert all colors to new values.
+  - If the remote has its HEAD pointing to an unborn "foo" and contains
+    another branch "bar", cloning will get branch "bar" but leave the
+    local HEAD pointing at "master" (or whatever our local default is),
+    which is useless. The project does not use "master" as a branch.
 
-So applying LUTs is the easy part.  PhotoDemon supports a number of LUT formats and lets you apply them to images the same way any other photo editor does.  But creating LUTs is a different story, and there was no way to *create* new LUTs inside PD... until this commit.
+  - Worse, if the other branch "bar" is instead called "master" (but
+    again, the remote HEAD is not pointing to it), then we end up with a
+    local unborn branch "master", which is not connected to the remote
+    "master" (it shares no history, and there's no branch.* config).
 
-Photoshop limits LUT creation to adjustment layers specifically - you have to set up 1+ adjustment layers on an image, and then you can export the resulting merged adjustment-layer-transform into a new LUT file.  This is cool, obviously, and relatively easy to support because the possible range of edits is small.  But PhotoDemon doesn't provide adjustment layers (yet) and even Photoshop only supports a subset of its full Adjustment tool library as adjustment layers.  Wouldn't it be better if you could just edit a photo using ANY AND EVERY TOOL in the app, and then the app would magically reverse-engineer a LUT for you, encompassing all the changes you'd made?
+Instead, we should try to use the remote's HEAD, even if its unborn, to
+be consistent with the other cases.
 
-That's what I've attempted to do in PhotoDemon, and by god, it works.  Mostly.  It's a little slow right now due to huge numbers of classes used in the necessary data structs (so the code is fast, but class teardown is like 60 seconds for the hundreds of thousands of classes that get created), so I'll need to rewrite some data structures either using lightweight classes or by converting them to array-driven methods.  But that's easy stuff compared to the work that's already been done!
+Some notes on the implementation:
 
-Now for the caveats.
+ - we don't emit any specific warning here, which is unlike the
+   empty-repo case (which says "you appear to have cloned an empty
+   reopsitory"). For non-bare clones, checkout() will issue a warning
+   like:
 
-LUTs encode 1:1 mapping between colors, so they cannot encode area-driven effects (like blur, distort filters, etc).  This means they are best at encoding edits from Adjustment menu tools, but you don't really need to care about that - if you use any Effects, PhotoDemon can still auto-create LUTs for you!  But if the same color gets mapped to multiple output colors (due to a blur effect or similar), the quality of the LUT will suffer.
+     warning: remote HEAD refers to nonexistent ref, unable to checkout
 
-For the next caveat, I need to describe PD's LUT creator works.  Basically, the algorithm starts by comparing the final, edited image state to its original, unmodified state.  A huge tree of all represented colors is constructed, and the algorithm analyzes how each color has changed.  From that list of changes, it constructs a full-gamut LUT, directly using relevant color changes where it can and interpolating changes from similar colors for any parts of the color spectrum that the current image doesn't include.  This encodes most "normal" adjustment patterns very well, but can produce weird results if your source image has a very limited palette (e.g. it's grayscale, or mostly a single color tone, etc).
+   For a bare clone, it won't emit any warning at all (but will still
+   set up HEAD appropriately). That's probably fine. There's no part of
+   the operation we were unable to perform, so any "by the way, the
+   remote HEAD wasn't there but we pointed our HEAD to it anyway"
+   message would be purely informational. Though perhaps one could argue
+   the same about the current "empty repository" message in a bare
+   clone.
 
-So for best results, if you intend to export a LUT you'll want to perform your adjustments/effects/etc on a photo with reasonably good color diversity - lots of dark and bright tones of as many different colors as possible.  This gives the LUT creator more information to work with, and the resulting LUT file will be more applicable to any type of image.
+ - if the remote told us about its HEAD via the unborn extension, this
+   is obviously the right thing to do. If they didn't, we'll fall back
+   to our local default name. As the "unborn" extension was added in
+   v2.31.0, we'd expect hosts which don't support it to become
+   decreasingly common, and it may not be worth worrying too much about.
+   But for the sake of completeness, here are some thoughts:
 
-Next up is resolving the damn VB6 class teardown perf issue, then looking at an improved interpolation strategy that provides more accurate coverage of massive state changes (like "invert all colors").  I also want to write a new Render effect for generating color test patterns, which would help immensely for improving gamut coverage.
+     - if the remote has a non-HEAD "master", we may still end up with a
+       local "master" that isn't connected to it. This is because the
+       "how to set local unborn HEAD" code is independent from the "did
+       we find a remote HEAD we can checkout" code. This could be fixed,
+       but I'm not sure it's worth caring too much about, since you'd
+       have to really try hard to create such a situation.
 
-I need this tool available so that I can finally create a default set of LUTs to ship with PhotoDemon.  I want to provide similar LUTs to Photoshop's default set, but they copyright their LUTs (which seems silly - can you really copyright a list of numbers?  idk).  So I can't just ship Photoshop's files outright - but I can certainly make my own set of edits that produce a similar result to theirs, then create my own LUT files and ship *those*.  So that's what I'm gonna do.
+     - if the remote has branches but doesn't tell us about its HEAD,
+       we could pick one of those branches as our HEAD instead of
+       whatever our local default is. This feels on-balance worse to me.
+       While it might do the right thing in some cases (especially if
+       there is only a single branch), it could certainly lead to
+       surprising and unintuitive outcomes in others.
 
-Anyway, I legitimately didn't know if this strategy would work, so I'm pretty stoked to have a workable path forward for this feature.
+Signed-off-by: Jeff King <peff@peff.net>
+Signed-off-by: Junio C Hamano <gitster@pobox.com>
 
 ---
-## [nightmatt23/TFA-AR15](https://github.com/nightmatt23/TFA-AR15)@[3c0121988b...](https://github.com/nightmatt23/TFA-AR15/commit/3c0121988b3db6b290561a692ebbc5c6b66a0500)
-#### Tuesday 2022-07-05 20:54:31 by Vagulik iz minecrafta
+## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/RELATIVES](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/RELATIVES)@[ef8dc5a467...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/RELATIVES/commit/ef8dc5a467a3d014d71ed52c862bbe68ea248dfb)
+#### Wednesday 2022-07-06 21:43:37 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
 
-Ухуу подрочили бля
+        Docket 399 - AIDED AND ABETTED BY THE FIRST COUNSELOR ON DECK FOR THE ZUCKER..
 
-- Oh shit, I’m sorry!
-- Sorry for what? Our daddy told us not to be ashamed of our dicks, especially since they are such good size and all
-- Yeah, I see that. Daddy gave you good advice!
-- It gets bigger when I pull on it
-- MMmMmmMmM
-- Sometimes I pull it on so hard I rip the skin
-- Well, my daddy told me a few things to like uh, how not to rip the skin by using someone else’s mouth instead of your own hands.
-- Can you show me?
-- I’ll be right happy to!
+AIDED AND ABETTED AT ALL TIMES TO THOSE OBSTRUCTIONS OF JUSTICE WHILE CIRCULATING VIDEOS OF MYSELF BY AND BETWEEN COUNSELORS.
+
+Subject: Fwd: Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS,…
+… ETC.
+
+
+Subject: 	Fwd: Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS, ETC.
+
+
+-------- Forwarded Message --------
+Subject: 	Fwd: Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS, ETC.
+Date: 	Tue, 31 May 2022 08:18:05 -0500
+From: 	B D2022 <ms60710444266@yahoo.com>
+To: 	Yana Siegel <yana.siegel@wilsonelser.com>, WILLIAM BEHR <william.behr@wilsonelser.com>, Urvashi Sinha <urvashi.sinha@wilsonelser.com>, 
+Thomas R. Manisero <thomas.manisero@wilsonelser.com>, Suzanne S. Swanson <suzanne.swanson@wilsonelser.com>, 
+Stephen J. Barrett <stephen.barrett@wilsonelser.com>, Stacey L. Seltzer <stacey.seltzer@wilsonelser.com>, 
+Sean Wagner <sean.wagner@wilsonelser.com>, Roger R. Gottilla <roger.gottilla@wilsonelser.com>, 
+Ricki Roer <ricki.roer@wilsonelser.com>, Ricki Roer <ricki.roer@wilsonanddicker.com>, 
+ricki.raared@wilsonsdickers.com <ricki.raared@wilsonsdickers.com>, patricia.wik@wilsonelser.com, 
+meghan.rigney@wilsonelser.com, Lori Semlies <lori.semlies@wilsonelser.com>, Lois K. Ottombrino <lois.ottombrino@wilsonelser.com>, 
+Lauren M. Zink <lauren.zink@wilsonelser.com>, Kathleen A. Mullins <kathleen.mullins@wilsonelser.com>, jwilson578@bloomberg.net,
+judy.selmeci@wilsonelser.com, Jennifer L. Sciales <jennifer.sciales@wilsonelser.com>, Jennifer M. Provost <jennifer.provost@wilsonelser.com>, 
+info@wilsonelser.com, Hannah.King@WILSONELSER.COM, grace.song@wilsonelser.com, erin.zecca@wilsonelser.com, ellyn.wilder@wilsonelser.com,
+elizabeth.scoditti@wilsonelser.com, Debra Tama <debra.tama@wilsonelser.com>, Daniel F. Flores <daniel.flores@wilsonelser.com>, 
+curt.schlom@wilsonelser.com, craig.hunter@wilsonelser.com, craig.brinker@wilsonelser.com, Corrine Shea <corrine.shea@wilsonelser.com>, 
+carole.nimaroff@wilsonelser.com, aviva.stein@wilsonelser.com, Ashley V. Humphries <ashley.humphries@wilsonelser.com>, 
+Angelique Sabia-Candero <angelique.sabia-candero@wilsonelser.com>, angel.vitiello@wilsonelser.com, Andrea Shiffman <andrea.shiffman@wilsonelser.com>,
+Amy Hanrahan <amy.hanrahan@wilsonelser.com>, alex.kress@wilsonelser.com, ALDEN 00066govtIdx WILSON <alden.wilson@maine.gov>, Alan Rubin <alan.rubin@wilsonelser.com>
+
+
+
+-------- Forwarded Message --------
+Subject: 	Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS, ETC.
+Date: 	Tue, 31 May 2022 07:09:11 -0400
+From: 	BO DINCER <bondstrt007@gmail.com>
+To: 	Bo Dincer <bo.dincer@yahoo.com>
+CC: 	BBO 121 <ms60710444266@yahoo.com>, info@manhattanbp.nyc.gov, 
+speakerjohnson@counsil.nyc.gov, levine@council.nyc.gov, kford@helpusa.org, odonned@assembly.state.ny.us, 
+jackson@nysenate.gov, jcarter@dss.nyc.gov, irvinlei@dss.nyc.gov, stringer@comptroller.nyc.gov, ECUCKER@AOL.COM <ECUCKER@aol.com>, 
+slaskowitz@inngramllp.com <slaskowitz@ingramllp.com>, bk02@cb.nyc.gov, inna.guzenfeld@brooklynbp.nyc.gov, Claudette.Ramos@parks.nyc.gov, 
+kwaters@ebcincny.com, cmiller@ebcincny.com, csosik@ebcincny.com, WiWong@dep.nyc.gov, LALERTE@STNICKSALLIANCE.ORG <LALERTE@stnicksalliance.org>, 
+MSHARMA@SCHOOLS.NYC.GOV <MSHARMA@schools.nyc.gov>, JLOLI@DCAS.NYC.GOV <JLOLI@dcas.nyc.gov>, JAHAYES@LANGAN.COM <JAHAYES@langan.com>, mordy@levelhotel.com, 
+MARTY.ROWLAND@PARKS.NYC.GOV <MARTY.ROWLAND@parks.nyc.gov>, rhammond@sunocoinc.com, TOMC@VLKMGT.COM <TOMC@vlkmgt.com>, pinkbookswap@yahoo.com,
+NORTHERN TRUST <sjs5@ntrs.com>, David Moore <david.moore.ct95@statefarm.com>, State Farm <mutualfunds@statefarm.com>, bofamarkets@baml.com, 
+JPMCinvestorrelations@jpmchase.com, dailydigest@stanford.edu, The Stanford Daily <digest@stanforddaily.com>, tessier3@stanford.edu, kevin.kilkenny@chase.com, 
+melissa.pumphrey@evercoreisi.com, ir@expedia.com, publicaffairs@doc.gov, publicinfo@sec.gov, governor.hochul@exec.ny.gov, 
+Rabbi Shlomo Kugel <rsk@chabadwestside.org>, UNITED ARTISTS MUSIC <investorrelations@umusic.com>, Dow Jones <pronewsletter@dowjones.com>, 
+Dow Jones <wsjprosupport@dowjones.com>, abuse@gs.com, kerri.saperstein@morganstanley.com, KEVIN ROCK <krock5@bloomberg.net>, 
+PRIYA.RAGHURAM@MORGANSTANLEY.COM <PRIYA.RAGHURAM@morganstanley.com>, colin.brooks@morganstanley.com,
+Kathleen A. Mullins <kathleen.mullins@wilsonelser.com>, Josephine Vella <josephine.vella@finra.org>, Jpetit <jpetit@mccarter.com>,
+tedhermanson@northmarq.com, teschmann@mskyline.com, tenant.portal@dukerealty.com, Ir-operations-team <ir-operations-team@tudor.com>
+
+
+
+On Sun, May 29, 2022, 7:34 AM Bo Dincer <bo.dincer@yahoo.com> wrote:
+
+        I.     THEY MONITORED MY LAPTOP FROM OUTSIDE OF MY APARTMENT.
+
+        - ON A 24 HOUR BASIS, RECORDED MY EVERY STEP AND MOTION.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=c3iexOlBwsgc1lnMJ2_PLUS_AqQ==
+
+
+                --- ASHLEY HUMPHRIES, OF WILSON , ELSER & DICKER.
+
+        " ... PLEASE CHECK THE SECURITY TAPES ... "
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=HbnFLHB3tyjhEWAYb6mOPw==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YvkihzM1cwANtAvbUwWX_PLUS_g==
+
+        II.     VIDEOTAPED ME "INSIDE OF MY APARTMENT".
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=UZsCx4RNLy/6V9gf1BkpTQ==
+
+        III.     DISTRIBUTED VIDEOS OF MYSELF IN MY APARTMENT -- THE INTERIOR.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YGRsoOyDJuc93MrOnwh5Jw==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=84wdx4RhX5LEi0sISXetBw==
+
+        IV.     ATTACHED VIDEO OF MYSELF DRILLING INSIDE OF MY APARTMENT.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=5uMb/ORklCen4NaSEt6oFg==
+
+
+        V.     ATTACHED VIDEO OF MYSELF HAMMERING INSIDE OF MY APARTMENT.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=C4X_PLUS_6_PLUS_kgBxoElZyFgKxGEQ==
+
+        VI.     THEY ALSO ANNEX MY RECEIPT TO HELP BUY THEMSELVES MORE TIME AND TO DISTRACT
+        THE JUDGE, CLERK AND INSTEAD OF DEALING WITH THEIR TAX-EVASIONS AND ILLEGAL CONDUCT. HTF DID THEY EVEN GET AN IMAGE OF MY RECEIPT?
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=Uavl5NRQV4YHKqWUf8fyVQ==
+
+        VII.     ALSO WILL SWEAR THAT THEY HAVE NO INVOLVEMENT, IN ANYTHING...
+            - HAVE ALSO MONITORED ME FROM THE CORRIDOR, AND THROUGH MY DOOR.
+            - BY ALL OF THE ATTORNEYS, COUNSELORS, AND STAFF OF SULLIVAN PROPERTIES, LP.
+
+
+        VIII.     HAVE ALSO ANNEXED AND SWORE UNDER OATH THEY SAW ME
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+                    "... BANGING ON A RADIATOR ... "
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=oz2nfEu9a94Y3U5/kpIt5g==
+
+
+
+        IX.     ALSO HAVE ANNEXED THEY "HOSTED" MY VIDEOS ON THE INTERNET --
+                            -- USING ONE OF THEIR OWN TENANTS AS THE VIDEOGRAPHER.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+
+
+
+                    TRANSFERRED THE LEASES AND RENTS TO STATE FARM.
+
+                 - HERE ARE SOME OF THE PROVISIONS FOR AIDING AND ABETTING TAX EVASION. BY WAY OF OBSTRUCTION, OMISSIONS, AND UNFAIR DEALINGS.
+
+                - COSTED THE INVESTORS OF STATE FARM THE GREATER OF 1.5 BILLION DOLLARS AND ALSO ONE INVESTMENT ADVISER:
+
+                - FILER 93715 - AFTER 27 YEARS RANDOMLY DECIDED TO " CEASE TO EXIST "
+
+
+        RE: 153974 - VIOLATION OF PRIVACY...
+        /S/ BO DINCER
+        TEL. 646-256-3609
+        TEL. 917-378-3467
+        BDINCER66@ICLOUD.COM
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+            https://saaze2311prdsra.blob.core.windows.net/clean/f6d60b925fd3ec11a7b5002248286386/8209-$BROOKS--4776256-6109023[FILED].pdf
+
+
+            TAX MATTERS
+
+            https://www.irs.gov/pub/irs-utl/tax_crimes_handbook.pdf
+
+            https://www.irs.gov/pub/int_practice_units/IGA9560_11_06.pdf
+
+
+        -------- Forwarded Message --------
+        Subject: 	[BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER] 2d2b62: TCR 16537-714-487-492 FILED.: OMISSIONS, OBSTRUCTI...
+        Date: 	Fri, 27 May 2022 20:26:30 -0700
+        From: 	1212-5858 <noreply@github.com>
+        To: 	MS60710444266@YAHOO.COM, sjs5@ntrs.com
+
+
+        Branch: refs/heads/REQUEST-TO-BAR
+
+        Home: https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER
+
+        Commit: 2d2b621f9b4e59f4d0f470538b748bb148ddd8eb
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@2d2b621
+
+        Author: 1212-5858 <70865813+BSCPGROUPHOLDINGSLLC@users.noreply.github.com>
+
+        Date: 2022-05-27 (Fri, 27 May 2022)
+
+
+
+        Changed paths:
+
+        A 16537-714-487-492
+
+
+
+        Log Message:
+
+        -----------
+
+        TCR 16537-714-487-492 FILED.: OMISSIONS, OBSTRUCTION, INVESTOR LOSSES AND ASSETS MISSING
+
+
+
+        NO MANDATORY ATTENDANCE REQUIRED.
+        2022-05-27---TCRReport 16537-714-487-492
+
+
+
+        ATTN: THE NORTHERN TRUST COMPANY.
+
+
+        via EMAIL: SJS5@NTRS.COM
+
+
+
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-f87405da5ef03c67c43c2dd391b9e8e15e36553ad5a56bf4089dd600f4d9ea7b
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-1b1e8bc23d8163d3e8fd3c1b9afe2dfa43987933ab4a255f654dfeb93d004cbe
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-a08dd2a966192670b96232cd500357a562db71af7b8082e63f0a2b2edccde936
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-f53bbf593645261d55469f485116c9a3b7cc292e56f3917741b877251f094614
+
+
+
+        AS STATED PREVIOUSLY, YES.
+
+        - I WOULD STILL LIKE TO PRESS CHARGES FOR THE VIOLATION OF PRIVACY.
+
+
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@12da4ef
+
+
+
+
+
+        THANK YOU.
+
+
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@12da4ef
+
+
+
+
+
+        OFFER @ $65,000,000.00 for out of court settlement.
+
+
+
+        UNFAIR DEALINGS AND OMMISSIONS OF MORGAN STANLEY IN AIDING AND ABETTING TO THE TAX EVASION AND LOSSES SUFFERED BY STATE FARMS FAMILY OF TICKERS: STFGX, SFITX, STFBX, SFBDX with Sullivan Properties LP and their subsidiaries - continue to avoid prosecution in this respect, and
+
+        collectively have costed INVESTORS the greater of $1.5 BILLION IN LOSSES before FINES, REGULATORY ACTION, or SETTLEMENT of a certain VIOLATION OF PRIVACY CASE
+
+
+
+        colorful, and also can be zoomed on, pixelated and in their servers, was also distributed without consent, and probably - they play with themselves watching me in their privacy.
+
+        --- $25 million was a DISCOUNT.
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=fXMaXgeyzvA85ViWMmvfAQ==
+
+
+
+
+
+
+
+
+
+
+
+        https://www.sec.gov/comments/s7-14-18/s71418-4531826-176079.pdf
+
+
+
+        - obo OF SULLIVAN PROPERTIES LP HAVE ALSO "PROMISED" TO PAY THEM BACK,
+
+        SOMEWHERE ON PAGE 800 OF THE UNREGISTERED SECURITY ( THE COMBINED
+
+        AND RE-STATED PROSPECTUS ) WHICH I ALSO ANNEXED IN THE MATTER OF NYSCEF
+
+        153974/2020.
+
+
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=ze6a1KA9akRV9TGfXXJT/g==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=bVk8sIt7n3kGwHqebPg0fw==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=wTG2YD2PqXuxmoKqFiESrw==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=/yhElCiKJ0BGv2DF/MOn4g==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=gcMSDaFzm0ynPeXZKSHgLQ==
+
+
+
+
+        UNFAIR DEALINGS
+
+
+
+        I. THEY MONITORED MY LAPTOP FROM OUTSIDE OF MY APARTMENT.
+
+        - ON A 24 HOUR BASIS, RECORDED MY EVERY STEP AND MOTION.
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=c3iexOlBwsgc1lnMJ2_PLUS_AqQ==
+
+
+
+
+
+
+
+        ASHLEY HUMPHRIES, OF WILSON & DICKER.
+
+        " ... PLEASE CHECK THE SECURITY TAPES ... "
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=HbnFLHB3tyjhEWAYb6mOPw==
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YvkihzM1cwANtAvbUwWX_PLUS_g==
+
+
+
+        II. VIDEOTAPED ME "INDISE OF MY APARTMENT".
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=UZsCx4RNLy/6V9gf1BkpTQ==
+
+
+
+        III. DISTRIBUTED VIDEOS OF MYSELF IN MY APARTMENT -- THE INTERIOR.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YGRsoOyDJuc93MrOnwh5Jw==
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=84wdx4RhX5LEi0sISXetBw==
+
+
+
+        IV. ATTACHED VIDEO OF MYSELF DRILLING INSIDE OF MY APARTMENET.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=5uMb/ORklCen4NaSEt6oFg==
+
+
+
+        V. ATTACHED VIDEO OF MYSELF HAMMERING INSIDE OF MY APARTMENET.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=C4X_PLUS_6_PLUS_kgBxoElZyFgKxGEQ==
+
+
+        VI. THEY ALSO ANNEX MY RECEIPT TO HELP BUY THEMSELFVES MORE TIME AND TO DISTRACT
+
+        THE JUDGE, CLERK AND INTEAD OF DEALING WITH THEIR TAX-EVASIONS AND ILLEGAL CONDUCT.
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=Uavl5NRQV4YHKqWUf8fyVQ==
+
+        VII. ALSO WILL SWEAR IN THEIR AFFIDAVITS THAT GO ON FOR PAGES THAT THEY HAVE NO INVOLVEMENT.
+
+        - HAVE ALSO MONITORED ME FROM THE CORRIDOR, AND THROUGH MY DOOR.
+
+        - BY ALL OF THE ATTORNEYS, COUNSELORS, AND STAFF OF SULLIVAN PROPERTIES, LP.
+
+        VIII. HAVE ALSO ANNEXED AND SWORE UNDER OATH THEY SAW ME
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+
+
+        "... BANGING ON A RADIATOR ... "
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=oz2nfEu9a94Y3U5/kpIt5g==
+
+
+
+        IX. ALSO HAVE ANNEXED THEY "HOSTED" MY VIDEOS ON THE INTERNET --
+
+        -- USING ONE OF THEIR OWN TENANTS AS THE VIDEOGRAPHER.
+
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+
+
+
+
+        HERE ARE SOME OF THE PROVISIONS FOR AIDING AND ABETTING TAX EVASION.
+
+        BY WAY OF OBSTRUCTION, OMISSIONS, AND UNFAIR DEALINGS.
+
+        HAS COSTED THE INVESTORS OF STATE FARM THE GREATER OF 1.5 BILLION DOLLARS
+
+        AND ALSO ONE INVESTMENT ADVISER: FILER 93715
+
+
+
+            https://www.irs.gov/pub/irs-utl/tax_crimes_handbook.pdf
+            https://www.irs.gov/pub/int_practice_units/IGA9560_11_06.pdf
+
+
+
+
+        RE: 153974 - VIOLATION OF PRIVACY
+
+
+
+        /S/ BO DINCER
+
+        TEL. 646-256-3609
+
+        TEL. 917-378-3467
+
+        BDINCER66@ICLOUD.COM
+
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+            https://saaze2311prdsra.blob.core.windows.net/clean/f6d60b925fd3ec11a7b5002248286386/8209-$BROOKS--4776256-6109023[FILED].pdf
+
+
+
+
+
+
+        93715 BROKERS AT MORGAN STANLEY - FURTHER OBSTRUCTED BY WAY OF OMISSION.
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/db5e3c6a10d3ec11a7b5000d3a132789/8A5FDA9F-D641-4B62-9D15-3AF4205617AC.jpeg
+
+
+        December 18, 2021
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/8de5f89e10d3ec11a7b5002248286421/CE48526B-6A0E-4B2A-89B9-93BD202498A9.jpeg
+
+
+
+
+
+
+        Docket 399 - AIDED AND ABETTED BY THE FIRST COUNSELOR ON DECK FOR THE ZUCKER..
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/a463845010d3ec11a7b5000d3a1326fe/0F6C27D5-69BD-4971-91F6-A5A40317CC63.jpeg
+            https://saaze2311prdsra.blob.core.windows.net/clean/25aff4b997d3ec11a7b500224828654e/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/5380dd8997d3ec11a7b5000d3a132789/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/e9eb965d97d3ec11a7b5000d3a1326fe/[STATE%20FARM%20VP%2043036]$%203487%20$.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/25aff4b997d3ec11a7b500224828654e/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/3bb9011795d3ec11a7b5000d3a132789/153974-2020.Docket399.FTC.StateFarmRealtyInsuranceLLC.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/ff91792a95d3ec11a7b50022482864f0/[sfVP43036]%20$2876793%20-%20david.moore%20$3487%20-%20IA%208018184.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/af081f4095d3ec11a7b50022482864f0/[STATE%20FARM%20VP%2043036]%20$3231040-2004555.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/d88e25ae5fd3ec11a7b5002248286997/StateFarmVP%20Management%20Corp-CRD%2343036.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/d88e25ae5fd3ec11a7b5002248286997/StateFarmVP%20Management%20Corp-CRD%2343036.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/d585ccd85fd3ec11a7b5000d3a1326fe/TAX%20EVASION%20%20attachments%20%252F%20Omissions.%20.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/db5e3c6a10d3ec11a7b5000d3a132789/8A5FDA9F-D641-4B62-9D15-3AF4205617AC.jpeg
+            https://saaze2311prdsra.blob.core.windows.net/clean/172de37992d3ec11a7b500224828654e/[sfVP%2043036]%204971235-%20$SMITH%20-%20SEMI.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/bee2b76c92d3ec11a7b5002248286997/[SF.VP%2043036]%202876793%20-%20$david%20moore%20$3487%20-%20IA%208018184.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/9194266492d3ec11a7b500224828654e/[sf%20VP%2043036-$3487]%201943922-%20$%20tipsord%20$%20STATE%20FARM%20mutual%20automobile%20insurance%20company-$3487.pdf
+            https://saaze2311prdsra.blob.core.windows.net/clean/172de37992d3ec11a7b500224828654e/%5BsfVP%2043036%5D%204971235-%20$SMITH%20-%20SEMI.pdf
+ main
 
 ---
-## [simark/CanadianTracker](https://github.com/simark/CanadianTracker)@[3923e02921...](https://github.com/simark/CanadianTracker/commit/3923e02921a43fd81707a96dc91294f00fc16749)
-#### Tuesday 2022-07-05 23:46:57 by Simon Marchi
+## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/RELATIVES](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/RELATIVES)@[9a68547285...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/RELATIVES/commit/9a6854728517ba64160c32e02174fb14faf67a74)
+#### Wednesday 2022-07-06 21:57:05 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
 
-Add SKUs table, use newer API to fetch data
+mainLINE THESE KNOWN INDIVIDUALS - AIDED AND ABETTED AS ACCESSORIES TO THE ZUCKER ENTERPRISES
 
-We currently don't handle multi-SKU products well, fix that.
+mainLINE THESE KNOWN INDIVIDUALS - AIDED AND ABETTED AS ACCESSORIES TO THE ZUCKER ENTERPRISES
 
-TLDR:
+>> CONSTANTLY ARE AVOIDING PROSECUTION AND ARE AWARE AND IN POSSESSION OF ALL OF THE MATERIAL INFORMATION AS REFERENCED BELOW.
 
- - Add database table for SKUs
- - Use newer API to be able to get more details about SKUs
- - Adjust web UI to account for that
+Subject: Fwd: Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS,…
+… ETC. HAD TO SWITCH MY INTERNET CONNECTION AGAIN.
 
-Taking this product as an example:
 
-https://www.canadiantire.ca/en/pdp/thule-convoy-xt-rooftop-cargo-box-0401588p.html
+Subject:     Fwd: Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS, ETC.
 
-This product has 3 different variants, or SKUs, with three different
-prices.  There is a single entry in the products_static table.  The
-`sku` columns contains a list of all the three SKUs for that product:
 
-  40-1588-0|40-1589-8|40-1590-2
+-------- Forwarded Message --------
+Subject:     Fwd: Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS, ETC.
+Date:     Tue, 31 May 2022 08:18:05 -0500
+From:     B D2022 <ms60710444266@yahoo.com>
+To:     Yana Siegel <yana.siegel@wilsonelser.com>, WILLIAM BEHR <william.behr@wilsonelser.com>, Urvashi Sinha <urvashi.sinha@wilsonelser.com>,
+Thomas R. Manisero <thomas.manisero@wilsonelser.com>, Suzanne S. Swanson <suzanne.swanson@wilsonelser.com>,
+Stephen J. Barrett <stephen.barrett@wilsonelser.com>, Stacey L. Seltzer <stacey.seltzer@wilsonelser.com>,
+Sean Wagner <sean.wagner@wilsonelser.com>, Roger R. Gottilla <roger.gottilla@wilsonelser.com>,
+Ricki Roer <ricki.roer@wilsonelser.com>, Ricki Roer <ricki.roer@wilsonanddicker.com>,
+ricki.raared@wilsonsdickers.com <ricki.raared@wilsonsdickers.com>, patricia.wik@wilsonelser.com,
+meghan.rigney@wilsonelser.com, Lori Semlies <lori.semlies@wilsonelser.com>, Lois K. Ottombrino <lois.ottombrino@wilsonelser.com>,
+Lauren M. Zink <lauren.zink@wilsonelser.com>, Kathleen A. Mullins <kathleen.mullins@wilsonelser.com>, jwilson578@bloomberg.net,
+judy.selmeci@wilsonelser.com, Jennifer L. Sciales <jennifer.sciales@wilsonelser.com>, Jennifer M. Provost <jennifer.provost@wilsonelser.com>,
+info@wilsonelser.com, Hannah.King@WILSONELSER.COM, grace.song@wilsonelser.com, erin.zecca@wilsonelser.com, ellyn.wilder@wilsonelser.com,
+elizabeth.scoditti@wilsonelser.com, Debra Tama <debra.tama@wilsonelser.com>, Daniel F. Flores <daniel.flores@wilsonelser.com>,
+curt.schlom@wilsonelser.com, craig.hunter@wilsonelser.com, craig.brinker@wilsonelser.com, Corrine Shea <corrine.shea@wilsonelser.com>,
+carole.nimaroff@wilsonelser.com, aviva.stein@wilsonelser.com, Ashley V. Humphries <ashley.humphries@wilsonelser.com>,
+Angelique Sabia-Candero <angelique.sabia-candero@wilsonelser.com>, angel.vitiello@wilsonelser.com, Andrea Shiffman <andrea.shiffman@wilsonelser.com>,
+Amy Hanrahan <amy.hanrahan@wilsonelser.com>, alex.kress@wilsonelser.com, ALDEN 00066govtIdx WILSON <alden.wilson@maine.gov>, Alan Rubin <alan.rubin@wilsonelser.com>
 
-In the products_dynamic table, the samples for multi-SKU products refer
-to the complete product, not a specific SKU.  For the example product,
-we have samples like this one:
 
-    {
-        "Banner": "CTR",
-        "Product": "0401588P",
-        "PrimarySKU": "0401588",
-        "CheckDigit": "0",
-        "SKU_Count": 3,
-        "Price": 699.99,
-        "PriceFrom": "Y",
-        "Description": "THL ALP 12CFT CNV XT",
-        "Messages": {
-            "Warranty": "This product carries a 1 year exchange warranty redeemable at any Canadian Tire store."
-        },
-        "PartNumber": "632100",
-        "IsOnline": {
-            "Active": "Y",
-            "Exclusive": "N",
-            "Sellable": "Y",
-            "SpecialBuy": "N"
-        }
-    }
 
-Note "PriceFrom" is "Y".  I believe this means that the rendered product
-list would say "From $699.99", meaning that $699.99 is the price of one
-of the three SKUs, we don't know which one (whichever is the
-cheapest).  Given that we want to track prices for each individual SKU,
-samples like this one are not helpful, and will have to be discarded.
+-------- Forwarded Message --------
+Subject:     Re: 16537-714-487-492, OMISSIONS, OBSTRUCTION, FITNESS, ETC.
+Date:     Tue, 31 May 2022 07:09:11 -0400
+From:     BO DINCER <bondstrt007@gmail.com>
+To:     Bo Dincer <bo.dincer@yahoo.com>
+CC:     BBO 121 <ms60710444266@yahoo.com>, info@manhattanbp.nyc.gov,
+speakerjohnson@counsil.nyc.gov, levine@council.nyc.gov, kford@helpusa.org, odonned@assembly.state.ny.us,
+jackson@nysenate.gov, jcarter@dss.nyc.gov, irvinlei@dss.nyc.gov, stringer@comptroller.nyc.gov, ECUCKER@AOL.COM <ECUCKER@aol.com>,
+slaskowitz@inngramllp.com <slaskowitz@ingramllp.com>, bk02@cb.nyc.gov, inna.guzenfeld@brooklynbp.nyc.gov, Claudette.Ramos@parks.nyc.gov,
+kwaters@ebcincny.com, cmiller@ebcincny.com, csosik@ebcincny.com, WiWong@dep.nyc.gov, LALERTE@STNICKSALLIANCE.ORG <LALERTE@stnicksalliance.org>,
+MSHARMA@SCHOOLS.NYC.GOV <MSHARMA@schools.nyc.gov>, JLOLI@DCAS.NYC.GOV <JLOLI@dcas.nyc.gov>, JAHAYES@LANGAN.COM <JAHAYES@langan.com>, mordy@levelhotel.com,
+MARTY.ROWLAND@PARKS.NYC.GOV <MARTY.ROWLAND@parks.nyc.gov>, rhammond@sunocoinc.com, TOMC@VLKMGT.COM <TOMC@vlkmgt.com>, pinkbookswap@yahoo.com,
+NORTHERN TRUST <sjs5@ntrs.com>, David Moore <david.moore.ct95@statefarm.com>, State Farm <mutualfunds@statefarm.com>, bofamarkets@baml.com,
+JPMCinvestorrelations@jpmchase.com, dailydigest@stanford.edu, The Stanford Daily <digest@stanforddaily.com>, tessier3@stanford.edu, kevin.kilkenny@chase.com,
+melissa.pumphrey@evercoreisi.com, ir@expedia.com, publicaffairs@doc.gov, publicinfo@sec.gov, governor.hochul@exec.ny.gov,
+Rabbi Shlomo Kugel <rsk@chabadwestside.org>, UNITED ARTISTS MUSIC <investorrelations@umusic.com>, Dow Jones <pronewsletter@dowjones.com>,
+Dow Jones <wsjprosupport@dowjones.com>, abuse@gs.com, kerri.saperstein@morganstanley.com, KEVIN ROCK <krock5@bloomberg.net>,
+PRIYA.RAGHURAM@MORGANSTANLEY.COM <PRIYA.RAGHURAM@morganstanley.com>, colin.brooks@morganstanley.com,
+Kathleen A. Mullins <kathleen.mullins@wilsonelser.com>, Josephine Vella <josephine.vella@finra.org>, Jpetit <jpetit@mccarter.com>,
+tedhermanson@northmarq.com, teschmann@mskyline.com, tenant.portal@dukerealty.com, Ir-operations-team <ir-operations-team@tudor.com>
 
-Samples that refer to a single-SKU product have a `SKU` key, so we can
-be confident the price is for a specific SKU.
 
-Changes at the database level:
 
-  - add the `skus` table, with the following columns:
-    - index: auto-incremented integer
-    - code: code, in the format "0401589"
-    - formatted_code: code, in the format "040-1589-8"
-    - product_index: index of the product (products_static table) this
-      SKU belongs to
-  - remove the `skus` column of the `products_static` table.
-  - add the `samples` table, which is like the existing
-    `products_dynamic` table, but with a foreign reference to the `skus`
-    table, instead of to the `products_static` table .
-  - remove the `products_dynamic` table.
+On Sun, May 29, 2022, 7:34 AM Bo Dincer <bo.dincer@yahoo.com> wrote:
 
-The migration does the following steps to keep as much of the existing
-data as possible:
+        I.     THEY MONITORED MY LAPTOP FROM OUTSIDE OF MY APARTMENT.
 
-  - Populate the `skus` table based on the existing content of the `sku`
-    column of the `products_static` table, whose format is shown above.
-  - Go over each existing price sample (`products_dynamic` table), see
-    if we can move it to the new table.  If it doesn't have a `SKU` key,
-    or has 'PriceFrom: Y' (I think these two are correlated, but we
-    check both just in case), we can't.  Use the `SKU` value to know
-    which row in the `skus` table this sample will now refer to.
-  - There are some products without SKU information in column
-    `products_static.sku`.  This is probably because these products were
-    not seen since we added the `sku` column.  For those, we did not
-    create an entry in the `skus` table.  If some samples refer to that
-    SKU, we have a problem.  In that case, create a `skus` row based on
-    that SKU number.  Assume that the product code is the SKU code plus
-    'P', which always seems to be the case for single-SKU products.
-    There are some rare cases where there is no such product, in that
-    case we drop the sample.
+        - ON A 24 HOUR BASIS, RECORDED MY EVERY STEP AND MOTION.
 
-Adjust the scraping code to provide this new information.  To do so, use
-newer APIs, which are those I see the Canadian Tire website use at the
-time of writing.  In the new API used for fetching list of products, the
-information about SKUs is better structured than in the previous one.
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=c3iexOlBwsgc1lnMJ2_PLUS_AqQ==
 
-We previously limited ourselves to scraping the categories of level 1
-and 2.  During my testing, I saw that scraping each level of category
-gave a different number of items, and there always seemed to be items
-that appeared only in one level and not the others.  To have the best
-coverage, we would have to scrape all category levels.  But doing so
-would increase the workload quite a bit, if done each day.  The tradeoff
-I made to have good coverage but not a huge workload is to use one
-category level each day.  The category level is based on the number of
-the current day, so if the scraping is done every day (which is the case
-in our production system), we'll do all category levels in a round robin
-fashion.  This step is to discover new products/skus, so it's fine if we
-don't discover a new one immediately.  This is only the default though,
-the category levels to scrape can be specified on the command-line.
 
-I removed the step where we fetch the number of items in each category
-to provide a length to ProductLedger.  When scraping the level 5 (the
-most specific categories), this is just too long, since there are
-hundreds of categories.  As a consequence, we no longer show a progress
-bar with a known length when scraping the inventory.  We could maybe add
-it back later, and make it optional.
+                --- ASHLEY HUMPHRIES, OF WILSON , ELSER & DICKER.
 
-Adjust the web UI to add a "SKU" page.  So, the user lands on the index,
-which is the list of products.  The user clicks on a product, they land
-on the list of SKUs for that product.  They then click on the SKU they
-want.  The experience sucks, it will have to be improved, but it works.
-The existing product.html page becomes sku.html, with minor obvious
-changes (but git won't tell you that).
+        " ... PLEASE CHECK THE SECURITY TAPES ... "
 
-Adjust the ctquery command accordingly.
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=HbnFLHB3tyjhEWAYb6mOPw==
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YvkihzM1cwANtAvbUwWX_PLUS_g==
+
+        II.     VIDEOTAPED ME "INSIDE OF MY APARTMENT".
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=UZsCx4RNLy/6V9gf1BkpTQ==
+
+        III.     DISTRIBUTED VIDEOS OF MYSELF IN MY APARTMENT -- THE INTERIOR.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YGRsoOyDJuc93MrOnwh5Jw==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=84wdx4RhX5LEi0sISXetBw==
+
+        IV.     ATTACHED VIDEO OF MYSELF DRILLING INSIDE OF MY APARTMENT.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=5uMb/ORklCen4NaSEt6oFg==
+
+
+        V.     ATTACHED VIDEO OF MYSELF HAMMERING INSIDE OF MY APARTMENT.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=C4X_PLUS_6_PLUS_kgBxoElZyFgKxGEQ==
+
+        VI.     THEY ALSO ANNEX MY RECEIPT TO HELP BUY THEMSELVES MORE TIME AND TO DISTRACT
+        THE JUDGE, CLERK AND INSTEAD OF DEALING WITH THEIR TAX-EVASIONS AND ILLEGAL CONDUCT. HTF DID THEY EVEN GET AN IMAGE OF MY RECEIPT?
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=Uavl5NRQV4YHKqWUf8fyVQ==
+
+        VII.     ALSO WILL SWEAR THAT THEY HAVE NO INVOLVEMENT, IN ANYTHING...
+            - HAVE ALSO MONITORED ME FROM THE CORRIDOR, AND THROUGH MY DOOR.
+            - BY ALL OF THE ATTORNEYS, COUNSELORS, AND STAFF OF SULLIVAN PROPERTIES, LP.
+
+
+        VIII.     HAVE ALSO ANNEXED AND SWORE UNDER OATH THEY SAW ME
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+                    "... BANGING ON A RADIATOR ... "
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=oz2nfEu9a94Y3U5/kpIt5g==
+
+
+
+        IX.     ALSO HAVE ANNEXED THEY "HOSTED" MY VIDEOS ON THE INTERNET --
+                            -- USING ONE OF THEIR OWN TENANTS AS THE VIDEOGRAPHER.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+
+
+
+                    TRANSFERRED THE LEASES AND RENTS TO STATE FARM.
+
+                 - HERE ARE SOME OF THE PROVISIONS FOR AIDING AND ABETTING TAX EVASION. BY WAY OF OBSTRUCTION, OMISSIONS, AND UNFAIR DEALINGS.
+
+                - COSTED THE INVESTORS OF STATE FARM THE GREATER OF 1.5 BILLION DOLLARS AND ALSO ONE INVESTMENT ADVISER:
+
+                - FILER 93715 - AFTER 27 YEARS RANDOMLY DECIDED TO " CEASE TO EXIST "
+
+
+        RE: 153974 - VIOLATION OF PRIVACY...
+        /S/ BO DINCER
+        TEL. 646-256-3609
+        TEL. 917-378-3467
+        BDINCER66@ICLOUD.COM
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+            https://saaze2311prdsra.blob.core.windows.net/clean/f6d60b925fd3ec11a7b5002248286386/8209-$BROOKS--4776256-6109023[FILED].pdf
+
+
+            TAX MATTERS
+
+            https://www.irs.gov/pub/irs-utl/tax_crimes_handbook.pdf
+
+            https://www.irs.gov/pub/int_practice_units/IGA9560_11_06.pdf
+
+
+        -------- Forwarded Message --------
+        Subject:     [BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER] 2d2b62: TCR 16537-714-487-492 FILED.: OMISSIONS, OBSTRUCTI...
+        Date:     Fri, 27 May 2022 20:26:30 -0700
+        From:     1212-5858 <noreply@github.com>
+        To:     MS60710444266@YAHOO.COM, sjs5@ntrs.com
+
+
+        Branch: refs/heads/REQUEST-TO-BAR
+
+        Home: https://github.com/BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER
+
+        Commit: 2d2b621f9b4e59f4d0f470538b748bb148ddd8eb
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@2d2b621
+
+        Author: 1212-5858 <70865813+BSCPGROUPHOLDINGSLLC@users.noreply.github.com>
+
+        Date: 2022-05-27 (Fri, 27 May 2022)
+
+
+
+        Changed paths:
+
+        A 16537-714-487-492
+
+
+
+        Log Message:
+
+        -----------
+
+        TCR 16537-714-487-492 FILED.: OMISSIONS, OBSTRUCTION, INVESTOR LOSSES AND ASSETS MISSING
+
+
+
+        NO MANDATORY ATTENDANCE REQUIRED.
+        2022-05-27---TCRReport 16537-714-487-492
+
+
+
+        ATTN: THE NORTHERN TRUST COMPANY.
+
+
+        via EMAIL: SJS5@NTRS.COM
+
+
+
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-f87405da5ef03c67c43c2dd391b9e8e15e36553ad5a56bf4089dd600f4d9ea7b
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-1b1e8bc23d8163d3e8fd3c1b9afe2dfa43987933ab4a255f654dfeb93d004cbe
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-a08dd2a966192670b96232cd500357a562db71af7b8082e63f0a2b2edccde936
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@8db8d4c#diff-f53bbf593645261d55469f485116c9a3b7cc292e56f3917741b877251f094614
+
+
+
+        AS STATED PREVIOUSLY, YES.
+
+        - I WOULD STILL LIKE TO PRESS CHARGES FOR THE VIOLATION OF PRIVACY.
+
+
+
+        BSCPGROUPHOLDINGSLLC/ELSER-AND-DICKER@12da4ef
+
+
+
+
+
+        THANK YOU.
+
+UNFAIR DEALINGS AND OMMISSIONS OF MORGAN STANLEY IN AIDING AND ABETTING TO THE TAX EVASION AND LOSSES SUFFERED BY STATE FARMS FAMILY OF TICKERS: STFGX, SFITX, STFBX, SFBDX with Sullivan Properties LP and their subsidiaries - continue to avoid prosecution in this respect, and
+        collectively have costed INVESTORS the greater of $1.5 BILLION IN LOSSES before FINES, REGULATORY ACTION, or SETTLEMENT of a certain VIOLATION OF PRIVACY CASE
+
+        colorful, and also can be zoomed on, pixelated and in their servers, was also distributed without consent, and probably - they play with themselves watching me in their privacy.
+
+        --- $25 million was a DISCOUNT.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=fXMaXgeyzvA85ViWMmvfAQ==
+
+        https://www.sec.gov/comments/s7-14-18/s71418-4531826-176079.pdf
+
+        - obo OF SULLIVAN PROPERTIES LP HAVE ALSO "PROMISED" TO PAY THEM BACK,
+
+        SOMEWHERE ON PAGE 800 OF THE UNREGISTERED SECURITY ( THE COMBINED
+
+        AND RE-STATED PROSPECTUS ) WHICH I ALSO ANNEXED IN THE MATTER OF NYSCEF
+
+        153974/2020.
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=ze6a1KA9akRV9TGfXXJT/g==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=bVk8sIt7n3kGwHqebPg0fw==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=wTG2YD2PqXuxmoKqFiESrw==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=/yhElCiKJ0BGv2DF/MOn4g==
+
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=gcMSDaFzm0ynPeXZKSHgLQ==
+
+
+
+        UNFAIR DEALINGS
+
+        I. THEY MONITORED MY LAPTOP FROM OUTSIDE OF MY APARTMENT.
+
+        - ON A 24 HOUR BASIS, RECORDED MY EVERY STEP AND MOTION.
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=c3iexOlBwsgc1lnMJ2_PLUS_AqQ==
+
+
+        ASHLEY HUMPHRIES, OF WILSON & DICKER.
+
+        " ... PLEASE CHECK THE SECURITY TAPES ... "
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=HbnFLHB3tyjhEWAYb6mOPw==
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YvkihzM1cwANtAvbUwWX_PLUS_g==
+
+
+        II. VIDEOTAPED ME "INDISE OF MY APARTMENT".
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=UZsCx4RNLy/6V9gf1BkpTQ==
+
+
+        III. DISTRIBUTED VIDEOS OF MYSELF IN MY APARTMENT -- THE INTERIOR.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=YGRsoOyDJuc93MrOnwh5Jw==
+
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=84wdx4RhX5LEi0sISXetBw==
+
+
+        IV. ATTACHED VIDEO OF MYSELF DRILLING INSIDE OF MY APARTMENET.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=5uMb/ORklCen4NaSEt6oFg==
+
+
+        V. ATTACHED VIDEO OF MYSELF HAMMERING INSIDE OF MY APARTMENT.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=C4X_PLUS_6_PLUS_kgBxoElZyFgKxGEQ==
+
+
+        VI. THEY ALSO ANNEX MY RECEIPT TO HELP BUY THEMSELFVES MORE TIME AND TO DISTRACT
+
+        THE JUDGE, CLERK AND INTEAD OF DEALING WITH THEIR TAX-EVASIONS AND ILLEGAL CONDUCT.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=Uavl5NRQV4YHKqWUf8fyVQ==
+
+
+        VII. ALSO WILL SWEAR IN THEIR AFFIDAVITS THAT GO ON FOR PAGES THAT THEY HAVE NO INVOLVEMENT.
+
+        - HAVE ALSO MONITORED ME FROM THE CORRIDOR, AND THROUGH MY DOOR.
+
+        - BY ALL OF THE ATTORNEYS, COUNSELORS, AND STAFF OF SULLIVAN PROPERTIES, LP.
+
+        VIII. HAVE ALSO ANNEXED AND SWORE UNDER OATH THEY SAW ME
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+
+        "... BANGING ON A RADIATOR ... "
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=oz2nfEu9a94Y3U5/kpIt5g==
+
+
+        IX. ALSO HAVE ANNEXED THEY "HOSTED" MY VIDEOS ON THE INTERNET --
+
+        -- USING ONE OF THEIR OWN TENANTS AS THE VIDEOGRAPHER.
+
+        https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=PWFQc/WFihoyIKwEunaalQ==
+
+
+        HERE ARE SOME OF THE PROVISIONS FOR AIDING AND ABETTING TAX EVASION.
+
+        BY WAY OF OBSTRUCTION, OMISSIONS, AND UNFAIR DEALINGS.
+
+        HAS COSTED THE INVESTORS OF STATE FARM THE GREATER OF 1.5 BILLION DOLLARS
+
+        AND ALSO ONE INVESTMENT ADVISER: FILER 93715
+
+            https://www.irs.gov/pub/irs-utl/tax_crimes_handbook.pdf
+            https://www.irs.gov/pub/int_practice_units/IGA9560_11_06.pdf
+
+
+        RE: 153974 - VIOLATION OF PRIVACY
+        /S/ BO DINCER
+        TEL. 646-256-3609
+        TEL. 917-378-3467
+        BDINCER66@ICLOUD.COM
+            https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/f6d60b925fd3ec11a7b5002248286386/8209-$BROOKS--4776256-6109023[FILED].pdf
+
+        93715 BROKERS AT MORGAN STANLEY - FURTHER OBSTRUCTED BY WAY OF OMISSION.
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/db5e3c6a10d3ec11a7b5000d3a132789/8A5FDA9F-D641-4B62-9D15-3AF4205617AC.jpeg
+
+        December 18, 2021
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/8de5f89e10d3ec11a7b5002248286421/CE48526B-6A0E-4B2A-89B9-93BD202498A9.jpeg
+
+
+        Docket 399 - AIDED AND ABETTED BY THE FIRST COUNSELOR ON DECK FOR THE ZUCKER..
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/a463845010d3ec11a7b5000d3a1326fe/0F6C27D5-69BD-4971-91F6-A5A40317CC63.jpeg
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/25aff4b997d3ec11a7b500224828654e/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/5380dd8997d3ec11a7b5000d3a132789/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/e9eb965d97d3ec11a7b5000d3a1326fe/[STATE%20FARM%20VP%2043036]$%203487%20$.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/25aff4b997d3ec11a7b500224828654e/[STATE%20FARM%20VP%2043036]Advisers%20Investment%20Trust%20[$CIK%201516523]%20MONK[CRD%201357149].pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/3bb9011795d3ec11a7b5000d3a132789/153974-2020.Docket399.FTC.StateFarmRealtyInsuranceLLC.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/ff91792a95d3ec11a7b50022482864f0/[sfVP43036]%20$2876793%20-%20david.moore%20$3487%20-%20IA%208018184.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/af081f4095d3ec11a7b50022482864f0/[STATE%20FARM%20VP%2043036]%20$3231040-2004555.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/d88e25ae5fd3ec11a7b5002248286997/StateFarmVP%20Management%20Corp-CRD%2343036.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/d88e25ae5fd3ec11a7b5002248286997/StateFarmVP%20Management%20Corp-CRD%2343036.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/d585ccd85fd3ec11a7b5000d3a1326fe/TAX%20EVASION%20%20attachments%20%252F%20Omissions.%20.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/db5e3c6a10d3ec11a7b5000d3a132789/8A5FDA9F-D641-4B62-9D15-3AF4205617AC.jpeg
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/172de37992d3ec11a7b500224828654e/[sfVP%2043036]%204971235-%20$SMITH%20-%20SEMI.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/bee2b76c92d3ec11a7b5002248286997/[SF.VP%2043036]%202876793%20-%20$david%20moore%20$3487%20-%20IA%208018184.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/9194266492d3ec11a7b500224828654e/[sf%20VP%2043036-$3487]%201943922-%20$%20tipsord%20$%20STATE%20FARM%20mutual%20automobile%20insurance%20company-$3487.pdf
+
+            https://saaze2311prdsra.blob.core.windows.net/clean/172de37992d3ec11a7b500224828654e/%5BsfVP%2043036%5D%204971235-%20$SMITH%20-%20SEMI.pdf
+
+ mainLINE
+
+---
+## [Munkybooty/dash](https://github.com/Munkybooty/dash)@[67ceda1b5a...](https://github.com/Munkybooty/dash/commit/67ceda1b5aa0c51f1fdce4fb71ccba1922e880f6)
+#### Wednesday 2022-07-06 21:57:35 by fanquake
+
+Merge #18295: scripts: add MACHO lazy bindings check to security-check.py
+
+5ca90f8b598978437340bb8467f527b9edfb2bbf scripts: add MACHO lazy bindings check to security-check.py (fanquake)
+
+Pull request description:
+
+  This is a slightly belated follow up to #17686 and some discussion with Cory. It's not entirely clear if we should make this change due to the way the macOS dynamic loader appears to work. However I'm opening this for some discussion. Also related to #17768.
+
+  #### Issue:
+  [`LD64`](https://opensource.apple.com/source/ld64/) doesn't set the [MH_BINDATLOAD](https://opensource.apple.com/source/xnu/xnu-6153.11.26/EXTERNAL_HEADERS/mach-o/loader.h.auto.html) bit in the header of MACHO executables, when building with `-bind_at_load`. This is in contradiction to the [documentation](https://opensource.apple.com/source/ld64/ld64-450.3/doc/man/man1/ld.1.auto.html):
+  ```bash
+  -bind_at_load
+       Sets a bit in the mach header of the resulting binary which tells dyld to
+       bind all symbols when the binary is loaded, rather than lazily.
+  ```
+
+  The [`ld` in Apples cctools](https://opensource.apple.com/source/cctools/cctools-927.0.2/ld/layout.c.auto.html) does set the bit, however the [cctools-port](https://github.com/tpoechtrager/cctools-port/) that we use for release builds, bundles `LD64`.
+
+  However; even if the linker hasn't set that bit, the dynamic loader ([`dyld`](https://opensource.apple.com/source/dyld/)) doesn't seem to ever check for it, and from what I understand, it looks at a different part of the header when determining whether to lazily load symbols.
+
+  Note that our release binaries are currently working as expected, and no lazy loading occurs.
+
+  #### Example:
+
+  Using a small program, we can observe the behaviour of the dynamic loader.
+
+  Conducted using:
+  ```bash
+  clang++ --version
+  Apple clang version 11.0.0 (clang-1100.0.33.17)
+  Target: x86_64-apple-darwin18.7.0
+
+  ld -v
+  @(#)PROGRAM:ld  PROJECT:ld64-530
+  BUILD 18:57:17 Dec 13 2019
+  LTO support using: LLVM version 11.0.0, (clang-1100.0.33.17) (static support for 23, runtime is 23)
+  TAPI support using: Apple TAPI version 11.0.0 (tapi-1100.0.11)
+  ```
+
+  ```cpp
+  #include <iostream>
+  int main() {
+  	std::cout << "Hello World!\n";
+  	return 0;
+  }
+  ```
+
+  Compile and check the MACHO header:
+  ```bash
+  clang++ test.cpp -o test
+  otool -vh test
+  ...
+  Mach header
+        magic cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags
+  MH_MAGIC_64  X86_64        ALL LIB64     EXECUTE    16       1424   NOUNDEFS DYLDLINK TWOLEVEL WEAK_DEFINES BINDS_TO_WEAK PIE
+
+  # Run and dump dynamic loader bindings:
+  DYLD_PRINT_BINDINGS=1 DYLD_PRINT_TO_FILE=no_bind.txt ./test
+  Hello World!
+  ```
+
+  Recompile with `-bind_at_load`. Note still no `BINDATLOAD` flag:
+  ```bash
+  clang++ test.cpp -o test -Wl,-bind_at_load
+  otool -vh test
+  Mach header
+        magic cputype cpusubtype  caps    filetype ncmds sizeofcmds      flags
+  MH_MAGIC_64  X86_64        ALL LIB64     EXECUTE    16       1424   NOUNDEFS DYLDLINK TWOLEVEL WEAK_DEFINES BINDS_TO_WEAK PIE
+  ...
+  DYLD_PRINT_BINDINGS=1 DYLD_PRINT_TO_FILE=bind.txt ./test
+  Hello World!
+  ```
+
+  If we diff the outputs, you can see that `dyld` doesn't perform any lazy bindings when the binary is compiled with `-bind_at_load`, even if the `BINDATLOAD` flag is not set:
+  ```diff
+  @@ -1,11 +1,27 @@
+  +dyld: bind: test:0x103EDF030 = libc++.1.dylib:__ZNKSt3__16locale9use_facetERNS0_2idE, *0x103EDF030 = 0x7FFF70C9FA58
+  +dyld: bind: test:0x103EDF038 = libc++.1.dylib:__ZNKSt3__18ios_base6getlocEv, *0x103EDF038 = 0x7FFF70CA12C2
+  +dyld: bind: test:0x103EDF068 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_, *0x103EDF068 = 0x7FFF70CA12B6
+  +dyld: bind: test:0x103EDF070 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev, *0x103EDF070 = 0x7FFF70CA1528
+  +dyld: bind: test:0x103EDF080 = libc++.1.dylib:__ZNSt3__16localeD1Ev, *0x103EDF080 = 0x7FFF70C9FAE6
+  <trim>
+  -dyld: lazy bind: test:0x10D4AC0C8 = libsystem_platform.dylib:_strlen, *0x10D4AC0C8 = 0x7FFF73C5C6E0
+  -dyld: lazy bind: test:0x10D4AC068 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryC1ERS3_, *0x10D4AC068 = 0x7FFF70CA12B6
+  -dyld: lazy bind: test:0x10D4AC038 = libc++.1.dylib:__ZNKSt3__18ios_base6getlocEv, *0x10D4AC038 = 0x7FFF70CA12C2
+  -dyld: lazy bind: test:0x10D4AC030 = libc++.1.dylib:__ZNKSt3__16locale9use_facetERNS0_2idE, *0x10D4AC030 = 0x7FFF70C9FA58
+  -dyld: lazy bind: test:0x10D4AC080 = libc++.1.dylib:__ZNSt3__16localeD1Ev, *0x10D4AC080 = 0x7FFF70C9FAE6
+  -dyld: lazy bind: test:0x10D4AC070 = libc++.1.dylib:__ZNSt3__113basic_ostreamIcNS_11char_traitsIcEEE6sentryD1Ev, *0x10D4AC070 = 0x7FFF70CA1528
+  ```
+
+  Note: `dyld` also has a `DYLD_BIND_AT_LAUNCH=1` environment variable, that when set, will force any lazy bindings to be non-lazy:
+  ```bash
+  dyld: forced lazy bind: test:0x10BEC8068 = libc++.1.dylib:__ZNSt3__113basic_ostream
+  ```
+
+  #### Thoughts:
+  After looking at the dyld source, I can't find any checks for `MH_BINDATLOAD`. You can see the flags it does check for, such as MH_PIE or MH_BIND_TO_WEAK [here](https://opensource.apple.com/source/dyld/dyld-732.8/src/ImageLoaderMachO.cpp.auto.html).
+
+  It seems that the lazy binding of any symbols depends on whether or not [lazy_bind_size](https://opensource.apple.com/source/xnu/xnu-6153.11.26/EXTERNAL_HEADERS/mach-o/loader.h.auto.html) from the `LC_DYLD_INFO_ONLY` load command is > 0. Which was mentioned in [#17686](https://github.com/bitcoin/bitcoin/pull/17686#issue-350216254).
+
+  #### Changes:
+  This PR is one of [Corys commits](https://github.com/theuni/bitcoin/commit/7b6ba26178d2754568a1308d3d44e038e9ebf450), that I've rebased and modified to make build. I've also included an addition to the `security-check.py` script to check for the flag.
+
+  However, given the above, I'm not entirely sure this patch is the correct approach. If the linker no-longer inserts it, and the dynamic loader doesn't look for it, there might be little benefit to setting it. Or, maybe this is an oversight from Apple and needs some upstream discussion. Looking for some thoughts / Concept ACK/NACK.
+
+  One alternate approach we could take is to drop the patch and modify security-check.py to look for `lazy_bind_size` == 0 in the `LC_DYLD_INFO_ONLY` load command, using `otool -l`.
+
+ACKs for top commit:
+  theuni:
+    ACK 5ca90f8b598978437340bb8467f527b9edfb2bbf
+
+Tree-SHA512: 444022ea9d19ed74dd06dc2ab3857a9c23fbc2f6475364e8552d761b712d684b3a7114d144f20de42328d1a99403b48667ba96885121392affb2e05b834b6e1c
+
+---
+## [BipolarExpedition/PluginHub](https://github.com/BipolarExpedition/PluginHub)@[957a317138...](https://github.com/BipolarExpedition/PluginHub/commit/957a3171386c433b26c1edce0171693266dfef22)
+#### Wednesday 2022-07-06 22:07:32 by BipolarExpedition
+
+Adding GPS Helper Mod with author permission
+
+Kaito  [author] Jul 1 @ 1:20pm 
+No, I had not considered it yet. Feel free to have a look. I'm kinda busy irl right now, so it would be a while before I could look.
+
+In theory it all runs on the client, but you'll have to check the API.
+
+Doc1979 Jun 28 @ 4:37pm 
+Does this use server only commands? If not, have you thought of making it into a PluginLoader plugin? I was thinking of looking at your github to see if I could convert it myself, but if its already on your todo list, I'll wait
+
+---
+## [NoTeaParty/ProjectZomboidTranslations](https://github.com/NoTeaParty/ProjectZomboidTranslations)@[8071639f6f...](https://github.com/NoTeaParty/ProjectZomboidTranslations/commit/8071639f6f1cdca485e2c709038172bbe8e6ee3c)
+#### Wednesday 2022-07-06 22:39:35 by NoTeaParty
+
+1st revision of translation
+
+Hello! I'm a certified English/Spanish translator specialized in videogames! I look forward to keep working on this file as there are some things that can be written differently to stay as close to the original as possible whilst mantaining the effect it produces on the player! I also noticed some jokes were omitted.
+
+Please, note these translations/revisions are valid for all Spanish speakers all around the world.
+
+I will keep working on this file and I look forward to see the changes implemented in my favourite game!
+
+Thank you guys, hope you enjoy it!
+
+(If this is not the correct procedure to post translations, please let me know as well!)
+
+OR: ORIGINAL
+TR: TRANSLATION
+RV: REVISED
+________________________________________
+Authentic British cuisine! OR
+
+¡Auténtica receta inglesa! TR
+
+¡Auténtica cocina inglesa! RV
+
+Explanation: wrong translation of the word "cuisine" as it is not "recipe" but "cocina".
+
+Cocina, in this context, does not mean "kitchen".
+__________________________________________________________
+
+Try our new Biscuit and Gravy menu! OR
+
+Prueba nuestra Galleta con Sirope! TR
+
+¡Prueba nuestro nuevo menú, galleta con salsa! RV
+
+Explanation: they are inviting us to try the new MENU which consists of "biscuit and gravy", not the new "Biscuit and Gravy". This is a severe mistake.
+
+The correct translation for this is "galleta con salsa" per different cuisine articles consulted by me.
+
+"Sirope" is "syrup" in Spanish which does not make sense as gravy is a "salsa". I changed that as well.
+
+_
+
+This. This is the message of cows. OR
+
+Este es el mensaje de las vacas. TR
+
+Este. Este es el mensaje de las vacas. RV
+
+Explanation: fixed to look as the original, there's no need for us to avoid that repetition as the original and the translation have almost the same character length.
+
+____
+
+Feel the most nutritious taste explosion known to man. OR
+
+Siente la más nutritiva explosión de sabor conocida. TR
+
+Siente la explosión de sabor más nutritiva. RV
+
+Explanation: wrong word order, passive constructions are not as common as in English. Opted for a different approach whilst keeping the meaning in mind.
+
+____
+
+I am here to tell you something mooo-tiful. OR
+
+Estoy aquí para hablarles sobre algo delicioso. TR
+
+Estoy aquí para contarles algo muuu-licioso. RV
+
+Explanation: we can keep the joke in Spanish! It still makes sense and makes us laugh, why would we use "delicious"? Plus, the person speaking is not "there" to "talk" but to "tell" something. The word that is nearer to the original here would be "contar".
+
+____
+
+We sure will Tooks! For $49.99 who'd resist? OR
+
+¡Claro Tooks! Por 49.99 dólares ¿quién puede resistirse? TR
+
+¡Claro Tooks! Por 49.99 dólares ¿Quién podría resistirse? RV
+
+Explanation: wrong tense for "would", also fixed the lack of mayusc inside the interrogation marks per Spanish language rules.
+
+____
+
+Ask your doctor today! OR
+
+¡Pregunta a tu médico! TR
+
+¡Preguntale a tu médico hoy! RV
+
+Explanation: translator omitted "today".
+
+___
+
+It makes a difference to pick up your medication... OR
+
+Hay una diferencia entre recoger tu medicación... TR
+
+Hay una diferencia entre recoger su medicamento... RV
+
+Explanation: per the "Diccionario Critico de Dudas Ingles-Español de Medicina" from translator Fernando A. Navarro, it is not recommended to use "medicación" as the word itself is a "calco léxico" from the English language.
+
+It is preferred to use terms that are commonly used and do not have English roots like "medicamento" or "medicina". I chose to use "medicamento" since "medicina" can be mistaken for "medicine".
+
+____
+
+Welcome to my... robot laboratory. OR
+
+Bienvenidos a mi laboratorio robot. TR
+
+Bienvenidos a mi... laboratorio de robots. RV
+
+Explanation: the "..." are not to be omitted as they are required to create a certain effect on the person hearing.
+
+---
+## [CerberusHellHound/Foundation-19](https://github.com/CerberusHellHound/Foundation-19)@[da79feb746...](https://github.com/CerberusHellHound/Foundation-19/commit/da79feb746eeb53756f82c743b56feb71ac20bae)
+#### Wednesday 2022-07-06 23:40:26 by CerberusHellHound
+
+Slight rebalance and renamings
+
+List of changes :
+- decreased brain health to 150 (instead of 200), it's high enough that medical assistance can be given if fast but low enough that you don't want to get shot
+- increased damage values of weapons to baystation/nebula level (40 for a pistol for eg)
+- increased adrenalin generation when hurt (less fading in and out, you can still use your gun when hit and pain won't be such a pain in the ass, but you're less likely to get back up once the final shot hits you)
+- decreased relative size of lungs from 60% to 30% so that now, getting hit in the chest won't have as much chance of damaging your poor fucking lungs (yes 60% is the original baystation number.. it makes sense, it's a large organ, but it's a pain in the ass)
+- changed some names and descriptions of certain weapons and firearms to better fit established naming convention
+-made revolvers cycle the barrel instead of eject each shot (it's a revolver, not a damn rifle)
+- slightly decreased firing delay for the mk9 revolver (slightly weaker than the mateba so slightly faster firing)
+- decreased firing delay for the mk9 pistol (lower caliber, less recoil, easier to magdump)
+
+---
+## [dosisod/dwm](https://github.com/dosisod/dwm)@[67d76bdc68...](https://github.com/dosisod/dwm/commit/67d76bdc68102df976177de351f65329d8683064)
+#### Wednesday 2022-07-06 23:51:39 by Chris Down
+
+Do not allow focus to drift from fullscreen client via focusstack()
+
+It generally doesn't make much sense to allow focusstack() to navigate
+away from the selected fullscreen client, as you can't even see which
+client you're selecting behind it.
+
+I have had this up for a while on the wiki as a separate patch[0], but
+it seems reasonable to avoid this behaviour in dwm mainline, since I'm
+struggling to think of any reason to navigate away from a fullscreen
+client other than a mistake.
+
+0: https://dwm.suckless.org/patches/alwaysfullscreen/
 
 ---
 
