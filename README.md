@@ -5,389 +5,14 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-07-07](docs/good-messages/2022/2022-07-07.md)
+# [2022-07-08](docs/good-messages/2022/2022-07-08.md)
 
 
-1,573,838 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,573,838 were push events containing 2,329,653 commit messages that amount to 172,005,876 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 36 messages:
+1,730,295 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,730,295 were push events containing 2,537,826 commit messages that amount to 192,535,718 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 29 messages:
 
 
-## [ForestCranked/Shiptestengimaruin](https://github.com/ForestCranked/Shiptestengimaruin)@[f421be47a9...](https://github.com/ForestCranked/Shiptestengimaruin/commit/f421be47a95fc04e78b3d48601508222dd84ee4d)
-#### Thursday 2022-07-07 00:00:06 by Recoherent
-
-Adds five new IPC antennae (#1279)
-
-* adds 5 new ipc antennae
-
-feeling kinda hopeless idk
-
-* nyaru horns thicker
-
-this is the part where i yell at royal for replying with something dumb
-
-* removes lights it doesn't even fucking exist
-
-what were they thinking?????????????????????
-
-* forgot to remove joke name
-
-oooooooooooooooooops, the joke will have to live in our hearts
-
----
-## [mc-oofert/tgstation](https://github.com/mc-oofert/tgstation)@[95ffcd4e19...](https://github.com/mc-oofert/tgstation/commit/95ffcd4e19304af76653ff2b33084092246e4b16)
-#### Thursday 2022-07-07 00:47:40 by YakumoChen
-
-Moves the FUCKING LIGHT FIXTURES on tiles with surgery beds (#67644)
-
-Moves around some wall objects in surgery rooms on both Meta and Box, primarily so that there aren't light fixtures on the same tiles as surgery beds. I moved a few unrelated things for QOL.
-
-EVERY MOTHER FUCKING TIME I DO SURGERY I ALWAYS SMASH THE FUCKING LIGHT TUBE BY ACCIDENT AND IT PISSES ME THE FUCK OFF. WHY WOULD YOU PUT A THING THERE THAT JUTS OUT OVER THE FUCKING BED AND GETS IN THE WAY OF CLICKING ON THE SPACEMAN SPRITE FUCK GOD DAMN IT.
-
----
-## [CursedBirb/tgstation](https://github.com/CursedBirb/tgstation)@[763a10d1cc...](https://github.com/CursedBirb/tgstation/commit/763a10d1cc44c91720101d422d8709ad1aa0644d)
-#### Thursday 2022-07-07 01:12:12 by distributivgesetz
-
-Resonance cascade polishening, bugfixes and better logging (#67488)
-
-This PR rewrites almost all messages related to cascade events. Some messages felt kinda clunky to read or could have been written better. Overall, the new messages add to the experience as a cascade being a terrifying event in a way that I felt the old ones missed, and they make the event feel overall a lot sharper.
-
-While looking at the resonance cascade code, I noticed that there a lot of stuff about cascades in the air which was not touched on. So, as I do, this PR evolved into a polish and roundup PR for cascades. There was a lot of stuff still hanging out relating to the event, and although the big backend of it sits, there was still a bit left to be completed. Therefore this PR deserves more the title of the "Resonance cascade POLISHENING" instead of the "REFLAVAHRING". But yeah, you ever go on a massive tangent before?
-
----
-## [Neaxic/ENS-LinkUS](https://github.com/Neaxic/ENS-LinkUS)@[a4f6ca0a54...](https://github.com/Neaxic/ENS-LinkUS/commit/a4f6ca0a5498542421c458defe7046cb31f84c70)
-#### Thursday 2022-07-07 01:27:50 by Andre
-
-file uploader, og så fucking meget lort jeg ikke mager skrive men holy shit der meget
-
----
-## [Wrapper-Offline/informational-website](https://github.com/Wrapper-Offline/informational-website)@[a4b981f60d...](https://github.com/Wrapper-Offline/informational-website/commit/a4b981f60d46cfd9581c9e661656d396747f31cf)
-#### Thursday 2022-07-07 01:45:47 by sparrkz
-
-silent git install (note to self, do research)
-
-also gave information onto why the hell the launcher closes after dependency install (not very user friendly)
-
----
-## [DayangAB/terminal](https://github.com/DayangAB/terminal)@[9ccd6ecd74...](https://github.com/DayangAB/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
-#### Thursday 2022-07-07 02:50:15 by Mike Griese
-
-Manually copy trailing attributes on a resize (#12637)
-
-## THE WHITE WHALE
-
-This is a fairly naive fix for this bug. It's not terribly performant,
-but neither is resize in the first place.
-
-When the buffer gets resized, typically we only copy the text up to the
-`MeasureRight` point, the last printable char in the row. Then we'd just
-use the last char's attributes to fill the remainder of the row.
-
-Instead, this PR changes how reflow behaves when it gets to the end of
-the row. After we finish copying text, then manually walk through the
-attributes at the end of the row, and copy them over. This ensures that
-cells that just have a colored space in them get copied into the new
-buffer as well, and we don't just blat the last character's attributes
-into the rest of the row. We'll do a similar thing once we get to the
-last printable char in the buffer, copying the remaining attributes.
-
-This could DEFINITELY be more performant. I think this current
-implementation walks the attrs _on every cell_, then appends the new
-attrs to the new ATTR_ROW. That could be optimized by just using the
-actual iterator. The copy after the last printable char bit is also
-especially bad in this regard. That could likely be a blind copy - I
-just wanted to get this into the world.
-
-Finally, we now copy the final attributes to the correct buffer: the new
-one.  We used to copy them to the _old_ buffer, which we were about to
-destroy.
-
-## Validation
-
-I'll add more gifs in the morning, not enough time to finish spinning a
-release Terminal build with this tonight.
-
-Closes #32 🎉🎉🎉🎉🎉🎉🎉🎉🎉
-Closes #12567
-
-(cherry picked from commit 855e1360c0ff810decf862f1d90e15b5f49e7bbd)
-
----
-## [DayangAB/terminal](https://github.com/DayangAB/terminal)@[8962f88f90...](https://github.com/DayangAB/terminal/commit/8962f88f907d86fd8684b66f7f3e32a2709e3237)
-#### Thursday 2022-07-07 02:50:15 by Dustin L. Howett
-
-Disable the VT color quirk for pwsh and modern inbox powershell (#13352)
-
-In #6810, we introduced a "quirk" for all known versions of PowerShell
-that suppressed their requests for black background/gray foreground.
-This was done to avoid an [issue in PSReadline] where it would paint
-black bars all over the screen if the default background color wasn't
-the same as the ANSI black color.
-
-Years have passed since that quirk was introduced. The underlying bug
-was fixed, and the fix was released broadly long ago. It's time for us
-to remove the quirk... almost.
-
-Terminal still runs on versions of Windows that ship a broken version of
-PSReadline. We must maintain the quirk there -- the user can't do
-anything about it, and we would make their experience worse if we
-removed the quirk entirely.
-
-PowerShell 7.0 also ships a broken version of PSReadline. It is still in
-support for another 6 months, but updates have been available for some
-time. We can encourage users to update.
-
-Therefore, we only need the quirk for Windows PowerShell, and then only
-for specific versions of Windows.
-
-_Inside Windows_, we don't even need that: we're guaranteed to be built
-alongside a fixed version of PowerShell!
-
-Closes #6807
-
-[issue in PSReadline]: https://github.com/PowerShell/PSReadLine/issues/830#issuecomment-650508857
-
----
-## [Dark-Matter7232/CosmicFresh-Hanoip](https://github.com/Dark-Matter7232/CosmicFresh-Hanoip)@[79116d2d8a...](https://github.com/Dark-Matter7232/CosmicFresh-Hanoip/commit/79116d2d8adf7365f67521fb3ac45fa8810a2723)
-#### Thursday 2022-07-07 02:54:51 by Zi Yan
-
-BACKPORT: mm/compaction: stop isolation if too many pages are isolated and we have pages to migrate
-
-In isolate_migratepages_block, if we have too many isolated pages and
-nr_migratepages is not zero, we should try to migrate what we have
-without wasting time on isolating.
-
-In theory it's possible that multiple parallel compactions will cause
-too_many_isolated() to become true even if each has isolated less than
-COMPACT_CLUSTER_MAX, and loop forever in the while loop.  Bailing
-immediately prevents that.
-
-[vbabka@suse.cz: changelog addition]
-
-Fixes: 1da2f328fa64 (“mm,thp,compaction,cma: allow THP migration for CMA allocations”)
-Suggested-by: Vlastimil Babka <vbabka@suse.cz>
-Signed-off-by: Zi Yan <ziy@nvidia.com>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Cc: <stable@vger.kernel.org>
-Cc: Mel Gorman <mgorman@techsingularity.net>
-Cc: Michal Hocko <mhocko@kernel.org>
-Cc: Rik van Riel <riel@surriel.com>
-Cc: Yang Shi <shy828301@gmail.com>
-Link: https://lkml.kernel.org/r/20201030183809.3616803-2-zi.yan@sent.com
-Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
-[cyberknight777: backport to 4.14]
-Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
-
----
-## [Y0SH1M4S73R/tgstation](https://github.com/Y0SH1M4S73R/tgstation)@[8f0df7816b...](https://github.com/Y0SH1M4S73R/tgstation/commit/8f0df7816bae3c5dedf599611cda3e6039024e14)
-#### Thursday 2022-07-07 03:20:59 by Kylerace
-
-(code bounty) The tram is now unstoppably powerful. it cannot be stopped, it cannot be slowed, it cannot be reasoned with. YOU HAVE NO IDEA HOW READY YOU ARE (#66657)
-
-ever see the tram take 10 milliseconds per movement to move 2100 objects? now you have
-https://user-images.githubusercontent.com/15794172/166198184-8bab93bd-f584-4269-9ed1-6aee746f8f3c.mp4
-About The Pull Request
-
-fixes #66887
-
-done for the code bounty posted by @MMMiracles to optimize the tram so that it can be sped up. the tram is now twice as fast, firing every tick instead of every 2 ticks. and is now around 10x cheaper to move. also adds support for multiz trams, as in trams that span multiple z levels.
-
-the tram on master takes around 10-15 milliseconds per movement with nothing on it other than its starting contents. why is this? because the tram is the canary in the coal mines when it comes to movement code, which is normally expensive as fuck. the tram does way more work than it needs to, and even finds new ways to slow the game down. I'll walk you through a few of the dumber things the tram currently does and how i fixed them.
-
-    the tram, at absolute minimum, has to move 55 separate industrial_lift platforms once per movement. this means that the tram has to unregister its entered/exited signals 55 times when "the tram" as a singular object is only entering 5 new turfs and exiting 5 old turfs every movement, this means that each of the 55 platforms calculates their own destination turfs and checks their contents every movement. The biggest single optimization in this pr was that I made the tram into a single 5x11 multitile object and made it only do entering/exiting checks on the 5 new and 5 old turfs in each movement.
-    way too many of the default tram contents are expensive to move for something that has to move a lot. fun fact, did you know that the walls on the tram have opacity? do you know what opacity does for movables? it makes them recalculate static lighting every time they move. did you know that the tram, this entire time, was taking JUST as much time spamming SSlighting updates as it was spending time in SStramprocess? well it is! now it doesnt do that, the walls are transparent. also, every window and every grille on the tram had the atmos_sensitive element applied to them which then added connect_loc to them, causing them to update signals every movement. that is also dumb and i got rid of that with snowflake overrides. Now we must take care to not add things that sneakily register to Moved() or the moved signal to the roundstart tram, because that is dumb, and the relative utility of simulating objects that should normally shatter due to heat and conduct heat from the atmosphere is far less than the cost of moving them, for this one object.
-    all tram contents physically Entered() and Exited() their destination and old turfs every movement, even though because they are on a tram they literally do not interact with the turf, the tram does. also, any objects that use connect_loc or connect_loc behalf that are on the same point on the tram also interact with each other because of this. now all contents of the tram act as if theyre being abstract_move()'d to their destination so that (almost) nothing thats in the destination turf or the exit turf can react to the event of "something laying on the tram is moving over you". the rare things that DO need to know what is physically entering or exiting their turf regardless of whether theyre interacting with the ground can register to the abstract entered and exited signals which are now always sent.
-    many of the things hooked into Moved(), whether it be overrides of Moved() itself, or handlers for the moved signal, add up to a LOT of processing time. especially for humans. now ive gotten rid of a lot of it, mostly for the tram but also for normal movement. i made footsteps (a significant portion of human movement cost) not do any work if the human themselves didnt do the movement. i optimized has_gravity() a fair amount, and then realized that since everything on the tram isnt changing momentum, i didnt actually need to check gravity for the purposes of drifting (newtonian_move() was taking a significant portion of the cost of movement at some points along the development process). so now it simply doesnt call newtonian_move() for movements that dont represent a change in momentum (by default all movements do).
-
-also i put effort into 1. better organizing tram/lift code so that most of it is inside of a dedicated modules folder instead of scattered around 5 generic folders and 2. moved a lot of behavior from lift platforms themselves into their lift_master_datum since ideally the platforms would just handle moving themselves, while any behavior involving the entire lift such as "move to destination" and "blow up" would be handled by the lift_master_datum.
-
-also
-https://user-images.githubusercontent.com/15794172/166220129-ff2ea344-442f-4e3e-94f0-ec58ab438563.mp4
-multiz tram (this just adds the capability to map it like this, no tram does this)
-Actual Performance Differences
-
-to benchmark this, i added a world.Profile(PROFILER_START) and world.Profile(PROFILER_START) to the tram moving, so that it generates a profiler output of all tram movement without any unrelated procs being recorded (except for world.Profile() overhead). this made it a lot easier to quantify what was slowing down both the tram and movement in general. and i did 3 types of tests on both master and my branch.
-
-also i should note that i sped up the "master" tram test to move once per tick as well, simply because the normal movement speed seems unbearably slow now. so all recorded videos are done at twice the speed of the real tram on master. this doesnt affect the main thing i was trying to measure: cost for each movement.
-
-the first test was the base tram, containing only my player mob and the movables starting on the tram roundstart. on master, this takes around 13 milliseconds or so on my computer (which is pretty close to what it takes on the servers), on this branch, it takes between 0.9-1.3 milliseconds.
-
-ALSO in these benchmarks youll see that tram/proc/travel() will vary significantly between the master and optimized branches. this is 100% because there are 55 times more platforms moving on master compared to the master branch, and thus 55x more calls to this proc. every test was recorded with the exact same amount of distance moved
-
-here are the master and optimized benchmark text files:
-master
-master base tram.txt
-https://user-images.githubusercontent.com/15794172/166210149-f118683d-6f6d-4dfb-b9e4-14f17b26aad8.mp4
-also this shows the increased SSlighting usage resulting from the tram on master spamming updates, which doesnt happen on the optimized branch
-
-optimized
-optimization base tram.txt
-https://user-images.githubusercontent.com/15794172/166206280-cd849aaa-ed3b-4e2f-b741-b8a5726091a9.mp4
-
-the second test is meant to benchmark the best case scaling cost of moving objects, where nothing extra is registered to movement besides the bare minimum stuff on the /atom/movable level. Each of the open tiles of the tram had 1 bluespace rped filled with parts dumped onto it, to the point that the tram in total was moving 2100 objects. the vast majority of these objects did nothing special in movement so they serve as a good base case. only slightly off due to the rped's registering to movement.
-
-on master, this test takes over 100 milliseconds per movement
-master 2000 obj's.txt
-https://user-images.githubusercontent.com/15794172/166210560-f4de620d-7dc6-4dbd-8b61-4a48149af707.mp4
-
-when optimized, about 10 milliseconds per movement
-https://user-images.githubusercontent.com/15794172/166208654-bc10086b-bbfc-49fa-9987-d7558109cc1d.mp4
-optimization 2000 obj's.txt
-
-the third test is 300 humans spawned onto the tram, meant to test all the shit added on to movement cost for humans/carbons. in retrospect this test is actually way too biased in favor of my optimizations since the humans are all in only 3 tiles, so all 100 humans on a tile are reacting to the other 99 humans movements, which wouldnt be as bad if they were distributed across 20 tiles like in the second test. so dont read into this one too hard.
-
-on master, this test takes 200 milliseconds
-master 300 catgirls.txt
-
-when optimized, this takes about 13-14 milliseconds.
-optimization 300 catgirls on ram ranch.txt
-Why It's Good For The Game
-
-the tram is literally 10x cheaper to move. and the code is better organized.
-currently on master the tram is as fast as running speed, meaning it has no real relative utility compared to just running the tracks (except for the added safety of not having to risk being ran over by the tram). now the tram of which we have an entire map based around can be used to its full potential.
-
-also, has some fixes to things on the tram reacting to movement. for example on master if you are standing on a tram tile that contains a banana and the TRAM moves, you will slip if the banana was in that spot before you (not if you were there first however). this is because the banana has no concept of relative movement, you and it are in the same reference frame but the banana, which failed highschool physics, believes you to have moved onto it and thus subjected you to the humiliation of an unjust slipping. now since tram contents that dont register to abstract entered/exited cannot know about other tram contents on the same tile during a movement, this cannot happen.
-
-also, you no longer make footstep sounds when the tram moves you over a floor
-TODO
-
-mainly opened it now so i can create a stopping point and attend to my other now staling prs, we're at a state of functionality far enough to start testmerging it anyways.
-
-add a better way for admins to be notified of the tram overloading the server if someone purposefully stuffs it with as much shit as they can, and for admins to clear said shit.
-automatically slow down the tram if SStramprocess takes over like, 10 milliseconds complete. the tram still cant really check tick and yield without introducing logic holes, so making sure it doesnt take half of the tick every tick is important
-go over my code to catch dumb shit i forgot about, there always is for these kinds of refactors because im very messy
-remove the area based forced_gravity optimization its not worth figuring out why it doesnt work
-fix the inevitable merge conflict with master lol
-create an icon for the tram_tunnel area type i made so that objects on the tram dont have to enter and exit areas twice in a cross-station traversal
-
-    add an easy way to vv tram lethality for mobs/things being hit by it. its an easy target in another thing i already wanted to do: a reinforced concept of shared variables from any particular tram platform and the entire tram itself. admins should be able to slow down the tram by vv'ing one platform and have it apply to the entire tram for example.
-
-Changelog
-
-cl
-balance: the tram is now twice as fast, pray it doesnt get any faster (it cant without raising world fps)
-performance: the tram is now about 10 times cheaper to move for the server
-add: mappers can now create trams with multiple z levels
-code: industrial_lift's now have more of their behavior pertaining to "the entire lift" being handled by their lift_master_datum as opposed to belonging to a random platform on the lift.
-/cl
-
----
-## [nicerapp/nicerapp](https://github.com/nicerapp/nicerapp)@[8691712be2...](https://github.com/nicerapp/nicerapp/commit/8691712be2c703377a60468124c45ae7dde159a0)
-#### Thursday 2022-07-07 04:00:50 by Rene AJM Veerman
-
-IMPORTANT UPDATE : READ WHOLE COMMENT FOR THIS UPLOAD TO GITHUB.COM : Like in war, in the businessworld you need to pick your allies in a smart way, and stay brand-loyal and Especially Allies-Loyal, and practice the art of DIPLOMACY in your actions and words and body-language towards your AUDIENCES *AND* your Allied-companies. I am a small industrial startup man, and i've chosen (*by myself*) the allies Linux, Microsoft.com, GOOGLE.com (gmail.com is their entrypoint in terms of oAuth root-most level checks in terms of user-interfaces), tinyurl.com, Facebook.com (in effect all of Meta.com these days), is.gd (another dot-com level site for link shortening) (see my is.gd/cheetahkungfu for instance, and eh, evil people, you will call yourselves Black Panther Kung Fu Students please, or there'll be a price to pay in terms of wars that you can't handle, with all those majorities of Good Warriors (dead/alive/Divine) out there, see my https://tinyurl.com/telepathy-manual), and of course Apple.com for the quality of their hardware (girls and women LOVE that hardware, richer guys too! - so i'll be building an extension for jQuery.com that fixes jQuery.com for Apple products *myself*)
-
----
-## [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach)@[f6cc7f575c...](https://github.com/cockroachdb/cockroach/commit/f6cc7f575cd374982752af6909d3efa96908c3dd)
-#### Thursday 2022-07-07 04:04:29 by craig[bot]
-
-Merge #81409
-
-81409: bazel: upgrade to rules_nodejs 5.4.2 r=rickystewart,nathanstilwell,laurenbarker a=sjbarag
-
-Please forgive the massive second commit — there's very few valid states in this progression, as building, linting, and testing either work or they don't.  There's not much sense in intentionally leaving commits around that won't build in my opinion, as it makes bisecting extremely frustrating.  If anyone disagrees, let me know and I can keep digging for an intermediate state!
-
-----
-
-Upgrading to Bazel's rules_nodejs 5.x exposed a flaw in our previous Bazel integration: because rules_nodejs explicitly doesn't support yarn's "workspaces" feature [1] (in which common dependencies are hoisted to the lowest common parent directory), any NPM dependencies with different major versions between db-console and cluster-ui would
-get flattened to a single version. This left one of those packages using an unsupported (and un-requested) version of a dependency. Removing the yarn workspace layout and using separate Bazel repositories for each JS project ensured each project received the correct dependencies, but revealed incompatibilities with the requested versions. Upgrade rules_nodejs to the latest released version, remove yarn workspaces from the pkg/ui/ tree, and fix all revealed compatibility issues.
-
-Co-authored-by: Sean Barag <barag@cockroachlabs.com>
-
----
-## [njlyf2011/reactos-dev](https://github.com/njlyf2011/reactos-dev)@[4471ee4dfa...](https://github.com/njlyf2011/reactos-dev/commit/4471ee4dfaddb2440601fd61c01542b586b7c2d0)
-#### Thursday 2022-07-07 04:07:07 by George Bișoc
-
-[NTOS:SE] Properly handle dynamic counters in token
-
-On current master, ReactOS faces these problems:
-
-- ObCreateObject charges both paged and non paged pool a size of TOKEN structure, not the actual dynamic contents of WHAT IS inside a token. For paged pool charge the size is that of the dynamic area (primary group + default DACL if any). This is basically what DynamicCharged is for.
-For the non paged pool charge, the actual charge is that of TOKEN structure upon creation. On duplication and filtering however, the paged pool charge size is that of the inherited dynamic charged space from an existing token whereas the non paged pool size is that of the calculated token body
-length for the new duplicated/filtered token. On current master, we're literally cheating the kernel by charging the wrong amount of quota not taking into account the dynamic contents which they come from UM.
-
-- Both DynamicCharged and DynamicAvailable are not fully handled (DynamicAvailable is pretty much poorly handled with some cases still to be taking into account). DynamicCharged is barely handled, like at all.
-
-- As a result of these two points above, NtSetInformationToken doesn't check when the caller wants to set up a new default token DACL or primary group if the newly DACL or the said group exceeds the dynamic charged boundary. So what happens is that I'm going to act like a smug bastard fat politician and whack
-the primary group and DACL of an token however I want to, because why in the hell not? In reality no, the kernel has to punish whoever attempts to do that, although we currently don't.
-
-- The dynamic area (aka DynamicPart) only picks up the default DACL but not the primary group as well. Generally the dynamic part is composed of primary group and default DACL, if provided.
-
-In addition to that, we aren't returning the dynamic charged and available area in token statistics. SepComputeAvailableDynamicSpace helper is here to accommodate that. Apparently Windows is calculating the dynamic available area rather than just querying the DynamicAvailable field directly from the token.
-My theory regarding this is like the following: on Windows both TokenDefaultDacl and TokenPrimaryGroup classes are barely used by the system components during startup (LSASS provides both a DACL and primary group when calling NtCreateToken anyway). In fact DynamicAvailable is 0 during token creation, duplication and filtering when inspecting a token with WinDBG. So
-if an application wants to query token statistics that application will face a dynamic available space of 0.
-
----
-## [flolac-tw/hakyll](https://github.com/flolac-tw/hakyll)@[8980133284...](https://github.com/flolac-tw/hakyll/commit/8980133284d7d5f0d7cd71580796150c74b22f2d)
-#### Thursday 2022-07-07 06:37:39 by Alexander Batischev
-
-Docs: IRC channel moved from Freenode to Libera.Chat (#848)
-
-There's no mention of this on the issue tracker, so here's my recap of
-what led to this change.
-
-There is some drama around Freenode. Their volunteer staff quit[1]. Then
-the new-ish management started enacting strange policy changes[2] and
-take over the channels[3]. On June 26th 2021 Freenode's bot tried to
-take over #hakyll, but failed; however, it did succeed in #haskell and
-many, many other channels.
-
-For the preceding week, me and IRC user henk were trying to move the
-channel off the Freenode, either to Libera.Chat or OFTC. Jasper, the
-founder of Hakyll, was absent from IRC and didn't respond to my emails.
-Me and henk are the most active IRC users on the channel. Also, I have
-Collaborator access to the repo, and henk has chanop access to the IRC
-channel. We believe that at this time, we're the ones who are the best
-positioned to execute the move, so we're doing it.
-
-We only considered Libera.Chat and OFTC. Libera.Chat was created a week
-earlier by the same staff who quit Freenode; I personally consider them
-to be a spiritual successor of Freenode. OFTC is a well-established
-network with good governance documentation. Both networks are
-FOSS-friendly. The choice wasn't obvious.
-
-Libera.Chat was picked because 10 users moved there (and 1 more did
-while I was typing this!), whereas only 2 joined OFTC (me and henk, and
-those weren't votes for OFTC — we were just ensuring that the channel is
-ours). Also, #haskell and #ghc are on Libera too, so it makes sense for
-a Haskell project such as Hakyll to be present on Libera.
-
-For posterity:
-
-<Minoru> info #hakyll
--ChanServ(ChanServ@services.)- Information on #hakyll:
--ChanServ(ChanServ@services.)- Founder    : jaspervdj
--ChanServ(ChanServ@services.)- Registered : Mar 01 13:29:17 2011 (10y 12w 5d ago)
--ChanServ(ChanServ@services.)- Mode lock  : +ntc-slk
--ChanServ(ChanServ@services.)- *** End of Info ***
-
-1. https://kline.sh
-2. https://github.com/freenode/web-7.0/pull/513
-3. https://www.devever.net/~hl/freenode_abuse
-
----
-## [C7-Game/Prototype](https://github.com/C7-Game/Prototype)@[d4cb71a167...](https://github.com/C7-Game/Prototype/commit/d4cb71a1673b919ddf87d8afcbb2e8ad9ad25352)
-#### Thursday 2022-07-07 07:05:39 by Quintillus
-
-WIKI INFO - Build out strategic priorities a little bit.  WarPriority is a notable one as it is the first one that includes properties.
-
-I've tried to build the priorities so there will be a common interface.  The goal being that new priorities can be added being mods, and they can still be serialized.  The interface should help for this.  If all of our StrategicPriorities were bespoke hard-coded, it might be convenient, but it would not lend itself to extensibility.
-
-The challenge is going to be how do we merge those priorities, convenience of writing the logic, extensibility, and serialization?
-
-This is still an evolving thought process, and I'm not totally sold on this dictionary-of-dictionaries approach, it just seemed like the most convenient way to return a weight *and* some required data about how that weight was chosen and what to do if this priority is chosen by the arbitrator.
-
-The other half of the thought process that's not yet fully coded is that if a priority is chosen, its info should be stored in the data classes.  My general thought here is that by returning property maps, we should be able to store those, and a reference to the type of StrategicPriority, in the data classes, allowing us to reconstruct objects of the appropriate type, put in the relevant properties, and re-load from save.
-
-The engine will also have to be able to look up the priorities based on name... maybe a key type thing?  This should also be stored in the save.  So basically, on load the engine will have the key, the weight, and properties.  It'll use the key to find the appropriate class, instantiate an instance, and stuff the properties onto that instance (and maybe the weight or maybe that's higher-level metadata that goes elsewhere).  This yields an fully inflated StrategicPriority instance that the AI part of the engine can then reference to calculate things.
-
-Combining this with a lookup mechanism for StrategicPriorities should yield moddability.  I'm reminded of Java's "Service Provider Interface" concept, the gist of which is that if you make a class that follows an interface, and register it with the JVM in a certain way in your program, the JVM magically gains new capabilities.  An example is if I write an image processor for PCX files, and register it correctly, the general image ImageIO capabilities in Java can now magically handle PCX files, e.g. ImageIO.load("x_title.pcx") will just work, even though in stock Java it wouldn't know what to do with a PCX.  It works for other types of services too.  Our specifics will differ, but I think the goal should be similar - if you write a new StrategicPriority and follow a given interface, it'll magically be incorporated with the AI.
-
-The remaining hard part is how is the strategic AI looped in to decision-making?  There are theoretically a thousand places this could be looped in, but if we want it to be extensible, we have to have standard interfaces.  But the StrategicPriority also has to know enough about the situation to be able to interpret what's going on.
-
-For now I'm thinking some combination of weights and modifiers being providable by the strategic priority.  E.g. for city production, it should be able to make some things be produced more often, and that's a weight based thing.  But I'm sure there's other cases I'm not thinking of that make things more complex.  I'm also aware of what Jon or Soren mentioned somewhere about overly generic AIs sometimes not being decisive enough.  It'll be interesting...
-
----
 ## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[6fe0683a7b...](https://github.com/tgstation/tgstation/commit/6fe0683a7bc788a497dbce8771768e427d0dffb1)
-#### Thursday 2022-07-07 07:16:27 by Jolly
+#### Friday 2022-07-08 00:02:36 by Jolly
 
 [READY] [KC13] Showing "The Derelict" some love: General updates, aesthetic changes and misc (#67696)
 
@@ -408,614 +33,89 @@ SMES Jumpscare
 As an aside, I aim to try and keep the feel of this ruin being "dated" while at the same time having some of our newer things. With that, certain things I'll opt out of using in favor of more "generic" structures to give KC13 that true "Its old but not really" feel and look.
 
 ---
-## [Zeodexic/tsorcRevamp](https://github.com/Zeodexic/tsorcRevamp)@[303373dd7e...](https://github.com/Zeodexic/tsorcRevamp/commit/303373dd7eb77ace664d3904be7c202443a59cfa)
-#### Thursday 2022-07-07 07:28:06 by MarfMaster
+## [hortont424/WebKit](https://github.com/hortont424/WebKit)@[56d15f6c0e...](https://github.com/hortont424/WebKit/commit/56d15f6c0e9323a738bd1caae4313e5625632151)
+#### Friday 2022-07-08 00:06:29 by Tim Horton
 
-Changes again
+Add a very simple live-ish resize SPI
+https://bugs.webkit.org/show_bug.cgi?id=242431
 
-Added few summoning items to non-consumable list
-Removed some vanilla recipes to gate them behind map progress
-Changed AtmaWeapon recipe
-Allowed Frost Legion enemies to spawn so using the broken snow globe doesn't fuck your world up
+Reviewed by NOBODY (OOPS!).
 
----
-## [Spookuni/tgstation](https://github.com/Spookuni/tgstation)@[e37591540b...](https://github.com/Spookuni/tgstation/commit/e37591540b2620b7ad2a2b61734634d848e8eba2)
-#### Thursday 2022-07-07 07:46:29 by san7890
+There are a few problems with the existing resize mechanisms on
+iOS family platforms:
 
-[MDB Ignore] OH GOD OH FUCK OH SHIT OH LORD - SPACE AND RUINS IS BROKEN (#67324)
+- Bare `setFrame:` does not make any attempt to synchronize the frame change
+  with the incoming asynchronous painting.
 
-So, for the last few days on production, Space Ruin generation has refused to work. Why is this? It's because in #67107 (cfc233052885dd294b2e7e676caaf84a2a37592b), we repathed `/area/space`  to `/area/misc/space` (lol i should have paid attention to that) without updating everything in code to match. I couldn't seem to get `/area/misc/space` to properly work somehow (this could have also been something I was doing wrong), but I worked it back to just making everything vanilla `/area/space` and all of those unwanted behaviors should be squashed out. Let's get the game working again.
+- `_beginAnimatedResize:` cannot handle long-duration animations (like those
+  that occur during a human-driven resize), and requires nontrivial
+  rearchitecture in order to do so (see e.g. 235698@main, which removed all
+  support for updating the animated resize transform when intermediate commits
+  arrive, which happens frequently during long-running live resizes).
+  It is built primarily to drive single-shot rotation animations.
 
----
-## [ManorSailor/etch-a-sketch](https://github.com/ManorSailor/etch-a-sketch)@[10733462df...](https://github.com/ManorSailor/etch-a-sketch/commit/10733462df161b183921a43ed5118af9712a48a4)
-#### Thursday 2022-07-07 09:03:50 by ManorSailor
+- `_holdLiveResizeSnapshotForReason:` depends on platform support which is not
+  always available, and also requires taking many snapshots as the view resizes.
 
-feat: Add clear grid option
+- `setFrame:` + CoreAnimation fencing (which we use on macOS, not iOS) blocks
+  non-WebKit UI hosted in the same CAContext, and is generally frowned upon.
 
-My implementation of tools section will require a rewrite if I want to extend this app one day.
-Perhaps, a separate function which can take care of deciding if the activeTool should be updated or not
-Since there will be some tools like 'clear grid' which doesn't do anything apart from...
+So, let's introduce one more! That will surely help.
 
-Heck. My whole codebase will need a refactor, I created this activateTool function, however, this shit cannot be called from 'click' listener
-of this tools above. If we do so, our implementation breaks since activateTool has mousemove events attached to it.
+`_beginLiveResize` -> repeated `setFrame` -> `_endLiveResize` will do a very
+simple, live-*ish* resize. We defer actual frame changes until the end of the
+resize, but dynamically scale the existing tiles (and allow them to repaint)
+on each frame change.
 
-Holy cow, this code has become a huge mess.
+* Source/WebKit/UIProcess/API/Cocoa/WKWebViewInternal.h:
+* Source/WebKit/UIProcess/API/ios/WKWebViewIOS.mm:
+(-[WKWebView _processWillSwapOrDidExit]):
+(-[WKWebView _updateLiveResizeTransform]):
+Scale (and translate) the current tiles to fit in the web view as it is resized.
 
----
-## [Foundation-19/Foundation-19](https://github.com/Foundation-19/Foundation-19)@[c6468997ac...](https://github.com/Foundation-19/Foundation-19/commit/c6468997acb05639ea963e86606a805e241a7474)
-#### Thursday 2022-07-07 09:26:41 by CerberusHellHound
+(-[WKWebView _frameOrBoundsChanged]):
+Skip most of _frameOrBoundsChanged while in live-resize, just like we do
+for animated resize.
 
-Renaming, slight rebalance, etc (#179)
+(-[WKWebView _ensureResizeAnimationView]):
+(-[WKWebView _destroyResizeAnimationView]):
+(-[WKWebView _cancelAnimatedResize]):
+(-[WKWebView _beginAnimatedResizeWithUpdates:]):
+Factor out creation of the _resizeAnimationView from animated resize code, and
+re-use it for "live" resize.
 
-* Update baystation12.dme
+(-[WKWebView _beginLiveResize]):
+Start a live resize.
 
-* 9mm/.45ACP Buff
-
-Changes are as follow:
-- Buffed 9mm dam from 8 to 25 (now it doesn't take a whole mag to take down an unarmoured man)
-- Buffed .45 dam from 10 to 30
-- Nerfed 9mm AP from 34 to 30
-- Buffed 7,62 dam from 40 to 50 (It's supposed to be beefier than 5,56mm)
-
-* Organ changes
-
-Lower organ health value to make combat much deadlier.
-Headshots are truly lethal now.
-
-* Slight rebalance and renamings
-
-List of changes :
-- decreased brain health to 150 (instead of 200), it's high enough that medical assistance can be given if fast but low enough that you don't want to get shot
-- increased damage values of weapons to baystation/nebula level (40 for a pistol for eg)
-- increased adrenalin generation when hurt (less fading in and out, you can still use your gun when hit and pain won't be such a pain in the ass, but you're less likely to get back up once the final shot hits you)
-- decreased relative size of lungs from 60% to 30% so that now, getting hit in the chest won't have as much chance of damaging your poor fucking lungs (yes 60% is the original baystation number.. it makes sense, it's a large organ, but it's a pain in the ass)
-- changed some names and descriptions of certain weapons and firearms to better fit established naming convention
--made revolvers cycle the barrel instead of eject each shot (it's a revolver, not a damn rifle)
-- slightly decreased firing delay for the mk9 revolver (slightly weaker than the mateba so slightly faster firing)
-- decreased firing delay for the mk9 pistol (lower caliber, less recoil, easier to magdump)
+(-[WKWebView _endLiveResize]):
+End a live resize. In order to synchronise the transition from the
+resizeAnimationView's scale to the scale of the pending incoming tiles, we throw
+up a temporary snapshot. Ideally this would be removed in the future, but will
+require quite a bit of care to avoid flashing; also, it is quite shortlived
+so shouldn't cause much trouble.
 
 ---
-## [AndriyKatsubo/thewasteland](https://github.com/AndriyKatsubo/thewasteland)@[b052462833...](https://github.com/AndriyKatsubo/thewasteland/commit/b052462833fe607463547d4cdd670f1e48e9922c)
-#### Thursday 2022-07-07 09:51:47 by BadAtThisGame
+## [artorhem/wiredtiger](https://github.com/artorhem/wiredtiger)@[24d35561e3...](https://github.com/artorhem/wiredtiger/commit/24d35561e328e6568992bcafa18a560d56688185)
+#### Friday 2022-07-08 00:19:16 by Keith Bostic
 
-Overheat warnings to both gatling guns (#742)
+WT-5521 Cache stuck during format initial load, configured with library checkpoints (#5233)
 
-* The notorious
+* If reconciliation requires multiple blocks and checkpoint is running we'll eventually fail.
+It's possible this is a big page that will take a lot of writes, avoid wasted work.
 
-* Epic
+* Quit doing so much work in format's read-scan, it's not that useful any more and we're have already
+verified the load.
 
-* FUCK YOU
-
-* I am going to beat you with a club
-
----
-## [Atom-X-Devs/android_kernel_xiaomi_scarlet](https://github.com/Atom-X-Devs/android_kernel_xiaomi_scarlet)@[dd1d90b47b...](https://github.com/Atom-X-Devs/android_kernel_xiaomi_scarlet/commit/dd1d90b47b58bbcdc0f5802b8e459601e13b9125)
-#### Thursday 2022-07-07 09:52:47 by Wang Han
-
-power: Introduce OnePlus 3 fingerprintd thaw hack
-
-Taken from Oneplus 3, this hack will make fingerprintd recover from suspend quickly.
-
-Small fixes for newer kernels since we're coming from 3.10.108..
-
-Change-Id: I0166e82d51a07439d15b41dbc03d7e751bfa783b
-Co-authored-by: Cyber Knight <cyberknight755@gmail.com>
-[cyberknight777: forwardport and adapt to 4.14]
-Co-authored-by: Tashfin Shakeer Rhythm <tashfinshakeerrhythm@gmail.com>
-[Tashar02: forwardport and adapt to 4.19 and xiaomi_sdm660's fp]
-Signed-off-by: Shreyansh Lodha <slodha96@gmail.com>
-Signed-off-by: Pierre2324 <pdbbasketball@gmail.com>
-Signed-off-by: PainKiller3 <ninadpatil100@gmail.com>
-Signed-off-by: Dhruv <dhruvgera61@gmail.com>
-Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
-Signed-off-by: Tashfin Shakeer Rhythm <tashfinshakeerrhythm@gmail.com>
+* Configuring WiredTiger library checkpoints is done separately, rather than as part of the
+original database open because format tests small caches and you can get into cache stuck
+trouble during bulk load. Imagine a single thread doing lots of inserts and creating huge
+leaf pages. Those pages can't be evicted when there are checkpoints running in the tree and
+the cache gets stuck. That workload is unlikely enough the library can't handle it, and we
+configure it away here.
 
 ---
-## [hestiacp/hestiacp](https://github.com/hestiacp/hestiacp)@[365dab5670...](https://github.com/hestiacp/hestiacp/commit/365dab5670f6d1a862858be01638072eeb2ec1db)
-#### Thursday 2022-07-07 10:59:57 by divinity76
-
-Use secure RNG to generate passwords (#2726)
-
-* use secure rng to generate passwords
-
-quoting MDN:
->Math.random() does not provide cryptographically secure random numbers. Do not use them for anything related to security. Use the Web Crypto API instead
-
-My rng is kinda shitty, i know there is some fast way to cut down higher digits to get a digit in range without introducing bias, but i also know that other people have introduced bias by trying to do that on an initially secure rng and getting it wrong (iirc it's discussed here? https://www.youtube.com/watch?v=LDPMpc-ENqY - been years since i saw the talk, but i know Lavavej discussed it in one of his presentations, i think it was that one)  , but anyway this is fast enough, and secure.
-
-* shorter name
-
-* randomString2 / centralize js string generation
-
-* missed 2
-
----
-## [jktjkt/oopt-gnpy](https://github.com/jktjkt/oopt-gnpy)@[5e3e331776...](https://github.com/jktjkt/oopt-gnpy/commit/5e3e33177648cf73c24c24fc09b98feec776fbfa)
-#### Thursday 2022-07-07 12:06:06 by Jan Kundrát
-
-YANG: Equipment Library
-
-The first step in adding YANG description for GNPy's input is the
-equipment library (`tip-photonic-equipment`). It contains data about all
-defined EDFA and Fiber types. This is supposed to be functionally
-equivalent to the `eqpt_config.json`, but the actual JSON structure is
-different.
-
-The core idea of this model is to describe capabilities of the
-simulation engine as it exists, which means that the individual
-choice/case statements mirror our different "simulation input
-parameters". The user is not expected to do any augmentations of the
-YANG model -- just describe the amplifiers, fiber, etc, with data. This
-means that the user just *uses* the YANG model, which is unlike another
-proposal that was floated around back in 2019 which used YANG-level
-augmentations for the equipment library.
-
-The pre-YANG code actually split stuff from `eqpt_config.json` into
-additional JSON files for "fancy bits", such as the DGT LUT. That's
-something that, IMHO, does not make sense when we're willing to ship
-with machine-validation of the complete input set. So instead of
-deferring to another JSON file for the NF-/gain-ripple/DGT, let's move
-everything in-line into the input data. This has one obvious downside in
-making the amplifier data a bit too verbose. There were several options:
-
-- Ignore the human-friendliness and push everything into the amplifier
-description. This is nice and self-contained, but the data are going to
-be very, very long, and the majority of the WG was worried that it would
-make human editing too difficult.
-
-- Move everything to a side-loaded JSON file. This option separates out
-some numerical parameters from the equipment library, and therefore
-splits the configuration into two places. One of these places would be
-exempt from the YANG validation, and loaded via unspecified means.
-That's a no-go.
-
-- Put stuff into a YANG model, but use one level of indirection between
-the amplifier description and the numerical data.
-
-This took us quite some time to decide, but ultimately on 2020-09-01 we
-decided that the numbers that we have been shipping are *probably*
-specific to a given EDFA model they were measured on. The actual *slope*
-of the DGT looks very similar between, say, the Juniper/Lumentum
-measurements and the data from Orange, but the multiplication factor is
-different. So the outcome was that we will probably have to ship with
-some sane default, *but* any measurements done by the user will apply
-only to a specific amplifier model. The YANG model reflects that, and it
-uses per-type lists. They are now indexed by frequency as agreed on the
-2020-09-01 coders call.
-
-In the real world, some "common fiber types" are well-defined by ITU,
-such as the SSMF. Esther tried to model this via a set of identities and
-YANG `identityref`s. I think that there's no disadvantage in shipping
-these data as a default content of the YANG-formatted datastore,
-similarly to how the equipment library used to be structured prior to
-this patch. Once again, I'm following the pattern where the user can
-change any *data* without augmenting the YANG model. The only reason for
-editing/augmenting the (equipment) YANG model should be changes in our
-simulation *engine*, such as when adding different input parameters for
-NF calculations, or adding Raman amplification, etc.
-
-The amplifier model has been reworked a bit. I've reduced the number of
-available "simulation parameters" to a reasonable minimum as suggested
-by Jean-Luc (cf. issue #227):
-
-- a polynomial NF model
-- a simplified model for operators with NF_min and NF_max
-- a dual-stage amplifier comprising two individual sub-amplifiers that
-  are each any of the above
-- a faux-Raman
-- three OpenROADM-specific models
-
-In terms of correspondence to the previous code, the "polynomial NF" is
-used for current `advanced_model` (which uses yet another external JSON
-file) and the `fixed_gain` model. The simplified, min-max-NF is what
-Jean-Luc called "operator model"; the wording is a compromise of various
-suggestions done via GitHub. The OpenROADM models are, unfortunately,
-magic, especially the preamp+booster simulation. But it reflects how
-it's been implemented in GNPy.
-
-The values which are stored in the YANG-formatted JSON files have
-different units than what was stored in the legacy JSON files. We are
-now using the "customary units", such as ps/km, instead of s/m. This is
-largely a matter of taste, but the technical reason behind this is that
-YANG only defines a decimal64 data type with a limited precision, and we
-were running out of fraction-digits for certain parameters where the SI
-representation is "too low" (the pmd-coefficient is one example).
-
-Other "subtle" changes have been done as well, such as clarifying that
-the amplifier's band boundaries refer to the edges of the passband and
-not the central frequencies, etc.
-
-Change-Id: I449d66e952834011b3ec476023c9cc353dfca5c0
-
----
-## [SDArtsCode/blindsighted2](https://github.com/SDArtsCode/blindsighted2)@[a4faae73b3...](https://github.com/SDArtsCode/blindsighted2/commit/a4faae73b3605da033936343a12ff9acd200d418)
-#### Thursday 2022-07-07 12:50:43 by quis345
-
-According to all known laws of aviation, there is no way a bee should be
-able to fly. Its wings are too small to get its fat little body off the
-ground. The bee, of course, flies anyway because bees don't care what
-humans think is impossible. Yellow, black. Yellow, black. Yellow, black.
-Yellow, black. Ooh, black and yellow! Let's shake it up a little. Barry!
-Breakfast is ready! Ooming! Hang on a second. Hello? - Barry? - Adam? -
-Oan you believe this is happening? - I can't. I'll pick you up. Looking
-sharp. Use the stairs. Your father paid good money for those. Sorry. I'm
-excited. Here's the graduate. We're very proud of you, son. A perfect
-report card, all B's. Very proud. Ma! I got a thing going here. - You
-got lint on your fuzz. - Ow! That's me! - Wave to us! We'll be in row
-118,000. - Bye! Barry, I told you, stop flying in the house! - Hey,
-Adam. - Hey, Barry. - Is that fuzz gel? - A little. Special day,
-graduation. Never thought I'd make it. They're out of their minds. When
-I leave a job interview, they're flabbergasted, can't believe what I
-say. There's the sun. Maybe that's a way out. I don't remember the sun
-having a big 75 on it. I predicted global warming. I could feel it
-getting hotter. At first I thought it was just me. Wait! Stop! Bee!
-Stand back. These are winter boots. Wait! Don't kill him! You know I'm
-allergic to them! This thing could kill me! Why does his life have less
-value than yours? Why does his life have any less value than mine? Is
-that your statement? I'm just saying all life has value. You don't know
-what he's capable of feeling. My brochure! There you go, little guy. I'm
-not scared of him. It's an allergic thing. Put that on your resume
-brochure. My whole face could puff up. Make it one of your special
-skills. Knocking someone out is also a special skill. Right. Bye,
-Vanessa. Thanks. - Vanessa, next week? Yogurt night? - Sure, Ken. You
-know, whatever. - You could put c's dream! Up on a float, surrounded by
-flowers, crowds cheering. A tournament. Do the roses compete in athletic
-events? No. All right, I've got one. How come you don't fly everywhere?
-It's exhausting. Why don't you run everywhere? It's faster. Yeah, OK, I
-see, I see. All right, your turn. TiVo. You can just freeze live TV?
-That's insane! You don't have that? We have Hivo, but it's a disease.
-It's a horrible, horrible disease. Oh, my. Dumb bees! You must want to
-sting all those jerks. We try not to sting. It's usually fatal for us.
-So you have to watch your temper. Very carefully. You kick a wall, take
-a walk, write an angry letter and throw it out. Work through it like any
-emotion: Anger, jealousy, lust. Oh, my goodness! Are you OK? Yeah. -
-What is wrong with you?! - It's a bug. He's not bothering anybody. Get
-out of here, you creep! What was that? A Pic 'N' Save circular? Yeah, it
-was. How did you know? It felt like about 10 pages. Seventuspenders and
-colored dots... Next week... Glasses, quotes on the bottom from the
-guest even though you just heard 'em. Bear Week next week! They're
-scary, hairy and here live. Always leans forward, pointy shoulders,
-squinty eyes, very Jewish. In tennis, you attack at the point of
-weakness! It was my grandmother, Ken. She's 81. Honey, her backhand's a
-joke! I'm not gonna take advantage of that? Quiet, please. Actual work
-going on here. - Is that that same bee? - Yes, it is! I'm helping him
-sue the human race. - Hello. - Hello, bee. This is Ken. Yeah, I remember
-you. Timberland, size ten and a half. Vibram sole, I believe. Why does
-he talk again? Listen, you better go 'cause we're really busy working.
-But it's our yogurt night! Bye-bye. Why is yogurt night so difficult?!
-You poor thing. You two have been at this for hours! Yes, and Adam here
-has been a huge help. - Frosting... - How many sugars? Just one. I try
-not to use the competition. So why are you help hat! This is pathetic!
-I've got issues! Well, well, well, a royal flush! - You're bluffing. -
-Am I? Surf's up, dude! Poo water! That bowl is gnarly. Except for those
-dirty yellow rings! Kenneth! What are you doing?! You know, I don't even
-like honey! I don't eat it! We need to talk! He's just a little bee! And
-he happens to be the nicest bee I've met in a long time! Long time? What
-are you talking about?! Are there other bugs in your life? No, but there
-are other things bugging me in life. And you're one of them! Fine!
-Talking bees, no yogurt night... My nerves are fried from riding on this
-emotional roller coaster! Goodbye, Ken. And for your information, I
-prefer sugar-free, artificial sweeteners made by man! I'm sorry about
-all that. I know it's got an aftertaste! I like it! I always felt there
-was some kind of barrier between Ken and me. I couldn't overcome it. Oh,
-well. Are you OK for the trial? I believe Mr. Montgomery is about out
-olear the gate. Royal Nectar Force onmushroom! He  - Oh, my! - I never
-thoughink I should... Barry? Ba yesterday? Hold bbling like a cicadot
-like a flowerve. Very close. . - I'm tall. - Yo is flowers. Oull riit's
-no troubl opost belies been three dsions to thiu'retalk to him?friend.
-'s Bee-ish. They have a hugrnament of Roses, that's every florito a sci
-from Honeyhat's a man in womn? The be keat. What right do they have to
-our honey? We live on two cups a year. init? Am I sure? When I' Barry?
-It's pretty big, isnWhat's therablendustfiveyburton and Honron! Yes, it
-seems yoll thinplease sit down! I think it was awf! Well, hello. - Ken!
-- Hello. I didn't think you wertte you do thatttwe'd all l? I've seen a
-  bee documentary orreal pa're an ion't y'all date your cousins? -
-  Objection! - I'm goin veour Honor, it's interestinghis court's
-  valuable time? HoThey have pLadies and gent! Free the bees! F os
-  ing?awaout. He'llhaveeaan't u ouldMaybe not.
-
----
-## [Aspyse/dice-spire](https://github.com/Aspyse/dice-spire)@[c35c7b1c0d...](https://github.com/Aspyse/dice-spire/commit/c35c7b1c0d86d8ba4e5691b38f3323581d067ff4)
-#### Thursday 2022-07-07 13:53:26 by Derek Royce Luy Burias
-
-im sorry i was a lil idiot boy
-
-i will not upload my token again
-
----
-## [Flopster101/kernel_xiaomi_ginkgo](https://github.com/Flopster101/kernel_xiaomi_ginkgo)@[4fe8bf3cd9...](https://github.com/Flopster101/kernel_xiaomi_ginkgo/commit/4fe8bf3cd9b485de476d4e4ad929a73cf4f69018)
-#### Thursday 2022-07-07 14:16:24 by Dan Pasanen
-
-power: don't ever reboot to verity red
-
-* We get it, shit's broken. We're flashing custom stuff, shit's bound
-  to break. Don't pop this annoying screen up, we're not even using
-  verity anyway.
-
-Change-Id: Icd77b70ec1df9108a4ba9e7fd8cb9623b35b78db
-Signed-off-by: celtare21 <celtare21@gmail.com>
-
----
-## [ammarfaizi2/linux-block](https://github.com/ammarfaizi2/linux-block)@[846bb97e13...](https://github.com/ammarfaizi2/linux-block/commit/846bb97e131d7938847963cca00657c995b1fce1)
-#### Thursday 2022-07-07 15:21:51 by Jason A. Donenfeld
-
-random: credit cpu and bootloader seeds by default
-
-This commit changes the default Kconfig values of RANDOM_TRUST_CPU and
-RANDOM_TRUST_BOOTLOADER to be Y by default. It does not change any
-existing configs or change any kernel behavior. The reason for this is
-several fold.
-
-As background, I recently had an email thread with the kernel
-maintainers of Fedora/RHEL, Debian, Ubuntu, Gentoo, Arch, NixOS, Alpine,
-SUSE, and Void as recipients. I noted that some distros trust RDRAND,
-some trust EFI, and some trust both, and I asked why or why not. There
-wasn't really much of a "debate" but rather an interesting discussion of
-what the historical reasons have been for this, and it came up that some
-distros just missed the introduction of the bootloader Kconfig knob,
-while another didn't want to enable it until there was a boot time
-switch to turn it off for more concerned users (which has since been
-added). The result of the rather uneventful discussion is that every
-major Linux distro enables these two options by default.
-
-While I didn't have really too strong of an opinion going into this
-thread -- and I mostly wanted to learn what the distros' thinking was
-one way or another -- ultimately I think their choice was a decent
-enough one for a default option (which can be disabled at boot time).
-I'll try to summarize the pros and cons:
-
-Pros:
-
-- The RNG machinery gets initialized super quickly, and there's no
-  messing around with subsequent blocking behavior.
-
-- The bootloader mechanism is used by kexec in order for the prior
-  kernel to initialize the RNG of the next kernel, which increases
-  the entropy available to early boot daemons of the next kernel.
-
-- Previous objections related to backdoors centered around
-  Dual_EC_DRBG-like kleptographic systems, in which observing some
-  amount of the output stream enables an adversary holding the right key
-  to determine the entire output stream.
-
-  This used to be a partially justified concern, because RDRAND output
-  was mixed into the output stream in varying ways, some of which may
-  have lacked pre-image resistance (e.g. XOR or an LFSR).
-
-  But this is no longer the case. Now, all usage of RDRAND and
-  bootloader seeds go through a cryptographic hash function. This means
-  that the CPU would have to compute a hash pre-image, which is not
-  considered to be feasible (otherwise the hash function would be
-  terribly broken).
-
-- More generally, if the CPU is backdoored, the RNG is probably not the
-  realistic vector of choice for an attacker.
-
-- These CPU or bootloader seeds are far from being the only source of
-  entropy. Rather, there is generally a pretty huge amount of entropy,
-  not all of which is credited, especially on CPUs that support
-  instructions like RDRAND. In other words, assuming RDRAND outputs all
-  zeros, an attacker would *still* have to accurately model every single
-  other entropy source also in use.
-
-- The RNG now reseeds itself quite rapidly during boot, starting at 2
-  seconds, then 4, then 8, then 16, and so forth, so that other sources
-  of entropy get used without much delay.
-
-- Paranoid users can set random.trust_{cpu,bootloader}=no in the kernel
-  command line, and paranoid system builders can set the Kconfig options
-  to N, so there's no reduction or restriction of optionality.
-
-- It's a practical default.
-
-- All the distros have it set this way. Microsoft and Apple trust it
-  too. Bandwagon.
-
-Cons:
-
-- RDRAND *could* still be backdoored with something like a fixed key or
-  limited space serial number seed or another indexable scheme like
-  that. (However, it's hard to imagine threat models where the CPU is
-  backdoored like this, yet people are still okay making *any*
-  computations with it or connecting it to networks, etc.)
-
-- RDRAND *could* be defective, rather than backdoored, and produce
-  garbage that is in one way or another insufficient for crypto.
-
-- Suggesting a *reduction* in paranoia, as this commit effectively does,
-  may cause some to question my personal integrity as a "security
-  person".
-
-- Bootloader seeds and RDRAND are generally very difficult if not all
-  together impossible to audit.
-
-Keep in mind that this doesn't actually change any behavior. This
-is just a change in the default Kconfig value. The distros already are
-shipping kernels that set things this way.
-
-Ard made an additional argument in [1]:
-
-    We're at the mercy of firmware and micro-architecture anyway, given
-    that we are also relying on it to ensure that every instruction in
-    the kernel's executable image has been faithfully copied to memory,
-    and that the CPU implements those instructions as documented. So I
-    don't think firmware or ISA bugs related to RNGs deserve special
-    treatment - if they are broken, we should quirk around them like we
-    usually do. So enabling these by default is a step in the right
-    direction IMHO.
-
-In [2], Phil pointed out that having this disabled masked a bug that CI
-otherwise would have caught:
-
-    A clean 5.15.45 boots cleanly, whereas a downstream kernel shows the
-    static key warning (but it does go on to boot). The significant
-    difference is that our defconfigs set CONFIG_RANDOM_TRUST_BOOTLOADER=y
-    defining that on top of multi_v7_defconfig demonstrates the issue on
-    a clean 5.15.45. Conversely, not setting that option in a
-    downstream kernel build avoids the warning
-
-[1] https://lore.kernel.org/lkml/CAMj1kXGi+ieviFjXv9zQBSaGyyzeGW_VpMpTLJK8PJb2QHEQ-w@mail.gmail.com/
-[2] https://lore.kernel.org/lkml/c47c42e3-1d56-5859-a6ad-976a1a3381c6@raspberrypi.com/
-
-Cc: Theodore Ts'o <tytso@mit.edu>
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
-
----
-## [FranzBusch/swift-protobuf](https://github.com/FranzBusch/swift-protobuf)@[ec18c12a55...](https://github.com/FranzBusch/swift-protobuf/commit/ec18c12a55a304c3d0f6b3bf90e310de9e23a312)
-#### Thursday 2022-07-07 15:25:10 by FranzBusch
-
-Add SPM plugin
-
-# Motivation
-SPM is providing new capabilities for tools to expose themselves as plugins which allows them to generate build commands. This allows us to create a plugin for `SwiftProtobuf` which invokes the `protoc` compiler and generates the Swift code. Creating such a plugin is greatly wanted since it improves the usage of the `protoc-gen-swift` plugin dramatically. Fixes https://github.com/apple/swift-protobuf/issues/1207
-
-# Modification
-This PR adds a new SPM plugin which generates build commands for generating Swift files from proto files. Since users of the plugin might have complex setups, I introduced a new `swift-protobuf-config.json` file that adopters have to put into the root of their target which wants to use the new plugin. The format of this configuration file is quite simple:
-
-```json
-{
-    "invocations": [
-        {
-            "protoFiles": [
-                "Foo.proto"
-            ],
-            "visibility": "internal"
-        }
-    ]
-}
-
-```
-
-It allows you to configure multiple invocations to the `protoc` compiler. For each invocation you have to pass the relative path from the target source to the proto file. Additionally, you have to decide which visibility the generated symbols should have. In my opinion, this configuration files gives us the most flexibility and more complex setups to be covered as well.
-
-# Open topics
-
-## Hosting of the protoc binary
-Hosting of the protoc binary is the last open thing to figure out before we can release a plugin for `SwiftProtobuf`. From my point of view, there are three possible routes we can take:
-
-1. Include the `artifactbundle` inside the `SwiftProtobuf` repository
-2. Include the `artifactebundle` as an artifact on the GH releases in the protobuf repo
-3. Extend the the artifact bundle manifest to allow inclusion of URLs. This would require a Swift evolution pitch most likely.
-
-However, with all three of the above we would still need to release a new version of `SwiftProtobuf` with every new release of `protoc`.
-
-# Future work
-
-## Proto dependencies between modules
-With the current shape of the PR one can already use dependencies between proto files inside a single target. However, it might be desirable to be able to build dependency chains of Swift targets where each target includes proto files which depend on protoc files from the dependencies of the Swift target. I punted this from the initial plugin because this requires a bit more work and thinking. Firstly, how would you even spell such an import? Secondly, the current way of doing `ProtoPathModuleMapping` files is not super ideal for this approach. It might make sense to introduce a proto option to set the Swift module name inside the proto files already.
-
-# Result
-We now have a SPM plugin that can generate Swift code from proto files. To use it, it provides a configuration file format to declare different invocations to the `protoc` compiler.
-
----
-## [LinLeng/terminal](https://github.com/LinLeng/terminal)@[1374396f10...](https://github.com/LinLeng/terminal/commit/1374396f1022dfef13f8f65bcb0cb75dc64924c1)
-#### Thursday 2022-07-07 17:04:52 by Michael Niksa
-
-Delay load call SetThreadDescription to restore WPF renderer on Win7 (#10582)
-
-Delay load call SetThreadDescription to restore WPF renderer on Win7
-
-## PR Checklist
-* [x] Closes something @DHowett asked me to do.
-* [x] I work here
-* [x] I F5'd it on a version with this function and it still works
-
-
-## Detailed Description of the Pull Request / Additional comments
-
-I keep forgetting that anything in the WPF control needs to keep working on Win7. Or more specifically... I remember this fact for the DX renderer, but not for the render thread base. Oops. Turns out this particular convenience method to set thread descriptions for visibility inside the debugger (to make my life easier) only works down to 1607 (see https://docs.microsoft.com/windows/win32/api/processthreadsapi/nf-processthreadsapi-setthreaddescription). Since it's just a debugging convenience... skipping it entirely when the procedure is not found should be fine. Also I don't try to load `kernel32.dll` and just get the handle of the existing module (which per the remarks at https://docs.microsoft.com/windows/win32/api/libloaderapi/nf-libloaderapi-getmodulehandlew will not increment the module reference count) because `kernel32.dll` pretty much has to be there or we're already in hot water.
-
----
-## [Team-Ikigami/Ascendance](https://github.com/Team-Ikigami/Ascendance)@[e137af9f29...](https://github.com/Team-Ikigami/Ascendance/commit/e137af9f29806dbbe3e63a473fbbfb79aff09cad)
-#### Thursday 2022-07-07 18:08:12 by DuckEater54
-
-God fucking dammit I absolutetly hate the 1 minute compilation for each failure. Ill try getting rid of the fullscreen
-
----
-## [peff/git](https://github.com/peff/git)@[fac7986b68...](https://github.com/peff/git/commit/fac7986b6802acb25acbc79366737b39f3d841a1)
-#### Thursday 2022-07-07 18:50:22 by Jeff King
-
-clone: propagate empty remote HEAD even with other branches
-
-Unless "--branch" was given, clone generally tries to match the local
-HEAD to the remote one. For most repositories, this is easy: the remote
-tells us which branch HEAD was pointing to, and we call our local
-checkout() function on that branch.
-
-When cloning an empty repository, it's a little more tricky: we have
-special code that checks the transport's "unborn" extension, or falls back
-to our local idea of what the default branch should be. In either case,
-we point the new HEAD to that, and set up the branch.* config.
-
-But that leaves one case unhandled: when the remote repository _isn't_
-empty, but its HEAD is unborn. The checkout() function is smart enough
-to realize we didn't fetch the remote HEAD and it bails with a warning.
-But we'll have ignored any information the remote gave us via the unborn
-extension. This leads to nonsense outcomes:
-
-  - If the remote has its HEAD pointing to an unborn "foo" and contains
-    another branch "bar", cloning will get branch "bar" but leave the
-    local HEAD pointing at "master" (or whatever our local default is),
-    which is useless. The project does not use "master" as a branch.
-
-  - Worse, if the other branch "bar" is instead called "master" (but
-    again, the remote HEAD is not pointing to it), then we end up with a
-    local unborn branch "master", which is not connected to the remote
-    "master" (it shares no history, and there's no branch.* config).
-
-Instead, we should try to use the remote's HEAD, even if its unborn, to
-be consistent with the other cases.
-
-Some notes on the implementation:
-
- - we don't emit any specific warning here, which is unlike the
-   empty-repo case (which says "you appear to have cloned an empty
-   repository"). For non-bare clones, checkout() will issue a warning
-   like:
-
-     warning: remote HEAD refers to nonexistent ref, unable to checkout
-
-   For a bare clone, it won't emit any warning at all (but will still
-   set up HEAD appropriately). That's probably fine. There's no part of
-   the operation we were unable to perform, so any "by the way, the
-   remote HEAD wasn't there but we pointed our HEAD to it anyway"
-   message would be purely informational. Though perhaps one could argue
-   the same about the current "empty repository" message in a bare
-   clone.
-
- - if the remote told us about its HEAD via the unborn extension, this
-   is obviously the right thing to do. If they didn't, we'll fall back
-   to our local default name. As the "unborn" extension was added in
-   v2.31.0, we'd expect hosts which don't support it to become
-   decreasingly common, and it may not be worth worrying too much about.
-   But for the sake of completeness, here are some thoughts:
-
-     - if the remote has a non-HEAD "master", we may still end up with a
-       local "master" that isn't connected to it. This is because the
-       "how to set local unborn HEAD" code is independent from the "did
-       we find a remote HEAD we can checkout" code. This could be fixed,
-       but I'm not sure it's worth caring too much about, since you'd
-       have to really try hard to create such a situation.
-
-     - if the remote has branches but doesn't tell us about its HEAD,
-       we could pick one of those branches as our HEAD instead of
-       whatever our local default is. This feels on-balance worse to me.
-       While it might do the right thing in some cases (especially if
-       there is only a single branch), it could certainly lead to
-       surprising and unintuitive outcomes in others.
-
----
-## [Die4Ever/deus-ex-randomizer](https://github.com/Die4Ever/deus-ex-randomizer)@[a29391e06f...](https://github.com/Die4Ever/deus-ex-randomizer/commit/a29391e06f7381cb52afa2dda450c0a656b0e4d9)
-#### Thursday 2022-07-07 19:48:16 by theastropath@gmail.com
-
-Added bingo events for killing the sick man in Battery Park who wants to
-die, giving money to the junkie who lives under Maggie Chow, and for
-getting the VersaLife maps from the guy in the Old China Hand
-
----
-## [chooglen/git](https://github.com/chooglen/git)@[25baa4d22e...](https://github.com/chooglen/git/commit/25baa4d22e2b3d192da051c2b1bddd78fa001699)
-#### Thursday 2022-07-07 20:50:06 by Glen Choo
+## [git/git](https://github.com/git/git)@[6e4b3a7812...](https://github.com/git/git/commit/6e4b3a78125716af1eca37ca356fae07c4030ff6)
+#### Friday 2022-07-08 01:09:44 by Glen Choo
 
 setup.c: create `discovery.bare`
 
@@ -1054,15 +154,648 @@ non-trivial, so this work is not implemented in this series.
 [2]: https://lore.kernel.org/git/5b969c5e-e802-c447-ad25-6acc0b784582@github.com
 
 Signed-off-by: Glen Choo <chooglen@google.com>
+Signed-off-by: Junio C Hamano <gitster@pobox.com>
 
 ---
-## [CoinMarketCapAustraliaNFTs/docs](https://github.com/CoinMarketCapAustraliaNFTs/docs)@[fa6c0dae26...](https://github.com/CoinMarketCapAustraliaNFTs/docs/commit/fa6c0dae26cc22f32a2f3cd4d4b28a0628754314)
-#### Thursday 2022-07-07 21:52:55 by CoinMarketCap Australia NFT'S
+## [nezorf2/tgstation](https://github.com/nezorf2/tgstation)@[e37591540b...](https://github.com/nezorf2/tgstation/commit/e37591540b2620b7ad2a2b61734634d848e8eba2)
+#### Friday 2022-07-08 02:04:49 by san7890
 
-msnmoneystocks@gmail.com
+[MDB Ignore] OH GOD OH FUCK OH SHIT OH LORD - SPACE AND RUINS IS BROKEN (#67324)
 
-Benefits
-Build
+So, for the last few days on production, Space Ruin generation has refused to work. Why is this? It's because in #67107 (cfc233052885dd294b2e7e676caaf84a2a37592b), we repathed `/area/space`  to `/area/misc/space` (lol i should have paid attention to that) without updating everything in code to match. I couldn't seem to get `/area/misc/space` to properly work somehow (this could have also been something I was doing wrong), but I worked it back to just making everything vanilla `/area/space` and all of those unwanted behaviors should be squashed out. Let's get the game working again.
+
+---
+## [cyzzc/hestiacp](https://github.com/cyzzc/hestiacp)@[365dab5670...](https://github.com/cyzzc/hestiacp/commit/365dab5670f6d1a862858be01638072eeb2ec1db)
+#### Friday 2022-07-08 03:02:22 by divinity76
+
+Use secure RNG to generate passwords (#2726)
+
+* use secure rng to generate passwords
+
+quoting MDN:
+>Math.random() does not provide cryptographically secure random numbers. Do not use them for anything related to security. Use the Web Crypto API instead
+
+My rng is kinda shitty, i know there is some fast way to cut down higher digits to get a digit in range without introducing bias, but i also know that other people have introduced bias by trying to do that on an initially secure rng and getting it wrong (iirc it's discussed here? https://www.youtube.com/watch?v=LDPMpc-ENqY - been years since i saw the talk, but i know Lavavej discussed it in one of his presentations, i think it was that one)  , but anyway this is fast enough, and secure.
+
+* shorter name
+
+* randomString2 / centralize js string generation
+
+* missed 2
+
+---
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[0b95069296...](https://github.com/treckstar/yolo-octo-hipster/commit/0b95069296c7bc1f0eef3cac73d899a05c85f21b)
+#### Friday 2022-07-08 04:22:02 by treckstar
+
+Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
+
+---
+## [ianatol/julia](https://github.com/ianatol/julia)@[62e0729dbc...](https://github.com/ianatol/julia/commit/62e0729dbc5f9d5d93d14dcd49457f02a0c6d3a7)
+#### Friday 2022-07-08 04:28:20 by Mirek Kratochvil
+
+avoid using `@sync_add` on remotecalls (#44671)
+
+* avoid using `@sync_add` on remotecalls
+
+It seems like @sync_add adds the Futures to a queue (Channel) for @sync, which
+in turn calls wait() for all the futures synchronously. Not only that is
+slightly detrimental for network operations (latencies add up), but in case of
+Distributed the call to wait() may actually cause some compilation on remote
+processes, which is also wait()ed for. In result, some operations took a great
+amount of "serial" processing time if executed on many workers at once.
+
+For me, this closes #44645.
+
+The major change can be illustrated as follows: First add some workers:
+
+```
+using Distributed
+addprocs(10)
+```
+
+and then trigger something that, for example, causes package imports on the
+workers:
+
+```
+using SomeTinyPackage
+```
+
+In my case (importing UnicodePlots on 10 workers), this improves the loading
+time over 10 workers from ~11s to ~5.5s.
+
+This is a far bigger issue when worker count gets high. The time of the
+processing on each worker is usually around 0.3s, so triggering this problem
+even on a relatively small cluster (64 workers) causes a really annoying delay,
+and running `@everywhere` for the first time on reasonable clusters (I tested
+with 1024 workers, see #44645) usually takes more than 5 minutes. Which sucks.
+
+Anyway, on 64 workers this reduces the "first import" time from ~30s to ~6s,
+and on 1024 workers this seems to reduce the time from over 5 minutes (I didn't
+bother to measure that precisely now, sorry) to ~11s.
+
+Related issues:
+- Probably fixes #39291.
+- #42156 is a kinda complementary -- it removes the most painful source of
+  slowness (the 0.3s precompilation on the workers), but the fact that the
+  wait()ing is serial remains a problem if the network latencies are high.
+
+May help with #38931
+
+Co-authored-by: Valentin Churavy <vchuravy@users.noreply.github.com>
+
+---
+## [orthography/tgstation](https://github.com/orthography/tgstation)@[2605060b58...](https://github.com/orthography/tgstation/commit/2605060b58cc2a069abb65f4ef4ac1c66f4f0bc3)
+#### Friday 2022-07-08 04:35:22 by orthography
+
+Changes a Tramstation "lil pump" to a regular one.
+
+Fixes #68236
+
+Accepted #68177
+
+Go fuck yourself.
+
+---
+## [ImLonely13/android_kernel_xiaomi_mt6768](https://github.com/ImLonely13/android_kernel_xiaomi_mt6768)@[0a716bd9a1...](https://github.com/ImLonely13/android_kernel_xiaomi_mt6768/commit/0a716bd9a1239d652beb27988e92c2dccacf5a7c)
+#### Friday 2022-07-08 04:37:01 by Peter Zijlstra
+
+sched/core: Fix ttwu() race
+
+Paul reported rcutorture occasionally hitting a NULL deref:
+
+  sched_ttwu_pending()
+    ttwu_do_wakeup()
+      check_preempt_curr() := check_preempt_wakeup()
+        find_matching_se()
+          is_same_group()
+            if (se->cfs_rq == pse->cfs_rq) <-- *BOOM*
+
+Debugging showed that this only appears to happen when we take the new
+code-path from commit:
+
+  2ebb17717550 ("sched/core: Offload wakee task activation if it the wakee is descheduling")
+
+and only when @cpu == smp_processor_id(). Something which should not
+be possible, because p->on_cpu can only be true for remote tasks.
+Similarly, without the new code-path from commit:
+
+  c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+
+this would've unconditionally hit:
+
+  smp_cond_load_acquire(&p->on_cpu, !VAL);
+
+and if: 'cpu == smp_processor_id() && p->on_cpu' is possible, this
+would result in an instant live-lock (with IRQs disabled), something
+that hasn't been reported.
+
+The NULL deref can be explained however if the task_cpu(p) load at the
+beginning of try_to_wake_up() returns an old value, and this old value
+happens to be smp_processor_id(). Further assume that the p->on_cpu
+load accurately returns 1, it really is still running, just not here.
+
+Then, when we enqueue the task locally, we can crash in exactly the
+observed manner because p->se.cfs_rq != rq->cfs_rq, because p's cfs_rq
+is from the wrong CPU, therefore we'll iterate into the non-existant
+parents and NULL deref.
+
+The closest semi-plausible scenario I've managed to contrive is
+somewhat elaborate (then again, actual reproduction takes many CPU
+hours of rcutorture, so it can't be anything obvious):
+
+					X->cpu = 1
+					rq(1)->curr = X
+
+	CPU0				CPU1				CPU2
+
+					// switch away from X
+					LOCK rq(1)->lock
+					smp_mb__after_spinlock
+					dequeue_task(X)
+					  X->on_rq = 9
+					switch_to(Z)
+					  X->on_cpu = 0
+					UNLOCK rq(1)->lock
+
+									// migrate X to cpu 0
+									LOCK rq(1)->lock
+									dequeue_task(X)
+									set_task_cpu(X, 0)
+									  X->cpu = 0
+									UNLOCK rq(1)->lock
+
+									LOCK rq(0)->lock
+									enqueue_task(X)
+									  X->on_rq = 1
+									UNLOCK rq(0)->lock
+
+	// switch to X
+	LOCK rq(0)->lock
+	smp_mb__after_spinlock
+	switch_to(X)
+	  X->on_cpu = 1
+	UNLOCK rq(0)->lock
+
+	// X goes sleep
+	X->state = TASK_UNINTERRUPTIBLE
+	smp_mb();			// wake X
+					ttwu()
+					  LOCK X->pi_lock
+					  smp_mb__after_spinlock
+
+					  if (p->state)
+
+					  cpu = X->cpu; // =? 1
+
+					  smp_rmb()
+
+	// X calls schedule()
+	LOCK rq(0)->lock
+	smp_mb__after_spinlock
+	dequeue_task(X)
+	  X->on_rq = 0
+
+					  if (p->on_rq)
+
+					  smp_rmb();
+
+					  if (p->on_cpu && ttwu_queue_wakelist(..)) [*]
+
+					  smp_cond_load_acquire(&p->on_cpu, !VAL)
+
+					  cpu = select_task_rq(X, X->wake_cpu, ...)
+					  if (X->cpu != cpu)
+	switch_to(Y)
+	  X->on_cpu = 0
+	UNLOCK rq(0)->lock
+
+However I'm having trouble convincing myself that's actually possible
+on x86_64 -- after all, every LOCK implies an smp_mb() there, so if ttwu
+observes ->state != RUNNING, it must also observe ->cpu != 1.
+
+(Most of the previous ttwu() races were found on very large PowerPC)
+
+Nevertheless, this fully explains the observed failure case.
+
+Fix it by ordering the task_cpu(p) load after the p->on_cpu load,
+which is easy since nothing actually uses @cpu before this.
+
+Fixes: c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+Reported-by: Paul E. McKenney <paulmck@kernel.org>
+Tested-by: Paul E. McKenney <paulmck@kernel.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
+Signed-off-by: ImLonely13 <gabutuhaku@gmail.com>
+
+---
+## [TDKorn/insta-tweet](https://github.com/TDKorn/insta-tweet)@[400a7f6fbe...](https://github.com/TDKorn/insta-tweet/commit/400a7f6fbea71474dbee285937958ac953624a0e)
+#### Friday 2022-07-08 05:22:40 by TDKorn
+
+Redo `TweetClient`  to wrap the `tweepy` package
+
+`TweetClient`
+* It's doing the exact same thing as before
+* But without that stank raw-ass code I threw together (and then pretended didn't exist)
+* I think it's much cleaner now. Plus, I don't need to maintain the twitter part, which is a relief bc I can barely maintain my will to live
+    - For legal/employment purposes, that was a joke 😃😂😃 I love being alive haha 😂🤣 wasn't that silly 🤪😀🤣😂😂😂😂😂😂😂😂😂😂
+* Using the package might makes it really easy to authorize users with my consumer key/token? I think that's a feature
+    - At some point I'll implement that and deprecate the twitter keys requirement of the `Profile`
+
+---
+
+* Updated `InstaClient`, `InstaTweet`, `InstaPost` classes to reflect changes in `TweetClient`
+
+---
+## [CerberusHellHound/Foundation-19](https://github.com/CerberusHellHound/Foundation-19)@[2e51339224...](https://github.com/CerberusHellHound/Foundation-19/commit/2e5133922461bb262efb1deb4b1de8faf2575b48)
+#### Friday 2022-07-08 05:31:59 by CerberusHellHound
+
+Mateba fix (#188)
+
+* Update baystation12.dme
+
+* 9mm/.45ACP Buff
+
+Changes are as follow:
+- Buffed 9mm dam from 8 to 25 (now it doesn't take a whole mag to take down an unarmoured man)
+- Buffed .45 dam from 10 to 30
+- Nerfed 9mm AP from 34 to 30
+- Buffed 7,62 dam from 40 to 50 (It's supposed to be beefier than 5,56mm)
+
+* Organ changes
+
+Lower organ health value to make combat much deadlier.
+Headshots are truly lethal now.
+
+* Slight rebalance and renamings
+
+List of changes :
+- decreased brain health to 150 (instead of 200), it's high enough that medical assistance can be given if fast but low enough that you don't want to get shot
+- increased damage values of weapons to baystation/nebula level (40 for a pistol for eg)
+- increased adrenalin generation when hurt (less fading in and out, you can still use your gun when hit and pain won't be such a pain in the ass, but you're less likely to get back up once the final shot hits you)
+- decreased relative size of lungs from 60% to 30% so that now, getting hit in the chest won't have as much chance of damaging your poor fucking lungs (yes 60% is the original baystation number.. it makes sense, it's a large organ, but it's a pain in the ass)
+- changed some names and descriptions of certain weapons and firearms to better fit established naming convention
+-made revolvers cycle the barrel instead of eject each shot (it's a revolver, not a damn rifle)
+- slightly decreased firing delay for the mk9 revolver (slightly weaker than the mateba so slightly faster firing)
+- decreased firing delay for the mk9 pistol (lower caliber, less recoil, easier to magdump)
+
+* Mateba fix
+
+Fixed a misstype for the mateba that incorrectly qualified its caliber.
+
+* Mateba fix
+
+Fixing typo
+
+---
+## [Koi-3088/ForkBot.NET](https://github.com/Koi-3088/ForkBot.NET)@[addf27fd16...](https://github.com/Koi-3088/ForkBot.NET/commit/addf27fd1688c4785202b53177d7fa84069d9bed)
+#### Friday 2022-07-08 05:47:13 by Koi
+
+Mr. Mime is a thing, unfortunately.
+Mild clean, some more Cherish set handling attempts.
+Exclude set MetDate from mystery gifts.
+Fix daycare enum parsing.
+Check for no result in case $qc was used or some other weird thing happens.
+Remove FixOT and TradeCord as routine types (FlexTrade handles both).
+Try to apply trainer info for Mystery gifts.
+Re-add fixed met date if not GO origin.
+Update DenBot distribution data, minor fixes.
+Fix Yamask-Galar in daycare, some more oopsies.
+-Add DenBot - a seed lookup and day skipper bot for raids.
+-Change AutoRoll's behavior to make use of some of DenBot's functionality.
+Minor clean.
+Revise TradeCord "traded" check, remove potential user path straggler entries because paranoia, some minor fixes.
+TradeCord fixes (shocker, I know).
+Extract Json serializer.
+Minor clean and fixes.
+Minor fixes.
+Fix Milcery when an Alcremie variant is a parent.
+Update to latest Core and ALM dependencies.
+Handle non-shiny events in a better way.
+Work around a race condition?
+Simplify and de-bugify trade completion check.
+Fix indexing, improve chance for Melmetal-Gmax because it's nigh impossible to get.
+Rework TradeCord internals, add new functionality:
+-Migrate user data from ".txt" files to a serialized Json (migration for a large amount of users will take a few minutes, be patient).
+-Make TradeCord configurable, add its own settings category.
+-Add some template events with an optional end timer (YYYY/MM/DD 8PM as an example, though any local time format should work).
+-Add barebones Pokedex (counter, flavor text).
+-Can check dex completion by typing `$dex`, check missing entries by typing `$dex missing`.
+-Completing the Pokedex will slightly improve shiny rate.
+-Can now mass release cherish event Pokemon and shinies ($massrelease shiny/cherish).
+-Various tweaks, improvements, and bugfixes.
+
+Slightly change FixOT's behavior:
+-If a shown Pokemon is illegal and an event, attempt to find a match within the MGDB first.
+-Try to force users to trade away the shown Pokemon, log attempt to change shown Pokemon.
+Add consideration for easter eggs being enabled in settings, fix Suicune
+Change species rng for TradeCord, some bugfixes (I really need to rewrite this mess)
+Add check if we're using ListUtil for Giveaway instead of TradeCord.
+Amend commit since I'm squashing and force-pushing while bringing the fork in line with the main branch
+Add Giveaway module to Discord bot (#22)
+
+Thanks, rigrassm.
+Co-authored-by: Koi-3088 <61223145+Koi-3088@users.noreply.github.com>
+Specify USB port instead of adding the first result (can be found via Device Manager).
+Re-add boolean check because we don't want to fix everything
+FixOT will attempt to regenerate illegal Pokémon.
+Apply trash bytes for reasons.
+Minor TradeCord fixes and adjustments.
+Minor clean for C#9
+Use "GetValidPreEvolutions()" instead of "GetPreEvolutions()".
+Index forms correctly.
+Fix the fixed and re-introduced empty daycare index error.
+*an* Ultra Ball.
+Add EvoTree breeding for TradeCord.
+Remove unnecessary value declarations for pinging on encounter match.
+Mildly beautify EncounterBot mark output.
+Integrate Anubis' system update prevention into Soft Reset and Regigigas Encounter Modes.
+Rename "Regi" Encounter Mode to "Soft Reset".
+Speed up "A" clicks for Regigigas and Soft Reset modes.
+Add Mark logging output for EncounterBot.
+Fix oops (re-order logic, remove unnecessary lines).
+Add optional species and form specification for $massrelease
+Use an obscure string splitter because people like symbols in their names.
+Fix things that broke after rebasing to the latest main repo commit.
+Use a less unfortunate field name and value splitter...again.
+Fix Marowak-Alola always generating as an NPC trade.
+Add filters for "$list <species>" to narrow down results.
+Fix Cherish Pichu and Octillery
+Stop making dumb mistakes, me (implying the rest of it isn't a dumb mistake).
+Can't breed antiques.
+Use a less unfortunate embed name and value splitter
+Add Melmetal-Gmax to TradeCord.
+Add ability to search by caught ball.
+Have MassRelease ignore events.
+Add specific regional form breeding.
+Revise egg rate and egg shiny chance.
+Have trade evolutions hold an Everstone.
+Add an extra right click when navigating to settings for AutoRoll.
+Add reworked encounter/egg/fossil logs.
+Minor clean.
+Minor clean.
+Get rid of EncounterBot, FossilBot, EggFetch text logs until I properly rework them.
+Break on an empty page due to aggressive rounding
+Add multi-page lists for Tradecord.
+More random bugfixes.
+Fix some bugs before major clean
+Add Language parameter for TradeCord.
+Change trainer info input format for TradeCord.
+Move focus on Showdown set instead of randomizing a pkm file.
+Allow user to enter whatever they want for $list, handle edge cases like Kommo-o
+Add "$list all" to show non-duplicate caught species.
+Automatically remove from favorites if trading or gifting (small QOL thing).
+Change how favorites are removed from user file.
+Revert base egg shiny chance nerf.
+Fix daycare
+Add favorites command to TradeCord.
+Slightly nerf eggs.
+Fix TradeCord list for shinies
+Add TradeCord (my dumbest and messiest project so far, Archit pls don't hate the mess).
+Add Showdown output for Star/Square shinies and OTGender.
+Add optional link code input for FixOT.
+Change how OTName, TID, SID is displayed.
+Add Regigigas SR bot.
+Add SoJ Camp SR bot.
+Ribbons now work with EggTrade (remove ribbons if egg).
+Remove EggRoll.
+Add another filter for FixOT
+Fix.. FixOT
+Update offsets for EncounterBot catching.
+Slightly change StrongSpawn to work with Regi SR and make it its own mode.
+Make SpinTrade only available for USB-Botbase
+Update valid eggs for CT
+winforms: resize icon.ico to fix crash at startup on unix using mono
+Rework Spin, read initial in-game coordinates in order to correct drift
+Add TID, SID, Language output for Showdown
+Remove obsolete OT and Language parsing
+Very minor clean until I have time for a proper one.
+Detach controller when stopping USB bot.
+Actually set LastUsedBall for EncounterBot (missed when bringing in line with main repo)
+Move extra RaidBot timings following the official commit
+Remove PKHeX Discord invite from Readme.md
+
+Maybe fewer people will pester devs now about my unofficial fork?
+Update for latest main repo EncounterBot commits.
+Update README.md
+Add back best commit: Red's SpinTrade.
+Add egg trades, foreign Dittos and OT for Twitch.
+If ItemMule is enabled, also display the item a user is receiving.
+Add periodic time sync toggle for all methods of hosting (except for non-soft locked AutoRoll) to (hopefully) prevent den rollover during extended hosts.
+
+Add routine to exit a lobby for SoftLock if no players are ready in time (to preserve soft lock).
+
+Add a routine to recover from disbanded lobbies (when someone disconnects unexpectedly) for SoftLock.
+
+Add a routine to restart game if all else fails and we're stuck in a raid.
+
+Add a routine for adding and deleting friends if we're soft locked and raids go empty.
+
+Slightly reorganize settings, extract methods, minor clean.
+Don't use such a generic file name for stream assets.
+Check USB port index for running bots. Should fix adding additional USB bots when no config is saved.
+Add fixed met date for FixOT.
+How do I boolean
+Change airplane mode logic, tweak timings and routine for soft lock lobby exit
+Rework EggRoll cooldown (static list in favor of a txt file).
+Start clean up and refactor
+Add setting to increase delay after pressing "Home" after a date skip.
+Use USB port index for blocking and sprite pngs if connection type is USB
+Add option for airplane host (usb-botbase required)
+Add option to softlock on selected species for AutoRoll
+Add automatic compatibility for all console languages when date skipping (have to set ConsoleLanguage under ScreenDetection)
+Attempt to fix multiple USB device add and connect...again
+Minor clean
+Fix oops?
+Handle add/remove of bots
+Distinguish between multiple USB devices, tweak BotRemoteControl for USB, other various fixes
+Add SpA modifier for foreign Dittos
+Add alpha USB-Botbase support
+Fix DateTime parsing for European format for EggRoll
+Set fixed EggMetDate and MetDate for EggRoll
+More FixOT filters
+Remove Beheeyem. Oops.
+Split EggRoll into its own routine and trade type, only output "Receiving: Mysterious Egg" if routine is EggRoll, other minor tweaks and fixes
+Make FixOT its own queue with roles and counts
+Add a couple more OTs to $fix
+Parsing for EggRaffle auto-clear and $clearcooldown
+Adjust timings and split Watt collecting clicks for AutoRoll
+Fix oops with file attachments for Ditto
+Further improvements for OT, memes for invalid pokemon (disable EasterEggs)
+Add spaces, digits for OT
+Randomize memes, cut down bloat
+Fix miscellaneous bots after Anubis' recent QOL additions
+-Ignore events for OT because headache.
+-Add overlooked "$convert <generation>" input for OT.
+-Move $clearcooldown to SudoModule
+-Clear timer automatically if NoTrainerFound
+-More reliable Dittos
+-Foreign Dittos for $convert
+-Command to clear cooldown for EggRaffle in case trade gets disconnected
+-Fix "Trade finished" line to keep result secret
+-EggRaffle as a toggle, option to specify channels
+-Seed Check output to both DMs and Channel (apparently some want it)
+-Randomly generated egg raffle via a "$roll" command with a configurable cooldown
+-FixAdOT reworked, has its own command "$fix" and no longer overrides $clone
+-Ball: <value> output for Showdown sets
+-Fix oversight
+-Option to output Seed Check results to Discord channel with a User mention
+-Showdown set output for OT name and eggs
+-Basic "OT: <name>" option without Showdown set output
+-Initial $convert support for EggTrade
+-Egg moves for EggTrade test attempt
+-Minor update
+-EggTrade (by nicknaming a Pokémon "Egg" using $trade)
+-Failsafe for memes if enabled but field left blank or incomplete
+-Niche breedable Ditto trade mode.
+Add minimize button
+EggFetch text logs
+StrongSpawn mode for EncounterBot
+Re-add EncounterBot Master Ball catching
+More parsing for FixAdOTs
+Park Ball as held item instead of string
+Actually remove the offset instead of saying I did
+Initial DLC commit
+Faster code entry
+Removed catching for EncounterBot (need a new offset)
+CloneBot mode to fix Nickname and OT if adverts detected
+
+---
+## [TDKorn/insta-tweet](https://github.com/TDKorn/insta-tweet)@[d9204d4685...](https://github.com/TDKorn/insta-tweet/commit/d9204d468500dcba5c0dde70aed24fb4bd0548bd)
+#### Friday 2022-07-08 05:50:22 by TDKorn
+
+Redo `TweetClient`  to wrap the `tweepy` package
+
+`TweetClient`
+* It's doing the exact same thing as before
+* But without that stank raw-ass code I threw together (and then pretended didn't exist)
+* I think it's much cleaner now. Plus, I don't need to maintain the twitter part, which is a relief bc I can barely maintain my will to live
+    - For legal/employment purposes, that was a joke 😃😂😃 I love being alive haha 😂🤣 wasn't that silly 🤪😀🤣😂😂😂😂😂😂
+* Using `tweepy`  might make it really easy to authorize users with my consumer key/token? I think that's a feature
+    - If it is, then at some point I'll implement it and deprecate the twitter keys requirement
+
+---
+
+* Updated `InstaClient`, `InstaTweet`, `InstaPost` classes to reflect changes in `TweetClient`
+
+---
+## [CoinMarketCapAustraliaNFTs/core.js](https://github.com/CoinMarketCapAustraliaNFTs/core.js)@[77507f57bd...](https://github.com/CoinMarketCapAustraliaNFTs/core.js/commit/77507f57bdf18267446ab9803de03795b9541763)
+#### Friday 2022-07-08 07:15:00 by CoinMarketCap Australia NFT'S
+
+BLOCKCHAIR.yml
+
+core.js
+Extendable client for GitHub's REST & GraphQL APIs
+
+@latest Build Status
+
+Usage
+REST API example
+GraphQL example
+Options
+Defaults
+Authentication
+Logging
+Hooks
+Plugins
+Build your own Octokit with Plugins and Defaults
+LICENSE
+If you need a minimalistic library to utilize GitHub's REST API and GraphQL API which you can extend with plugins as needed, then @octokit/core is a great starting point.
+
+If you don't need the Plugin API then using @octokit/request or @octokit/graphql directly is a good alternative.
+
+Usage
+Browsers	Load @octokit/core directly from cdn.skypack.dev
+<script type="module">
+import { Octokit } from "https://cdn.skypack.dev/@octokit/core";
+</script>
+Node	
+Install with npm install @octokit/core
+
+const { Octokit } = require("@octokit/core");
+// or: import { Octokit } from "@octokit/core";
+REST API example
+// Create a personal access token at https://github.com/settings/tokens/new?scopes=repo
+const octokit = new Octokit({ auth: `personal-access-token123` });
+
+const response = await octokit.request("GET /orgs/{org}/repos", {
+  org: "octokit",
+  type: "private",
+});
+See @octokit/request for full documentation of the .request method.
+
+GraphQL example
+const octokit = new Octokit({ auth: `secret123` });
+
+const response = await octokit.graphql(
+  `query ($login: String!) {
+    organization(login: $login) {
+      repositories(privacy: PRIVATE) {
+        totalCount
+      }
+    }
+  }`,
+  { login: "octokit" }
+);
+See @octokit/graphql for full documentation of the .graphql method.
+
+Options
+name	type	description
+options.authStrategy	Function	Defaults to @octokit/auth-token. See Authentication below for examples.
+options.auth	String or Object	See Authentication below for examples.
+options.baseUrl	String	
+When using with GitHub Enterprise Server, set options.baseUrl to the root URL of the API. For example, if your GitHub Enterprise Server's hostname is github.acme-inc.com, then set options.baseUrl to https://github.acme-inc.com/api/v3. Example
+
+const octokit = new Octokit({
+  baseUrl: "https://github.acme-inc.com/api/v3",
+});
+options.previews	
+Benefits CoinTracker logo
+CoinTracker
+Partner
+CoinTracker is a portfolio assistant for cryptocurrency. It is used by over 100,000 cryptocurrency holders and tracks $20B of cryptocurrency transaction volume. CoinTracker supports 300+ exchange & wallet integrations and over 3,000 cryptocurrency integrations.
+CoinTracker enables seamless tracking of cryptocurrency portfolios, investment performance, DeFi, and taxes. Beyond crypto, CoinTracker is building a general automated financial assistant for all financial assets.
+CoinTracker has partnered with Coinbase, Intuit, and other industry leaders to make crypto taxes simple, and is venture-backed by Y Combinator, Initialized Capital, and Serena Williams.
+
+https://www.cointracker.io 
+Go to compare
+Recommended for
+Bitcoin, Bitcoin Cash, Ethereum, Ripple, Litecoin, Monero, Dogecoin, Zcash, EOS, Cardano, Stellar, Dash
+Languages
+English
+Service provision
+Usa, Australia, United Kingdom, Canada
+Tax methods
+Fifo, Lifo, Hifo, Acb, Share Pooling
+Platforms
+iOS, Android, Web
+Integrations with other Tax software
+Turbotax, Taxact
+Pricing
+$0-$199
+Country of residence
+USA
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<rss version="2.0">
+<channel>
+<title>(be now read a second time) AND SittingYear CONTAINS (2022) AND SittingMonth CONTAINS (June) AND SittingDay CONTAINS (23) AND SpeechTitle CONTAINS (Residential Tenancies, Housing and Social Services Regulation Amendment Administration and Other Matters Bill 2022) AND ACTIVITYTYPE CONTAINS (Second reading) AND HOUSENAME CONTAINS (ASSEMBLY) - Hansard Search Results</title>
+<link>http://hansard.parliament.vic.gov.au/search?IW_DATABASE=*&IW_FIELD_WEB_STYLE=(be%20now%20read%20a%20second%20time)%20AND%20SittingYear%20CONTAINS%20(2022)%20AND%20SittingMonth%20CONTAINS%20(June)%20AND%20SittingDay%20CONTAINS%20(23)%20AND%20SpeechTitle%20CONTAINS%20(Residential%20Tenancies,%20Housing%20and%20Social%20Services%20Regulation%20Amendment%20Administration%20and%20Other%20Matters%20Bill%202022)%20AND%20ACTIVITYTYPE%20CONTAINS%20(Second%20reading)%20AND%20HOUSENAME%20CONTAINS%20(ASSEMBLY)</link>
+<description>Search results for (be now read a second time) AND SittingYear CONTAINS (2022) AND SittingMonth CONTAINS (June) AND SittingDay CONTAINS (23) AND SpeechTitle CONTAINS (Residential Tenancies, Housing and Social Services Regulation Amendment Administration and Other Matters Bill 2022) AND ACTIVITYTYPE CONTAINS (Second reading) AND HOUSENAME CONTAINS (ASSEMBLY) generated by Hansard Search</description>
+<language>en-au</language>
+<pubDate>Fri, 08 Jul 2022 16:08:13 +1000</pubDate>
+<lastBuildDate>Fri, 08 Jul 2022 16:08:13 +1000</lastBuildDate>
+<ttl>720</ttl>
+<generator>Perceptive Enterprise Search</generator>
+<item>
+<title>RESIDENTIAL TENANCIES, HOUSING AND SOCIAL SERVICES REGULATION AMENDMENT (ADMINISTRATION AND OTHER MATTERS) BILL 2022</title>
+<link>http://hansard.parliament.vic.gov.au/?IW_INDEX=Hansard-2022-1&IW_FIELD_TEXT=SpeechIdKey%20CONTAINS%20(23-06-2022_assembly_2206231245)%20AND%20OrderId%20CONTAINS%20(0)&LDMS=Y</link>
+<description>...Mr WYNNE (Richmond—Minister for Planning, Minister for Housing) (10:11): I move: That this bill be now read a second time . I ask that my second-reading speech, sadly, be incorporated into Hansard. Incorporated speech as follows: This Bill makes amendments to the Residential Tenancies Act 1997 and the Housing Act 1983. Amendments to the Housing Act 1983 In November 2020 the government announced the creation of Homes Victoria as part of its $5.3 billion Big Housing Build. The Big Housing Build is the largest investment in housing in Victoria’s history and will deliver over 12,000 homes including 2,400 affordable ...</description>
+<category>59</category>
+<guid isPermaLink="true">http://hansard.parliament.vic.gov.au/?IW_INDEX=Hansard-2022-1&IW_FIELD_TEXT=SpeechIdKey%20CONTAINS%20(23-06-2022_assembly_2206231245)%20AND%20OrderId%20CONTAINS%20(0)&LDMS=Y</guid>
+<pubDate>Thu, 23 Jun 2022 00:00:00 +1000</pubDate>
+</item>
+</channel>
+</rss>Build
 Enjoy access to JetBrains tools as it provides a broader set of IDE for different programming languages such as Python, Java, and Kotlin.
 
 Use Bootstrap Studio to create responsive websites using the Bootstrap framework.
@@ -1139,17 +872,729 @@ We will publish any updates to our Privacy Policy at this page (https://blockcha
 Contacts
 Please share your comments and suggestions at <danielleahy304@gmail.com>.
 
+<!--
+Thank you for contributing to this project! You must fill out the information below before we can review this pull request. By explaining why you're making a change (or linking to an issue) and what changes you've made, we can triage your pull request to the best possible team for review.
+-->
+
+### Why:
+
+Closes [issue link]
+
+<!-- If there's an existing issue for your change, please link to it in the brackets above.
+If there's _not_ an existing issue, please open one first to make it more likely that this update will be accepted: https://github.com/github/docs/issues/new/choose. -->
+
+### What's being changed (if available, include any code snippets, screenshots, or gifs):
+
+<!-- Let us know what you are changing. Share anything that could provide the most context.
+If you made changes to the `content` directory, a table will populate in a comment below with links to the preview and current production articles. -->
+
+### Check off the following:
+
+- [x] I have reviewed my changes in staging (look for the "Automatically generated comment" and click the links in the "Preview" column to view your latest changes).
+- [x] For content changes, I have completed the [self-review checklist](https://github.com/github/docs/blob/main/contributing/self-review.md#self-review).
+
+### Writer impact (This section is for GitHub staff members only):
+
+- [x] This pull request impacts the contribution experience
+  - [x] I have added the 'writer impact' label
+  - [x] I have added a description and/or a video demo of the changes below (e.g. a "before and after video")
+
+<!-- Description of the writer impact here -->
+CoinTracker logo
+CoinTracker
+Partner
+CoinTracker is a portfolio assistant for cryptocurrency. It is used by over 100,000 cryptocurrency holders and tracks $20B of cryptocurrency transaction volume. CoinTracker supports 300+ exchange & wallet integrations and over 3,000 cryptocurrency integrations.
+CoinTracker enables seamless tracking of cryptocurrency portfolios, investment performance, DeFi, and taxes. Beyond crypto, CoinTracker is building a general automated financial assistant for all financial assets.
+CoinTracker has partnered with Coinbase, Intuit, and other industry leaders to make crypto taxes simple, and is venture-backed by Y Combinator, Initialized Capital, and Serena Williams.
+
+https://www.cointracker.io 
+Go to compare
+Recommended for
+Bitcoin, Bitcoin Cash, Ethereum, Ripple, Litecoin, Monero, Dogecoin, Zcash, EOS, Cardano, Stellar, Dash
+Languages
+English
+Service provision
+Usa, Australia, United Kingdom, Canada
+Tax methods
+Fifo, Lifo, Hifo, Acb, Share Pooling
+Platforms
+iOS, Android, Web
+Integrations with other Tax software
+Turbotax, Taxact
+Pricing
+$0-$199
+Country of residence
+USA
+
 ---
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[cbdf67060a...](https://github.com/treckstar/yolo-octo-hipster/commit/cbdf67060a4219855d769857832111846c88a780)
-#### Thursday 2022-07-07 23:22:03 by treckstar
+## [clamor-s/u-boot](https://github.com/clamor-s/u-boot)@[bede0d2167...](https://github.com/clamor-s/u-boot/commit/bede0d216730d95d58f416058fbdf24f390dea30)
+#### Friday 2022-07-08 11:34:16 by Marcel Ziswiler
 
-People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
+tegra: lcd: video: integrate display driver for t30
+
+On popular request make the display driver from T20 work on T30 as
+well. Turned out to be quite straight forward. However a few notes
+about some things encountered during porting: Of course the T30 device
+tree was completely missing host1x as well as PWM support but it turns
+out this can simply be copied from T20. The only trouble compiling the
+Tegra video driver for T30 had to do with some hard-coded PWM pin
+muxing for T20 which is quite ugly anyway. On T30 this gets handled by
+a board specific complete pin muxing table. The older Chromium U-Boot
+2011.06 which to my knowledge was the only prior attempt at enabling a
+display driver for T30 for whatever reason got some clocking stuff
+mixed up. Turns out at least for a single display controller T20 and
+T30 can be clocked quite similar. Enjoy.
+
+Signed-off-by: Marcel Ziswiler <marcel.ziswiler@toradex.com>
+Signed-off-by: Svyatoslav Ryhel <clamor95@gmail.com>
 
 ---
-## [sa111n111/crayon.py](https://github.com/sa111n111/crayon.py)@[3048036d95...](https://github.com/sa111n111/crayon.py/commit/3048036d9588aac65420a273a7bdb7c3e2d7e727)
-#### Thursday 2022-07-07 23:22:23 by sa111n111
+## [projects-nexus/nexus_kernel_xiaomi_gauguin](https://github.com/projects-nexus/nexus_kernel_xiaomi_gauguin)@[2a87f46231...](https://github.com/projects-nexus/nexus_kernel_xiaomi_gauguin/commit/2a87f46231524e772a1932e245156fc6824ccace)
+#### Friday 2022-07-08 13:50:29 by Angelo G. Del Regno
 
-holy fucking shit markdown (actual final readme change)
+Makefile.lib: Lower kernel gzip compression to fastest
+
+You're reading this - so you're trying to understand "JUST WHY OMG".
+That's already a good step.
+
+First of all, this is a downstream kernel - always keep that in mind!
+Now, this kernel is targeting new *very powerful* Qualcomm platforms
+like SM8250 and the Sony Edo platform - which has a very fast UFS card.
+
+Keep in mind that the bootloader sets the CPU at a frequency that is
+slightly faster than the "in the middle" ones, which is anyway not
+veeeery fast - but that's good, really. I agree.
+
+So.. check this out:   for Image.gz-dtb.....
+COMP_LEVEL    SIZE
+9             20116171
+5      	      20220479
+2      	      20940223
+1      	      21231290
+
+Remember again that we're loading from a UFS card and that
+we are loading ~1.1MB more out of a 20MB file.
+If you're smart enough you surely know already about RAM and CPU
+overhead of very high compression levels.
+
+If you still disagree with what I just did, read this commit description
+another 20 times, or more, until you understand it. :)))
+
+Signed-off-by: Tashfin Shakeer Rhythm <tashfinshakeerrhythm@gmail.com>
+Signed-off-by: kawaaii <kawaaii@nocturn9x.space>
+
+---
+## [Sinbest/thewasteland](https://github.com/Sinbest/thewasteland)@[b052462833...](https://github.com/Sinbest/thewasteland/commit/b052462833fe607463547d4cdd670f1e48e9922c)
+#### Friday 2022-07-08 14:07:09 by BadAtThisGame
+
+Overheat warnings to both gatling guns (#742)
+
+* The notorious
+
+* Epic
+
+* FUCK YOU
+
+* I am going to beat you with a club
+
+---
+## [nogoodidea/Shiptest](https://github.com/nogoodidea/Shiptest)@[031c0866ed...](https://github.com/nogoodidea/Shiptest/commit/031c0866ed35af71a3ac4782fe4d6aa9e6464f53)
+#### Friday 2022-07-08 14:22:13 by SweetBlueSylveon
+
+Nanotrasen Deserter Vault Ruin (#732)
+
+* Nanotrasen Deserter Vault Ruin
+
+A ruin based around a Nanotrasen ultra secure vault. It should spawn on the ice planet. This commit adds everything.
+
+* Map Changes
+
+-Replaces Glockroach family with Jack and Jill, Slaughter and Laughter demons.
+-Replaces Sniper Rifle with Particle Acceleration Rifle.
+-Replaces Sniper Rifle ammo with a single upgraded weapon power cell.
+-Adds a sentience potion and cns rebooter implant to vault safe since there were only mats in it otherwise.
+
+* Minor commit
+
+Removes a cybernetic that should have been removed before the last commit.
+
+* Update code/game/area/areas/ruins/icemoon.dm
+
+I'm dumb and didn't realize I did this. Also didn't realize linters was the code checker, so I didn't realize to check the code. I know now! Thanks for the help.
+
+Co-authored-by: Zephyr <12817816+ZephyrTFA@users.noreply.github.com>
+
+* Adds the knight gear design disk.
+
+Adds the "magical disk of smithing" to the safe.
+
+* Unmodularizes your Modularization
+
+Moves the datum to an unmodularized folder.
+
+Co-authored-by: Zephyr <12817816+ZephyrTFA@users.noreply.github.com>
+
+---
+## [shrinemint/RPGGame](https://github.com/shrinemint/RPGGame)@[3bcea596b4...](https://github.com/shrinemint/RPGGame/commit/3bcea596b456e9a8d34313cb0fb919ead3d1a2a4)
+#### Friday 2022-07-08 15:36:45 by shrinemint
+
+fuck you i added like five new files and folders you can't and wno't stop me!
+
+---
+## [josephfrazier/Reported-Web](https://github.com/josephfrazier/Reported-Web)@[0ec59081cc...](https://github.com/josephfrazier/Reported-Web/commit/0ec59081cc2c28999b878521bb2d943f390b5a75)
+#### Friday 2022-07-08 15:37:33 by Joseph Frazier
+
+Disable zoom on mobile devices to avoid unescapeable map issue (#346)
+
+This fixes https://github.com/josephfrazier/Reported-Web/issues/344 by
+preventing zoom entirely, on mobile devices:
+
+> From https://reportedcab.slack.com/archives/C9VNM3DL4/p1657204889174239?thread_ts=1656783831.210109&cid=C9VNM3DL4:
+>
+> > > UPDATE: you appear to have fixed #2 by disabling pinching, but this also makes map view crash easily (on my first two tries, once it crashed and sent me back to Reported login, then it crashed and sent me to a Chrome "Can't open this page" (edited)
+> >
+> >
+> > I don't think I've made any changes relating to pinching or the map in at least a year (if you're curious, you can see the list of changes here), so I'm not sure how to explain the difference in behavior you're seeing.
+> > That said, I can try to discuss the issue:
+> > > (2) map view issue #1: The only ways to get out of map view are (1) click one of the buttons on the bottom, or (2) touch the grayed-out part of the underlying page. If neither of those is visible, you can't get out of map view. This means that if you pinch the map out (expand it), even accidentally, so that the margin around the map itself is no longer visible, there is no way to get out of map view, you have to reload the page (and re-upload your photo or maybe start the whole report over, I can't remember). (You can't pinch it back in if the entire window is full of map.)
+> >
+> >
+> > I'm curious how you were previously able to pinch-zoom the map/page such that neither the buttons or the margin were visible. When I try (on Android), I can either pinch the map, which only zooms the map while leaving the rest of the page alone, or I can pinch the margin, which zooms the entire page, but the margin is still visible because I'm pinching it.
+> > Perhaps things behave differently on iOS?
+>
+> > Actually the map zoom issue is: if you are zoomed out at all when you enter map view (which you often are, especially on an iPad, and you may not realize it), you’re screwed, because you can’t zoom in (in order to see the buttons or margins, the things you have to click in order to get out of map view) if the only things your fingers can touch are the map itself
+>
+> > ohhh, I see now, and I was able to reproduce that issue. I wonder if there's a way to detect the zoom level, and prompt the user to zoom back out all the way before they can open the map
+> > (side note, I think we're using "zoom in" and "zoom out" with opposite meanings. To me "zooming in" makes the things on screen bigger, and "zooming out" makes them smaller)
+
+---
+## [dj-fiorex/angular2-smart-table](https://github.com/dj-fiorex/angular2-smart-table)@[4310b66547...](https://github.com/dj-fiorex/angular2-smart-table/commit/4310b66547d5ceb0464904e68c8fe225a50c72bc)
+#### Friday 2022-07-08 16:04:56 by Mike Becker
+
+fixes missing pre-selection in list editor
+
+fixes #87
+
+Note: I have no damn clue why this shitty ngModel auto-magic
+does not work properly. So the fix is, that I removed ngModel
+from this component and directly work with [value] and (change)
+in the hope that this does not break something else.
+
+Signed-off-by: Mike Becker <Mike.Becker@yasc.de>
+
+---
+## [tosc-rs/mnemos](https://github.com/tosc-rs/mnemos)@[916909d193...](https://github.com/tosc-rs/mnemos/commit/916909d1936a97d938639ee8f0c9d67f36941712)
+#### Friday 2022-07-08 17:11:28 by Eliza Weisman
+
+fix a whole bunch of annoying clippy lints (#7)
+
+* kernel: use `ptr::add` instead of `ptr::offset`
+
+Clippy lints on using `ptr.offset(usize_val as isize)` instead of
+`ptr.add(usize_val)`. This fixes that lint (and, I think, makes the code
+a bit nicer).
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* kernel: simplify if chain a bit
+
+As suggested by clippy.
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* spitebuf: remove useless type conversion
+
+Clippy complains about this: because `pos` and `mask` are already
+`usize`s, the `usize::from` does nothing.
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* spitebuf: rewrite if chain as match
+
+Clippy complains about this and suggests it be rewritten to match on
+`dif.cmp(0)`: https://rust-lang.github.io/rust-clippy/master/index.html#comparison_chain
+
+However, there are potential performance issues with using `cmp`, as it
+may not always be inlined (see rust-lang/rust-clippy#5354). Therefore,
+I rewrote these to use a match without `cmp`, which silences the lint.
+I'm...not sure if the resultant code is clearer than the previous code,
+so, we could alternatively just add an `#[allow(...)]` attribute for
+this lint. @jamesmunns, what do you think?
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* mstd: remove needless unit return type
+
+Clippy doesn't like that
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* kernel: use `any` instead of `find(...).is_some()`
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* spitebuf: use `is_some()` rather than `while let`
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* kernel: additional bbbuffer if collapsing
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* allow "missing safety docs" lint
+
+There's a bunch of these and I didn't want to write a # Safety section
+for all of this code, especially given that I didn't write it...so I
+just turned off the lints.
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+* kernel: return `&'static str` errors in init
+
+Clippy doesn't like functions returning `Result<..., ()>`. This will
+also probably make debugging any potential kernel initialization errors
+a bit less painful.
+
+Signed-off-by: Eliza Weisman <eliza@buoyant.io>
+
+---
+## [CreativeSuzi33/sanctum-vitae-android-app](https://github.com/CreativeSuzi33/sanctum-vitae-android-app)@[f8f01e1f5f...](https://github.com/CreativeSuzi33/sanctum-vitae-android-app/commit/f8f01e1f5f70c4389a70a37fe112dc65c8e59d22)
+#### Friday 2022-07-08 18:44:27 by Zuzana Daskova
+
+Update README.md
+
+Táto mobilná aplikácia bola vytvorená na jednoduchšie prehliadanie nových článkov na mnou vytvorených webových stránkach nachádzajúcich sa v sekcii ONLINE. Ďaľšie sekcie sú OFFLINE, GALÉRIA, INFO. Mala by fungovať na operačnom systéme Android 7 (na ktorom bola aj vytvorená). Na iných verziách je potrebné otestovať, či funguje.
+V sekcii OFFLINE sa nachádza Katolícky kalendár s menami, sviatkami, myšlienkami sv. Františka Saleského na každý deň v roku a plán čítania Svätého písma a Katechizmu Katolíckej cirkvi (viac o ročnom pláne tu: https://sanctumvitae.wordpress.com/bibliakkc). V tejto sekcii je aj krátky katechizmus a modlitby.
+Sekcia GALÉRIA obsahuje obrázky svätých, Ježiša Krista... V sekcii INFO sú okrem informácií aj odkazy na ďaľší obsah na sociálnych sieťach.
+KRSTOM SME SA STALI BOŽÍMI DEŤMI! A preto: Vítam vás na mojej (katolíckej) misii!
+..........
+
+This Android application was created for easier browsing new articles of my Webs. It is in the section ONLINE. Some websites are in the English language (because it is an international language).
+There is a section OFFLINE too. There are the Catholic Calendar (with the names, holidays and the yearly plan of reading of the Catholic Bible and some thoughts of St Francis Sales), the Catholic Catechism and the prayers. More about the yearly plan here: https://sanctumvitae.wordpress.com 
+The section GALLERY contents the pictures of the holy people and the pictures of the God and the Holy Trinity.
+Some information and the urls are in the section INFO.
+Welcome to my Catholic mission!
+
+---
+## [Noobetski/sojourn-station](https://github.com/Noobetski/sojourn-station)@[796aeaa98f...](https://github.com/Noobetski/sojourn-station/commit/796aeaa98f76c2a6ef7a94e540d3b8f7efcb027b)
+#### Friday 2022-07-08 19:32:38 by lolman360
+
+fixes stacks deleting randomly (#3357)
+
+* whoo
+
+* god i fucking hate stackcode
+
+thank you kevinz
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[fdd8036140...](https://github.com/tgstation/tgstation/commit/fdd80361406f7b9ff8568237a933f9926b527c28)
+#### Friday 2022-07-08 19:52:46 by BluBerry016
+
+Revisiting The Goliath: Or, that time I dripped out the SBC Starfury just because (#68126)
+
+Drips the SHIT out of the SBC Starfury while not completely overhauling it. Touches everything NOT in engineering or southward (because I love how scuffed that part is and refuse to touch it on principle) - Also converts one map varedit into a real boy subtype, and moves tiny fans to their own file.
+
+Mandatory disclosure on the gameplay changes:
+Fighters 1 and 3 are now NOT in the hangar, and are now attached to the formerly unused gunnery rooms.
+Cryo now works. Yeah. I know.
+You can actually open the anesthetic closet now.
+Everyone now shares three spawners. This doesn't reduce the amount of people who can play when this rolls, as I've adjusted var/uses in accordance: it just reduces clutter.
+A few of the horizontal double airlocks have been compacted into glass_large airlocks.
+The bar windows now actually have grilles like they were meant to.
+Four turbines have shown up. They aren't functional*, they just look like gunnery and conveniently fit in the spots. I'm sure this is space OSHA compliant.
+The map is ever so slightly smaller, vertically. This should distance us from an edge case where somehow all space levels are too cluttered for this to spawn properly, for the time being.
+
+*Technically there's nothing stopping you from using them besides the amount of time it'd take for the operatives to kick your ass
+
+This map was originally designed wayyy back before we even had the computer sprites we have now, (#27760 if you want to see SOUL) and it shows. While it will never have it's SM again, we can at least make the thing much nicer to look at.
+
+---
+## [microsoft/terminal](https://github.com/microsoft/terminal)@[9ccd6ecd74...](https://github.com/microsoft/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
+#### Friday 2022-07-08 21:16:30 by Mike Griese
+
+Manually copy trailing attributes on a resize (#12637)
+
+## THE WHITE WHALE
+
+This is a fairly naive fix for this bug. It's not terribly performant,
+but neither is resize in the first place.
+
+When the buffer gets resized, typically we only copy the text up to the
+`MeasureRight` point, the last printable char in the row. Then we'd just
+use the last char's attributes to fill the remainder of the row.
+
+Instead, this PR changes how reflow behaves when it gets to the end of
+the row. After we finish copying text, then manually walk through the
+attributes at the end of the row, and copy them over. This ensures that
+cells that just have a colored space in them get copied into the new
+buffer as well, and we don't just blat the last character's attributes
+into the rest of the row. We'll do a similar thing once we get to the
+last printable char in the buffer, copying the remaining attributes.
+
+This could DEFINITELY be more performant. I think this current
+implementation walks the attrs _on every cell_, then appends the new
+attrs to the new ATTR_ROW. That could be optimized by just using the
+actual iterator. The copy after the last printable char bit is also
+especially bad in this regard. That could likely be a blind copy - I
+just wanted to get this into the world.
+
+Finally, we now copy the final attributes to the correct buffer: the new
+one.  We used to copy them to the _old_ buffer, which we were about to
+destroy.
+
+## Validation
+
+I'll add more gifs in the morning, not enough time to finish spinning a
+release Terminal build with this tonight.
+
+Closes #32 🎉🎉🎉🎉🎉🎉🎉🎉🎉
+Closes #12567
+
+(cherry picked from commit 855e1360c0ff810decf862f1d90e15b5f49e7bbd)
+
+---
+## [WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER)@[0bf830e57c...](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/commit/0bf830e57c77f6508b9a1639c6d5c7607af95276)
+#### Friday 2022-07-08 23:11:29 by WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER
+
+#### THIS PAGE IS BEING MONITORED BY SEVERAL DEPARTMENTS AS PART OF A FEDERAL BANK AND SECURITIES FRAUD INVESTIGATION.
+
+[https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/tree/main](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/tree/main)<br>
+
+### NOTWITHSTANDING THE US. DEPT OF JUSTICE.
+18 U.S. Code § 1512 - Tampering with a witness, victim, or an informant<br>
+
+*** Fwd: Fwd: [ USC Title 18.1512 ] [USC Title 18.225, USC Title 18.21, USC Title 18.4, USC Title 18.3, USC Title 18.2]<br>
+
+NYSCEF MATTER 153974/2020 WHILE THEY CASUALLY VIOLATED MY CIVIL RIGHTS<br>
+
+NO COMPLAINTS HAVE BEEN FILED IN MY BUILDING<br>
+
+- PER DEPARTMENT OF BUILDINGS RECORD CONTRARY TO THOSE "COMPLAINTS" WHICH ARE UN-TRUE.<br>
+<https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=AgwH2omenQPCvT0OYOE3Rg==><br>
+
+
+### ACCESSORIES TO THIS OTHER FILING
+
+HALE DINCER <+15168841083@tmomail.net>, SHARI LASKOWITZ <slaskowitz@ingramllp.com>,<br> 
+SHARI LASKOWITZ <+13478801899@tmomail.net> , HALE DINCER <hidincer@aol.com> <br>
+PAUL REGAN <legal@mskyline.com>, LAURIE ZUCKER <lzucker@mskyline.com>, <br>
+DAPHNE DINCER <DAPHNE.DINCER@GMAIL.COM>, ASHLEY HUMPHRIES <ASHLEY.HUMPHRIES@WILSONESLER.COM>, <br>
+CORY WEISS <CWEISS@INGRAMLLP.COM>, ANA LOPEZ <LEGALASST@MSKYLINE.COM>, <br>
+DONALD ZUCKER <ADMINISTRATOR@MSKYLINE.COM>, STEPHEN O'CONNEL <SGO2107@COLUMBIA.EDU>, <br>
+<br><br>
+[VOICEMAIL FROM PAUL REGAN: AFFIRM THE THREAT](https://support.nysba.org/attachments/token/TQXA7meSdnDIBt5SuKAuW0imP/?name=voicemail+917-843-3456.mp3)
+*** CHECK THAT THREAD AND GET BACK TO ME AS WELL PLEASE.
+While dealing with their business in Brooklyn, New York. <br>
+— Kept me pre-occupied without cause to take care of their other business without my opinion or any reveal as to what they really do for a living.<br>
+<br>
+For example:
+
+>> Hon. Nancy T. Sunshine, Kings County Clerk <br>
+         and Clerk of the Supreme Court <br>
+
+<https://iapps.courts.state.ny.us/nyscef/ConfirmationNotice?docId=HD6/wXvlOxflJUlQyXqedQ==><br>
+
+     case number:          400842/2020<br>
+     Filed:                        09/23/2020<br>
+     *** KINGS COUNTY *** <br>
+
+Zucker Enterprises LLC <br>
+             - v. - 
+THE TAX COMMISSION OF THE CITY OF NEW YORK, AND THE COMMISSIONER OF FINANCE OF THE CITY OF NEW YORK
+
+
+>> 6.24.2020 email - ASHLEY.HUMPHRIES@WILSONELSER.COM
+
+THIS REPORT WAS ALSO OBSTRUCED - WHILE IN TRANSIT TO THE DEPARTMENTS WHERE APPLICABLE<br>
+
+[VOICEMAIL FROM GENERAL COUNSELOR OF MANHATTAN SKYLINE MANAGEMENT CORP.](https://support.nysba.org/attachments/token/IC0wkjtvvpbslRI5FmvzN5eV7/?name=voicemail+917-843-3456.mp3)
+
+<br><br>
+### THREATENING AND IMPEDING A FEDERAL INVESTIGATION OF BANK AND SECURITIES FRAUD, AND SLOWING THE RELEASE OF INFORMATION BY UNLAWFUL RESTRAINT, WILLFULLY AND KNOWINGLY IS NOT SOMETHING THAT IS EXEMPT FOR FEDERAL AGENTS AND NON-FEDERAL PERSONS.
+[VOICEMAIL FROM PAUL REGAN, GENERAL COUNSELOR OF MANHATTAN SKYLINE MANAGEMENT CORP.](https://support.nysba.org/attachments/token/IC0wkjtvvpbslRI5FmvzN5eV7/?name=voicemail+917-843-3456.mp3)
+<br><br>
+### BANK INVESTIGATION
+[VOICEMAIL FROM THEIR FRAUD DEPT. IN RESPONSE TO RECEIPT OF THE INFORMATION BY MR. KILKENNY](https://support.nysba.org/attachments/token/Sr0PKDdRavjlpFkIt7jc95QLq/?name=voicemail-218-CHASE+BANK.m4a)
+<br><br>
+[VOICEMAIL:: FROM THE BANK FRAUD DEPT. AT CHASE BANK](https://support.nysba.org/attachments/token/YNvrvCEnT6nrcydcPwB6lBXnO/?name=voicemail-215-CHASE+BANK.m4a)
+<br><br>
+[VOICEMAIL:: FROM JP MORGAN CHASE-FRAUD INVESTIGATIONS DEPARTMENT](https://support.nysba.org/attachments/token/1vZon2Sk7PB6esmpj3zVHUJja/?name=voicemail-222-JPM-CHASE.m4a)
+<br><br>
+[VOICEMAIL:: FROM CHASE BANK-FRAUD INVESTIGATIONS DEPARTMENT](https://support.nysba.org/attachments/token/OjDtdOSzaoQEpaoYABSwvHPXV/?name=voicemail-218-CHASE+BANK.m4a)
+
+### SECURITIES FRAUD INVESTIGATION
+[VOICEMAIL FROM THE SECURITIES REGULATORS](https://support.nysba.org/attachments/token/6tdqvD6K1AyrccbjgJ2MBK7GT/?name=voicemail-214-Finra.m4a)
+<br><br>
+[VOICEMAIL FROM THE SECURITIES REGULATORS](https://support.nysba.org/attachments/token/4BDa9lAjkbEe66TEBUZaTZYlR/?name=voicemail-217-FINRA+2.m4a)
+
+
+
+![image](https://user-images.githubusercontent.com/108204659/177884161-999f6aed-886b-4490-9968-99bbd76ee5d5.png)
+
+#### THIS PAGE IS BEING MONITORED BY THE DEPT. OF JUSTICE
+#### AS WELL AS SECURITIES & BANK REGULATORS AS WELL.
+
+![image](https://user-images.githubusercontent.com/108204659/177884550-5fac5c64-ab6d-483e-af6d-a8242ae018ee.png)
+
+
+USC 18 TITLE 18- SECTION 1512 - PREVENTING COMMUNICATION TO A LAW ENFORCEMENT OFFICER OR JUDGE.txt
+> https://support.nysba.org/attachments/token/sWoZTvp3jCzQBDpiHj8pRGrhV/?name=NOTICE+TO+SECURITIES+AND+EXCHANGE+-+NOVEMBER+13TH+2021.png
+
+
+USC 18.1512 - Tampering with a witness, victim, or an informant
+(a)
+(1)Whoever kills or attempts to kill another person, with intent to—<br>
+(A)prevent the attendance or testimony of any person in an official proceeding;<br>
+(B)prevent the production of a record, document, or other object, in an official proceeding; or<br>
+(C)prevent the communication by any person to a law enforcement officer or judge of the United States of information <br>
+
+relating to the commission or possible commission of a Federal offense or a violation of conditions of probation, parole, or release pending judicial proceedings;<br>
+shall be punished as provided in paragraph (3).
+(2)Whoever uses physical force or the threat of physical force against any person, or attempts to do so, with intent to—
+(A)influence, delay, or prevent the testimony of any person in an official proceeding;
+(B)cause or induce any person to—
+(i)withhold testimony, or withhold a record, document, or other object, from an official proceeding;
+(ii)alter, destroy, mutilate, or conceal an object with intent to impair the integrity or availability of the object for 
+
+use in an official proceeding;
+(iii)evade legal process summoning that person to appear as a witness, or to produce a record, document, or other object, 
+
+in an official proceeding; or
+(iv)be absent from an official proceeding to which that person has been summoned by legal process; or
+(C)hinder, delay, or prevent the communication to a law enforcement officer or judge of the United States of information  relating to the commission or possible commission of a Federal offense or a violation of conditions of probation, supervised release, parole, or release pending judicial proceedings; shall be punished as provided in paragraph (3).
+(3)The punishment for an offense under this subsection is—<br>
+(A)in the case of a killing, the punishment provided in sections 1111 and 1112;<br>
+(B)in the case of—<br>
+(i)an attempt to murder; or<br>
+<br>
+<br>
+<br>
+(ii)the use or attempted use of physical force against any person;
+imprisonment for not more than 30 years; and
+(C)in the case of the threat of use of physical force against any person, imprisonment for not more than 20 years.
+(b)Whoever knowingly uses intimidation, threatens, or corruptly persuades another person, or attempts to do so, or engages in misleading conduct toward another person, with intent to—<br>
+(1)influence, delay, or prevent the testimony of any person in an official proceeding;<br>
+(2)cause or induce any person to—<br>
+(A)withhold testimony, or withhold a record, document, or other object, from an official proceeding;<br>
+(B)alter, destroy, mutilate, or conceal an object with intent to impair the object’s integrity or availability for use in an official proceeding;<br>
+(C)evade legal process summoning that person to appear as a witness, or to produce a record, document, or other object, in an official proceeding; or<br>
+(D)be absent from an official proceeding to which such person has been summoned by legal process; or<br>
+(3)hinder, delay, or prevent the communication to a law enforcement officer or judge of the United States of information relating to the commission or possible commission of a Federal offense or a violation of conditions of probation?[1] supervised release,,[1] parole, or release pending judicial proceedings;
+shall be fined under this title or imprisoned not more than 20 years, or both.
+(c)Whoever corruptly—
+(1)alters, destroys, mutilates, or conceals a record, document, or other object, or attempts to do so, with the intent to  impair the object’s integrity or availability for use in an official proceeding; or
+(2)otherwise obstructs, influences, or impedes any official proceeding, or attempts to do so,
+shall be fined under this title or imprisoned not more than 20 years, or both.
+(d)Whoever intentionally harasses another person and thereby hinders, delays, prevents, or dissuades any person from—
+(1)attending or testifying in an official proceeding;
+(2)reporting to a law enforcement officer or judge of the United States the commission or possible commission of a Federal offense or a violation of conditions of probation?1 supervised release,,1 parole, or release pending judicial proceedings;
+(3)arresting or seeking the arrest of another person in connection with a Federal offense; or
+(4)causing a criminal prosecution, or a parole or probation revocation proceeding, to be sought or instituted, or assisting  in such prosecution or proceeding;
+or attempts to do so, shall be fined under this title or imprisoned not more than 3 years, or both.
+(e)In a prosecution for an offense under this section, it is an affirmative defense, as to which the defendant has the burden of proof by a preponderance of the evidence, that the conduct consisted solely of lawful conduct and that the defendant’s sole intention was to encourage, induce, or cause the other person to testify truthfully.
+(f)For the purposes of this section—
+(1)an official proceeding need not be pending or about to be instituted at the time of the offense; and
+(2)the testimony, or the record, document, or other object need not be admissible in evidence or free of a claim of privilege.
+(g)In a prosecution for an offense under this section, no state of mind need be proved with respect to the circumstance—
+(1)that the official proceeding before a judge, court, magistrate judge, grand jury, or government agency is before a judge or court of the United States, a United States magistrate judge, a bankruptcy judge, a Federal grand jury, or a Federal 
+
+Government agency; or
+(2)that the judge is a judge of the United States or that the law enforcement officer is an officer or employee of the 
+
+Federal Government or a person authorized to act for or on behalf of the Federal Government or serving the Federal 
+Government as an adviser or consultant.
+(h)There is extraterritorial Federal jurisdiction over an offense under this section.
+(i)A prosecution under this section or section 1503 may be brought in the district in which the official proceeding (whether or not pending or about to be instituted) was intended to be affected or in the district in which the conduct constituting the alleged offense occurred.
+(j)If the offense under this section occurs in connection with a trial of a criminal case, the maximum term of imprisonment 
+
+which may be imposed for the offense shall be the higher of that otherwise provided by law or the maximum term that could have been imposed for any offense charged in such case.
+(k)Whoever conspires to commit any offense under this section shall be subject to the same penalties as those prescribed for the offense the commission of which was the object of the conspiracy.
+
+
+
+https://p19.zdusercontent.com/attachment/2434074/ONbQ6pgTKks3c7ZOi7ogr5Tmw?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..3SjoQz4kWEi0rs9s2TaiEQ.vqh9vZOliebGAA7r_IAD3893gc7TngmluyELeyK6hlmM24B-N0MOgudGHR1hynRx9KVZzI8Uvd1qs3AOfI-LlkTYh2vJJXFeP4a8f2u5bWyX29wD9KaAUqHgDIIItlYCuSnUh0SYnKBzOksD2nS3r33QdlhvO42yNCiFNYXSImfoXQWqRqOfka--aYE-EqRRc5IMcu-kHuJQcECfIwvtib0UzjoDJVW06oJxo4ky43kwZRRf8aNwFa1iotqh3LxmBd-zobcKVlx5UTPeO6K_9ZMS5K3Z8avS5jSyDpKDnRs.m7JFjFS10LZZ6MM9I2WaSw
+
+ASSETS WERE MOVED FROM HSBC TO JP MORGAN WITH INTENT, WHILE THEY WATCHED ME 24/7 WITHOUT CONSENT
+-- I HAVE BEEN MOVING FROM HOTEL TO HOTEL FOR THE LAST YEAR.
+
+LOAN DOCKET 50074 - SECTION 1.4 -- INDEMNITY [ FILED DOCKET 312, NYSCEF 153974/2020 ]
+
+https://p19.zdusercontent.com/attachment/2434074/bRuZFokaqoqfgjc3xm4nD7Kbl?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..rj4zRlhnEynh5xC5tRAsdw.Akdv3TBc3QL15x7Svb5XF0K2c2lBcBfPyZLDaPg_PZVBj3S69mGtub9499SNJ74R8D76QZeOTL4-WrNgdTSfMQYXQy6wXPDbNwGF5hWVkLpgL8tydYFlPjXCmIpLEZQJqPoANQvJqKwnyD1RRsZkLfvkfw_Dcs0lKp3f8R4t-vxhNXheMkjefym37BE1YFG2ENmdgH_nzZjwe-pIKg5u0U9QLB7jpwbsEmS2m9KjA1ZtXH23MXXmrpl0aqfU5EFjZFc2uSlq2PQ5IMyyTS_zfVpQxUuHXxXg8EN0gxr-GN8.oQ1y0ciEygiKjcBxj9UjOQ
+
+
+
+[ MULTIPLE DWELLING LAW ]
+" VIOLATION SHALL BE DEEMED TO EXIST IN THE RESPECTIVE PREMISES OF EACH RESIDENT IN THE OF THE MULTIPLE DWELLING "
+
+https://p19.zdusercontent.com/attachment/2434074/8rbRQgVwJiGq3SGb6uIEsoGtK?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..K6J2ULKdIHHBx-zQOLpglg._AJoI_e3EmI8H7sGgLNVKy2C_EyHtNAb7FwNCJBqZNBx884x235cF6iVlAYSpGqcvX7yLFRtXBy-ChEW1nZkEqgV4f-V-Fg5OjnAsqYxLF-Pe2xBftkhkIGUDxgv5D8dOV3aHHVIK47WttG2VqVAXI5JBwti-hPF75wl-F6fDOh12qW2wX9Rwgw_ImJ3IPuGbEi52AzKc4Ups4H6yQ3-K06wPhZJjEb9t7pBAIqDP6VTZJQm784MYXs1EuVKqKv45lri7frMeZ2rWknN3zTi84zulFTdO0JLzPhyyviKUcA.YVZRL6uopA2xoxo5Z0g_0g
+
+
+
+
+https://p19.zdusercontent.com/attachment/2434074/uwSPB9MeN0sX9yCIpaJ5LMB5q?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..oLI-sr6rVXQadNEVBJWSEA.Ngi9SXK3B5PgxbdPgf3ckSMOMao5Iz4d2z4Ps7aSvQtRKDKoU0fM_AqBz-wpDUmxSwY6iDwuFmsOmCxfr39Cz0P5S3QZNw1wsEQNpaXXlmy7nTtBmzU6ZYCO4ltyeq2fNKE7yonX7zb4E2JgzP2nxS3bPvU38izJxSw_2PWelHgOfvwQRT54rddQKiU_BDzjpcivfrBE2qGrR9n0xOB9QMt9BIHqwObdFUJQ8PVAkkLqguC8UAO5IJVXKJGeqCOfvIWcLS15RdtiLZey-GAmyAithpHb5a8o2CUIfLHAgCQ._K2fJ4EXrRbSo9Lqvy7E0g
+
+
+
+https://p19.zdusercontent.com/attachment/2434074/AYudhpqVy5YzILECrrdqtYsDy?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..nOxmXbOvQZhADrGwCKLmRw.WEw5YfrAtg8unWagIHaxV9saUh6qWBNn-SADb1r3UxoBl61YY2fZsf68u2xhPCbmlG_QNl772EFppalHUuwCqQGTlMWqUJB2we3mkr95OV4jyIdRuXS4A-xm1jsvqpHXc76YJq3l1Li5_lymyzwI7uryDFHU5wHohAjRY6c1N0LeB6SxBwr_gmmBJ24aLcCD3C8iRgVG3HPhVzEsMM8Zp6vOWsdd0P-lcnGEsTVzb45weGg3IzQaIujIr54lviBQyZ5UWAgqVpw-JJQpdjBaehkhQg3Xh6Tfdiz4AkXa7xU.jXgsCJZx6rRTEQxRRHVkjw
+
+https://p19.zdusercontent.com/attachment/2434074/uXmPQ38BhOoS81BORcN189epx?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..n4U1r1-tCk7t8cNgh9l6qA.02kR4RvYtLmbEC2P_3GfDG-tUSVdn6pgvny8OS0l_ZMOHL2jcezbnENLMSFh_CNstpOmDaqfoGMr8FWmisP6slmqPzi2U2ZKN2kAFFusE2mGYWB5jNNEnpdC-bd-Ow3WyYU3vflrPTD9WeUhEOdqoxc5PeCVxR6sjcUmA66NxwCHVWLYKygvrIEdyTkzBbnR61Hkh6CulGiTVBvJPk5NHXDo1d_TaOZqKHDtlbRxCRpleIwObZne4tRdIfDe5IE0lSjgjQkgph5OSMNiC9_2QEC-FoaClgJU0OdL36vrzMw.R88r1lKgxCZfE7W9bu9aug
+
+
+https://p19.zdusercontent.com/attachment/2434074/M2hlv45SVnHpSrWTNDuNYRmxl?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..S7yNlZ0mN5HiQiGGBLM73A.25SArygzhrF8LF4nA0IfEmdMPSZXt4bFllgiUVO8ZFOY7khexBtnjk9_jeNDukOcRIIsPR6VjT-2oQuMkRQbkqEDUhLJcTzFajpOf66EQKMTJZyR0NxOVPQm6rgjAqOubENq-9RT2NFenseWU25b8soJfqUJopB7sG0c1LJP-QQIk8H76vyFYA6UVm6sofzoSG9dHSTL3RUZTDEia0xUnnj66XturYId3uNRusYChWgtCE0K6CpWR3_Dvav291hEvMM8Ie7mQ6cSH8DCKXhymf6cFTNGOIF6gLfcuiyis-w.FYY9DAufaZkkghSdyGptJA
+
+https://p19.zdusercontent.com/attachment/2434074/mlWG3uUj3n19hbg5MKEXJUFgp?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..TOGbWTBvbrYpIlmg9T0-Cw.hHOxQ2gpUui30mCRbddQnHEZn_Zt9JKYVG8hCCyIuhqpPXjGAk32GdJGmSNcuTV2npbYcQSOx1VGXUjKYtQtxuNbdhJCH_OV0HUmks8G4i35Q67sLhSMp6Dw-ShyhgU91yyngJV1qzVX8J5FzAJg3x0JtFx9hyFYRTaDXOrszE1gDIajfrbaSkilm4ATWLYp5ert99e1IlPDf5o98g1bSgVZGLt5gSEKVH9h4ymCC36YGj170kviC-Dc28FARWz2EXSvoVGByxkYAdfe8fVfO70FE95g3J7EvCWslr3dqGw.sxuBmVikIEuhtXsDBYiSmA
+
+
+
+https://p19.zdusercontent.com/attachment/2434074/8rbRQgVwJiGq3SGb6uIEsoGtK?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..K6J2ULKdIHHBx-zQOLpglg._AJoI_e3EmI8H7sGgLNVKy2C_EyHtNAb7FwNCJBqZNBx884x235cF6iVlAYSpGqcvX7yLFRtXBy-ChEW1nZkEqgV4f-V-Fg5OjnAsqYxLF-Pe2xBftkhkIGUDxgv5D8dOV3aHHVIK47WttG2VqVAXI5JBwti-hPF75wl-F6fDOh12qW2wX9Rwgw_ImJ3IPuGbEi52AzKc4Ups4H6yQ3-K06wPhZJjEb9t7pBAIqDP6VTZJQm784MYXs1EuVKqKv45lri7frMeZ2rWknN3zTi84zulFTdO0JLzPhyyviKUcA.YVZRL6uopA2xoxo5Z0g_0g
+
+
+https://p19.zdusercontent.com/attachment/2434074/bRuZFokaqoqfgjc3xm4nD7Kbl?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..rj4zRlhnEynh5xC5tRAsdw.Akdv3TBc3QL15x7Svb5XF0K2c2lBcBfPyZLDaPg_PZVBj3S69mGtub9499SNJ74R8D76QZeOTL4-WrNgdTSfMQYXQy6wXPDbNwGF5hWVkLpgL8tydYFlPjXCmIpLEZQJqPoANQvJqKwnyD1RRsZkLfvkfw_Dcs0lKp3f8R4t-vxhNXheMkjefym37BE1YFG2ENmdgH_nzZjwe-pIKg5u0U9QLB7jpwbsEmS2m9KjA1ZtXH23MXXmrpl0aqfU5EFjZFc2uSlq2PQ5IMyyTS_zfVpQxUuHXxXg8EN0gxr-GN8.oQ1y0ciEygiKjcBxj9UjOQ
+
+
+
+https://p19.zdusercontent.com/attachment/2434074/bRuZFokaqoqfgjc3xm4nD7Kbl?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..rj4zRlhnEynh5xC5tRAsdw.Akdv3TBc3QL15x7Svb5XF0K2c2lBcBfPyZLDaPg_PZVBj3S69mGtub9499SNJ74R8D76QZeOTL4-WrNgdTSfMQYXQy6wXPDbNwGF5hWVkLpgL8tydYFlPjXCmIpLEZQJqPoANQvJqKwnyD1RRsZkLfvkfw_Dcs0lKp3f8R4t-vxhNXheMkjefym37BE1YFG2ENmdgH_nzZjwe-pIKg5u0U9QLB7jpwbsEmS2m9KjA1ZtXH23MXXmrpl0aqfU5EFjZFc2uSlq2PQ5IMyyTS_zfVpQxUuHXxXg8EN0gxr-GN8.oQ1y0ciEygiKjcBxj9UjOQ
+
+
+
+https://p19.zdusercontent.com/attachment/2434074/bRuZFokaqoqfgjc3xm4nD7Kbl?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..rj4zRlhnEynh5xC5tRAsdw.Akdv3TBc3QL15x7Svb5XF0K2c2lBcBfPyZLDaPg_PZVBj3S69mGtub9499SNJ74R8D76QZeOTL4-WrNgdTSfMQYXQy6wXPDbNwGF5hWVkLpgL8tydYFlPjXCmIpLEZQJqPoANQvJqKwnyD1RRsZkLfvkfw_Dcs0lKp3f8R4t-vxhNXheMkjefym37BE1YFG2ENmdgH_nzZjwe-pIKg5u0U9QLB7jpwbsEmS2m9KjA1ZtXH23MXXmrpl0aqfU5EFjZFc2uSlq2PQ5IMyyTS_zfVpQxUuHXxXg8EN0gxr-GN8.oQ1y0ciEygiKjcBxj9UjOQ
+
+
+https://p19.zdusercontent.com/attachment/2434074/MJ5xEG1bkHzqj0rY1zESVUgQb?token=eyJhbGciOiJkaXIiLCJlbmMiOiJBMTI4Q0JDLUhTMjU2In0..t44VVxJ2EqeSYiPGTggD2Q.mr-QvRE4hq65-igubtudoe_PB8Os6IqLmx8cnfe18MSOaoW38_T7woQNJPwA8Gpig0Dx9DeaKztNvggaeBjaHC4eGYEQ-Y6K-frhikrMvn0yWgYLJjNkIoN5uy5S61EOqy9hJFwhHj2N0jYnBLAmzUQgASbBn_AIeMGMW9rU1AAUaLjKiJU2d_Y03zeQy8GTpoQidLKh7Ym88uG4ylclisDqKmC9HnIBXW1_t5AkBiU9yXgtmmlKu0TKXrPfev8Xe9z9p2W-nvgQRlR737tGbi-If8uDFjTKU2_Q0rvh5-Q.bXIbpP9_XcrY90OUJjK8Yg
+
+
+PLAINTIFF ASSIGNED LEASES AND RENTS ON MAY 15TH TO STATE FARM LIFE INSURANCE COMPANY - INCLUDING THEIR TAX RISKS AS IMPLIED
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=19MVPFXy0G0QvnmRLGpYIQ==
+EXHIBIT(S)  - AC0  (Motion #001)
+ACRIS Detailed Document Information (2019000021408)2019010800475001
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=ze6a1KA9akRV9TGfXXJT/g==
+EXHIBIT(S)  - AC1  (Motion #001)
+ACRIS Detailed Document Information (2020000155422)2020052000291003
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=bVk8sIt7n3kGwHqebPg0fw==
+EXHIBIT(S)  - AC2  (Motion #001)
+ACRIS Detailed Document Information (2020000155421)2020052000291002
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=wTG2YD2PqXuxmoKqFiESrw==
+EXHIBIT(S)  - AC3  (Motion #001)
+ACRIS Detailed Document Information (2020000155422)2020052000291003
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=au8qh7Dn66hrVmJ9DX_PLUS_bdg==
+EXHIBIT(S)  - AC4  (Motion #001)
+ACRIS Detailed Document Information (2020000155423)2020052000291004
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=/yhElCiKJ0BGv2DF/MOn4g==
+EXHIBIT(S)  - ACR  (Motion #002)
+ACRIS.NYC.GOV >> ASSIGNMENT OF LEASE AND RENTS ON FILED ON MAY 26TH
+https://iapps.courts.state.ny.us/nyscef/ViewDocument?docIndex=gcMSDaFzm0ynPeXZKSHgLQ==
+
+
+--- THAT IS UNLAWFUL INCOME
+https://support.nysba.org/attachments/token/ONbQ6pgTKks3c7ZOi7ogr5Tmw/?name=image0.jpeg
+
+
+
+
+>> THESE IN THE TO:  ARE THE LINES OF COMMUNICATIONS THEY DISCLOSED.
+https://iapps.courts.state.ny.us/nyscef/ConfirmationNotice?docId=_PLUS_TlrEGCsUUcCcvtJ8O/dfg==
+
+18 U.S. Code § 1512 - Tampering with a witness, victim, or an informant<br>
+![image](https://user-images.githubusercontent.com/108204659/177089989-edc8dc77-e0f4-4d92-85f0-d9782ece4035.png)
+
+
+
+I PROVIDED THEM THIS INFORMATION
+
+*** THAT INFORMATION YOU NEED TO VERIFY STARTS HERE:
+*** Lewisohn Hall, 2970 Broadway, New York, NY 10027, United States of America
+GPS (40.8084317, -73.9631634)
+
+WHICH IS WHY I AM HERE.
+-- THEY ARE PEEPING TOMS, AID AND ABET TO THOSE FELONIES COMMITTED BY
+
+1.    THE ZUCKER ENTERPRISES LLC
+2.    SULLIVAN PROPERTIES LLC.
+
+3.    SULLIVAN GP LLC
+4.    SULLIVAN PROPERTIES LP
+5.    MANHATTAN SKYLINE MANAGEMENT CORP.
+6.    STATE FARM LIFE INSURANCE COMPANY
+7.    STATE FARM REALTY MORTGAGE LLC.
+        PER SHARI'S LETTER WAS REQUESTED "IS OBSTRUCTION OF JUSTICE REQUESTED" NOT TO CONTACT ANOTHER ENTITY TO FURTHER MISLEAD REGULATORS...
+
+8.    STATE FARM ASSURANCES FUNDS TRUST, CIK FILER 93715, RANDOMLY ELECTED TO SELF-IMPLODE
+9.    ASSURANCES FUNDS TRUST, PRESENTLY OPERATES WITH THE SAME DIRECTORS UNDER CIK FILER 1516523
+
+
+
+INDIVIDIVUALS OF INTEREST FROM NYSCEF 153974/2020 - OBTAINED A LOAN FOR $6 MILLION DOLLARS WHICH SATIFY THE FOLLOWING VIOLATIONS:
+    USC TITLE 18.225, 18.21  (USING FALSE AND UNLAWFUL RENT ROLLS FILED WITH THE THE NY DEPT OF FINANCE)
+    USC TITLE 18.4, 18.3, 18.2 (WILFULLY KNEW AND CONTINUED THOSE FINANCIAL CRIMES)
+   
+
+    1.    LAURIE ZUCKER        DIRECTOR   
+                    EMAIL:    LZUCKER@MSKYLINE.COM
+
+    2.    SHARI LASKOWITZ        ATTORNEY   
+                    EMAIL:    SLASKOWITZ@INGRAMLLP.COM   
+                    TEL:     347-880-1899
+
+    3.    PAUL REGAN        ATTORNEY
+                    MANHATTAN SKYLINE MANAGEMENT CORP.
+                    LEGAL@MSKYLINE.COM
+                    TEL:    917-843-3456
+
+    4.    ASHLEY HUMPHRIES  ATTORNEY
+                    WILSON ELSER LAW FIRM
+                    LEGAL@MSKYLINE.COM
+                    TEL:    917-843-3456
+    5.    STEVE O'CONNELL, COUNSELOR TO LAURIE ZUCKER AND WILLIAM MCKENZIE
+                EMAIL: SGO2107@COLUMBIA.EDU, LZUCKER@MSKYLINE.COM, WMCKENZIE@NYCOURTS.GOV, LEGAL@MSKYLINE.COM
+    6.    WILLIAM MCKENZIE, CLERK IN NYSCEF MATTER 153974/2020
+                EMAIL: WMCKENZI@NYCOURTS.GOV
+
+                OBSTRUTED JUSTICE WHILE AIDING AND ABETTING TO IMPEDING A FEDERAL SECURITIES INVESTIGATION,  AS SEEN IN THE COMMUNICATION BELOW ON DECEMBER 22ND, 2021
+                - SEE ALSO: STOCK PRICE OF CIK FILER, UNDER TICKER STFGX ON DECEMBER 21, 2021 - LOST COLLECTIVELY AS FOUR TICKERS NEARLY ONE-BILLION DOLLARS IN A DAY AND NO-PUBLIC DISCLOSURE.
+                - INFORMATION SHARED BY AND BETWEEN THOSE INDIVIDUALS.             
+
+    A.    HALE DINCER         ACCESSORY
+                    - COMMUNICATIONS WITH SHARI LASKOWITZ, ET. AL.
+                            -AND DURING THE PROCEEDINGS IN NYSCEF 153974/2020
+                            - AND AFTER WHILE I MOVE EVERY 4 DAYS SO THAT I AM MOST EFFECTIVE                             TO PROVIDE INFORMATION TO THE FEDERAL REGULATORS
+                            ABOUT AN ONGOING BANK AND SECURITIES FRAUD INVESTIGATION.
+    
+                            TO AVOID BEING IMPLICATED IN THE FELONIES COMMITTED
+                            IN NYSCEF 153974/2020 WAS AT ALL TIMES AWARE.
+
+                    EMAIL:    <HIDINCER@AOL.COM>
+                    TEL:        +15168841083@tmomail.net
+
+    B.    DAPHNE DINCER        ACCESSORY
+                    - SEE ALSO COMMUNICATIONS WITH SHARI LASKOWITZ, HALE DINCER, ET. AL
+                    EMAIL:        <DAPHNE.DINCER@GMAIL.COM>
+                    TEL:        +15163224896@tmomail.net
+
+    C.    ANNE BRANDON, ALAMEDA    ACCESSORY
+                    EMAIL 1:    <anne@thehighlandpartners.com>
+                    EMAIL 2:    <ANNE.D.BRANDON@gmail.com>
+\
+
+	
+<br>[153974_2020_Sullivan_Properties_L_P_v_Baris_Dincer_EXHIBIT_S__373 - MY VIDEOS WERE HOSTED ON THE INTERNET without consent as well.](https://github.com/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/WILSON-ELSER-STATEFARM-SULLIVAN-ZUCKER/files/9065071/153974_2020_Sullivan_Properties_L_P_v_Baris_Dincer_EXHIBIT_S__373.-.MY.VIDEOS.WERE.HOSTED.ON.THE.INTERNET.pdf)
+
+##### PLAINTIFF ASSIGNED LEASES AND RENTS ON MAY 15TH TO STATE FARM LIFE INSURANCE COMPANY TO PROTECT THEIR INVESTMENT - A SHORT TERM INVESTMENT WITH 30-YEAR TERMS.
+
+#### THIS PAGE IS BEING MONITORED BY SEVERAL DEPARTMENTS AS PART OF A FEDERAL BANK AND SECURITIES FRAUD INVESTIGATION.
+### NOTWITHSTANDING THE US. DEPT OF JUSTICE.
+
+>> 6.24.2020 email - ASHLEY.HUMPHRIES@WILSONELSER.COM
+
+---
+## [andre4ik3/modpack](https://github.com/andre4ik3/modpack)@[8daecd960e...](https://github.com/andre4ik3/modpack/commit/8daecd960eeb465852908c598d75adac0c6b1bf6)
+#### Friday 2022-07-08 23:58:56 by andre4ik3
+
+Add support for mod patching - Remove Bee variants from Quark mod
+
+Holy fucking shit that made me want to puke upon seeing it. Hopefully now none of that disgusting stuff stays anywhere here, and god forbid I get arrested for having that sorta shit on my computer.
+
+On the brighter side, script output is now 300 times more readable, if anyone cares...
 
 ---
 
