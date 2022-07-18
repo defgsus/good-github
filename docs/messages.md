@@ -1062,4 +1062,5 @@
 [14](good-messages/2022/2022-07-14.md)
 [15](good-messages/2022/2022-07-15.md)
 [16](good-messages/2022/2022-07-16.md)
+[17](good-messages/2022/2022-07-17.md)
 
