@@ -1100,4 +1100,5 @@
 [17](good-messages/2022/2022-08-17.md)
 [18](good-messages/2022/2022-08-18.md)
 [19](good-messages/2022/2022-08-19.md)
+[20](good-messages/2022/2022-08-20.md)
 
