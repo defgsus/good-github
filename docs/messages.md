@@ -1117,4 +1117,5 @@
 #### September
 
 [01](good-messages/2022/2022-09-01.md)
+[02](good-messages/2022/2022-09-02.md)
 
