@@ -1147,3 +1147,8 @@
 [29](good-messages/2022/2022-09-29.md)
 [30](good-messages/2022/2022-09-30.md)
 
+
+#### October
+
+[01](good-messages/2022/2022-10-01.md)
+
