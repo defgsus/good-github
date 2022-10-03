@@ -1151,4 +1151,5 @@
 #### October
 
 [01](good-messages/2022/2022-10-01.md)
+[02](good-messages/2022/2022-10-02.md)
 
