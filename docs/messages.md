@@ -1160,4 +1160,5 @@
 [08](good-messages/2022/2022-10-08.md)
 [09](good-messages/2022/2022-10-09.md)
 [10](good-messages/2022/2022-10-10.md)
+[11](good-messages/2022/2022-10-11.md)
 
