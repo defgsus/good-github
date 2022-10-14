@@ -1162,4 +1162,5 @@
 [10](good-messages/2022/2022-10-10.md)
 [11](good-messages/2022/2022-10-11.md)
 [12](good-messages/2022/2022-10-12.md)
+[13](good-messages/2022/2022-10-13.md)
 
