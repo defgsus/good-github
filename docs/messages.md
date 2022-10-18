@@ -1166,4 +1166,5 @@
 [14](good-messages/2022/2022-10-14.md)
 [15](good-messages/2022/2022-10-15.md)
 [16](good-messages/2022/2022-10-16.md)
+[17](good-messages/2022/2022-10-17.md)
 
