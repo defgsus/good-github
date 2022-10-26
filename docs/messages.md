@@ -1174,4 +1174,5 @@
 [22](good-messages/2022/2022-10-22.md)
 [23](good-messages/2022/2022-10-23.md)
 [24](good-messages/2022/2022-10-24.md)
+[25](good-messages/2022/2022-10-25.md)
 
