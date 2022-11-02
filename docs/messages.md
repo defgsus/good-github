@@ -1182,3 +1182,8 @@
 [30](good-messages/2022/2022-10-30.md)
 [31](good-messages/2022/2022-10-31.md)
 
+
+#### November
+
+[01](good-messages/2022/2022-11-01.md)
+
