@@ -1196,4 +1196,5 @@
 [09](good-messages/2022/2022-11-09.md)
 [10](good-messages/2022/2022-11-10.md)
 [11](good-messages/2022/2022-11-11.md)
+[12](good-messages/2022/2022-11-12.md)
 
