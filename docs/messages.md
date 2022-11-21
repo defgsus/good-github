@@ -1204,4 +1204,5 @@
 [17](good-messages/2022/2022-11-17.md)
 [18](good-messages/2022/2022-11-18.md)
 [19](good-messages/2022/2022-11-19.md)
+[20](good-messages/2022/2022-11-20.md)
 
