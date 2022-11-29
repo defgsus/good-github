@@ -5,998 +5,284 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-11-27](docs/good-messages/2022/2022-11-27.md)
+# [2022-11-28](docs/good-messages/2022/2022-11-28.md)
 
 
-1,829,297 events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,829,297 were push events containing 2,436,425 commit messages that amount to 142,533,496 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 41 messages:
+2,207,500 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,207,500 were push events containing 3,309,142 commit messages that amount to 256,037,129 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 43 messages:
 
 
-## [nytmyr/Server](https://github.com/nytmyr/Server)@[e271dc8ca4...](https://github.com/nytmyr/Server/commit/e271dc8ca4b67a8d8cc357e8b016a937588fcdb3)
-#### Sunday 2022-11-27 00:09:55 by toxin06
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[37b60d187d...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/37b60d187daa6b8c8f2c2623dbf49555774a90aa)
+#### Monday 2022-11-28 00:10:24 by SkyratBot
 
-[Bots] AI Revamp, add all holds, delays, thresholds, min thresholds, character heal settings. Bard fixes.
+[MIRROR] Fixes attempting to offset floating planes [MDB IGNORE] (#17745)
 
-All group features for combat range and behind mob now work in raids
-
-Every spell type can have a delay, minimum and maximum threshold to cast.
-
-The delay is how quickly a bot can cast that type of spell, the timer starts from the beginning of the cast. If you set this to 10 seconds, as soon as a spell starts casting, another will start in 10 seconds provided it isn't on cooldown or has stacking/immune blocks.
-
-The minimum threshold is the percent of health when a bot will stop casting a spell.
--Escapes, Hate Reductions, Lifetaps and Shaman In-Combat Buffs (Canni) will rely upon the bot's OWN health. (When do you want said bot to start trying to drop aggro, when they reach 80% until 20%? Do they lifetap starting at 60% and never stop till they die? (0%).
-
-Threshold or maximum threshold is the percent of health when the bot will begin casting that type of spell.
-
-Casters will now output what type of spell and what spell they are casting for all spell types except buffs.
-
-Casters will now output all those messages to the entire group or raid, filterable by Pet Response.
-
-Casters now dispel, escape, lifetap, snare and root automatically.
-
-SKs will now cast their bonus hate spells as the spell type in-combat buffs rather than nuke so it can be held if needed.
-
-Shamans will still Cannibalize using in-combat buffs, however you can set the minimum threshold to control when they stop Cannibalizing and the Maximum threshold will be based off their mana to start Cannibalizing.
---Shamans will never start to cannibalize if their mana is above 90% or their health is below 50% regardless of the minimum/maximum setting.
-
-SKs, Paladins and Clerics will not cast their in-combat buffs if they have hit their stop melee level.
-
-SKs, Rangers, Wizards, Enchanters and Bards will now cast hate reduction spells.
-
-Necros/SKs will cast their Darkness line as the Snare spell type.
---Necros will not cast Insidious Retrogression.
-
-Bards will now start casting their songs before they fade instead of waiting for them to fade so there is no gap in buffs.
--------
-Casters no longer try to cast DoTs, nukes, roots or snares if it may result in aggro. Once enough aggro is built up by the tank to where they don't think they'll pull aggro, they will begin casting.
---SKs & Pallies will always cast these regardless of aggro, use holds or thresholds if you want them to stop.
-
-Resist checks for spells will now take into affect level differences as well. (Higher level mobs are more likely to resist a spell than a lower level mob with the same resist stats)
-
-If a target mob is Undead, Summoned or Plant, the appropriate classes will cast the appropriate nukes if available.
--Necromancers will nuke plants with Defoliation if they are of level.
-
-Bots will verify spell immunity before casting all spell types.
-
-Roots are held by default.
-
-Bots will now honor Blocked Buffs. You can use this to get bots to cast other buffs. If you only want Virtue for example you would block Faith, Kazad's Mark and Ward of Gallantry.
---Look at bot spells lists on Allaclone to see what spells they can cast to control this.
-
-Bots will now cast buffs that contain Illusions if you don't block them (Boon line for example.)
-
-You can now set your player characters/clients to specific heal thresholds and delays that bots will respect.
--------
-Pets will be healed using the default delay settings and can be toggled on/off with ^holdpetheals
--You can control when they start healing pets by stances, stances will only be used for this now as everything else is customizable
--The exception to this is that Warriors, Paladins and Shadowknights will enter a taunting state by default if set to Aggressive. This can still be toggled off by ^taunt as usual.
-
-The thresholds for stances are as follows:
--Reactive will do all the regular default heals starting with HoTs @ 85%, CHs @ 70%,  Regular Heals @ 55% and Fast Heals @ 35%
--Efficient will start with CHs @ 70%, Regular Heals @ 55%, Fast Heals @ 35%
--Balanced (default) will start with Regular Heals @ 55% and Fast @ 35%.
--Burn will only cast Fast Heals/Regular Heals starting at 35%.
--BurnAE will only Fast Heals/Regular Heals starting @ 25%.
--Aggressive will ignore all and not heal at all, you don't want a tank stopping to heal.
-
--If a bot cannot cast a Fast Heal, CH or HoT, they will try the next best spell in order of: Fast Heal->Regular Heal->Complete Heal->Heal Over Time.
--Any Heal that casts in 2 seconds or less is considered a Fast Heal
-
----
-## [MTandi/tgstation](https://github.com/MTandi/tgstation)@[fccd833526...](https://github.com/MTandi/tgstation/commit/fccd833526364b131ce440b4ab0e65022103927c)
-#### Sunday 2022-11-27 00:13:25 by GoldenAlpharex
-
-Fishing Odds Code Improvements and Rescue Hooks (#71415)
+* Fixes attempting to offset floating planes (#71490)
 
 ## About The Pull Request
-I wanted to try and implement an easier way for people to fish out
-corpses from chasms, as I heard many tales of people trying to fish
-others out of chasms and it taking over one IRL hour, with some cases
-where it would take over two hours. Obviously, that's not really
-interesting gameplay, and it doesn't really give people an incentive to
-fish, it just turns it into an annoyance that people won't want to do
-for fun. Now, we don't want that, do we?
 
-As such, I've created the rescue hook, a special fishing hook that can
-only be used in chasms (as that's currently the only place you can find
-people into), which will only be able to fish out duds, skeleton
-corpses, any mob that's fallen into a chasm and hasn't been rescued yet,
-or rarely, a hostile monster lurking below. It has, at the time of
-writing this, a weight of 5 (50 without bait, lower with bait) for duds
-and a weight of 30 for chasm detritus, which themselves have a 50%
-chance to be a random skeleton corpse, or a lobstrosity, and the
-remaining 50% chance of fishing out a mob that's fallen into a chasm.
-I'm open to tweaking these values if we think it's too easy or too hard,
-but it's still a rather expensive item, so I'd consider it quite fine
-the way it is myself, as it's still not risk-free.
-
-It's currently only obtainable through buying it from cargo in the
-goodies section, at a default price of 600 credits (making it
-SIGNIFICANTLY more expensive than the rest of the fishing content, and
-making it something that assistants will have to put some elbow grease
-into if they want to be able to afford it).
-
-As it stands currently, it can't be used to recover the fallen's
-belongings that weren't on their person (i.e., their crusher if they
-were holding it in hands), ~*but* I'm down to make that easier to fish
-out using, for instance, the magnet hook, while also making it
-incompatible with fishing out bodies, which would make it a nice way to
-recover those lost items without spending over an hour fishing for them,
-if that's something that maintainers would want.~ Maintainers did want
-it, and as such...
-
-The Magnetic hook is now the go-to hook to retrieve objects from chasms!
-Not only does it inherently do a much better job at fishing out
-non-fishes, it also has a lesser chance of retrieving random junk from
-chasms, and an even lower chance of fishing out lobstrosities!
-
-I also improved the code for the fishing weights calculation so that the
-hooks and the rods can have an effect on the odds of certain types of
-rewards more easily, with the option of offloading a more of what's
-currently being calculated on `fishing_challenge` over on the rods or
-even the hooks themselves.
-
-I finished by fixing a handful of capitalization and punctuation issues
-in various fishing items, as that bugged me when I was testing my
-changes.
-
-## Why It's Good For The Game
-Corpses being recoverable from chasms was a great idea, however making
-it so people would have to sink a major portion of their shift for a
-chance at recovering a corpse doesn't create a particularly interesting
-gameplay loop. However, being able to spend your hard-earned funds in
-order to streamline that process without really being able to use that
-to cheese other mechanics sounds like a great deal to me.
-
-## Changelog
-
-:cl: GoldenAlpharex
-add: Added a Rescue Hook, that will allow the fishing rod it's attached
-onto to become a lot more proficient at recovering corpses from chasms,
-at the expense of making it unusable for more traditional fishing. It
-isn't entirely lobstrosity-proof, however...
-balance: The magnetic hook can no longer fish out corpses from chasms,
-but will fish out items much more efficiently than any other hooks,
-while also being much less attractive to lobstrosities. Some still fall
-for it regardless, however.
-spellcheck: Fixed the capitalization and punctuation in the description
-of multiple fishing accessories.
-code: Improved the code for fishing weights, to allow for different
-hooks to have some more noticeable results on the weights without having
-to add to an already massive proc.
-/:cl:
-
----
-## [daph0213/zulip](https://github.com/daph0213/zulip)@[23a776c144...](https://github.com/daph0213/zulip/commit/23a776c1448da18b906529e5951e24d8d58a7e81)
-#### Sunday 2022-11-27 00:32:55 by Mateusz Mandera
-
-maybe_send_to_registration: Don't reuse pre-existing PreregistraionUser.
-
-There was the following bug here:
-1. Send an email invite to a user.
-2. Have the user sign up via social auth without going through that
-   invite, meaning either going via a multiuse invite link or just
-   straight-up Sign up if the org permissions allow.
-
-That resulted in the PreregistrationUser that got generated in step (1)
-having 2 Confirmations tied to it - because maybe_send_to_registration
-grabbed the object and created a new confirmation link for it. That is a
-corrupted state, Confirmation is supposed to be unique.
-
-One could try to do fancy things with checking whether a
-PreregistrationUser already have a Confirmation link, but to avoid races
-between ConfirmationEmailWorker and maybe_send_to_registration, this
-would require taking locks and so on - which gets needlessly
-complicated. It's simpler to not have them compete for the same object.
-
-The point of the PreregistrationUser re-use in
-maybe_send_to_registration is that if an admin invites a user, setting
-their initial streams and role, it'd be an annoying experience if the
-user ends up signing up not via the invite and those initial streams
-streams etc. don't get set up. But to handle this, we can just copy the
-relevant values from the pre-existing prereg_user, rather than re-using
-the object itself.
-
----
-## [SgtHunk/tgstation-1](https://github.com/SgtHunk/tgstation-1)@[db66590e7e...](https://github.com/SgtHunk/tgstation-1/commit/db66590e7ecf0b5c4db86cef04c7d6b58b56b3b0)
-#### Sunday 2022-11-27 01:39:30 by san7890
-
-Fixes Some Incredulously Fucked Up Recycler Behavior (#70638)
-
-* test one
-
-Hey there!
-
-Did you know that if you toss someone into a recycled emagger, that we delete _all_ of that mob's contents? You probably didn't because this shit is broken broken. Like, ow.
-
-That's because we manually moved an item to nullspace, which caused a _slew_ of odd behavior in the Destroy chain for `obj/item` since it moves it to nullspace at a very specific point in time and makes all of it's assumptions on when you move the thing to nullspace. If it's in nullspace before you call qdel, you would shit out the ass with hanging references stuck on the mob (like `w_uniform` pointing to something in nullspace, like the image above).
-
-All fixed now, though.
-
-* I FUCKING LOVE UNIT TESTS
-
-THIS SHIT WILL NEVER BREAK AGAIN!!!
-
-* i blanked
-
-my guy hasn't moved for twenty minutes
-
-Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
-
-* wrong documentation
-
-Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
-
----
-## [Sagit-A13/kernel_xiaomi_msm8998](https://github.com/Sagit-A13/kernel_xiaomi_msm8998)@[44bc736e8b...](https://github.com/Sagit-A13/kernel_xiaomi_msm8998/commit/44bc736e8bf87f3cc7b5e8fc4d390be860a4a218)
-#### Sunday 2022-11-27 02:25:30 by Christian Brauner
-
-BACKPORT: signal: add pidfd_send_signal() syscall
-
-The kill() syscall operates on process identifiers (pid). After a process
-has exited its pid can be reused by another process. If a caller sends a
-signal to a reused pid it will end up signaling the wrong process. This
-issue has often surfaced and there has been a push to address this problem [1].
-
-This patch uses file descriptors (fd) from proc/<pid> as stable handles on
-struct pid. Even if a pid is recycled the handle will not change. The fd
-can be used to send signals to the process it refers to.
-Thus, the new syscall pidfd_send_signal() is introduced to solve this
-problem. Instead of pids it operates on process fds (pidfd).
-
-/* prototype and argument /*
-long pidfd_send_signal(int pidfd, int sig, siginfo_t *info, unsigned int flags);
-
-/* syscall number 424 */
-The syscall number was chosen to be 424 to align with Arnd's rework in his
-y2038 to minimize merge conflicts (cf. [25]).
-
-In addition to the pidfd and signal argument it takes an additional
-siginfo_t and flags argument. If the siginfo_t argument is NULL then
-pidfd_send_signal() is equivalent to kill(<positive-pid>, <signal>). If it
-is not NULL pidfd_send_signal() is equivalent to rt_sigqueueinfo().
-The flags argument is added to allow for future extensions of this syscall.
-It currently needs to be passed as 0. Failing to do so will cause EINVAL.
-
-/* pidfd_send_signal() replaces multiple pid-based syscalls */
-The pidfd_send_signal() syscall currently takes on the job of
-rt_sigqueueinfo(2) and parts of the functionality of kill(2), Namely, when a
-positive pid is passed to kill(2). It will however be possible to also
-replace tgkill(2) and rt_tgsigqueueinfo(2) if this syscall is extended.
-
-/* sending signals to threads (tid) and process groups (pgid) */
-Specifically, the pidfd_send_signal() syscall does currently not operate on
-process groups or threads. This is left for future extensions.
-In order to extend the syscall to allow sending signal to threads and
-process groups appropriately named flags (e.g. PIDFD_TYPE_PGID, and
-PIDFD_TYPE_TID) should be added. This implies that the flags argument will
-determine what is signaled and not the file descriptor itself. Put in other
-words, grouping in this api is a property of the flags argument not a
-property of the file descriptor (cf. [13]). Clarification for this has been
-requested by Eric (cf. [19]).
-When appropriate extensions through the flags argument are added then
-pidfd_send_signal() can additionally replace the part of kill(2) which
-operates on process groups as well as the tgkill(2) and
-rt_tgsigqueueinfo(2) syscalls.
-How such an extension could be implemented has been very roughly sketched
-in [14], [15], and [16]. However, this should not be taken as a commitment
-to a particular implementation. There might be better ways to do it.
-Right now this is intentionally left out to keep this patchset as simple as
-possible (cf. [4]).
-
-/* naming */
-The syscall had various names throughout iterations of this patchset:
-- procfd_signal()
-- procfd_send_signal()
-- taskfd_send_signal()
-In the last round of reviews it was pointed out that given that if the
-flags argument decides the scope of the signal instead of different types
-of fds it might make sense to either settle for "procfd_" or "pidfd_" as
-prefix. The community was willing to accept either (cf. [17] and [18]).
-Given that one developer expressed strong preference for the "pidfd_"
-prefix (cf. [13]) and with other developers less opinionated about the name
-we should settle for "pidfd_" to avoid further bikeshedding.
-
-The  "_send_signal" suffix was chosen to reflect the fact that the syscall
-takes on the job of multiple syscalls. It is therefore intentional that the
-name is not reminiscent of neither kill(2) nor rt_sigqueueinfo(2). Not the
-fomer because it might imply that pidfd_send_signal() is a replacement for
-kill(2), and not the latter because it is a hassle to remember the correct
-spelling - especially for non-native speakers - and because it is not
-descriptive enough of what the syscall actually does. The name
-"pidfd_send_signal" makes it very clear that its job is to send signals.
-
-/* zombies */
-Zombies can be signaled just as any other process. No special error will be
-reported since a zombie state is an unreliable state (cf. [3]). However,
-this can be added as an extension through the @flags argument if the need
-ever arises.
-
-/* cross-namespace signals */
-The patch currently enforces that the signaler and signalee either are in
-the same pid namespace or that the signaler's pid namespace is an ancestor
-of the signalee's pid namespace. This is done for the sake of simplicity
-and because it is unclear to what values certain members of struct
-siginfo_t would need to be set to (cf. [5], [6]).
-
-/* compat syscalls */
-It became clear that we would like to avoid adding compat syscalls
-(cf. [7]).  The compat syscall handling is now done in kernel/signal.c
-itself by adding __copy_siginfo_from_user_generic() which lets us avoid
-compat syscalls (cf. [8]). It should be noted that the addition of
-__copy_siginfo_from_user_any() is caused by a bug in the original
-implementation of rt_sigqueueinfo(2) (cf. 12).
-With upcoming rework for syscall handling things might improve
-significantly (cf. [11]) and __copy_siginfo_from_user_any() will not gain
-any additional callers.
-
-/* testing */
-This patch was tested on x64 and x86.
-
-/* userspace usage */
-An asciinema recording for the basic functionality can be found under [9].
-With this patch a process can be killed via:
-
- #define _GNU_SOURCE
- #include <errno.h>
- #include <fcntl.h>
- #include <signal.h>
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
- #include <sys/stat.h>
- #include <sys/syscall.h>
- #include <sys/types.h>
- #include <unistd.h>
-
- static inline int do_pidfd_send_signal(int pidfd, int sig, siginfo_t *info,
-                                         unsigned int flags)
- {
- #ifdef __NR_pidfd_send_signal
-         return syscall(__NR_pidfd_send_signal, pidfd, sig, info, flags);
- #else
-         return -ENOSYS;
- #endif
- }
-
- int main(int argc, char *argv[])
- {
-         int fd, ret, saved_errno, sig;
-
-         if (argc < 3)
-                 exit(EXIT_FAILURE);
-
-         fd = open(argv[1], O_DIRECTORY | O_CLOEXEC);
-         if (fd < 0) {
-                 printf("%s - Failed to open \"%s\"\n", strerror(errno), argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         sig = atoi(argv[2]);
-
-         printf("Sending signal %d to process %s\n", sig, argv[1]);
-         ret = do_pidfd_send_signal(fd, sig, NULL, 0);
-
-         saved_errno = errno;
-         close(fd);
-         errno = saved_errno;
-
-         if (ret < 0) {
-                 printf("%s - Failed to send signal %d to process %s\n",
-                        strerror(errno), sig, argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         exit(EXIT_SUCCESS);
- }
-
-/* Q&A
- * Given that it seems the same questions get asked again by people who are
- * late to the party it makes sense to add a Q&A section to the commit
- * message so it's hopefully easier to avoid duplicate threads.
- *
- * For the sake of progress please consider these arguments settled unless
- * there is a new point that desperately needs to be addressed. Please make
- * sure to check the links to the threads in this commit message whether
- * this has not already been covered.
- */
-Q-01: (Florian Weimer [20], Andrew Morton [21])
-      What happens when the target process has exited?
-A-01: Sending the signal will fail with ESRCH (cf. [22]).
-
-Q-02:  (Andrew Morton [21])
-       Is the task_struct pinned by the fd?
-A-02:  No. A reference to struct pid is kept. struct pid - as far as I
-       understand - was created exactly for the reason to not require to
-       pin struct task_struct (cf. [22]).
-
-Q-03: (Andrew Morton [21])
-      Does the entire procfs directory remain visible? Just one entry
-      within it?
-A-03: The same thing that happens right now when you hold a file descriptor
-      to /proc/<pid> open (cf. [22]).
-
-Q-04: (Andrew Morton [21])
-      Does the pid remain reserved?
-A-04: No. This patchset guarantees a stable handle not that pids are not
-      recycled (cf. [22]).
-
-Q-05: (Andrew Morton [21])
-      Do attempts to signal that fd return errors?
-A-05: See {Q,A}-01.
-
-Q-06: (Andrew Morton [22])
-      Is there a cleaner way of obtaining the fd? Another syscall perhaps.
-A-06: Userspace can already trivially retrieve file descriptors from procfs
-      so this is something that we will need to support anyway. Hence,
-      there's no immediate need to add another syscalls just to make
-      pidfd_send_signal() not dependent on the presence of procfs. However,
-      adding a syscalls to get such file descriptors is planned for a
-      future patchset (cf. [22]).
-
-Q-07: (Andrew Morton [21] and others)
-      This fd-for-a-process sounds like a handy thing and people may well
-      think up other uses for it in the future, probably unrelated to
-      signals. Are the code and the interface designed to permit such
-      future applications?
-A-07: Yes (cf. [22]).
-
-Q-08: (Andrew Morton [21] and others)
-      Now I think about it, why a new syscall? This thing is looking
-      rather like an ioctl?
-A-08: This has been extensively discussed. It was agreed that a syscall is
-      preferred for a variety or reasons. Here are just a few taken from
-      prior threads. Syscalls are safer than ioctl()s especially when
-      signaling to fds. Processes are a core kernel concept so a syscall
-      seems more appropriate. The layout of the syscall with its four
-      arguments would require the addition of a custom struct for the
-      ioctl() thereby causing at least the same amount or even more
-      complexity for userspace than a simple syscall. The new syscall will
-      replace multiple other pid-based syscalls (see description above).
-      The file-descriptors-for-processes concept introduced with this
-      syscall will be extended with other syscalls in the future. See also
-      [22], [23] and various other threads already linked in here.
-
-Q-09: (Florian Weimer [24])
-      What happens if you use the new interface with an O_PATH descriptor?
-A-09:
-      pidfds opened as O_PATH fds cannot be used to send signals to a
-      process (cf. [2]). Signaling processes through pidfds is the
-      equivalent of writing to a file. Thus, this is not an operation that
-      operates "purely at the file descriptor level" as required by the
-      open(2) manpage. See also [4].
-
-/* References */
-[1]:  https://lore.kernel.org/lkml/20181029221037.87724-1-dancol@google.com/
-[2]:  https://lore.kernel.org/lkml/874lbtjvtd.fsf@oldenburg2.str.redhat.com/
-[3]:  https://lore.kernel.org/lkml/20181204132604.aspfupwjgjx6fhva@brauner.io/
-[4]:  https://lore.kernel.org/lkml/20181203180224.fkvw4kajtbvru2ku@brauner.io/
-[5]:  https://lore.kernel.org/lkml/20181121213946.GA10795@mail.hallyn.com/
-[6]:  https://lore.kernel.org/lkml/20181120103111.etlqp7zop34v6nv4@brauner.io/
-[7]:  https://lore.kernel.org/lkml/36323361-90BD-41AF-AB5B-EE0D7BA02C21@amacapital.net/
-[8]:  https://lore.kernel.org/lkml/87tvjxp8pc.fsf@xmission.com/
-[9]:  https://asciinema.org/a/IQjuCHew6bnq1cr78yuMv16cy
-[11]: https://lore.kernel.org/lkml/F53D6D38-3521-4C20-9034-5AF447DF62FF@amacapital.net/
-[12]: https://lore.kernel.org/lkml/87zhtjn8ck.fsf@xmission.com/
-[13]: https://lore.kernel.org/lkml/871s6u9z6u.fsf@xmission.com/
-[14]: https://lore.kernel.org/lkml/20181206231742.xxi4ghn24z4h2qki@brauner.io/
-[15]: https://lore.kernel.org/lkml/20181207003124.GA11160@mail.hallyn.com/
-[16]: https://lore.kernel.org/lkml/20181207015423.4miorx43l3qhppfz@brauner.io/
-[17]: https://lore.kernel.org/lkml/CAGXu5jL8PciZAXvOvCeCU3wKUEB_dU-O3q0tDw4uB_ojMvDEew@mail.gmail.com/
-[18]: https://lore.kernel.org/lkml/20181206222746.GB9224@mail.hallyn.com/
-[19]: https://lore.kernel.org/lkml/20181208054059.19813-1-christian@brauner.io/
-[20]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[21]: https://lore.kernel.org/lkml/20181228152012.dbf0508c2508138efc5f2bbe@linux-foundation.org/
-[22]: https://lore.kernel.org/lkml/20181228233725.722tdfgijxcssg76@brauner.io/
-[23]: https://lwn.net/Articles/773459/
-[24]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[25]: https://lore.kernel.org/lkml/CAK8P3a0ej9NcJM8wXNPbcGUyOUZYX+VLoDFdbenW3s3114oQZw@mail.gmail.com/
-
-Cc: "Eric W. Biederman" <ebiederm@xmission.com>
-Cc: Jann Horn <jannh@google.com>
-Cc: Andy Lutomirsky <luto@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Florian Weimer <fweimer@redhat.com>
-Signed-off-by: Christian Brauner <christian@brauner.io>
-Reviewed-by: Tycho Andersen <tycho@tycho.ws>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: David Howells <dhowells@redhat.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Serge Hallyn <serge@hallyn.com>
-Acked-by: Aleksa Sarai <cyphar@cyphar.com>
-
-(cherry picked from commit 3eb39f47934f9d5a3027fe00d906a45fe3a15fad)
-
-Conflicts:
-        arch/x86/entry/syscalls/syscall_32.tbl - trivial manual merge
-        arch/x86/entry/syscalls/syscall_64.tbl - trivial manual merge
-        include/linux/proc_fs.h - trivial manual merge
-        include/linux/syscalls.h - trivial manual merge
-        include/uapi/asm-generic/unistd.h - trivial manual merge
-        kernel/signal.c - struct kernel_siginfo does not exist in 4.14
-        kernel/sys_ni.c - cond_syscall is used instead of COND_SYSCALL
-        arch/x86/entry/syscalls/syscall_32.tbl
-        arch/x86/entry/syscalls/syscall_64.tbl
-
-(1. manual merges because of 4.14 differences
- 2. change prepare_kill_siginfo() to use struct siginfo instead of
-kernel_siginfo
- 3. use copy_from_user() instead of copy_siginfo_from_user() in copy_siginfo_from_user_any()
- 4. replaced COND_SYSCALL with cond_syscall
- 5. Removed __ia32_sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_32.tbl.
- 6. Replaced __x64_sys_pidfd_send_signal with sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_64.tbl.)
-
-Bug: 135608568
-Test: test program using syscall(__NR_pidfd_send_signal,..) to send SIGKILL
-Change-Id: I34da11c63ac8cafb0353d9af24c820cef519ec27
-Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-Signed-off-by: electimon <electimon@gmail.com>
-
----
-## [MushiTea/21438_ChaoticCurrent_REPO](https://github.com/MushiTea/21438_ChaoticCurrent_REPO)@[3ee931ba41...](https://github.com/MushiTea/21438_ChaoticCurrent_REPO/commit/3ee931ba41c01eea0f2f299c1f727f40ce3c5d1f)
-#### Sunday 2022-11-27 03:02:32 by yeeT787
-
-Omg girl do you watch forged in fire? Cuz I want you to pick usable steel from this pile of scrap metal to use as the base for your blades. They must meet the following parameters, a length between 8-10 inches, a full tang with a length of 3-4 inches, and width from spine to cutting edge of at least 1 1/2 inch but no longer than 2 1/2 inches. In the next round, you will be attaching handles to your blades to turn them into fully functional weapons. And for the third round we will put it through a series of tests, such as, dummy stab for sharpness, chain chop for durability, and a sheet metal stab for edge retention. And the two winners of the third round will be sent to their home forges to recreate an iconic weapons from history. The winner of the final round will go home with the title of forged in fire champion and a check for $10,000. Your time starts, now!
-
-Essentially what we did was fix claw,slide, and arm positions and I added manual arm just because - Srinirek
-
----
-## [lllgts/android_kernel_lge_msm8998](https://github.com/lllgts/android_kernel_lge_msm8998)@[bdb8056ef8...](https://github.com/lllgts/android_kernel_lge_msm8998/commit/bdb8056ef821a1e5328c13f61b0ae26faf5ba001)
-#### Sunday 2022-11-27 03:13:55 by Maciej Żenczykowski
-
-FROMGIT: bpf: Do not change gso_size during bpf_skb_change_proto()
-
-This is technically a backwards incompatible change in behaviour, but I'm
-going to argue that it is very unlikely to break things, and likely to fix
-*far* more then it breaks.
-
-In no particular order, various reasons follow:
-
-(a) I've long had a bug assigned to myself to debug a super rare kernel crash
-on Android Pixel phones which can (per stacktrace) be traced back to BPF clat
-IPv6 to IPv4 protocol conversion causing some sort of ugly failure much later
-on during transmit deep in the GSO engine, AFAICT precisely because of this
-change to gso_size, though I've never been able to manually reproduce it. I
-believe it may be related to the particular network offload support of attached
-USB ethernet dongle being used for tethering off of an IPv6-only cellular
-connection. The reason might be we end up with more segments than max permitted,
-or with a GSO packet with only one segment... (either way we break some
-assumption and hit a BUG_ON)
-
-(b) There is no check that the gso_size is > 20 when reducing it by 20, so we
-might end up with a negative (or underflowing) gso_size or a gso_size of 0.
-This can't possibly be good. Indeed this is probably somehow exploitable (or
-at least can result in a kernel crash) by delivering crafted packets and perhaps
-triggering an infinite loop or a divide by zero... As a reminder: gso_size (MSS)
-is related to MTU, but not directly derived from it: gso_size/MSS may be
-significantly smaller then one would get by deriving from local MTU. And on
-some NICs (which do loose MTU checking on receive, it may even potentially be
-larger, for example my work pc with 1500 MTU can receive 1520 byte frames [and
-sometimes does due to bugs in a vendor plat46 implementation]). Indeed even just
-going from 21 to 1 is potentially problematic because it increases the number
-of segments by a factor of 21 (think DoS, or some other crash due to too many
-segments).
-
-(c) It's always safe to not increase the gso_size, because it doesn't result in
-the max packet size increasing.  So the skb_increase_gso_size() call was always
-unnecessary for correctness (and outright undesirable, see later). As such the
-only part which is potentially dangerous (ie. could cause backwards compatibility
-issues) is the removal of the skb_decrease_gso_size() call.
-
-(d) If the packets are ultimately destined to the local device, then there is
-absolutely no benefit to playing around with gso_size. It only matters if the
-packets will egress the device. ie. we're either forwarding, or transmitting
-from the device.
-
-(e) This logic only triggers for packets which are GSO. It does not trigger for
-skbs which are not GSO. It will not convert a non-GSO MTU sized packet into a
-GSO packet (and you don't even know what the MTU is, so you can't even fix it).
-As such your transmit path must *already* be able to handle an MTU 20 bytes
-larger then your receive path (for IPv4 to IPv6 translation) - and indeed 28
-bytes larger due to IPv4 fragments. Thus removing the skb_decrease_gso_size()
-call doesn't actually increase the size of the packets your transmit side must
-be able to handle. ie. to handle non-GSO max-MTU packets, the IPv4/IPv6 device/
-route MTUs must already be set correctly. Since for example with an IPv4 egress
-MTU of 1500, IPv4 to IPv6 translation will already build 1520 byte IPv6 frames,
-so you need a 1520 byte device MTU. This means if your IPv6 device's egress
-MTU is 1280, your IPv4 route must be 1260 (and actually 1252, because of the
-need to handle fragments). This is to handle normal non-GSO packets. Thus the
-reduction is simply not needed for GSO packets, because when they're correctly
-built, they will already be the right size.
-
-(f) TSO/GSO should be able to exactly undo GRO: the number of packets (TCP
-segments) should not be modified, so that TCP's MSS counting works correctly
-(this matters for congestion control). If protocol conversion changes the
-gso_size, then the number of TCP segments may increase or decrease. Packet loss
-after protocol conversion can result in partial loss of MSS segments that the
-sender sent. How's the sending TCP stack going to react to receiving ACKs/SACKs
-in the middle of the segments it sent?
-
-(g) skb_{decrease,increase}_gso_size() are already no-ops for GSO_BY_FRAGS
-case (besides triggering WARN_ON_ONCE). This means you already cannot guarantee
-that gso_size (and thus resulting packet MTU) is changed. ie. you must assume
-it won't be changed.
-
-(h) changing gso_size is outright buggy for UDP GSO packets, where framing
-matters (I believe that's also the case for SCTP, but it's already excluded
-by [g]).  So the only remaining case is TCP, which also doesn't want it
-(see [f]).
-
-(i) see also the reasoning on the previous attempt at fixing this
-(commit fa7b83bf3b156c767f3e4a25bbf3817b08f3ff8e) which shows that the current
-behaviour causes TCP packet loss:
-
-  In the forwarding path GRO -> BPF 6 to 4 -> GSO for TCP traffic, the
-  coalesced packet payload can be > MSS, but < MSS + 20.
-
-  bpf_skb_proto_6_to_4() will upgrade the MSS and it can be > the payload
-  length. After then tcp_gso_segment checks for the payload length if it
-  is <= MSS. The condition is causing the packet to be dropped.
-
-  tcp_gso_segment():
-    [...]
-    mss = skb_shinfo(skb)->gso_size;
-    if (unlikely(skb->len <= mss)) goto out;
-    [...]
-
-Thus changing the gso_size is simply a very bad idea. Increasing is unnecessary
-and buggy, and decreasing can go negative.
-
-Fixes: 6578171a7ff0 ("bpf: add bpf_skb_change_proto helper")
-Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
-Cc: Dongseok Yi <dseok.yi@samsung.com>
-Cc: Willem de Bruijn <willemb@google.com>
-Link: https://lore.kernel.org/bpf/CANP3RGfjLikQ6dg=YpBU0OeHvyv7JOki7CyOUS9modaXAi-9vQ@mail.gmail.com
-Link: https://lore.kernel.org/bpf/20210617000953.2787453-2-zenczykowski@gmail.com
-
-(cherry picked from commit 364745fbe981a4370f50274475da4675661104df https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?id=364745fbe981a4370f50274475da4675661104df )
-Test: builds, TreeHugger
-Bug: 158835517
-Bug: 188690383
-Signed-off-by: Maciej Żenczykowski <maze@google.com>
-Change-Id: I0ef3174cbd3caaa42d5779334a9c0bfdc9ab81f5
-
----
-## [Aar0nSm1th/Projects](https://github.com/Aar0nSm1th/Projects)@[cff544632c...](https://github.com/Aar0nSm1th/Projects/commit/cff544632c1b4d24bef68a221e89a892b685d14e)
-#### Sunday 2022-11-27 04:12:35 by Aaron Smith
-
-Create Spaceman Game | JavaScript
-
-This was a video game that I created during my time at CodeHouse. It was made after less than a month of coding experience and it's my personal favorite project so far. The game isn't perfect and has a few bugs, but I'm more proud of myself for this project than I am for any of my other personal creations.
-
-Game Instructions:
-You're a spaceman who now finds thousands of asteroids falling towards him! Use the arrow keys in order to move the spaceman up and down or side to side to avoid the asteroids. Avoid 30 asteroids in order to win, but keep going to get a high as a score that you can if possible! Whenever you die, refresh the page to restart the game.
-
----
-## [atamanbillor/conception](https://github.com/atamanbillor/conception)@[984de4fa9b...](https://github.com/atamanbillor/conception/commit/984de4fa9b75e54e179297ed5a641a4085c19d95)
-#### Sunday 2022-11-27 04:13:56 by atamanbillor
-
-README
-
-Hi!
-
-My name is Ataman Billor. I was born in Adana, Turkey and moved to Auburn, Alabama when I was 7 years old.
-
-I like to go by my moniker, Ato (Otto). I speak Turkish, English, intermediate Spanish, and elementary French!
-
-The motto is "Plus Ultra" and Stay Stoked
-
-Plus Ultra - a latin proverb that essentially translates to continuously striving for excellence and improvement in yourself and your objectives
-
-Stay Stoked - Something I say a lot... I just believe that life should be full of passion and an eagerness to learn and staying fired up about the future! I always try to Stay Stoked!
-
-
-
-I like to do a lot of stuff:
-
-I was ranked #1 (USTA) in the state of Alabama in tennis in 2013
-Hitchhiked across Europe in 2016
-Recognized in PhD Thesis of Dr. Gokhan Ozden while doing an undergraduate research fellowship at Auburn University
-Gave a presentation about the Academy of Aerospace Quality Project to several NASA Quality Assurance Team members during a symposium
-Rock climbed 3000ft to the summit of El Toro in Hidalgo, Nuevo Leon Mexico in 2018
-Backpacked for 18 continuous days and ~ 400 miles via the Pinhoti Hiking Trail
-Worked alongside award winning Chefs in elevated gastronomical environments
-Worked as a Farm Hand in a regenerative agriculture project (Controlled Burns, Holistic Land Management, Forest Management, Constructed 3000 ft^2 Green House, catered VIP dinners, Milled lumber, processed and cared for Livestock, participated in Farmers markets, etc)
-Traveled the USA servicing and maintaining Wind Turbines as a Wind Turbine Technician Contractor
-Graduated with a degree in Mechanical Engineering from Auburn University in 2022
-Rode my bicycle from the Atlantic Ocean to the Pacific Ocean in 2022 (~ 5 months, 10000 km)
-
-( hopefully that didnt all sound too egotistical... just some insight on what I have been up to up until now :) )
-
-AND NOW
-
-I am learning how to program (I learned how to use MATLAB in uni, however, I am now interested in other programming languages)
-
-up first, PYTHON
-
-Thanks for checking me out!
-
----
-## [greatspider135/free-programming-books](https://github.com/greatspider135/free-programming-books)@[d692e894a6...](https://github.com/greatspider135/free-programming-books/commit/d692e894a67555aff442e99c6acf0873213684dd)
-#### Sunday 2022-11-27 06:27:29 by Ramona Saintandre
-
-added Python cheat sheets (#5011)
-
-* added Python cheat sheets
-
-Thanks for hosting this.
-Just getting back into coding, and since I have been looking for resources for Python. 
-I thought I would add what I have found. 
-
-Happy hacking
-
-* removed the spaces 
-
-Hi sorry, it took so long to resolve this conflict. 
-Actually took me a while to figure out how to do.
-
-Thanks again so much for hosting this.
-
-* alphabetize
-
-* linespacing
-
-* alphabetize
-
-Co-authored-by: Eric Hellman <eric@hellman.net>
-
----
-## [xambassador/cockroach](https://github.com/xambassador/cockroach)@[1d04cec7c5...](https://github.com/xambassador/cockroach/commit/1d04cec7c5f887d309e09b7b5a267d5269d86b5a)
-#### Sunday 2022-11-27 06:42:33 by craig[bot]
-
-Merge #91394 #91627
-
-91394: changefeedccl: roachtest refactor and initial-scan-only r=samiskin a=samiskin
-
-Epic: https://cockroachlabs.atlassian.net/browse/CRDB-19057
-
-Changefeed roachtests were setup focused on running a workload for a specific duration and then quitting, making it difficult to run an `initial_scan_only` test that terminated upon Job success.
-
-We as a team have also noticed a greater need to test and observe changefeeds running in production against real sinks to catch issues we are unable to mock or observe from simple unit tests.  This is currently a notable hassle as one has to set up each individual sink and run them, ensure the changefeed is pointing to the right URI, and then be able to monitor the metrics of this long running process.  
-
-This change refactors the cdcBasicTest into distinct pieces that are then put together in a test.  This allows for easier experimentation with live tests, allowing us to spin up a cluster and a workload, run one or more changefeeds on it, set up a poller to print out job details,have an accessible grafana URL to view metrics, and wait for some completion condition.
-
-Changing the specialized `runCDCKafkaAuth`, `runCDCBank`, and `runCDCSchemaRegistry` functions were left out of scope for this first big change.
-
-The main APIs involved in basic roachtests are now:
-- `newCDCTester`: This creates a tester struct to run the rest of the APIs and initializes the database
-- `tester.runTPCCWorkload(tpccArgs)`: Starts a TPCC workload from the last node in the cluster
-- `tester.runLedgerWorkload(ledgerArgs)`: Starts a Ledger workload from the last node in the cluster
-- `tester.runFeedLatencyVerifier(changefeedJob, latencyTargets)`: starts a routine that monitors the changefeed latency until the tester is `Close`'d
-- `tester.waitForWorkload`: waits for a workload started by `setupAndRunWorkload` to complete its duration
-- `tester.startCRDBChaos`: This starts a Chaos routine that periodically shuts nodes down and brings them back up
-- `tester.newChangefeed(feedArgs)`: starts a new changefeed on the cluster and returns `changefeedJob` object
-- `changefeedJob.waitForCompletion`: waits for a changefeed to complete (either success or failure)
-- `tester.startGrafana`: Sets up a grafana instance on the last node of the cluster and prints out a link to a grafana, this automatically runs unless `--skip-init` is provided.  If `--debug` is not used, `StopGrafana` will be called on test teardown to publish prometheus metrics to the artifacts directory.
-
-An API that is going to be more useful for experimentation are:
-- `changefeedJob.runFeedPoller(ctx, stopper, onInfo)`: runs a given callback every second with the changefeed info
-
-Roachtests can be ran locally with the `--local` flag or on an existing cluster without destroying it afterwards with `--cluster="my-cluster" --debug`
-
-Ex: After adding a new test (lets say `"cdc/my-test"`) to the `registerCDC` function you can keep running 
-```bash
-./dev build cockroach --cross # if changes made to crdb
-./dev build roachtest         # if changes made to the test
-
-./bin/roachtest run cdc/my-test --cluster="my-cluster" --debug
-```
-as you try out different changes or options.  If you want to try a set of steps against different versions of the app you could download those binaries and use the `--cockroach="path-to-binary"` flag to test against those instead.
-
-If you want to set up a large TPCC database on a cluster and reuse it for tests this can be done with roachtests's `--wipe` and `--skip-init` flags.
-
-Release note: None
-
-91627: upgrade: introduce "permanent" upgrades r=andreimatei a=andreimatei
-
-This patch introduces "permanent" upgrades - a type of upgrade that is
-tied to a particular cluster version (just like the existing upgrades)
-but that runs regardless of the version at which the cluster was
-bootstrapped (in contrast with the existing upgrades that are not run
-when they're associated with a cluster version <= the bootstrap
-version). These upgrades are called "permanent" because they cannot be
-deleted from the codebase at a later point, in contrast with the others
-that are deleted once the version they're tied drops below
-BinaryMinSupportedVersion).
-
-Existing upgrades are explicitly or implicitly baked into the bootstrap
-image of the binary that introduced them. For example, an upgrade that
-creates a system table is only run when upgrading an existing,
-older-version, cluster to the new version; it does not run for a cluster
-bootstrapped by the binary that introduced the upgrade because the
-respective system tables are also included in the bootstrap metadata.
-For some upcoming upgrades, though, including them in the bootstrap
-image is difficult. For example, creating a job record at bootstrap
-time is proving to be difficult (the system.jobs table has indexes, so
-you want to insert into it through SQL because figuring out the kv's for
-a row is tedious, etc). This is where these new permanent upgrades come
-in.
-
-These permanent upgrades replace the `startupmigrations` that don't have
-the `includedInBootstrap` field set. All such startupmigrations have
-been copied over as upgrades. None of the current `startupmigrations`
-have `includedInBootstrap` set (except one but that's dummy one since
-the actual migration code has been deleted), so the startupmigrations
-package is now deleted. That's a good thing - we had one too many
-migrations frameworks.
-
-These permanent upgrades, though, do not have exactly the same semantics
-as the startupmigrations they replace. To the extent that there is a
-difference, the new semantics are considered more desirable:
-- startupmigrations run when a node that has the code for a particular
-  migration startups up for the first time. In other words, the
-  startupmigrations were not associated with a cluster version; they were
-  associated with a binary version. Migrations can run while old-version
-  nodes are still around.  This means that one cannot add a
-  migration that is a problem for old nodes - e.g. a migration creating a
-  job of a type that the old version wouldn't recognize.
-- upgrades are tied to a cluster version - they only run when the
-  cluster's active version moves past the upgrade's version. This stays
-  the case for the new permanent migrations too, so a v2 node will not
-  immediately run the permant migrations introduced since v1 when it joins
-  a v1 cluster. Instead, the migrations will run when the cluster version
-  is bumped. As such, the migrations can be backwards incompatible.
-
-startupmigrations do arguably have a property that can be desirable:
-when there are no backwards compatibility issues, the v2 node can rely
-on the effects of the startupmigrations it knows about regardless of the
-cluster version. In contrast, with upgrades, not only is a node unable
-to simply assume that a particular upgrade has run during startup, but,
-more than that, a node is not even able to look at a version gate during
-the startup sequence in order to determine whether a particular upgrade
-has run or not (because, in clusters that are bootstrapped at v2, the
-active cluster version starts as v2 even before the upgrades run). This
-is a fact of life for existing upgrades, and now becomes a fact of life
-for permanent upgrades too. However, by the time user SQL traffic is
-admitted on a node, the node can rely on version gates to correspond to
-migrations that have run.
-
-After thinking about it, this possible advantage of startupmigrations
-doesn't seem too useful and so it's not reason enough to keep the
-startupmigrations machinery around.
-
-Since the relevant startupmigrations have been moved over to upgrades,
-and the two libraries use different methods for not running the same
-migration twice, a 23.1 node that comes up in a 22.2 cluster will re-run
-the several permanent upgrades in question, even though they had already
-run as startupmigrations. This is OK since both startupmigrations and
-upgrades are idempotent. None of the current permanent upgrades are too
-expensive.
-
-Closes https://github.com/cockroachdb/cockroach/issues/73813
-
-Release note: None
-Epic: None
-
-Co-authored-by: Shiranka Miskin <shiranka@cockroachlabs.com>
-Co-authored-by: Andrei Matei <andrei@cockroachlabs.com>
-
----
-## [PaulT89/rust](https://github.com/PaulT89/rust)@[7a49959ea4...](https://github.com/PaulT89/rust/commit/7a49959ea4aa3dbe3f5dd23a1de909196d62ea13)
-#### Sunday 2022-11-27 07:31:31 by Remo Senekowitsch
-
-xorcism: remove rstest dependency (#1590)
-
-rstest uses proc macros, which make the tests timeout due to long
-compile times. Replace rstest with a custom declarative macro.
-
-Brings test time from 7.5 seconds to 0.8 seconds on my machine.
-
-Drawbacks:
-* more indentation
-* module structure of tests is flipped around
-
-both of those seem minor to me. 
-
-Although declarative macros can be hard to read for those unfamiliar, 
-that was already somewhat the case with rstest's magic in my opinion. So
-I personally don't think it's worse in terms of the students being able to
-understand the tests.
-
-The only other alternative I see is to disable the online tests 
-altogether and leave a note about that in the exercise description. That
-probably wouldn't be that bad, since people solving this hard exercise
-most likely have a solid local setup. But it would still be cool to run
-the tests online as well.
-
-https://github.com/exercism/rust/issues/1513
-
----
-## [nfagerlund/bevy-tablestakes](https://github.com/nfagerlund/bevy-tablestakes)@[087cfe3147...](https://github.com/nfagerlund/bevy-tablestakes/commit/087cfe3147e43a68ce61cb53c71ebbf68d9abdeb)
-#### Sunday 2022-11-27 07:38:14 by Nick Fagerlund
-
-Ok!! Baby's first state transition! It sucks but it works!
-
-Right, dealing with dynamic types in anything less than a whole-hog
-Reflect-driven way turned out to be a nonstarter. And doing this
-generically is ass because of the need to add generic versions of each
-system to the app. So!! For the time being, I'll just store the "done"
-condition on the state itself, and I'll rep it as an enum so I can cram
-the next state directly in there. The clone derive turns out to be
-crucial for getting it back _out_ again... oh, although, actually I
-think mem::swap is good enough for this. But probably not much faster.
-So I'll leave that be for now.
-
-Anyway! This transitions out of roll into free! Now to go the other way
-around... and then I need to fix the roll animation speed.
-
----
-## [Pranav-V/CS371M-Final-Project](https://github.com/Pranav-V/CS371M-Final-Project)@[a7a4b9df64...](https://github.com/Pranav-V/CS371M-Final-Project/commit/a7a4b9df64fb27484e3909df6784dc11d178e700)
-#### Sunday 2022-11-27 07:47:56 by Abbhinav Jayaraman
-
-I hate my life, data is now null again for some reason.
-
----
-## [crowlogic/arb4j](https://github.com/crowlogic/arb4j)@[9b3dcbd666...](https://github.com/crowlogic/arb4j/commit/9b3dcbd66647ca36a5c5559bb82f3e029ae0b3f3)
-#### Sunday 2022-11-27 08:18:30 by Meatwad
-
-fuck shit damn
-fuck shit damn
-something something i forgot
-no one reads this
-fuck it all
-
----
-## [Nukechickenu64/Abaddon](https://github.com/Nukechickenu64/Abaddon)@[6c42446811...](https://github.com/Nukechickenu64/Abaddon/commit/6c424468115306d2e2a85cf13663c7507885382c)
-#### Sunday 2022-11-27 08:19:08 by Nukechickenu64
-
-fuck you paradise this my shit now idc if its cobblerigged to
-
----
-## [Ebin-Halcyon/tgstation](https://github.com/Ebin-Halcyon/tgstation)@[25d4afc869...](https://github.com/Ebin-Halcyon/tgstation/commit/25d4afc869585373571da5ba4a77fb967ffdedfe)
-#### Sunday 2022-11-27 08:55:30 by Iamgoofball
-
-Retires explosive lance crafting to a nice farm upstate where it has plenty of room to run around (#71256)
-
-## About The Pull Request
-
-You can no longer craft explosive lances.
+This is a dumb idea, and leads to fucked rendering on occasion
 
 ## Why It's Good For The Game
 
-Explosive lances are unhealthy for the game in it's current iteration.
-Many years ago when the game was more loose and we weren't dealing with
-players who treat the game like competitive TTT or Town of Salem,
+Fixes another portion of #70258, a player will no longer have a hidden
+antag hud if they move down a z level after getting an antag. We were
+trying to offset the floating plane of their image, and it went to shit.
+Also fixes a bug with observers not having antag huds for the combo hud
+to see. We were only giving them one on mind.on_transfer, rather then on
+mind assignment. I hate mindcode
 
-They are a one shot kill weapon, which is the most powerful kind of
-weapon in every gamemode. @JohnFulpWillard likened it to 1f1, a concept
-from Town of Salem players where the town trades 1 person for 1 bad guy.
+* Fixes attempting to offset floating planes
 
-Modern ss13 design includes a significantly heavier load of antagonists
-that aren't fixed roundstart compared to when the e-lance went in.
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
 
-When we added the e-lance, if nuke ops spawned, that was it, there was
-nuke ops, if you e-lanced the nuke ops and died you were dead until the
-next round.
+---
+## [GabrielHenaut/philosophers](https://github.com/GabrielHenaut/philosophers)@[169a7cc31d...](https://github.com/GabrielHenaut/philosophers/commit/169a7cc31d8c5b47c395c87bc0cb629b724e5c75)
+#### Monday 2022-11-28 00:14:23 by Gabriel Henaut
 
-Nowadays you're rolling for lone operative, blob, wizard, disease,
-revenant, and every other fun enjoyable antagonist role under the sun.
+added the pthread flag so it compiles on the workspace... i hate my life
 
-I can e-lance a nuke op/cultist/traitor/revolutionary/any bad guy in the
-game as a non-antag assistant, die, and have a good chance to roll
-another, way more fun antag in deadchat.
+---
+## [readpo/postgres](https://github.com/readpo/postgres)@[1d072bd203...](https://github.com/readpo/postgres/commit/1d072bd2030af0f2eaa522449028ff160f71ebf8)
+#### Monday 2022-11-28 01:22:45 by Tom Lane
 
-My change to make the e-lance a proper "we both die" tool didn't
-actually help because I didn't quite realize that to the modern SS13
-player because of how we designed Dynamic and antagonists in the modern
-era, death is, frankly, not a punishment anymore.
+Revert applying column aliases to the output of whole-row Vars.
 
-It's time we admit the facts, items designed in 2015 SS13 in #12389
-simply don't hold up in a healthy manner in 2022 SS13. Dying in SS13 in
-2015 was a significantly different experience with different
-consequences than it has now, and right now "kills you when you use it"
-is not the same massive downside it was 7-8 years ago.
+In commit bf7ca1587, I had the bright idea that we could make the
+result of a whole-row Var (that is, foo.*) track any column aliases
+that had been applied to the FROM entry the Var refers to.  However,
+that's not terribly logically consistent, because now the output of
+the Var is no longer of the named composite type that the Var claims
+to emit.  bf7ca1587 tried to handle that by changing the output
+tuple values to be labeled with a blessed RECORD type, but that's
+really pretty disastrous: we can wind up storing such tuples onto
+disk, whereupon they're not readable by other sessions.
+
+The only practical fix I can see is to give up on what bf7ca1587
+tried to do, and say that the column names of tuples produced by
+a whole-row Var are always those of the underlying named composite
+type, query aliases or no.  While this introduces some inconsistencies,
+it removes others, so it's not that awful in the abstract.  What *is*
+kind of awful is to make such a behavioral change in a back-patched
+bug fix.  But corrupt data is worse, so back-patched it will be.
+
+(A workaround available to anyone who's unhappy about this is to
+introduce an extra level of sub-SELECT, so that the whole-row Var is
+referring to the sub-SELECT's output and not to a named table type.
+Then the Var is of type RECORD to begin with and there's no issue.)
+
+Per report from Miles Delahunty.  The faulty commit dates to 9.5,
+so back-patch to all supported branches.
+
+Discussion: https://postgr.es/m/2950001.1638729947@sss.pgh.pa.us
+
+---
+## [Zergspower/Skyrat-tg](https://github.com/Zergspower/Skyrat-tg)@[0b9264ce5f...](https://github.com/Zergspower/Skyrat-tg/commit/0b9264ce5f14565e42d5e3dc67660a95f5d48f65)
+#### Monday 2022-11-28 02:56:14 by SkyratBot
+
+[MIRROR] Fixes mineral turfs having weird lighting [MDB IGNORE] (#17618)
+
+* Fixes mineral turfs having weird lighting (#71219)
+
+## About The Pull Request
+
+Pixel offsets, unlike transforms, offset overlays too. this was breaking
+lighting overlays for mineral walls.
+
+We did pixel offsets to save on init time, but we can acomplish the same
+thing using an initial matrix. It's static, so there's no additional
+cost. S free
+
+Damn moth
 
 ## Changelog
 :cl:
-del: You can no longer craft explosive lances.
+fix: Mining walls won't have fucked lighting anymore
+/:cl:
+
+* Fixes mineral turfs having weird lighting
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+
+---
+## [ravitri/cluster-version-operator](https://github.com/ravitri/cluster-version-operator)@[9222fa9a66...](https://github.com/ravitri/cluster-version-operator/commit/9222fa9a6616b58a8056c780b9a6252e82a26e37)
+#### Monday 2022-11-28 02:57:43 by W. Trevor King
+
+pkg/cvo/sync_worker: Trigger new sync round on ClusterOperator versions[name=operator] changes
+
+David and Stephen identified an uneccessary delay [1]:
+
+* 9:42:00, CVO gives up on Kube API server ClusterOperator [2]
+* 9:42:47, Kube API server operator achieves 4.12 [3]
+* 9:46:22, after a cool-off sleep, the CVO starts in on a new manifest graph-walk attempt [4]
+* 9:46:34, CVO notices that the Kube API server ClusterOperator is happy [5]
+
+The 3+ minute delay from 9:42:47 to 9:46:22 is not helpful, and we've
+probably had delays like this since my old e02d1489a5
+(pkg/cvo/internal/operatorstatus: Replace wait-for with single-shot
+"is it alive now?", 2021-05-13, #560), which landed in 4.6.
+
+This commit introduces a "ClusterOperator bumped
+versions[name=operator]" trigger to break out of the cool-off sleep.
+
+There's plenty of room to be more precise here.  For example, you
+could currently have a versions[name=operator] bump during the sync
+loop that the CVO did notice, and that queued notification will break
+from the sleep and trigger a possible useless reconciliation round
+while we wait on some other resource.  You could drain the
+notification queue before the sleep to avoid that, but you wouldn't
+want to drain new-work notifications, and I haven't done the work
+required to be able to split those apart.
+
+I'm only looking at ClusterOperator at the moment, because of the many
+types the CVO manages, ClusterOperator is the one we most frequently
+wait on, as large cluster components take their time updating.  It's
+possible but less likely that we'd want similar triggers for
+additional types in the future (Deployment, etc.), if/when those types
+develop more elaborate "is the in-cluster resource sufficient happy?"
+checks.
+
+The panic-backed type casting in clusterOperatorInterfaceVersionOrDie
+also feel like a hack, but I wasn't able to find a cleaner way to get
+at the structured information I want.  Improvements welcome :)
+
+[1]: https://bugzilla.redhat.com/show_bug.cgi?id=2117033#c1
+[2]: From Loki: E0808 09:42:00.022500       1 task.go:117] error running apply for clusteroperator "kube-apiserver" (107 of 806): Cluster operator kube-apiserver is updating versions
+[3]: $ curl -s https://gcsweb-ci.apps.ci.l2s4.p1.openshiftapps.com/gcs/origin-ci-test/logs/periodic-ci-openshift-release-master-ci-4.12-upgrade-from-stable-4.11-e2e-gcp-sdn-upgrade/1556564581915037696/artifacts/e2e-gcp-sdn-upgrade/openshift-e2e-test/build-log.txt | grep 'clusteroperator/kube-apiserver versions:'
+     Aug 08 09:33:48.603 I clusteroperator/kube-apiserver versions: raw-internal 4.11.0-rc.7 -> 4.12.0-0.ci-2022-08-07-192220
+     Aug 08 09:42:47.917 I clusteroperator/kube-apiserver versions: operator 4.11.0-rc.7 -> 4.12.0-0.ci-2022-08-07-192220
+[4]: From Loki: I0808 09:46:22.998344       1 sync_worker.go:850] apply: 4.12.0-0.ci-2022-08-07-192220 on generation 3 in state Updating at attempt 5
+[5]: From Loki: I0808 09:46:34.556374       1 sync_worker.go:973] Done syncing for clusteroperator "kube-apiserver" (107 of 806)
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[c185dffda0...](https://github.com/tgstation/tgstation/commit/c185dffda0cc30d8187fa1ba37e5784b8d630ba4)
+#### Monday 2022-11-28 04:14:08 by Jacquerel
+
+Basic Mob Carp Bonus Part: Wall smashing (#71524)
+
+## About The Pull Request
+
+Atomisation of #71421 
+This moves the attack function of "environment smash" flags which allow
+simple mobs to attack walls into an element, so that we can put it on
+other things later.
+For some reason while working on carp I convinced myself that they had
+"environment_smash" flags, which they do not, so this actually is not
+relevant to carp in any way.
+
+While implementing this I learned that the way wall smashing works is
+stupid, because walls don't have health and so resultingly if a mob can
+attack walls it deletes them in a single click. If we ever decide to
+change this then it should be easier in an element than in three
+different `attack_animal` reactions.
+This is especially silly with the "wumborian fugu" item which allows any
+mob it is used on to instantly delete reinforced walls, and also to
+destroy tables if they click them like seven or eight times (because it
+does not increase their object damage in any way).
+
+## Why It's Good For The Game
+
+Eventually someone will port a basic mob which does use this behaviour
+(most of the mining ones for instance) and then this will be useful.
+If we ever rebalance wall smashing to not instantly delete walls then
+this will also be useful.
+Admins can apply this to a mob to allow it to delete walls if they
+wanted to do that for some reason, they probably shouldn't to be honest
+at least until after we've done point two unless they trust the player
+not to just use it to deconstruct the space station.
+
+## Changelog
+:cl:
+refactor: Moves wall smashing out of simple mob code and into an element
+we can reuse for basic mobs later
 /:cl:
 
 ---
-## [robotduinom/PsychonautStation](https://github.com/robotduinom/PsychonautStation)@[7d04edb6e2...](https://github.com/robotduinom/PsychonautStation/commit/7d04edb6e2927330906a7af89664b7a5ab3aa48c)
-#### Sunday 2022-11-27 09:03:40 by Profakos
+## [mexisme/nixos-hardware](https://github.com/mexisme/nixos-hardware)@[540c80a85a...](https://github.com/mexisme/nixos-hardware/commit/540c80a85a0fe032e928726a9033e1515207fbdc)
+#### Monday 2022-11-28 04:39:10 by mexisme
+
+Initial port from github.com/linux-surface/linux-surface, vendorising the patches and firmware binaries.
+
+Add MS Surface Kernel patches from github.com/linux-surface/linux-surface
+
+Add MS Surface Firmware from github.com/linux-surface/linux-surface
+
+Add MS Surface Hardware config from github.com/linux-surface/linux-surface
+
+Tie-together the Microsoft Surface .nix files
+
+Set to use explicit version of Linux (5.4.7)
+
+- Add the config for Linux 5.4.7
+
+Add kernel 5.4.11
+
+Add kernel 5.4.13
+
+Remove unsupported patches
+
+Revert to kernel 5.4.7 for now
+
+- Problems initialising touchscreen & pen
+
+Add kernel 5.4.15 and 5.4.16
+
+Build kernel 5.4.16, instead
+
+Add kernel 5.4.22
+
+Update the patches for kernel 5.4
+
+Placeholder for Linux kernel 5.5
+
+Copy the IPTS kernel patch from the 5.5 dir to the 5.4 dir.
+
+Conversation on https://gitter.im/linux-surface/community suggested this would
+reenable IPTS on 5.4:
+
+-----
+@matrixbot Feb 29 15:33
+hpfr Blaž Hrastnik (Gitter): thanks for the mention. mexisme (Gitter) finally, someone who actually knows Nix and isn't just a config nerd writing proper NixOS Surface configs! I am stuck on 4.19 at the moment because IPTS is now a proper reverse-engineered kernel driver (https://github.com/linux-surface/intel-precise-touch) instead of just a blob package, and I haven't had time to look at how to package that for Nix. If you're on 5.5, are you just not using IPTS? Would love to help out on packaging that for NixOS
+hpfr also, development conversations seem to happen more at #linux-surface on freenode, which you can connect to with matrix via https://matrix.to/#/!OXIGGPCpnzaNVeGtCA:matrix.org if you don't like IRC clients
+
+@matrixbot Feb 29 15:39
+hpfr Also, I'm not using jakeday's patches, I'm using the more recent ones from the linux-surface/linux-surface repo, but yeah, for 4.19, so they're a bit different from the 5.x patchsets. afaik 4.19 is still supported because it's the last LTS release that supports the "official" IPTS blob before Linux made changes that required reverse engineering a driver that didn't use GuC submission (I'm just quoting here, I have no idea what that is haha)
+
+@matrixbot Feb 29 19:27
+Blaž > now a proper reverse-engineered kernel driver
+Should be similar to before, we just offer it as a patch
+Blaž https://github.com/linux-surface/linux-surface/blob/master/patches/5.5/0007-ipts.patch
+Blaž Anyway I'm keeping an eye out on your NixOS builds since I'm thinking about giving it a try
+
+@matrixbot Feb 29 19:32
+Blaž Currently running Arch but using nix as a way to manage development environments for various projects
+
+@matrixbot Mar 01 10:41
+hpfr Blaž: well shoot is that patch all that’s necessary for building in-tree? It does all the things the linux-surface/intel-precise-touch repo does?
+
+Dorian Stoll @StollD Mar 01 12:56
+Yes
+Just adds all the files from the repo to drivers/input/touchscreen and adds the necessary glue to drivers/input/touchscreen/{Makefile, Kconfig}
+
+@matrixbot Mar 02 09:13
+hpfr Dorian Stoll (Gitter): oof. Could’ve been on 5.4+ all this time!
+
+Move kernnel *.nix packages under their respective kernel dirs
+
+Use lib.mkDefault
+
+Update to kernel 5.4.24
+
+Update to kernel 5.5.8
+
+Typo
+
+Drivers are modules by default
+
+Revert to 5.4.24 until can fix the config failures
+
+---
+## [Mothblocks/tgstation](https://github.com/Mothblocks/tgstation)@[7d04edb6e2...](https://github.com/Mothblocks/tgstation/commit/7d04edb6e2927330906a7af89664b7a5ab3aa48c)
+#### Monday 2022-11-28 06:04:07 by Profakos
 
 Mail sorting helper, and disposals fixes (#70861)
 
@@ -1078,754 +364,164 @@ their packages
 /:cl:
 
 ---
-## [noigeaR/pcsx2_gamedb_fixes](https://github.com/noigeaR/pcsx2_gamedb_fixes)@[87abacc632...](https://github.com/noigeaR/pcsx2_gamedb_fixes/commit/87abacc63264f9cf554cddf02973e0fc9cd2af77)
-#### Sunday 2022-11-27 09:34:07 by RedDevilus
+## [cheungglenda/comp1170-project2](https://github.com/cheungglenda/comp1170-project2)@[843b2ba00b...](https://github.com/cheungglenda/comp1170-project2/commit/843b2ba00b67e63cabfc8d5d70a0c94e14436a75)
+#### Monday 2022-11-28 06:04:24 by justinweiyungwu
 
-GameDB: Fix multiple games + maintenance
+Merge pull request #14 from cheungglenda/justin
 
-- Area 51: Half Pixel Normal vertex for lighting and other places
-- Shrek 2: Basic mipmapping which kinda half fixes the sun missing
-- Galaxy Angel II: Normal vertex which reduces misalignment
-- Forgotten Realms - Demon Stone: Clamping Mode extra + preserve which will solve the occasional SPS + missing demo entry.
-- Spyro Dawn of dragon: SW clut + sprite which doesn't make you vomit from the overbloomification and looks similar to the software renderer
-- Castlevania Curse of darkness half sprite which will enlarge the font similar to software renderer + some missing fixes that were available on the Europe and America versions but not Japanese.
-- Drakengard 1 + 2 (Also know as Drag-on Dragoon) : Partial (no hashcache) to avoid slow transitions and other areas. Adds missing Japanese Drakengard 1
-- Urban reign: Partial texture preloading to fix performance issues in the gameplay
-- Onimusha Warlord: Partial preloading to fix performance issues
-- Sniper Elite: Fix sky lighting
-- Maintenance that add spaces in the titles for Disc1of1 to Disc 1 of 1 and more...
+holy fucking shit
 
 ---
-## [salariarahul/MyTimer](https://github.com/salariarahul/MyTimer)@[ab54cd9c84...](https://github.com/salariarahul/MyTimer/commit/ab54cd9c84b60dd77b70bb401da52e5df057447e)
-#### Sunday 2022-11-27 09:34:40 by rahul salaria
+## [nytmyr/Server](https://github.com/nytmyr/Server)@[c8f146943c...](https://github.com/nytmyr/Server/commit/c8f146943c0392c476f67c64350d329f4b477858)
+#### Monday 2022-11-28 06:06:23 by toxin06
 
-- Adding multiple schedules(breakfast at 6AM, lunch at 1PM, dinner at 8PM,
- Jogging at 6AM.,)
- - We can create a schedule task with task name, start and end time.
- - USE schedule task button for creating a task on dashboard.
+[Bots] AI Revamp, add all holds, delays, thresholds, min thresholds, character heal settings. Bard fixes.
+
+All group features for combat range and behind mob now work in raids
+
+Every spell type can have a delay, minimum and maximum threshold to cast.
+
+The delay is how quickly a bot can cast that type of spell, the timer starts from the beginning of the cast. If you set this to 10 seconds, as soon as a spell starts casting, another will start in 10 seconds provided it isn't on cooldown or has stacking/immune blocks.
+
+The minimum threshold is the percent of health when a bot will stop casting a spell.
+-Escapes, Hate Reductions, Lifetaps and Shaman In-Combat Buffs (Canni) will rely upon the bot's OWN health. (When do you want said bot to start trying to drop aggro, when they reach 80% until 20%? Do they lifetap starting at 60% and never stop till they die? (0%).
+
+Threshold or maximum threshold is the percent of health when the bot will begin casting that type of spell.
+
+Casters will now output what type of spell and what spell they are casting for all spell types except buffs.
+
+Casters will now output all those messages to the entire group or raid, filterable by Pet Response.
+
+Casters now dispel, escape, lifetap, snare and root automatically.
+
+SKs will now cast their bonus hate spells as the spell type in-combat buffs rather than nuke so it can be held if needed.
+
+Shamans will still Cannibalize using in-combat buffs, however you can set the minimum threshold to control when they stop Cannibalizing and the Maximum threshold will be based off their mana to start Cannibalizing.
+--Shamans will never start to cannibalize if their mana is above 90% or their health is below 50% regardless of the minimum/maximum setting.
+
+SKs, Paladins and Clerics will not cast their in-combat buffs if they have hit their stop melee level.
+
+SKs, Rangers, Wizards, Enchanters and Bards will now cast hate reduction spells.
+
+Necros/SKs will cast their Darkness line as the Snare spell type.
+--Necros will not cast Insidious Retrogression.
+
+Bards will now start casting their songs before they fade instead of waiting for them to fade so there is no gap in buffs.
+-------
+Casters no longer try to cast DoTs, nukes, roots or snares if it may result in aggro. Once enough aggro is built up by the tank to where they don't think they'll pull aggro, they will begin casting.
+--SKs & Pallies will always cast these regardless of aggro, use holds or thresholds if you want them to stop.
+
+Resist checks for spells will now take into affect level differences as well. (Higher level mobs are more likely to resist a spell than a lower level mob with the same resist stats)
+
+If a target mob is Undead, Summoned or Plant, the appropriate classes will cast the appropriate nukes if available.
+-Necromancers will nuke plants with Defoliation if they are of level.
+
+Bots will verify spell immunity before casting all spell types.
+
+Roots are held by default.
+
+Bots will now honor Blocked Buffs. You can use this to get bots to cast other buffs. If you only want Virtue for example you would block Faith, Kazad's Mark and Ward of Gallantry.
+--Look at bot spells lists on Allaclone to see what spells they can cast to control this.
+
+Bots will now cast buffs that contain Illusions if you don't block them (Boon line for example.)
+
+You can now set your player characters/clients to specific heal thresholds and delays that bots will respect.
+-------
+Pets will be healed using the default delay settings and can be toggled on/off with ^holdpetheals
+-You can control when they start healing pets by stances, stances will only be used for this now as everything else is customizable
+-The exception to this is that Warriors, Paladins and Shadowknights will enter a taunting state by default if set to Aggressive. This can still be toggled off by ^taunt as usual.
+
+The thresholds for stances are as follows:
+-Reactive will do all the regular default heals starting with HoTs @ 85%, CHs @ 70%,  Regular Heals @ 55% and Fast Heals @ 35%
+-Efficient will start with CHs @ 70%, Regular Heals @ 55%, Fast Heals @ 35%
+-Balanced (default) will start with Regular Heals @ 55% and Fast @ 35%.
+-Burn will only cast Fast Heals/Regular Heals starting at 35%.
+-BurnAE will only Fast Heals/Regular Heals starting @ 25%.
+-Aggressive will ignore all and not heal at all, you don't want a tank stopping to heal.
+
+-If a bot cannot cast a Fast Heal, CH or HoT, they will try the next best spell in order of: Fast Heal->Regular Heal->Complete Heal->Heal Over Time.
+-Any Heal that casts in 2 seconds or less is considered a Fast Heal
 
 ---
-## [gilbertguan2385/guava](https://github.com/gilbertguan2385/guava)@[8a676ade61...](https://github.com/gilbertguan2385/guava/commit/8a676ade617c6be992165cd0658779a14acef2f2)
-#### Sunday 2022-11-27 09:35:45 by cpovirk
+## [UWINGS-KUNYI/ti-kernel](https://github.com/UWINGS-KUNYI/ti-kernel)@[adee8f3082...](https://github.com/UWINGS-KUNYI/ti-kernel/commit/adee8f3082b01e5dab620d651e3ec75f57c0c855)
+#### Monday 2022-11-28 06:16:45 by Peter Zijlstra
 
-Make the build work under more JDK versions.
+x86/nospec: Unwreck the RSB stuffing
 
-(Guava is already _usable_ under plenty of verions. This change affects only people who build it themselves.)
+commit 4e3aa9238277597c6c7624f302d81a7b568b6f2d upstream.
 
-And run CI under JDK17. Maybe this will make CI painfully slow, but we'll see what happens. If we want to drop something, we should consider whether to revert 17 or to drop 11 instead (so as to maintain coverage at the endpoints of \[8, 17\]).
+Commit 2b1299322016 ("x86/speculation: Add RSB VM Exit protections")
+made a right mess of the RSB stuffing, rewrite the whole thing to not
+suck.
 
-## Notes on some of the versions
+Thanks to Andrew for the enlightening comment about Post-Barrier RSB
+things so we can make this code less magical.
 
-### JDK9
-
-I expected Error Prone to work, but I saw `invalid flag: -Xep:NullArgumentForNonNullParameter:OFF`, even though that flag is [already](https://github.com/google/guava/blob/166d8c0d8733d40914fb24f368cb587a92bddfe0/pom.xml#L515) part of [the same `<arg>`](https://github.com/google/error-prone/issues/1086#issuecomment-411544589), which works fine for other JDK versions. So I disabled Error Prone for that version.
-
-Then I had a Javadoc problem with the `--no-module-directories` configuration from cl/413934851 (the fix for https://github.com/google/guava/issues/5457). After reading [JDK-8215582](https://bugs.openjdk.org/browse/JDK-8215582) more carefully, I get the impression that that flag might not have been added until 11: "addressed in JDK 11, along with an option to revert to the old layout in case of need." So I disabled it for 9-10.
-
-Then I ran into a problem similar to https://github.com/bazelbuild/bazel/issues/6173 / [JDK-8184940](https://bugs.openjdk.java.net/browse/JDK-8184940). I'm not sure exactly what tool produced a file with a month of 0, but it happened only when building `guava-tests`. At that point, I gave up, though I left the 2 above workarounds in place.
-
-### JDK10
-
-This fails with some kind of problem finding a Guice dependency inside Maven. I didn't investigate.
-
-### JDK15 and JDK16
-
-These fail with [the `TreeMap` bug](https://bugs.openjdk.org/browse/JDK-8259622) that [our collection testers had detected](https://github.com/google/guava/issues/5801#issue-1068748849) but we never got around to reporting. Thankfully, it got reported and [fixed](https://github.com/openjdk/jdk/commit/2c8e337dff4c84fb435cafac8b571f94e161f074) for JDK17. We could consider suppressing the tests under that version.
-
-### JDK18, JDK19, and JDK20-early-access
-
-These fail with [`SecurityManager` trouble](https://github.com/google/guava/issues/5801#issuecomment-1293817701).
-
-## Notes on the other actual changes
-
-### `maven-javadoc-plugin`
-
-I set up `maven-javadoc-plugin` to use `-source ${java.specification.version}`. Otherwise, it would [take the version from `maven-compiler-plugin`](https://github.com/google/guava/issues/5801#issuecomment-1314291284). That's typically fine: Guava's source code targets Java 8, so `-source 8` "ought" to work. But it doesn't actually work because we also pass Javadoc the _JDK_ sources (so that `{@inheritDoc}` works better), which naturally can target whichever version of the JDK we're building with.
-
-### Error Prone
-
-While Error Prone is mostly usable [on JDK11+](https://errorprone.info/docs/installation), some of its checks have [problems under some versions](https://github.com/google/error-prone/issues/3540), at least when they're reporting warnings.
-
-This stems from its use of part of the Checker Framework, which [doesn't support JDKs in the gap between 11 and 17](https://github.com/typetools/checker-framework/blob/c2d16b3409000ac2e2ca95b8b81ae11e42195308/framework/src/main/java/org/checkerframework/framework/source/SourceChecker.java#L553-L554). And specifically,  it looks like the Checker Framework is [trying to look up `BindingPatternTree` under any JDK12+](https://github.com/typetools/checker-framework/blob/c2d16b3409000ac2e2ca95b8b81ae11e42195308/javacutil/src/main/java/org/checkerframework/javacutil/TreeUtils.java#L131-L144). But `BindingPatternTree` (besides not being present at all [until JDK14](https://github.com/openjdk/jdk/commit/229e0d16313b10932b9ce7506d84096696983699#diff-3db4b0ce4411c851bcf75d92ef4dadc7351debcf0f9b2c2623dc513923b45867R41)) didn't declare that method [until JDK16](https://github.com/openjdk/jdk/commit/18bc95ba51b6864150c28985e65b6f784ea8ee2c#diff-3db4b0ce4411c851bcf75d92ef4dadc7351debcf0f9b2c2623dc513923b45867R39).
-
-Anyway, the problem we saw was [a `NoSuchMethodException` during the `AbstractReferenceEquality` call to `NullnessAnalysis.getNullness`](https://oss-fuzz-build-logs.storage.googleapis.com/log-a9d04aa2-8b5a-47ca-8066-7e6b38548064.txt), which uses Checker Framework dataflow.
-
-To address that, I disabled Error Prone for the versions under which I'd expect the `BindingPatternTree` code to be a problem.
-
-(I also disabled it for JDK10: As noted above, Error Prone [supports JDK11+](https://errorprone.info/docs/installation). And as noted further above, Maven doesn't get far enough with JDK10 to even start running Error Prone.)
-
-Fixes https://github.com/google/guava/issues/5801
-
-RELNOTES=n/a
-PiperOrigin-RevId: 488902996
+Cc: stable@vger.kernel.org
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Link: https://lkml.kernel.org/r/YvuNdDWoUZSBjYcm@worktop.programming.kicks-ass.net
+[bwh: Backported to 5.10: adjust context]
+Signed-off-by: Ben Hutchings <benh@debian.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
 
 ---
-## [SyncIt21/The-TG-Station-Fork](https://github.com/SyncIt21/The-TG-Station-Fork)@[29d766e25f...](https://github.com/SyncIt21/The-TG-Station-Fork/commit/29d766e25f18c5030972562ed649832077cdfc95)
-#### Sunday 2022-11-27 10:35:10 by LemonInTheDark
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[a811adac74...](https://github.com/tgstation/tgstation/commit/a811adac74513494a620fae631da95d2626b1be7)
+#### Monday 2022-11-28 06:28:14 by Epic
 
-Fixes attempting to offset floating planes (#71490)
+Changes Admin Prison to be Anti-Telekinesis: Walls off equipment rooms, replaces computers, and makes the tables tidy (#71433)
 
+First PR, may require some changes or something because I don't know how
+to do anything bleh
 ## About The Pull Request
 
-This is a dumb idea, and leads to fucked rendering on occasion
+We already had issues with crewmembers with telekinesis making changes
+to the security records (purging them and what not). And, nothing has
+been done about it, not yet, anyway. Not only record computers are a
+problem as well.
+
+
+![image](https://user-images.githubusercontent.com/106710384/203241399-8314bcba-d2d0-44af-9360-30ff58dbc39e.png)
+Previously, prisoners can access the sec vendor with telepathy, and,
+since the vendor is free, spam the vendor and be an annoyance. Sure, I
+believe that it is not as big of a problem as purging the security
+records, but I feel like it's against what the prison is supposed to
+stand for; It's supposed to stop them and get them to listen to ahelps
+thrown at them.
+
+I've decided to make a bit of changes to the prison to make it so that
+people with telekinesis won't fuck up things as much. This replaces real
+computers with nonfunctional ones, adding walls to equipment areas to
+make sure prisoners don't spam the vendor, and deletes guns/weapons from
+the tables so they won't grab them.
 
 ## Why It's Good For The Game
 
-Fixes another portion of #70258, a player will no longer have a hidden
-antag hud if they move down a z level after getting an antag. We were
-trying to offset the floating plane of their image, and it went to shit.
-Also fixes a bug with observers not having antag huds for the combo hud
-to see. We were only giving them one on mind.on_transfer, rather then on
-mind assignment. I hate mindcode
 
----
-## [NimBlemations/Vs-Joe-Stick](https://github.com/NimBlemations/Vs-Joe-Stick)@[b542ee7519...](https://github.com/NimBlemations/Vs-Joe-Stick/commit/b542ee7519c2b96b4978766c440f4c3ae7e35d72)
-#### Sunday 2022-11-27 10:41:54 by NimBlemations
+![image](https://user-images.githubusercontent.com/106710384/203241465-833f79da-58a3-4feb-87b0-091fbb846e93.png)
+This PR is more tailored to admins dealing with no-good-doers, and goes
+for the vibe of "HEY, SOMEONE IS PMING YOU, REPLY TO THEM INSTEAD!" Of
+course, this leads to prisoners not interacting with the current round,
+and, less chance of them going insane and breaking all the windows with
+a telekinesis auto-rifle.
 
-fuckin haxeflixel thing fuck you i'm walkin' here
+Plus, this can always be reverted in-case someone comes up with coding
+stuff in instead. I'm all through with that and willing to work with
+whoever to solve the issue.
 
-fuck you i'm walken' here
-
----
-## [NimBlemations/Vs-Joe-Stick](https://github.com/NimBlemations/Vs-Joe-Stick)@[f41185b7e6...](https://github.com/NimBlemations/Vs-Joe-Stick/commit/f41185b7e673ae8e555a5fc387da92bc8f986ad3)
-#### Sunday 2022-11-27 10:44:04 by NimBlemations
-
-oh fuck sorry, forgot it wasn't haxeflixel in the workflow
-
-damn.
-
----
-## [Lindonrow/StorytimeOfficialMod](https://github.com/Lindonrow/StorytimeOfficialMod)@[3de255c40b...](https://github.com/Lindonrow/StorytimeOfficialMod/commit/3de255c40bc2d2524bdb419b1980102b2c0d7a0c)
-#### Sunday 2022-11-27 11:23:39 by Isengriff
-
-Chapter 8: The Fertility Ritual Update Part 1: Part 3
-
-In this time of pain and devastation, one man rises above all the rest as a beacon of hope in a dying land. That man is me, because I finally managed to fucking get this shit into a playable state.
-There are still bugs and tons of things I'd like to fix but frankly most of that has more to do with HAR than me, so I figure I'll just save it all for Part 2 when hopefully things are more settled.
-Why am I writing this, I'm literally the only person that uses this mod except the evil one, and I'm 99.99% sure nobody is reading this. If you are reading it, leave a comment below. Why not? But you won't, because you don't exist. Bla bla bla... can I just play the damn game now?
-Please send a prayer to Allah/God/Yawheh/Guanyin/Whichever Hindu god you pray to for this sort of situation/Some other guy/idk.
-
----
-## [AnywayFarus/Skyrat-tg](https://github.com/AnywayFarus/Skyrat-tg)@[ea1e6ff95f...](https://github.com/AnywayFarus/Skyrat-tg/commit/ea1e6ff95fb48e198162f2bb99448777bc7f9e06)
-#### Sunday 2022-11-27 11:39:49 by SkyratBot
-
-[MIRROR] Adds a preference that disables intensive rendering on different multiz layers [MDB IGNORE] (#17737)
-
-* Adds a preference that disables intensive rendering on different multiz layers (#71218)
-
-## About The Pull Request
-
-It's kinda hacky, but it is nearly the same as just rendering one z
-layer.
-We allow people to ENTIRELY REMOVE most plane masters from their screen.
-This has the side effect of disabling most visual effects (AO is a big
-one) which saves a LOT of gpu.
-
-We rely on planes being essentially layers to ensure things render in
-the proper order. (outside of some hackyness required to make parallax
-work)
-
-I've kept parallax and lighting enabled, so visuals will still look
-better then multiz pre plane cube.
-It does also mean that things like FOV don't work, but honestly they
-didn't work PRE plane cube, and FOV's implementation makes me mad so I
-have a hard time caring.
-
-Reduces gpu usage on my machine on tram from 47% to 32%, just above the
-27% I get on meta.
-
-I'm happy with this.
-
-Oh also turns out the parallaxing had almost no cost. Need to remove it
-as a side effect of what I'm doing but if I could keep it I would.
-
-There's still room for in between performance options, like disabling
-things like AO on lower z layers, but I didn't expect it to make a huge
-impact, so I left things as is
-
-Also fixes a bug with paper bins not respecting z layer. It came up in
-testing and annoyed me
-
-## Why It's Good For The Game
-
-Ensures we can make multiz maps without running into client performance
-issues, allows users to customize performance and visual quality.
+Also, of course, Closes #60967
 
 ## Changelog
+
 :cl:
-add: Adds a new rendering option to the gameplay preferences. You can
-now limit the rendering intensity of multiz levels. This will make
-things look a bit worse, but run a LOT better. Try it out if your
-machine chokes on icebox or somethin.
+admin: Nanotrashen made some top-of-the-line changes to their
+top-of-the-line prison by walling off their equipment area and removing
+some spare guns they somehow left on the tables. We also stole the
+security computers, so people with telekinesis can't access them.
 /:cl:
 
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
-* Adds a preference that disables intensive rendering on different multiz layers
-
-Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
 ---
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[0815a7e269...](https://github.com/treckstar/yolo-octo-hipster/commit/0815a7e269c7be31f7a838f73721196b21728ad2)
-#### Sunday 2022-11-27 12:22:03 by treckstar
-
-People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
-
----
-## [greenhas/spg_website](https://github.com/greenhas/spg_website)@[9396da49fc...](https://github.com/greenhas/spg_website/commit/9396da49fc74dfe1e87cf28f68f50daf6f456866)
-#### Sunday 2022-11-27 13:48:24 by Spencer Greenhalgh
-
-post Boosted kiddo's motivation to help put away the dishes by convincing her to think of it as a magic trick (making the dishwasher's contents 'disappear'). Boosted my own by remembering it's now legal to play Mannheim Steamroller Christmas music around the house.
-
----
-## [PixelExperience-Devices/kernel_xiaomi_lmi](https://github.com/PixelExperience-Devices/kernel_xiaomi_lmi)@[32a6e1c1e8...](https://github.com/PixelExperience-Devices/kernel_xiaomi_lmi/commit/32a6e1c1e85832012983a1d656a0e439c1c0775c)
-#### Sunday 2022-11-27 15:09:30 by Jason A. Donenfeld
-
-random: credit cpu and bootloader seeds by default
-
-[ Upstream commit 846bb97e131d7938847963cca00657c995b1fce1 ]
-
-This commit changes the default Kconfig values of RANDOM_TRUST_CPU and
-RANDOM_TRUST_BOOTLOADER to be Y by default. It does not change any
-existing configs or change any kernel behavior. The reason for this is
-several fold.
-
-As background, I recently had an email thread with the kernel
-maintainers of Fedora/RHEL, Debian, Ubuntu, Gentoo, Arch, NixOS, Alpine,
-SUSE, and Void as recipients. I noted that some distros trust RDRAND,
-some trust EFI, and some trust both, and I asked why or why not. There
-wasn't really much of a "debate" but rather an interesting discussion of
-what the historical reasons have been for this, and it came up that some
-distros just missed the introduction of the bootloader Kconfig knob,
-while another didn't want to enable it until there was a boot time
-switch to turn it off for more concerned users (which has since been
-added). The result of the rather uneventful discussion is that every
-major Linux distro enables these two options by default.
-
-While I didn't have really too strong of an opinion going into this
-thread -- and I mostly wanted to learn what the distros' thinking was
-one way or another -- ultimately I think their choice was a decent
-enough one for a default option (which can be disabled at boot time).
-I'll try to summarize the pros and cons:
-
-Pros:
-
-- The RNG machinery gets initialized super quickly, and there's no
-  messing around with subsequent blocking behavior.
-
-- The bootloader mechanism is used by kexec in order for the prior
-  kernel to initialize the RNG of the next kernel, which increases
-  the entropy available to early boot daemons of the next kernel.
-
-- Previous objections related to backdoors centered around
-  Dual_EC_DRBG-like kleptographic systems, in which observing some
-  amount of the output stream enables an adversary holding the right key
-  to determine the entire output stream.
-
-  This used to be a partially justified concern, because RDRAND output
-  was mixed into the output stream in varying ways, some of which may
-  have lacked pre-image resistance (e.g. XOR or an LFSR).
-
-  But this is no longer the case. Now, all usage of RDRAND and
-  bootloader seeds go through a cryptographic hash function. This means
-  that the CPU would have to compute a hash pre-image, which is not
-  considered to be feasible (otherwise the hash function would be
-  terribly broken).
-
-- More generally, if the CPU is backdoored, the RNG is probably not the
-  realistic vector of choice for an attacker.
-
-- These CPU or bootloader seeds are far from being the only source of
-  entropy. Rather, there is generally a pretty huge amount of entropy,
-  not all of which is credited, especially on CPUs that support
-  instructions like RDRAND. In other words, assuming RDRAND outputs all
-  zeros, an attacker would *still* have to accurately model every single
-  other entropy source also in use.
-
-- The RNG now reseeds itself quite rapidly during boot, starting at 2
-  seconds, then 4, then 8, then 16, and so forth, so that other sources
-  of entropy get used without much delay.
-
-- Paranoid users can set random.trust_{cpu,bootloader}=no in the kernel
-  command line, and paranoid system builders can set the Kconfig options
-  to N, so there's no reduction or restriction of optionality.
-
-- It's a practical default.
-
-- All the distros have it set this way. Microsoft and Apple trust it
-  too. Bandwagon.
-
-Cons:
-
-- RDRAND *could* still be backdoored with something like a fixed key or
-  limited space serial number seed or another indexable scheme like
-  that. (However, it's hard to imagine threat models where the CPU is
-  backdoored like this, yet people are still okay making *any*
-  computations with it or connecting it to networks, etc.)
-
-- RDRAND *could* be defective, rather than backdoored, and produce
-  garbage that is in one way or another insufficient for crypto.
-
-- Suggesting a *reduction* in paranoia, as this commit effectively does,
-  may cause some to question my personal integrity as a "security
-  person".
-
-- Bootloader seeds and RDRAND are generally very difficult if not all
-  together impossible to audit.
-
-Keep in mind that this doesn't actually change any behavior. This
-is just a change in the default Kconfig value. The distros already are
-shipping kernels that set things this way.
-
-Ard made an additional argument in [1]:
-
-    We're at the mercy of firmware and micro-architecture anyway, given
-    that we are also relying on it to ensure that every instruction in
-    the kernel's executable image has been faithfully copied to memory,
-    and that the CPU implements those instructions as documented. So I
-    don't think firmware or ISA bugs related to RNGs deserve special
-    treatment - if they are broken, we should quirk around them like we
-    usually do. So enabling these by default is a step in the right
-    direction IMHO.
-
-In [2], Phil pointed out that having this disabled masked a bug that CI
-otherwise would have caught:
-
-    A clean 5.15.45 boots cleanly, whereas a downstream kernel shows the
-    static key warning (but it does go on to boot). The significant
-    difference is that our defconfigs set CONFIG_RANDOM_TRUST_BOOTLOADER=y
-    defining that on top of multi_v7_defconfig demonstrates the issue on
-    a clean 5.15.45. Conversely, not setting that option in a
-    downstream kernel build avoids the warning
-
-[1] https://lore.kernel.org/lkml/CAMj1kXGi+ieviFjXv9zQBSaGyyzeGW_VpMpTLJK8PJb2QHEQ-w@mail.gmail.com/
-[2] https://lore.kernel.org/lkml/c47c42e3-1d56-5859-a6ad-976a1a3381c6@raspberrypi.com/
-
-Cc: Theodore Ts'o <tytso@mit.edu>
-Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[03bc97ade5...](https://github.com/tgstation/tgstation/commit/03bc97ade5a76f156229b946e38816ced97a0e30)
-#### Sunday 2022-11-27 15:20:26 by necromanceranne
-
-Nukies Update 6: Interdyne is here for you! Medical Supplies and Atropine! (#71067)
-
-## About The Pull Request
-
-Quite a few changes overall to the nuclear operatives tactical medkit.
-The kit is more of a full suite of equipment for performing field
-medical duties as a nukie.
-
-- I've split the medkits between two kinds. Basic and premium. Medical
-bundle has the premium kit.
-- Basic contains additional amounts of basic c2 chem patches, some spare
-atropine autoinjectors, sutures and regen mesh, and some basic medical
-equipment for tending wounds. 4 TC (as it was before). That's it.
-- The premium kit is a far more useful full suite of advanced medical
-equipment, MODsuit modules, medical supplies and cybernetic implants,
-including the combat hypospray and the combat defib. 15 TC.
-
-**In the premium kit, there is:**
-- It has a box of beakers with powerful healing chems. Omnizine,
-salicylic acid, oxandrolone, pentetic acid, atropine, salbutamol and
-rezadone.
-- The combat injector is empty, so you can load it as necessary.
-- There are advanced sutures and regenerative mesh packs. They don't
-work through spacesuits, but are invaluable for wound repair. Especially
-burns.
-- There is a surgery arm toolset so you can do field operations without
-lugging tools.
-- There is a surgery processor module that comes preloaded with advanced
-surgeries, a threadripper module, and the combat defib module. The
-module works entirely like a combat defib, but you don't need to lose
-your belt slot to use it.
-- The surgeries are revival, the upgrade surgeries (like vein
-threading), brainwashing (did you know they didn't get access to
-brainwashing, I think this is a shame) and the better tend wounds
-option.
-- The nightvision medical hud doubles as a pair of science goggles.
-
-**Atropine changes:**
-- Atropine now stops bomb implants from autoexploding. This does **NOT**
-stop you from manually detonating the bomb. (This is possible even when
-you're dead and haven't left your body)
-- As a result, nukies get atropine medipens so that they can potentially
-stop themselves detonating prematurely, or stop their allies detonating
-prematurely. They have a little pamphlet to help explain how their
-microbomb works.
-
-## Why It's Good For The Game
-
-Straight up: The medkit is ass.
-
-The meds in the injector sucks, just getting c2 meds in patches is kind
-of insulting for something granted to you from an uplink item (and also
-you get those for free with your ~~xbox~~ infiltrator medical room so
-lol), and operatives just got the kit for one reason and one reason
-only. That combat defib as a _weapon_.
-
-Fuck that. So the kits now much better as a way to both support yourself
-AND your team through providing a range of improvements you can provide
-the squad, while also not undermining the reason why people may have
-wanted the kit (that defib). I would really like to see more nukies
-attempt to support one another in combat, and a medic operative is a
-role that needs love to make that a reality.
-
-**Edit here**: I reintroduced a low end kit with more c2 medical
-supplies _if you want them_. I can see how someone might pinch all of
-the medical supplies like a cunt, so maybe we should have a failsafe for
-that.
-
-A huge culprit of the lack of value of support meds was usually that
-ops...explode when they die. If a medic can pop atropine into an op
-before they die, they might be able to save them, or an op could pop
-themselves with atropine prematurely to maybe stave off death.
-
-## Changelog
-:cl:
-balance: Splits the nuclear operative combat medical kit into two
-versions: basic and premium.
-balance: Basic contains additional amounts of basic c2 chem patches,
-some spare atropine autoinjectors, sutures and regen mesh, and some
-basic medical equipment for tending wounds. 4 TC (as it was before).
-balance: The premium kit is a far more useful full suite of advanced
-medical equipment, MODsuit modules, medical supplies and cybernetic
-implants, including the combat hypospray and the combat defib. 15 TC.
-balance: Atropine stops bomb implants from automatically detonating on
-death. You can still manually activate your bomb implant (even when you
-are dead).
-balance: Operatives start with an atropine pen to stop themselves and
-their allies from detonating so they can hopefully be saved by a medical
-operative.
-add: There is a pamphlet to explain this in the nuclear operative's
-survival box.
-add: I'm not telling you to read the pamphlet, but you should probably
-read the pamphlet.
-/:cl:
-
-Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
-
----
-## [Reinazhard/android_kernel_xiaomi_whyred](https://github.com/Reinazhard/android_kernel_xiaomi_whyred)@[d7efa00d9b...](https://github.com/Reinazhard/android_kernel_xiaomi_whyred/commit/d7efa00d9b9382f546d2bdec98dd41a4c93771d8)
-#### Sunday 2022-11-27 17:18:15 by Reinazhard
-
- i fucking hate myself
-
-Signed-off-by: Reinazhard <reinazhard@gmail.com>
-
----
-## [DieFrauen/CaC-Batch](https://github.com/DieFrauen/CaC-Batch)@[e8759644a7...](https://github.com/DieFrauen/CaC-Batch/commit/e8759644a7c69cca0c0393512ba6e26cc9a36e54)
-#### Sunday 2022-11-27 17:28:58 by Mish
-
-Update README.md
-
-FIRST SAMPLE limited offer
-
-CONTENTS
-
-FIRST SAMPLE cdb (card database) file
-pics folder
-scripts folder
-
-Here are the first batch of cards released for this exclusive offer, 5 cards each for the first 3 clients to order. They are as follows.
-
-Client 1: Arc Des
-- Light Magician               /46990001 (NEW - 11/27/2022)
--                              /46990002
--                              /46990003
--                              /46990004
--                              /46990005
-
-Client 2: BlazeFenix
-- Infernal King Spectri-Oh     /46990006 (NEW - 11/27/2022)
-- Firetruck Monkey Business    /46990007 (NEW - 11/27/2022)
-- Ghoti Starlight              /46990008 (NEW - 11/27/2022)
-- Ghoti Genesis                /46990009 (NEW - 11/27/2022)
-- Azzar - Elegance of the Ghoti/46990010 (NEW - 11/27/2022)
-
-Client 3:
--                              /46990011
--                              /46990012
--                              /46990013
--                              /46990014
--                              /46990015
-
-HOW TO USE
-
-In order to register these cards in your YGOPro build, you should extract the contents in this Zip file into your Expansions folder, the pictures and scripts for each card go in their respective folders along with all other files from different expansions. Make sure to check your repositories and everything else is in order. To play cards in Expansion files online with friends, you must use the LAN + AI mode, as these contents are not available in Server based duels.
-
-Thanks for your patronage.
-
-Die Frauen 2022
-
-All stock images used for these cards were retrieved from online sources throughout the web and are intended to be free and fair use, if you find that your, or someone's work is used here, feel free to provide source information to be listed below or to request its takedown.
-
-STOCK IMAGE SOURCES
-
-Light Magician - AviArts / https://www.reddit.com/user/ThePeachyPanda/
-Infernal King Spectri-Oh - Pyron - Darkstalkers / source pending
-
----
-## [DieFrauen/CaC-Batch](https://github.com/DieFrauen/CaC-Batch)@[060ee9528d...](https://github.com/DieFrauen/CaC-Batch/commit/060ee9528d816683722780066e5ad6eaff6c44c8)
-#### Sunday 2022-11-27 18:23:07 by Mish
-
-Update README.md
-
-Die Frauen's Create-A-Card Batch
-
-CONTENTS
-
-- cdb (card database) files (1)
-- pics folder (6)
-- scripts folder (6)
-- high resolution images folder (6)
-
-CARDS
-
-- Light Magician               /46990001 (NEW - 11/27/2022)
-- Infernal King Spectri-Oh     /46990006 (NEW - 11/27/2022)
-- Firetruck Monkey Business    /46990007 (NEW - 11/27/2022)
-- Ghoti Starlight              /46990008 (NEW - 11/27/2022)
-- Ghoti Genesis                /46990009 (NEW - 11/27/2022)
-- Azzar - Elegance of the Ghoti/46990010 (NEW - 11/27/2022)
-
-HOW TO USE
-
-In order to register these cards in your YGOPro build, you should extract the contents in this Zip file into your Expansions folder, the pictures and scripts for each card go in their respective folders along with all other files from different expansions. Make sure to check your repositories and everything else is in order. To play cards in Expansion files online with friends, you must use the LAN + AI mode, as these contents are not available in Server based duels.
-
-Thanks for your patronage.
-
-Die Frauen 2022
-
-All stock images used for these cards were retrieved from online sources throughout the web and are intended to be free and fair use, if you find that your, or someone's work is used here, feel free to provide source information to be listed below or to request its takedown.
-
-STOCK IMAGE SOURCES
-
-- Light Magician - AviArts / https://www.reddit.com/user/ThePeachyPanda/
-- Infernal King Spectri-Oh - Pyron - Darkstalkers / source pending
-
----
-## [Bersder/Grasscutter](https://github.com/Bersder/Grasscutter)@[88bc5c4c54...](https://github.com/Bersder/Grasscutter/commit/88bc5c4c54c1aadcdc6cc9a24c0f69d4bebce97c)
-#### Sunday 2022-11-27 18:27:29 by Kimi
-
-another translation patches because i fucked it up
-
-i hate myself
-
----
-## [seanpdoyle/turbo](https://github.com/seanpdoyle/turbo)@[75e9bd4d53...](https://github.com/seanpdoyle/turbo/commit/75e9bd4d530e6606af3ffadf82455be41d4450de)
-#### Sunday 2022-11-27 19:30:07 by Sean Doyle
-
-Extract `FrameVisit` to drive `FrameController`
-
-The problem
----
-
-Programmatically driving a `<turbo-frame>` element when its `[src]`
-attribute changes is a suitable end-user experience in consumer
-applications. It's a fitting black-box interface for the outside world:
-change the value of the attribute and let Turbo handle the rest.
-
-However, internally, it's a lossy abstraction.
-
-For example, when the `FrameRedirector` class listens for page-wide
-`click` and `submit` events, it determines if their targets are meant to
-drive a `<turbo-frame>` element by:
-
-1. finding an element that matches a clicked `<a>` element's `[data-turbo-frame]` attribute
-2. finding an element that matches a submitted `<form>` element's `[data-turbo-frame]` attribute
-3. finding an element that matches a submitted `<form>` element's
-   _submitter's_ `[data-turbo-frame]` attribute
-4. finding the closest `<turbo-frame>` ancestor to the `<a>` or `<form>`
-
-Once it finds the matching frame element, it disposes of all that
-additional context and navigates the `<turbo-frame>` by updating its
-`[src]` attribute. This makes it impossible to control various aspects
-of the frame navigation (like its "rendering" explored in
-[hotwired/turbo#146][]) outside of its destination URL.
-
-Similarly, since a `<form>` and submitter pairing have an impact on
-which `<turbo-frame>` is navigated, the `FrameController` implementation
-passes around a `HTMLFormElement` and `HTMLSubmitter?` data clump and
-constantly re-fetches a matching `<turbo-frame>` instance.
-
-Outside of frames, page-wide navigation is driven by a `Visit` instance
-that manages the HTTP life cycle and delegates along the way to a
-`VisitDelegate`. It also pairs calls to visit with a `VisitOption`
-object to capture additional context.
-
-The proposal
----
-
-This commit introduces the `FrameVisit` class. It serves as an
-encapsulation of the `FetchRequest` and `FormSubmission` lifecycle
-events involved in navigating a frame.
-
-It's implementation draws inspiration from the `Visit`, `VisitDelegate`,
-and `VisitOptions` pairing. Since the `FrameVisit` knows how to unify
-both `FetchRequest` and `FormSubmission` hooks, the resulting callbacks
-fired from within the `FrameController` are flat and consistent.
-
-Extra benefits
----
-
-The biggest benefit is the introduction of a DRY abstraction to
-manage the behind the scenes HTTP calls necessary to drive a
-`<turbo-frame>`.
-
-With the introduction of the `FrameVisit` concept, we can also declare a
-`visit()` and `submit()` method for `FrameElementDelegate`
-implementations in the place of other implementation-specific methods
-like `loadResponse()` and `formSubmissionIntercepted()`.
-
-In addition, these changes have the potential to close
-[hotwired/turbo#326][], since we can consistently invoke
-`loadResponse()` across `<a>`-click-initiated and
-`<form>`-submission-initiated visits. To ensure that's the case, this
-commit adds test coverage for navigating a `<turbo-frame>` by making a
-`GET` request to an endpoint that responds with a `500` status.
-
-[hotwired/turbo#146]: https://github.com/hotwired/turbo/pull/146
-[hotwired/turbo#326]: https://github.com/hotwired/turbo/issues/326
-
----
-## [EmilyMansfield/volume-setter](https://github.com/EmilyMansfield/volume-setter)@[d57ce25015...](https://github.com/EmilyMansfield/volume-setter/commit/d57ce25015eeec9d32d49a1e262c4372da7b82bc)
-#### Sunday 2022-11-27 20:07:12 by Emily Mansfield
-
-Change profile of waiter through setter over gRPC
-
-Because the waiter process (called with `--wait`) sets its configuration
-on startup, a setter started after a waiter can use a different
-profile to the waiter, and the two can disagree. The setter can even
-use a different configuration file. Additionally, the user can change
-the contents of the configuration file while the waiter is running, and
-the waiter will not see those changes until it is restarted.
-
-Although restarting the waiter after the configuration file is changed
-might be acceptable, the waiter and setter disagreeing on the
-configuration is not. When a setter is run, the waiter must change its
-current profile to match.
-
-There are numerous ways of doing this, and the method chosen here is
-for the setter to notify the waiter over gRPC. With the size of the
-dependencies this feels a little like hitting a tack with a
-sledgehammer, but the actual code is straightforward and consists
-mostly of boilerplate. One of the reasons to use gRPC is just that I'm
-already familiar with it, and though I'm no expert, I've more experience
-than with e.g. Cap'n Proto. I considered trying ZeroMQ, but again I
-have no experience with it and message serialization would still have
-to be dealt with. Its main attraction was using IPC rather than a
-networking protocol, because that's really all this needs, but that
-isn't currently supported on Windows. Using shared memory directly
-with something like Boost.Interprocess would probably be better for the
-user, but the synchronization and actual implementation would be much
-more complicated. I think an IPC approach is worth pursuing, just not
-right now.
-
-The `tools/build_protos.sh` script (run in WSL) should be used, with
-appropriate modification, to regenerate the Protobuf implementation
-files whenever the Protobufs are changed. While in theory the
-implementation could be generated by CMake, I prefer to have Protobuf
-files checked into source control anyway, and honestly I just don't want
-to write that build system code right now.
-
----
-## [re621/dnpcache](https://github.com/re621/dnpcache)@[34388cbe39...](https://github.com/re621/dnpcache/commit/34388cbe393b994a28b1dd7c61711b9cbc7010ea)
-#### Sunday 2022-11-27 20:29:23 by bitWolfy
-
-Remove 984 artists from the DNP list.
-
-Removed: akytti, vahldem_sol, sootylion, kiva~, peshky, calmnivore, nexcoyotlgt, smoothsharb, sub-rosa, brismy, woodpeckertoons, xeshaire, suirano, mr_otter_breath, bassybefuddle, sweetishcyborg, skullwomb, steak_in_the_daylight, kittydogcrystal, aggrobadger, orbstuffed, fraichetaso, loonyleandra, bunsawce, schl4fmuetze, renkindle, psychovixen, bkmat55, fricken_stoat, w00my, haven_(artist), gipbandit, loki_the_vulpix, pixelyteskunk, erobos, bunchantress, uniquesoul1600, hirowithart, mikaemikae, ratbloke, pastellprinz, racktor, coillte, kazuk9, acidneko, josh_gong, yiyani, grayish, moblo, naoma-hiru, molish, sheyesh, st0pme, cawkbox, unclesam1776, fennecfuchs, inkpuni, pico_(artist), ruugiaruu, wispyparadox, funkybun, lewdoreocat, dogseesghosts, fauwcks, malachimoet, randy_entinger, trex_b6, yui-hii, runaris, rainbowpillars, ragonox, luxuria-sins, maxisb8, hiccyart, fancyfez, mesoplush, gammelgaedda, yi_feng, scpkid, goetiagoat, mabit, dischimera, dr.bubblebum, drakeraynier, rml, amawdz, mc_arts, freemau, cudacore, armomen, orionfell, luriostragedy, dradmon, jesterghastly, gothgator, talentlesshack, foxryk, supertrashparty, marrowsoup, roserivy, vanzard, deepfriedlemons, pehkeshi, torotheking, harewithoutahat, lucciola, mr.lemur, lemonkyubun, cubble_chubb, arrjaysketch, pinklilim, jingo824, infinitedelusion, consciousafterdark, anti-cupid, phosaggro, dashboom, giftheck, birdrabbit, desertmotels, lv99perv, stellarfalcon, tasaeyeang, 100101, knotty, rockfall, aogirinaru, hikebu, pawpadcomrade, frengers, rikkitz, vappypaws, nukeleer, adevio, gummuru, sattytsukumo, bittenbats, whygena, ruzeb, hungothenomster, jads_l_rutan, gattonero2001, shawoo, francis_xie, angeltf, veevobyte, darkfool., huwon, tsukikibaokami, covepalms, nikunabe1989, emifern, pero3, tricksta, inkbeastart, grinn3r, holidaydipstick, odonata-nymph, binxxy_(artist), zazush-una, sodo_ad, loonanudes, kodardragon, flameydragwasp, ablimpfox, bakvissie, eccstasy, esealia, tailsrulz, dexxa, spiritto, vonepitaph, eddy-boy, saiyangoku4, gatomonlover, moonlit-comet, thehenwithatie, brienoir, tegucreative, wanisuke, pxlfur, anomyna, motsutambo, fepon, cyrogenic, fursuitchina, slates1n, depthsofthedrex, furrybob, davelievski, spacemaverick, fluff-kevlar, evenytron, 0eff0rt, gayclub, goatypie, nikoyishi, alishka, makeinu, jfetspeaks, cowbun, wyrwulf, thespiderbunny, fluffx, dragons-and-drawings, jcosneverexisted, emptyset, scoty_doodlerz, makinglemonade, ceramic_(artist), selirum, euskuuy, tsunkat, lustbubbles, appleseid, lewdtant, werewuffstuffer, odontoceti, iaido, turboranger_(artist), saca44, mr.shigglesworth, pyriax, raijikaruart, fox-pop, sirblythe_(artist), pastelarcadiaad, etherealarcadia, dracoarcadia, benjibat, sarvak, amethystbeetle, fnook_(artist), stationarrow, maim, rashkah, psy101, disappointedf0x, pointedfox, bundog, tailgrip, scalesforlife, hayleymulch, saphe, kiweevil, madakan, papyreit, rainiing, bitelickart, done0008, alec8ter, tentativelytoon, mikurulucky, killveous, fishhound, misshammer, yakushishi, pieraite, knives4cats, jalmu, quin-nsfw, zooptoon, ebonychimera, beaglebabe1, filthy-d, l-tech-e-coyote-l, anomalae, rakket, mcdutt, alcor90, sodongs, catcock, blickfen, akiiokai, possumkiddo, inkplasm, doubledeal_(artist), fuzzlesuits, chetchaka, raaazzledazzle, razferret, razbuckner, ikitsunyan, kclt, draco_(artist), gunther_silves, kkitten, singafurian, zandybutt, comfytail, crazyassbeethoven, dogburger, adalee, alirrasarts, blackmagemathos, terragon, leonois, solidpoint, cloudpie, rottenscoundrel, wings-and-strings, tomcoletti, pikajota, squeakcore, doubleclawed, ebonyplume, myznyx, zackary911, gaturo, xepher777, aimee-lesley-sim, spottedsqueak, fuhrawr, isaac_baranoff, starnina15, zestylemonss, meirdent, babymee, explicital, slyvern, karpet-shark, booghetti, zypter, adaptagx, opiodae, kiwipotato, murkbone, jonas, exed_eyes, shuryashish, mangobird, kurogi_fox_siv, snuddy, grimdank, nighteternal2469, dacad, superhypersonic2000_(artist), drako1997, verenpunainen_kuningatar, gurophilia, furrever, rdroid, smolrainbowgoat, ratte, urban-coyote, soulsplosion, cyaeon, elliotte-draws, whisperingfornothing, griz_urso, lepronasty, tears_of_soy, tren, bunnielovesyou, paliken, spaceysoda, david_frangioso, cattinypaws, bobdude0, sprocket_(artist), sincerity_gender, marymanifold, turnipberry, asbel_lhant, klaide, rishi-chan, kircai, otto0ttsy, vaktus, beezlebumawoken, transdonaldduck, questly, pinkkatfox, goopomancer, xoel, allbadbadgers, sugarlesspaints, imafutureguitarhero, eiko_tsukida, tarot_(artist), pinuh, diero, dilarus, dfer32, mxwqtkl, electrycpynk, insomniacovrlrd, cewljoke, craziestrobo, anthrus1127, sunflowerbun, coyoteofthesands, masonparker, dottii, livesinabag, flam, toastedbiscuits, skycladfox, orenjisalmonpaw, nasty-fox, canadian_roses, crez, glorpofruithag, i_am_clover, johawk, lycosa, wizardlywalrusking, burgerkiss, kielseki, whisperfoot, oksara, olly, fetchmonkey, rottingichor, heathenfang, bikomation, phox_(artist), acedetrap, hedonisticvows, deersun, skittleytwix, jinxit, jtp-remart, cocaine-leopard, amarl_krieger, nakoo, leoian_(artist), amyth, nogu-art, bluhcat, vulpes_helios, licos, taurika, papilrux, pophopper, ebnet, apis_(artist), glenthefossa, raitime, sashabelle, puddingpaw, mercurial64, elricmysteryshifter, puptaire, anojaa, candychameleon, spice5400, nickshutter, rem, reiishn, sandybuny, 1oi, crunchobar, dante_yun, pherion, saintxd, rawbelr, mithaa, asmartist, pannekoeke, jotun22, iguky-neky, ahnik, thatvondude, kelevtov., fishwrappe, animal_shapes, oouna, princess_rei, blitzdrachin, jesterdk, watermelon_(artist), amara_lemur, lady_kurai, giantmilkdud, nostars, koili, abananaman, heddy, slobstash, terian, teranen, nexii, parabellux, tom_fischbach, reddacted, tojo_the_thief, proximiter, mmuted, irootie, icyshibe, quetzalcoatl_(artist), lamm, shayshay~, hettie, chutzpaah, jacob_lhh3, carpetwurm, draekos, fatdingleberry_(artist), nooplip, pandasayori, numberxxxvi, bc92, silvixen, jungabeast, phoenixazrael, krazykurt, tape_(artist), iipaw, volvokun, hamstergirlthehamster, fallen_(artist), morkovjpn, wolfirry, slimedrops, rubisdrake, shortconcepts, ahdadah, chubbuppy, dreadcaptain, duckdraw, mehndix, pomander, wolfcha, evillabrat, henzolin, loupgarou, empa, diokhan, kpsketches, raysofsunshine, slash0x, kriticalerror, gallivant_crow, nyaroma, caindra, petit-bambi, thatblackcopfromdawnofthedead, dreamertooth, tofu93, ragnarokdragon, saucy, kidakins, kippy, swizzlestix, brilyeon, caste_(artist), tsukaui, saebira, ozzybae, boo-rad13y, sammythetanuki, vuurren, sinistervibe, rem289, shroompunk, samkin, cieldoberman, g0966, crazedg, gaoru, lpawz, enjoipandas, renthedragon, emeritus_terciel, xouual, tehcutepyro, anon232, grimmgrey, counterserum, knottykitten, crybleat, octopoodle, ker0ker0_(artist), xnirox, necrosquelch, ivenvorry, pkuai, mikefur, mattsykun, lilithveritas, bloodhound_omega, ogaraorcynder, rhos, kehei, aw0, apes, nyhgault, qualzar, licentuouslamb, reggaecyp, cynderplayer, vilegrim, redacteur, jimbohusky, lacrimale, pulsar, growlybeast, coreytwc_(artist), naoki_wolf, iceagechippies, alfierubuncle, cbee, acidic, louiefurrywolfy, bweezy, fluffernubber, koriaris, serena_valentine, tacoyaki, fullheroo, limlam, harmoniousrain, zotnamotgrim, xx_g.u.n_xx, carm, lustylamb, dragonvortex, crowchild, dragoneer, lumi_(artist), phi, lexathefox, tanookicatoon, thunper, korram, redwolfofwind, ipipo, teckworks, abobarseem, doopcity, xepheriah, diablo_en_musica_92, doncoon_(artist), digitaldomain123, belayalapa, delkon, connisaur, jasonafex, kabier, rohly, vcr-wolfe, steve_gallacci, hologram_(artist), irene_(artist), piumartiglio, sumat, kingofmaggots, oha, featheredclaw, snuddi, mentalo, ourflatcoat, da-fuze, herr_aardy, discoverychannel, azorart, nemomein, latex_(artist), afterdarkie, 7mii, draco_fenris, blown-ego, sissyskunk_(artist), chucktheskunk_(artist), oakspirit, brokenlynx21, nickswift, butter_bat, ben_hickling, bluehunter, soyuz, sorimori, blackbearcj, ficus, crimes, eifie, soundwavepie, besonik, greyskee, alekksandar, bluetigress, nereza, kalvince, thelabtwins, the_lynox, galaxyoron, moondevourer, devildjmachine, evov1, enjambre, seph_ebonblade, prototypebasilisk, accell, myakoda, merenhor, muramuri, derfuhrer, moltengoldart, cchipppo, tetrapoda, omochi_(inkbunny), popsmasterson, nikinazu, raevee, wyntersun, ribboners, c4camel, shysketch, deishido, arconos, melvismd, taihab, cobalt_snow, flak_wizard, paddington_and_company_limited, dangerdoberman, inprogresspokemon, whitemantis, naexus, datsexylemur, polywomple, marilimmy, ryan_rabbat, krimrath, yoshitura, maplecookies, aurelleaheverfree, puppercase, spino, palcomix, bbmbbf, lilithofglace, frisket17, myloveless, grau_(artist), aduleon, sexbad, mearcu, murcifer, citrusdicks, jdlaclede, hessonite, sokalo, kittehmei, puccaruu, yuurikin, kurikia, the_cherret_awaits, rapps, maxtwenty, bigbrownorc, santanni, twistedtemptation, nikita-the-stag, liz_art, camcartoonfanatic, singlerider4, beanbat, forge_(artist), hoshime, yamamoto, eviljake2, oriole_(artist), inkblooded, alefwdog, herisheft, disparitybit, samagthrav2, battle_franky, taesolieroy, wolftacos, anixis, spazzticglitch, pirun, swampstomper, morbi, mittsies, blondevelvet, kadath, trunchbull, danza, shinxiolu, littlefreckles, grumpyvulpix, xopachi, gonenannurs, floravola, heartcollar, metz, ranard_lightningfall, frots, curtsibling, vilani, inkydemon, sprinkle-butt, airguitar, anhes, jace_(artist), kaji_(artist), nimrais_(artist), kyoushiro, venerit, lunaselenewolfe, tsareia, violentanxiety, whippytail, kk-furryworks, cobalta, mickeyila, akuva, rairai, backlash91, sanae, fishbones_(artist), itoril, littlemiu, zeara, darkrokkuman_(artist), peony, helical, donro, agalamt, inanna-nakano, aniutqa, kraest, audiovideomeow, silverbobcat, erithacuscreations, mattartist25, yasminachan, jagzcat, ohmuu, roum, sefeiren, sesameseedbun, noben, aquatheohiokitty, mewyfox, ilgrigio, leoian, vixendra, van_weasel, keihound, zoey03, hardblush, jay_naylor, frisky_ferals, slipshine, rubyrebirth, oze, neogeen, omegaltd, themadcatter, kamicheetah, ookamithewolf1, rabbit_valley, purplekecleon, ollieosa, jayfiregrowlithe, ensayne, bazaarbobby, scappo, dogsoul, poonani, paddercat, eltonpot, ebonyleopard, strype, cbh, mithril07, bicdente, unpeeledwasp, versiris, pitkin, mikachu_tuhonen, lilhoneypup, ladyshinwa, bad-collie, buizilla, foxxian, inert-ren, okamiterasu, mrawl, sammy_stowes, jameless, jooshster, lemoncore, xainy, strider-orion, silitha, spacepoptart, myuinhiding, sweetpinkpetals, sephygoth, edensky, ka, cigarscigarettes, tani_da_real, leatherruffian, hahul, cheezyweapon, reizakirga, leefuu, tanyafoxy, peyo, sweatshirt_(artist), adiago, timelesserror, jollyjack, kahmari, madhattermonster, omnoproxyl337, greykitty, thekitty, mattaku_shinzu, fortuna, fallenarts, ammako, sciggles, atlasfield, sheepdust, lumaberry, tktktk, uzai, aku_tojyo, sixthleafclover, gardelius, squeedgemonster, max-dragon, baka_sukonku, ferniio, jennadelle, ixerin, jaleo, luvythicus, tatious, nekomata_neko, zody, binky, sidian, kii-kitsune, kiirei, spookeedoo, angel27, msrah_(artist), nazuu-m0nster, lunacatta, kululu-xiao, kipcha, fluffball, reptilecynrik, redadillio, zerwolf, kylontario, liz_day, nightweaver, egophiliac, doffa, dipper, kefkafloyd, melo666, sonicdash, sugarpoultry, olven, theramjing, softpaw, xiraco, unicornspirit, tinintri, thornwolf, thaily, tamen, sharue, shadowsani, rikutida, paolo, kriscrash, kaemantis, frogsbreath, tailheat, sexyfur, jeremy_bernal
-
----
-## [C-EO/terminal](https://github.com/C-EO/terminal)@[f7b0f7444a...](https://github.com/C-EO/terminal/commit/f7b0f7444a101420665de1cf5400d02408226666)
-#### Sunday 2022-11-27 21:25:43 by Mike Griese
-
-Spec for Elevation QOL improvements (#8455)
-
-### ⇒ [doc link](https://github.com/microsoft/terminal/blob/dev/migrie/s/1032-elevation-qol/doc/specs/%235000%20-%20Process%20Model%202.0/%231032%20-%20Elevation%20Quality%20of%20Life%20Improvements.md) ⇐
-
-
-## Summary of the Pull Request
-
-Despite my best efforts to mix elevation levels in a single Terminal window, it seems that there's no way to do that safely. With the dream of mixed elevation dead, this spec outlines a number of quality-of-life improvements we can make to the Terminal today. These should make using the terminal in elevated scenarios better, since we can't have M/E.
-
-### Abstract
-
-> For a long time, we've been researching adding support to the Windows Terminal
-> for running both unelevated and elevated (admin) tabs side-by-side, in the same
-> window. However, after much research, we've determined that there isn't a safe
-> way to do this without opening the Terminal up as a potential
-> escalation-of-privilege vector.
-> 
-> Instead, we'll be adding a number of features to the Terminal to improve the
-> user experience of working in elevated scenarios. These improvements include:
-> 
-> * A visible indicator that the Terminal window is elevated ([#1939])
-> * Configuring the Terminal to always run elevated ([#632])
-> * Configuring a specific profile to always open elevated ([#632])
-> * Allowing new tabs, panes to be opened elevated directly from an unelevated
->   window
-> * Dynamic profile appearance that changes depending on if the Terminal is
->   elevated or not. ([#1939], [#8311])
-
-
-## PR Checklist
-* [x] Specs: #1032, #632
-* [x] References: #5000, #4472, #2227, #7240, #8135, #8311
-* [x] I work here
-
-## Detailed Description of the Pull Request / Additional comments
-_\*<sup>\*</sup><sub>\*</sub> read the spec  <sub>\*</sub><sup>\*</sup>\*_
-
-### Why are these two separate documents?
-
-I felt that the spec that is currently in review in #7240 and this doc should remain separate, yet closely related documents. #7240 is more about showing how this large set of problems discussed in #5000 can all be solved technically, and how those solutions can be used together. It establishes that none of the proposed solutions for components of #5000 will preclude the possibility of other components being solved. What it does _not_ do however is drill too deeply on the user experience that will be built on top of those architectural changes. 
-
-This doc on the other hand focuses more closely on a pair of scenarios, and establishes how those scenarios will work technically, and how they'll be exposed to the user.
-
----
-## [MateuzinhoX02/FNF-Android-Preps](https://github.com/MateuzinhoX02/FNF-Android-Preps)@[949883056e...](https://github.com/MateuzinhoX02/FNF-Android-Preps/commit/949883056e8d24409da894d637146600ab346769)
-#### Sunday 2022-11-27 21:48:09 by Mateus Soares
-
-Oh my god! Its Boyfriend from Friday Night Funkin'
-
-Sorry, i dont speak English.
-
----
-## [lessthnthree/tgstation](https://github.com/lessthnthree/tgstation)@[b77cf7c120...](https://github.com/lessthnthree/tgstation/commit/b77cf7c1205d466b8cb242cd3302891e82b44da2)
-#### Sunday 2022-11-27 22:01:13 by Iamgoofball
-
-Hotkey-based inventory management now applies the click cooldown to prevent it from being abusable in combat scenarios. (#71325)
-
-
-About The Pull Request
-
-Hotkey-based inventory management now applies the click cooldown to prevent it from being abusable in combat scenarios.
-Why It's Good For The Game
-
-Players have been deploying unbelievable levels of abuse with these hotkeys having completely uncapped speeds.
-I watched one cheater do automated inventory management using storage items and weirdly named empty pills to use as inventory delimiters.
-Resolves people being able to have a baton hidden in their backpack and then activate and baton someone with it in 0.1 seconds without moving their mouse cursor off of their target.
-
-Players should not be able to interact with their inventory faster than someone moving a mouse and clicking the left mouse button. This cripples the game balance and puts anyone with a worse internet connection, slower reaction speeds, or laggier computer at a distinct disadvantage against people who can macro their inventory management.
-
-I can set up autohotkey so that I can withdraw a stun baton from my backpack, turn it on, and then click someone by just holding down a key and pressing M1 over someone. This shit needs to stop.
-
-If a do_after() on hotkey management is too harsh, we can apply a combat click cooldown every time you use the hotkeys instead to discourage combat macro abuse.
-Swapped it over to a click cooldown.
-Changelog
-
-cl
-balance: Hotkey-based inventory management now applies the click cooldown to prevent it from being abusable in combat scenarios.
-/cl
-
----
-## [tonyvitonis/git](https://github.com/tonyvitonis/git)@[f1c903debd...](https://github.com/tonyvitonis/git/commit/f1c903debdcbf6aaf8fd3abf222fa941b42d5d31)
-#### Sunday 2022-11-27 23:29:03 by Ævar Arnfjörð Bjarmason
+## [NOUIY/git](https://github.com/NOUIY/git)@[f1c903debd...](https://github.com/NOUIY/git/commit/f1c903debdcbf6aaf8fd3abf222fa941b42d5d31)
+#### Monday 2022-11-28 06:28:41 by Ævar Arnfjörð Bjarmason
 
 cocci: make "coccicheck" rule incremental
 
@@ -1963,6 +659,1385 @@ Outstanding issues & future work:
 
 Signed-off-by: Ævar Arnfjörð Bjarmason <avarab@gmail.com>
 Signed-off-by: Taylor Blau <me@ttaylorr.com>
+
+---
+## [mattdway/CreateWithVR](https://github.com/mattdway/CreateWithVR)@[188557a3c2...](https://github.com/mattdway/CreateWithVR/commit/188557a3c203a604725429005b76bd13c158c018)
+#### Monday 2022-11-28 06:49:02 by mattdway
+
+11-03-22 Commit
+
+11-3-22		v2.2.3
+11-03-22 Commit
+Fixed a bug that one of my students found play testing on 11-03-22.  Under the correct circumstances when using teleport anywhere he was able to teleport himself outside the bounds of the room by placing the cursor between the room and the watering can.  I adjusted the teleportation anywhere plane so that there is now a  buffer on all four sides of floor and the outside walls in which teleportation is no longer possible.
+
+I tested and I was not able to get out of bounds in the way found previous.
+
+Papers can still clip through the floor and this does not appear to be due to this teleportation area layer.
+ main
+@mattdway
+mattdway committed 15 hours ago
+
+11-22-22	v2.3.1
+11-22-22 Commit
+No individual commits for 11/17/22 or 11/20/22 so all commits for these two dates plus on 11/22/22 are being made in the 11-22-22 Commit.
+
+On 11/17/22 By creating no teleport plane that I made the same size as the furniture and plant by the window and by setting it slightly above the teleport anywhere plane by about .01 I was able to create a blocked area where teleportation can’t happen. This is neater and easier than trying to shrink the teleport anywhere plane as there are still areas by the window I want people to be able to get to.
+
+I also duplicated this no teleport plane and positioned it under the desk and table with the food. Essentially any opportunity to teleport under/into an object and/or an object near s collider wall I want to eliminate as a teleport anywhere area.
+
+Thus no teleporting outside the room (hopefully).
+
+On 11/17/22 I also organized my hands, hands controllers and hand rays into child objects of parent objects for neatness and organization sake. It is now much easier to find the physics hand game objects, the non-physics hand game objects, the hand controller game objects and the hand ray game objects in the Hierarchy, especially since these objects are no longer exclusively childed.
+
+On 11/20/22 I was able to rotate the ghost hands in scene so that these are facing the same way as my physical hands in the beginning. This means the ghost hands now have the same rotation as my physical hands without having to set it in C# code.
+
+On 11/20/22 The colliders are still an issue. The swirling ghost hands at the beginning are still an issue. The hands not being hidden when picking something up is still an issue. I'm still troubleshooting to try and figure out why these bugs exist so that i have a better idea of how to patch these.
+
+One more bug I have added to my list... whenever I use any reset button (or a reset from the reset menu) my physics hands are not present. So I also need to look at the code for that reset and see why the scene resets without those hand game objects present.
+
+On 11/20/22 I solved the swirling hand issue by setting the controller parent object for both NP hands to be the exact same transform as my physics hand controllers. It's the controller difference and not the hand difference, I think, that was triggering the ghost hand code. I've tested twice and the physics hands are the active hands immediately and the non physics hands still show up when I press down on the couch arm. So both are activated and the NP hands only show up with that 0.05m
+
+On 11/22/22 Turning off the Interactables/Right Hand Physics and the Interactables/Left Hand Physics in the Physics Matrix of the Project Settings stopped the weird collisions from happening while holding items but because the interactables also have both Rigidbodies and colliders (as they already had to have this for the XR Grab Interactable to work), this means my hands still knock around objects that I pick up. This also allows the hide hands method to work correctly, so my hands once again disappear.
+
+By changing the interactable's Rigidbody's Collision Detection from Continuous Dynamic to Continuous Speculative I was also able to prevent interactable objects from clipping through the walls.  These items are now stopped when hitting walls.  You also now can't clip through the walls while holding items.
+
+I was able to use a Hierarchy search for Rigidbody then I was able to Ctrl + select all my interactable items and then I set the Rigidbody Collision Detection to Continuous Speculative on all those objects at once.
+
+Fixed the interactable items not colliding with the walls and door issue.  The XR Grab Interactable's Movement Type wasn't set to Velocity Tracking in all cases, thus in some cases where this was set to Kinematic, collisions were being ignored.  Fixed now and all the interactable items now seem to be stuck within the confines of the room without exiting out.  Also, I haven't yet found any item that I am holding that allows my hands to clip through the walls, despite the code that disables the colliders when holding an item.  So this seems to work well with physics hands.
+
+I still need to fix the reset bug that reverts the objects in play mode back to non-interactable hands with no physical hands present.  This may be because code is reloading the main scene and not the secondary scene I saved as for building and testing purposes.  That scene will eventually be saved back over to the main scene once I've done a few more play tests and this may fix that issue.
+
+---
+## [MushiTea/21438_ChaoticCurrent_REPO](https://github.com/MushiTea/21438_ChaoticCurrent_REPO)@[502402ae79...](https://github.com/MushiTea/21438_ChaoticCurrent_REPO/commit/502402ae7968a18481b99f2af62261075c47f828)
+#### Monday 2022-11-28 07:06:36 by Boredom
+
+Srinirek push (#19)
+
+* 11/26/22
+
+* Omg girl do you watch forged in fire? Cuz I want you to pick usable steel from this pile of scrap metal to use as the base for your blades. They must meet the following parameters, a length between 8-10 inches, a full tang with a length of 3-4 inches, and width from spine to cutting edge of at least 1 1/2 inch but no longer than 2 1/2 inches. In the next round, you will be attaching handles to your blades to turn them into fully functional weapons. And for the third round we will put it through a series of tests, such as, dummy stab for sharpness, chain chop for durability, and a sheet metal stab for edge retention. And the two winners of the third round will be sent to their home forges to recreate an iconic weapons from history. The winner of the final round will go home with the title of forged in fire champion and a check for $10,000. Your time starts, now!
+
+Essentially what we did was fix claw,slide, and arm positions and I added manual arm just because - Srinirek
+
+---
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[6483cb7db1...](https://github.com/treckstar/yolo-octo-hipster/commit/6483cb7db1ebe9874fa79fb4a6ce439e6a44aa1f)
+#### Monday 2022-11-28 07:22:01 by treckstar
+
+People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
+
+---
+## [Wolfsrudel/awesome-console-services](https://github.com/Wolfsrudel/awesome-console-services)@[4b8f298fb2...](https://github.com/Wolfsrudel/awesome-console-services/commit/4b8f298fb2b94b3c492da39ca43fcd2775907eea)
+#### Monday 2022-11-28 07:37:47 by techie2000
+
+ascii.town is no longer interactive
+
+Attempting to access it now results in 
+```
+================================================================================
+
+Nazis, fuck off!
+
+Sorry to everyone else who enjoyed this space.  It was only a matter
+of time, and it lasted a lot longer than I ever expected.  It breaks
+my heart to log in and see hate on the canvas.  Obscurity is no
+longer enough to keep this space as pleasant as it once was.  I'll
+clean up what I can and keep https://ascii.town/explore.html running
+so that what was created here can continue to be enjoyed.  Thank
+you all for your contributions over the years.  You made something
+beautiful.
+
+Black lives matter.  Trans rights are human rights.  Much love to
+all the gay weirdos out there.
+
+~june
+
+torus@ascii.town  2017-2022
+
+================================================================================
+```
+
+---
+## [Empire-Strikes-Back/Doc](https://github.com/Empire-Strikes-Back/Doc)@[d44ab51886...](https://github.com/Empire-Strikes-Back/Doc/commit/d44ab518862178ae79c9a0b028fa9dd113e026b0)
+#### Monday 2022-11-28 09:43:51 by Doc
+
+give me the damn page!
+
+unlike TheViper we cannot divide ourselves between AoE2 and 4 - wine and beer
+
+like Kip Andersen - different docuemntarie, same style - and garden - different programs but same network - wine
+
+I listen to Jesus - I know about kingdom divided within itself, Pharisee yeast, blood and body, where and faith
+
+let wine be wine - not beer
+like Harry Tusker - ready to  jump on a horse between roofs into a pool
+
+:Kristen-Jaimie-Lee-Wiig pooped my pants and proud of it!
+
+---
+## [apollographql/router](https://github.com/apollographql/router)@[cfb421a564...](https://github.com/apollographql/router/commit/cfb421a5646de4ae5d5634415c86336d70c6fb90)
+#### Monday 2022-11-28 09:56:33 by Bryn Cooke
+
+Fixes #2123 (#2162)
+
+Issue was introduced with #2116 but no release had this in.
+
+Move operations would insert data in the config due to the delete magic
+value always getting added. Now we check before adding such values.
+
+We may need to move to fluvio-jolt longer term.
+
+<!--
+First, 🌠 thank you 🌠 for considering a contribution to Apollo!
+
+Some of this information is also included in the /CONTRIBUTING.md file
+at the
+root of this repository.  We suggest you read it!
+
+  https://github.com/apollographql/router/blob/HEAD/CONTRIBUTING.md
+
+Here are some important details to keep in mind:
+
+* ⏰ Your time is important
+To save your precious time, if the contribution you are making will
+take more than an hour, please make sure it has been discussed in an
+        issue first. This is especially true for feature requests!
+
+* 💡 Features
+Feature requests can be created and discussed within a GitHub Issue.
+Be sure to search for existing feature requests (and related issues!)
+prior to opening a new request. If an existing issue covers the need,
+please upvote that issue by using the 👍 emote, rather than opening a
+        new issue.
+
+* 🕷 Bug fixes
+These can be created and discussed in this repository. When fixing a
+bug,
+please _try_ to add a test which verifies the fix. If you cannot, you
+should
+still submit the PR but we may still ask you (and help you!) to create a
+test.
+
+* 📖 Contribution guidelines
+Follow https://github.com/apollographql/router/blob/HEAD/CONTRIBUTING.md
+when submitting a pull request. Make sure existing tests still pass, and
+add
+        tests for all new behavior.
+
+* ✏️ Explain your pull request
+Describe the big picture of your changes here to communicate to what
+        your pull request is meant to accomplish. Provide 🔗 links 🔗 to
+associated issues! Documentation in the docs/ directory should be
+updated
+        as necessary.  Finally, a /CHANGELOG.md entry should be added.
+
+We hope you will find this to be a positive experience! Contribution can
+be
+intimidating and we hope to alleviate that pain as much as possible.
+Without
+following these guidelines, you may be missing context that can help you
+succeed
+with your contribution, which is why we encourage discussion first.
+Ultimately,
+there is no guarantee that we will be able to merge your pull-request,
+but by
+following these guidelines we can try to avoid disappointment.
+
+-->
+
+Co-authored-by: bryn <bryn@apollographql.com>
+
+---
+## [emorozov/dwm](https://github.com/emorozov/dwm)@[67d76bdc68...](https://github.com/emorozov/dwm/commit/67d76bdc68102df976177de351f65329d8683064)
+#### Monday 2022-11-28 10:13:05 by Chris Down
+
+Do not allow focus to drift from fullscreen client via focusstack()
+
+It generally doesn't make much sense to allow focusstack() to navigate
+away from the selected fullscreen client, as you can't even see which
+client you're selecting behind it.
+
+I have had this up for a while on the wiki as a separate patch[0], but
+it seems reasonable to avoid this behaviour in dwm mainline, since I'm
+struggling to think of any reason to navigate away from a fullscreen
+client other than a mistake.
+
+0: https://dwm.suckless.org/patches/alwaysfullscreen/
+
+---
+## [Salex08/tgstation](https://github.com/Salex08/tgstation)@[fccd833526...](https://github.com/Salex08/tgstation/commit/fccd833526364b131ce440b4ab0e65022103927c)
+#### Monday 2022-11-28 10:47:26 by GoldenAlpharex
+
+Fishing Odds Code Improvements and Rescue Hooks (#71415)
+
+## About The Pull Request
+I wanted to try and implement an easier way for people to fish out
+corpses from chasms, as I heard many tales of people trying to fish
+others out of chasms and it taking over one IRL hour, with some cases
+where it would take over two hours. Obviously, that's not really
+interesting gameplay, and it doesn't really give people an incentive to
+fish, it just turns it into an annoyance that people won't want to do
+for fun. Now, we don't want that, do we?
+
+As such, I've created the rescue hook, a special fishing hook that can
+only be used in chasms (as that's currently the only place you can find
+people into), which will only be able to fish out duds, skeleton
+corpses, any mob that's fallen into a chasm and hasn't been rescued yet,
+or rarely, a hostile monster lurking below. It has, at the time of
+writing this, a weight of 5 (50 without bait, lower with bait) for duds
+and a weight of 30 for chasm detritus, which themselves have a 50%
+chance to be a random skeleton corpse, or a lobstrosity, and the
+remaining 50% chance of fishing out a mob that's fallen into a chasm.
+I'm open to tweaking these values if we think it's too easy or too hard,
+but it's still a rather expensive item, so I'd consider it quite fine
+the way it is myself, as it's still not risk-free.
+
+It's currently only obtainable through buying it from cargo in the
+goodies section, at a default price of 600 credits (making it
+SIGNIFICANTLY more expensive than the rest of the fishing content, and
+making it something that assistants will have to put some elbow grease
+into if they want to be able to afford it).
+
+As it stands currently, it can't be used to recover the fallen's
+belongings that weren't on their person (i.e., their crusher if they
+were holding it in hands), ~*but* I'm down to make that easier to fish
+out using, for instance, the magnet hook, while also making it
+incompatible with fishing out bodies, which would make it a nice way to
+recover those lost items without spending over an hour fishing for them,
+if that's something that maintainers would want.~ Maintainers did want
+it, and as such...
+
+The Magnetic hook is now the go-to hook to retrieve objects from chasms!
+Not only does it inherently do a much better job at fishing out
+non-fishes, it also has a lesser chance of retrieving random junk from
+chasms, and an even lower chance of fishing out lobstrosities!
+
+I also improved the code for the fishing weights calculation so that the
+hooks and the rods can have an effect on the odds of certain types of
+rewards more easily, with the option of offloading a more of what's
+currently being calculated on `fishing_challenge` over on the rods or
+even the hooks themselves.
+
+I finished by fixing a handful of capitalization and punctuation issues
+in various fishing items, as that bugged me when I was testing my
+changes.
+
+## Why It's Good For The Game
+Corpses being recoverable from chasms was a great idea, however making
+it so people would have to sink a major portion of their shift for a
+chance at recovering a corpse doesn't create a particularly interesting
+gameplay loop. However, being able to spend your hard-earned funds in
+order to streamline that process without really being able to use that
+to cheese other mechanics sounds like a great deal to me.
+
+## Changelog
+
+:cl: GoldenAlpharex
+add: Added a Rescue Hook, that will allow the fishing rod it's attached
+onto to become a lot more proficient at recovering corpses from chasms,
+at the expense of making it unusable for more traditional fishing. It
+isn't entirely lobstrosity-proof, however...
+balance: The magnetic hook can no longer fish out corpses from chasms,
+but will fish out items much more efficiently than any other hooks,
+while also being much less attractive to lobstrosities. Some still fall
+for it regardless, however.
+spellcheck: Fixed the capitalization and punctuation in the description
+of multiple fishing accessories.
+code: Improved the code for fishing weights, to allow for different
+hooks to have some more noticeable results on the weights without having
+to add to an already massive proc.
+/:cl:
+
+---
+## [Salex08/tgstation](https://github.com/Salex08/tgstation)@[0747099063...](https://github.com/Salex08/tgstation/commit/074709906301e3e396179c861ca0af068c3f36ec)
+#### Monday 2022-11-28 10:47:36 by RikuTheKiller
+
+Adds a reagent injector component and BCI manipulators to all circuit labs (#71236)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
+
+## About The Pull Request
+
+This PR adds a reagent injector component that's exclusive to BCIs.
+(Requested to be integrated into BCIs by Mothblocks.)
+When outside of a circuit, the component itself stores the reagents.
+However, if it's inside of a BCI, the storage is moved to the BCI. The
+storage can contain up to 15u of reagents and acts like an open
+container. (However, it won't spill even if you throw it, it just acts
+like an open container code-wise, don't worry about it.)
+You can only have one reagent injector in a circuit. Trying to insert
+multiple will give you an error message.
+The entire dose is administered at once. (Requirement set by
+Mothblocks.)
+
+Please don't try to dispute any of the specific limitations in the
+comments as they're out of my control. They're reasonable anyways.
+
+Reagent Injector Input/Output:
+Inject (Input Signal) - Administers all reagents currently stored inside
+of the BCI into the user.
+Injected (Output Signal) - Triggered when reagents are injected. Not
+triggered if the reagent storage is empty.
+
+New BCI Input:
+Show Charge Meter (Number) - Toggles showing the charge meter action.
+(Adds some capacity for stealth.)
+
+Install Detector Outputs: (Added following a comment about having to use
+weird workarounds for proper loops.)
+Current State (Number) - Outputs 1 if the BCI is implanted and 0 if it's
+not.
+Installed (Signal) - Triggered when the BCI is implanted into it's user.
+Removed (Signal) - Triggered when the BCI is removed from it's user.
+
+This PR also adds BCI manipulation chambers to all currently present
+circuit labs. (Solution proposed by Mothblocks.)
+Yes I had to do some other mapping changes to allow for this. No I don't
+have any mapping experience, why do you ask?
+
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
+
+## Why It's Good For The Game
+
+One small step for BCIs, one giant leap for circuit kind. (First
+"proper" circuit to human interaction in the entire game!)
+
+This allows for some funky stuff and also makes it less of a pain in the
+ass to use BCIs. What's not to love?
+
+<!-- Argue for the merits of your changes and how they benefit the game,
+especially if they are controversial and/or far reaching. If you can't
+actually explain WHY what you are doing will improve the game, then it
+probably isn't good for the game in the first place. -->
+
+## Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
+and it's effects on PRs in the tgstation guides for contributors. Please
+note that maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. You can attempt to finagle the system
+all you want, but it's best to shoot for clear communication right off
+the bat. -->
+
+:cl:
+add: Added a reagent injector component and BCI manipulators to all
+circuit labs. (+ install detector component)
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
+
+---
+## [Salex08/tgstation](https://github.com/Salex08/tgstation)@[bf582cb833...](https://github.com/Salex08/tgstation/commit/bf582cb833d89b7121b4fefa37e8da1773783245)
+#### Monday 2022-11-28 10:47:36 by Profakos
+
+Trophy case update (#71015)
+
+## About The Pull Request
+
+I have been chipping away/procrastinating at this since May, but after
+several years, I have finally updated how Trophy Cases work.
+
+So, what this PR does is the following:
+
+- Standardized everything in persistence.dm to use snake case, and added
+basic autodocs
+- Automatically moves trophies from data/npc_saves/TrophyItems.json to
+data/trophy_items.json. Removed legacy .sav conversion by request, it
+has been a long time.
+- Trophy cases are opened and loaded the same way you would open a
+regular ID locked display case (used curator access, relevant access
+autodoc has been updated)
+- Instead of cheap plastic replicas that turn to dust anyways, trophy
+cases use holograms, which can be dispelled by hand
+- Trophy data gets saved if an item stays in the trophy case when the
+shuttle arrives to centcom, and the item has a description set. This is
+in line with paintings, which has to still hang on the wall at round
+end.
+- You can edit the description of new trophies by using the librarian's
+key to unlock History Mode
+- When you click on a closed trophy case, it will open a tgui, and will
+not display the case description. It will still do for open cases.
+Vendatrays have been updated to do the same.
+- The UI's icon uses icon2base64(getFlatIcon(showpiece, no_anim=TRUE)).
+Vendatrays have been updated similarly, so items with directions and
+animations are displayed properly. The base64 strings are updated in
+update_static_data.
+- Fixes vendatrays from displaying some characters in strange ways, such
+as displaying /improper.
+- Renames some one letter, or nonindicate argument and var names in
+trophy case code
+- Adds a trophy management admin panel, where admins can finally delete
+all the curator ID cards swallowed over the years. Or, they can replace
+the paths with funny new paths.
+- If an entry has an incorrect, no longer existing path, it will be
+marked red in the management panel
+- Adds MAX_PLAQUE_LEN define, which 144 characters
+- Removes start_showpieces from trophy cases, as it was completely
+unused. The start_showpiece_type var is still around.
+- Moves trophy_message var to trophy cases. Only a dice collector
+display case used them in the Snowdin map.
+
+What this PR does not do
+
+- Sadly, it still only saves the base image of an item, and no layers or
+altered image states. This has to come in the future.
+
+<details>
+<summary>Click here to see various states of the trophy tgUI</summary>
+ 
+
+![kép](https://user-images.githubusercontent.com/2676196/199545412-e5b7e7a8-59fb-41e6-aca5-6b07ba33501c.png)
+Locked history mode, existing item.
+
+
+![kép](https://user-images.githubusercontent.com/2676196/199545574-9e705603-9b7a-457d-9575-2d4145ad940d.png)
+Unlocked history mode, but holographic trophy is present.
+
+
+![kép](https://user-images.githubusercontent.com/2676196/199545883-45c3916b-011f-462a-8296-6eb13db32158.png)
+Locked history mode, no item.
+
+
+![kép](https://user-images.githubusercontent.com/2676196/199545967-a33e2501-aa5f-473b-b79f-ebd950df2afc.png)
+Unlocked history mode, no item.
+
+
+![kép](https://user-images.githubusercontent.com/2676196/199546100-718bd639-3199-4df7-ad77-ed3dbf27b290.png)
+Unlocked history mode, item placed, default text. (Note: this picture is
+out of date. The typo has been fixed, and "record a message" is now
+"record a description" for consistency)
+ 
+
+![kép](https://user-images.githubusercontent.com/2676196/199546202-5ebbbd28-907c-4f2d-b7cd-29d2ef21c7f3.png)
+Unlocked history mode, item placed, new text.
+
+</details>
+
+<details>
+<summary>Click here to see the admin panel</summary>
+
+
+![kép](https://user-images.githubusercontent.com/2676196/199553349-8684f23f-4699-42f2-a27e-15cccad29d0b.png)
+
+
+</details>
+
+## Why It's Good For The Game
+
+Less curator ID's stuck in the Trophy Cases, and the existing ones can
+be cleaned up. A more immersive Trophy Case user experience, in general.
+
+## Changelog
+
+
+:cl:
+refactor: refactored trophy cases, to be more user friendly
+admin: created a trophy managment admin panel
+/:cl:
+
+---
+## [Salex08/tgstation](https://github.com/Salex08/tgstation)@[bbb956d2a6...](https://github.com/Salex08/tgstation/commit/bbb956d2a670656e546c35a09ec27295e5e06e94)
+#### Monday 2022-11-28 10:47:36 by OrionTheFox
+
+Removes Bowls from garbage spawners because they don't fit in trash bags and I'm SICK of not being able to clean! (#71152)
+
+## About The Pull Request
+Let me give you a scenario.
+
+---
+
+THIS, is you. Say hi!
+
+![image](https://user-images.githubusercontent.com/76465278/200268480-9dcf1f45-3bc5-402d-b743-b0649deefb08.png)
+
+You're a loyal janitor aboard NT-SS13. You love your job; despite the
+dangers, it's generally not too busy or tedious. Just a spray, a sweep,
+and put it all in a bag.
+
+---
+
+This. This is your enemy.
+
+![image](https://user-images.githubusercontent.com/76465278/200269058-957ca433-4666-44b5-9c10-ae0da75219cb.png)
+
+Some crewmembers continuously leave them in maintenance, tossing them
+into garbage bins as they pass.
+This bowl, you cannot spray it. You can sweep it as far as you want, but
+in the end, cannot put it into the bag.
+
+![image](https://user-images.githubusercontent.com/76465278/200269156-bbc7758b-9cbe-4a3b-8d17-9aa53254b4b2.png)
+
+---
+
+It exists to torment you.
+Nothing more, nothing less.
+
+You hate the bowl. And it hates you.
+Wake up.
+
+![image](https://user-images.githubusercontent.com/76465278/200269456-a7fda598-3556-4069-bd2a-44a8793c198f.png)
+## Why It's Good For The Game
+Usually when you pass a trash pile you expect it to have trash, and
+entire bowls aren't technically trash code-wise, nor can you clean them.
+Yes, this PR has a modicum of salt. It was salt left behind in THE DAMN
+BOWLS.
+## Changelog
+:cl:
+del: NT has decided to begin a Recycling initiative, asking crew to
+please stop throwing their bowls away in maintenance. You should only
+find trash and grime from now on!
+/:cl:
+
+---
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[9b70bfcb2e...](https://github.com/treckstar/yolo-octo-hipster/commit/9b70bfcb2e00c6cda403ac521a16ae94e89ef174)
+#### Monday 2022-11-28 11:22:03 by treckstar
+
+Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
+
+---
+## [mindplay-dk/sql](https://github.com/mindplay-dk/sql)@[ebd772dd1d...](https://github.com/mindplay-dk/sql/commit/ebd772dd1d8b4f1f5c08ab32da768b7ee0cb0660)
+#### Monday 2022-11-28 11:41:34 by Rasmus Schultz
+
+add support for yield $index => $value in mappers
+
+this feature was missing and has been implemented as described in the README.
+
+this is actually a bugfix, but it's also potentially a breaking change for some poorly implemented mappers - specifically, if your mapper inadvertedly discards the indices of the given array (effectively renumbering the values) this bug would previously help this case by simply renumbering the entire result.
+
+for example, the following mapper function is lossy and discards indices:
+
+function my_mapper(array $rows)
+{
+  foreach ($rows as $row) {
+    yield $row;
+  }
+}
+
+If you were using batches of, say, 20 records, this mapper would return an array with indices 0..19 for the first batch, and indices 0..19 again for the second batch, and so on. This coud likely cause nasty bugs in a loop that actually uses these keys for something, since the keys of each batch would collide with the keys of the previous batch.
+
+The faulty batch processing behavior would simply renumber these as 0..19, 20..39 and so on, since it was effectively discarding your bad indices and renumbering everything.
+
+With the introduction of this change, Result::createIterator() will assign a running $record_index, which ensures unique indices across batches - these indices will propagate to mappers, but if any mapper discards the indices, well, you get key collissions... meaning, anywhere we use iterator_to_array() or Result::all() etc. you can expect colliding entries to (silently!) disappear.
+
+The good news is, if you're using Result::all() you're probably not using batches - since you're intentionally loading the entire result into a single array. If you did specify a page size, however, and one of your mappers discards indices, then yeah, you'll have problems.
+
+This would seem to be a limitation of the array type in the PHP language, unfortunately. There's no difference between "array being used as a map" and "array proper" in PHP, hence no way to type-hint or even for our code to type-check at run-time.
+
+Well, we could collect all the keys, test for collisions, and throw exceptions - but this would mean memory overhead for all keys in memory, which is potentially a problem for scripts working with very large batches.
+
+We might be able to test for key collisions in Result::all() since here we expect everything to fit in memory anyhow - so adding an exception here might be a meaningful addition?
+
+---
+## [RayaanJIrani/GUIHW4](https://github.com/RayaanJIrani/GUIHW4)@[13db2db18f...](https://github.com/RayaanJIrani/GUIHW4/commit/13db2db18f53ab8e788c98316a84e7941bc5d2a1)
+#### Monday 2022-11-28 12:38:40 by RayaanJIrani
+
+I got the fucking images working... Good fucking night bitches
+
+---
+## [raekuul/mm6-skill-emphasis-mod](https://github.com/raekuul/mm6-skill-emphasis-mod)@[e3c946bab8...](https://github.com/raekuul/mm6-skill-emphasis-mod/commit/e3c946bab89e1661b1fe14fc7282d086e8b64dbc)
+#### Monday 2022-11-28 12:41:13 by Malekitsu
+
+Fixed exp
+
+11. Rescue a Damsel in Distress 5K
+12. Find Lord Kilburn's Shield 10K (running past thoose wolves is hard, and you will die for sure)
+14. Drink from the Fountain of Magic 5K
+15. Storm the Silver Helm Outpost 5k
+18. Get Knight's Nomination 5K
+24. Slay Longfang Witherhide. 30K (with fixed dragon there is no need to change that, 15k if unfixed)
+27. Repair the temple 5k
+28. Capture the Prince of Thieves. 15k ( I think you need to complete dragoons and shadow guild first, also going up there from the sewers isn't non combat)
+29 Fix the prices of all stables. 5K (super annoying)
+30 Visit the Altar of the Sun 5K
+32. Visit the Altar of the Moon 30K
+34 End winter 15K ( I think you need fly spell to get there)
+36 Reset all of the Dragon Towers 15K (you need to clear icewind keep first, so at that point in the game 5k will be just too low)
+
+---
+## [yangjiaxin1995/react](https://github.com/yangjiaxin1995/react)@[b6978bc38f...](https://github.com/yangjiaxin1995/react/commit/b6978bc38f6788c7e73982b9fd2771aabdf36f15)
+#### Monday 2022-11-28 12:48:58 by Andrew Clark
+
+experimental_use(promise) (#25084)
+
+* Internal `act`: Unwrapping resolved promises
+
+This update our internal implementation of `act` to support React's new
+behavior for unwrapping promises. Like we did with Scheduler, when 
+something suspends, it will yield to the main thread so the microtasks
+can run, then continue in a new task.
+
+I need to implement the same behavior in the public version of `act`,
+but there are some additional considerations so I'll do that in a
+separate commit.
+
+* Move throwException to after work loop resumes
+
+throwException is the function that finds the nearest boundary and
+schedules it for a second render pass. We should only call it right 
+before we unwind the stack — not if we receive an immediate ping and
+render the fiber again.
+
+This was an oversight in 8ef3a7c that I didn't notice because it happens
+to mostly work, anyway. What made me notice the mistake is that
+throwException also marks the entire render phase as suspended
+(RootDidSuspend or RootDidSuspendWithDelay), which is only supposed to
+be happen if we show a fallback. One consequence was that, in the 
+RootDidSuspendWithDelay case, the entire commit phase was blocked,
+because that's the exit status we use to block a bad fallback
+from appearing.
+
+* Use expando to check whether promise has resolved
+
+Add a `status` expando to a thrown thenable to track when its value has
+resolved.
+
+In a later step, we'll also use `value` and `reason` expandos to track
+the resolved value.
+
+This is not part of the official JavaScript spec — think of
+it as an extension of the Promise API, or a custom interface that is a
+superset of Thenable. However, it's inspired by the terminology used
+by `Promise.allSettled`.
+
+The intent is that this will be a public API — Suspense implementations
+can set these expandos to allow React to unwrap the value synchronously
+without waiting a microtask.
+
+* Scaffolding for `experimental_use` hook
+
+Sets up a new experimental hook behind a feature flag, but does not
+implement it yet.
+
+* use(promise)
+
+Adds experimental support to Fiber for unwrapping the value of a promise
+inside a component. It is not yet implemented for Server Components, 
+but that is planned.
+
+If promise has already resolved, the value can be unwrapped
+"immediately" without showing a fallback. The trick we use to implement
+this is to yield to the main thread (literally suspending the work
+loop), wait for the microtask queue to drain, then check if the promise
+resolved in the meantime. If so, we can resume the last attempted fiber
+without unwinding the stack. This functionality was implemented in 
+previous commits.
+
+Another feature is that the promises do not need to be cached between
+attempts. Because we assume idempotent execution of components, React
+will track the promises that were used during the previous attempt and
+reuse the result. You shouldn't rely on this property, but during
+initial render it mostly just works. Updates are trickier, though,
+because if you used an uncached promise, we have no way of knowing 
+whether the underlying data has changed, so we have to unwrap the
+promise every time. It will still work, but it's inefficient and can
+lead to unnecessary fallbacks if it happens during a discrete update.
+
+When we implement this for Server Components, this will be less of an
+issue because there are no updates in that environment. However, it's
+still better for performance to cache data requests, so the same
+principles largely apply.
+
+The intention is that this will eventually be the only supported way to
+suspend on arbitrary promises. Throwing a promise directly will
+be deprecated.
+
+---
+## [wincent/wincent](https://github.com/wincent/wincent)@[e93badb049...](https://github.com/wincent/wincent/commit/e93badb049442bd9f93e5d57a3534e9392904d49)
+#### Monday 2022-11-28 13:01:41 by Greg Hurrell
+
+chore: note what we _would_ do if we wanted to install Homebrew Ruby
+
+So I had little play with this to see if it is worth it, and sadly, I
+don't think it is.
+
+The rationale: Sorbet requires at least Ruby 2.7.0, and macOS Ventura
+(2022) ships with Ruby 2.6 (2018). Ruby 2.6 is old/unsupported, so
+"overwriting" it seams reasonable.
+
+The reality: my system has a fragile dependency on Ruby. Neovim depends
+on Ruby, and I get Neovim from Homebrew. I need Ruby support in Neovim
+for Command-T (well, not really, as I am using the Lua version now, but
+I'd still like it to work). It is not clear to me whether installing
+Neovim before/after installing Ruby will produce a working set-up, or
+whether I can have them be somewhat independent.
+
+So, I tried out the code in this commit, adding the new Ruby to the
+start of the path. Neovim `:checkhealth` notes that the Command-T C
+extension doesn't work. If I try to use it, I see this:
+
+    command-t.vim could not load the C extension.
+    Please see INSTALLATION and TROUBLE-SHOOTING in the help.
+    Vim Ruby version: 2.6.10-p210
+    Expected version: 2.6.8-p205
+    For more information type:    :help command-t-ruby
+
+which is actually super puzzling. I think this means that the extension
+didn't load, and the version numbers are misleading about why. The
+current OS (Ventura) is running 2.6.10, and that's why that shows up
+even though it isn't first in the `$PATH` (when Neovim was built, maybe
+it linked against a specific version, or maybe it didn't). When
+Command-T was built, pre-Ventura, 2.6.8 was probably the current
+version, so that's what's showing up in the message. In reality, Neovim
+must be using not 2.6.10 but the 3.1.0 version coming from Homebrew,
+which is why the extension isn't loading.
+
+I could fix all this by rebuilding, but it doesn't feel particularly
+robust. So, I put my `$PATH` back the way it was before, did a rebuild,
+and everything works again.
+
+The other problem. Even with the new version of Ruby, I can't run `srb`
+in the main repo I work in because it dies looking for a million
+uninstalled Gems. I don't want to (and perhaps can't) install those, and
+much less on an ARM Mac. So, if `srb` won't run, Neovim can't use it to
+provide LSP services.
+
+Finally, the bootstrap process is annoyingly interdependent. For
+example, I install Neovim and Ruby with Brew in the "homebrew" aspect.
+Later, in the "ruby" aspect, I install gems, but for those to work, the
+`$PATH` has to already be up-to-date. But the `$PATH` won't be
+up-to-date because it was set up in the "dotfiles" aspect earlier on in
+the process, but from an older shell, which means that the `$PATH` won't
+become active until next time I open a terminal. I could fix this by
+updating the path in the running install process, but that feels rather
+bothersome.
+
+Overall, I deem this too much effort and the juice is not worth the
+squeeze.
+
+---
+## [vicirdek/PsychonautStation](https://github.com/vicirdek/PsychonautStation)@[03bc97ade5...](https://github.com/vicirdek/PsychonautStation/commit/03bc97ade5a76f156229b946e38816ced97a0e30)
+#### Monday 2022-11-28 13:43:18 by necromanceranne
+
+Nukies Update 6: Interdyne is here for you! Medical Supplies and Atropine! (#71067)
+
+## About The Pull Request
+
+Quite a few changes overall to the nuclear operatives tactical medkit.
+The kit is more of a full suite of equipment for performing field
+medical duties as a nukie.
+
+- I've split the medkits between two kinds. Basic and premium. Medical
+bundle has the premium kit.
+- Basic contains additional amounts of basic c2 chem patches, some spare
+atropine autoinjectors, sutures and regen mesh, and some basic medical
+equipment for tending wounds. 4 TC (as it was before). That's it.
+- The premium kit is a far more useful full suite of advanced medical
+equipment, MODsuit modules, medical supplies and cybernetic implants,
+including the combat hypospray and the combat defib. 15 TC.
+
+**In the premium kit, there is:**
+- It has a box of beakers with powerful healing chems. Omnizine,
+salicylic acid, oxandrolone, pentetic acid, atropine, salbutamol and
+rezadone.
+- The combat injector is empty, so you can load it as necessary.
+- There are advanced sutures and regenerative mesh packs. They don't
+work through spacesuits, but are invaluable for wound repair. Especially
+burns.
+- There is a surgery arm toolset so you can do field operations without
+lugging tools.
+- There is a surgery processor module that comes preloaded with advanced
+surgeries, a threadripper module, and the combat defib module. The
+module works entirely like a combat defib, but you don't need to lose
+your belt slot to use it.
+- The surgeries are revival, the upgrade surgeries (like vein
+threading), brainwashing (did you know they didn't get access to
+brainwashing, I think this is a shame) and the better tend wounds
+option.
+- The nightvision medical hud doubles as a pair of science goggles.
+
+**Atropine changes:**
+- Atropine now stops bomb implants from autoexploding. This does **NOT**
+stop you from manually detonating the bomb. (This is possible even when
+you're dead and haven't left your body)
+- As a result, nukies get atropine medipens so that they can potentially
+stop themselves detonating prematurely, or stop their allies detonating
+prematurely. They have a little pamphlet to help explain how their
+microbomb works.
+
+## Why It's Good For The Game
+
+Straight up: The medkit is ass.
+
+The meds in the injector sucks, just getting c2 meds in patches is kind
+of insulting for something granted to you from an uplink item (and also
+you get those for free with your ~~xbox~~ infiltrator medical room so
+lol), and operatives just got the kit for one reason and one reason
+only. That combat defib as a _weapon_.
+
+Fuck that. So the kits now much better as a way to both support yourself
+AND your team through providing a range of improvements you can provide
+the squad, while also not undermining the reason why people may have
+wanted the kit (that defib). I would really like to see more nukies
+attempt to support one another in combat, and a medic operative is a
+role that needs love to make that a reality.
+
+**Edit here**: I reintroduced a low end kit with more c2 medical
+supplies _if you want them_. I can see how someone might pinch all of
+the medical supplies like a cunt, so maybe we should have a failsafe for
+that.
+
+A huge culprit of the lack of value of support meds was usually that
+ops...explode when they die. If a medic can pop atropine into an op
+before they die, they might be able to save them, or an op could pop
+themselves with atropine prematurely to maybe stave off death.
+
+## Changelog
+:cl:
+balance: Splits the nuclear operative combat medical kit into two
+versions: basic and premium.
+balance: Basic contains additional amounts of basic c2 chem patches,
+some spare atropine autoinjectors, sutures and regen mesh, and some
+basic medical equipment for tending wounds. 4 TC (as it was before).
+balance: The premium kit is a far more useful full suite of advanced
+medical equipment, MODsuit modules, medical supplies and cybernetic
+implants, including the combat hypospray and the combat defib. 15 TC.
+balance: Atropine stops bomb implants from automatically detonating on
+death. You can still manually activate your bomb implant (even when you
+are dead).
+balance: Operatives start with an atropine pen to stop themselves and
+their allies from detonating so they can hopefully be saved by a medical
+operative.
+add: There is a pamphlet to explain this in the nuclear operative's
+survival box.
+add: I'm not telling you to read the pamphlet, but you should probably
+read the pamphlet.
+/:cl:
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+
+---
+## [zxaber/tgstation](https://github.com/zxaber/tgstation)@[25d4afc869...](https://github.com/zxaber/tgstation/commit/25d4afc869585373571da5ba4a77fb967ffdedfe)
+#### Monday 2022-11-28 14:32:42 by Iamgoofball
+
+Retires explosive lance crafting to a nice farm upstate where it has plenty of room to run around (#71256)
+
+## About The Pull Request
+
+You can no longer craft explosive lances.
+
+## Why It's Good For The Game
+
+Explosive lances are unhealthy for the game in it's current iteration.
+Many years ago when the game was more loose and we weren't dealing with
+players who treat the game like competitive TTT or Town of Salem,
+
+They are a one shot kill weapon, which is the most powerful kind of
+weapon in every gamemode. @JohnFulpWillard likened it to 1f1, a concept
+from Town of Salem players where the town trades 1 person for 1 bad guy.
+
+Modern ss13 design includes a significantly heavier load of antagonists
+that aren't fixed roundstart compared to when the e-lance went in.
+
+When we added the e-lance, if nuke ops spawned, that was it, there was
+nuke ops, if you e-lanced the nuke ops and died you were dead until the
+next round.
+
+Nowadays you're rolling for lone operative, blob, wizard, disease,
+revenant, and every other fun enjoyable antagonist role under the sun.
+
+I can e-lance a nuke op/cultist/traitor/revolutionary/any bad guy in the
+game as a non-antag assistant, die, and have a good chance to roll
+another, way more fun antag in deadchat.
+
+My change to make the e-lance a proper "we both die" tool didn't
+actually help because I didn't quite realize that to the modern SS13
+player because of how we designed Dynamic and antagonists in the modern
+era, death is, frankly, not a punishment anymore.
+
+It's time we admit the facts, items designed in 2015 SS13 in #12389
+simply don't hold up in a healthy manner in 2022 SS13. Dying in SS13 in
+2015 was a significantly different experience with different
+consequences than it has now, and right now "kills you when you use it"
+is not the same massive downside it was 7-8 years ago.
+
+## Changelog
+:cl:
+del: You can no longer craft explosive lances.
+/:cl:
+
+---
+## [knz/cockroach](https://github.com/knz/cockroach)@[1d04cec7c5...](https://github.com/knz/cockroach/commit/1d04cec7c5f887d309e09b7b5a267d5269d86b5a)
+#### Monday 2022-11-28 15:07:01 by craig[bot]
+
+Merge #91394 #91627
+
+91394: changefeedccl: roachtest refactor and initial-scan-only r=samiskin a=samiskin
+
+Epic: https://cockroachlabs.atlassian.net/browse/CRDB-19057
+
+Changefeed roachtests were setup focused on running a workload for a specific duration and then quitting, making it difficult to run an `initial_scan_only` test that terminated upon Job success.
+
+We as a team have also noticed a greater need to test and observe changefeeds running in production against real sinks to catch issues we are unable to mock or observe from simple unit tests.  This is currently a notable hassle as one has to set up each individual sink and run them, ensure the changefeed is pointing to the right URI, and then be able to monitor the metrics of this long running process.  
+
+This change refactors the cdcBasicTest into distinct pieces that are then put together in a test.  This allows for easier experimentation with live tests, allowing us to spin up a cluster and a workload, run one or more changefeeds on it, set up a poller to print out job details,have an accessible grafana URL to view metrics, and wait for some completion condition.
+
+Changing the specialized `runCDCKafkaAuth`, `runCDCBank`, and `runCDCSchemaRegistry` functions were left out of scope for this first big change.
+
+The main APIs involved in basic roachtests are now:
+- `newCDCTester`: This creates a tester struct to run the rest of the APIs and initializes the database
+- `tester.runTPCCWorkload(tpccArgs)`: Starts a TPCC workload from the last node in the cluster
+- `tester.runLedgerWorkload(ledgerArgs)`: Starts a Ledger workload from the last node in the cluster
+- `tester.runFeedLatencyVerifier(changefeedJob, latencyTargets)`: starts a routine that monitors the changefeed latency until the tester is `Close`'d
+- `tester.waitForWorkload`: waits for a workload started by `setupAndRunWorkload` to complete its duration
+- `tester.startCRDBChaos`: This starts a Chaos routine that periodically shuts nodes down and brings them back up
+- `tester.newChangefeed(feedArgs)`: starts a new changefeed on the cluster and returns `changefeedJob` object
+- `changefeedJob.waitForCompletion`: waits for a changefeed to complete (either success or failure)
+- `tester.startGrafana`: Sets up a grafana instance on the last node of the cluster and prints out a link to a grafana, this automatically runs unless `--skip-init` is provided.  If `--debug` is not used, `StopGrafana` will be called on test teardown to publish prometheus metrics to the artifacts directory.
+
+An API that is going to be more useful for experimentation are:
+- `changefeedJob.runFeedPoller(ctx, stopper, onInfo)`: runs a given callback every second with the changefeed info
+
+Roachtests can be ran locally with the `--local` flag or on an existing cluster without destroying it afterwards with `--cluster="my-cluster" --debug`
+
+Ex: After adding a new test (lets say `"cdc/my-test"`) to the `registerCDC` function you can keep running 
+```bash
+./dev build cockroach --cross # if changes made to crdb
+./dev build roachtest         # if changes made to the test
+
+./bin/roachtest run cdc/my-test --cluster="my-cluster" --debug
+```
+as you try out different changes or options.  If you want to try a set of steps against different versions of the app you could download those binaries and use the `--cockroach="path-to-binary"` flag to test against those instead.
+
+If you want to set up a large TPCC database on a cluster and reuse it for tests this can be done with roachtests's `--wipe` and `--skip-init` flags.
+
+Release note: None
+
+91627: upgrade: introduce "permanent" upgrades r=andreimatei a=andreimatei
+
+This patch introduces "permanent" upgrades - a type of upgrade that is
+tied to a particular cluster version (just like the existing upgrades)
+but that runs regardless of the version at which the cluster was
+bootstrapped (in contrast with the existing upgrades that are not run
+when they're associated with a cluster version <= the bootstrap
+version). These upgrades are called "permanent" because they cannot be
+deleted from the codebase at a later point, in contrast with the others
+that are deleted once the version they're tied drops below
+BinaryMinSupportedVersion).
+
+Existing upgrades are explicitly or implicitly baked into the bootstrap
+image of the binary that introduced them. For example, an upgrade that
+creates a system table is only run when upgrading an existing,
+older-version, cluster to the new version; it does not run for a cluster
+bootstrapped by the binary that introduced the upgrade because the
+respective system tables are also included in the bootstrap metadata.
+For some upcoming upgrades, though, including them in the bootstrap
+image is difficult. For example, creating a job record at bootstrap
+time is proving to be difficult (the system.jobs table has indexes, so
+you want to insert into it through SQL because figuring out the kv's for
+a row is tedious, etc). This is where these new permanent upgrades come
+in.
+
+These permanent upgrades replace the `startupmigrations` that don't have
+the `includedInBootstrap` field set. All such startupmigrations have
+been copied over as upgrades. None of the current `startupmigrations`
+have `includedInBootstrap` set (except one but that's dummy one since
+the actual migration code has been deleted), so the startupmigrations
+package is now deleted. That's a good thing - we had one too many
+migrations frameworks.
+
+These permanent upgrades, though, do not have exactly the same semantics
+as the startupmigrations they replace. To the extent that there is a
+difference, the new semantics are considered more desirable:
+- startupmigrations run when a node that has the code for a particular
+  migration startups up for the first time. In other words, the
+  startupmigrations were not associated with a cluster version; they were
+  associated with a binary version. Migrations can run while old-version
+  nodes are still around.  This means that one cannot add a
+  migration that is a problem for old nodes - e.g. a migration creating a
+  job of a type that the old version wouldn't recognize.
+- upgrades are tied to a cluster version - they only run when the
+  cluster's active version moves past the upgrade's version. This stays
+  the case for the new permanent migrations too, so a v2 node will not
+  immediately run the permant migrations introduced since v1 when it joins
+  a v1 cluster. Instead, the migrations will run when the cluster version
+  is bumped. As such, the migrations can be backwards incompatible.
+
+startupmigrations do arguably have a property that can be desirable:
+when there are no backwards compatibility issues, the v2 node can rely
+on the effects of the startupmigrations it knows about regardless of the
+cluster version. In contrast, with upgrades, not only is a node unable
+to simply assume that a particular upgrade has run during startup, but,
+more than that, a node is not even able to look at a version gate during
+the startup sequence in order to determine whether a particular upgrade
+has run or not (because, in clusters that are bootstrapped at v2, the
+active cluster version starts as v2 even before the upgrades run). This
+is a fact of life for existing upgrades, and now becomes a fact of life
+for permanent upgrades too. However, by the time user SQL traffic is
+admitted on a node, the node can rely on version gates to correspond to
+migrations that have run.
+
+After thinking about it, this possible advantage of startupmigrations
+doesn't seem too useful and so it's not reason enough to keep the
+startupmigrations machinery around.
+
+Since the relevant startupmigrations have been moved over to upgrades,
+and the two libraries use different methods for not running the same
+migration twice, a 23.1 node that comes up in a 22.2 cluster will re-run
+the several permanent upgrades in question, even though they had already
+run as startupmigrations. This is OK since both startupmigrations and
+upgrades are idempotent. None of the current permanent upgrades are too
+expensive.
+
+Closes https://github.com/cockroachdb/cockroach/issues/73813
+
+Release note: None
+Epic: None
+
+Co-authored-by: Shiranka Miskin <shiranka@cockroachlabs.com>
+Co-authored-by: Andrei Matei <andrei@cockroachlabs.com>
+
+---
+## [apollographql/apollo-server](https://github.com/apollographql/apollo-server)@[3fd7b5f261...](https://github.com/apollographql/apollo-server/commit/3fd7b5f26144a02e711037b7058a8471e9648bc8)
+#### Monday 2022-11-28 17:18:29 by Trevor Scheer
+
+Update `@apollo/utils.keyvaluecache` dependency (#7187)
+
+Previous releases of the `@apollo/utils.keyvaluecache` package
+improperly specified the version range for its `lru-cache` dependency.
+
+Fresh installs of our packages should receive the patch update since
+it's careted, so this issue can be worked around by forcing the update
+if you're using a lockfile. We should update it anyway since `2.0.0` is
+invalid.
+
+<!--
+First, 🌠 thank you 🌠 for taking the time to consider a contribution to
+Apollo!
+
+Here are some important details to follow:
+
+* ⏰ Your time is important
+To save your precious time, if the contribution you are making will take
+more
+than an hour, please make sure it has been discussed in an issue first.
+          This is especially true for feature requests!
+* 💡 Features
+Feature requests can be created and discussed within a GitHub Issue. Be
+sure to search for existing feature requests (and related issues!) prior
+to
+opening a new request. If an existing issue covers the need, please
+upvote
+that issue by using the 👍 emote, rather than opening a new issue.
+* 🔌 Integrations
+Apollo Server has many web-framework integrations including Express,
+Koa,
+Hapi and more. When adding a new feature, or fixing a bug, please take a
+peak and see if other integrations are also affected. In most cases, the
+fix can be applied to the other frameworks as well. Please note that,
+since new web-frameworks have a high maintenance cost, pull-requests for
+new web-frameworks should be discussed with a project maintainer first.
+* 🕷 Bug fixes
+These can be created and discussed in this repository. When fixing a
+bug,
+please _try_ to add a test which verifies the fix. If you cannot, you
+should
+still submit the PR but we may still ask you (and help you!) to create a
+test.
+* 📖 Contribution guidelines
+Follow
+https://github.com/apollographql/apollo-server/blob/main/CONTRIBUTING.md
+when submitting a pull request. Make sure existing tests still pass, and
+add
+          tests for all new behavior.
+* ✏️ Explain your pull request
+Describe the big picture of your changes here to communicate to what
+your
+pull request is meant to accomplish. Provide 🔗 links 🔗 to associated
+issues!
+
+We hope you will find this to be a positive experience! Open source
+contribution can be intimidating and we hope to alleviate that pain as
+much as possible. Without following these guidelines, you may be missing
+context that can help you succeed with your contribution, which is why
+we encourage discussion first. Ultimately, there is no guarantee that we
+will be able to merge your pull-request, but by following these
+guidelines we can try to avoid disappointment.
+-->
+
+---
+## [airplanedev/lib](https://github.com/airplanedev/lib)@[a5978d8afe...](https://github.com/airplanedev/lib/commit/a5978d8afeee4652692dd3f3c2d2f39e369d64db)
+#### Monday 2022-11-28 17:18:55 by Lee Weisberger
+
+Send env vars when creating deployment (#411)
+
+## Description
+In bundle discovery, send env vars along with the bundles. Env vars are calculated from `airplane.yaml` and the task definition.
+
+The original plan here was to calculate these in the bundler. However env vars contain secret values that must be resolved. I don't think we should do this in the bundler because we'd have to expose an endpoint to resolve secret values and the bundler doesn't have any sort of advanced authn. Let me know if you have any other thoughts here, or else we'll just send these with the bundle.
+
+## Test plan
+I wrote a unit tests
+
+---
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[0ca2c0b527...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/0ca2c0b527a564de32818057b7fc09eb07875f51)
+#### Monday 2022-11-28 17:22:21 by SkyratBot
+
+[MIRROR] Gives bread and cake slice_types and adds screentip verbs to proccessed foods [MDB IGNORE] (#17721)
+
+* Gives bread and cake slice_types and adds screentip verbs to proccessed foods (#71449)
+
+## About The Pull Request
+
+A side effect of my pizza PR #71202 I added contextual screentips as
+part of processable.dm. In doing this, I noticed that with a few
+exceptions, almost every single bread and cake type copies the proc
+exactly the same for every single child of cake or bread, so I put the
+proc on the parent of bread and cake and gave them slice_types, making
+them more similar to pizza.dm
+
+For everything else I've changed the default that I put in
+processable.dm into "slice" or "cut" for things that use the knife and
+"flatten" for things that use the rolling pin.
+
+Finally, you can slice bread with saws now, because I think its silly
+that only pizza gets this luxury.
+
+## Why It's Good For The Game
+
+Because it wasnt the focus of #71202 I didn't mess with screentips
+outside of the pizza file a lot, but now that it's merged I figure I
+should go and do that.
+As Bread and Cake's processables are almost fully standardized it seems
+silly for them to call on the proc 12 times in the same document so I
+did this, which also allows for more versatility in editing how they
+work as well allow people to, if they want to, add more tool behaviours
+in the future without adding in 12 lines of code. Also means that people
+who want to add new cake or bread have one less thing to do.
+
+## Changelog
+
+:cl:
+add: you can saw bread with a saw into bread slices
+qol: added screentip verbs to a bunch of food files
+code: bread and cake now have slice types and all only have one call on
+the processable.dm proc
+/:cl:
+
+* Gives bread and cake slice_types and adds screentip verbs to proccessed foods
+
+* sco'ish
+
+* fuck me ig
+
+Co-authored-by: Sol N <116288367+flowercuco@users.noreply.github.com>
+Co-authored-by: John Doe <gamingskeleton3@gmail.com>
+
+---
+## [Ryzen5950XT/android_device_samsung_a52q](https://github.com/Ryzen5950XT/android_device_samsung_a52q)@[02cff7580d...](https://github.com/Ryzen5950XT/android_device_samsung_a52q/commit/02cff7580d103b929667998d291c9b5f55b2527b)
+#### Monday 2022-11-28 17:52:46 by Ruchit Marathe
+
+a52q: Switch to prebuilt kernel
+
+honestly cant be asked to fucking fix this shit only for evox so yeah.
+
+---
+## [algoz098/zigbee2mqtt.io](https://github.com/algoz098/zigbee2mqtt.io)@[f687c12435...](https://github.com/algoz098/zigbee2mqtt.io/commit/f687c12435c958716d98c37fcce3fccfd75883da)
+#### Monday 2022-11-28 18:17:00 by Artur Sena
+
+Update README.md
+
+Hey guys, so, i want to share a problem i had for a couple of months, and manage to solve.
+
+It prob has happens to other ppl, and prob, at least a couple of those, still have, or never manage to solve.
+
+If the wrong place, sorry, but i think this should be in the FAQ, even it's not the most common problem.
+
+So, i have a setup with a good router stick, home assistant, and zigbee2mqtt addon.
+
+The problem: some devices was not updating it's status, or desyncing from the network, also, was unable to add new devices. Map, was not being generate prob and timeout was happening without a clue or reason.
+
+I started asking for help, changing the router stick, and without luck, it just ignored because it was kinda working almost all the times.
+
+One day i decide to modify a door sensor, and for such, i needed it to connect to the network to test, it was unable to do so.
+
+I started zigbee2mqtt in a new computer, though docker, and it worked FLAWLESS, after a while, i try to move all the devices to such new device.
+
+Everything working perfect. Doubled the size of the network, no problem.
+Add more automations, no problem.
+
+The reason of such strange behaiviour was my raspberry pi model 3+, because it just have 1gb memory or maybe the processor, but, the problem was the limitations of the platform.
+
+The reason for using such a limited board, is, the model 4 is expensive where i live, and i never had such problems. It started without warning.
+
+So, i would like to add such information to the FAQ of Zigbee2mqtt, for more people now that you need a little room of memory and processor to avoid timeouts.
+
+---
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[460ab7adf5...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/460ab7adf560856148d46233e3cde565d05354a4)
+#### Monday 2022-11-28 19:20:19 by SkyratBot
+
+[MIRROR] JPS Optimization (Light Botcode) [MDB IGNORE] (#17669)
+
+* JPS Optimization (Light Botcode) (#70623)
+
+## About The Pull Request
+
+Alright. So.
+Right now, JPS works like this:
+```
+code requests path
+we enter the actual pathfinding
+pathfinding sleeps when it overruns a tick
+if it sleeps, it'll then wake up before the mc starts
+continue
+```
+This has annoying side effects. Primarily that we have no real control
+over JPS, we just sorta have to eat its cost.
+So if there's like 10 different things pathfinding at once, the mc will
+have no time to do anything. Hell we might even end up eating into
+maptick's time if the jps work is expensive enough (note the cost of
+sleeping is not accounted for, and that has overhead)
+This has happen before, usually when someone makes a lot of bots, and
+it's really annoying.
+
+So then, lets put JPS on a subsystem. That way the MC has control over
+it.
+But wait, existing code expects to yield and get back a path list, and
+that's a sane request.
+This is solvable, but requires abusing pass by reference lists, and the
+ability to make callbacks into partials (preinsert arguments into them
+before they're called, and accept other args later)
+
+Because of this, we can now pass callbacks into pathfinders, allowing
+for async use, rather then JUST yielding.
+
+Of note: I've removed the 10 pathfinding datums limit, since
+ratelimiting like that is handled nicely by the MC.
+I've also removed the 15 second timeout, since mc yielding would trigger
+it too often. I'm unsure if this means we don't have exit conditions for
+pathfinding, need to talk to ryll. (@ Ryll-Ryll what happens if jps just
+like, fails to find a path?)
+
+Also of note: I think bots will fire off more then one pathfinding
+attempt at a time if their first takes too long to complete. This is
+dumb, why do we do this?
+
+Optimizes JPS by more then 40% by removing redundant for(thing in turf)
+loops, and avoiding making proc calls if objects are non dense.
+This makes things slightly more fragile, but saves a LOT of time. I
+think it's worth it, tho talking to mso it might be possible to do
+better. Maybe I should do a LINDA system style thing. (I did a linda
+system style thing I fixed it)
+
+Optimizes botscanning, fixes bots not seeing things adjacent to them
+The list of types could be a cached typecache
+We could inline both checkscan and check_bot
+check_bot SHOULD NOT BE CALLED ON EVERY OBJECT IN VIEW HOLY SHIT WHY
+We don't need to process adjacent and the shuffled view separately, it's
+in fact easier to process them in one block
+Renames a var
+
+Moves bot's pathing images to above most floor objects, so they're
+visible in maint
+
+## Why It's Good For The Game
+
+Speed. Also manuel will stop killing their server by placing 20000
+medibots (fucking icebox man every time)
+
+## Changelog
+
+:cl:
+fix: Bots will now "notice" you if you're standing right next to them
+fix: Bot paths will now draw above things like pipes, rather then below
+them
+refactor: Changed how pathfinding paths get generated
+refactor: Made pathfinding and bot searching significantly faster
+/:cl:
+
+Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
+
+* JPS Optimization (Light Botcode)
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
+
+---
+## [mkolodezny/cadence-client](https://github.com/mkolodezny/cadence-client)@[f5e0fd25e4...](https://github.com/mkolodezny/cadence-client/commit/f5e0fd25e4347c85b28dac87f51b532700455d2c)
+#### Monday 2022-11-28 21:38:09 by Steven L
+
+Sharing one of my favorite "scopes" in intellij, and making it easier to add more (#1182)
+
+Goland is nice, and the type-based navigation is wildly superior to gopls-driven
+stuff in my experience, so I tend to lean hard on it when I'm able.
+
+By default though, Goland searches *everything*.  All the time.
+That's totally reasonable as a default, but we can do better:
+
+- Tests are not usually all that interesting when trying to understand and navigate code.
+  (perhaps they should be, but that's more a platonic ideal than a reality)
+- Generated RPC code is almost never useful to dive into.  The exposed API surface is sufficient,
+  if it compiles, it's correct.
+- Non-Go files are just less interesting in a Go project.
+
+So this scope excludes ^ all that.
+To add more shared ones, just check the "share through vcs" box and commit it.
+
+To use it, just select the scope from the dropdown when you search.  E.g. "find in files" ->
+change from "in project" to "scope" -> change the dropdown.  This custom scope will now appear,
+and it'll remember what you last used, so it's a nice default.
+
+This also works in "call hierarchy", "go to implementations" (open it in a panel to configure it,
+with the gear on the side.  it's awful UI but it works), etc quite a lot of places.
+
+This same kinda-obtuse search-scope query language can be used to mark things as generated or test
+related, which will also help other parts of the IDE mark things as more or less relevant for you.
+It's worth exploring a bit, scopes and filters can be used to do a lot: https://www.jetbrains.com/help/idea/scope-language-syntax-reference.html
+
+---
+## [tralezab/tgstation](https://github.com/tralezab/tgstation)@[b77cf7c120...](https://github.com/tralezab/tgstation/commit/b77cf7c1205d466b8cb242cd3302891e82b44da2)
+#### Monday 2022-11-28 23:14:32 by Iamgoofball
+
+Hotkey-based inventory management now applies the click cooldown to prevent it from being abusable in combat scenarios. (#71325)
+
+
+About The Pull Request
+
+Hotkey-based inventory management now applies the click cooldown to prevent it from being abusable in combat scenarios.
+Why It's Good For The Game
+
+Players have been deploying unbelievable levels of abuse with these hotkeys having completely uncapped speeds.
+I watched one cheater do automated inventory management using storage items and weirdly named empty pills to use as inventory delimiters.
+Resolves people being able to have a baton hidden in their backpack and then activate and baton someone with it in 0.1 seconds without moving their mouse cursor off of their target.
+
+Players should not be able to interact with their inventory faster than someone moving a mouse and clicking the left mouse button. This cripples the game balance and puts anyone with a worse internet connection, slower reaction speeds, or laggier computer at a distinct disadvantage against people who can macro their inventory management.
+
+I can set up autohotkey so that I can withdraw a stun baton from my backpack, turn it on, and then click someone by just holding down a key and pressing M1 over someone. This shit needs to stop.
+
+If a do_after() on hotkey management is too harsh, we can apply a combat click cooldown every time you use the hotkeys instead to discourage combat macro abuse.
+Swapped it over to a click cooldown.
+Changelog
+
+cl
+balance: Hotkey-based inventory management now applies the click cooldown to prevent it from being abusable in combat scenarios.
+/cl
+
+---
+## [TheTimeSweeper/the](https://github.com/TheTimeSweeper/the)@[2fc37f5c37...](https://github.com/TheTimeSweeper/the/commit/2fc37f5c37d7d2cda73ce828796c7a126dbfa6d5)
+#### Monday 2022-11-28 23:35:40 by TheTimeSweeper
+
+whole hell of a lot of balance tweaking god damn it
+saving before I fuck something up again
+
+---
+## [Jolly-66/JollyStation](https://github.com/Jolly-66/JollyStation)@[d27bbf8fe7...](https://github.com/Jolly-66/JollyStation/commit/d27bbf8fe7154af2184fd275814a9369167857b6)
+#### Monday 2022-11-28 23:57:33 by Jolly
+
+this is the most hacky way to do shit you have no fucking idea man (#3379)
 
 ---
 
