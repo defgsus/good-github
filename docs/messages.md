@@ -1214,4 +1214,5 @@
 [27](good-messages/2022/2022-11-27.md)
 [28](good-messages/2022/2022-11-28.md)
 [29](good-messages/2022/2022-11-29.md)
+[30](good-messages/2022/2022-11-30.md)
 
