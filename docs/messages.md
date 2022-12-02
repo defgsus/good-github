@@ -1216,3 +1216,8 @@
 [29](good-messages/2022/2022-11-29.md)
 [30](good-messages/2022/2022-11-30.md)
 
+
+#### December
+
+[01](good-messages/2022/2022-12-01.md)
+
