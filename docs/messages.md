@@ -1223,4 +1223,5 @@
 [02](good-messages/2022/2022-12-02.md)
 [03](good-messages/2022/2022-12-03.md)
 [04](good-messages/2022/2022-12-04.md)
+[05](good-messages/2022/2022-12-05.md)
 
