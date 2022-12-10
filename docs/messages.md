@@ -1227,4 +1227,5 @@
 [06](good-messages/2022/2022-12-06.md)
 [07](good-messages/2022/2022-12-07.md)
 [08](good-messages/2022/2022-12-08.md)
+[09](good-messages/2022/2022-12-09.md)
 
