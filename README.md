@@ -5,208 +5,494 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-12-12](docs/good-messages/2022/2022-12-12.md)
+# [2022-12-13](docs/good-messages/2022/2022-12-13.md)
 
 
-2,076,802 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,076,802 were push events containing 3,122,132 commit messages that amount to 258,141,231 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 52 messages:
+2,162,366 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,162,366 were push events containing 3,254,203 commit messages that amount to 270,585,990 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 43 messages:
 
 
-## [Gofawful5/Skyrat-tg](https://github.com/Gofawful5/Skyrat-tg)@[fcdf5d850c...](https://github.com/Gofawful5/Skyrat-tg/commit/fcdf5d850c47ac8c9c17045bb5a021d8283d3c0c)
-#### Monday 2022-12-12 00:56:27 by SkyratBot
+## [AttorneyOnline/AO2-Client](https://github.com/AttorneyOnline/AO2-Client)@[4938937c3e...](https://github.com/AttorneyOnline/AO2-Client/commit/4938937c3e4a371fdff20603cae6bb367036dcfc)
+#### Tuesday 2022-12-13 00:28:08 by Salanto
 
-[MIRROR] Psykers [MDB IGNORE] (#17825)
+Fix compile error of legacy RPC lib
 
-* Psykers (#71566)
+Fuck the game SDK, holy shit that code is so reliant on a shitty game engine that this is honestly better for now.
+
+---
+## [dariota/Advent-of-Code](https://github.com/dariota/Advent-of-Code)@[aa28983964...](https://github.com/dariota/Advent-of-Code/commit/aa28983964ac6b00377f4625574980533df2be21)
+#### Tuesday 2022-12-13 00:38:49 by Dário Tavares Antunes
+
+Day 12, this thing can't get signal
+
+I shouldn't be surprised that the equipment the elves use needs to be at
+quite an elevation to actually work, and yet I somehow am. It seems like
+it actually needs a line of sight? Mad.
+
+On the bright side, I got to go for a pretty nice hike. Shame I didn't
+pack my camera since I suspect something like falling into a damn river
+would happen, lovely sights.
+
+---
+## [sdmanchiraju/zulip](https://github.com/sdmanchiraju/zulip)@[23a776c144...](https://github.com/sdmanchiraju/zulip/commit/23a776c1448da18b906529e5951e24d8d58a7e81)
+#### Tuesday 2022-12-13 00:41:59 by Mateusz Mandera
+
+maybe_send_to_registration: Don't reuse pre-existing PreregistraionUser.
+
+There was the following bug here:
+1. Send an email invite to a user.
+2. Have the user sign up via social auth without going through that
+   invite, meaning either going via a multiuse invite link or just
+   straight-up Sign up if the org permissions allow.
+
+That resulted in the PreregistrationUser that got generated in step (1)
+having 2 Confirmations tied to it - because maybe_send_to_registration
+grabbed the object and created a new confirmation link for it. That is a
+corrupted state, Confirmation is supposed to be unique.
+
+One could try to do fancy things with checking whether a
+PreregistrationUser already have a Confirmation link, but to avoid races
+between ConfirmationEmailWorker and maybe_send_to_registration, this
+would require taking locks and so on - which gets needlessly
+complicated. It's simpler to not have them compete for the same object.
+
+The point of the PreregistrationUser re-use in
+maybe_send_to_registration is that if an admin invites a user, setting
+their initial streams and role, it'd be an annoying experience if the
+user ends up signing up not via the invite and those initial streams
+streams etc. don't get set up. But to handle this, we can just copy the
+relevant values from the pre-existing prereg_user, rather than re-using
+the object itself.
+
+---
+## [Jolly-66/Skyrat-tg](https://github.com/Jolly-66/Skyrat-tg)@[82fc8c522e...](https://github.com/Jolly-66/Skyrat-tg/commit/82fc8c522e50ccabd853493afaee43f76930529c)
+#### Tuesday 2022-12-13 00:51:10 by SkyratBot
+
+[MIRROR] Excercise Equipment is now craftable [MDB IGNORE] (#17495)
+
+* Excercise Equipment is now craftable (#71190)
 
 ## About The Pull Request
-Finishes #66471
-At burden level nine (or through a deadly genetic breakdown), you now
-turn into a psyker.
-This splits your skull in half and transforms it into a weird fleshy
-mass. You become blind, but your skull is perfectly suited for sending
-out psychic waves. You get potent psy abilities.
-First one is brainwave echolocation, inspired by Gehennites (but not as
-laggy).
-Secondly, you get the ability of Psychic Walls, which act similarly to
-wizard ones, but last shorter, and cause projectiles to ricochet off
-them.
-Thirdly, you get a projectile boost ability, this temporarily lets you
-fire guns twice as fast and gives them homing to the target you clicked.
-Lastly, you get the ability of psychic projection. This terrifies the
-victim, fucking their screen up and causing them to rapidfire any gun
-they have in their general direction (they'll probably miss you)
-With most of the abilities being based around guns, a burden level nine
-chaplain now gets a new rite, Transmogrify. This lets them turn their
-null rod into a 5-shot 18 damage .77 revolver. The revolver possesses a
-weaker version of antimagic (protects against mind and unholy spells,
-but not wizard/cult ones). It is reloaded by a prayer action (can also
-only be performed by a max burdened person).
-General Video: https://streamable.com/w3kkrk
-Psychic Projection Video: https://streamable.com/4ibu7o
 
-![image](https://user-images.githubusercontent.com/23585223/204150279-a6cf8e2f-c678-476e-b72c-6088cd8b684b.png)
+Imagine if you will a humble chaplain who wants nothing more than for
+all of the spiritual folk on the station to get as massive gains as they
+can, after finding that they can not just make more exercise equipment
+and that the station does not have any in public places, they go annoy
+security enough to get into permabrig only to find out that they cant
+even unwrench the equipment and move it to the church!!!
+
+NOT ANYMORE!!!
+
+![jS2aBMBa0B](https://user-images.githubusercontent.com/116288367/200889423-f1b6365c-24c4-4f45-8ca4-c96c9085cf27.png)
+crafting recipies
+
+![dreamseeker_O4BgBRsFa8](https://user-images.githubusercontent.com/116288367/200889002-8dd7c927-0745-46a9-a4bc-578c7279042a.gif)
+demonstrating unwrenching and wrenching equipment
+
+![dreamseeker_hCFQJZdzoS](https://user-images.githubusercontent.com/116288367/200889019-5f4c8399-d539-4d84-8a3f-7735c3ba1f68.gif)
+crafting a punching bag and punching it
+
+Now you can craft as much exercise equipment as you want! May everyone
+on the station get as strong as possible and not just prisoners.
+
+Also I changed the message that plays when you try to use exercise
+equipment someone else is using into a balloon alert.
+
+![dreamseeker_PwNesmcR1f](https://user-images.githubusercontent.com/116288367/200890964-4f9fa3ee-ce07-4e6e-815c-a3f4593d06b1.png)
 
 ## Why It's Good For The Game
-Rewards the burdened chaplain with some pretty cool stuff for going
-through hell like losing half his limbs, cause the current psychics dont
-cut it as much as probably necessary, adds echolocation which can be
-used for neat stuff in the future (bat organs for DNA infuser for
-example).
+
+Access to exercise equipment on some maps is limited to static positions
+and is currently mostly only for prisoners as every map does not have
+public exercise equipment. Expanding the access means that you can have
+a Drill Sargent Head of Security or Captain who commands people use
+these or allows a psychologist to prescribe healthy exercise habits to
+their patients.
+
+I think having the potential for exercise equipment on every map is more
+fun and also if prisoners get their hands on tools they should be
+allowed to mess with these to annoy security or aid in their escape.
 
 ## Changelog
-:cl: Fikou, sprites from Halcyon, some old code from Basilman and
-Armhulen.
-refactor: Honorbound and Burdened mutations are brain traumas now.
-add: Psykers. Become a psyker through the path of the burdened, or a
-genetic breakdown.
-add: Echolocation Component.
+:cl:
+add: the punching bag, bench press, and chest press are all able to be
+crafted and unanchored.
+add: crafting recipes for the above
+qol: changed a chat message into a balloon alert
+qol: adds screentips to equipment (thanks for suggesting i do this
+mothblocks!)
 /:cl:
 
-Co-authored-by: tralezab <spamqetuo2@ gmail.com>
-Co-authored-by: tralezab <40974010+tralezab@ users.noreply.github.com>
-Co-authored-by: MrMelbert <51863163+MrMelbert@ users.noreply.github.com>
+* Excercise Equipment is now craftable
 
-* Psykers
-
-* commented out stuff is now in
-
-Co-authored-by: Fikou <23585223+Fikou@users.noreply.github.com>
-Co-authored-by: tralezab <spamqetuo2@ gmail.com>
-Co-authored-by: tralezab <40974010+tralezab@ users.noreply.github.com>
-Co-authored-by: MrMelbert <51863163+MrMelbert@ users.noreply.github.com>
-Co-authored-by: John Doe <gamingskeleton3@gmail.com>
+Co-authored-by: Sol N <116288367+flowercuco@users.noreply.github.com>
 
 ---
-## [ShizCalev/tgstation](https://github.com/ShizCalev/tgstation)@[e766444468...](https://github.com/ShizCalev/tgstation/commit/e766444468445f084d3714b515003d3f40bbce69)
-#### Monday 2022-12-12 01:03:19 by LemonInTheDark
+## [Clarencepricemegatron83/Clarencepricemegatron83](https://github.com/Clarencepricemegatron83/Clarencepricemegatron83)@[46b471712a...](https://github.com/Clarencepricemegatron83/Clarencepricemegatron83/commit/46b471712a3af850b85f96f7b53e3dd6155bc7ac)
+#### Tuesday 2022-12-13 02:32:08 by Clarencepricemegatron83
 
-Changes our map_format to SIDE_MAP (#70162)
+Create Check this shit out my bro
 
+Hey friends and strangers my name is Clarence but you can call me Megatron I'm not a hacker but I getted hacked and I'm tired of that shit it's time for me to reconnect with some one I can trust if your reading this you gotta be areal motherfucker I'm from Texas college station Texas TAM Texas am university I'm a pretty cool cat as hit it's hard to find people to trust these days sooo hit me up I just started.
+
+---
+## [kaiykay/businessman-and-situation-](https://github.com/kaiykay/businessman-and-situation-)@[f75ed60cb6...](https://github.com/kaiykay/businessman-and-situation-/commit/f75ed60cb6e669f2b235fb467779f49f8727b710)
+#### Tuesday 2022-12-13 02:48:31 by kaiykay
+
+business 
+
+2022 Is a chance to get rich!
+
+ Just use your phone and you can earn big anytime, anywhere!
+
+
+
+ Working from home is a dream for many people, some just chat, or surf the internet to pass the time, but some people know how to make money from their mobile phones.
+ 1-2 hours a day, you can earn IDR 15-40 million per month via WhatsApp. Please take 5 minutes to read this article, because this is an opportunity you don't want to miss.
+
+
+
+
+ My friend Anjas Mara, a skilled worker with a monthly salary of 7.8 million rupiah, has made more money since he learned how to make money with his cell phone.  He bought a new car, he plans to travel, and now his life has more meaning!
+
+
+
+
+ Another friend of mine is Farah, a mother who quit her job to take care of her children and family and lives in poverty.  When he learned a new way to make money, he made Rp. 5 million in a week.  The standard of living has also improved greatly.
+
+
+ When they add mentor contacts, start learning and try new ways of making money via WhatsApp, money is easy, it only takes 20 minutes to see how it works.  They can make money regardless of place or time, using their free time, They can earn 500 thousand rupiah - 1.5 million rupiah per day, and all their friends also want to be like them!
+
+
+ Everyone can try this way of making money, civil servants, housewives, shop owners, and all walks of life.  Teach yourself how to make money with tutors.
+
+
+ You work hard every day, but you don't have enough income to buy the things you want or even to cover your family's expenses.  Feeling unfulfilled in life, if you are willing to change the status quo, you can learn how others have succeeded in making money, to make life better.
+
+
+ Pick up your phone, call this WhatsApp number and take this opportunity to make your dream come true now!
+
+
+ You have an opportunity to make money from your mobile and you can really make money from home.
+
+
+
+
+ message area
+
+
+ After knowing this, my career and life stabilized
+
+
+ I think I'm the first to know this information
+
+
+ I've added the tutor's contact details on WhatsApp, hope you can reply as soon as possible.  I want to know how to make money with my phone.
+
+
+ thank you very much!  !  Excellent service!  !  !  Very satisfied!  !  !
+
+
+ I introduced this to my father.  In fact, he now makes more money than I do!
+
+
+ This online training team is amazing, I couldn't believe it at first.  Really make money after joining.  I don't have to worry about makeup and money for clothes now.
+
+
+ I knew from the start and have made money many times.  I am satisfied with this life.
+
+
+ I have added a mentor on WhatsApp, please advise.  Thank you!
+
+
+ I want it too, I don't want to miss this opportunity, many friends have already tried it
+
+---
+## [angad777/next.js](https://github.com/angad777/next.js)@[1bbd264216...](https://github.com/angad777/next.js/commit/1bbd2642164098ceb9cebfb36deba9aed7e8a53b)
+#### Tuesday 2022-12-13 03:16:38 by abdennor
+
+Add additional fix in hydration error document (#40675)
+
+I had the same issue, so the fix that worked for me was pulled from this
+thread https://stackoverflow.com/a/71870995
+
+I have been experiencing the same problem lately with NextJS and i am
+not sure if my observations are applicable to other libraries. I had
+been wrapping my components with an improper tag that is, NextJS is not
+comfortable having a p tag wrapping your divs, sections etc so it will
+yell "Hydration failed because the initial UI does not match what was
+rendered on the server". So I solved this problem by examining how my
+elements were wrapping each other. With material UI you would need to be
+cautious for example if you use a Typography component as a wrapper, the
+default value of the component prop is "p" so you will experience the
+error if you don't change the component value to something semantic. So
+in my own opinion based on my personal experience the problem is caused
+by improper arrangement of html elements and to solve the problem in the
+context of NextJS one will have to reevaluate how they are arranging
+their html element
+
+<!--
+Thanks for opening a PR! Your contribution is much appreciated.
+To make sure your PR is handled as smoothly as possible we request that
+you follow the checklist sections below.
+Choose the right checklist for the change that you're making:
+-->
+
+
+## Documentation / Examples
+
+- [x] Make sure the linting passes by running `pnpm lint`
+- [ ] The "examples guidelines" are followed from [our contributing
+doc](https://github.com/vercel/next.js/blob/canary/contributing/examples/adding-examples.md)
+
+Co-authored-by: JJ Kasper <jj@jjsweb.site>
+
+---
+## [miniusAreas/Skyrat-tg](https://github.com/miniusAreas/Skyrat-tg)@[44612df948...](https://github.com/miniusAreas/Skyrat-tg/commit/44612df9486b77e52ca88c8dc9063ee8f7f8ecc7)
+#### Tuesday 2022-12-13 03:41:42 by SkyratBot
+
+[MIRROR] The screwdriver cocktail is now the world's worst screwdriver [MDB IGNORE] (#17354)
+
+* The screwdriver cocktail is now the world's worst screwdriver (#70862)
 
 ## About The Pull Request
 
-This does nothing currently, but will allow me to test for layering
-issues on LIVE, rather then in just wallening.
-Oh also I'm packaging in a fix to one of my macros that I wrote wrong,
-as a joke
+Screwdriver cocktail now secretly works as a screwdriver... just, the
+worst one ever. How the fuck are you doing that?!
 
-[removes SEE_BLACKNESS usage, because we actually cannot use it
-effectively](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
+## Why It's Good For The Game
 
-[c9a19dd](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
+It's funny and I bet someone has tried this before
 
-Sidemap removes the ability to control it on a plane, so it basically
-just means there's an uncontrollable black slate even if you have other
-toggles set.
-
-This just like, removes that, since it's silly
-
-[fixes weird layering on solars and ai portraits. Pixel y was casuing
-things to render below who
-shouldn't](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
-
-[3885b9d](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
-
-[Fixes flicker
-issues](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
-
-[2defc0a](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
-
-Offsetting the vis_contents'd objects down physically, and then up
-visually resolves the confliciting that was going on between the text
-and its display.
-
-This resolves the existing reported flickering issues
-
-[fixes plated food not appearing in
-world](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
-
-[28a34c6](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
-
-pixel_y'd vis_contents strikes again. It's a tad hacky but we'll just
-use pixel_z for this
-
-[Adds wall and upper wall plane
-masters](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
-
-[89fe2b4](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
-
-We use these + the floor and space planes to build a mask of all the
-visible turfs.
-Then we take that, stick it in a plane master, and mask the emissive
-plane with it.
-
-This solves the lighting fulldark screen object getting cut by emissives
-Shifts some planes around to match this new layering. Also ensures we
-only shift fullscreen objects if they don't object to it.
-
-[compresses plane master
-controllers](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
-
-[bd64cc1](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
-
-we don't use them for much rn, but we might in future so I'm keeping it
-as a convienince thing
+## Changelog
 
 :cl:
-refactor: The logic of how we well, render things has changed. Make an
-issue report if anything looks funky, particularly layers. PLEASE USE
-YOUR EYES
+add: Screwdriver cocktails now work as the world's worst screwdriver
 /:cl:
 
-Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
+* The screwdriver cocktail is now the world's worst screwdriver
+
+Co-authored-by: tralezab <40974010+tralezab@users.noreply.github.com>
 
 ---
-## [HanSun111/U5L6](https://github.com/HanSun111/U5L6)@[1e374e5888...](https://github.com/HanSun111/U5L6/commit/1e374e58880ddcbb05963ac176b89524f3bfa0ee)
-#### Monday 2022-12-12 04:02:04 by hansun
+## [ArtemisStation/artemis-tg](https://github.com/ArtemisStation/artemis-tg)@[44008f485d...](https://github.com/ArtemisStation/artemis-tg/commit/44008f485d6d72537935cfa8a3a5b6140eece744)
+#### Tuesday 2022-12-13 04:26:33 by Jacquerel
 
-bro, cannot for the life of me figure out the challenge
-God is dead. God remains dead. And we have killed him. How shall we comfort ourselves, the murderers of all murderers? What was holiest and mightiest of all that the world has yet owned has bled to death under our knives: who will wipe this blood off us? What water is there for us to clean ourselves? What festivals of atonement, what sacred games shall we have to invent? Is not the greatness of this deed too great for us? Must we ourselves not become gods simply to appear worthy of it?
+Fishing-themed Escape Shuttle (#71805)
+
+## About The Pull Request
+
+I can't do much coding until you review my other PRs so I'm making a
+mapping PR instead.
+I actually made this a while ago while I was trying out strongDMM. It
+turns out: it's a good tool and easy to use.
+
+![2022 12 09-10 51
+26](https://user-images.githubusercontent.com/7483112/206686234-ae952ba3-2cb4-4093-80a0-d086fe95a3fc.png)
+
+This mid-tier shuttle isn't enormous and is shaped like a fish. It
+dedicates much of its internal space to an artificial fishing
+environment, plus fishing equipment storage. Plus look at that lovely
+wood panelling!
+There's not a lot of seating or a large medbay, but there's five fishing
+rods for people to wrestle each other over plus some aquariums to store
+your catches in.
+
+It contains a variety of fishing biomes (ocean, moisture trap, hole,
+portal) but I couldn't fit "lava" in there even though I wanted to
+because it's hardcoded to only have fish in it on the mining z-level.
+If you're very lucky and nobody shoves you, the time between the shuttle
+docking at the station and arriving at Centcomm might be enough time for
+you to catch maybe four entire fish. Wow!
+
+## Why It's Good For The Game
+
+There are plenty of novelty shuttle options but I think this one is good
+for a personal touch of "the Captain would rather be fishing than
+hearing you complain about the nuclear operatives".
+
+## Changelog
+
+:cl:
+add: Tell your crew how much you care by ordering a shuttle where half
+of the seats have been removed so that you can get some angling done
+before you clock out.
+/:cl:
 
 ---
-## [ThePiachu/cmss13](https://github.com/ThePiachu/cmss13)@[70bcd3b6fb...](https://github.com/ThePiachu/cmss13/commit/70bcd3b6fbcf17b4c26640321f23c83da0ab80a3)
-#### Monday 2022-12-12 04:23:19 by carlarctg
+## [Exr0nRandomProjects/22math435_tda](https://github.com/Exr0nRandomProjects/22math435_tda)@[57bfb257ae...](https://github.com/Exr0nRandomProjects/22math435_tda/commit/57bfb257aed3ea490ad0f2deb7987e842b7b7611)
+#### Tuesday 2022-12-13 05:29:12 by Huxley Marvit
 
-Queen eye shuffles weed sprites when passing over them. (#1901)
+Meet me at midnight
+(Ooh, ooh, ooh, whoa whoa whoa whoa whoa)
+Staring at the ceiling with you
+Oh, you don't ever say too much
+And you don't really read into
+My melancholia
+I've been under scrutiny (yeah, oh yeah)
+You handle it beautifully (yeah, oh yeah)
+All this shit is new to me (yeah, oh yeah)
+I feel a lavender haze creeping up on me
+So real, I'm damned if I do give a damn what people say
+No deal, the 1950s shit they want from me
+I just wanna stay in that lavender haze
+(Ooh, ooh, whoa whoa whoa whoa whoa)
+All they keep asking me (all they keep asking me)
+Is if I'm gonna be your bride
+The only kind of girl they see (the only kind of girl they see)
+Is a one night or a wife
+I find it dizzying (yeah, oh yeah)
+They're bringing up my history (yeah, oh yeah)
+But you aren't even listening (yeah, oh yeah)
+
+---
+## [Offroaders123/NBTify](https://github.com/Offroaders123/NBTify)@[2b68a2d0c7...](https://github.com/Offroaders123/NBTify/commit/2b68a2d0c7e6a2d863d3e746d8e06bbc2d2541c7)
+#### Tuesday 2022-12-13 07:42:19 by Offroaders123
+
+Accepting ArrayBufferLike for Reading
+
+Woo hoo, got it working!!! Super happy to figure out the typings dilemma. My hack: Redefine `toString()` on `interface ArrayBuffer` as an `as const` string, `"[object ArrayBuffer]"`. Not the prettiest, but also very beautiful. It doesn't add any types for fake property definitions, and it's only inside of NBTify, it can't escape out of the library. Amazing.
+
+I'm probably gonna add this to the issue page to show how I solved it, as it ended up fixing all of the typing issues between `Uint8Array`, which was one of the holdups for implementing this relatively easy thing.
+
+Ok, so down to the actual changes. Now you can simply pass in a raw `ArrayBuffer` or `SharedArrayBuffer` into the Read module, rather than needing it to be wrapped in a `Uint8Array` view. This is super awesome, as I really like the ability to use this with Promise chaining, and without having to make `Uint8Array` objects everywhere. This will be the most useful on the web side of things I feel, like for use with `fetch()`, `Response()`, things like that. And, probably Workers too, come to think of it! Haven't deeply experimented with Workers yet, but not having to manually wrap anything in a `Uint8Array` will be greatly awesome, less implementation details to worry about. It just works!
+```ts
+import NBT, { NBTData } from "nbtify";
+
+const result: NBTData = await fetch("./level.dat")
+  .then(response => response.arrayBuffer())
+  .then(NBT.read);
+```
+
+---
+## [tomponline/lxd](https://github.com/tomponline/lxd)@[de0d151a2c...](https://github.com/tomponline/lxd/commit/de0d151a2cc9bd8cef31431e126649e2b6a18be7)
+#### Tuesday 2022-12-13 08:12:12 by Thomas Parrott
+
+lxd/instance/drivers/driver/qemu: Fix macvlan NICs losing connectivity on LXD restart
+
+Switch to using monitor.SendFile() rather than monitor.SendFileWithFDSet(), as there
+appears to be some rather strange behaviour going on with QEMU when used with macvtap
+NICs.
+
+If you pass the macvtap file handles using monitor.SendFileWithFDSet() it will use a
+separate FD set for each file handle. This works fine, and I can see the correct file
+handles opened by the QEMU process. But when LXD is restarted (the monitor connection
+is closed), the file handles are closed by QEMU, causing the connectivity to break.
+
+I have experimented with using the same FD set for all file handles associated to a
+particular macvtap NIC. This didn't fix the issue.
+
+I also tried hard coding the FD set ID to 0. This meant that the macvtap NIC would
+share an FD set with the root disk device. Interestingly this solved the issue.
+However it made me uncomfortable as the root disk is only configured by referencing
+the FD set ID itself, rather than a particular FD inside the set. So I don't think
+that sharing an FD set with multiple devices is a good idea.
+
+However it got me thinking that perhaps the fact that the root disk is referencing
+the FD set by ID (i.e using file=/dev/fdset/0 in its config) meant that QEMU somehow
+realised that the FD set should be persisted even after the monitor has disconnected.
+
+I confirmed that using the same FD set (even if a different ID than 0) for macvtap NICS
+as the root disk device fixed the issue.
+
+But because of my discomfort at that scenario (explained above) I instead looked for
+a different solution. Before introducing multi-queue macvlan support for VMs we were
+using monitor.SendFile() which worked fine. However I had switched to using the
+monitor.SendFileWithFDSet() function as the former didn't support accessing the specific
+FD number that was created inside QEMU. I thought we needed this because all the
+documentation around using multi-queue macvtap devices showed the use of numeric FDs.
+
+However on further exploration it turns out that we can infact use monitor.SendFile,
+and by sending each file handle with a unique name we can then refer to those file
+handles using the same names in `fds` setting for the macvtap devices.
+
+Note: Because the `fds` list is colon separated one cannot use colons in the file
+handle names. And I also experienced issues with connectivity when using dashes in
+the file handle names. So I opted for using full-stops instead.
+
+Fixes #11201
+
+Signed-off-by: Thomas Parrott <thomas.parrott@canonical.com>
+
+---
+## [RealMalachi/s2disasm](https://github.com/RealMalachi/s2disasm)@[6c2dc0c02c...](https://github.com/RealMalachi/s2disasm/commit/6c2dc0c02ced4277fc2089ad12e2796ba0162bd4)
+#### Tuesday 2022-12-13 08:26:53 by Malseri-SpicyBread
+
+Major (WIP) optimization to SS ring objects
+
+Optimized some SS objects, but one of the methods was kinda stupid. Made it so the art scaling animation code is literally just "transfer anim to mapping_frame". This is faster, but breaks ring animations. That's why I didn't just change anim to mapping_frame
+Before I add custom animation code to the rings, I want to fix a layering issue you can see  with the rings here. Since the only priority I changed was the ring sparkle, I can assume the original game had this issue too. Bombs don't have it, so I'll start from there.
+I'd also like to increase the animation on the SS rings if possible.
+
+Also, trying to make each type of game alteration a separate commit now, since I plan to make progress slower and less chaotic.
+
+---
+## [Chainsawicus/cmss13](https://github.com/Chainsawicus/cmss13)@[eb4886c115...](https://github.com/Chainsawicus/cmss13/commit/eb4886c115a0965a347783b87eb3415f098c2c1f)
+#### Tuesday 2022-12-13 09:40:48 by carlarctg
+
+Spitter Rework (#1541)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
 
-# About the pull request
+## About The Pull Request
 
-Queen eye shuffles weed sprites when passing over them.
+Design doc:
 
-Fixed some single letter vars so the mantainer agenda can't delay this
-PR from merging.
+https://hackmd.io/@waltuh/Sy0A1SnEo
+Slightly inaccurate as my brainworms enticed me to change and add mini
+features.
 
-
-
-<!-- Remove this text and explain what the purpose of your PR is.
-
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
-
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
-
-# Explain why it's good for the game
+Approved by Walter, ignorepproved by Gevonius and Satanbatros
 
 
-> Queen eye shuffles weed sprites when passing over them.
+https://cdn.discordapp.com/attachments/280051925154660363/1041475609165045770/image.png
 
-It's a way for marines to know there's an entire queen eye looking over
-them. Basically means an MD isn't 100% necessary to know the queen will
-broadcast the location of your flank to the entire hive.
+Changes:
+- Spit doesn't spatter by default, instead it's now a faster, weak
+7-tile* projectile that deals 20 damage with a faster spit cooldown.
+Fully accurate at 6 tiles, inaccurate at 7 tiles but can sometimes hit.
+- Frenzy replaced with 'charge spit'. Halved speed buff, added +5 armor
+buff, the next spit will deal 10 more damage and coat humans in acid but
+have only 5* tiles of range.
+- Acid spray halves damage every time someone walks on it. However, its
+damage is spread over legs and feet, and if someone who is spattered
+with acid is hit by it, their acid spatter will be strengthened, dealing
+more damage, lasting longer, and needing two rolls to clear up. Also,
+the bonus damage didn't actually work, now it does.
 
-https://streamable.com/kmnd72
+* Projectile range code is SHIIIT and breaks on diagonals so the range
+variable is increased.
 
-It's more subtle than i wanted it to be, but WCYD. Also doesn't work on
-corner sprites.
+Also, queen acid spit spatters and has 1 second less extra cooldown
+because find and replace caused it and I didn't think it was a change
+worth removing. It's neat, maybe they'll actually use it now.
 
-Also, it looks fucking creepy as hell! It's awesome.
+Added support for balloonchat colors. (Even TG doesn't have this, we're
+awesome now!)
+
+Renamed vision_distance parameter to max_distance so it's similar to
+visible_message
+
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
+
+## Why It's Good For The Game
+
+As stated in the hackmd, spitter is very ineffective without using the
+oversight-exploit infinite acid spray spam, and its combo (acid spatter
+into spray) does not actually help, as the stun stops the human from
+getting further hit by the spray and the bonus damage does not actually
+apply thanks to shitcode. This PR makes it so that the combo is indeed
+more effective than making humans walk into the spray.
+
+Again as stated, spitter suffers from a strange issue where it's
+actually not good at harassing from range despite that being its
+purpose, since it has a low range. By letting it be long ranged by
+default and choose to go short range, it adds a lot of depth and
+versatility and lets it actually harass marines.
+
+As always they can just. Shoot it to make it go away. 
 
 <!-- Please add a short description of why you think these changes would
 benefit the game. If you can't justify it in words, it might not be
@@ -214,20 +500,12 @@ worth adding, and may discourage maintainers from reviewing or merging
 your PR. This section is not strictly required for (non-controversial)
 fix PRs or backend PRs. -->
 
+## Changelog
 
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-<details>
-<summary>Screenshots & Videos</summary>
-
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
-
-</details>
-
-
-# Changelog
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
 
 <!-- If your PR modifies aspects of the game that can be concretely
 observed by players or admins you should add a changelog. If your change
@@ -236,544 +514,325 @@ mark your PRs to prevent unnecessary GBP loss. Please note that
 maintainers freely reserve the right to remove and add tags should they
 deem it appropriate. You can attempt to finagle the system all you want,
 but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
 
 :cl:
-add: Queen eye shuffles weed sprites when passing over them.
-fix: Fixed some single letter vars so the mantainer agenda can't delay
-this PR from merging.
+refactor: Added support for balloonchat colors. (Even TG doesn't have
+this, we're awesome now!)
+add: Spitter rework!
+add: Spit is now full screen range but weaker.
+add: Frenzy is renamed and causes spit to inflict spatter coating.
+add: Acid spray's damage is halved every time it hits a human, but if it
+hits someone coated in acid it will enhance it, making it more dangerous
+and need two rolls to shake off.
 /:cl:
 
-<!-- Both :cl:'s are required for the changelog to work! -->
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
 
 ---
-## [farzadmf/advent-of-code](https://github.com/farzadmf/advent-of-code)@[248ba7b377...](https://github.com/farzadmf/advent-of-code/commit/248ba7b377b51866dd0dc382e12d885393cb6b84)
-#### Monday 2022-12-12 04:25:40 by Farzad Majidfayyaz
+## [Chainsawicus/cmss13](https://github.com/Chainsawicus/cmss13)@[146d4a3fa8...](https://github.com/Chainsawicus/cmss13/commit/146d4a3fa87a25a16e7246c32d85b6b57614adc5)
+#### Tuesday 2022-12-13 09:40:48 by carlarctg
 
-FUCKKKKK RUST; THE ABSOLUTE WORST LANGUAGE EVER; MY ASS MOST LOVABLE!!!!!
+Cloaked belltower alpha increased from 10 (scout) to 35. (#1768)
 
-Can't even do a simple iteration ............ FUCK YOU PEOPLE with your
-judgements
-
----
-## [Tilos-Project/Tilos](https://github.com/Tilos-Project/Tilos)@[7149d3ca25...](https://github.com/Tilos-Project/Tilos/commit/7149d3ca252f532957eae03037752528dda16a55)
-#### Monday 2022-12-12 04:56:08 by bobross69696969
-
-Whisky is a dumb cunt and I want to fuck his asshole. It is so tight. oh god oh gos. holy shit I want to dog his sweet ass so good. I need so much lube I am going to run out please god gift me with the power to buy more lube.  Whiskey's ass be so fine.
-
----
-## [projectkepler-ru/Foundation-19](https://github.com/projectkepler-ru/Foundation-19)@[6bf6cdb77f...](https://github.com/projectkepler-ru/Foundation-19/commit/6bf6cdb77f582598b90e63fa44a922fd033ae3d0)
-#### Monday 2022-12-12 05:11:09 by harry
-
-fixes panic bunker adjacent shitcode (#769)
-
-* ugly as hell
-
-* idiot
-
-* think before i commit (never)
-
----
-## [Pre-Fortress-2/pf2-fastdl](https://github.com/Pre-Fortress-2/pf2-fastdl)@[b655e69dea...](https://github.com/Pre-Fortress-2/pf2-fastdl/commit/b655e69dea5ab065158a81efe36bae7321819008)
-#### Monday 2022-12-12 05:32:29 by PrivatePolygon
-
-these didnt fucking go in for some reason, god damn it
-
----
-## [Tsar-Salat/tgstationcashew](https://github.com/Tsar-Salat/tgstationcashew)@[ebc0227176...](https://github.com/Tsar-Salat/tgstationcashew/commit/ebc0227176b5213f379eefc3f5c6aa7be2d09c0a)
-#### Monday 2022-12-12 05:37:13 by Tastyfish
-
-Makes dog a basic mob [MDB IGNORE] (#70799)
-
-
-About The Pull Request
-
-    Made a basic version of the pet base called /mob/living/basic/pet. It's significantly more stripped down from the old simple_animal one, because its half collar stuff and...
-
-    Made the collar slot a component that you could theoretically remove from a pet to disable the behavior, or add to any other living mob as long as you set up the icon states for the collar (or not, the visuals are optional).
-        The corgi's collar strippable slot is now generally the pet collar slot, and in theory could be used for other pet stripping screens.
-
-    I also gutted the extra access card code from /mob/living/basic/pet as it's only being used by corgis. Having a physical ID is now just inherent to corgis, as they're the only ones that could equip it anyway.
-
-    Ported the make_babies() function from simple_animals to a new subtree and associated behavior, called /datum/ai_planning_subtree/make_babies that uses blackboards to know the animal-specific info.
-        Note that it's marginally improved, as the female walks to the male first instead of bluespace reproduction.
-
-    Tweaked and improved the dog AI to work as a basic mob, including making /datum/idle_behavior/idle_dog fully functional.
-
-    Made a /datum/ai_planning_subtree/random_speech/dog that pulls the dynamic speech and emotes to support dog fashion.
-
-I've tested base collars across multiple pet types.
-
-For dogs, I've tested general behavior, fetching, reproduction, dog fashion, and deadchat_plays, covering all the oddities I'm aware of.
-
-image
-Why It's Good For The Game
-
-Very big mob converted to a basic mob.
-Changelog
-
-cl
-fix: Lisa no longer uses bluespace when interacting with Ian.
-refactor: A large portion of dog code was re-written; please report any strange bugs.
-/cl
-
----
-## [Erol509/Skyrat-tg](https://github.com/Erol509/Skyrat-tg)@[84b1612201...](https://github.com/Erol509/Skyrat-tg/commit/84b161220115e3243272299b3f8f3cb29d484709)
-#### Monday 2022-12-12 05:40:58 by SkyratBot
-
-[MIRROR] Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup. [MDB IGNORE] (#18019)
-
-* Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup. (#71674)
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
 
 ## About The Pull Request
 
-- The chaplain choice beacon now uses a radial to select the armor set,
-instead of a list, giving the user a preview of what each looks like.
+Var change.
 
-![image](https://user-images.githubusercontent.com/51863163/205417930-f5ceab11-6974-48a9-a871-abcb8228bcf2.png)
-
-- Lots of additional cleanup to choice beacon code in general. Less copy
-pasted code.
-- All beacons now speak from the beacon with their message, instead of
-some going by "headset message". Soul removed
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
 
 ## Why It's Good For The Game
 
-I always forgot when selecting my armor which looks like what, and
-choosing an ugly one is a pain since you only get one choice. This
-should help chaplains get the armor they actually want without needing
-to check the wiki.
+You may think this is a 'ided' change, that I got owned by a bell tower
+and opened this PR. But believe me, it's the exact other way around.
+
+I play engineer often, especially on New Varadero, and every time I pick
+the cloaked bell. It is hilariously busted, but that's not actually the
+point here. The reason I'm making this PR is because it is genuinely
+_impossible_ to find the belltower if it's fully cloaked. If you don't
+memorize the placement you quite literally HAVE to right click over
+every single tile in the region because the alpha value is SO low it is
+just not feasible to detect. I'm saying this as an engineer, it's too
+damn much, it takes me half a minute to find my tower and pack it up
+again. Worse, sometimes people take it or a xeno slashes it while I'm
+being defibbed and I can't tell if I just can't find it or what.
+
+The difference between scout's cloak and the belltower's cloak is that
+scout has a large one color silhouette and is constantly moving, and can
+additionally be detected through walls by xenos, though again, not the
+reason for this. The belltower has a small, thin silhouette that has
+lots of gaps in its sprite, making it very hard to locate by hand.
+
+That this will weaken the belltower against xenos is no surprise, but I
+don't think that's a problem. As I said, the belltower is busted. I say
+this as someone who uses it more than has it used against them. 6
+seconds of superslow in a 4x4/5x5 range!
+
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
 
 ## Changelog
 
-:cl: Melbert
-qol: The chaplain's armament beacon now displays a radial instead of a
-text list, showing previews of what all the armor sets look like
-qol: (Almost) all choice beacons now use a pod to send their item,
-instead of just magicking it under your feet
-code: Cleaned up some choice beacon code.
-/:cl:
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
 
-Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
-
-* Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup.
-
-* update modular
-
-Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
-Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
-Co-authored-by: Tom <8881105+tf-4@users.noreply.github.com>
-
----
-## [hero-outman/freq_used_code](https://github.com/hero-outman/freq_used_code)@[04ff33a4ca...](https://github.com/hero-outman/freq_used_code/commit/04ff33a4cacc6a1d73cdd81e3d1921c8234e74c2)
-#### Monday 2022-12-12 06:41:25 by JP lab
-
-backup my damn codes in case of covid blockdown. fuck you
-
----
-## [rHermes/adventofcode](https://github.com/rHermes/adventofcode)@[de070334b4...](https://github.com/rHermes/adventofcode/commit/de070334b4059f12226a6055d42d9a266d4ef93c)
-#### Monday 2022-12-12 06:46:45 by Teodor Spæren
-
-2022 Day 12
-
-Well, today was rooouuuggghhhh. I'm actually rather ashamed, graph
-algorithms used to be my bread and butter, but I found myself not even
-remembering basic shit today. I'm going to blame a lack of preparation
-and early in the morning, but secretly maybe I've just gotten a bit lax
-with my algo skills.
-
-Well, let me tell you the tale of my incompetence. I begin with opening
-up part one and quickly realizing that, yes, this is a graph problem. I
-also have the idea that BFS will be good enough here, and I start
-implementing it. The implementation is slower than I would like and I
-make multiple mistakes. Some indexing ones, but the most major one is
-that I don't account for the fact that we can go "down" as long as we
-want, but we can only go one up. I read it as you can only go down 1
-level as well.
-
-I don't realize I'm making this mistake, so the example works, but it
-times out on the actual input. I try out some different things, but I
-can't get it faster, so I start doubting my assumptions about the task,
-but also about the fact that BFS is equal to Dijkstra's algorithm for
-unweighted graphs.
-
-In the end, I chose to bite the bullet and download networkx, and start
-reading the documentation. I fumble around there for some time, until I
-realize that I have to use "DiGraph" to get a directed graph. Once I do
-that, I get told that there is no path between the two. I spend more
-time debugging this, but in the end go back to the task and really
-reread it.
-
-That's when I catch the hight thing. The worst part, is that I remember
-now, that the first time I read it, I noticed the asymmetry and thought:
-"Ok, gotta remember that and make the graph directional". I made the
-graph directional, but I forgot about the checks for building the graph.
-
-When I fixed that, I got the first part. Then for the second part I
-again tried to use my bfs implementation, but for some reason that I
-still don't know, it's to slow and didn't return the right answer? I'm
-sure it's going to end up being a minor thing, but it's very
-frustrating.
-
-It's an interesting problem, multiple source, single destination,
-shortest path. I haven't actually seen this before, but from what I see,
-it would be an easy thing to modify BFS to solve, just add more nodes in
-the Q in the start.
-
-Ok, but I thought that one way to do this was to start from the end and
-just terminate on first "a" seen. But this did not work, because now
-that we are going the other way, I have to reverse the condition for
-changing levels, but I didn't remember that before after.
-
-I then just looked up BFS on networkx and eventually found "bfs_layers",
-which does almost exactly what I need. After a bit of messing around
-there, I got the answer.
-
-This was quite humbling, I guess it really wasn't my day and the
-implementation of these algorithm really is "use it or lose it".
-
-While writing this, I realize that we can actually do better than BFS
-here, because we have a heuristic that BFS does not have. We can always
-just go 1 level up, and so we know the minimum amount of steps needed is
-at least 26 minus the current level. I'll sit down now and try to
-implement this.
-
-I'm also very curious as to why my BFS implementation didn't work, but
-I'll sort that out as well.
-
-Score:
-      --------Part 1--------   --------Part 2--------
-Day       Time   Rank  Score       Time   Rank  Score
- 12   00:32:54   2296      0   00:49:11   2976      0
-
----
-## [Marc-Gee/seedsigner](https://github.com/Marc-Gee/seedsigner)@[d2a657f2d4...](https://github.com/Marc-Gee/seedsigner/commit/d2a657f2d43c6e77e9c48cb1f859e8f4984a5f00)
-#### Monday 2022-12-12 08:03:34 by Marc G
-
-Various edits B4 upstream submission
-
-After a long hiatus, I have finally completed my proposed changes to the software verification section of our readme.
-
-The verification focuses on keybase.io now storing and verifying the 3 online properties (seedsigner.com, twitter.com/seedsigner and github.com/seedsigner)
-
-This makes the key more secure, easier to import and generally less hassle. its also revokable.  
-
-There is more detail about how/why in the expand blocks, but It was suggested to me to keep the instructions straightforward (ie do this and now do that) , so I have reduced focus much on the why. 
-However, some basic "why & how" has also been placed in new collapsible sections, at the end of each step. 
-
-Later on, I want to add color to the collapse sections so that they show a natural boundary, but so far that markdown code is elusive to me. ;) 
-Done is better than perfect....
-The same for getting my external links to open in a new tab/window. sigh. Markdown is ... well....tricky. 
-
-I can make the screenshots smaller. please comment on their size.
-
-
-The Verification is done in 3 steps:
-1. import the public key
-2. Verify its the correct key by verying it and then comparing the Key ID to Keybase.io/seedsigner. If it matches, then its the real seedsigner project person that signed.
-this is arguablly the most critical step of verifying and hence we ask the user to check for themselves that the key ID from verify is the same as on keybase.io. Hence the Key ID's are blurred in the screenshots. We dont want the user to compare the screenshots to each other. we want them to compare their result to their browser. 
-
-3. Verify that the other files (at this stage just the .zip file) are also not altered. This does a comparision of the various files actual and expected hashes.
-
-If all is well here, then tell the user about their success :). 
-Explain the warnings, which ones are benign, and what to do if verification fails.
-
-
-Lastly, "Write the software to the MicroSD' section - 
-I have got draft text for this, but havent published it yet. 
-The verify PR is big enough !!
-
-Please review for my PR flow and clarity, I do still want to improve the formatting,  but wanted to get everyone's thoughts before messing with the detailed formatting and line breaks, which are especially painful!
-
-FYI - I have done my screenshots using layers, so it easy to edit in the future. I think they
-
----
-## [keydon/adventOfCode](https://github.com/keydon/adventOfCode)@[8cf07e0d27...](https://github.com/keydon/adventOfCode/commit/8cf07e0d27e126157d87949b36788beb9629d9d9)
-#### Monday 2022-12-12 08:14:50 by Lukas Bugaj
-
---- Day 11: Monkey in the Middle ---
-
-As you finally start making your way upriver, you realize your pack is much lighter than you remember. Just then, one of the items from your pack goes flying overhead. Monkeys are playing Keep Away with your missing things!
-
-To get your stuff back, you need to be able to predict where the monkeys will throw your items. After some careful observation, you realize the monkeys operate based on how worried you are about each item.
-
-Figure out which monkeys to chase by counting how many items they inspect over 20 rounds. What is the level of monkey business after 20 rounds of stuff-slinging simian shenanigans?
-
---- Part Two ---
-You're worried you might not ever get your items back. So worried, in fact, that your relief that a monkey's inspection didn't damage an item no longer causes your worry level to be divided by three.
-
-Unfortunately, that relief was all that was keeping your worry levels from reaching ridiculous levels. You'll need to find another way to keep your worry levels manageable.
-
-Starting again from the initial state in your puzzle input, what is the level of monkey business after 10000 rounds?
-
----
-## [jhvst/coredns](https://github.com/jhvst/coredns)@[bddae69832...](https://github.com/jhvst/coredns/commit/bddae698320bc5619fc9bd7e98dd837a5d8ead3e)
-#### Monday 2022-12-12 08:21:26 by Juuso Haavisto
-
-plugin/etcd: implicit requirement on etcd 3.5 not documented
-
-**What would you like to be added**: I would like to have the version requirement for `etcd` be more clearly stated for the plugin in the documentation. It seems to require `3.5`.
-
-**Why is this needed**: It would have saved some time for me, as it's not clear from the documentation that the plugin seems to only work with the more recent version.
-
-So, what I did: I installed `etcd` from my package manager, which happened to resolve to version `3.3.27`. I set up the cluster, then proceeded to install `coredns`, which my package manager resolved to version `1.10.0`. I read through the examples and documentation on the coredns `etcd` plugin page on what to do. Here, this is where I made a mistake: when the `etcdctl put` request did not resolve on my nodes, I should have been alarmed. What I did was proceed to use the `set` subcommand. While the `etcd` clearly did save my requests, what I did not get was a DNS response despite several iterations on my configuration.
-
-After troubleshooting this for around two hours I started to consider patching my software, when I realized that my package manager had the more recent versions under special namespace. After updating to `3.5.6`, the examples started working, as the `put` subcommand resolved.
-
-To possibly save other people's time, I would like to make it explicit that an `etcd` version with the `put` subcommand is required. The current documentation makes it seem like it's not, whereas from my today's anecdotal experience it is.
-
----
-## [Upsetkoala/app-dev](https://github.com/Upsetkoala/app-dev)@[ef6fe90958...](https://github.com/Upsetkoala/app-dev/commit/ef6fe90958714510c1f645d4207446dcddc0c2a7)
-#### Monday 2022-12-12 08:24:22 by Upsetkoala
-
-Update README.md
-
-I personally love the first three seasons of ELITE, but after that I stopped watching because it's boring and the characters are not suited for the role.  The 100 is my favorite post-apocalyptic series of all time, not just the fact that Raven is hot, but also I love the stories, the twists, and overall setting of the series. The Sweet Magnolias tells us about the daily life of a simple family and the struggles they need to get through every step of the way. Squid game is a movie about suspense, fun, and traditional cultures of Korean community. Lastly, Wednesday is a story about a psychopath gothic girl transferred in a school of rejects and she discovered some secrets that needed to be unfold.
-
----
-## [xiaoleGun/Home](https://github.com/xiaoleGun/Home)@[a520d7729a...](https://github.com/xiaoleGun/Home/commit/a520d7729ab25d2b4737443467c99a384fdd1758)
-#### Monday 2022-12-12 08:47:51 by xiaoleGun
-
-Fuck your mother's militaristic Japan
-
- *  The Nanking Massacre, commonly known as
-    the Rape of Nanking, was an infamous war
-    crime committed by the Japanese military
-    in Nanjing (Nanking), then the capital of
-    the Republic of China, after it fell to the
-    Imperial Japanese Army on December 13, 1937.
-    The duration of the massacre is not clearly
-    defined, although the violence lasted well
-    into the next six weeks, until early February 1938.
-    Japanese officials lied about civilian death figures and
-    still refuse to reveal them properly today.
-    During the occupation of Nanking, the Japanese army
-    committed numerous atrocities, such as rape, looting,
-    arson and the execution of prisoners of war and civilians.
-    The executions began under the pretext of eliminating Chinese
-    soldiers disguised as civilians, and a large number of innocent
-    men were intentionally misidentified as enemy combatants and executed
-    as the massacre gathered momentum. A large number of women
-    and children were also killed, as rape and murder became more widespread.
-
-Signed-off-by: xiaoleGun <1592501605@qq.com>
-
----
-## [mattpang/aoc2022](https://github.com/mattpang/aoc2022)@[139597c24c...](https://github.com/mattpang/aoc2022/commit/139597c24c1356e32645716ad6139aa24319cafc)
-#### Monday 2022-12-12 09:04:35 by Matt Pang
-
-The path of the righteous man is beset on all sides by the inequities of the selfish and the tyranny of evil men. Blessed is he who, in the name of
-charity and good will, shepherds the weak through the valley of the darkness, for he is truly his brother's keeper and the finder of lost children.
-
----
-## [Autisem/tgstation](https://github.com/Autisem/tgstation)@[e9cff525dc...](https://github.com/Autisem/tgstation/commit/e9cff525dc5b57153af3b4bb9039de08d6823805)
-#### Monday 2022-12-12 10:07:01 by tralezab
-
-Refactors Pirates into Pirate Gangs, Adds the Psyker-gang as new pirates (#71650)
-
-## About The Pull Request
-
-### Refactor
-Pirate gangs are now datumized for extendability, custom dialogue, etc.
-
-### Psyker Gang 🧠 
-Psyker-gang Members are pirates who are... yes, Psykers. They're on a
-gore-binge and need some money for more hits of gore!
-
-- Gore autoinjectors, filled with dirty kronkaine. Don't overdose,
-you'll go splat.
-- Psykerboost armor, reactive armor that refreshes psychic abilities.
-Given to the leader.
-
-- [x] @Fikou is making the map :D
-
-## Why It's Good For The Game
-
-God I fucking love variety also now we can add as many different pirates
-as we so desire
-
-<details>
-  <summary>Spoiler warning</summary>
-  
-
-![image](https://user-images.githubusercontent.com/40974010/205342701-9cba63ef-a22c-4f07-9b48-8793c4a2b5af.png)
-  
-</details>
-
-## Changelog
-:cl: Tralezab code, Fikou's map, PigeonVerde and Halcyon for sprites!
-add: Psyker-gangers are new pirates
-refactor: refactored pirate code so we can add more in the future
-/:cl:
-
-Co-authored-by: Fikou <23585223+Fikou@users.noreply.github.com>
-
----
-## [01ste02/AoC2022](https://github.com/01ste02/AoC2022)@[fca8471f70...](https://github.com/01ste02/AoC2022/commit/fca8471f70134c276d51a8923c91de191ba0c6f1)
-#### Monday 2022-12-12 10:44:03 by Oskar Stenberg
-
-Day 12. Advent of bash is getting slow - if you are stupid. My first solution managed to solve part 1, but was horribly slow for part 2. I basically made my own algorithm. Then I implemented BFS since that is apparantly good (haha).. BFS took 20 seconds for part 1, and then for part 2 I created a nice little bug. I did a BFS for each starting point. 20 seconds times about 688 starting points quickly becomes 3 hours of execution time. Then I did a BFS with multiple starting points and solved it in 24 seconds.
-
----
-## [KailasKakade1990/KailasKakade1990](https://github.com/KailasKakade1990/KailasKakade1990)@[2e38a5d549...](https://github.com/KailasKakade1990/KailasKakade1990/commit/2e38a5d5495d4930463c88860fd9d3f9dff8349f)
-#### Monday 2022-12-12 10:52:59 by Kailas Kakade
-
-README1.md
-
-<h1 align="center">Hi 👋, I'm Kailas Kakade</h1>
-<h3 align="center">A passionate Java Developer from India</h3>
-
-<p align="left"> <img src="https://komarev.com/ghpvc/?username=kailaskakade1990&label=Profile%20views&color=0e75b6&style=flat" alt="kailaskakade1990" /> </p>
-
-<p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=kailaskakade1990" alt="kailaskakade1990" /></a> </p>
-
-- 🔭 I’m currently working on [iEN(Intelligent Edge Network)](--)
-
-- 🌱 I’m currently learning **Android**
-
-- 👨‍💻 All of my projects are available at [https://github.com/KailasKakade1990?tab=repositories](https://github.com/KailasKakade1990?tab=repositories)
-
-- 📝 I regularly write articles on [http://www.clickinfohub.com](http://www.clickinfohub.com)
-
-- 💬 Ask me about **Java,SpringBoot Mocroservice.**
-
-- 📫 How to reach me **kailaskakade90@gmail.com**
-
-- 📄 Know about my experiences [https://docs.google.com/document/d/1KyJKyESzRCIuSMfAk_Xnz7ThDQZrnLuD/edit?usp=share_link&ouid=105492812669302599443&rtpof=true&sd=true](https://docs.google.com/document/d/1KyJKyESzRCIuSMfAk_Xnz7ThDQZrnLuD/edit?usp=share_link&ouid=105492812669302599443&rtpof=true&sd=true)
-
-- ⚡ Fun fact **I think I am funny**
-
-<h3 align="left">Connect with me:</h3>
-<p align="left">
-<a href="https://linkedin.com/in/https://www.linkedin.com/in/kailaskakade90/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/linked-in-alt.svg" alt="https://www.linkedin.com/in/kailaskakade90/" height="30" width="40" /></a>
-<a href="https://fb.com/https://www.facebook.com/kakade.kailas" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/facebook.svg" alt="https://www.facebook.com/kakade.kailas" height="30" width="40" /></a>
-<a href="https://instagram.com/https://www.facebook.com/kakade.kailas" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/instagram.svg" alt="https://www.facebook.com/kakade.kailas" height="30" width="40" /></a>
-<a href="https://www.youtube.com/c/kailaskakade7935" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/youtube.svg" alt="kailaskakade7935" height="30" width="40" /></a>
-<a href="https://www.hackerrank.com/https://www.hackerrank.com/kailaskakade90" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/hackerrank.svg" alt="https://www.hackerrank.com/kailaskakade90" height="30" width="40" /></a>
-<a href="https://www.leetcode.com/https://leetcode.com/kailaskakade1990/" target="blank"><img align="center" src="https://raw.githubusercontent.com/rahuldkjain/github-profile-readme-generator/master/src/images/icons/Social/leet-code.svg" alt="https://leetcode.com/kailaskakade1990/" height="30" width="40" /></a>
-</p>
-
-<h3 align="left">Languages and Tools:</h3>
-<p align="left"> <a href="https://developer.android.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/android/android-original-wordmark.svg" alt="android" width="40" height="40"/> </a> <a href="https://git-scm.com/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="git" width="40" height="40"/> </a> <a href="https://www.java.com" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="java" width="40" height="40"/> </a> <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="javascript" width="40" height="40"/> </a> <a href="https://spring.io/" target="_blank" rel="noreferrer"> <img src="https://www.vectorlogo.zone/logos/springio/springio-icon.svg" alt="spring" width="40" height="40"/> </a> </p>
-
-<p><img align="left" src="https://github-readme-stats.vercel.app/api/top-langs?username=kailaskakade1990&show_icons=true&locale=en&layout=compact" alt="kailaskakade1990" /></p>
-
-<p>&nbsp;<img align="center" src="https://github-readme-stats.vercel.app/api?username=kailaskakade1990&show_icons=true&locale=en" alt="kailaskakade1990" /></p>
-
-<p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=kailaskakade1990&" alt="kailaskakade1990" /></p>
-
----
-## [VastKilleroOm/TG220VAST](https://github.com/VastKilleroOm/TG220VAST)@[4fd404aa8f...](https://github.com/VastKilleroOm/TG220VAST/commit/4fd404aa8f15480ad4c8585e65268a83c60b26e1)
-#### Monday 2022-12-12 10:55:07 by tralezab
-
-Moves speaking verbs to tongues + subtypes, moves wing sprites to wing subtypes, bodypart damage examines to limbs, fixes sign language not working without a tongue (#71635)
-
-## About The Pull Request
-
-### Moves speaking verbs to tongues + subtypes
-Moves species say mod onto tongues, creates any tongues that didn't
-exist for the say mods they needed to hold.
-
-### moves wing sprites to wing subtypes
-Moves the logic of selecting a wing sprite onto subtypes of /functional
-on the wing type. Now, angel wings bring the holy trait with them, it
-isn't a special check on flight potions, and we can expand it. (EMPs
-taking down robowings? Fires burning megamoth wings? Cool stuff)
-
-### bodypart damage examines to limbs
-Instead of checking what your species says, it tallies up your limbs and
-provides the damage description that matches most of your limbs. So for
-example, If you're mostly human with one augmented part, you take
-bruises and cuts. If you're mostly robot augmented with one human part,
-you get robot damage descriptions. Yay!
-
-### fixes sign language working without a tongue
-Having no tongue would garble your speech, and this had no interaction
-with sign language, so you'd be speaking in broken gurgling with
-perfectly working hands. Now, the sign language component prevents any
-kind of garbling, since it brings its own garbling for full/missing arms
-
-
-![image](https://user-images.githubusercontent.com/40974010/204932511-42c8e020-a2d7-4fc1-befc-7cd46a2f2932.png)
-
-## Why It's Good For The Game
-
-Moving things off of species inherent makes the game expose way more
-interesting mechanics to play with. It sucks that you can't steal a
-jellyperson's chirping, since they can get a normal tongue and they'll
-go back to... chirping! LAME! THAT IS LAME!
-
-Ditto goes for wings, and for limbs, well, having someone be entirely
-augmented but get descriptions of bleeding because they didn't spawn as
-an android is kinda lame.
-
-<details>
-  <summary>Spoiler warning</summary>
-  
-
-![image](https://user-images.githubusercontent.com/40974010/204922627-333de052-a02b-4786-8ff9-f6e739443f2c.png)
-  
-</details>
-
-
-
-## Changelog
 :cl:
-refactor: Refactored wings, tongues, and some examine messages,
-hopefully with minimal effect on actual changes. A few more species have
-tongues, angel wings bring the holy trait with them, and wings have new
-descriptions. should be the biggest parts of it
+balance: Increased alpha (reduced camo) of the camo belltower from 10 to
+35. This is mainly meant for engineers to be able to see their tower to
+pick it up, but the inevitable balance changes aren't unintended.
 /:cl:
 
----
-## [VastKilleroOm/TG220VAST](https://github.com/VastKilleroOm/TG220VAST)@[9499a1542b...](https://github.com/VastKilleroOm/TG220VAST/commit/9499a1542b156eb32efb25e0310b1fe7077caf5c)
-#### Monday 2022-12-12 10:55:07 by itseasytosee
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
 
-Corrects error in stamina HUD element display calculation. Increases stamina HUD readability. (#71623)
+---
+## [Linnea-Olofsson-nti-johanneberg/zoo2022](https://github.com/Linnea-Olofsson-nti-johanneberg/zoo2022)@[50992bfc79...](https://github.com/Linnea-Olofsson-nti-johanneberg/zoo2022/commit/50992bfc793bb243b56e68180c183a9e39d9af83)
+#### Tuesday 2022-12-13 09:52:38 by Linnea-Olofsson-nti-johanneberg
+
+lektion 3
+
+Något är fel på mitt grid skall lista ut vad fan som är felet på det.
+JAG GER UPP!!!
+NÅGOT ÄR FEL PÅ DENNA BITCHEN.
+MATTIAS JAG VILL INTE.
+DETTA ÄR SÅ DUMT.
+JAG SKA FAN JOBBA VARJE FUCKING DAG NU FÖR ATT LÖSA DENNA BITCHEN.
+MASSA SHIT ÄR JU FAN RÖD.
+JAG SKA FAN KOLLA OM VIDEOS.
+FY FAN.
+ok nvm Linus hjälpte mig. Det blev lite bättre nu.
+
+---
+## [LyaaaaaGames/AIdventure_Localization](https://github.com/LyaaaaaGames/AIdventure_Localization)@[27ea880669...](https://github.com/LyaaaaaGames/AIdventure_Localization/commit/27ea8806696af55c72c377b25c30a35c29b8c358)
+#### Tuesday 2022-12-13 09:58:49 by Lyaaaaaaaaaaaaaaa
+
+Added many keys for the 1.5.0 of AIdventure.
+
+- UPDATE_CONTENT
+- ITEM_URL
+- YOUR_ITEMS
+- SUCCESS_UPLOAD_TO_WORKSHOP
+- DISPLAY_ONLY_PNG
+- DOWNLOAD_
+- FAILED_UPLOAD_TO_WORKSHOP
+- FRIENDS_ONLY
+- I_ACCEPTED_TOS
+- PREVIEW_IMAGE
+- PRIVATE
+- PUBLIC
+- READ_TOS
+- SELECT_LANGUAGE
+- SHARE
+- SHARE_CONTENT
+- TYPE_OF_FILE
+- UPLOAD_TO_WORKSHOP
+- VISIBILITY
+- WORKSHOP_UPLOAD_ACCEPT_DIALOG
+- WORKSHOP_UPLOAD_BUTTON_HINT
+- 1ST_PERSON
+- 2ND_PERSON
+- ADVENTURE
+- CYBERPUNK
+- DARK
+- DYSTOPIAN
+- FANTASY
+- FEMALE_PROTAGONIST
+- HISTORICAL
+- HORROR
+- LGBTQ
+- LOREBOOK_INCLUDED
+- MALE_PROTAGONIST
+- MEDIEVAL
+- MODERN_ERA
+- MYSTERY
+- PIRATE
+- POST_APOCALYPTIC
+- ROMANCE
+- SCIENCE_FICTION
+- STEAMPUNK
+- THRILLER
+- UPLIFTING
+- WILD_WEST
+- ZOMBIE
+
+---
+## [peff/git](https://github.com/peff/git)@[bccd4ce097...](https://github.com/peff/git/commit/bccd4ce097e48728a734d068a07ff2409542167c)
+#### Tuesday 2022-12-13 10:55:20 by Jeff King
+
+commit: give a hint when a commit message has been abandoned
+
+If we launch an editor for the user to create a commit
+message, they may put significant work into doing so.
+Typically we try to check common mistakes that could cause
+the commit to fail early, so that we die before the user
+goes to the trouble.
+
+We may still experience some errors afterwards, though; in
+this case, the user is given no hint that their commit
+message has been saved. Let's tell them where it is.
+
+Signed-off-by: Jeff King <peff@peff.net>
+
+---
+## [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)@[eaec1ec320...](https://github.com/JetBrains/intellij-community/commit/eaec1ec320ce8cbc7cb48f6f069ed7078ae9938c)
+#### Tuesday 2022-12-13 10:58:05 by Sergei Tachenov
+
+[UI] IDEA-304712 Move appendInplaceComments to BGT update
+
+The appendInplaceComments method used to be called on the EDT
+during painting. It's potentially slow, and it's also a bad practice
+to do any state computations during painting anyway.
+
+Fix by moving the relevant logic into the node's update() and
+appending the comments directly to PresentationData.
+
+This turned out to be trickier than it seems. The Project view has a lot
+of different node types, some of which are even in 3rd party plugins.
+They all extend ProjectViewNode (except Rider that extends AbstractTreeNode).
+However, it's not easy to put the logic there as it's a part of the lang-api module,
+while the logic itself is in the lang-impl module. And logic doesn't belong to the API
+module anyway.
+
+The solution is, of course, dependency inversion, but it's not easy to inject a reference
+to an interface into ProjectViewNode (let alone AbstractTreeNode) because
+we have no control of how these objects are constructed.
+Of course, it's possible to delegate this job to some parent or owner
+object like the Project View Pane, for example. However, this creates unnecessary coupling
+and would require some dirty hacks to get to those nodes and inject the needed references
+into them.
+
+Thankfully, most (if not all) Project View nodes that actually use inplace comments
+extend AbstractPsiBasedNode, so we just put the actual comment producer there.
+
+The new interfaces for this DI is InplaceCommentProducer (that produces the actual
+comments) and InplaceCommentAppender that appends them (either to the presentation
+when the new approach is used or to the renderer for the legacy case).
+
+In case there are nodes that don't provide an inplace comment producer,
+we still revert to the old logic. This has an unfortunate side effect of calling
+getValue() on a node, which is the very potentially slow operation we're trying
+to get rid of, but at least we now don't call it on AbstractPsiBasedNode anymore,
+and those calls were probably the vast majority (if not all) slow operation calls.
+
+One more trick involved is to convert the plain presentation's text (myPresentableText)
+to the colored text before appending comments because many presentations don't
+use colored text by default. Just appending comments would override the plain text
+and, e.g., class and file names in the Project View would disappear. This is what the new
+ensureColoredTextIsUsed() method in PresentationData is for.
+
+GitOrigin-RevId: d7da0fc059d6d70ff369ea981501c5008b53b20d
+
+---
+## [jakewilliami/advent-of-code](https://github.com/jakewilliami/advent-of-code)@[35be1a3a74...](https://github.com/jakewilliami/advent-of-code/commit/35be1a3a748614539069d9aa8971df4ecf3e23bf)
+#### Tuesday 2022-12-13 11:34:20 by Jake Ireland
+
+Solve AoC Day 13 2022 in Julia
+
+I had a friend's birthday dinner tonight, and we went to see a show
+afterwards, so I could only start this 5 and a half hours after the
+problem came out.  It's a shame, as I really enjoyed this one, and
+found it quite simple (utilising Julia's multiple dispatch and
+customisable sorting); it only took less than 45 minutes to complete
+both parts.
+
+---
+## [robotduinom/PsychonautStation](https://github.com/robotduinom/PsychonautStation)@[58b61a17a7...](https://github.com/robotduinom/PsychonautStation/commit/58b61a17a78e90ea9da91351572abee9a4f93ccb)
+#### Tuesday 2022-12-13 11:35:08 by Jacquerel
+
+Basic Mob Carp: Retaliate Element (#71593)
 
 ## About The Pull Request
-Stamina was checking health instead of maxHealth. This is probably a
-remnant from when the damage stacked.
-I stopped the stamina from appearing like you had no stamina whenever
-you were stunned or knockdown. This would obscure potentially value
-information from the player while being unclear to interpret.
-We should probably represent status effects like this to the player, but
-through the stamina bar is not a useful method.
-The stamina bar is for stamina.
-Additionally, the stamina bar will now be greyed out while you are dead,
-like your health bar.
 
-I've done alot of work increasing the readability of the stamina bar.
-Firstly, I've cut some fat, removing the 100% sign when you are at full
-and the blinking exclamation point when you are close to zero. They
-aren't nessisary and add clutter.
-There's no more "full but because its blinking bright yellow you are
-actually at 20% or less" or "empty but because the whole thing isn't
-blinking you still have stamina"
-Its a now simple meter that decreases in 20% increments which blinks
-softly, at darker and more red colors the lower the meter goes, blinking
-faster at the higher percentages. When you are at zero, the empty space
-slowly glows a dark red.
-Its much more reasonable and intuitive than whatever the hell the old
-sprites were doing.
+Adds an Element and AI behaviour intended to replicate the "retaliate"
+behaviour which made up an entire widely-populated subtype of simple
+mobs.
+The behaviour is pretty simply "If you fuck with me I fuck with you".
+Mobs with the component will "remember" being attacked and will try to
+attack people who attacked them, until they lose sight of those people.
+They don't have very long memories so breaking line of sight is enough
+to remove you from their grudge list.
+The implementation unfortunately requires registering to 600 different
+"I have been attacked by X" signals but c'est la vie.
+
+It will still be cleaner than
+`/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus`
+and `mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus`.
+
+I attached it to the pig for testing and left it there because out of
+all the farm animals we have right now, a pig would probably get pissed
+off if you tried to kill it. Unfortunately it's got a sausage's chance
+in hell of ever killing anyone.
+
 ## Why It's Good For The Game
-For the HUD changes, it improves the game feel, at least from my
-experience. We could probably benefit from an entirely new stamina bar
-design, but finding the right one is gonna be tricky.
+
+It doesn't have much purpose yet but as we make more basic mobs this is
+going to see a **lot** of use.
+
 ## Changelog
-:cl: itseasytosee
-fix: Stamina damage display calculation should be much more sane and
-reliable now
-imageadd: Simplified the stamina hud
+
+:cl:
+add: Basic mobs have the capability of being upset that you kicked and
+punched them.
+add: Pigs destined for slaughter will now ineffectually attempt to
+resist their fate, at least until they lose sight of you.
+balance: Bar bots are better at noticing that you're trying to kill
+them.
 /:cl:
 
 ---
-## [fira/cmss13](https://github.com/fira/cmss13)@[00d3780c38...](https://github.com/fira/cmss13/commit/00d3780c382c704f24e5c6f24aa36d88d509b7ea)
-#### Monday 2022-12-12 11:28:14 by carlarctg
+## [Mu-L/NetHack](https://github.com/Mu-L/NetHack)@[b2fe51490d...](https://github.com/Mu-L/NetHack/commit/b2fe51490dac43cac70ec29c6958467b0fa9bdd4)
+#### Tuesday 2022-12-13 12:22:57 by PatR
+
+tty-style role selection for curses
+
+Move the tty role/race/&c selection from wintty.c to role.c and remove
+its references to BASE_WINDOW.  Have curses call the same routine now
+so that the player has the option to choose role, race, gender, and
+alignment in any order and to confirm or override random settings
+prior to starting play.  Also if you went through "who are you?" then
+final confirmation includes an extra menu choice to rename the hero.
+
+It still has the quirk of sometimes remembering some of the previous
+aspects when you re-pick a new value for some aspect which already
+been selected.
+
+The menus pop up on top of the copyright screen and that looks a bit
+strange.  I don't think core code has any way to erase that base
+window without erasing the entire screen so to fix the strangeness
+the window ports would need to do that before calling the selection
+routine.  I didn't do that because the very first prompt, "Shall I
+pick ... for you? [ynaq]" shows up in that window rather than in a
+popup over it, and having it be all by itself on an otherwise blank
+screen seemed to be even stranger.
+
+X11 and Qt both have more sophisticated selection routines so I
+haven't tried to switch either of them to use this.  They both use a
+fancy role-selection-specific menu with all the aspects present at
+once so this wouldn't fit without more work than I care to tackle.
+
+---
+## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[00d3780c38...](https://github.com/Huffie56/cmss13/commit/00d3780c382c704f24e5c6f24aa36d88d509b7ea)
+#### Tuesday 2022-12-13 12:42:24 by carlarctg
 
 PDT/L Buff (#1757)
 
@@ -946,8 +1005,8 @@ your name to the right of the first :cl: if you want to overwrite your
 GitHub username as author ingame. -->
 
 ---
-## [fira/cmss13](https://github.com/fira/cmss13)@[ce39f048bf...](https://github.com/fira/cmss13/commit/ce39f048bf5eb25e2a93d7355327ccacc0504b01)
-#### Monday 2022-12-12 11:28:14 by carlarctg
+## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[ce39f048bf...](https://github.com/Huffie56/cmss13/commit/ce39f048bf5eb25e2a93d7355327ccacc0504b01)
+#### Tuesday 2022-12-13 12:42:24 by carlarctg
 
 Buffed, resprited, enhanced Oppressor. (#1732)
 
@@ -1102,42 +1161,179 @@ GitHub username as author ingame. -->
 Co-authored-by: harryob <me@harryob.live>
 
 ---
-## [Unknownity/cmss13](https://github.com/Unknownity/cmss13)@[c8f4d4ae04...](https://github.com/Unknownity/cmss13/commit/c8f4d4ae042be6fb59f29031eb0a56926e32ab3a)
-#### Monday 2022-12-12 11:40:10 by carlarctg
+## [ingar-sa/mappevurdering](https://github.com/ingar-sa/mappevurdering)@[8a1038c1d6...](https://github.com/ingar-sa/mappevurdering/commit/8a1038c1d6ebbc7b7dbc6d61dde746ced67e2a0c)
+#### Tuesday 2022-12-13 13:17:57 by Ingar Solveigson Asheim
 
-Money Rework (#1831)
+Holy fucking shit! Holy fucking shit! Holy fucking shit! Holy fucking shit! Holy fucking shit!
+
+---
+## [andrewboywew/app-dev](https://github.com/andrewboywew/app-dev)@[b8b2ee8d4e...](https://github.com/andrewboywew/app-dev/commit/b8b2ee8d4e6f70a757cf1c15c80ee5866584355d)
+#### Tuesday 2022-12-13 13:58:11 by andrewboywew
+
+Update README.md
+
+One Piece - The Japanese manga series One Piece was created by Eiichiro Oda. Since July 1997, it has been serialized in Shueisha's shnen manga magazine Weekly Shnen Jump, and as of November 2022, its individual chapters have been collected into 104 tank-bon volumes. The plot centers on the exploits of Monkey D. Luffy, a young man whose unintended consumption of a Devil Fruit left him with a body made of rubber. In order to succeed Gol D. Roger as the new King of the Pirates, Luffy explores the Grand Line with his pirate band, the Straw Hat Pirates, in search of the ultimate treasure known as the "One Piece."
+
+Wednesday - Based on the The Addams Family character Wednesday Addams, Wednesday is a coming-of-age supernatural comedic horror television series in the United States. Jenna Ortega plays the titular role in this film, which was co-written by Alfred Gough and Miles Millar. Catherine Zeta-Jones, Luis Guzmán, Isaac Ordonez, Gwendoline Christie, Riki Lindhome, Jamie McShane, Fred Armisen, and Christina Ricci play supporting roles. Tim Burton, who also acts as executive producer, directed four of the eight episodes. The main girl, who goes by the title, tries to solve a monstrous mystery at her school.
+
+Chainsaw Man - Tatsuki Fujimoto is the author and illustrator of the Japanese manga series Chainsaw Man (Japanese:, Hepburn: Chens Man). From December 2018 to December 2020, its first part was serialized in Shueisha's shunen manga magazine Weekly Shunen Jump. In July 2022, its second part started serialization in Shueisha's online magazine Shunen Jump+. As of October 2022, its chapters have been compiled into 12 tank-bon volumes. The plot of Chainsaw Man centers on Denji, a poor young man who enters into a deal to have his body fused with that of a canine devil named Pochita, giving him the power to turn specific body parts into chainsaws.
+
+Stranger Things - The 1980s are shown in the fictional rural Indiana town of Hawkins in the television series Stranger Things. Although the neighboring Hawkins National Laboratory purports to do scientific research for the US Department of Energy, it actually conducts covert paranormal and supernatural operations, some of which use human test subjects. They unwittingly opened a connection to "the Upside Down," an alternative reality, and its influence begins to have disastrous effects on the citizens of Hawkins.
+
+Money Heist - Money Heist is a Spanish heist crime drama television series developed by Lex Pina, whose name translates to "The House of Paper" in English. From the viewpoint of one of the thieves, Tokyo (Ursula Corberó), the series follows two meticulously planned heists carried out by the Professor (Lvaro Morte), one on the Royal Mint of Spain and the other on the Bank of Spain. Flashbacks, time jumps, hidden character motivations, and an unreliable narrator are used to add intricacy to the real-time-like narrative.
+
+Alice in Borderland - Based on the Haro Aso manga of the same name, Alice in Borderland (Japanese:, Hepburn: Imawa no Kuni no Arisu) is a 2020 Japanese science fiction thriller drama streaming television series. The series, which was directed by Shinsuke Sato, features Kento Yamazaki and Tao Tsuchiya as pals who are stranded in an abandoned Tokyo and forced to compete in risky games, the nature of which are dictated by playing cards. Players begin with "visas," which are then extended as they advance through the games. If the visas run out, the people are blasted down with red lasers and put to death.
+
+---
+## [Danielsn1/Assignment-2](https://github.com/Danielsn1/Assignment-2)@[c885ed5ba6...](https://github.com/Danielsn1/Assignment-2/commit/c885ed5ba62a418e17a1cf5495f582e51590de90)
+#### Tuesday 2022-12-13 14:05:29 by Jack Castiglione
+
+Update client.py
+
+I cannot believe that Rahul got up at 1 yesterday with me (but hes not even that sick hes just piggybacking off me) and then went to the arena and then we ate dinner at 7 (even though he told me 6 so I had to wait in the arena for an hour) and then came back and WENT TO BED AT 7:30!!! You know what I did while he was gone? I hung out with some friends and I TOOK A NAP. DOES HE EXPECT ME TO SLEEP 27 HOURS A DAY??????
+
+Also there's one part (Line 24) where I wasn't sure what to put, ok thanks.
+
+---
+## [Empire-Strikes-Back/Travis-Walker](https://github.com/Empire-Strikes-Back/Travis-Walker)@[66da945227...](https://github.com/Empire-Strikes-Back/Travis-Walker/commit/66da94522737f251c1aa9a506d6ddb483b2140bc)
+#### Tuesday 2022-12-13 14:32:30 by Travis-Walker
+
+oh, Bard - his name is Bard - how do you know? - I asked him
+
+like Blake Griffin I want to play
+
+unlike Chuck Carrol I don't want to be robbed - I don't want to sit and be dead
+
+I heard Jesus - about lost sheep, enemies and love, man going to Jericho, reborn
+
+let my identity fruit be peach
+let me run - even though I don't yet know who I'll be
+like Thorin before meeting Gandalf don't yet know he's going on a quest
+
+:Stephen-Colbert you're in a new movie - Battle of Fie Armies - what do you think about the ending?
+:Benedict-Smaug-Cumberbatch I don't know - I haven't read the books
+:Stephen it's gonna get you - right here
+
+---
+## [RikuTheKiller/tgstation](https://github.com/RikuTheKiller/tgstation)@[e9cff525dc...](https://github.com/RikuTheKiller/tgstation/commit/e9cff525dc5b57153af3b4bb9039de08d6823805)
+#### Tuesday 2022-12-13 14:34:33 by tralezab
+
+Refactors Pirates into Pirate Gangs, Adds the Psyker-gang as new pirates (#71650)
+
+## About The Pull Request
+
+### Refactor
+Pirate gangs are now datumized for extendability, custom dialogue, etc.
+
+### Psyker Gang 🧠 
+Psyker-gang Members are pirates who are... yes, Psykers. They're on a
+gore-binge and need some money for more hits of gore!
+
+- Gore autoinjectors, filled with dirty kronkaine. Don't overdose,
+you'll go splat.
+- Psykerboost armor, reactive armor that refreshes psychic abilities.
+Given to the leader.
+
+- [x] @Fikou is making the map :D
+
+## Why It's Good For The Game
+
+God I fucking love variety also now we can add as many different pirates
+as we so desire
+
+<details>
+  <summary>Spoiler warning</summary>
+  
+
+![image](https://user-images.githubusercontent.com/40974010/205342701-9cba63ef-a22c-4f07-9b48-8793c4a2b5af.png)
+  
+</details>
+
+## Changelog
+:cl: Tralezab code, Fikou's map, PigeonVerde and Halcyon for sprites!
+add: Psyker-gangers are new pirates
+refactor: refactored pirate code so we can add more in the future
+/:cl:
+
+Co-authored-by: Fikou <23585223+Fikou@users.noreply.github.com>
+
+---
+## [ngoduyanh/nrs-impl-kt](https://github.com/ngoduyanh/nrs-impl-kt)@[5f44cb47bf...](https://github.com/ngoduyanh/nrs-impl-kt/commit/5f44cb47bf524fb43a9687df6027eb7a855783f8)
+#### Tuesday 2022-12-13 14:42:00 by ngoduyanh
+
+chore(impl): :rocket: rank `Higashi no Sora Kara Hajimaru Sekai`
+
+Re:Stage! (Re:ステージ!, Risutēji) is a Japanese multimedia franchise by Pony Canyon and Comptiq. It features character designs and illustrations by artist Tsubasu Izumi, series composition and story by Team Yoree (Yoriko Tomita, Yasuko Kamo and Tatsuhiko Urahata), and music by Kohta Yamamoto. The story revolves around female junior high school idols who aim to become a top in Prism Stage, a nationwide tournament where many middle school idols compete and become top idols. These girls are divided into several units. Their stories are serialized in monthly Comptiq and short stories are released online via the official website.
+
+Thank you for your service.
+But under a new sky, a new love began to sprout.
+
+4ever :goat:
+
+---
+## [DarkLevelSS13/IS12-Warfare](https://github.com/DarkLevelSS13/IS12-Warfare)@[1867654758...](https://github.com/DarkLevelSS13/IS12-Warfare/commit/186765475881bf58bbee319880653287d578820b)
+#### Tuesday 2022-12-13 15:18:44 by Matt
+
+Should fix the issue of loading the wrong CSS by making them all the same fuck you
+
+---
+## [redromnon/HeroicGamesLauncher](https://github.com/redromnon/HeroicGamesLauncher)@[3f6541c8a7...](https://github.com/redromnon/HeroicGamesLauncher/commit/3f6541c8a700511cea9f0c9b572a5d2138ee76e3)
+#### Tuesday 2022-12-13 15:38:12 by Mathis Dröge
+
+Improve README and developer experience (#1807)
+
+* Update VSCode configuration
+
+* Lots of README changes
+
+- Update our bages; might've overdone it a little, but they're fun to add :^)
+- Add badges for Web Technologies used
+- Rewrite & bump up system requirements a bit
+- Wrap the Language list, Development in a container, and Screenshots in
+  <details>; this makes the page load faster and makes it seem less
+  daunting
+- Add a Flathub badge to the Flatpak section
+- Unify Linux install instructions (as much as possible)
+- Remove 3rd-party APT repository
+  In my opinion, we have enough distribution formats already, and the
+  install instructions are a little dodgy
+- Add Beta AUR package to the list
+- Clarify Windows install instructions by splitting up WinGet and manual
+  install
+- Make "Development environment" its own section
+- Remove Beta and Alpha notes on Windows and macOS build instructions
+- Explain what exactly is happening when you run `yarn dev` and in which
+  scenarios you might want to use it
+- Move the "Back to top" badge to the actual bottom of the page
+
+* Add a Content Security Policy
+
+This doesn't really do much in our situation:
+- Just in case someone ever manages to load a website in Heroic's main
+  window, no JS can run inside it
+- Gets rid of the warning in the console when testing with `yarn dev`
+
+I've tested the Webviews (unaffected) and links to ProtonDB and such
+(also unaffected, not sure why though). Please test if this breaks
+anything
+
+---
+## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[70bcd3b6fb...](https://github.com/Huffie56/cmss13/commit/70bcd3b6fbcf17b4c26640321f23c83da0ab80a3)
+#### Tuesday 2022-12-13 16:56:00 by carlarctg
+
+Queen eye shuffles weed sprites when passing over them. (#1901)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
 
 # About the pull request
 
-Added a variable to paygrades called pay_multiplier. This multiplies the
-starting amount of money from bank accounts.
+Queen eye shuffles weed sprites when passing over them.
 
-Refactored how bank accounts are created so the above could work.
+Fixed some single letter vars so the mantainer agenda can't delay this
+PR from merging.
 
-Drastically nuked the amount of money people start with. People can no
-longer start with thousands of dollars.... they now get 30-50. This
-value is multiplied by the pay_multiplier below.
 
-Added pay_multiplier to all paygrades. The higher your rank, the more
-money you'll start with, based on this multiplier. (For example, a Major
-will have a pay multiplier of 4.) Includes strange roles like VAIPO,
-UPP, PMCs, RESS...
-
-Non-binary WY executives may now spawn with 'Mx.' as their
-communications prefix.
-
-Altered the prices of cigarette vending machines around to overall make
-them more expensive. PFCs will not be able to buy Executive Select with
-their starting cash.
-
-Made cassetes and Souto from vendors more expensive. Buying food from
-Hot Foods now costs money. Marine coffee now has an appropiate
-description. Souto vendors no longer vend water bottles.
-
-Fixed default parent type dollar items being worth 0 money...
 
 <!-- Remove this text and explain what the purpose of your PR is.
 
@@ -1152,41 +1348,19 @@ Explain your rationale fully, even if you feel it goes without saying.
 
 # Explain why it's good for the game
 
-> Drastically nuked the amount of money people start with. People can no
-longer start with thousands of dollars.... they now get 30-50. This
-value is multiplied by the pay_multiplier below.
 
-Lore. The live of a private sucks. Monkeysfist suggested this value.
-Still enough to buy all essentials, scavenge some money if you want to
-buy the good cigarette packs down in the colony.
+> Queen eye shuffles weed sprites when passing over them.
 
-> Added pay_multiplier to all paygrades. The higher your rank, the more
-money you'll start with, based on this multiplier. (For example, a Major
-will have a pay multiplier of 4.) Includes strange roles like VAIPO,
-UPP, PMCs, RESS...
+It's a way for marines to know there's an entire queen eye looking over
+them. Basically means an MD isn't 100% necessary to know the queen will
+broadcast the location of your flank to the entire hive.
 
-Why were paygrades added without affecting pay. Why could PFCs start
-with 3 thousand dollars and COs with 50 dollars total.
+https://streamable.com/kmnd72
 
-> Non-binary WY executives may now spawn with 'Mx.' as their
-communications prefix.
+It's more subtle than i wanted it to be, but WCYD. Also doesn't work on
+corner sprites.
 
-Inclusivity win! Doesn't actually do anything as we do not have
-nonbinary characters.
-
-> Altered the prices of cigarette vending machines around to overall
-make them more expensive. PFCs will not be able to buy Executive Select
-with their starting cash.
-
-> Made cassetes and Souto from vendors more expensive. Buying food from
-Hot Foods now costs money. Marine coffee now has an appropiate
-description. Souto vendors no longer vend water bottles.
-
-It's funny to make the lives of marines miserable.
-
-> Fixed default parent type dollar items being worth 0 money...
-
-This will let marines money scrounge.
+Also, it looks fucking creepy as hell! It's awesome.
 
 <!-- Please add a short description of why you think these changes would
 benefit the game. If you can't justify it in words, it might not be
@@ -1203,8 +1377,6 @@ functioning successfully, ideally including edge cases. -->
 
 Put screenshots and videos here with an empty line between the
 screenshots and the `<details>` tags.
-
-Irrelevant.
 
 </details>
 
@@ -1225,277 +1397,16 @@ GBP loss. Maintainers freely reserve the right to remove and add tags
 should they deem it appropriate. -->
 
 :cl:
-add: Added pay_multiplier to all paygrades. The higher your rank, the
-more money you'll start with, based on this multiplier. (For example, a
-Major will have a pay multiplier of 4.) Includes strange roles like
-VAIPO, UPP, PMCs, RESS...
-del: Drastically nuked the amount of money people start with. People can
-no longer start with thousands of dollars.... they now get 30-50 dollars
-total. This value is multiplied by the pay_multiplier above.
-spellcheck: Non-binary WY executives may now spawn with 'Mx.' as their
-communications prefix.
-balance: Altered the prices of cigarette vending machines around to
-overall make them more expensive. PFCs will not be able to buy Executive
-Select with their starting cash.
-del: Made cassetes and Souto from vendors more expensive. Buying food
-from Hot Foods now costs money. Marine coffee now has an appropiate
-description. Souto vendors no longer vend water bottles.
-fix: Fixed default parent type dollar items being worth 0 money...
+add: Queen eye shuffles weed sprites when passing over them.
+fix: Fixed some single letter vars so the mantainer agenda can't delay
+this PR from merging.
 /:cl:
 
 <!-- Both :cl:'s are required for the changelog to work! -->
 
 ---
-## [monstermunchkin/lxd](https://github.com/monstermunchkin/lxd)@[de0d151a2c...](https://github.com/monstermunchkin/lxd/commit/de0d151a2cc9bd8cef31431e126649e2b6a18be7)
-#### Monday 2022-12-12 11:48:22 by Thomas Parrott
-
-lxd/instance/drivers/driver/qemu: Fix macvlan NICs losing connectivity on LXD restart
-
-Switch to using monitor.SendFile() rather than monitor.SendFileWithFDSet(), as there
-appears to be some rather strange behaviour going on with QEMU when used with macvtap
-NICs.
-
-If you pass the macvtap file handles using monitor.SendFileWithFDSet() it will use a
-separate FD set for each file handle. This works fine, and I can see the correct file
-handles opened by the QEMU process. But when LXD is restarted (the monitor connection
-is closed), the file handles are closed by QEMU, causing the connectivity to break.
-
-I have experimented with using the same FD set for all file handles associated to a
-particular macvtap NIC. This didn't fix the issue.
-
-I also tried hard coding the FD set ID to 0. This meant that the macvtap NIC would
-share an FD set with the root disk device. Interestingly this solved the issue.
-However it made me uncomfortable as the root disk is only configured by referencing
-the FD set ID itself, rather than a particular FD inside the set. So I don't think
-that sharing an FD set with multiple devices is a good idea.
-
-However it got me thinking that perhaps the fact that the root disk is referencing
-the FD set by ID (i.e using file=/dev/fdset/0 in its config) meant that QEMU somehow
-realised that the FD set should be persisted even after the monitor has disconnected.
-
-I confirmed that using the same FD set (even if a different ID than 0) for macvtap NICS
-as the root disk device fixed the issue.
-
-But because of my discomfort at that scenario (explained above) I instead looked for
-a different solution. Before introducing multi-queue macvlan support for VMs we were
-using monitor.SendFile() which worked fine. However I had switched to using the
-monitor.SendFileWithFDSet() function as the former didn't support accessing the specific
-FD number that was created inside QEMU. I thought we needed this because all the
-documentation around using multi-queue macvtap devices showed the use of numeric FDs.
-
-However on further exploration it turns out that we can infact use monitor.SendFile,
-and by sending each file handle with a unique name we can then refer to those file
-handles using the same names in `fds` setting for the macvtap devices.
-
-Note: Because the `fds` list is colon separated one cannot use colons in the file
-handle names. And I also experienced issues with connectivity when using dashes in
-the file handle names. So I opted for using full-stops instead.
-
-Fixes #11201
-
-Signed-off-by: Thomas Parrott <thomas.parrott@canonical.com>
-
----
-## [duarte-sardao/aoc2022](https://github.com/duarte-sardao/aoc2022)@[0bdee18001...](https://github.com/duarte-sardao/aoc2022/commit/0bdee18001fd66e1ee53e25c702f3289dd312dd9)
-#### Monday 2022-12-12 12:26:29 by Dudugs
-
-i tried doing paths but they didnt fucking work right and i was mad so i gave up i then reset the git but turns out i hadndt pushed anything to remote i almost shat myself thinking i nuked my hard work but turns out not its fine still graphs are evil
-
----
-## [MikaelahJ/EmployeeOfTheMonth](https://github.com/MikaelahJ/EmployeeOfTheMonth)@[cd5830ba0d...](https://github.com/MikaelahJ/EmployeeOfTheMonth/commit/cd5830ba0d527db28690befe2480061753f7ad3e)
-#### Monday 2022-12-12 13:12:13 by turbosnacko
-
-Dust cloud #1 frames
-
-Animationen ska spelas upp när ett vapen-mod går sönder. Den ska vara rätt så liten, men ändå tillräckligt för att se att det är en rök puff.
-
-"Every luxury has a deep price. Every indulgence, a cosmic cost. Each fiber of pleasure you experience causes equivalent pain somewhere else. This is the first law of emodynamics. Joy can be neither created nor destroyed. The balance of happiness is constant. Fact: Every time you eat a bite of cake, someone gets horsewhipped. Facter: Every time two people kiss, an orphanage collapses. Factest: Every time a baby is born, an innocent animal is severely mocked for its physical appearance. Don't be a pleasure hog. Your every smile is a dagger. Happiness is murder. Vote "yes" on Proposition 1321. Think of some kids. Some kids."
-— A hallucination on "Pet Siouxicide
-
----
-## [walternewtz/android_kernel_xiaomi_sdm845](https://github.com/walternewtz/android_kernel_xiaomi_sdm845)@[2a8b0185e6...](https://github.com/walternewtz/android_kernel_xiaomi_sdm845/commit/2a8b0185e64bcf8f43bd86efe6279516f90de99d)
-#### Monday 2022-12-12 13:38:41 by tanish2k09
-
-Introducing KLapse - A kernel level livedisplay module v4.0:
-
-Author: @tanish2k09 (email: tanish2k09.dev@gmail.com)
-
-What is it?
-Kernel-based Lapse ("K-Lapse") is a linear RGB scaling module that 'shifts' RGB based on time (of the day/selected by user), or (since v2.0) brightness. This concept is inspired from
-LineageOS (formerly known as 'CyanogenMod') ROM's feature "livedisplay" which also changes the display settings (RGB, hue, temperature, etc) based on time.
-
-Why did you decide to make this? (Tell me a story).
-I (personally) am a big fan of the livedisplay feature found on LineageOS ROM. I used it every single day, since Android Lollipop. Starting from Android Nougat, a native night mode
-solution was added to AOSP and it felt like livedisplay was still way superior, thanks to its various options (you could say it spoiled me, sure). I also maintained a kernel (Venom
-kernel) for the device I was using at that time. It was all good until the OEM dropped support for the device at Android M, and XDA being XDA, was already working on N ROMs. The issue
-was, these ROMs weren't LineageOS or based on it, so livedisplay was... gone. I decided I'll try to bring that feature to every other ROM. How would I do that? Of course! The kernel! It
-worked on every single ROM, it was the key! I started to work on it ASAP and here it is, up on GitHub, licensed under GPL (check klapse.c), open to everyone :)
-
-How does it work?
-Think of it like a fancy night mode, but not really. Klapse is dependent on an RGB interface (like Gamma on MTK and KCAL on SD chipsets). It fetches time from the kernel, converts it to
-local time, and selects and RGB set based on the time. The result is really smooth shifting of RGB over time.
-
-How does it really work (dev)?
-Klapse mode 1 (time-based scaling) uses a method void klapse_pulse(void) that should ideally be called every minute. This can be done by injecting a pulse call inside another method that
-is called repeatedly naturally, like cpufreq or atomic or frame commits. It can be anything, whatever you like, even a kthread, as long as it is called repeatedly naturally. To execute
-every 60 seconds, use jiffies or ktime, or any similar method. The pulse function fetches the current time and makes calculations based on the current hour and the values of the tunables
-listed down below.
-
-Klapse mode 2 (brightness-based scaling) uses a method void set_rgb_slider(<type> bl_lvl) where is the data type of the brightness level used in your kernel source. (OnePlus 6 uses u32
-data type for bl_lvl) set_rgb_slider needs to be called/injected inside a function that sets brightness for your device. (OnePlus 6 uses dsi_panel.c for that, check out the diff for that
-file in /op6)
-
-What all stuff can it do?
-
-1, Emulate night mode with the proper RGB settings
-2, Smoothly scale from one set of RGB to another set of RGB in integral intervals over time.
-3, Reduce perceived brightness using brightness_factor by reducing the amount of color on screen. Allows lower apparent brightness than system permits.
-4, Scale RGB based on brightness of display (low brightness usually implies a dark environment, where yellowness is probably useful).
-5, Automate the perceived brightness independent of whether klapse is enabled, using its own set of start and stop hours.
-6, Be more efficient,faster by residing inside the kernel instead of having to use the HWC HAL like android's night mode.
-7, (On older devices) Reduce stuttering or frame lags caused by native night mode.
-8, An easier solution against overlay-based apps that run as service in userspace/Android and sometimes block apps asking for permissions.
-9, Give you a Livedisplay alternative if it doesn't work in your ROM.
-10, Impress your crush so you can get a date (Hey, don't forget to credit me if it works).
-
-Alright, so this is a replacement for night mode?
-NO! Not at all. One can say this is merely an alternative for LineageOS' Livedisplay, but inside a kernel. Night mode is a sub-function of both Livedisplay and KLapse. Most comparisons
-here were made with night mode because that's what an average user uses, and will relate to the most. There is absolutely no reason for your Android kernel to not have KLapse. Go ahead
-and add it or ask your kernel maintainer to. It's super-easy!
-
-What can it NOT do (yet)?
-
-1, Calculate scaling to the level of minutes, like "Start from 5:37pm till 7:19am". --TODO
-2, Make coffee for you.
-3, Fly you to the moon. Without a heavy suit.
-4, Get you a monthly subscription of free food, cereal included.
-
-All these following tunables are found in their respective files in /sys/klapse/
-
-1. enable_klapse : A switch to enable or disable klapse. Values : 0 = off, 1 = on (since v2.0, 2 = brightness-dependent mode)
-2. klapse_start_hour : The hour at which klapse should start scaling the RGB values from daytime to target (see next points). Values : 0-23
-3. klapse_stop_hour : The hour by which klapse should scale back the RGB values from target to daytime (see next points). Values : 0-23
-4. daytime_rgb : The RGB set that must be used for all the time outside of start and stop hour range.
-5. target_rgb : The RGB set that must be scaled towards for all the time inside of start and stop hour range.
-6. klapse_scaling_rate : Controls how soon the RGB reaches from daytime to target inside of start and stop hour range. Once target is reached, it remains constant till 30 minutes before
-   stop hour, where target RGB scales back to daytime RGB.
-7. brightness_factor : From the name itself, this value has the ability to bend perception and make your display appear as if it is at a lesser brightness level than it actually is at.
-   It works by reducing the RGB values by the same factor. Values : 2-10, (10 means accurate brightness, 5 means 50% of current brightness, you get it)
-8. brightness_factor_auto : A switch that allows you to automatically set the brightness factor in a set time range. Value : 0 = off, 1 = on
-9. brightness_factor_auto_start_hour : The hour at which brightness_factor should be applied. Works only if #8 is 1. Values : 0-23
-10. brightness_factor_auto_stop_hour : The hour at which brightness_factor should be reverted to 10. Works only if #8 is 1. Values : 0-23
-11. backlight_range : The brightness range within which klapse should scale from daytime to target_rgb. Works only if #1 is 2. Values : MIN_BRIGHTNESS-MAX_BRIGHTNESS
-
-Signed-off-by: Eliminater74 <eliminater74@gmail.com>
-Signed-off-by: energyspear17 <energyspear17@gmail.com>
-Signed-off-by: Michael <loukerismichalis@gmail.com>
-Signed-off-by: PainKiller3 <ninadpatil100@gmail.com>
-
----
-## [nicjhall85/hint](https://github.com/nicjhall85/hint)@[d6474282ad...](https://github.com/nicjhall85/hint/commit/d6474282add4e887de79f538fedc33512dcbed20)
-#### Monday 2022-12-12 13:53:34 by nicjhall85
-
-in a nut shelll
-
-God YHVH/YHWH HAS GIVEN ME INSTRUCTIONS TO DO THE THINGS THAT I AM CURRENTLY DOING. I DID NOT KNOW AT THE BEGINING THAT IT WAS GOING TO BE WHAT I NOW KNOW IT TO BE. AS IT SAYS IN THE BIBLE, I DONT REMEMBER WHERE, GOD REVEALS THINGS TO ME LINE UPON LINE PRECEPT UPON PRECEPT. IF I DIDNT BELIEVE 100% IN THE THINGS THAT I SAY(IF I HAD JUST A SLIGHT BIT OF DOUBT) I WOULDNT BE SPEAKING THINGS SO BOLDLY AND CONFIDENTLY AND YOU CANNOT TELL MY THAT YOU DO NOT SEE IT. I AM THE LEADER OF THE NEW WORLD ORDER. I AND ESSENTIALLY JUST A LOST IDIOT BUT GREATER IS HE WHO LIVE IN ME THAN HE WHO IS IN THE WORLD. I DONT KNOW EVERYTHING IM NOT GOD. I  DONT HAVE ALL OF THE LOGISTICS OR DYNAMICS OF HOW EVERYYTHING IS GOING TO PLAY OUT. BUT WHAT I KNOW FOR 1000% CERTAIN IS THAT IT PAINS ME THAT PEOPLE HAVE SHIT BALL QUALITY LIVES ITS DEPRESSING TO ME. I TRY TO HELP BRING LIGHT TO THE AREAS WHERE THERE NEEDS TO LIGHTENED. PLEASE HELP ME TO FIGHT FOR OUR RIGHTS.
-
----
-## [Empire-Strikes-Back/McClane](https://github.com/Empire-Strikes-Back/McClane)@[e126466af0...](https://github.com/Empire-Strikes-Back/McClane/commit/e126466af01ba5b736e5e8357863b91b7b89b239)
-#### Monday 2022-12-12 14:16:29 by McClane
-
-Moana, stay on the ground - Motunui is all you neeeeed
-
-like Porzingis I was robbed by memebers of the household and ended up with injuries
-
-like Rich Roll before he was dead I would like - I want to perform
-
-I heard Jesus - that's why I know about path and wineskin, members of he household, man going to Jericho
-
-let clojure be my language and jvm - my runtime
-like Moana discovers who she is and goes over the reef - I want to find my identity
-let plumbs be the fruit that identifies me as program
-
-:Jack-The-Rock-Black life is a delicious drink that you gotta suck deep
-
----
-## [re621/dnpcache](https://github.com/re621/dnpcache)@[8034dbc610...](https://github.com/re621/dnpcache/commit/8034dbc6108b02b351f993876ae3fe3c69967e7c)
-#### Monday 2022-12-12 14:28:53 by bitWolfy
-
-Add 993 artists to the DNP list.
-
-Added: royalzbed, hellfurred, byrth, hexuru, devildjmachine, malerouille, donovallo, psychoninetales, vahldem_sol, nyanyakotarou, shupamikey, zyegnar, akytti, sootylion, kiva~, peshky, calmnivore, nexcoyotlgt, smoothsharb, sub-rosa, brismy, woodpeckertoons, xeshaire, suirano, mr_otter_breath, bassybefuddle, sweetishcyborg, skullwomb, steak_in_the_daylight, kittydogcrystal, aggrobadger, orbstuffed, fraichetaso, loonyleandra, bunsawce, schl4fmuetze, renkindle, psychovixen, bkmat55, fricken_stoat, w00my, haven_(artist), gipbandit, loki_the_vulpix, pixelyteskunk, erobos, bunchantress, uniquesoul1600, hirowithart, mikaemikae, ratbloke, pastellprinz, racktor, coillte, kazuk9, acidneko, josh_gong, yiyani, grayish, moblo, naoma-hiru, molish, sheyesh, st0pme, cawkbox, unclesam1776, fennecfuchs, inkpuni, pico_(artist), ruugiaruu, wispyparadox, funkybun, lewdoreocat, dogseesghosts, fauwcks, malachimoet, randy_entinger, trex_b6, yui-hii, runaris, rainbowpillars, ragonox, luxuria-sins, maxisb8, hiccyart, fancyfez, mesoplush, gammelgaedda, yi_feng, scpkid, goetiagoat, mabit, dischimera, dr.bubblebum, drakeraynier, rml, amawdz, mc_arts, freemau, armomen, orionfell, luriostragedy, dradmon, jesterghastly, gothgator, talentlesshack, foxryk, supertrashparty, marrowsoup, roserivy, vanzard, deepfriedlemons, pehkeshi, torotheking, harewithoutahat, lucciola, mr.lemur, lemonkyubun, cubble_chubb, arrjaysketch, pinklilim, jingo824, infinitedelusion, consciousafterdark, anti-cupid, phosaggro, dashboom, giftheck, birdrabbit, desertmotels, lv99perv, stellarfalcon, tasaeyeang, 100101, knotty, rockfall, aogirinaru, hikebu, pawpadcomrade, frengers, rikkitz, vappypaws, nukeleer, adevio, gummuru, sattytsukumo, bittenbats, whygena, ruzeb, hungothenomster, jads_l_rutan, gattonero2001, shawoo, francis_xie, angeltf, veevobyte, darkfool., huwon, tsukikibaokami, covepalms, nikunabe1989, emifern, pero3, tricksta, inkbeastart, grinn3r, holidaydipstick, odonata-nymph, binxxy_(artist), zazush-una, sodo_ad, loonanudes, kodardragon, flameydragwasp, ablimpfox, bakvissie, eccstasy, esealia, tailsrulz, dexxa, spiritto, vonepitaph, eddy-boy, saiyangoku4, gatomonlover, moonlit-comet, thehenwithatie, brienoir, tegucreative, wanisuke, pxlfur, anomyna, motsutambo, fepon, cyrogenic, fursuitchina, slates1n, depthsofthedrex, furrybob, davelievski, spacemaverick, fluff-kevlar, evenytron, 0eff0rt, gayclub, goatypie, nikoyishi, alishka, makeinu, jfetspeaks, cowbun, wyrwulf, thespiderbunny, fluffx, dragons-and-drawings, jcosneverexisted, emptyset, scoty_doodlerz, makinglemonade, ceramic_(artist), selirum, euskuuy, tsunkat, lustbubbles, appleseid, lewdtant, werewuffstuffer, odontoceti, iaido, turboranger_(artist), saca44, mr.shigglesworth, pyriax, raijikaruart, fox-pop, sirblythe_(artist), pastelarcadiaad, etherealarcadia, dracoarcadia, benjibat, sarvak, amethystbeetle, fnook_(artist), stationarrow, maim, rashkah, psy101, disappointedf0x, pointedfox, bundog, tailgrip, scalesforlife, hayleymulch, saphe, kiweevil, madakan, papyreit, rainiing, bitelickart, done0008, alec8ter, tentativelytoon, mikurulucky, killveous, fishhound, misshammer, yakushishi, pieraite, knives4cats, jalmu, quin-nsfw, zooptoon, ebonychimera, beaglebabe1, filthy-d, l-tech-e-coyote-l, anomalae, rakket, mcdutt, alcor90, sodongs, catcock, blickfen, akiiokai, possumkiddo, inkplasm, doubledeal_(artist), fuzzlesuits, chetchaka, raaazzledazzle, razferret, razbuckner, ikitsunyan, kclt, draco_(artist), gunther_silves, kkitten, singafurian, zandybutt, comfytail, crazyassbeethoven, dogburger, adalee, alirrasarts, blackmagemathos, terragon, leonois, solidpoint, cloudpie, rottenscoundrel, wings-and-strings, tomcoletti, pikajota, squeakcore, doubleclawed, ebonyplume, myznyx, zackary911, gaturo, xepher777, aimee-lesley-sim, spottedsqueak, fuhrawr, isaac_baranoff, starnina15, zestylemonss, meirdent, babymee, explicital, slyvern, karpet-shark, booghetti, zypter, adaptagx, opiodae, kiwipotato, murkbone, jonas, exed_eyes, shuryashish, mangobird, kurogi_fox_siv, snuddy, grimdank, nighteternal2469, dacad, superhypersonic2000_(artist), drako1997, verenpunainen_kuningatar, gurophilia, furrever, rdroid, smolrainbowgoat, ratte, urban-coyote, soulsplosion, cyaeon, elliotte-draws, whisperingfornothing, griz_urso, lepronasty, tears_of_soy, tren, bunnielovesyou, paliken, spaceysoda, david_frangioso, cattinypaws, bobdude0, sprocket_(artist), sincerity_gender, marymanifold, turnipberry, asbel_lhant, klaide, rishi-chan, kircai, otto0ttsy, vaktus, beezlebumawoken, transdonaldduck, questly, pinkkatfox, goopomancer, xoel, allbadbadgers, sugarlesspaints, imafutureguitarhero, eiko_tsukida, tarot_(artist), pinuh, diero, dilarus, dfer32, mxwqtkl, electrycpynk, insomniacovrlrd, cewljoke, craziestrobo, anthrus1127, sunflowerbun, coyoteofthesands, masonparker, dottii, livesinabag, flam, toastedbiscuits, skycladfox, orenjisalmonpaw, nasty-fox, canadian_roses, crez, glorpofruithag, i_am_clover, johawk, lycosa, wizardlywalrusking, burgerkiss, kielseki, whisperfoot, oksara, olly, fetchmonkey, rottingichor, heathenfang, bikomation, phox_(artist), acedetrap, hedonisticvows, deersun, skittleytwix, jinxit, jtp-remart, cocaine-leopard, amarl_krieger, nakoo, leoian_(artist), amyth, nogu-art, bluhcat, vulpes_helios, licos, taurika, papilrux, pophopper, ebnet, apis_(artist), glenthefossa, raitime, sashabelle, puddingpaw, mercurial64, elricmysteryshifter, puptaire, anojaa, candychameleon, spice5400, nickshutter, rem, reiishn, sandybuny, 1oi, crunchobar, dante_yun, pherion, saintxd, rawbelr, mithaa, asmartist, pannekoeke, jotun22, iguky-neky, ahnik, thatvondude, kelevtov., fishwrappe, animal_shapes, oouna, princess_rei, blitzdrachin, jesterdk, watermelon_(artist), amara_lemur, lady_kurai, giantmilkdud, nostars, koili, abananaman, heddy, slobstash, terian, teranen, nexii, parabellux, tom_fischbach, reddacted, tojo_the_thief, proximiter, mmuted, irootie, icyshibe, quetzalcoatl_(artist), lamm, shayshay~, hettie, chutzpaah, jacob_lhh3, carpetwurm, draekos, fatdingleberry_(artist), nooplip, pandasayori, numberxxxvi, bc92, silvixen, jungabeast, phoenixazrael, krazykurt, tape_(artist), iipaw, volvokun, hamstergirlthehamster, fallen_(artist), morkovjpn, wolfirry, slimedrops, rubisdrake, shortconcepts, ahdadah, chubbuppy, dreadcaptain, duckdraw, mehndix, pomander, wolfcha, evillabrat, henzolin, loupgarou, empa, diokhan, kpsketches, raysofsunshine, slash0x, kriticalerror, gallivant_crow, nyaroma, caindra, petit-bambi, thatblackcopfromdawnofthedead, dreamertooth, tofu93, ragnarokdragon, saucy, kidakins, kippy, swizzlestix, brilyeon, caste_(artist), tsukaui, saebira, ozzybae, boo-rad13y, sammythetanuki, vuurren, sinistervibe, rem289, shroompunk, samkin, cieldoberman, g0966, crazedg, gaoru, lpawz, enjoipandas, renthedragon, emeritus_terciel, xouual, tehcutepyro, anon232, grimmgrey, counterserum, knottykitten, crybleat, octopoodle, ker0ker0_(artist), xnirox, necrosquelch, ivenvorry, pkuai, mikefur, mattsykun, lilithveritas, bloodhound_omega, ogaraorcynder, rhos, kehei, aw0, apes, nyhgault, qualzar, licentuouslamb, reggaecyp, cynderplayer, vilegrim, redacteur, jimbohusky, lacrimale, pulsar, growlybeast, coreytwc_(artist), naoki_wolf, iceagechippies, alfierubuncle, cbee, acidic, louiefurrywolfy, bweezy, fluffernubber, koriaris, serena_valentine, tacoyaki, fullheroo, limlam, harmoniousrain, zotnamotgrim, xx_g.u.n_xx, carm, lustylamb, dragonvortex, crowchild, dragoneer, lumi_(artist), phi, lexathefox, tanookicatoon, thunper, korram, redwolfofwind, ipipo, teckworks, abobarseem, doopcity, xepheriah, diablo_en_musica_92, doncoon_(artist), digitaldomain123, belayalapa, delkon, connisaur, jasonafex, kabier, rohly, vcr-wolfe, steve_gallacci, hologram_(artist), irene_(artist), piumartiglio, sumat, kingofmaggots, oha, featheredclaw, snuddi, mentalo, ourflatcoat, da-fuze, herr_aardy, discoverychannel, azorart, nemomein, latex_(artist), afterdarkie, 7mii, draco_fenris, blown-ego, sissyskunk_(artist), chucktheskunk_(artist), oakspirit, brokenlynx21, nickswift, butter_bat, ben_hickling, bluehunter, soyuz, sorimori, blackbearcj, ficus, crimes, eifie, soundwavepie, besonik, greyskee, alekksandar, bluetigress, nereza, kalvince, thelabtwins, the_lynox, galaxyoron, moondevourer, evov1, enjambre, seph_ebonblade, prototypebasilisk, accell, myakoda, merenhor, muramuri, derfuhrer, moltengoldart, cchipppo, tetrapoda, omochi_(inkbunny), popsmasterson, nikinazu, raevee, wyntersun, ribboners, c4camel, shysketch, deishido, arconos, melvismd, taihab, cobalt_snow, flak_wizard, paddington_and_company_limited, dangerdoberman, inprogresspokemon, whitemantis, naexus, datsexylemur, polywomple, marilimmy, ryan_rabbat, krimrath, yoshitura, maplecookies, aurelleaheverfree, puppercase, spino, palcomix, bbmbbf, lilithofglace, frisket17, myloveless, grau_(artist), aduleon, sexbad, mearcu, murcifer, citrusdicks, jdlaclede, hessonite, sokalo, kittehmei, puccaruu, yuurikin, kurikia, the_cherret_awaits, rapps, maxtwenty, bigbrownorc, santanni, twistedtemptation, nikita-the-stag, liz_art, camcartoonfanatic, singlerider4, beanbat, forge_(artist), hoshime, yamamoto, eviljake2, oriole_(artist), inkblooded, alefwdog, herisheft, disparitybit, samagthrav2, battle_franky, taesolieroy, wolftacos, anixis, spazzticglitch, pirun, swampstomper, morbi, mittsies, blondevelvet, kadath, trunchbull, danza, shinxiolu, littlefreckles, grumpyvulpix, xopachi, gonenannurs, floravola, heartcollar, metz, ranard_lightningfall, frots, curtsibling, vilani, inkydemon, sprinkle-butt, airguitar, anhes, jace_(artist), kaji_(artist), nimrais_(artist), kyoushiro, venerit, lunaselenewolfe, tsareia, violentanxiety, whippytail, kk-furryworks, cobalta, mickeyila, akuva, rairai, backlash91, sanae, fishbones_(artist), itoril, littlemiu, zeara, darkrokkuman_(artist), peony, helical, donro, agalamt, inanna-nakano, aniutqa, kraest, audiovideomeow, silverbobcat, erithacuscreations, mattartist25, yasminachan, jagzcat, ohmuu, roum, sefeiren, sesameseedbun, noben, aquatheohiokitty, mewyfox, ilgrigio, leoian, vixendra, van_weasel, keihound, zoey03, hardblush, jay_naylor, frisky_ferals, slipshine, rubyrebirth, oze, neogeen, omegaltd, themadcatter, kamicheetah, ookamithewolf1, rabbit_valley, purplekecleon, ollieosa, jayfiregrowlithe, ensayne, bazaarbobby, scappo, dogsoul, poonani, paddercat, eltonpot, ebonyleopard, strype, cbh, mithril07, bicdente, unpeeledwasp, versiris, pitkin, mikachu_tuhonen, lilhoneypup, ladyshinwa, bad-collie, buizilla, foxxian, inert-ren, okamiterasu, mrawl, sammy_stowes, jameless, jooshster, lemoncore, xainy, strider-orion, silitha, spacepoptart, myuinhiding, sweetpinkpetals, sephygoth, edensky, ka, cigarscigarettes, tani_da_real, leatherruffian, hahul, cheezyweapon, reizakirga, leefuu, tanyafoxy, peyo, sweatshirt_(artist), adiago, timelesserror, jollyjack, kahmari, madhattermonster, omnoproxyl337, greykitty, thekitty, mattaku_shinzu, fortuna, fallenarts, ammako, sciggles, atlasfield, sheepdust, lumaberry, tktktk, uzai, aku_tojyo, sixthleafclover, gardelius, squeedgemonster, max-dragon, baka_sukonku, ferniio, jennadelle, ixerin, jaleo, luvythicus, tatious, nekomata_neko, zody, binky, sidian, kii-kitsune, kiirei, spookeedoo, angel27, msrah_(artist), nazuu-m0nster, lunacatta, kululu-xiao, kipcha, fluffball, reptilecynrik, redadillio, zerwolf, kylontario, liz_day, nightweaver, egophiliac, doffa, dipper, kefkafloyd, melo666, sonicdash, sugarpoultry, olven, theramjing, softpaw, xiraco, unicornspirit, tinintri, thornwolf, thaily, tamen, sharue, shadowsani, rikutida, paolo, kriscrash, kaemantis, frogsbreath, tailheat, sexyfur, jeremy_bernal
-
----
-## [DEFRA/water-abstraction-system](https://github.com/DEFRA/water-abstraction-system)@[06d45e8627...](https://github.com/DEFRA/water-abstraction-system/commit/06d45e86272fb5a3c2e72fa1376e1d9d1b1c1d65)
-#### Monday 2022-12-12 14:30:27 by Alan Cruikshanks
-
-Replacing classes with modules and functions (#46)
-
-> Classes are a template for creating objects.
-
-That is the first sentence of the Mozilla documentation for **Classes**. It is what those of us from other languages understand classes to be for. For some of us though (we're looking at you @Cruikshanks !) classes are _all things_!
-
-Because of that thinking, we've allowed Classes to creep in where they shouldn't really be used. Most noticeably, things like controllers, presenters and services, are formed of purely static methods. There is no real reason to wrap their functionality in a class. They could just be expressed as modules and export their relevant functions.
-
-That's what those experienced with JavaScript are more likely to expect. By not doing things that way we're breaking the [Principle of least astonishment](https://en.wikipedia.org/wiki/Principle_of_least_astonishment).
-
-We believe classes are suitable for our Models, as it follows the convention of [Objection](https://vincit.github.io/objection.js/guide/models.html) and we do create instances of them. Also, classes will be our go-to if we need to create objects in the future.
-
-But before this repo gets too far down the road we're taking this opportunity to refactor things from classes into modules.
-
----
-## [Lukas-Hron/ZoomGame](https://github.com/Lukas-Hron/ZoomGame)@[a48edbfe60...](https://github.com/Lukas-Hron/ZoomGame/commit/a48edbfe60dc73902bb141ac8862db32b731d024)
-#### Monday 2022-12-12 14:59:04 by Lukas Hron
-
-God damn bro we fucking got something that looks good now
-
----
-## [SecurityLab-CodeAnalysis/tgstation_tgstation](https://github.com/SecurityLab-CodeAnalysis/tgstation_tgstation)@[58b61a17a7...](https://github.com/SecurityLab-CodeAnalysis/tgstation_tgstation/commit/58b61a17a78e90ea9da91351572abee9a4f93ccb)
-#### Monday 2022-12-12 15:07:22 by Jacquerel
-
-Basic Mob Carp: Retaliate Element (#71593)
-
-## About The Pull Request
-
-Adds an Element and AI behaviour intended to replicate the "retaliate"
-behaviour which made up an entire widely-populated subtype of simple
-mobs.
-The behaviour is pretty simply "If you fuck with me I fuck with you".
-Mobs with the component will "remember" being attacked and will try to
-attack people who attacked them, until they lose sight of those people.
-They don't have very long memories so breaking line of sight is enough
-to remove you from their grudge list.
-The implementation unfortunately requires registering to 600 different
-"I have been attacked by X" signals but c'est la vie.
-
-It will still be cleaner than
-`/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus`
-and `mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus`.
-
-I attached it to the pig for testing and left it there because out of
-all the farm animals we have right now, a pig would probably get pissed
-off if you tried to kill it. Unfortunately it's got a sausage's chance
-in hell of ever killing anyone.
-
-## Why It's Good For The Game
-
-It doesn't have much purpose yet but as we make more basic mobs this is
-going to see a **lot** of use.
-
-## Changelog
-
-:cl:
-add: Basic mobs have the capability of being upset that you kicked and
-punched them.
-add: Pigs destined for slaughter will now ineffectually attempt to
-resist their fate, at least until they lose sight of you.
-balance: Bar bots are better at noticing that you're trying to kill
-them.
-/:cl:
-
----
-## [Night-Pryanik/Cataclysm-DDA](https://github.com/Night-Pryanik/Cataclysm-DDA)@[8e39d6f97c...](https://github.com/Night-Pryanik/Cataclysm-DDA/commit/8e39d6f97c358c72a3dacc7c2f3ce955ecb30e81)
-#### Monday 2022-12-12 15:26:36 by casswedson
+## [anoobindisguise/Cataclysm-DDA](https://github.com/anoobindisguise/Cataclysm-DDA)@[8e39d6f97c...](https://github.com/anoobindisguise/Cataclysm-DDA/commit/8e39d6f97c358c72a3dacc7c2f3ce955ecb30e81)
+#### Tuesday 2022-12-13 17:14:34 by casswedson
 
 fix: edge case ci error exit (#62660)
 
@@ -1515,8 +1426,228 @@ title: do not draw much attention
 Co-authored-by: casswedson <casswedson@users.noreply.github.com>
 
 ---
-## [WoolyAypa/S.P.L.U.R.T-Station-13](https://github.com/WoolyAypa/S.P.L.U.R.T-Station-13)@[8eec99b320...](https://github.com/WoolyAypa/S.P.L.U.R.T-Station-13/commit/8eec99b3206e917bd711987a80422168de53f83d)
-#### Monday 2022-12-12 15:27:21 by LemonInTheDark
+## [Jaden-PHILIPPINES/VGP-P3-2022-2023](https://github.com/Jaden-PHILIPPINES/VGP-P3-2022-2023)@[e96fdd137c...](https://github.com/Jaden-PHILIPPINES/VGP-P3-2022-2023/commit/e96fdd137c55d1e3c56bf8cd9f7689eb63c19b6b)
+#### Tuesday 2022-12-13 17:24:57 by Jaden Morales
+
+Revert "Fuck you luck"
+
+This reverts commit d172736fc5497c08a7d96b9e75599b8c711769b5.
+
+---
+## [emillon/dune](https://github.com/emillon/dune)@[905c043f82...](https://github.com/emillon/dune/commit/905c043f82f575e75a75a2105ef16dc20c1c141c)
+#### Tuesday 2022-12-13 18:00:38 by Etienne Millon
+
+Add shell completion
+
+This provides a shell completion mechanism for dune. This relies on the
+bash completion API, which can be used with zsh as well.
+
+The architecture is:
+
+- `dune complete script` outputs a script to be sourced in the user's
+  shell. It is comprised of a `_dune` function and the `complete -F
+  _dune dune` command to register it. The `_dune` function can be used
+  in cram tests to write natural-looking tests for this feature.
+- this script calls `dune complete command` with the partial
+  command-line. This internal command parses it to determine what the
+  word being completed refers to: a command name, an argument name, or
+  an argument value. The first two ones are part of the metadata
+  `cmdliner` knows about; the last one is provided through a completion
+  function that can be passed in one the `Arg` functions.
+- the interface between `bash` and `dune complete command` is simple:
+  it passes the command line and a position to complete at (this is
+  necessary to encode the difference between `dune bui<tab>` and `dune
+  build <tab>` for example), and reads an array from the output of the
+  command.
+
+The things I'm happy with:
+
+- it is small!
+- coverage is pretty good: command names, arguments (positional and
+  optional, including optional arguments with optional names), and the
+  `--` construct are supported. So, this is likely to improve the user
+  experience already.
+- it is easy to test through cram or unit tests (I chose the former).
+
+Now, for the ugly bits...
+
+- this effectively is a partial reimplementation of cmdliner inside
+  `complete.ml`. If the exact parsing rules are different, it means that
+  we can complete to something with different or wrong semantics.
+- the vendored copy of cmdliner is patched to expose so that it is
+  possible to use the private APIs. these two points need to be resolved
+  before we can think about how to upstream this.
+- some bits of the cmdliner API need to be modified to provide
+  completion automatically. For example for things like `enum` it's easy
+  to provide a completion function automatically.
+- it is difficult to define the right API for the completion functions.
+  `unit -> string list` is a first approximation but with some
+  limitations. For example, getting a list of buildable targets needs to
+  run under `Fiber`, but we can't pollute the API with it. Interestingly
+  enough, algebraic effects seem like they would be an interesting
+  solution for this.
+- at the moment, we're not relying on the shell's completion helpers to
+  complete things like filenames. To support this we would either need
+  to implement that in OCaml, or extend the bash/dune interface so that
+  the completion function could call `compgen -f` based on the dune
+  output.
+- as a way to tie the two previous points: if we wanted to complete
+  `dune build dir/file<tab>`, it would be a lot more efficient to pass
+  the prefix to the build system and let it compute just the targets
+  that match this, rather than compute everything and filter it
+  afterwards. So that prefix would need to appear in the completion API.
+
+Signed-off-by: Etienne Millon <me@emillon.org>
+
+---
+## [steven52880/Grasscutter](https://github.com/steven52880/Grasscutter)@[88bc5c4c54...](https://github.com/steven52880/Grasscutter/commit/88bc5c4c54c1aadcdc6cc9a24c0f69d4bebce97c)
+#### Tuesday 2022-12-13 20:36:03 by Kimi
+
+another translation patches because i fucked it up
+
+i hate myself
+
+---
+## [mpaliwoda/advent-of-code-2022](https://github.com/mpaliwoda/advent-of-code-2022)@[2b008f87a2...](https://github.com/mpaliwoda/advent-of-code-2022/commit/2b008f87a2e80dca7fadd17e52349b99643abece)
+#### Tuesday 2022-12-13 21:04:57 by Marcin Paliwoda
+
+Day 9 - Dear diary,
+
+Brain fried, I think I'm gonna give up soon.
+
+Please send help as I'm unable to understand what's going on anymore.
+
+Lovely elves, please don't make me go on that rope again.
+The only worse thing to happen to me would be implementing A* algo.
+Hope that doesn't happen.
+
+// narrator:
+//      it totally will happen
+
+---
+## [vbraun/sage](https://github.com/vbraun/sage)@[d2a2415104...](https://github.com/vbraun/sage/commit/d2a2415104cfacbf2d13f8930e6457bf36b39e17)
+#### Tuesday 2022-12-13 21:45:13 by Release Manager
+
+Trac #32841: zn_poly removal
+
+The zn_poly SPKG is used by sage in only one place. In hypellfrob.cpp's
+`interval_products_wrapper()`, there is a case...
+
+{{{#!C++
+if (!force_ntl  &&  modulus <= (1UL << (ULONG_BITS - 1)) - 1)
+{
+   // Small modulus; let's try using zn_poly if we're allowed.
+   ...
+}}}
+
+But sometimes that fails, and the fallback is to use NTL anyway. The
+zn_poly project was abandoned upstream in 2008:
+
+  https://web.maths.unsw.edu.au/~davidharvey/code/zn_poly/index.html
+
+We've forked it to keep it building on modern systems,
+
+  https://gitlab.com/sagemath/zn_poly
+
+but the build system is still a mess. Erik started an autotools branch
+(https://gitlab.com/sagemath/zn_poly/-/tree/autotooling), but it never
+got finished, because the source layout is a bit weird for autotools and
+it should most likely be redone from scratch.
+
+And zn_poly is not packaged in Gentoo because of how many hacks it still
+requires to build on a distro with stronger user experience
+expectations:
+
+  https://github.com/cschwan/sage-on-gentoo/blob/master/sci-
+libs/zn_poly/zn_poly-0.9.2.ebuild
+
+In short, we're not getting a lot of benefit out of zn_poly these days,
+and nothing breaks if we remove it, because the one function that uses
+it falls back to the more-reliable NTL anyway.
+
+In this ticket we remove the zn_poly SPKG, to avoid having to rewrite
+its build system some day.
+
+URL: https://trac.sagemath.org/32841
+Reported by: mjo
+Ticket author(s): Michael Orlitzky
+Reviewer(s): Dima Pasechnik
+
+---
+## [RimiNosha/Skyrat-tg](https://github.com/RimiNosha/Skyrat-tg)@[84b1612201...](https://github.com/RimiNosha/Skyrat-tg/commit/84b161220115e3243272299b3f8f3cb29d484709)
+#### Tuesday 2022-12-13 21:49:34 by SkyratBot
+
+[MIRROR] Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup. [MDB IGNORE] (#18019)
+
+* Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup. (#71674)
+
+## About The Pull Request
+
+- The chaplain choice beacon now uses a radial to select the armor set,
+instead of a list, giving the user a preview of what each looks like.
+
+![image](https://user-images.githubusercontent.com/51863163/205417930-f5ceab11-6974-48a9-a871-abcb8228bcf2.png)
+
+- Lots of additional cleanup to choice beacon code in general. Less copy
+pasted code.
+- All beacons now speak from the beacon with their message, instead of
+some going by "headset message". Soul removed
+
+## Why It's Good For The Game
+
+I always forgot when selecting my armor which looks like what, and
+choosing an ugly one is a pain since you only get one choice. This
+should help chaplains get the armor they actually want without needing
+to check the wiki.
+
+## Changelog
+
+:cl: Melbert
+qol: The chaplain's armament beacon now displays a radial instead of a
+text list, showing previews of what all the armor sets look like
+qol: (Almost) all choice beacons now use a pod to send their item,
+instead of just magicking it under your feet
+code: Cleaned up some choice beacon code.
+/:cl:
+
+Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
+
+* Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup.
+
+* update modular
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
+Co-authored-by: Tom <8881105+tf-4@users.noreply.github.com>
+
+---
+## [EastsidePreparatorySchool/ChemLogs](https://github.com/EastsidePreparatorySchool/ChemLogs)@[5378148e25...](https://github.com/EastsidePreparatorySchool/ChemLogs/commit/5378148e25d6156a49286cc3311862a8389b469c)
+#### Tuesday 2022-12-13 23:11:51 by Cluelessbutnothomeless
+
+Test Page for Chemical Searching
+
+When I started this page I had no idea what I was doing. I still have no idea what I am doing. But I can attest that the above code works, the majority of the time at least. I'm not sure how detailed this description is supposed to be but I will keep it short. It looks good I guess, at the very least its not an abhorrent aberration grotesque to all animal eyes. So that's good. :) While some might say I took my inspiration from the Nordstrom Active Apparel website I would be quick to remind them that there is a high possibility that Nordstrom stole their design form someone else and therefore my acting is the equivalent of balancing the cosmic scales. Now I'm sure being a cosmic balancer puts me dead in the sights of more than one ancient prophecy but I will remind the reader that I am still me. Still the same coder struggling to comprehend whether or not html is a language or a jumble of misshapen letters. Alas we have come to the end of my summary, I should hope it was informative to have a description of my mindset when coding the page. Maybe even helpful? Humbly, Aroura
+
+---
+## [maesierra/adventOfCode2022](https://github.com/maesierra/adventOfCode2022)@[ca98746e21...](https://github.com/maesierra/adventOfCode2022/commit/ca98746e21cc1b3229a21da809e2d5a5e98dd8f3)
+#### Tuesday 2022-12-13 23:44:29 by maesierra
+
+day13
+
+Today was extremelly painful in Go. Object Oriented Programing is good. Inheritance is good
+It doesn't solve all the problems, but for some of them is so elegant an nice.
+
+Aparently you cannot cast from interface into concrete type and with no method overloading there is no way to do Comparable interface
+At least int good old C you can cast a pointer into anything (be a pointer my friend)
+In the end I have to do a horrible solution with composition. Yes you can use composition instead of inheritance but is ugly and more error prone
+
+And pointers... I'm getting used to start thining in pointer terms
+again. But I'd rather write stupid Java boilerplate than having this
+headaches of pointers. Pointers are difficult and error-prone
+
+---
+## [nuke-ops/Nostra-13](https://github.com/nuke-ops/Nostra-13)@[8eec99b320...](https://github.com/nuke-ops/Nostra-13/commit/8eec99b3206e917bd711987a80422168de53f83d)
+#### Tuesday 2022-12-13 23:55:19 by LemonInTheDark
 
 Caches GetJobName. Fuck you (#274)
 
@@ -1541,540 +1672,6 @@ This code made me deeply upset, WHY IS IT RECURSIVE WHY WHY WHY WHY WHY WHY WHY 
 * indents... comments
 
 Co-authored-by: SandPoot <enric_gabirel@hotmail.com>
-
----
-## [xDroidOSS-Pixel/frameworks_base](https://github.com/xDroidOSS-Pixel/frameworks_base)@[d4676b77da...](https://github.com/xDroidOSS-Pixel/frameworks_base/commit/d4676b77da7fd237ad56af1ccbfc6ef537a752e1)
-#### Monday 2022-12-12 15:36:25 by Kuba Wojciechowski
-
-[SQUASHED] core: Blacklist pixel system feature from Google Photos
-
-    We want to include the P21 experience flag to enable new features,
-    however it seems like Google Photos uses it to decide whether to use the
-    TPU tflite delegate. There doesn't seem to be any fallback so we need to
-    make sure the feature is not exposed to the app so that a normal
-    NNAPI/GPU delegate can be used instead.
-
-    Test: Google Photos editor with PIXEL_2021_EXPERIENCE feature in product
-    Signed-off-by: Kuba Wojciechowski <nullbytepl@gmail.com>
-    Change-Id: I51a02f8347324c7a85f3136b802dce4cc4556ac5
-
-commit 67eb31b3bb43d06fcc7f6fdb2f92eb486451cae6
-Author: kondors1995 <normandija1945@gmail.com>
-Date:   Thu Jun 9 17:39:25 2022 +0530
-
-    Core: Extend Pixel experience Blacklist For Google Photos
-
-    Turns out having these brakes Original quality backups.
-    Since these indicate that the device is pixel 4 with in the turn brakes device spoofing as OG pixel
-
-    Change-Id: I336facff7b55552f094997ade337656461a0ea1d
-
-commit 508a99cde60b73dc3f1e843d569bca31def35988
-Author: ReallySnow <reallysnow233@gmail.com>
-Date:   Fri Dec 31 16:40:23 2021 +0800
-
-    base: core: Blacklist Pixel 2017 and 2018 exclusive for Google Photos
-
-    * In this way can use PixelPropsUtils to simulate the Pixel XL prop
-      method to use the unlimited storage space of Google Photos
-    * Thanks nullbytepl for the idea
-
-    Change-Id: I92d472d319373d648365c8c63e301f1a915f8de9
-
-commit aaf07f6ccc89c2747b97bc6dc2ee4cb7bd2c6727
-Author: Akash Srivastava <akashniki@gmail.com>
-Date:   Sat Aug 20 19:04:32 2022 +0700
-
-    core: Pixel experience Blacklist For Google Photos for Android 13
-
-    * See, in Android 13 pixel_experience_2022_midyear was added, which needs to be blacklisted aswell
-
-    Change-Id: Id36d12afeda3cf6b39d01a0dbe7e3e9058659b8e
-
-commit 9d6e5749a988c9051b1d47c11bb02daa7b1b36fd
-Author: spezi77 <spezi7713@gmx.net>
-Date:   Mon Jan 31 19:17:34 2022 +0100
-
-    core: Rework the ph0t0s features blacklist
-
-    * Moving the flags to an array feels more like a blacklist :P
-    * Converted the flags into fully qualified package names, while at it
-
-    Signed-off-by: spezi77 <spezi7713@gmx.net>
-    Change-Id: I4b9e925fc0b8c01204564e18b9e9ee4c7d31c123
-
-commit d7201c0cff326a6374e29aa79c6ce18828f96dc6
-Author: Joey Huab <joey@evolution-x.org>
-Date:   Tue Feb 15 17:32:11 2022 +0900
-
-    core: Refactor Pixel features
-
-    * Magic Eraser is wonky and hard to
-      enable and all this mess isn't really worth
-      the trouble so just stick to the older setup.
-
-    * Default Pixel 5 spoof for Photos and only switch
-      to Pixel XL when spoof is toggled.
-
-    * We will try to bypass 2021 features and Raven
-      props for non-Pixel 2021 devices as apps usage
-      requires TPU.
-
-    * Remove P21 experience system feature check
-
-Change-Id: Iffae2ac87ce5428daaf6711414b86212814db7f2
-
----
-## [NopemanMcHalt/coyote-bayou](https://github.com/NopemanMcHalt/coyote-bayou)@[288f673652...](https://github.com/NopemanMcHalt/coyote-bayou/commit/288f6736526554c75abbcb09c92acb457be1c9b0)
-#### Monday 2022-12-12 17:42:11 by Superlagg
-
-Merge remote-tracking branch 'upstream/master' into that-stupid-fuckin-dumb-shitass-fuckin--fuck-fuckass-shitfuck-gun-thing-that-isnt-alll-that-bad-honestly
-
----
-## [IndigoHive/next.js](https://github.com/IndigoHive/next.js)@[1bbd264216...](https://github.com/IndigoHive/next.js/commit/1bbd2642164098ceb9cebfb36deba9aed7e8a53b)
-#### Monday 2022-12-12 17:51:45 by abdennor
-
-Add additional fix in hydration error document (#40675)
-
-I had the same issue, so the fix that worked for me was pulled from this
-thread https://stackoverflow.com/a/71870995
-
-I have been experiencing the same problem lately with NextJS and i am
-not sure if my observations are applicable to other libraries. I had
-been wrapping my components with an improper tag that is, NextJS is not
-comfortable having a p tag wrapping your divs, sections etc so it will
-yell "Hydration failed because the initial UI does not match what was
-rendered on the server". So I solved this problem by examining how my
-elements were wrapping each other. With material UI you would need to be
-cautious for example if you use a Typography component as a wrapper, the
-default value of the component prop is "p" so you will experience the
-error if you don't change the component value to something semantic. So
-in my own opinion based on my personal experience the problem is caused
-by improper arrangement of html elements and to solve the problem in the
-context of NextJS one will have to reevaluate how they are arranging
-their html element
-
-<!--
-Thanks for opening a PR! Your contribution is much appreciated.
-To make sure your PR is handled as smoothly as possible we request that
-you follow the checklist sections below.
-Choose the right checklist for the change that you're making:
--->
-
-
-## Documentation / Examples
-
-- [x] Make sure the linting passes by running `pnpm lint`
-- [ ] The "examples guidelines" are followed from [our contributing
-doc](https://github.com/vercel/next.js/blob/canary/contributing/examples/adding-examples.md)
-
-Co-authored-by: JJ Kasper <jj@jjsweb.site>
-
----
-## [SergeyBrian/labs](https://github.com/SergeyBrian/labs)@[67e9ca896e...](https://github.com/SergeyBrian/labs/commit/67e9ca896e56da1a6db23e9b1275184a0d70c290)
-#### Monday 2022-12-12 18:40:38 by Sergey Brian
-
-ADD FUCKING WORKING SOLUTION FOR FUCKING OFFLINE LAB 4 GOD FUCKING DAMN IT
-
----
-## [edecosta-mw/git](https://github.com/edecosta-mw/git)@[f1c903debd...](https://github.com/edecosta-mw/git/commit/f1c903debdcbf6aaf8fd3abf222fa941b42d5d31)
-#### Monday 2022-12-12 19:55:32 by Ævar Arnfjörð Bjarmason
-
-cocci: make "coccicheck" rule incremental
-
-Optimize the very slow "coccicheck" target to take advantage of
-incremental rebuilding, and fix outstanding dependency problems with
-the existing rule.
-
-The rule is now faster both on the initial run as we can make better
-use of GNU make's parallelism than the old ad-hoc combination of
-make's parallelism combined with $(SPATCH_BATCH_SIZE) and/or the
-"--jobs" argument to "spatch(1)".
-
-It also makes us *much* faster when incrementally building, it's now
-viable to "make coccicheck" as topic branches are merged down.
-
-The rule didn't use FORCE (or its equivalents) before, so a:
-
-	make coccicheck
-	make coccicheck
-
-Would report nothing to do on the second iteration. But all of our
-patch output depended on all $(COCCI_SOURCES) files, therefore e.g.:
-
-    make -W grep.c coccicheck
-
-Would do a full re-run, i.e. a a change in a single file would force
-us to do a full re-run.
-
-The reason for this (not the initial rationale, but my analysis) is:
-
-* Since we create a single "*.cocci.patch+" we don't know where to
-  pick up where we left off, or how to incrementally merge e.g. a
-  "grep.c" change with an existing *.cocci.patch.
-
-* We've been carrying forward the dependency on the *.c files since
-  63f0a758a06 (add coccicheck make target, 2016-09-15) the rule was
-  initially added as a sort of poor man's dependency discovery.
-
-  As we don't include other *.c files depending on other *.c files
-  has always been broken, as could be trivially demonstrated
-  e.g. with:
-
-       make coccicheck
-       make -W strbuf.h coccicheck
-
-  However, depending on the corresponding *.c files has been doing
-  something, namely that *if* an API change modified both *.c and *.h
-  files we'd catch the change to the *.h we care about via the *.c
-  being changed.
-
-  For API changes that happened only via *.h files we'd do the wrong
-  thing before this change, but e.g. for function additions (not
-  "static inline" ones) catch the *.h change by proxy.
-
-Now we'll instead:
-
- * Create a <RULE>/<FILE> pair in the .build directory, E.g. for
-   swap.cocci and grep.c we'll create
-   .build/contrib/coccinelle/swap.cocci.patch/grep.c.
-
-   That file is the diff we'll apply for that <RULE>-<FILE>
-   combination, if there's no changes to me made (the common case)
-   it'll be an empty file.
-
- * Our generated *.patch
-   file (e.g. contrib/coccinelle/swap.cocci.patch) is now a simple "cat
-   $^" of all of all of the <RULE>/<FILE> files for a given <RULE>.
-
-   In the case discussed above of "grep.c" being changed we'll do the
-   full "cat" every time, so they resulting *.cocci.patch will always
-   be correct and up-to-date, even if it's "incrementally updated".
-
-   See 1cc0425a27c (Makefile: have "make pot" not "reset --hard",
-   2022-05-26) for another recent rule that used that technique.
-
-As before we'll:
-
- * End up generating a contrib/coccinelle/swap.cocci.patch, if we
-   "fail" by creating a non-empty patch we'll still exit with a zero
-   exit code.
-
-   Arguably we should move to a more Makefile-native way of doing
-   this, i.e. fail early, and if we want all of the "failed" changes
-   we can use "make -k", but as the current
-   "ci/run-static-analysis.sh" expects us to behave this way let's
-   keep the existing behavior of exhaustively discovering all cocci
-   changes, and only failing if spatch itself errors out.
-
-Further implementation details & notes:
-
- * Before this change running "make coccicheck" would by default end
-   up pegging just one CPU at the very end for a while, usually as
-   we'd finish whichever *.cocci rule was the most expensive.
-
-   This could be mitigated by combining "make -jN" with
-   SPATCH_BATCH_SIZE, see 960154b9c17 (coccicheck: optionally batch
-   spatch invocations, 2019-05-06).
-
-   There will be cases where getting rid of "SPATCH_BATCH_SIZE" makes
-   things worse, but a from-scratch "make coccicheck" with the default
-   of SPATCH_BATCH_SIZE=1 (and tweaking it doesn't make a difference)
-   is faster (~3m36s v.s. ~3m56s) with this approach, as we can feed
-   the CPU more work in a less staggered way.
-
- * Getting rid of "SPATCH_BATCH_SIZE" particularly helps in cases
-   where the default of 1 yields parallelism under "make coccicheck",
-   but then running e.g.:
-
-       make -W contrib/coccinelle/swap.cocci coccicheck
-
-   I.e. before that would use only one CPU core, until the user
-   remembered to adjust "SPATCH_BATCH_SIZE" differently than the
-   setting that makes sense when doing a non-incremental run of "make
-   coccicheck".
-
- * Before the "make coccicheck" rule would have to clean
-   "contrib/coccinelle/*.cocci.patch*", since we'd create "*+" and
-   "*.log" files there. Now those are created in
-   .build/contrib/coccinelle/, which is covered by the "cocciclean" rule
-   already.
-
-Outstanding issues & future work:
-
- * We could get rid of "--all-includes" in favor of manually
-   specifying a list of includes to give to "spatch(1)".
-
-   As noted upthread of [1] a naïve removal of "--all-includes" will
-   result in broken *.cocci patches, but if we know the exhaustive
-   list of includes via COMPUTE_HEADER_DEPENDENCIES we don't need to
-   re-scan for them, we could grab the headers to include from the
-   .depend.d/<file>.o.d and supply them with the "--include" option to
-   spatch(1).q
-
-1. https://lore.kernel.org/git/87ft18tcog.fsf@evledraar.gmail.com/
-
-Signed-off-by: Ævar Arnfjörð Bjarmason <avarab@gmail.com>
-Signed-off-by: Taylor Blau <me@ttaylorr.com>
-
----
-## [Zonespace27/Skyrat-tg](https://github.com/Zonespace27/Skyrat-tg)@[cf4a194e86...](https://github.com/Zonespace27/Skyrat-tg/commit/cf4a194e86d53d57397f6de4febbea0de9c6ef57)
-#### Monday 2022-12-12 20:13:47 by SkyratBot
-
-[MIRROR] Biogen Refactor and Code Cleanup, Faster Biomass Conversion and No More Biomass Cap! [MDB IGNORE] (#17828)
-
-* Biogen Refactor and Code Cleanup, Faster Biomass Conversion and No More Biomass Cap! (#71563)
-
-## About The Pull Request
-So, I looked at the Biogenerator code and there was just, _so_ much old
-and undocumented code, that I just spazzed out and started documenting
-and refactoring everything. There's now a lot less usage of contents
-lookups and for loops, and _almost_ everything is documented, now, too.
-
-As for the changes, as you can see in the title, I made biomass
-conversion faster. How much faster, you ask? 5 times faster with default
-parts, up to 20 times faster with the best parts. It was painfully slow,
-and that's not fun for anyone.
-
-I also lifted the biomass cap. It wasn't useful, it wasn't fun, and
-Melbert didn't really agree with it either. However, I enjoyed the look
-of the biomass going up, so I gave it a max visual amount of 5000, so
-you get to see it gradually filling up as you put your first 5000
-biomass in. After that, you do you, chief. Watch the funny numbers go up
-all you want.
-
-I also improved the maths so that it wasn't just rounding stuff
-constantly, and also gave a little bit more insight on how much biomass
-everything would cost you, down to two decimals. If there's no decimals,
-it won't show them, however.
-
-<details>
-<summary>Here's what that looks like now:</summary>
-That's one screenshot per different decimal places, there's no trailing
-zeros because I think we can all universally agree that those look bad
-in this kind of setting.
-
-![image](https://user-images.githubusercontent.com/58045821/204120744-a8c398dc-7c19-4ee0-a8cb-5615f1dce1ea.png)
-
-![image](https://user-images.githubusercontent.com/58045821/204120749-90aae203-bdb8-4322-a657-bb4fd313d808.png)
-
-![image](https://user-images.githubusercontent.com/58045821/204120755-8bed494d-0d70-4b4a-afa2-413610089f6d.png)
-
-</details>
-
-There's now also more information displayed when you examine the biogen,
-namely, how many items it has stored, and how many it can hold. I also
-fixed the formatting a bit, so it looks ever so slightly cleaner.
-
-Other than that, I just improved the code everywhere I saw it to be
-fitting, there shouldn't be any single-letter variables in there
-anymore, and the code should be more spaced out. Honestly, at this
-point, I wrote most of this code six hours ago so I don't remember all
-of it, and I'm too lazy to go through and check what I've changed again.
-Diff and changelog are there for that.
-
-## Why It's Good For The Game
-So, I'll be honest, there were two big reasons that motivated me to do
-this. First of all, the biomass cap. That was a little silly, anyone
-that has spent more than one shift in Hydroponics knows that you usually
-only put Watermelons in the biomass generator as they're usually the
-thing that nets you the most biomass. Botanists will generally stock the
-fridges first, and if they have a lot of excess, they'll put it in the
-generator if they want, but that's rarely what was done. I've talked
-with @ MrMelbert about it and he gave me the go-ahead, as can be seen
-here:
-
-![image](https://user-images.githubusercontent.com/58045821/204115174-fb2610c0-61c5-44e1-845e-cc6925ee33e6.png)
-
-The other reason was the excruciatingly slow processing speed, which
-I've fixed. So we're good now. :)
-
-## Changelog
-
-:cl: GoldenAlpharex
-refactor: Went through and refactored a lot of the old code of the
-biogenerator, and made multiple improvements to its logic, which should
-hopefully make it behave more consistently. Nearly all of it is now also
-fully documented, so as to make it easier for anyone else that has to
-sift through it in the future.
-qol: The biogenerator now processes items five times faster, up to 20
-times faster if properly upgraded!
-qol: The biogenerator is no longer capped on biomass. Its visuals will
-change up until 5000 biomass, but you're free to go as high as you'd
-like with it! Sky's the limit!
-fix: Fixed the logic of the biogenerator that would make it so the
-amount of biomass used for recipes was wildly inconsistent. Now, there's
-no more back-end rounding up, it's all on the front end when it needs to
-be, so there's no loss or gain of biomass when there shouldn't be.
-spellcheck: Fixed a capitalization issue with the seaweed sheets in the
-biogenerator recipes.
-spellcheck: Fixed multiple inconsistencies between the messages sent to
-your chat by the biogenerator.
-/:cl:
-
-* Biogen Refactor and Code Cleanup, Faster Biomass Conversion and No More Biomass Cap!
-
-Co-authored-by: GoldenAlpharex <58045821+GoldenAlpharex@users.noreply.github.com>
-
----
-## [sdmanchiraju/zulip](https://github.com/sdmanchiraju/zulip)@[23a776c144...](https://github.com/sdmanchiraju/zulip/commit/23a776c1448da18b906529e5951e24d8d58a7e81)
-#### Monday 2022-12-12 20:46:54 by Mateusz Mandera
-
-maybe_send_to_registration: Don't reuse pre-existing PreregistraionUser.
-
-There was the following bug here:
-1. Send an email invite to a user.
-2. Have the user sign up via social auth without going through that
-   invite, meaning either going via a multiuse invite link or just
-   straight-up Sign up if the org permissions allow.
-
-That resulted in the PreregistrationUser that got generated in step (1)
-having 2 Confirmations tied to it - because maybe_send_to_registration
-grabbed the object and created a new confirmation link for it. That is a
-corrupted state, Confirmation is supposed to be unique.
-
-One could try to do fancy things with checking whether a
-PreregistrationUser already have a Confirmation link, but to avoid races
-between ConfirmationEmailWorker and maybe_send_to_registration, this
-would require taking locks and so on - which gets needlessly
-complicated. It's simpler to not have them compete for the same object.
-
-The point of the PreregistrationUser re-use in
-maybe_send_to_registration is that if an admin invites a user, setting
-their initial streams and role, it'd be an annoying experience if the
-user ends up signing up not via the invite and those initial streams
-streams etc. don't get set up. But to handle this, we can just copy the
-relevant values from the pre-existing prereg_user, rather than re-using
-the object itself.
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[44008f485d...](https://github.com/tgstation/tgstation/commit/44008f485d6d72537935cfa8a3a5b6140eece744)
-#### Monday 2022-12-12 20:59:12 by Jacquerel
-
-Fishing-themed Escape Shuttle (#71805)
-
-## About The Pull Request
-
-I can't do much coding until you review my other PRs so I'm making a
-mapping PR instead.
-I actually made this a while ago while I was trying out strongDMM. It
-turns out: it's a good tool and easy to use.
-
-![2022 12 09-10 51
-26](https://user-images.githubusercontent.com/7483112/206686234-ae952ba3-2cb4-4093-80a0-d086fe95a3fc.png)
-
-This mid-tier shuttle isn't enormous and is shaped like a fish. It
-dedicates much of its internal space to an artificial fishing
-environment, plus fishing equipment storage. Plus look at that lovely
-wood panelling!
-There's not a lot of seating or a large medbay, but there's five fishing
-rods for people to wrestle each other over plus some aquariums to store
-your catches in.
-
-It contains a variety of fishing biomes (ocean, moisture trap, hole,
-portal) but I couldn't fit "lava" in there even though I wanted to
-because it's hardcoded to only have fish in it on the mining z-level.
-If you're very lucky and nobody shoves you, the time between the shuttle
-docking at the station and arriving at Centcomm might be enough time for
-you to catch maybe four entire fish. Wow!
-
-## Why It's Good For The Game
-
-There are plenty of novelty shuttle options but I think this one is good
-for a personal touch of "the Captain would rather be fishing than
-hearing you complain about the nuclear operatives".
-
-## Changelog
-
-:cl:
-add: Tell your crew how much you care by ordering a shuttle where half
-of the seats have been removed so that you can get some angling done
-before you clock out.
-/:cl:
-
----
-## [NsimDaghash/code7](https://github.com/NsimDaghash/code7)@[e1bd391f9c...](https://github.com/NsimDaghash/code7/commit/e1bd391f9cff4324c2c10e60926b9a2b51610156)
-#### Monday 2022-12-12 21:51:30 by NsimDaghash
-
-All Star Code Challenge #13
-
-Your friend Billybob has a crush on the girl next to him in class, Emily, but wants to talk with you about what he should do, but doesn't want her to overhear. Send secret messages to Billybob by translating your messages into pig latin.
-
----
-## [AksimaRiviera/Arbitrator](https://github.com/AksimaRiviera/Arbitrator)@[4e3f1d61f2...](https://github.com/AksimaRiviera/Arbitrator/commit/4e3f1d61f241192d7ce0c1e4c2510eea65623de4)
-#### Monday 2022-12-12 21:52:44 by AksimaRiviera
-
-Shit Bank (edited)
-
-Continue develop bank logic. Create CREDIT/DEPOSITE methods. Create db-table bank client. Deleted old comments in Program.cs
-Need relation withdrawals method in bank.
-
-if(you.DidntUnderstandMyEnglish()) Console.WriteMIND(">>> ! FUCK OFF ! <<<");
-
-And neeeeeeeed!!!!! LootBox and QuestBox
-Think about IT!!
-
----
-## [mhei/libmodbus](https://github.com/mhei/libmodbus)@[6f915d4215...](https://github.com/mhei/libmodbus/commit/6f915d4215c06be3c719761423d9b5e8aa3cb820)
-#### Monday 2022-12-12 21:55:36 by Stéphane Raimbault
-
-Fix my so stupid fix for VD-1301 vulnerability
-
-I can't believe I committed that copy/paste mistake.
-Sorry Maor Vermucht and Or Peles, excepted naming your original
-patch was OK.
-
-Thank you Karl Palsson for your review.
-
----
-## [Offroaders123/NBTify](https://github.com/Offroaders123/NBTify)@[00425acdbb...](https://github.com/Offroaders123/NBTify/commit/00425acdbb674a7b16d68d656004278f4f96d117)
-#### Monday 2022-12-12 21:59:47 by Offroaders123
-
-Accept CompoundTag for Writing
-
-Now you can directly pass in a non `NBTData`-wrapped `CompoundTag` into the Write module methods! This makes things easier if you aren't working with `NBTData` objects directly, and with the bare NBT JavaScript object instead. Wrote more about this in the same-named issue on the repo!
-
-In the demo test file, I simply wrote the same data to a buffer, using both the `NBT.write()` and `NBTWriter.write()` functions, one using the existing `NBTData` parameter call, and the other with only the `CompoundTag` and options config, no `NBTData` for that one. As you can see in the console, no errors, and the same identical buffer data is written! Noice.
-
-Oh yeah, just to verify the value of the `CompoundTag` a little more strictly, I added a `data !== null` check in there too, since `typeof null` will return `"object"`. I think I read that it's a weird JavaScript legacy thing, kind of interesting. I don't want any of the library parameters to accept `null` as an NBT value! That would be confusing, haha.
-
-Oooh! While writing that last sentence, decided to check this in TypeScript, and I'm very happy to say that this doesn't pass, aaah :)
-Scared me for a moment, thinking about this possibly working, since `null` is technically an object in JS:
-```ts
-const thingo: object = null;
-// Type 'null' is not assignable to type 'object'.
-```
-
----
-## [CDRDecky/sunset-wasteland](https://github.com/CDRDecky/sunset-wasteland)@[0da80ad53e...](https://github.com/CDRDecky/sunset-wasteland/commit/0da80ad53e5db8126fb8adeff3fa3a4b80e843b5)
-#### Monday 2022-12-12 22:29:48 by Carl?
-
-Khan Pass | Part Two (#701)
-
-- - -
-Balance:
- - Khan Senior Enforcer given a Khan scrap sabre.
- - Khan scrap sabre now able to be crafted by anyone in the faction.
- - Legion Forgemaster lost their standard welding tool, given they have a basic one in their belt.
- - Neostead lootdrop updated to exclusively contain trainshot, rather than a mix of buckshot and slugs.
-- - -
-Map:
- - Water in Rock Springs once again made safe. Somehow this was left scuffed and no one caught it until I took a look myself.
- - Khans given a second level to their camp, which is just a double-stacked tent for chemistry and an overlook of the gate.
- - Khans given control of Heaven's Knight, with a ladder leading to and from it accessible via their mining area.
- - Bighorn given a magical disposal bin. Enjoy.
- - Pool closed.
-- - -
-New | Khan:
- - Khan Smith added. They're near identical in function to the Legion Forgemaster.
- - Khan Courtesan added. They're an RP exclusive role and are fairly self-explanatory.
-- -
-
----
-## [pahaze/refunked](https://github.com/pahaze/refunked)@[149aa4ae76...](https://github.com/pahaze/refunked/commit/149aa4ae76f2903ef602be81dde925ce29e4fcf4)
-#### Monday 2022-12-12 22:53:52 by pahaze
-
-0.10-alpha push - Cleaned up most of source, Add 0.2.8 assets, Update input system, BOTPLAY Mode, Practice Mode, Readded Lucky, Unknown week image (for mods later on), Characters are now stored in JSON files, Character icons now are separate PNGs, Character sprites now live in shared/images/character, Countdown sprites (and rating, combo, and notes hit) stick to the camera instead of the world, causing them to not go off screen or get in the way of notes, Freeplay state now expands personal best so it doesn't go off screen, Charts now have some factors from ReFunked 0.99-alpha-next (gfPlayer, songName, stage, uiStyle), Boyfriend's sprites were updated to include missing animations, Some Flash files were updated, Monster is now similar to 0.2.8 (new animations from Christmas version, no longer has the bug where his neck went through his face), Moved some assets to clean the structure up, New pixel BF/Senpai icons (excluding Spirit), Removed Tutorial / Week 1 libraries (nothing in them), Fixed areas where high FPS broke things or was too fast, Added options (downscroll, middlescroll, FPS, ghost tapping, Discord Rich Presence, keybinds), Fixed sustain notes not being in the right areas on certain speeds/BPMs, Fixed misses when hitting a sustain note with no normal note, Pause menu now tells you when you're not being scored (due to using BOTPLAY/Practice)
 
 ---
 
