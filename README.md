@@ -5,277 +5,238 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-12-13](docs/good-messages/2022/2022-12-13.md)
+# [2022-12-14](docs/good-messages/2022/2022-12-14.md)
 
 
-2,162,366 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,162,366 were push events containing 3,254,203 commit messages that amount to 270,585,990 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 43 messages:
+2,049,777 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,049,777 were push events containing 3,093,568 commit messages that amount to 261,068,671 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 49 messages:
 
 
-## [AttorneyOnline/AO2-Client](https://github.com/AttorneyOnline/AO2-Client)@[4938937c3e...](https://github.com/AttorneyOnline/AO2-Client/commit/4938937c3e4a371fdff20603cae6bb367036dcfc)
-#### Tuesday 2022-12-13 00:28:08 by Salanto
+## [xiaoleGun/Home](https://github.com/xiaoleGun/Home)@[ba91e1ad05...](https://github.com/xiaoleGun/Home/commit/ba91e1ad05dfa5cda3e659d9ad02a1d95102a4c2)
+#### Wednesday 2022-12-14 00:10:27 by xiaoleGun
 
-Fix compile error of legacy RPC lib
+Fuck your mother's militaristic Japan
 
-Fuck the game SDK, holy shit that code is so reliant on a shitty game engine that this is honestly better for now.
+ *  The Nanking Massacre, commonly known as
+    the Rape of Nanking, was an infamous war
+    crime committed by the Japanese military
+    in Nanjing (Nanking), then the capital of
+    the Republic of China, after it fell to the
+    Imperial Japanese Army on December 13, 1937.
+    The duration of the massacre is not clearly
+    defined, although the violence lasted well
+    into the next six weeks, until early February 1938.
+    Japanese officials lied about civilian death figures and
+    still refuse to reveal them properly today.
+    During the occupation of Nanking, the Japanese army
+    committed numerous atrocities, such as rape, looting,
+    arson and the execution of prisoners of war and civilians.
+    The executions began under the pretext of eliminating Chinese
+    soldiers disguised as civilians, and a large number of innocent
+    men were intentionally misidentified as enemy combatants and executed
+    as the massacre gathered momentum. A large number of women
+    and children were also killed, as rape and murder became more widespread.
+    The Japanese side has not recognized the Nanjing Massacre!!!
 
----
-## [dariota/Advent-of-Code](https://github.com/dariota/Advent-of-Code)@[aa28983964...](https://github.com/dariota/Advent-of-Code/commit/aa28983964ac6b00377f4625574980533df2be21)
-#### Tuesday 2022-12-13 00:38:49 by Dário Tavares Antunes
+ *  南京大虐殺は、1937年12月13日に日本帝国軍の手に渡った後、日本軍が当時の中華民国の首都
+    南京（南京）で犯した悪名高い戦争犯罪である。大虐殺の継続期間は明確に定義されていないが、
+    暴力は1938年2月初めまで6週間続いた。日本の役人は民間人の死亡数を偽って、今も公開を拒
+    否している。南京占領中、日本軍は強姦、強盗、放火、捕虜と民間人の処刑など多くの暴行を犯
+    した。処刑は民間人を装った中国兵の撲滅を口実に始まった。大量の罪のない男が故意に敵戦闘員
+    と誤認され、大虐殺が激化する中で処刑された。レイプや殺人が一般的になるにつれ、多くの女性
+    や子供も殺害された。
+    日本側は、いまだ南京大虐殺を認めていない!!!
 
-Day 12, this thing can't get signal
-
-I shouldn't be surprised that the equipment the elves use needs to be at
-quite an elevation to actually work, and yet I somehow am. It seems like
-it actually needs a line of sight? Mad.
-
-On the bright side, I got to go for a pretty nice hike. Shame I didn't
-pack my camera since I suspect something like falling into a damn river
-would happen, lovely sights.
-
----
-## [sdmanchiraju/zulip](https://github.com/sdmanchiraju/zulip)@[23a776c144...](https://github.com/sdmanchiraju/zulip/commit/23a776c1448da18b906529e5951e24d8d58a7e81)
-#### Tuesday 2022-12-13 00:41:59 by Mateusz Mandera
-
-maybe_send_to_registration: Don't reuse pre-existing PreregistraionUser.
-
-There was the following bug here:
-1. Send an email invite to a user.
-2. Have the user sign up via social auth without going through that
-   invite, meaning either going via a multiuse invite link or just
-   straight-up Sign up if the org permissions allow.
-
-That resulted in the PreregistrationUser that got generated in step (1)
-having 2 Confirmations tied to it - because maybe_send_to_registration
-grabbed the object and created a new confirmation link for it. That is a
-corrupted state, Confirmation is supposed to be unique.
-
-One could try to do fancy things with checking whether a
-PreregistrationUser already have a Confirmation link, but to avoid races
-between ConfirmationEmailWorker and maybe_send_to_registration, this
-would require taking locks and so on - which gets needlessly
-complicated. It's simpler to not have them compete for the same object.
-
-The point of the PreregistrationUser re-use in
-maybe_send_to_registration is that if an admin invites a user, setting
-their initial streams and role, it'd be an annoying experience if the
-user ends up signing up not via the invite and those initial streams
-streams etc. don't get set up. But to handle this, we can just copy the
-relevant values from the pre-existing prereg_user, rather than re-using
-the object itself.
+Signed-off-by: xiaoleGun <1592501605@qq.com>
 
 ---
-## [Jolly-66/Skyrat-tg](https://github.com/Jolly-66/Skyrat-tg)@[82fc8c522e...](https://github.com/Jolly-66/Skyrat-tg/commit/82fc8c522e50ccabd853493afaee43f76930529c)
-#### Tuesday 2022-12-13 00:51:10 by SkyratBot
+## [TJatPBnJ/tgstation](https://github.com/TJatPBnJ/tgstation)@[5da871e271...](https://github.com/TJatPBnJ/tgstation/commit/5da871e2719fb7aac04fb1ec4c85ea7a09a83b36)
+#### Wednesday 2022-12-14 00:14:16 by RikuTheKiller
 
-[MIRROR] Excercise Equipment is now craftable [MDB IGNORE] (#17495)
-
-* Excercise Equipment is now craftable (#71190)
+Made geysers easier to find (#71608)
 
 ## About The Pull Request
 
-Imagine if you will a humble chaplain who wants nothing more than for
-all of the spiritual folk on the station to get as massive gains as they
-can, after finding that they can not just make more exercise equipment
-and that the station does not have any in public places, they go annoy
-security enough to get into permabrig only to find out that they cant
-even unwrench the equipment and move it to the church!!!
+This PR raises the geyser spawn rate from 0.1 to 0.15 and increases the
+weight of wittel geysers to 10 which is the same as every other special
+geyser. (previously 6)
 
-NOT ANYMORE!!!
+Wittel shouldn't be any less difficult to find than other geysers as all
+of the special geysers are equally powerful. Hyper-plasmium oxide can be
+used to make extremely powerful explosives that can go beyond maxcaps
+and hollow water + protozine can create an infinite amount of strange
+reagent.
 
-![jS2aBMBa0B](https://user-images.githubusercontent.com/116288367/200889423-f1b6365c-24c4-4f45-8ca4-c96c9085cf27.png)
-crafting recipies
+I've subjected myself to going out of my way to visit lavaland/icemoon
+several times to get wittel and each time finding a single geyser takes
+about 5 minutes of my time. This, coupled with the fact you really don't
+have a lot of time to be wasting on looking for the geysers results in
+an unfun experience.
 
-![dreamseeker_O4BgBRsFa8](https://user-images.githubusercontent.com/116288367/200889002-8dd7c927-0745-46a9-a4bc-578c7279042a.gif)
-demonstrating unwrenching and wrenching equipment
+I understand geysers are sort of a necessary evil, however, they
+shouldn't be THIS difficult to find. Out of the 10 or so geysers I've
+found, only 1 has had wittel in it and it was next to a whelp portal
+which ended both me and my miner escort.
 
-![dreamseeker_hCFQJZdzoS](https://user-images.githubusercontent.com/116288367/200889019-5f4c8399-d539-4d84-8a3f-7735c3ba1f68.gif)
-crafting a punching bag and punching it
+I've also hunted the entirety of lavaland with no luck. (Horrendous
+experience.)
 
-Now you can craft as much exercise equipment as you want! May everyone
-on the station get as strong as possible and not just prisoners.
-
-Also I changed the message that plays when you try to use exercise
-equipment someone else is using into a balloon alert.
-
-![dreamseeker_PwNesmcR1f](https://user-images.githubusercontent.com/116288367/200890964-4f9fa3ee-ce07-4e6e-815c-a3f4593d06b1.png)
-
+I've dedicated entire rounds to this, by the way.
 ## Why It's Good For The Game
 
-Access to exercise equipment on some maps is limited to static positions
-and is currently mostly only for prisoners as every map does not have
-public exercise equipment. Expanding the access means that you can have
-a Drill Sargent Head of Security or Captain who commands people use
-these or allows a psychologist to prescribe healthy exercise habits to
-their patients.
+If you go out of your way to waste ages hunting for geysers, there
+should at least be a reward. That is, in the same round, not after 3 or
+more rounds as even megafauna gear isn't gatekept THAT hard.
 
-I think having the potential for exercise equipment on every map is more
-fun and also if prisoners get their hands on tools they should be
-allowed to mess with these to annoy security or aid in their escape.
+You shouldn't have to waste this much of a miner's time (who is also
+going for megafauna gear) to get something that is arguably less
+powerful than what they get for less effort. Megafauna gear is also
+available every round and is attained via predictable methods.
 
+This PR will also likely make geyser scanning a more comparable method
+of point gain to just mining.
+
+Oh and not to mention that penthrite is available almost roundstart via
+luxpens. (It's a wittel chem.)
 ## Changelog
 :cl:
-add: the punching bag, bench press, and chest press are all able to be
-crafted and unanchored.
-add: crafting recipes for the above
-qol: changed a chat message into a balloon alert
-qol: adds screentips to equipment (thanks for suggesting i do this
-mothblocks!)
+balance: Geysers now spawn more often, especially wittel geysers.
 /:cl:
 
-* Excercise Equipment is now craftable
-
-Co-authored-by: Sol N <116288367+flowercuco@users.noreply.github.com>
-
 ---
-## [Clarencepricemegatron83/Clarencepricemegatron83](https://github.com/Clarencepricemegatron83/Clarencepricemegatron83)@[46b471712a...](https://github.com/Clarencepricemegatron83/Clarencepricemegatron83/commit/46b471712a3af850b85f96f7b53e3dd6155bc7ac)
-#### Tuesday 2022-12-13 02:32:08 by Clarencepricemegatron83
+## [TJatPBnJ/tgstation](https://github.com/TJatPBnJ/tgstation)@[2425531eb2...](https://github.com/TJatPBnJ/tgstation/commit/2425531eb2dab84fb27ed864e4c52470bfff6918)
+#### Wednesday 2022-12-14 00:14:16 by John Willard
 
-Create Check this shit out my bro
-
-Hey friends and strangers my name is Clarence but you can call me Megatron I'm not a hacker but I getted hacked and I'm tired of that shit it's time for me to reconnect with some one I can trust if your reading this you gotta be areal motherfucker I'm from Texas college station Texas TAM Texas am university I'm a pretty cool cat as hit it's hard to find people to trust these days sooo hit me up I just started.
-
----
-## [kaiykay/businessman-and-situation-](https://github.com/kaiykay/businessman-and-situation-)@[f75ed60cb6...](https://github.com/kaiykay/businessman-and-situation-/commit/f75ed60cb6e669f2b235fb467779f49f8727b710)
-#### Tuesday 2022-12-13 02:48:31 by kaiykay
-
-business 
-
-2022 Is a chance to get rich!
-
- Just use your phone and you can earn big anytime, anywhere!
-
-
-
- Working from home is a dream for many people, some just chat, or surf the internet to pass the time, but some people know how to make money from their mobile phones.
- 1-2 hours a day, you can earn IDR 15-40 million per month via WhatsApp. Please take 5 minutes to read this article, because this is an opportunity you don't want to miss.
-
-
-
-
- My friend Anjas Mara, a skilled worker with a monthly salary of 7.8 million rupiah, has made more money since he learned how to make money with his cell phone.  He bought a new car, he plans to travel, and now his life has more meaning!
-
-
-
-
- Another friend of mine is Farah, a mother who quit her job to take care of her children and family and lives in poverty.  When he learned a new way to make money, he made Rp. 5 million in a week.  The standard of living has also improved greatly.
-
-
- When they add mentor contacts, start learning and try new ways of making money via WhatsApp, money is easy, it only takes 20 minutes to see how it works.  They can make money regardless of place or time, using their free time, They can earn 500 thousand rupiah - 1.5 million rupiah per day, and all their friends also want to be like them!
-
-
- Everyone can try this way of making money, civil servants, housewives, shop owners, and all walks of life.  Teach yourself how to make money with tutors.
-
-
- You work hard every day, but you don't have enough income to buy the things you want or even to cover your family's expenses.  Feeling unfulfilled in life, if you are willing to change the status quo, you can learn how others have succeeded in making money, to make life better.
-
-
- Pick up your phone, call this WhatsApp number and take this opportunity to make your dream come true now!
-
-
- You have an opportunity to make money from your mobile and you can really make money from home.
-
-
-
-
- message area
-
-
- After knowing this, my career and life stabilized
-
-
- I think I'm the first to know this information
-
-
- I've added the tutor's contact details on WhatsApp, hope you can reply as soon as possible.  I want to know how to make money with my phone.
-
-
- thank you very much!  !  Excellent service!  !  !  Very satisfied!  !  !
-
-
- I introduced this to my father.  In fact, he now makes more money than I do!
-
-
- This online training team is amazing, I couldn't believe it at first.  Really make money after joining.  I don't have to worry about makeup and money for clothes now.
-
-
- I knew from the start and have made money many times.  I am satisfied with this life.
-
-
- I have added a mentor on WhatsApp, please advise.  Thank you!
-
-
- I want it too, I don't want to miss this opportunity, many friends have already tried it
-
----
-## [angad777/next.js](https://github.com/angad777/next.js)@[1bbd264216...](https://github.com/angad777/next.js/commit/1bbd2642164098ceb9cebfb36deba9aed7e8a53b)
-#### Tuesday 2022-12-13 03:16:38 by abdennor
-
-Add additional fix in hydration error document (#40675)
-
-I had the same issue, so the fix that worked for me was pulled from this
-thread https://stackoverflow.com/a/71870995
-
-I have been experiencing the same problem lately with NextJS and i am
-not sure if my observations are applicable to other libraries. I had
-been wrapping my components with an improper tag that is, NextJS is not
-comfortable having a p tag wrapping your divs, sections etc so it will
-yell "Hydration failed because the initial UI does not match what was
-rendered on the server". So I solved this problem by examining how my
-elements were wrapping each other. With material UI you would need to be
-cautious for example if you use a Typography component as a wrapper, the
-default value of the component prop is "p" so you will experience the
-error if you don't change the component value to something semantic. So
-in my own opinion based on my personal experience the problem is caused
-by improper arrangement of html elements and to solve the problem in the
-context of NextJS one will have to reevaluate how they are arranging
-their html element
-
-<!--
-Thanks for opening a PR! Your contribution is much appreciated.
-To make sure your PR is handled as smoothly as possible we request that
-you follow the checklist sections below.
-Choose the right checklist for the change that you're making:
--->
-
-
-## Documentation / Examples
-
-- [x] Make sure the linting passes by running `pnpm lint`
-- [ ] The "examples guidelines" are followed from [our contributing
-doc](https://github.com/vercel/next.js/blob/canary/contributing/examples/adding-examples.md)
-
-Co-authored-by: JJ Kasper <jj@jjsweb.site>
-
----
-## [miniusAreas/Skyrat-tg](https://github.com/miniusAreas/Skyrat-tg)@[44612df948...](https://github.com/miniusAreas/Skyrat-tg/commit/44612df9486b77e52ca88c8dc9063ee8f7f8ecc7)
-#### Tuesday 2022-12-13 03:41:42 by SkyratBot
-
-[MIRROR] The screwdriver cocktail is now the world's worst screwdriver [MDB IGNORE] (#17354)
-
-* The screwdriver cocktail is now the world's worst screwdriver (#70862)
+Removes tablets (not PDAs) entirely. (#71507)
 
 ## About The Pull Request
 
-Screwdriver cocktail now secretly works as a screwdriver... just, the
-worst one ever. How the fuck are you doing that?!
+**Comes with an UpdatePaths!**
+
+Removes the tablet subtype, PDAs now replaces them entirely.
+
+Nukie and Silicon tablets are now subtypes of the PDA instead, while
+contractor ones were removed entirely as they didn't do anything and
+were unused (though it wouldn't be hard to re-add).
+
+Nukie PDAs are now the only type of PDA that uses modular_tablets.dmi,
+which is just larger icons of modular_pda. Each application requires an
+icon state in both of these, for 2 different sizes, which makes it
+annoying to make new applications, especially if it can also run on
+computers/laptops.
+
+### Icons
+
+Because Silicon tablets are now a subtype of PDA, they use PDA icons
+instead of tablet ones. Luckily for us, they already exist in code.
+
+![image](https://user-images.githubusercontent.com/53777086/203876575-56eb1593-774c-47c6-8e7d-491a7805f28c.png)
+
+AI's don't use a tablet icon though, so they aren't affected.
 
 ## Why It's Good For The Game
 
-It's funny and I bet someone has tried this before
+There's very little difference between tablets and PDAs, PDAs overshadow
+them in every single way, so at this point I don't see why we should
+have both of these, and if you compare the two in usefulness and actual
+in-game use by players, it's a no-brainer than the item all players get
+roundstart and comes with a messenger should be the one we go with.
+
+Also as said in the about section, when making an app you would need to
+make icon states for the program running for all hardware it can run on,
+which is Computer, Laptop, PDA, and Tablet.
+
+Laptop is just a smaller computer icon
+PDA is just a smaller tablet icon
+
+However, you can't simply shrink the size of the icon, instead you have
+to completely resprite the same app icon FOUR TIMES for it to not
+bluescreen on all these different devices.
+
+<details>
+<summary>
+Here's examples of it
+</summary>
+Computer (NOTE: *They share the same icon file as regular computers*)
+<img
+src="https://user-images.githubusercontent.com/53777086/203876801-486a8054-489a-4983-bdad-a2599b4dc379.png"/>
+Laptop
+<img
+src="https://user-images.githubusercontent.com/53777086/203876333-58e5d135-f4c6-4a02-8948-1df771e294a4.png"/>
+Tablet
+<img
+src="https://user-images.githubusercontent.com/53777086/203876352-816c7fb1-c681-40b9-99e0-052f49632c7f.png"/>
+PDA
+<img
+src="https://user-images.githubusercontent.com/53777086/203876358-1cf7253d-3c6a-456a-8133-ebf7f0351637.png"/>
+</details>
+
+If we wish to help in simplifying this, we should remove tablet icons
+entirely, which means 1 less icon to worry about. To do this, we'd need
+to resprite nukie PDAs, however I am very much not a spriter and never
+tried GAGS, so I'll leave it to someone else to do.
 
 ## Changelog
 
 :cl:
-add: Screwdriver cocktails now work as the world's worst screwdriver
+del: Tablets are now removed, PDAs are now the base 'tablet'. Silicon
+and nukie tablets are now PDAs.
 /:cl:
 
-* The screwdriver cocktail is now the world's worst screwdriver
+---
+## [Cryleve/sojourn-station](https://github.com/Cryleve/sojourn-station)@[2747557916...](https://github.com/Cryleve/sojourn-station/commit/2747557916f2db8c94c80995c12a8516d7dbd351)
+#### Wednesday 2022-12-14 00:43:04 by DimmaDunk
 
-Co-authored-by: tralezab <40974010+tralezab@users.noreply.github.com>
+Drip megapack 100% real not fake 1 commit church buff speedmerge (#3188)
+
+* Drip megapack 100% real not fake 1 commit church buff speedmerge
+
+- Adds Justice, Pandemonica, Malina, Zdrada and Modeus alt styles for charming outfit
+- Adds a black suit jacket with adjustable styles for the charming outfit
+- Adds charming waistcoat for Malina/Cerberus drip
+- Ports the Tojo Pants and Tojo Jacket from the mad dog of Shimano himself
+- Ports black and red overcoat styles (Joker, Morningstar)
+- New sprites for Prospector/Foreman lockers, Salvager lockers changed in appearance to rusty old ones for fluff
+- Adds New Testament Knight Hardsuit RIG module for the church's New Testament Armaments Disk, a Divisor/Numerical joint effort in producing a combat-ready hardsuit. A pre-loaded version with flash, shield, jetpack and storage modules spawns on the Prime's office's altar. Same stats as the Combat Hardsuit.
+
+* Adds Knight RIG module sprite
+
+Solving merge conflicts.
+
+* Catifies your SCAFs
+
+SCAF helmet and Blackshield SCAF helmet given alternate styles with cat ears for that Halo drip.
 
 ---
-## [ArtemisStation/artemis-tg](https://github.com/ArtemisStation/artemis-tg)@[44008f485d...](https://github.com/ArtemisStation/artemis-tg/commit/44008f485d6d72537935cfa8a3a5b6140eece744)
-#### Tuesday 2022-12-13 04:26:33 by Jacquerel
+## [nuke-ops/Nostra-13](https://github.com/nuke-ops/Nostra-13)@[8eec99b320...](https://github.com/nuke-ops/Nostra-13/commit/8eec99b3206e917bd711987a80422168de53f83d)
+#### Wednesday 2022-12-14 00:48:01 by LemonInTheDark
+
+Caches GetJobName. Fuck you (#274)
+
+* Caches GetJobName. Fuck you
+
+This code made me deeply upset, WHY IS IT RECURSIVE WHY WHY WHY WHY WHY WHY WHY WHY WHY WHY WHY
+
+* Centcom handling, properly this time
+
+* Empties out real_job_name
+
+* Sets real_job_name up in the right place
+
+* Moves real_job_name to SSjob, uses modularTM
+
+* Yeet
+
+* Removes old code, swaps over to the SSjob list
+
+* dme changes
+
+* indents... comments
+
+Co-authored-by: SandPoot <enric_gabirel@hotmail.com>
+
+---
+## [TrashDoxx/TG](https://github.com/TrashDoxx/TG)@[44008f485d...](https://github.com/TrashDoxx/TG/commit/44008f485d6d72537935cfa8a3a5b6140eece744)
+#### Wednesday 2022-12-14 01:03:25 by Jacquerel
 
 Fishing-themed Escape Shuttle (#71805)
 
@@ -319,115 +280,196 @@ before you clock out.
 /:cl:
 
 ---
-## [Exr0nRandomProjects/22math435_tda](https://github.com/Exr0nRandomProjects/22math435_tda)@[57bfb257ae...](https://github.com/Exr0nRandomProjects/22math435_tda/commit/57bfb257aed3ea490ad0f2deb7987e842b7b7611)
-#### Tuesday 2022-12-13 05:29:12 by Huxley Marvit
+## [Higgin/Skyrat-tg](https://github.com/Higgin/Skyrat-tg)@[460ab7adf5...](https://github.com/Higgin/Skyrat-tg/commit/460ab7adf560856148d46233e3cde565d05354a4)
+#### Wednesday 2022-12-14 01:37:34 by SkyratBot
 
-Meet me at midnight
-(Ooh, ooh, ooh, whoa whoa whoa whoa whoa)
-Staring at the ceiling with you
-Oh, you don't ever say too much
-And you don't really read into
-My melancholia
-I've been under scrutiny (yeah, oh yeah)
-You handle it beautifully (yeah, oh yeah)
-All this shit is new to me (yeah, oh yeah)
-I feel a lavender haze creeping up on me
-So real, I'm damned if I do give a damn what people say
-No deal, the 1950s shit they want from me
-I just wanna stay in that lavender haze
-(Ooh, ooh, whoa whoa whoa whoa whoa)
-All they keep asking me (all they keep asking me)
-Is if I'm gonna be your bride
-The only kind of girl they see (the only kind of girl they see)
-Is a one night or a wife
-I find it dizzying (yeah, oh yeah)
-They're bringing up my history (yeah, oh yeah)
-But you aren't even listening (yeah, oh yeah)
+[MIRROR] JPS Optimization (Light Botcode) [MDB IGNORE] (#17669)
 
----
-## [Offroaders123/NBTify](https://github.com/Offroaders123/NBTify)@[2b68a2d0c7...](https://github.com/Offroaders123/NBTify/commit/2b68a2d0c7e6a2d863d3e746d8e06bbc2d2541c7)
-#### Tuesday 2022-12-13 07:42:19 by Offroaders123
+* JPS Optimization (Light Botcode) (#70623)
 
-Accepting ArrayBufferLike for Reading
+## About The Pull Request
 
-Woo hoo, got it working!!! Super happy to figure out the typings dilemma. My hack: Redefine `toString()` on `interface ArrayBuffer` as an `as const` string, `"[object ArrayBuffer]"`. Not the prettiest, but also very beautiful. It doesn't add any types for fake property definitions, and it's only inside of NBTify, it can't escape out of the library. Amazing.
-
-I'm probably gonna add this to the issue page to show how I solved it, as it ended up fixing all of the typing issues between `Uint8Array`, which was one of the holdups for implementing this relatively easy thing.
-
-Ok, so down to the actual changes. Now you can simply pass in a raw `ArrayBuffer` or `SharedArrayBuffer` into the Read module, rather than needing it to be wrapped in a `Uint8Array` view. This is super awesome, as I really like the ability to use this with Promise chaining, and without having to make `Uint8Array` objects everywhere. This will be the most useful on the web side of things I feel, like for use with `fetch()`, `Response()`, things like that. And, probably Workers too, come to think of it! Haven't deeply experimented with Workers yet, but not having to manually wrap anything in a `Uint8Array` will be greatly awesome, less implementation details to worry about. It just works!
-```ts
-import NBT, { NBTData } from "nbtify";
-
-const result: NBTData = await fetch("./level.dat")
-  .then(response => response.arrayBuffer())
-  .then(NBT.read);
+Alright. So.
+Right now, JPS works like this:
 ```
+code requests path
+we enter the actual pathfinding
+pathfinding sleeps when it overruns a tick
+if it sleeps, it'll then wake up before the mc starts
+continue
+```
+This has annoying side effects. Primarily that we have no real control
+over JPS, we just sorta have to eat its cost.
+So if there's like 10 different things pathfinding at once, the mc will
+have no time to do anything. Hell we might even end up eating into
+maptick's time if the jps work is expensive enough (note the cost of
+sleeping is not accounted for, and that has overhead)
+This has happen before, usually when someone makes a lot of bots, and
+it's really annoying.
+
+So then, lets put JPS on a subsystem. That way the MC has control over
+it.
+But wait, existing code expects to yield and get back a path list, and
+that's a sane request.
+This is solvable, but requires abusing pass by reference lists, and the
+ability to make callbacks into partials (preinsert arguments into them
+before they're called, and accept other args later)
+
+Because of this, we can now pass callbacks into pathfinders, allowing
+for async use, rather then JUST yielding.
+
+Of note: I've removed the 10 pathfinding datums limit, since
+ratelimiting like that is handled nicely by the MC.
+I've also removed the 15 second timeout, since mc yielding would trigger
+it too often. I'm unsure if this means we don't have exit conditions for
+pathfinding, need to talk to ryll. (@ Ryll-Ryll what happens if jps just
+like, fails to find a path?)
+
+Also of note: I think bots will fire off more then one pathfinding
+attempt at a time if their first takes too long to complete. This is
+dumb, why do we do this?
+
+Optimizes JPS by more then 40% by removing redundant for(thing in turf)
+loops, and avoiding making proc calls if objects are non dense.
+This makes things slightly more fragile, but saves a LOT of time. I
+think it's worth it, tho talking to mso it might be possible to do
+better. Maybe I should do a LINDA system style thing. (I did a linda
+system style thing I fixed it)
+
+Optimizes botscanning, fixes bots not seeing things adjacent to them
+The list of types could be a cached typecache
+We could inline both checkscan and check_bot
+check_bot SHOULD NOT BE CALLED ON EVERY OBJECT IN VIEW HOLY SHIT WHY
+We don't need to process adjacent and the shuffled view separately, it's
+in fact easier to process them in one block
+Renames a var
+
+Moves bot's pathing images to above most floor objects, so they're
+visible in maint
+
+## Why It's Good For The Game
+
+Speed. Also manuel will stop killing their server by placing 20000
+medibots (fucking icebox man every time)
+
+## Changelog
+
+:cl:
+fix: Bots will now "notice" you if you're standing right next to them
+fix: Bot paths will now draw above things like pipes, rather then below
+them
+refactor: Changed how pathfinding paths get generated
+refactor: Made pathfinding and bot searching significantly faster
+/:cl:
+
+Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
+
+* JPS Optimization (Light Botcode)
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
 
 ---
-## [tomponline/lxd](https://github.com/tomponline/lxd)@[de0d151a2c...](https://github.com/tomponline/lxd/commit/de0d151a2cc9bd8cef31431e126649e2b6a18be7)
-#### Tuesday 2022-12-13 08:12:12 by Thomas Parrott
+## [MidoriWroth/tgstation](https://github.com/MidoriWroth/tgstation)@[e766444468...](https://github.com/MidoriWroth/tgstation/commit/e766444468445f084d3714b515003d3f40bbce69)
+#### Wednesday 2022-12-14 03:14:19 by LemonInTheDark
 
-lxd/instance/drivers/driver/qemu: Fix macvlan NICs losing connectivity on LXD restart
+Changes our map_format to SIDE_MAP (#70162)
 
-Switch to using monitor.SendFile() rather than monitor.SendFileWithFDSet(), as there
-appears to be some rather strange behaviour going on with QEMU when used with macvtap
-NICs.
 
-If you pass the macvtap file handles using monitor.SendFileWithFDSet() it will use a
-separate FD set for each file handle. This works fine, and I can see the correct file
-handles opened by the QEMU process. But when LXD is restarted (the monitor connection
-is closed), the file handles are closed by QEMU, causing the connectivity to break.
+## About The Pull Request
 
-I have experimented with using the same FD set for all file handles associated to a
-particular macvtap NIC. This didn't fix the issue.
+This does nothing currently, but will allow me to test for layering
+issues on LIVE, rather then in just wallening.
+Oh also I'm packaging in a fix to one of my macros that I wrote wrong,
+as a joke
 
-I also tried hard coding the FD set ID to 0. This meant that the macvtap NIC would
-share an FD set with the root disk device. Interestingly this solved the issue.
-However it made me uncomfortable as the root disk is only configured by referencing
-the FD set ID itself, rather than a particular FD inside the set. So I don't think
-that sharing an FD set with multiple devices is a good idea.
+[removes SEE_BLACKNESS usage, because we actually cannot use it
+effectively](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
 
-However it got me thinking that perhaps the fact that the root disk is referencing
-the FD set by ID (i.e using file=/dev/fdset/0 in its config) meant that QEMU somehow
-realised that the FD set should be persisted even after the monitor has disconnected.
+[c9a19dd](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
 
-I confirmed that using the same FD set (even if a different ID than 0) for macvtap NICS
-as the root disk device fixed the issue.
+Sidemap removes the ability to control it on a plane, so it basically
+just means there's an uncontrollable black slate even if you have other
+toggles set.
 
-But because of my discomfort at that scenario (explained above) I instead looked for
-a different solution. Before introducing multi-queue macvlan support for VMs we were
-using monitor.SendFile() which worked fine. However I had switched to using the
-monitor.SendFileWithFDSet() function as the former didn't support accessing the specific
-FD number that was created inside QEMU. I thought we needed this because all the
-documentation around using multi-queue macvtap devices showed the use of numeric FDs.
+This just like, removes that, since it's silly
 
-However on further exploration it turns out that we can infact use monitor.SendFile,
-and by sending each file handle with a unique name we can then refer to those file
-handles using the same names in `fds` setting for the macvtap devices.
+[fixes weird layering on solars and ai portraits. Pixel y was casuing
+things to render below who
+shouldn't](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
 
-Note: Because the `fds` list is colon separated one cannot use colons in the file
-handle names. And I also experienced issues with connectivity when using dashes in
-the file handle names. So I opted for using full-stops instead.
+[3885b9d](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
 
-Fixes #11201
+[Fixes flicker
+issues](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
 
-Signed-off-by: Thomas Parrott <thomas.parrott@canonical.com>
+[2defc0a](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
+
+Offsetting the vis_contents'd objects down physically, and then up
+visually resolves the confliciting that was going on between the text
+and its display.
+
+This resolves the existing reported flickering issues
+
+[fixes plated food not appearing in
+world](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
+
+[28a34c6](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
+
+pixel_y'd vis_contents strikes again. It's a tad hacky but we'll just
+use pixel_z for this
+
+[Adds wall and upper wall plane
+masters](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
+
+[89fe2b4](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
+
+We use these + the floor and space planes to build a mask of all the
+visible turfs.
+Then we take that, stick it in a plane master, and mask the emissive
+plane with it.
+
+This solves the lighting fulldark screen object getting cut by emissives
+Shifts some planes around to match this new layering. Also ensures we
+only shift fullscreen objects if they don't object to it.
+
+[compresses plane master
+controllers](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
+
+[bd64cc1](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
+
+we don't use them for much rn, but we might in future so I'm keeping it
+as a convienince thing
+
+:cl:
+refactor: The logic of how we well, render things has changed. Make an
+issue report if anything looks funky, particularly layers. PLEASE USE
+YOUR EYES
+/:cl:
+
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
 
 ---
-## [RealMalachi/s2disasm](https://github.com/RealMalachi/s2disasm)@[6c2dc0c02c...](https://github.com/RealMalachi/s2disasm/commit/6c2dc0c02ced4277fc2089ad12e2796ba0162bd4)
-#### Tuesday 2022-12-13 08:26:53 by Malseri-SpicyBread
+## [Pat070028/app-dev](https://github.com/Pat070028/app-dev)@[8ce6cf92de...](https://github.com/Pat070028/app-dev/commit/8ce6cf92deded790d4e5031ed91a15d7a6e41c76)
+#### Wednesday 2022-12-14 03:49:28 by Pat070028
 
-Major (WIP) optimization to SS ring objects
+Update README.md
 
-Optimized some SS objects, but one of the methods was kinda stupid. Made it so the art scaling animation code is literally just "transfer anim to mapping_frame". This is faster, but breaks ring animations. That's why I didn't just change anim to mapping_frame
-Before I add custom animation code to the rings, I want to fix a layering issue you can see  with the rings here. Since the only priority I changed was the ring sparkle, I can assume the original game had this issue too. Bombs don't have it, so I'll start from there.
-I'd also like to increase the animation on the SS rings if possible.
-
-Also, trying to make each type of game alteration a separate commit now, since I plan to make progress slower and less chaotic.
+info about titanic movie - It stars Kate Winslet and Leonardo DiCaprio. The two play characters who are of different social classes. They fall in love after meeting aboard the ship, but it was not good for a rich girl to fall in love with a poor boy in 1912.
+info about spiderman movie - After being bitten by a genetically-modified spider, a shy teenager gains spider-like abilities that he uses to fight injustice as a masked superhero and face a vengeful enemy.
+info about end game movie - After half of all life is snapped away by Thanos, the Avengers are left scattered and divided. Now with a way to reverse the damage, the Avengers and their allies must assemble once more and learn to put differences aside in order to work together and set things right.
 
 ---
-## [Chainsawicus/cmss13](https://github.com/Chainsawicus/cmss13)@[eb4886c115...](https://github.com/Chainsawicus/cmss13/commit/eb4886c115a0965a347783b87eb3415f098c2c1f)
-#### Tuesday 2022-12-13 09:40:48 by carlarctg
+## [CRITAWAKETS/coSINE19](https://github.com/CRITAWAKETS/coSINE19)@[54b475eb0b...](https://github.com/CRITAWAKETS/coSINE19/commit/54b475eb0b3ff9913f6ec5de25243c899edcde7a)
+#### Wednesday 2022-12-14 04:26:01 by Andromeda
+
+removes annoying shit
+
+sorry, i hate punpun and the portals
+
+---
+## [4hands44/cmss13](https://github.com/4hands44/cmss13)@[eb4886c115...](https://github.com/4hands44/cmss13/commit/eb4886c115a0965a347783b87eb3415f098c2c1f)
+#### Wednesday 2022-12-14 04:27:11 by carlarctg
 
 Spitter Rework (#1541)
 
@@ -531,8 +573,8 @@ your name to the right of the first :cl: if you want to overwrite your
 GitHub username as author ingame. -->
 
 ---
-## [Chainsawicus/cmss13](https://github.com/Chainsawicus/cmss13)@[146d4a3fa8...](https://github.com/Chainsawicus/cmss13/commit/146d4a3fa87a25a16e7246c32d85b6b57614adc5)
-#### Tuesday 2022-12-13 09:40:48 by carlarctg
+## [4hands44/cmss13](https://github.com/4hands44/cmss13)@[146d4a3fa8...](https://github.com/4hands44/cmss13/commit/146d4a3fa87a25a16e7246c32d85b6b57614adc5)
+#### Wednesday 2022-12-14 04:27:11 by carlarctg
 
 Cloaked belltower alpha increased from 10 (scout) to 35. (#1768)
 
@@ -606,233 +648,291 @@ your name to the right of the first :cl: if you want to overwrite your
 GitHub username as author ingame. -->
 
 ---
-## [Linnea-Olofsson-nti-johanneberg/zoo2022](https://github.com/Linnea-Olofsson-nti-johanneberg/zoo2022)@[50992bfc79...](https://github.com/Linnea-Olofsson-nti-johanneberg/zoo2022/commit/50992bfc793bb243b56e68180c183a9e39d9af83)
-#### Tuesday 2022-12-13 09:52:38 by Linnea-Olofsson-nti-johanneberg
+## [mattdway/CreateWithVR](https://github.com/mattdway/CreateWithVR)@[72fd1329b6...](https://github.com/mattdway/CreateWithVR/commit/72fd1329b62c4955b451af49eaa3704182d04c23)
+#### Wednesday 2022-12-14 06:07:24 by mattdway
 
-lektion 3
+12-13-22 v2.5.2
 
-Något är fel på mitt grid skall lista ut vad fan som är felet på det.
-JAG GER UPP!!!
-NÅGOT ÄR FEL PÅ DENNA BITCHEN.
-MATTIAS JAG VILL INTE.
-DETTA ÄR SÅ DUMT.
-JAG SKA FAN JOBBA VARJE FUCKING DAG NU FÖR ATT LÖSA DENNA BITCHEN.
-MASSA SHIT ÄR JU FAN RÖD.
-JAG SKA FAN KOLLA OM VIDEOS.
-FY FAN.
-ok nvm Linus hjälpte mig. Det blev lite bättre nu.
+12-13-22 v2.5.2
+12-13-22 Commit
+I was able to work out a many of the remaining issues with my physics hands tonight.
 
----
-## [LyaaaaaGames/AIdventure_Localization](https://github.com/LyaaaaaGames/AIdventure_Localization)@[27ea880669...](https://github.com/LyaaaaaGames/AIdventure_Localization/commit/27ea8806696af55c72c377b25c30a35c29b8c358)
-#### Tuesday 2022-12-13 09:58:49 by Lyaaaaaaaaaaaaaaa
+Being able to spam select things is now gone by changing Select Action Trigger on the XR Interactable from State to State Selected on the "LeftHand Controller With Physics" and the "RightHand Controller With Physics" controller game objects.
 
-Added many keys for the 1.5.0 of AIdventure.
+Not only can't you spam the select button to select something over and over again, this also prevents being able to pick up multiple objects with the same hand and it also prevents being able to grab an interactable with a single grab point with both hands at once, which also eliminates the obnoxious haptic and sound feedback that would happen when grabbing an object with a single grab point with both hands at once. Now, the behavior is that it simply switches hands.
 
-- UPDATE_CONTENT
-- ITEM_URL
-- YOUR_ITEMS
-- SUCCESS_UPLOAD_TO_WORKSHOP
-- DISPLAY_ONLY_PNG
-- DOWNLOAD_
-- FAILED_UPLOAD_TO_WORKSHOP
-- FRIENDS_ONLY
-- I_ACCEPTED_TOS
-- PREVIEW_IMAGE
-- PRIVATE
-- PUBLIC
-- READ_TOS
-- SELECT_LANGUAGE
-- SHARE
-- SHARE_CONTENT
-- TYPE_OF_FILE
-- UPLOAD_TO_WORKSHOP
-- VISIBILITY
-- WORKSHOP_UPLOAD_ACCEPT_DIALOG
-- WORKSHOP_UPLOAD_BUTTON_HINT
-- 1ST_PERSON
-- 2ND_PERSON
-- ADVENTURE
-- CYBERPUNK
-- DARK
-- DYSTOPIAN
-- FANTASY
-- FEMALE_PROTAGONIST
-- HISTORICAL
-- HORROR
-- LGBTQ
-- LOREBOOK_INCLUDED
-- MALE_PROTAGONIST
-- MEDIEVAL
-- MODERN_ERA
-- MYSTERY
-- PIRATE
-- POST_APOCALYPTIC
-- ROMANCE
-- SCIENCE_FICTION
-- STEAMPUNK
-- THRILLER
-- UPLIFTING
-- WILD_WEST
-- ZOMBIE
+I also turned off physics hands on the opposite hand in one instance by adding some additional Interactable Events for "Select Entered" and "Select Exited" on the XR Interactable on the "LeftHand Controller With Physics" and the "RiightHand Controller With Physics" controller game objects.
+
+Each controller object now has the following:
+
+Select Entered
+LeftHandPhysics Hand.ToggleVisiibility
+LeftHandPhysics HandPhysics.DisableHandCollider
+RightHandPhysics HandPhysics.DisableCollider
+
+Select Exited
+LeftHandPhysics   Hand.ToggleVisiibility
+LeftHandPhysics   HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+RightHandPhysics  HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+
+This means whenever something is picked up in the right hand, the right hand disappears and both the right hand colliders are disabled as are the left hand colliders. When something is dropped from the right hand the right hand reappears and both the right hand colliders and left hand colliders are re-enabled again after a wait duration of 0.5ms.
+
+The same is true when something is picked up in the left hand.
+
+The only instance where this isn't true is when you pick something up in the right hand and then switch to the left hand. It appears in this instance the "Selected Exit" executes and the collider for the opposite hand turns back on but this switching of an object in hands for whatever reason doesn't register as a "Select Entered", which means that opposite hand collider isn't turned off again.
+
+If the object is dropped completely and picked back up this triggers Select Entered. I'm not entirely sure why but I haven't found many instances where having the opposite hand physics turned off when holding something is much of a problem. Sometimes you can bump it with a hand and it'll move slightly but even with large objects like the painting, that doesn't cause any severe physics issues, it simply nudges the object slightly. So maybe I'll even allow physics in the opposite hand to remain when picking up an object and only have it disabled for the hand holding the item. We'll see.
+
+I re-enabled distance grab for both hands. At one point I had turned this off on the left hand and I don't remember why. It wasn't a problem that I recall and being able to pick up objects with either hands is helpful. Especially when picking up two items (such as the bottle and the lid) from a table where getting close enough to the object to direct pick up is difficult.
+
+I thought there was a collision issue with distance grab to where I would distance grab an object and it would hit my hand and fly in an odd direction before grabbing. I went ahead and set the same "Select Entered" and "Select Exited" as with the XR Direct Interaction to disable collisions when using the rays.
+
+Select Entered
+LeftHandPhysics Hand.ToggleVisiibility
+LeftHandPhysics HandPhysics.DisableHandCollider
+RightHandPhysics HandPhysics.DisableCollider
+
+Select Exited
+LeftHandPhysics   Hand.ToggleVisiibility
+LeftHandPhysics   HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+RightHandPhysics  HandPhysics.EnableHandColliderDelay with a time duration of 0.5
+
+While I'll keep those Interactor Events enabled what I found in play testing is that this wasn't a problem with the collisions but with the thumbstick press to toggle the ray. It's very easy to let go too soon, thus breaking the distance grab before it completes. Pressing down on the thumbstick is an alternative technique that in some ways works better for distance grabbing. However, pressing on the thumbstick can also accidently engage the snap turning and/or continuous movement when unintended. So distance grabbing with either continuous movement or snap turning can be persnickety and takes some practice and patience on the part of the user. There is maybe a better way to do this to avoid conflicts and to have less work or annoyance on the part of the player. I'll have to research this more and/or pay more attention to how this works in commercial games.
+
+I tried to duplicate the wall glitch by the fireplace but was unable to. I'm not entirely sure what the sequence of events were that allowed this glitch to happen, at this point in time. I'm checking with the student who found this glitch to see how I can reproduce it.
+
+All in all things are working pretty well with the hands and they seem less glitchy than before with these changes made.
+
+I also turned off the Direct Interactor for the ghost hands. Those hands now animate but are not capable of directly picking anything up.
+
+I have tried (using ChatGPT to spitball ideas) to troubleshoot and add 90 degree hand rotation on the physics hands so that these start rotated with the palms facing in. So far any start rotation I add to these interferes with the constant rotation being applied and this causes the hand assets (target per the C# code) to shake. There is most likely a coding solution to this but I haven't found it yet. I'll come back to this one again later.
+
+While it is possible to sometimes get into weird situations where the physics hands will get stuck on something, with collisions with most every object, including walls, floors, interactables, non-interactables, furniture, etc. this is somewhat rare. While I am confident those glitches can occur, I don't know if I can code around every instance of that happening and I don't currently have a known repeatable method of making the physics hands get stuck on something, which would be an instance where I could then further troubleshoot and fix those issues.
+
+I also, at some point, want to add hand-poses for different objects to these hands instead of making the hand disappear.
+@mattdway
+mattdway committed on Dec 13
 
 ---
-## [peff/git](https://github.com/peff/git)@[bccd4ce097...](https://github.com/peff/git/commit/bccd4ce097e48728a734d068a07ff2409542167c)
-#### Tuesday 2022-12-13 10:55:20 by Jeff King
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[09407db227...](https://github.com/treckstar/yolo-octo-hipster/commit/09407db227522cbb25b14b58029d80acae172917)
+#### Wednesday 2022-12-14 06:22:03 by treckstar
 
-commit: give a hint when a commit message has been abandoned
-
-If we launch an editor for the user to create a commit
-message, they may put significant work into doing so.
-Typically we try to check common mistakes that could cause
-the commit to fail early, so that we die before the user
-goes to the trouble.
-
-We may still experience some errors afterwards, though; in
-this case, the user is given no hint that their commit
-message has been saved. Let's tell them where it is.
-
-Signed-off-by: Jeff King <peff@peff.net>
+People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
 
 ---
-## [JetBrains/intellij-community](https://github.com/JetBrains/intellij-community)@[eaec1ec320...](https://github.com/JetBrains/intellij-community/commit/eaec1ec320ce8cbc7cb48f6f069ed7078ae9938c)
-#### Tuesday 2022-12-13 10:58:05 by Sergei Tachenov
+## [rkimera94/CancerDB](https://github.com/rkimera94/CancerDB)@[c720c97576...](https://github.com/rkimera94/CancerDB/commit/c720c97576dd34eb97d257c49b0c9876091f37f8)
+#### Wednesday 2022-12-14 08:03:17 by Breck Yunits
 
-[UI] IDEA-304712 Move appendInplaceComments to BGT update
-
-The appendInplaceComments method used to be called on the EDT
-during painting. It's potentially slow, and it's also a bad practice
-to do any state computations during painting anyway.
-
-Fix by moving the relevant logic into the node's update() and
-appending the comments directly to PresentationData.
-
-This turned out to be trickier than it seems. The Project view has a lot
-of different node types, some of which are even in 3rd party plugins.
-They all extend ProjectViewNode (except Rider that extends AbstractTreeNode).
-However, it's not easy to put the logic there as it's a part of the lang-api module,
-while the logic itself is in the lang-impl module. And logic doesn't belong to the API
-module anyway.
-
-The solution is, of course, dependency inversion, but it's not easy to inject a reference
-to an interface into ProjectViewNode (let alone AbstractTreeNode) because
-we have no control of how these objects are constructed.
-Of course, it's possible to delegate this job to some parent or owner
-object like the Project View Pane, for example. However, this creates unnecessary coupling
-and would require some dirty hacks to get to those nodes and inject the needed references
-into them.
-
-Thankfully, most (if not all) Project View nodes that actually use inplace comments
-extend AbstractPsiBasedNode, so we just put the actual comment producer there.
-
-The new interfaces for this DI is InplaceCommentProducer (that produces the actual
-comments) and InplaceCommentAppender that appends them (either to the presentation
-when the new approach is used or to the renderer for the legacy case).
-
-In case there are nodes that don't provide an inplace comment producer,
-we still revert to the old logic. This has an unfortunate side effect of calling
-getValue() on a node, which is the very potentially slow operation we're trying
-to get rid of, but at least we now don't call it on AbstractPsiBasedNode anymore,
-and those calls were probably the vast majority (if not all) slow operation calls.
-
-One more trick involved is to convert the plain presentation's text (myPresentableText)
-to the colored text before appending comments because many presentations don't
-use colored text by default. Just appending comments would override the plain text
-and, e.g., class and file names in the Project View would disappear. This is what the new
-ensureColoredTextIsUsed() method in PresentationData is for.
-
-GitOrigin-RevId: d7da0fc059d6d70ff369ea981501c5008b53b20d
+Fuck you @NSAGov fuck you @CIA. (though if you let me keep my crypto keys we'll call it a truce)
 
 ---
-## [jakewilliami/advent-of-code](https://github.com/jakewilliami/advent-of-code)@[35be1a3a74...](https://github.com/jakewilliami/advent-of-code/commit/35be1a3a748614539069d9aa8971df4ecf3e23bf)
-#### Tuesday 2022-12-13 11:34:20 by Jake Ireland
+## [Nanrech/library](https://github.com/Nanrech/library)@[e527a7d034...](https://github.com/Nanrech/library/commit/e527a7d034f93781d2739a380a1c87c089fdf572)
+#### Wednesday 2022-12-14 08:40:20 by EdVraz
 
-Solve AoC Day 13 2022 in Julia
+feat(channel): Add new overwrite helper methods (#1173)
 
-I had a friend's birthday dinner tonight, and we went to see a show
-afterwards, so I could only start this 5 and a half hours after the
-problem came out.  It's a shame, as I really enjoyed this one, and
-found it quite simple (utilising Julia's multiple dispatch and
-customisable sorting); it only took less than 45 minutes to complete
-both parts.
+* fix: edge case
+
+* refactor: move import
+
+* guys I don't recommend coding when you're sick
+
+* do stuff
+
+* omg what the fuck did i code yesterday
+
+* fix: simplify code
+
+* feat: add another helper method
+
+* Update channel.py
 
 ---
-## [robotduinom/PsychonautStation](https://github.com/robotduinom/PsychonautStation)@[58b61a17a7...](https://github.com/robotduinom/PsychonautStation/commit/58b61a17a78e90ea9da91351572abee9a4f93ccb)
-#### Tuesday 2022-12-13 11:35:08 by Jacquerel
+## [Imaginos16/tgstation](https://github.com/Imaginos16/tgstation)@[fccd833526...](https://github.com/Imaginos16/tgstation/commit/fccd833526364b131ce440b4ab0e65022103927c)
+#### Wednesday 2022-12-14 08:42:03 by GoldenAlpharex
 
-Basic Mob Carp: Retaliate Element (#71593)
+Fishing Odds Code Improvements and Rescue Hooks (#71415)
 
 ## About The Pull Request
+I wanted to try and implement an easier way for people to fish out
+corpses from chasms, as I heard many tales of people trying to fish
+others out of chasms and it taking over one IRL hour, with some cases
+where it would take over two hours. Obviously, that's not really
+interesting gameplay, and it doesn't really give people an incentive to
+fish, it just turns it into an annoyance that people won't want to do
+for fun. Now, we don't want that, do we?
 
-Adds an Element and AI behaviour intended to replicate the "retaliate"
-behaviour which made up an entire widely-populated subtype of simple
-mobs.
-The behaviour is pretty simply "If you fuck with me I fuck with you".
-Mobs with the component will "remember" being attacked and will try to
-attack people who attacked them, until they lose sight of those people.
-They don't have very long memories so breaking line of sight is enough
-to remove you from their grudge list.
-The implementation unfortunately requires registering to 600 different
-"I have been attacked by X" signals but c'est la vie.
+As such, I've created the rescue hook, a special fishing hook that can
+only be used in chasms (as that's currently the only place you can find
+people into), which will only be able to fish out duds, skeleton
+corpses, any mob that's fallen into a chasm and hasn't been rescued yet,
+or rarely, a hostile monster lurking below. It has, at the time of
+writing this, a weight of 5 (50 without bait, lower with bait) for duds
+and a weight of 30 for chasm detritus, which themselves have a 50%
+chance to be a random skeleton corpse, or a lobstrosity, and the
+remaining 50% chance of fishing out a mob that's fallen into a chasm.
+I'm open to tweaking these values if we think it's too easy or too hard,
+but it's still a rather expensive item, so I'd consider it quite fine
+the way it is myself, as it's still not risk-free.
 
-It will still be cleaner than
-`/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus`
-and `mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus`.
+It's currently only obtainable through buying it from cargo in the
+goodies section, at a default price of 600 credits (making it
+SIGNIFICANTLY more expensive than the rest of the fishing content, and
+making it something that assistants will have to put some elbow grease
+into if they want to be able to afford it).
 
-I attached it to the pig for testing and left it there because out of
-all the farm animals we have right now, a pig would probably get pissed
-off if you tried to kill it. Unfortunately it's got a sausage's chance
-in hell of ever killing anyone.
+As it stands currently, it can't be used to recover the fallen's
+belongings that weren't on their person (i.e., their crusher if they
+were holding it in hands), ~*but* I'm down to make that easier to fish
+out using, for instance, the magnet hook, while also making it
+incompatible with fishing out bodies, which would make it a nice way to
+recover those lost items without spending over an hour fishing for them,
+if that's something that maintainers would want.~ Maintainers did want
+it, and as such...
+
+The Magnetic hook is now the go-to hook to retrieve objects from chasms!
+Not only does it inherently do a much better job at fishing out
+non-fishes, it also has a lesser chance of retrieving random junk from
+chasms, and an even lower chance of fishing out lobstrosities!
+
+I also improved the code for the fishing weights calculation so that the
+hooks and the rods can have an effect on the odds of certain types of
+rewards more easily, with the option of offloading a more of what's
+currently being calculated on `fishing_challenge` over on the rods or
+even the hooks themselves.
+
+I finished by fixing a handful of capitalization and punctuation issues
+in various fishing items, as that bugged me when I was testing my
+changes.
 
 ## Why It's Good For The Game
-
-It doesn't have much purpose yet but as we make more basic mobs this is
-going to see a **lot** of use.
+Corpses being recoverable from chasms was a great idea, however making
+it so people would have to sink a major portion of their shift for a
+chance at recovering a corpse doesn't create a particularly interesting
+gameplay loop. However, being able to spend your hard-earned funds in
+order to streamline that process without really being able to use that
+to cheese other mechanics sounds like a great deal to me.
 
 ## Changelog
 
-:cl:
-add: Basic mobs have the capability of being upset that you kicked and
-punched them.
-add: Pigs destined for slaughter will now ineffectually attempt to
-resist their fate, at least until they lose sight of you.
-balance: Bar bots are better at noticing that you're trying to kill
-them.
+:cl: GoldenAlpharex
+add: Added a Rescue Hook, that will allow the fishing rod it's attached
+onto to become a lot more proficient at recovering corpses from chasms,
+at the expense of making it unusable for more traditional fishing. It
+isn't entirely lobstrosity-proof, however...
+balance: The magnetic hook can no longer fish out corpses from chasms,
+but will fish out items much more efficiently than any other hooks,
+while also being much less attractive to lobstrosities. Some still fall
+for it regardless, however.
+spellcheck: Fixed the capitalization and punctuation in the description
+of multiple fishing accessories.
+code: Improved the code for fishing weights, to allow for different
+hooks to have some more noticeable results on the weights without having
+to add to an already massive proc.
 /:cl:
 
 ---
-## [Mu-L/NetHack](https://github.com/Mu-L/NetHack)@[b2fe51490d...](https://github.com/Mu-L/NetHack/commit/b2fe51490dac43cac70ec29c6958467b0fa9bdd4)
-#### Tuesday 2022-12-13 12:22:57 by PatR
+## [Imaginos16/tgstation](https://github.com/Imaginos16/tgstation)@[7d04edb6e2...](https://github.com/Imaginos16/tgstation/commit/7d04edb6e2927330906a7af89664b7a5ab3aa48c)
+#### Wednesday 2022-12-14 08:42:03 by Profakos
 
-tty-style role selection for curses
+Mail sorting helper, and disposals fixes (#70861)
 
-Move the tty role/race/&c selection from wintty.c to role.c and remove
-its references to BASE_WINDOW.  Have curses call the same routine now
-so that the player has the option to choose role, race, gender, and
-alignment in any order and to confirm or override random settings
-prior to starting play.  Also if you went through "who are you?" then
-final confirmation includes an extra menu choice to rename the hero.
+## About The Pull Request
 
-It still has the quirk of sometimes remembering some of the previous
-aspects when you re-pick a new value for some aspect which already
-been selected.
 
-The menus pop up on top of the copyright screen and that looks a bit
-strange.  I don't think core code has any way to erase that base
-window without erasing the entire screen so to fix the strangeness
-the window ports would need to do that before calling the selection
-routine.  I didn't do that because the very first prompt, "Shall I
-pick ... for you? [ynaq]" shows up in that window rather than in a
-popup over it, and having it be all by itself on an otherwise blank
-screen seemed to be even stranger.
+![image](https://user-images.githubusercontent.com/2676196/198695007-53db1b70-845f-46a9-b98a-e146bb53951b.png)
 
-X11 and Qt both have more sophisticated selection routines so I
-haven't tried to switch either of them to use this.  They both use a
-fancy role-selection-specific menu with all the aspects present at
-once so this wouldn't fit without more work than I care to tackle.
+This PR adds a mail sorting map helper, which during Late Initialization
+will apply a sorting location index to the mail sorting disposals pipe
+under them. I have replaced the varedits with all mail sorters with the
+appropriate map helpers. I have thoroughly tested this, making sure
+packages arrived to every location, where possible.
+
+I have also fixed a few issues with the disposals network:
+
+**Tramstation**
+
+- One of the random maintenance segments had a place with no disposal
+pipes. This has been fixed
+- A sorter was looking for chapel and library packages, but it actually
+meant to look for engineering packages
+- There was no dormitory mail sorter, I have added one
+
+**Metastation**
+
+- There was no dormitory mail sorter, I have added one
+
+**Icebox**
+
+- There is no experimentor lab in icebox, but there is an
+"experimentation" lab, which is good enough, so I have added it as a
+location
+
+**Deltastation**
+
+- There was no dormitory mail sorter, I have added one
+- Virology was not connected to the disposals network. However, on every
+other map, it has a one way connection. I have hooked it up just like
+that, so virology mail will arrive safely, and virology trash will go
+into space as usual.
+
+**Kilostation**
+
+- Genetics packages were rerouted to the psychologist office
+
+Unsolved issue on kilostation: there is no experimentor on this station,
+and there is no space for a disposals in the circuits lab, so sadly, if
+you send a package to this destination, it will come back to the mail
+sorting office.
+
+**Future improvements**
+
+The TAGGERLOCATIONS list, which is used to retrieve the labels of the
+various tags, is frankly unorganizable, and hard to expand. I have
+delayed fixing this for a future PR.
+
+I kinda wish to remove the sortType variable, as it is no longer
+necessary to have it around with these helpers, but sadly, this would
+ruin downstream maps, so I have no plans for this at the moment.
+
+## Why It's Good For The Game
+
+While mapping, having to constantly compare a comment in flavor_misc.dm
+to figure out what to varedit a disposal mail sorter to is rather
+annoying. These map helpers, similar to the access helpers, will help
+with this issue.
+
+Its also good if mail actually arrives.
+
+## Changelog
+
+
+:cl:
+qol: added a mail sorting map helper, to allow mappers to create
+disposal networks faster
+fix: fixes several non working disposal mail targets that never received
+their packages
+/:cl:
+
+---
+## [Offroaders123/NBTify](https://github.com/Offroaders123/NBTify)@[ed63e8ec80...](https://github.com/Offroaders123/NBTify/commit/ed63e8ec80f20605497aa7cda349aa0fd516e75b)
+#### Wednesday 2022-12-14 09:02:02 by Offroaders123
+
+Source Maps + Side Effects
+
+Did some looking into packaging, bundling, minifying, those sort of things. Gonna try out adding source maps, as it will look nice in DevTools for error positions, and it makes it nice to easily see the actual source for the code right in the browser too, with all of it's TypeScript goodness!
+
+In addition to that exploration, found a super cool site called Bundlephobia, and it gives some super neat stats about NPM packages. After seeing how big some of the other libraries are, namely Prismarine NBT, having a bit extra in size for source maps shouldn't be too crazy. You get a nice developer experience out of it too!
+https://bundlephobia.com/
+
+One of their metrics mentioned whether the package is side-effect-free, which means if the package does anything to any code outside of it's own area. An example of that would be a polyfill or something, I think. Since bundlers don't know if there are side effects for a package or not, they assume there are, just to be safe and not break anything. After looking into it more, looks like there's a commonly-followed (not standard in terms of the `package.json`) property called `sideEffects`, and bundlers like Webpack will decide if it can perform tree-shaking on your code, if this property is set to `false`. Since NBTify doesn't have any side effects, I can set it to false too! Now it can enable tree-shaking for NBTify wherever someone may need it. I honestly haven't looked into bundlers yet, but I get the idea behind that, and it's definitely something I want to try working towards from the start! Modules are awesome!
+https://sgom.es/posts/2020-06-15-everything-you-never-wanted-to-know-about-side-effects/
+
+Looking into how nbt-ts implemented some of their bundling and packaging, I also noticed that they provide both an ESM and CJS export, which is neat. I kind of want to do that, but I also just want to go all in on ESM too. I don't want to prevent other people from using the library, but I think full-ESM is just too nice not to strive for. It works everywhere now, so I think it's good to try and work towards using it wherever you can! I wish it worked cross-browser in Service Workers, that's one of the last things I'm waiting for on that!
 
 ---
 ## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[00d3780c38...](https://github.com/Huffie56/cmss13/commit/00d3780c382c704f24e5c6f24aa36d88d509b7ea)
-#### Tuesday 2022-12-13 12:42:24 by carlarctg
+#### Wednesday 2022-12-14 09:39:47 by carlarctg
 
 PDT/L Buff (#1757)
 
@@ -1006,7 +1106,7 @@ GitHub username as author ingame. -->
 
 ---
 ## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[ce39f048bf...](https://github.com/Huffie56/cmss13/commit/ce39f048bf5eb25e2a93d7355327ccacc0504b01)
-#### Tuesday 2022-12-13 12:42:24 by carlarctg
+#### Wednesday 2022-12-14 09:39:47 by carlarctg
 
 Buffed, resprited, enhanced Oppressor. (#1732)
 
@@ -1161,179 +1261,496 @@ GitHub username as author ingame. -->
 Co-authored-by: harryob <me@harryob.live>
 
 ---
-## [ingar-sa/mappevurdering](https://github.com/ingar-sa/mappevurdering)@[8a1038c1d6...](https://github.com/ingar-sa/mappevurdering/commit/8a1038c1d6ebbc7b7dbc6d61dde746ced67e2a0c)
-#### Tuesday 2022-12-13 13:17:57 by Ingar Solveigson Asheim
+## [allanlewis/djoser](https://github.com/allanlewis/djoser)@[4ebdc10add...](https://github.com/allanlewis/djoser/commit/4ebdc10add211cb238002fcc79a7cf8409d99825)
+#### Wednesday 2022-12-14 10:04:29 by github
 
-Holy fucking shit! Holy fucking shit! Holy fucking shit! Holy fucking shit! Holy fucking shit!
+Fix for Friendly tips when Missing SOCIAL_AUTH_ALLOWED_REDIRECT_URIS
+
+i forget add SOCIAL_AUTH_ALLOWED_REDIRECT_URIS to my config
+
+it return 400 error, i don't know why ,  i pay more time find the issues
+
+so  i add Friendly tips
+
+-- sorry  , my english is not well
+
+and thank you all
 
 ---
-## [andrewboywew/app-dev](https://github.com/andrewboywew/app-dev)@[b8b2ee8d4e...](https://github.com/andrewboywew/app-dev/commit/b8b2ee8d4e6f70a757cf1c15c80ee5866584355d)
-#### Tuesday 2022-12-13 13:58:11 by andrewboywew
+## [SciCrunch/sparc-curation](https://github.com/SciCrunch/sparc-curation)@[30441cbf29...](https://github.com/SciCrunch/sparc-curation/commit/30441cbf297fe9193b13f7c2a5ac3bbd5512999c)
+#### Wednesday 2022-12-14 10:08:28 by Tom Gillespie
+
+sparcur.simple.utils.fetch_paths_parallel switch to Async/deferred
+
+You know that crazy stochastic file size mismatch error? We have it
+cornered now. Nearly have the full root cause found as well, but not
+quite, there are still some weird things going on.
+
+For example, if I am using multiprocessing to retrieve different
+files, then shouldn't nothing be shared and shouldn't it be impossible
+for the url for one file to be returned from a requests session.get
+that specified the other? I kind of want to check that the request url
+matches across a single call to session.get because this is so insane.
+
+In short, the reason why a mismatched file size occures is becuase a
+call to BlacckfynnRemote.get_file_url -> utils.ApiWrapper.get_file_url
+can seeminly at random return a url pointing to the wrong file!?! On
+examination you will notice that that url returned points to THE WRONG
+FILE, but also usually a file was also requested close in time to the
+one that got the wrong url.
+
+Looking over the logs again, it is clear to me now that the issue is
+not that there is a race condition in any of the joblib code, because
+it is not that we are somehow reading the results of session.get
+twice.  The reason we know this is that rest of the long url with the
+X-Amazon fields is different (eternal screaming).
+
+Switching to Async/deferred avoids the issue, probably by going more
+slowly, and by not sending a multiple requests during the same
+microsecond, which if I had to bet would be why these things get
+confused on the remote side.
+
+I am going to test with this configuration to see whether we encounter
+similar or other issues.
+
+The issue was found when I noticed that the mismatched actual size of
+a subjects.xlsx file was the exact size of the samples.xlsx file.
+Which is the kind of utterly terrifying thing that you hope to never
+see because it means that something has gone Mickensly wrong.
+
+---
+## [hfiref0x/UACME](https://github.com/hfiref0x/UACME)@[c65f9215c1...](https://github.com/hfiref0x/UACME/commit/c65f9215c1103269ca31f66f49869fcde547af98)
+#### Wednesday 2022-12-14 10:22:19 by hfiref0x
+
+Update Naka.vcxproj
+
+Retarget platform toolset for appveyor fail. I understand that this service is currently busy supporting %current thing% more than actually working on their script-shit, but holy fuck seriously.
+
+---
+## [avar/git](https://github.com/avar/git)@[f1c903debd...](https://github.com/avar/git/commit/f1c903debdcbf6aaf8fd3abf222fa941b42d5d31)
+#### Wednesday 2022-12-14 12:04:29 by Ævar Arnfjörð Bjarmason
+
+cocci: make "coccicheck" rule incremental
+
+Optimize the very slow "coccicheck" target to take advantage of
+incremental rebuilding, and fix outstanding dependency problems with
+the existing rule.
+
+The rule is now faster both on the initial run as we can make better
+use of GNU make's parallelism than the old ad-hoc combination of
+make's parallelism combined with $(SPATCH_BATCH_SIZE) and/or the
+"--jobs" argument to "spatch(1)".
+
+It also makes us *much* faster when incrementally building, it's now
+viable to "make coccicheck" as topic branches are merged down.
+
+The rule didn't use FORCE (or its equivalents) before, so a:
+
+	make coccicheck
+	make coccicheck
+
+Would report nothing to do on the second iteration. But all of our
+patch output depended on all $(COCCI_SOURCES) files, therefore e.g.:
+
+    make -W grep.c coccicheck
+
+Would do a full re-run, i.e. a a change in a single file would force
+us to do a full re-run.
+
+The reason for this (not the initial rationale, but my analysis) is:
+
+* Since we create a single "*.cocci.patch+" we don't know where to
+  pick up where we left off, or how to incrementally merge e.g. a
+  "grep.c" change with an existing *.cocci.patch.
+
+* We've been carrying forward the dependency on the *.c files since
+  63f0a758a06 (add coccicheck make target, 2016-09-15) the rule was
+  initially added as a sort of poor man's dependency discovery.
+
+  As we don't include other *.c files depending on other *.c files
+  has always been broken, as could be trivially demonstrated
+  e.g. with:
+
+       make coccicheck
+       make -W strbuf.h coccicheck
+
+  However, depending on the corresponding *.c files has been doing
+  something, namely that *if* an API change modified both *.c and *.h
+  files we'd catch the change to the *.h we care about via the *.c
+  being changed.
+
+  For API changes that happened only via *.h files we'd do the wrong
+  thing before this change, but e.g. for function additions (not
+  "static inline" ones) catch the *.h change by proxy.
+
+Now we'll instead:
+
+ * Create a <RULE>/<FILE> pair in the .build directory, E.g. for
+   swap.cocci and grep.c we'll create
+   .build/contrib/coccinelle/swap.cocci.patch/grep.c.
+
+   That file is the diff we'll apply for that <RULE>-<FILE>
+   combination, if there's no changes to me made (the common case)
+   it'll be an empty file.
+
+ * Our generated *.patch
+   file (e.g. contrib/coccinelle/swap.cocci.patch) is now a simple "cat
+   $^" of all of all of the <RULE>/<FILE> files for a given <RULE>.
+
+   In the case discussed above of "grep.c" being changed we'll do the
+   full "cat" every time, so they resulting *.cocci.patch will always
+   be correct and up-to-date, even if it's "incrementally updated".
+
+   See 1cc0425a27c (Makefile: have "make pot" not "reset --hard",
+   2022-05-26) for another recent rule that used that technique.
+
+As before we'll:
+
+ * End up generating a contrib/coccinelle/swap.cocci.patch, if we
+   "fail" by creating a non-empty patch we'll still exit with a zero
+   exit code.
+
+   Arguably we should move to a more Makefile-native way of doing
+   this, i.e. fail early, and if we want all of the "failed" changes
+   we can use "make -k", but as the current
+   "ci/run-static-analysis.sh" expects us to behave this way let's
+   keep the existing behavior of exhaustively discovering all cocci
+   changes, and only failing if spatch itself errors out.
+
+Further implementation details & notes:
+
+ * Before this change running "make coccicheck" would by default end
+   up pegging just one CPU at the very end for a while, usually as
+   we'd finish whichever *.cocci rule was the most expensive.
+
+   This could be mitigated by combining "make -jN" with
+   SPATCH_BATCH_SIZE, see 960154b9c17 (coccicheck: optionally batch
+   spatch invocations, 2019-05-06).
+
+   There will be cases where getting rid of "SPATCH_BATCH_SIZE" makes
+   things worse, but a from-scratch "make coccicheck" with the default
+   of SPATCH_BATCH_SIZE=1 (and tweaking it doesn't make a difference)
+   is faster (~3m36s v.s. ~3m56s) with this approach, as we can feed
+   the CPU more work in a less staggered way.
+
+ * Getting rid of "SPATCH_BATCH_SIZE" particularly helps in cases
+   where the default of 1 yields parallelism under "make coccicheck",
+   but then running e.g.:
+
+       make -W contrib/coccinelle/swap.cocci coccicheck
+
+   I.e. before that would use only one CPU core, until the user
+   remembered to adjust "SPATCH_BATCH_SIZE" differently than the
+   setting that makes sense when doing a non-incremental run of "make
+   coccicheck".
+
+ * Before the "make coccicheck" rule would have to clean
+   "contrib/coccinelle/*.cocci.patch*", since we'd create "*+" and
+   "*.log" files there. Now those are created in
+   .build/contrib/coccinelle/, which is covered by the "cocciclean" rule
+   already.
+
+Outstanding issues & future work:
+
+ * We could get rid of "--all-includes" in favor of manually
+   specifying a list of includes to give to "spatch(1)".
+
+   As noted upthread of [1] a naïve removal of "--all-includes" will
+   result in broken *.cocci patches, but if we know the exhaustive
+   list of includes via COMPUTE_HEADER_DEPENDENCIES we don't need to
+   re-scan for them, we could grab the headers to include from the
+   .depend.d/<file>.o.d and supply them with the "--include" option to
+   spatch(1).q
+
+1. https://lore.kernel.org/git/87ft18tcog.fsf@evledraar.gmail.com/
+
+Signed-off-by: Ævar Arnfjörð Bjarmason <avarab@gmail.com>
+Signed-off-by: Taylor Blau <me@ttaylorr.com>
+
+---
+## [mauriciozuardi/seedsigner](https://github.com/mauriciozuardi/seedsigner)@[d2a657f2d4...](https://github.com/mauriciozuardi/seedsigner/commit/d2a657f2d43c6e77e9c48cb1f859e8f4984a5f00)
+#### Wednesday 2022-12-14 12:10:36 by Marc G
+
+Various edits B4 upstream submission
+
+After a long hiatus, I have finally completed my proposed changes to the software verification section of our readme.
+
+The verification focuses on keybase.io now storing and verifying the 3 online properties (seedsigner.com, twitter.com/seedsigner and github.com/seedsigner)
+
+This makes the key more secure, easier to import and generally less hassle. its also revokable.  
+
+There is more detail about how/why in the expand blocks, but It was suggested to me to keep the instructions straightforward (ie do this and now do that) , so I have reduced focus much on the why. 
+However, some basic "why & how" has also been placed in new collapsible sections, at the end of each step. 
+
+Later on, I want to add color to the collapse sections so that they show a natural boundary, but so far that markdown code is elusive to me. ;) 
+Done is better than perfect....
+The same for getting my external links to open in a new tab/window. sigh. Markdown is ... well....tricky. 
+
+I can make the screenshots smaller. please comment on their size.
+
+
+The Verification is done in 3 steps:
+1. import the public key
+2. Verify its the correct key by verying it and then comparing the Key ID to Keybase.io/seedsigner. If it matches, then its the real seedsigner project person that signed.
+this is arguablly the most critical step of verifying and hence we ask the user to check for themselves that the key ID from verify is the same as on keybase.io. Hence the Key ID's are blurred in the screenshots. We dont want the user to compare the screenshots to each other. we want them to compare their result to their browser. 
+
+3. Verify that the other files (at this stage just the .zip file) are also not altered. This does a comparision of the various files actual and expected hashes.
+
+If all is well here, then tell the user about their success :). 
+Explain the warnings, which ones are benign, and what to do if verification fails.
+
+
+Lastly, "Write the software to the MicroSD' section - 
+I have got draft text for this, but havent published it yet. 
+The verify PR is big enough !!
+
+Please review for my PR flow and clarity, I do still want to improve the formatting,  but wanted to get everyone's thoughts before messing with the detailed formatting and line breaks, which are especially painful!
+
+FYI - I have done my screenshots using layers, so it easy to edit in the future. I think they
+
+---
+## [yuryzablotski/yuzaR-Blog](https://github.com/yuryzablotski/yuzaR-Blog)@[0e2122af7d...](https://github.com/yuryzablotski/yuzaR-Blog/commit/0e2122af7da4238743281d2d5102c2e703d3cb60)
+#### Wednesday 2022-12-14 12:15:19 by yuryzablotski
+
+new post fix: stupidely, I needed to add two last Rmd scripts to QR post, because for whatever reasen, it needed them in there ... starts to get annoying actually, that it does not just fucking work!
+
+---
+## [Dallinger/Dallinger](https://github.com/Dallinger/Dallinger)@[73e39d94a7...](https://github.com/Dallinger/Dallinger/commit/73e39d94a7ba96a17438f3c5b149a36408838d66)
+#### Wednesday 2022-12-14 13:08:09 by Peter Harrison
+
+Misc Docker quality of life improvements (#4616)
+
+# Major
+
+- Disabled the behavior where the built image name is written to config.txt. This behavior was inconsistent with the other Dallinger deployment patterns, because it meant that if you deployed once, changed code in experiment.py, then redeployed, then the experiment would launch in the former version unless you remembered to delete the image name from config.txt.
+- Heroku deployments were failing because the default `heroku_python_version` had been discontinued by Heroku. We have experienced similar problems in the past and have always had to update Dallinger. Now we have changed the behaviour such that, if `heroku_python_version` is not specified in the experiment config, then it will use the default Python runtime currently in use by Heroku.
+
+# Minor
+
+- Propagate more information from deployment-related functions (e.g. dashboard credentials) so that they can be used by wrapper functions.
+- Print more information (e.g. dashboard credentials) in deployment-related functions.
+- Better debugging logs for docker-ssh deployments.
+- Move deployment info logs from `deployment-info_{experiment_id}.txt` to `deploy_logs/*` to avoid clutter.
+- Move default `dallinger_develop_directory` to `/tmp/dallinger_develop` because the original location was not writable by default on Docker.
+- Minor bugfixes in docker-ssh deployment/export.
+- Rename config variable `docker_ssh_volumes` -> `docker_volumes` because it's relevant also when we're doing docker locally. 
+- Some minor renaming of internal variables for consistency.
+
+---
+## [HanceGalvez/app-dev](https://github.com/HanceGalvez/app-dev)@[806a3bf03f...](https://github.com/HanceGalvez/app-dev/commit/806a3bf03f4bbd76a8013a3edb1dd99858892400)
+#### Wednesday 2022-12-14 13:30:33 by HanceGalvez
 
 Update README.md
 
-One Piece - The Japanese manga series One Piece was created by Eiichiro Oda. Since July 1997, it has been serialized in Shueisha's shnen manga magazine Weekly Shnen Jump, and as of November 2022, its individual chapters have been collected into 104 tank-bon volumes. The plot centers on the exploits of Monkey D. Luffy, a young man whose unintended consumption of a Devil Fruit left him with a body made of rubber. In order to succeed Gol D. Roger as the new King of the Pirates, Luffy explores the Grand Line with his pirate band, the Straw Hat Pirates, in search of the ultimate treasure known as the "One Piece."
+1. Click:
+Michael Newman (Adam Sandler) seems to have it all but his wife, Donna (Kate Beckinsale), is increasingly frustrated by the amount of time he has to spend at work. Michael cannot find time to be at home until he meets an eccentric inventor (Christopher Walken) who gives him a universal remote that controls time. At first he happily skips the boring times until he realizes the remote is in control of his life and he learns to cherish all the precious moments with his family.
 
-Wednesday - Based on the The Addams Family character Wednesday Addams, Wednesday is a coming-of-age supernatural comedic horror television series in the United States. Jenna Ortega plays the titular role in this film, which was co-written by Alfred Gough and Miles Millar. Catherine Zeta-Jones, Luis Guzmán, Isaac Ordonez, Gwendoline Christie, Riki Lindhome, Jamie McShane, Fred Armisen, and Christina Ricci play supporting roles. Tim Burton, who also acts as executive producer, directed four of the eight episodes. The main girl, who goes by the title, tries to solve a monstrous mystery at her school.
+2. Avatar:
+Avatar is an American media franchise created by James Cameron, which consists of a planned series of epic science fiction films produced by Lightstorm Entertainment and distributed by 20th Century Studios, as well as associated computer games and theme park rides.
 
-Chainsaw Man - Tatsuki Fujimoto is the author and illustrator of the Japanese manga series Chainsaw Man (Japanese:, Hepburn: Chens Man). From December 2018 to December 2020, its first part was serialized in Shueisha's shunen manga magazine Weekly Shunen Jump. In July 2022, its second part started serialization in Shueisha's online magazine Shunen Jump+. As of October 2022, its chapters have been compiled into 12 tank-bon volumes. The plot of Chainsaw Man centers on Denji, a poor young man who enters into a deal to have his body fused with that of a canine devil named Pochita, giving him the power to turn specific body parts into chainsaws.
+3. Toy Story
+Woody (Tom Hanks), a good-hearted cowboy doll who belongs to a young boy named Andy (John Morris), sees his position as Andy's favorite toy jeopardized when his parents buy him a Buzz Lightyear (Tim Allen) action figure. Even worse, the arrogant Buzz thinks he's a real spaceman on a mission to return to his home planet. When Andy's family moves to a new house, Woody and Buzz must escape the clutches of maladjusted neighbor Sid Phillips (Erik von Detten) and reunite with their boy.
 
-Stranger Things - The 1980s are shown in the fictional rural Indiana town of Hawkins in the television series Stranger Things. Although the neighboring Hawkins National Laboratory purports to do scientific research for the US Department of Energy, it actually conducts covert paranormal and supernatural operations, some of which use human test subjects. They unwittingly opened a connection to "the Upside Down," an alternative reality, and its influence begins to have disastrous effects on the citizens of Hawkins.
+4. Just Go With It
+His heart recently broken, plastic surgeon Danny Maccabee (Adam Sandler) pretends to be married so he can enjoy future dates with no strings attached. His web of lies works, but when he meets Palmer (Brooklyn Decker) -- the gal of his dreams -- she resists involvement. Instead of coming clean, Danny enlists Katherine (Jennifer Aniston), his assistant, to pose as his soon-to-be-ex-wife. Instead of solving Danny's problems, the lies create more trouble.
 
-Money Heist - Money Heist is a Spanish heist crime drama television series developed by Lex Pina, whose name translates to "The House of Paper" in English. From the viewpoint of one of the thieves, Tokyo (Ursula Corberó), the series follows two meticulously planned heists carried out by the Professor (Lvaro Morte), one on the Royal Mint of Spain and the other on the Bank of Spain. Flashbacks, time jumps, hidden character motivations, and an unreliable narrator are used to add intricacy to the real-time-like narrative.
-
-Alice in Borderland - Based on the Haro Aso manga of the same name, Alice in Borderland (Japanese:, Hepburn: Imawa no Kuni no Arisu) is a 2020 Japanese science fiction thriller drama streaming television series. The series, which was directed by Shinsuke Sato, features Kento Yamazaki and Tao Tsuchiya as pals who are stranded in an abandoned Tokyo and forced to compete in risky games, the nature of which are dictated by playing cards. Players begin with "visas," which are then extended as they advance through the games. If the visas run out, the people are blasted down with red lasers and put to death.
-
----
-## [Danielsn1/Assignment-2](https://github.com/Danielsn1/Assignment-2)@[c885ed5ba6...](https://github.com/Danielsn1/Assignment-2/commit/c885ed5ba62a418e17a1cf5495f582e51590de90)
-#### Tuesday 2022-12-13 14:05:29 by Jack Castiglione
-
-Update client.py
-
-I cannot believe that Rahul got up at 1 yesterday with me (but hes not even that sick hes just piggybacking off me) and then went to the arena and then we ate dinner at 7 (even though he told me 6 so I had to wait in the arena for an hour) and then came back and WENT TO BED AT 7:30!!! You know what I did while he was gone? I hung out with some friends and I TOOK A NAP. DOES HE EXPECT ME TO SLEEP 27 HOURS A DAY??????
-
-Also there's one part (Line 24) where I wasn't sure what to put, ok thanks.
+5. Crazy, Stupid, Love
+Cal Weaver (Steve Carell) is living the American dream. He has a good job, a beautiful house, great children and a beautiful wife, named Emily (Julianne Moore). Cal's seemingly perfect life unravels, however, when he learns that Emily has been unfaithful and wants a divorce. Over 40 and suddenly single, Cal is adrift in the fickle world of dating. Enter, Jacob Palmer (Ryan Gosling), a self-styled player who takes Cal under his wing and teaches him how to be a hit with the ladies.
 
 ---
-## [Empire-Strikes-Back/Travis-Walker](https://github.com/Empire-Strikes-Back/Travis-Walker)@[66da945227...](https://github.com/Empire-Strikes-Back/Travis-Walker/commit/66da94522737f251c1aa9a506d6ddb483b2140bc)
-#### Tuesday 2022-12-13 14:32:30 by Travis-Walker
+## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[8aac90bcbb...](https://github.com/odoo-dev/odoo/commit/8aac90bcbbaf4152d9c43e3af2a6d47f38da1095)
+#### Wednesday 2022-12-14 13:34:04 by qsm-odoo
 
-oh, Bard - his name is Bard - how do you know? - I asked him
+[FIX] website, *: allow to re-edit company team snippet images
 
-like Blake Griffin I want to play
+*: website_sale
 
-unlike Chuck Carrol I don't want to be robbed - I don't want to sit and be dead
+Since [1], it was not possible to edit a company team snippet image
+anymore as soon as the page was saved once. Indeed that commit added
+o_not_editable/contenteditable="false" on the parent column to make sure
+no text can be added in that column and contenteditable="true" on the
+images so that they are still editable (even though HTML-specs-wise
+adding contenteditable="true" on images probably does not mean much as
+images are self-closing tags, our editor understand that as the ability
+to edit the image anyway). That contenteditable="true" part is however
+removed when leaving edit mode... and was not restored upon entering
+edit mode again.
 
-I heard Jesus - about lost sheep, enemies and love, man going to Jericho, reborn
+This fixes the problems with a specific JS patch, we'll review to see if
+better can be done in master.
 
-let my identity fruit be peach
-let me run - even though I don't yet know who I'll be
-like Thorin before meeting Gandalf don't yet know he's going on a quest
+Funny enough, that bug was actually gone in 15.0... by mistake. A recent
+bug fix actually reintroduced that isolated bug at [2] (by reintroducing
+the fact that images in a non-editable environment are not possible to
+edit). The 3 opened tickets this commit mentions were actually reported
+for 15.0 immediately after that, while the 14.0 being broken about this
+since the beginning apparently did not bother anyone.
 
-:Stephen-Colbert you're in a new movie - Battle of Fie Armies - what do you think about the ending?
-:Benedict-Smaug-Cumberbatch I don't know - I haven't read the books
-:Stephen it's gonna get you - right here
+Note: as a forward-ported fix, this also takes the opportunity to clean
+a bit what was done at [3]. (calling `_super`, no duplicated code,
+adding comments, ...).
 
----
-## [RikuTheKiller/tgstation](https://github.com/RikuTheKiller/tgstation)@[e9cff525dc...](https://github.com/RikuTheKiller/tgstation/commit/e9cff525dc5b57153af3b4bb9039de08d6823805)
-#### Tuesday 2022-12-13 14:34:33 by tralezab
+[1]: https://github.com/odoo/odoo/commit/656cac1bf21c7c5a56aa569008aac58436c747fb
+[2]: https://github.com/odoo/odoo/commit/e113bae04a64a8bd341a80736086ab7c25079dd3
+[3]: https://github.com/odoo/odoo/commit/e2f7b8fad76dc816b2f6864340d3740446117cdb
 
-Refactors Pirates into Pirate Gangs, Adds the Psyker-gang as new pirates (#71650)
+opw-3031217
+opw-3032482
+opw-3035289
 
-## About The Pull Request
+closes odoo/odoo#104521
 
-### Refactor
-Pirate gangs are now datumized for extendability, custom dialogue, etc.
-
-### Psyker Gang 🧠 
-Psyker-gang Members are pirates who are... yes, Psykers. They're on a
-gore-binge and need some money for more hits of gore!
-
-- Gore autoinjectors, filled with dirty kronkaine. Don't overdose,
-you'll go splat.
-- Psykerboost armor, reactive armor that refreshes psychic abilities.
-Given to the leader.
-
-- [x] @Fikou is making the map :D
-
-## Why It's Good For The Game
-
-God I fucking love variety also now we can add as many different pirates
-as we so desire
-
-<details>
-  <summary>Spoiler warning</summary>
-  
-
-![image](https://user-images.githubusercontent.com/40974010/205342701-9cba63ef-a22c-4f07-9b48-8793c4a2b5af.png)
-  
-</details>
-
-## Changelog
-:cl: Tralezab code, Fikou's map, PigeonVerde and Halcyon for sprites!
-add: Psyker-gangers are new pirates
-refactor: refactored pirate code so we can add more in the future
-/:cl:
-
-Co-authored-by: Fikou <23585223+Fikou@users.noreply.github.com>
+X-original-commit: 1636ba5ed2f8a284bef0930313a85cc3dc7cf072
+Signed-off-by: Romain Derie (rde) <rde@odoo.com>
+Signed-off-by: Quentin Smetz (qsm) <qsm@odoo.com>
 
 ---
-## [ngoduyanh/nrs-impl-kt](https://github.com/ngoduyanh/nrs-impl-kt)@[5f44cb47bf...](https://github.com/ngoduyanh/nrs-impl-kt/commit/5f44cb47bf524fb43a9687df6027eb7a855783f8)
-#### Tuesday 2022-12-13 14:42:00 by ngoduyanh
+## [sr229/garrysmod-chatsounds](https://github.com/sr229/garrysmod-chatsounds)@[6fe16b8cb4...](https://github.com/sr229/garrysmod-chatsounds/commit/6fe16b8cb459afbad868151c473986cc739346af)
+#### Wednesday 2022-12-14 13:52:12 by Ayane
 
-chore(impl): :rocket: rank `Higashi no Sora Kara Hajimaru Sekai`
+My name is Walter Hartwell White.
 
-Re:Stage! (Re:ステージ!, Risutēji) is a Japanese multimedia franchise by Pony Canyon and Comptiq. It features character designs and illustrations by artist Tsubasu Izumi, series composition and story by Team Yoree (Yoriko Tomita, Yasuko Kamo and Tatsuhiko Urahata), and music by Kohta Yamamoto. The story revolves around female junior high school idols who aim to become a top in Prism Stage, a nationwide tournament where many middle school idols compete and become top idols. These girls are divided into several units. Their stories are serialized in monthly Comptiq and short stories are released online via the official website.
+I live at 308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104. This is my confession. If you're watching this tape, I'm probably dead, murdered by my brother-in-law Hank Schrader. Hank has been building a Virtual Youtuber empire for over a year now and using me as his recruiter. Shortly after my 50th birthday, Hank came to me with a rather, shocking proposition. He asked that I use my Live2D knowledge to recruit talents, which he would then hire using his connections in the Japanese utaite world. Connections that he made through his career with Niconico. I was... astounded, I... I always thought that Hank was a very moral man and I was... thrown, confused, but I was also particularly vulnerable at the time, something he knew and took advantage of. I was reeling from a cancer diagnosis that was poised to bankrupt my family. Hank took me on a ride along, and showed me just how much money even a small indie channel could make. And I was weak. I didn't want my family to go into financial ruin so I agreed. Every day, I think back at that moment with regret. I quickly realized that I was in way over my head, and Hank had a partner, a man named Motoaki Yagoo Tanigo, a businessman. Hank essentially sold me into servitude to this man, and when I tried to quit, Yagoo threatened my family. I didn't know where to turn. Eventually, Hank and Yagoo had a falling out. From what I can gather, Hank was always pushing for a greater share of the business, to which Yagoo flatly refused to give him, and things escalated. Yagoo was able to arrange, uh I guess I guess you call it a hit on my brother-in-law, and failed, but Hank was seriously injured, and I wound up paying his medical bills which amounted to a little over 77,000. Upon recovery, Hank was bent on revenge, working with a man named Riku Tazumi , he plotted to kill Yagoo, and did so. In fact, the bomb that he used was built by me, and he gave me no option in it. I have often contemplated suicide, but I'm a coward. I wanted to go to the police, but I was frightened. Hank had risen in the ranks to become the head of the Cover Corp, and about that time, to keep me in line, he took my children from me. For 3 months he kept them. My wife, who up until that point, had no idea of my vtubing activities, was horrified to learn what I had done, why Hank had taken our children. We were scared. I was in Hell, I hated myself for what I had brought upon my family. Recently, I tried once again to quit, to end this nightmare, and in response, he gave me this. I can't take this anymore. I live in fear every day that Hank will kill me, or worse, hurt my family. I... All I could think to do was to make this video in hope that the world will finally see this man, for what he really is.
 
-Thank you for your service.
-But under a new sky, a new love began to sprout.
-
-4ever :goat:
+Signed-off-by: GitHub <noreply@github.com>
 
 ---
-## [DarkLevelSS13/IS12-Warfare](https://github.com/DarkLevelSS13/IS12-Warfare)@[1867654758...](https://github.com/DarkLevelSS13/IS12-Warfare/commit/186765475881bf58bbee319880653287d578820b)
-#### Tuesday 2022-12-13 15:18:44 by Matt
+## [sunset-wasteland/sunset-wasteland](https://github.com/sunset-wasteland/sunset-wasteland)@[f7f7ae2cfc...](https://github.com/sunset-wasteland/sunset-wasteland/commit/f7f7ae2cfc1c91d2df5bfdbd7895e7ab2c6eb4d3)
+#### Wednesday 2022-12-14 14:12:58 by Colovorat
 
-Should fix the issue of loading the wrong CSS by making them all the same fuck you
+Fixes cable merging, changes merging code just a little bit (#60997)
 
----
-## [redromnon/HeroicGamesLauncher](https://github.com/redromnon/HeroicGamesLauncher)@[3f6541c8a7...](https://github.com/redromnon/HeroicGamesLauncher/commit/3f6541c8a700511cea9f0c9b572a5d2138ee76e3)
-#### Tuesday 2022-12-13 15:38:12 by Mathis Dröge
+Makes stack code support merging two different stacks with the same mats, but different mats_per_unit numbers by implementing averages.
 
-Improve README and developer experience (#1807)
-
-* Update VSCode configuration
-
-* Lots of README changes
-
-- Update our bages; might've overdone it a little, but they're fun to add :^)
-- Add badges for Web Technologies used
-- Rewrite & bump up system requirements a bit
-- Wrap the Language list, Development in a container, and Screenshots in
-  <details>; this makes the page load faster and makes it seem less
-  daunting
-- Add a Flathub badge to the Flatpak section
-- Unify Linux install instructions (as much as possible)
-- Remove 3rd-party APT repository
-  In my opinion, we have enough distribution formats already, and the
-  install instructions are a little dodgy
-- Add Beta AUR package to the list
-- Clarify Windows install instructions by splitting up WinGet and manual
-  install
-- Make "Development environment" its own section
-- Remove Beta and Alpha notes on Windows and macOS build instructions
-- Explain what exactly is happening when you run `yarn dev` and in which
-  scenarios you might want to use it
-- Move the "Back to top" badge to the actual bottom of the page
-
-* Add a Content Security Policy
-
-This doesn't really do much in our situation:
-- Just in case someone ever manages to load a website in Heroic's main
-  window, no JS can run inside it
-- Gets rid of the warning in the console when testing with `yarn dev`
-
-I've tested the Webviews (unaffected) and links to ProtonDB and such
-(also unaffected, not sure why though). Please test if this breaks
-anything
+It's in an attempt to support the stupid efficiency shit that protolathes do. It's not great, but it ought to work alright for now. Kinda a bandaid
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
 
 ---
-## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[70bcd3b6fb...](https://github.com/Huffie56/cmss13/commit/70bcd3b6fbcf17b4c26640321f23c83da0ab80a3)
-#### Tuesday 2022-12-13 16:56:00 by carlarctg
+## [kyanch/NetHack](https://github.com/kyanch/NetHack)@[b2fe51490d...](https://github.com/kyanch/NetHack/commit/b2fe51490dac43cac70ec29c6958467b0fa9bdd4)
+#### Wednesday 2022-12-14 14:48:14 by PatR
 
-Queen eye shuffles weed sprites when passing over them. (#1901)
+tty-style role selection for curses
+
+Move the tty role/race/&c selection from wintty.c to role.c and remove
+its references to BASE_WINDOW.  Have curses call the same routine now
+so that the player has the option to choose role, race, gender, and
+alignment in any order and to confirm or override random settings
+prior to starting play.  Also if you went through "who are you?" then
+final confirmation includes an extra menu choice to rename the hero.
+
+It still has the quirk of sometimes remembering some of the previous
+aspects when you re-pick a new value for some aspect which already
+been selected.
+
+The menus pop up on top of the copyright screen and that looks a bit
+strange.  I don't think core code has any way to erase that base
+window without erasing the entire screen so to fix the strangeness
+the window ports would need to do that before calling the selection
+routine.  I didn't do that because the very first prompt, "Shall I
+pick ... for you? [ynaq]" shows up in that window rather than in a
+popup over it, and having it be all by itself on an otherwise blank
+screen seemed to be even stranger.
+
+X11 and Qt both have more sophisticated selection routines so I
+haven't tried to switch either of them to use this.  They both use a
+fancy role-selection-specific menu with all the aspects present at
+once so this wouldn't fit without more work than I care to tackle.
+
+---
+## [peff/git](https://github.com/peff/git)@[237b689b36...](https://github.com/peff/git/commit/237b689b366957f7236081dd80f76dae95ade57e)
+#### Wednesday 2022-12-14 16:29:16 by Jeff King
+
+ahead-behind: do not die when we see no INTERESTING pending object
+
+We currently die if we are fed an ahead/behind with zero
+objects (`foo..foo` in the most basic case, but in practice
+something like `foo@{upstream}..foo`, when `foo` has just
+been merged).  The problem is that we let
+`handle_revision_arg` parse it, and then pick the pieces out
+of the pending object list. So "^foo" looks no different to
+us there than "foo".
+
+This patch hacks around it by picking up the UNINTERESTING
+object in that case. However, this isn't great because:
+
+  1. Now we won't notice some types of bogus input.
+
+  2. We end up reporting the name of the UNINTERESTING object.
+
+We probably should pick apart the ".." ourselves, or even
+just change it to ":" or whitespace.
+
+Signed-off-by: Jeff King <peff@peff.net>
+
+---
+## [LukasNickel/aoc_2022](https://github.com/LukasNickel/aoc_2022)@[41ec0e37e3...](https://github.com/LukasNickel/aoc_2022/commit/41ec0e37e315239a867c3007ea2e01de3879e67e)
+#### Wednesday 2022-12-14 16:46:34 by Lukas Nickel
+
+Solution day 14
+
+- Pretty awful, lots of magic numbers and some hacks for part 2
+
+---
+## [NASA-AMMOS/AIT-Core](https://github.com/NASA-AMMOS/AIT-Core)@[6c329174a5...](https://github.com/NASA-AMMOS/AIT-Core/commit/6c329174a598cf152e07b75670a3c87cc153b1c8)
+#### Wednesday 2022-12-14 16:56:26 by Michael Joyce
+
+Update tox with multiple python versions for testing
+
+Update tox with test envs for Python 3.7 - 3.10. Skipped 3.11 due to
+some issues getting the tests and the like to cooperate. Likely doable
+with a bit of effort but didn't want perfect to be the enemy of good.
+
+Semi-recent Poetry broke the way we were integrating with tox. The tests
+have been updated in line with the recommendation on Poetry's website.
+The development dependencies plugin we were using no longer works since
+it relied on some private APIs that have since changed. It seems like
+there isn't a great solution for this problem at the moment; Some of the
+alternatives are also having trouble with the new version of Poetry.
+Hopefully tox will support parsing pyproject.toml directly soon and do
+away with all these hacks.
+
+It is recommended that people run tox inside of `poetry shell` without
+any other virtual environment open. I ran into a number of annoyances
+with tox not being able to find the correct python versions and the like
+when doing it other ways. The documentation has been updated to reflect
+this. While I was in there I tried to make the development tools section
+a bit clearer in general.
+
+Minor updates throughout the repo are either from the linting checks
+actually being run on the code or small fixes necessary to make the
+linter happy. Shame on whomever has been skipping them :), and shame on
+me for not fixing the broken CI yet.
+
+The python version specified in pyproject.toml has been opened up to
+support anything from Python 3.7 - 3.10. I've also unpinned gevent
+(since it seemed necessary to get 3.9 to cooperate to do some oddities
+with cffi on ARM). Dependencies have been relocked. Tox suite is all
+passing for me currently. That includes tests running on all the
+supported Python versions. We'll need more thorough testing here but
+hopefully this is a step in the correct direction.
+
+I've also included .python-version with a list of the python versions
+I'm using in `pyenv`. Others should be able to use this to make sure
+we'll all testing against the same versions. Not sure how correct it is
+to include that but figured it wouldn't hurt for now.
+
+---
+## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[68ba844196...](https://github.com/Huffie56/cmss13/commit/68ba84419624366956ae5f9bde67f1e33287301a)
+#### Wednesday 2022-12-14 17:27:31 by RenaRenaRe
+
+Cross-ciphering fix (#1879)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
 
 # About the pull request
-
-Queen eye shuffles weed sprites when passing over them.
-
-Fixed some single letter vars so the mantainer agenda can't delay this
-PR from merging.
-
-
+Fixes the cross-ciphering property so it actually works instead of
+producing a never ending stream of runtime errors and a broken larva
+that never develops. I'm deliberately being vague about what it does
+because I think it's supposed to be a secret, the wiki tells you to
+"find out in game!", but you can just read the code since it isn't
+complicated.
+This is my first time using github so sorry if I've fucked something up.
 
 <!-- Remove this text and explain what the purpose of your PR is.
 
@@ -1347,20 +1764,476 @@ Explain your rationale fully, even if you feel it goes without saying.
 -->
 
 # Explain why it's good for the game
+Things should function the way they're supposed to.
+Cross-ciphering is an extremely hard to get property that I'm not sure
+if anyone has ever actually made in game, now on the incredibly rare
+occasion that somebody actually makes it it should work correctly.
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
 
 
-> Queen eye shuffles weed sprites when passing over them.
+# Testing Photographs and Procedure
+<!-- Include any screenshots/videos/debugging steps of the modified code
+functioning successfully, ideally including edge cases. -->
+<details>
+<summary>Screenshots & Videos</summary>
 
-It's a way for marines to know there's an entire queen eye looking over
-them. Basically means an MD isn't 100% necessary to know the queen will
-broadcast the location of your flank to the entire hive.
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
 
-https://streamable.com/kmnd72
+</details>
 
-It's more subtle than i wanted it to be, but WCYD. Also doesn't work on
-corner sprites.
 
-Also, it looks fucking creepy as hell! It's awesome.
+# Changelog
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
+
+:cl:
+fix: Cross-ciphering now works correctly
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! -->
+
+---
+## [NextWork123/n0kernel-nextkernel](https://github.com/NextWork123/n0kernel-nextkernel)@[bb1a0cb35e...](https://github.com/NextWork123/n0kernel-nextkernel/commit/bb1a0cb35e9a977888f3eb3bc183e79594bdac58)
+#### Wednesday 2022-12-14 17:49:51 by Angelo G. Del Regno
+
+Makefile.lib: Lower kernel gzip compression to fastest
+
+You're reading this - so you're trying to understand "JUST WHY OMG".
+That's already a good step.
+
+First of all, this is a downstream kernel - always keep that in mind!
+Now, this kernel is targeting new *very powerful* Qualcomm platforms
+like SM8250 and the Sony Edo platform - which has a very fast UFS card.
+
+Keep in mind that the bootloader sets the CPU at a frequency that is
+slightly faster than the "in the middle" ones, which is anyway not
+veeeery fast - but that's good, really. I agree.
+
+So.. check this out:   for Image.gz-dtb.....
+COMP_LEVEL    SIZE
+9             20116171
+5      	      20220479
+2      	      20940223
+1      	      21231290
+
+Remember again that we're loading from a UFS card and that
+we are loading ~1.1MB more out of a 20MB file.
+If you're smart enough you surely know already about RAM and CPU
+overhead of very high compression levels.
+
+If you still disagree with what I just did, read this commit description
+another 20 times, or more, until you understand it. :)))
+
+Signed-off-by: Tashfin Shakeer Rhythm <tashfinshakeerrhythm@gmail.com>
+
+---
+## [Programming-Person321/Hack-Club-Project](https://github.com/Programming-Person321/Hack-Club-Project)@[afbd500d87...](https://github.com/Programming-Person321/Hack-Club-Project/commit/afbd500d870d563840aa0bb8230de46af44706d9)
+#### Wednesday 2022-12-14 18:25:30 by Ggacegi
+
+Create Enlightenment
+
+Pepsiman[a] is an action video game developed and published by KID for the PlayStation. It was released in Japan on March 4, 1999, and is based on the eponymous Japanese superhero mascot for the American carbonated soft drink Pepsi. It focuses the player on avoiding obstacles by running, dashing, and jumping, while Pepsiman automatically runs forward through each of the game's stages.
+
+The game was made on a low budget, prompting the decision to make videos in-between stages that show a man drinking Pepsi, as they were cheap to produce. The game also features 3D cutscenes, for which the future visual novel writer Kotaro Uchikoshi created 3D models. While an American publisher did look into acquiring the rights to publish the game in the United States, it remained a Japan-exclusive game.
+
+Reviewers frequently compared Pepsiman to other games, including Crash Bandicoot, and commented on its simplicity and its price, which was thought to be low. A writer for Complex included it on a list of company-branded games that "didn't suck", commenting that it is not a bad game as long as the player can tolerate the large amount of advertisement in it. According to Uchikoshi, the game did not sell well.
+
+Contents
+1	Gameplay
+2	Background and development
+3	Reception
+4	Notes
+5	References
+6	External links
+Gameplay[edit]
+
+Gameplay of Pepsiman. Here, he is jumping on an intersection in an attempt to avoid a moving car.
+Pepsiman is an action game[2] that consists of four stages, each divided into smaller segments,[3] and each involving the superhero Pepsiman saving a person who is dehydrated, such as a military man in the middle of a desert, by giving him a can of Pepsi.[4] The first three stages are based on real locations, San Francisco, New York City and Texas. The last one takes place in Pepsi City.[5] The game is played from a third-person perspective, with Pepsiman automatically running forward through the stages,[4] sometimes running through homes and other buildings.[3] The player takes control of Pepsiman himself, aiming to dodge obstacles, such as cars, construction cranes, and people,[4] as well as Pepsi-branded obstacles, including a Pepsi truck.[6] The player does this by using four different moves: running, dashing, jumping, and super-jumping.[3] The player gains points by collecting Pepsi cans.[6]
+
+In some stages, Pepsiman's head becomes stuck inside a steel drum, which inverts the controls, and in some, he rides on a skateboard, which requires to player to avoid all obstacles. Throughout each stage is a number of checkpoints; if Pepsiman gets hit by obstacles too many times, the player is required to restart from the latest checkpoint. Each stage ends with Pepsiman being chased by an object,[4] such as a giant Pepsi can.[6] In between stages, the player is shown videos of an American man (played by Mike Butters) drinking Pepsi and eating chips and pizza as he watches Pepsiman.[4]
+
+Background and development[edit]
+Pepsiman is based on Pepsi's mascot of the same name, which was created for Pepsi's Japanese branch.[4] The character, whose fictional backstory says he used to be a scientist who transformed into a superhero after coming into contact with "Holy Pepsi",[7] was featured in Japanese Pepsi commercials[4] and in the Japanese version of the video game Fighting Vipers; he became popular in Japan,[8] spawning related characters such as Lemon Pepsiman and Pepsiwoman,[7] and Pepsi decided to promote the character with a video game.[4]
+
+The game was developed by the Japanese video game developer KID. It was made on a low budget, which led to the decision to make the low-cost video scenes of actor Mike Butters drinking Pepsi.[9][10] The game also uses 3D event scenes, which were modeled by Kotaro Uchikoshi, who would later be a scenario writer for visual novels at KID. This was Uchikoshi's first job; he had been hired to plan video game adaptations of board games, but ended up being part of the development of Pepsiman instead, which was already in progress when he joined KID in 1998.[9] The game was released in Japan by KID for the PlayStation on March 4, 1999;[2] while an American publisher was looking into acquiring the rights to publish the game in the United States,[8] it remained Japan-exclusive. Despite this, the game is entirely in English, not Japanese (although with Japanese subtitles for dialogue).[4] According to Uchikoshi, the game did not sell well.[9]
+
+In 2019, the game was featured in an episode of James Rolfe's comedy web series Angry Video Game Nerd, in which Butters reprised his role from the game's cutscenes.[11] The soundtrack for the game received a vinyl release in 2020 by the European label Chipped Records.[12]
+
+Reception[edit]
+Reception
+Review scores
+Publication	Score
+Famitsu	25/40[2]
+GameFan	90/100[13]
+Joypad	2/10[14]
+Gamers' Republic	B−[15]
+Planet Playstation	88/100[16]
+Writers for Famitsu called the game "super-simple", comparing it to Metro-Cross and Paperboy, and calling it a simplified version of Crash Bandicoot.[2] Others have made similar comments. A reviewer for IGN also compared it to Crash Bandicoot, described the gameplay as "simplistic [and] route memorization-based", and said that the thing the game would be remembered for was its "extremely bizarre premise". They still felt that the game was not bad, and that it was worth the price, which they noted was low.[3] James Mielke at GameSpot called the game a "nifty little distraction", and said that the gameplay was similar to the "old-school gaming dynamics of yesteryear". He commented on the low price, but said that it was difficult to find imports of it.[8] Gamers' Republic magazine rated the game a B−.[15] Gamers' Republic later listed the game in their 1999 Video Game Buyers Guide and Y2K Preview as one of the best games to import from Japan that year.[17]
+
+In 2011, Allistair Pinsof at Destructoid reviewed the game, calling it a mix between Paperboy and Muscle March in terms of the complexity and pace, and compared the gameplay to Crash Bandicoot. He found it to be "such a gloriously twisted, charming spectacle" that it would be difficult not to like it; he said that the main reason to play the game is "the sheer lunacy" of it, saying that the game is "obsessed" with America, and portrays Americans as "unhygienic hillbillies" in a manner that makes it unclear if it is a self-aware parody or not. He concluded that the game is funny, but not great, and that the ridiculous premise and its large amount of small details make the game "charmingly brain-dead".[4] In 2013, Justin Amirkhani at Complex included the game in a list of company-branded video games that "didn't suck", saying that while the game's graphics had not aged well, it was mechanically very similar to Temple Run, which Amirkhani called his favorite iOS game. He concluded that Pepsiman is not a bad game for people with quick reflexes, as long as they can stand the high amount of advertising within the game; he claimed that Pepsiman was the advergame with the largest amount of "logos-per-second".[6]
+
+In 2015, Retro Gamer magazine listed it as number 18 on their list of "The 20 Greatest PlayStation Games You've Never Played".[18
+
+---
+## [Jacquerel/orbstation](https://github.com/Jacquerel/orbstation)@[ebc0227176...](https://github.com/Jacquerel/orbstation/commit/ebc0227176b5213f379eefc3f5c6aa7be2d09c0a)
+#### Wednesday 2022-12-14 18:34:36 by Tastyfish
+
+Makes dog a basic mob [MDB IGNORE] (#70799)
+
+
+About The Pull Request
+
+    Made a basic version of the pet base called /mob/living/basic/pet. It's significantly more stripped down from the old simple_animal one, because its half collar stuff and...
+
+    Made the collar slot a component that you could theoretically remove from a pet to disable the behavior, or add to any other living mob as long as you set up the icon states for the collar (or not, the visuals are optional).
+        The corgi's collar strippable slot is now generally the pet collar slot, and in theory could be used for other pet stripping screens.
+
+    I also gutted the extra access card code from /mob/living/basic/pet as it's only being used by corgis. Having a physical ID is now just inherent to corgis, as they're the only ones that could equip it anyway.
+
+    Ported the make_babies() function from simple_animals to a new subtree and associated behavior, called /datum/ai_planning_subtree/make_babies that uses blackboards to know the animal-specific info.
+        Note that it's marginally improved, as the female walks to the male first instead of bluespace reproduction.
+
+    Tweaked and improved the dog AI to work as a basic mob, including making /datum/idle_behavior/idle_dog fully functional.
+
+    Made a /datum/ai_planning_subtree/random_speech/dog that pulls the dynamic speech and emotes to support dog fashion.
+
+I've tested base collars across multiple pet types.
+
+For dogs, I've tested general behavior, fetching, reproduction, dog fashion, and deadchat_plays, covering all the oddities I'm aware of.
+
+image
+Why It's Good For The Game
+
+Very big mob converted to a basic mob.
+Changelog
+
+cl
+fix: Lisa no longer uses bluespace when interacting with Ian.
+refactor: A large portion of dog code was re-written; please report any strange bugs.
+/cl
+
+---
+## [cockroachdb/cockroach](https://github.com/cockroachdb/cockroach)@[a30fb1438a...](https://github.com/cockroachdb/cockroach/commit/a30fb1438a6f1f99ebf2a27695e89d4b4e51cf8f)
+#### Wednesday 2022-12-14 20:03:20 by craig[bot]
+
+Merge #93153 #93325 #93354 #93545 #93557 #93563 #93618
+
+93153: rttanalysis: don't count leasing the database desc r=andreimatei a=andreimatei
+
+A bunch of rtt-analysis tests were counting a request for leasing the database descriptor. This is not interesting. This patch makes the test framework lease it first through a "USE" statement.
+
+The number of KV requests required for leasing is currently mis-counted. We count 1, but in reality it's 4. A different patch will correct the miscounting that, at which point that would be too significant for the tests.
+
+Release note: None
+Epic: None
+
+93325: multitenant: retain range splits after TRUNCATE for secondary tenants r=knz a=ecwall
+
+Fixes #69499
+Fixes #82944
+
+Existing split points are preserved after a TRUNCATE statement is executed by a secondary tenant.
+
+Release note: None
+
+93354: tracing: disallow children of sterile span with different Tracer r=andreimatei a=andreimatei
+
+Before this patch, creating a "child" of a sterile span with a different Tracer than the one used to create the sterile span was tolerated - on the argument that sterile spans don't actually get children (the would-be child span is created as a root), so the arguments for not allowing a children to be created with different tracers don't apply. At the same time, creating a child of a noop span with a different Tracer than the noop span's Tracer was documented to not be allowed. In practice, it was, because the code was confused [1].
+
+This patch disallows creating children of sterile spans with a different tracer, for consistency with all the other spans. The patch also makes it a panic for the children of noop spans to be created with a different Tracer.
+
+This is all meant as a cleanup / code simplification.
+
+[1] WithParent(sp) meant to treat sterile spans differently than noop spans but it was using sp.IsSterile(), which returns true for both. As such, it was unintentionally returning an empty parent option. startSpanGeneric() meant to check the tracer of parent noop spans, but it was failing to actually do so because it was going through the opts.Parent.empty().
+
+Release note: None
+Epic: None
+
+93545: sql: make SHOW RANGES FOR TABLE include all indexes r=ajwerner a=knz
+
+Informs #80906.
+Fixes #93546.
+Fixes #82995.
+
+Release note (backward-incompatible change): `SHOW RANGES FOR TABLE`
+now includes rows for all indexes that support the table. Prior to
+this change, `SHOW RANGES FOR TABLE foo` was an alias for `SHOW RANGES
+FOR INDEX foo@primary`. This was causing confusion, as it would miss
+data for secondary indexes. It is still possible to filter to just the
+primary index using `SHOW RANGES FOR INDEX foo@primary`.
+
+The statement output now also includes the index name.
+
+93557: syntheticprivilegecache: scan all privileges at startup  r=ajwerner a=ajwerner
+
+#### syntheticprivilegecache: move caching logic out of sql
+This is a pure refactor to move the logic for caching synthetic privileges
+from the sql package. This will make it easier to add features later.
+
+#### syntheticprivilegecache: scan all privileges at startup 
+
+
+Fixes https://github.com/cockroachdb/cockroach/issues/93182
+
+This commit attempts to alleviate the pain caused by synthetic virtual table
+privileges introduced in 22.2. We need to fetch privileges for virtual tables
+to determine whether the user has access. This is done lazily. However, when a
+user attempts to read a virtual table like pg_class or run SHOW TABLES it will
+force the privileges to be determined for each virtual table (of which there
+are 290 at the time of writing). This sequential process can be somewhat slow
+in a single region cluster and will be very slow in an MR cluster.
+
+This patch attempts to somewhat alleviate this pain by scanning the table
+eagerly during server startup.
+
+Release note (performance improvement): In 22.2 we introduced privileges on
+virtual tables (system catalogs like pg_catalog, information_schema, and
+crdb_internal). A problem with this new feature is that we now must fetch those
+privileges into a cache before we can use those tables or determine their
+visibility in other system catalogs. This process used to occur on-demand, when
+the privilege was needed. Now we'll fetch these privileges eagerly during
+startup to mitigate the latency when accessing pg_catalog right after the
+server boots up.
+
+93563: pgwire: handle decoding Geometry/Geography in binary r=rafiss a=otan
+
+Resolves #81066
+Resolves #93352
+
+Release note (bug fix): Previously, CockroachDB would error when receiving Geometry/Geography using binary parameters. This is now resolved.
+
+93618: cli,cliccl: move some mt commands to cliccl r=ajwerner a=ajwerner
+
+Part of #91714
+
+Epic: none
+
+Release note: None
+
+Co-authored-by: Andrei Matei <andreimatei1@gmail.com>
+Co-authored-by: Andrei Matei <andrei@cockroachlabs.com>
+Co-authored-by: Evan Wall <wall@cockroachlabs.com>
+Co-authored-by: Raphael 'kena' Poss <knz@thaumogen.net>
+Co-authored-by: Andrew Werner <awerner32@gmail.com>
+Co-authored-by: Oliver Tan <otan@cockroachlabs.com>
+
+---
+## [AntonLTG/bolibompacs](https://github.com/AntonLTG/bolibompacs)@[9b783ac124...](https://github.com/AntonLTG/bolibompacs/commit/9b783ac124e0fd81c06c7931e0ac6a62a17018b3)
+#### Wednesday 2022-12-14 20:13:18 by JesusHolyBalls
+
+!important; Yeeeah jump function and advanced movement, gravity is screwed for character
+
+.grounded is bs, need so much information and the troubleshooting is insanly annoying.
+
+1. need to have the character dimmensions, to use raycasts.(raycats gives a true or false value after detecting if an object is a certain distance from a certain point.) Done
+
+2.right now falling at constant speed which needs to be fixed, it is possible to kinda bhop tho. NOT DONE
+
+3.To fix speed we need to calculate theoretical max speed and replace current speed with "max speed" Done
+
+4. Apperantly fbx files is packed so needed to unpack to make the eyes and ears move with the head and then repack it. Done
+
+5.At this time we cant walk upwards on smal height differences, just end up launching the character upwards (the more speed the higher). NEED HOTFIX
+
+6. To import scripts and characters is a hell, you need to rebind all scripts to (in our case) the different body parts to make them move, I should've named the bone structure parts better for easier navigation and easier distrubution, will be hard for others collaborators to understand.
+
+took about 5 hours to rewrite the movement script and add a working jump function with a "check if grounded"
+
+total programming time is about 8hours now and another 20 hours 3D moddeling (includes getting familiar with the programs).
+
+---
+## [cursorweb/JavaAOC](https://github.com/cursorweb/JavaAOC)@[daf9f95558...](https://github.com/cursorweb/JavaAOC/commit/daf9f955583ed785f586f73d193aa65531ebb72a)
+#### Wednesday 2022-12-14 20:20:05 by Junhao "Jerry" Zhang
+
+part 1
+
+oh my god i'm literally pissing myself right now oh my god oh my god oh my god did i seriously just do this in java what the heck java sucks
+
+---
+## [Gamer025/tgstation](https://github.com/Gamer025/tgstation)@[03bc97ade5...](https://github.com/Gamer025/tgstation/commit/03bc97ade5a76f156229b946e38816ced97a0e30)
+#### Wednesday 2022-12-14 20:40:25 by necromanceranne
+
+Nukies Update 6: Interdyne is here for you! Medical Supplies and Atropine! (#71067)
+
+## About The Pull Request
+
+Quite a few changes overall to the nuclear operatives tactical medkit.
+The kit is more of a full suite of equipment for performing field
+medical duties as a nukie.
+
+- I've split the medkits between two kinds. Basic and premium. Medical
+bundle has the premium kit.
+- Basic contains additional amounts of basic c2 chem patches, some spare
+atropine autoinjectors, sutures and regen mesh, and some basic medical
+equipment for tending wounds. 4 TC (as it was before). That's it.
+- The premium kit is a far more useful full suite of advanced medical
+equipment, MODsuit modules, medical supplies and cybernetic implants,
+including the combat hypospray and the combat defib. 15 TC.
+
+**In the premium kit, there is:**
+- It has a box of beakers with powerful healing chems. Omnizine,
+salicylic acid, oxandrolone, pentetic acid, atropine, salbutamol and
+rezadone.
+- The combat injector is empty, so you can load it as necessary.
+- There are advanced sutures and regenerative mesh packs. They don't
+work through spacesuits, but are invaluable for wound repair. Especially
+burns.
+- There is a surgery arm toolset so you can do field operations without
+lugging tools.
+- There is a surgery processor module that comes preloaded with advanced
+surgeries, a threadripper module, and the combat defib module. The
+module works entirely like a combat defib, but you don't need to lose
+your belt slot to use it.
+- The surgeries are revival, the upgrade surgeries (like vein
+threading), brainwashing (did you know they didn't get access to
+brainwashing, I think this is a shame) and the better tend wounds
+option.
+- The nightvision medical hud doubles as a pair of science goggles.
+
+**Atropine changes:**
+- Atropine now stops bomb implants from autoexploding. This does **NOT**
+stop you from manually detonating the bomb. (This is possible even when
+you're dead and haven't left your body)
+- As a result, nukies get atropine medipens so that they can potentially
+stop themselves detonating prematurely, or stop their allies detonating
+prematurely. They have a little pamphlet to help explain how their
+microbomb works.
+
+## Why It's Good For The Game
+
+Straight up: The medkit is ass.
+
+The meds in the injector sucks, just getting c2 meds in patches is kind
+of insulting for something granted to you from an uplink item (and also
+you get those for free with your ~~xbox~~ infiltrator medical room so
+lol), and operatives just got the kit for one reason and one reason
+only. That combat defib as a _weapon_.
+
+Fuck that. So the kits now much better as a way to both support yourself
+AND your team through providing a range of improvements you can provide
+the squad, while also not undermining the reason why people may have
+wanted the kit (that defib). I would really like to see more nukies
+attempt to support one another in combat, and a medic operative is a
+role that needs love to make that a reality.
+
+**Edit here**: I reintroduced a low end kit with more c2 medical
+supplies _if you want them_. I can see how someone might pinch all of
+the medical supplies like a cunt, so maybe we should have a failsafe for
+that.
+
+A huge culprit of the lack of value of support meds was usually that
+ops...explode when they die. If a medic can pop atropine into an op
+before they die, they might be able to save them, or an op could pop
+themselves with atropine prematurely to maybe stave off death.
+
+## Changelog
+:cl:
+balance: Splits the nuclear operative combat medical kit into two
+versions: basic and premium.
+balance: Basic contains additional amounts of basic c2 chem patches,
+some spare atropine autoinjectors, sutures and regen mesh, and some
+basic medical equipment for tending wounds. 4 TC (as it was before).
+balance: The premium kit is a far more useful full suite of advanced
+medical equipment, MODsuit modules, medical supplies and cybernetic
+implants, including the combat hypospray and the combat defib. 15 TC.
+balance: Atropine stops bomb implants from automatically detonating on
+death. You can still manually activate your bomb implant (even when you
+are dead).
+balance: Operatives start with an atropine pen to stop themselves and
+their allies from detonating so they can hopefully be saved by a medical
+operative.
+add: There is a pamphlet to explain this in the nuclear operative's
+survival box.
+add: I'm not telling you to read the pamphlet, but you should probably
+read the pamphlet.
+/:cl:
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+
+---
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[af9d63ce15...](https://github.com/treckstar/yolo-octo-hipster/commit/af9d63ce15cff654a1210fa8f94008bc24dcdd94)
+#### Wednesday 2022-12-14 21:22:03 by treckstar
+
+Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
+
+---
+## [JohnH-Github/YouTooltip](https://github.com/JohnH-Github/YouTooltip)@[34ed711d55...](https://github.com/JohnH-Github/YouTooltip/commit/34ed711d559926b84901407cf3f7c90ac109ca76)
+#### Wednesday 2022-12-14 22:10:22 by John H
+
+Fix newly added links sometimes skipped.
+
+Holy mother of God this was frustrating to figure out. For some odd reason, the top of the MutationObserver callback (above the changes.forEach() loop) is executed on EVERY change, which caused newValidLinksBucket to reset. The fix is simple, but the hours lost was not.
+
+---
+## [wojsmol/hestiacp](https://github.com/wojsmol/hestiacp)@[365dab5670...](https://github.com/wojsmol/hestiacp/commit/365dab5670f6d1a862858be01638072eeb2ec1db)
+#### Wednesday 2022-12-14 22:10:50 by divinity76
+
+Use secure RNG to generate passwords (#2726)
+
+* use secure rng to generate passwords
+
+quoting MDN:
+>Math.random() does not provide cryptographically secure random numbers. Do not use them for anything related to security. Use the Web Crypto API instead
+
+My rng is kinda shitty, i know there is some fast way to cut down higher digits to get a digit in range without introducing bias, but i also know that other people have introduced bias by trying to do that on an initially secure rng and getting it wrong (iirc it's discussed here? https://www.youtube.com/watch?v=LDPMpc-ENqY - been years since i saw the talk, but i know Lavavej discussed it in one of his presentations, i think it was that one)  , but anyway this is fast enough, and secure.
+
+* shorter name
+
+* randomString2 / centralize js string generation
+
+* missed 2
+
+---
+## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[7f1e80ca3d...](https://github.com/cmss13-devs/cmss13/commit/7f1e80ca3dd4800f54b5ff4dc3663dd1f804c28c)
+#### Wednesday 2022-12-14 23:32:26 by carlarctg
+
+MIDIs are now either 'Meme' or 'Atmospheric', players can toggle each option (#1939)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+
+# About the pull request
+
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+Updated savefile number from 19 to 20. Meme and atmospheric preferences
+are enabled by default.
+
+Admin sounds now need a selection between 'Meme' or 'Atmospheric' type.
+Ideally, this would let players decide if they want to listen to hijack
+or first drop songs without needing to listen to GOOD HITS or whatnot.
+
+I am uncertain about the savefile bit of code. I don't fully understand
+it.
+
+As stated I don't care about GBP, so if the tags are teechnicallly
+incorrect go ahead and change them or whatever.
+
+# Explain why it's good for the game
 
 <!-- Please add a short description of why you think these changes would
 benefit the game. If you can't justify it in words, it might not be
@@ -1368,6 +2241,15 @@ worth adding, and may discourage maintainers from reviewing or merging
 your PR. This section is not strictly required for (non-controversial)
 fix PRs or backend PRs. -->
 
+> Admin sounds now need a selection between 'Meme' or 'Atmospheric'
+type. Ideally, this would let players decide if they want to listen to
+hijack or first drop songs without needing to listen to GOOD HITS or
+whatnot.
+
+As it says. Lots of people hate the memes and just want to listen to the
+cool atmosphere. This is of course dependant on staff selecting the
+right option, which is sometimes up to opinion, but I fully trust staff
+will be able to handle this subjective affair correctly.
 
 # Testing Photographs and Procedure
 <!-- Include any screenshots/videos/debugging steps of the modified code
@@ -1397,281 +2279,68 @@ GBP loss. Maintainers freely reserve the right to remove and add tags
 should they deem it appropriate. -->
 
 :cl:
-add: Queen eye shuffles weed sprites when passing over them.
-fix: Fixed some single letter vars so the mantainer agenda can't delay
-this PR from merging.
+refactor: Updated savefile number from 18 to 19. Meme and atmospheric
+preferences are enabled by default.
+admin: Admin sounds now need a selection between 'Meme' or 'Atmospheric'
+type. Ideally, this would let players decide if they want to listen to
+hijack or first drop songs without needing to listen to GOOD HITS or
+whatnot.
 /:cl:
 
 <!-- Both :cl:'s are required for the changelog to work! -->
 
----
-## [anoobindisguise/Cataclysm-DDA](https://github.com/anoobindisguise/Cataclysm-DDA)@[8e39d6f97c...](https://github.com/anoobindisguise/Cataclysm-DDA/commit/8e39d6f97c358c72a3dacc7c2f3ce955ecb30e81)
-#### Tuesday 2022-12-13 17:14:34 by casswedson
-
-fix: edge case ci error exit (#62660)
-
-so a step of the reviewer workflow always runs, good it is the actual
-magical step doing the hard work, but if the workflow gets canceled, the
-step exits with an error code, I actually knew this but me from like a
-day ago was like:
-"nah man this won't bother me in the future."
-
-guess what; after a couple hours I was felling the pain my perfectionist
-subconscious was putting me through, plus odd error code exits aren't
-very professional or clean or pleasing I'd say, also someone may think
-it's weird, look into it, waste time looking at my code
-
-title: do not draw much attention
-
-Co-authored-by: casswedson <casswedson@users.noreply.github.com>
+Co-authored-by: Stan_Albatross <66756236+stanalbatross@users.noreply.github.com>
 
 ---
-## [Jaden-PHILIPPINES/VGP-P3-2022-2023](https://github.com/Jaden-PHILIPPINES/VGP-P3-2022-2023)@[e96fdd137c...](https://github.com/Jaden-PHILIPPINES/VGP-P3-2022-2023/commit/e96fdd137c55d1e3c56bf8cd9f7689eb63c19b6b)
-#### Tuesday 2022-12-13 17:24:57 by Jaden Morales
+## [Jolly-66/Skyrat-tg](https://github.com/Jolly-66/Skyrat-tg)@[81ca11b95a...](https://github.com/Jolly-66/Skyrat-tg/commit/81ca11b95a59d5cf0eb0a066454b2903f4859503)
+#### Wednesday 2022-12-14 23:41:38 by SkyratBot
 
-Revert "Fuck you luck"
+[MIRROR] Basic Mob Carp: Retaliate Element [MDB IGNORE] (#18030)
 
-This reverts commit d172736fc5497c08a7d96b9e75599b8c711769b5.
-
----
-## [emillon/dune](https://github.com/emillon/dune)@[905c043f82...](https://github.com/emillon/dune/commit/905c043f82f575e75a75a2105ef16dc20c1c141c)
-#### Tuesday 2022-12-13 18:00:38 by Etienne Millon
-
-Add shell completion
-
-This provides a shell completion mechanism for dune. This relies on the
-bash completion API, which can be used with zsh as well.
-
-The architecture is:
-
-- `dune complete script` outputs a script to be sourced in the user's
-  shell. It is comprised of a `_dune` function and the `complete -F
-  _dune dune` command to register it. The `_dune` function can be used
-  in cram tests to write natural-looking tests for this feature.
-- this script calls `dune complete command` with the partial
-  command-line. This internal command parses it to determine what the
-  word being completed refers to: a command name, an argument name, or
-  an argument value. The first two ones are part of the metadata
-  `cmdliner` knows about; the last one is provided through a completion
-  function that can be passed in one the `Arg` functions.
-- the interface between `bash` and `dune complete command` is simple:
-  it passes the command line and a position to complete at (this is
-  necessary to encode the difference between `dune bui<tab>` and `dune
-  build <tab>` for example), and reads an array from the output of the
-  command.
-
-The things I'm happy with:
-
-- it is small!
-- coverage is pretty good: command names, arguments (positional and
-  optional, including optional arguments with optional names), and the
-  `--` construct are supported. So, this is likely to improve the user
-  experience already.
-- it is easy to test through cram or unit tests (I chose the former).
-
-Now, for the ugly bits...
-
-- this effectively is a partial reimplementation of cmdliner inside
-  `complete.ml`. If the exact parsing rules are different, it means that
-  we can complete to something with different or wrong semantics.
-- the vendored copy of cmdliner is patched to expose so that it is
-  possible to use the private APIs. these two points need to be resolved
-  before we can think about how to upstream this.
-- some bits of the cmdliner API need to be modified to provide
-  completion automatically. For example for things like `enum` it's easy
-  to provide a completion function automatically.
-- it is difficult to define the right API for the completion functions.
-  `unit -> string list` is a first approximation but with some
-  limitations. For example, getting a list of buildable targets needs to
-  run under `Fiber`, but we can't pollute the API with it. Interestingly
-  enough, algebraic effects seem like they would be an interesting
-  solution for this.
-- at the moment, we're not relying on the shell's completion helpers to
-  complete things like filenames. To support this we would either need
-  to implement that in OCaml, or extend the bash/dune interface so that
-  the completion function could call `compgen -f` based on the dune
-  output.
-- as a way to tie the two previous points: if we wanted to complete
-  `dune build dir/file<tab>`, it would be a lot more efficient to pass
-  the prefix to the build system and let it compute just the targets
-  that match this, rather than compute everything and filter it
-  afterwards. So that prefix would need to appear in the completion API.
-
-Signed-off-by: Etienne Millon <me@emillon.org>
-
----
-## [steven52880/Grasscutter](https://github.com/steven52880/Grasscutter)@[88bc5c4c54...](https://github.com/steven52880/Grasscutter/commit/88bc5c4c54c1aadcdc6cc9a24c0f69d4bebce97c)
-#### Tuesday 2022-12-13 20:36:03 by Kimi
-
-another translation patches because i fucked it up
-
-i hate myself
-
----
-## [mpaliwoda/advent-of-code-2022](https://github.com/mpaliwoda/advent-of-code-2022)@[2b008f87a2...](https://github.com/mpaliwoda/advent-of-code-2022/commit/2b008f87a2e80dca7fadd17e52349b99643abece)
-#### Tuesday 2022-12-13 21:04:57 by Marcin Paliwoda
-
-Day 9 - Dear diary,
-
-Brain fried, I think I'm gonna give up soon.
-
-Please send help as I'm unable to understand what's going on anymore.
-
-Lovely elves, please don't make me go on that rope again.
-The only worse thing to happen to me would be implementing A* algo.
-Hope that doesn't happen.
-
-// narrator:
-//      it totally will happen
-
----
-## [vbraun/sage](https://github.com/vbraun/sage)@[d2a2415104...](https://github.com/vbraun/sage/commit/d2a2415104cfacbf2d13f8930e6457bf36b39e17)
-#### Tuesday 2022-12-13 21:45:13 by Release Manager
-
-Trac #32841: zn_poly removal
-
-The zn_poly SPKG is used by sage in only one place. In hypellfrob.cpp's
-`interval_products_wrapper()`, there is a case...
-
-{{{#!C++
-if (!force_ntl  &&  modulus <= (1UL << (ULONG_BITS - 1)) - 1)
-{
-   // Small modulus; let's try using zn_poly if we're allowed.
-   ...
-}}}
-
-But sometimes that fails, and the fallback is to use NTL anyway. The
-zn_poly project was abandoned upstream in 2008:
-
-  https://web.maths.unsw.edu.au/~davidharvey/code/zn_poly/index.html
-
-We've forked it to keep it building on modern systems,
-
-  https://gitlab.com/sagemath/zn_poly
-
-but the build system is still a mess. Erik started an autotools branch
-(https://gitlab.com/sagemath/zn_poly/-/tree/autotooling), but it never
-got finished, because the source layout is a bit weird for autotools and
-it should most likely be redone from scratch.
-
-And zn_poly is not packaged in Gentoo because of how many hacks it still
-requires to build on a distro with stronger user experience
-expectations:
-
-  https://github.com/cschwan/sage-on-gentoo/blob/master/sci-
-libs/zn_poly/zn_poly-0.9.2.ebuild
-
-In short, we're not getting a lot of benefit out of zn_poly these days,
-and nothing breaks if we remove it, because the one function that uses
-it falls back to the more-reliable NTL anyway.
-
-In this ticket we remove the zn_poly SPKG, to avoid having to rewrite
-its build system some day.
-
-URL: https://trac.sagemath.org/32841
-Reported by: mjo
-Ticket author(s): Michael Orlitzky
-Reviewer(s): Dima Pasechnik
-
----
-## [RimiNosha/Skyrat-tg](https://github.com/RimiNosha/Skyrat-tg)@[84b1612201...](https://github.com/RimiNosha/Skyrat-tg/commit/84b161220115e3243272299b3f8f3cb29d484709)
-#### Tuesday 2022-12-13 21:49:34 by SkyratBot
-
-[MIRROR] Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup. [MDB IGNORE] (#18019)
-
-* Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup. (#71674)
+* Basic Mob Carp: Retaliate Element (#71593)
 
 ## About The Pull Request
 
-- The chaplain choice beacon now uses a radial to select the armor set,
-instead of a list, giving the user a preview of what each looks like.
+Adds an Element and AI behaviour intended to replicate the "retaliate"
+behaviour which made up an entire widely-populated subtype of simple
+mobs.
+The behaviour is pretty simply "If you fuck with me I fuck with you".
+Mobs with the component will "remember" being attacked and will try to
+attack people who attacked them, until they lose sight of those people.
+They don't have very long memories so breaking line of sight is enough
+to remove you from their grudge list.
+The implementation unfortunately requires registering to 600 different
+"I have been attacked by X" signals but c'est la vie.
 
-![image](https://user-images.githubusercontent.com/51863163/205417930-f5ceab11-6974-48a9-a871-abcb8228bcf2.png)
+It will still be cleaner than
+`/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus`
+and `mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus`.
 
-- Lots of additional cleanup to choice beacon code in general. Less copy
-pasted code.
-- All beacons now speak from the beacon with their message, instead of
-some going by "headset message". Soul removed
+I attached it to the pig for testing and left it there because out of
+all the farm animals we have right now, a pig would probably get pissed
+off if you tried to kill it. Unfortunately it's got a sausage's chance
+in hell of ever killing anyone.
 
 ## Why It's Good For The Game
 
-I always forgot when selecting my armor which looks like what, and
-choosing an ugly one is a pain since you only get one choice. This
-should help chaplains get the armor they actually want without needing
-to check the wiki.
+It doesn't have much purpose yet but as we make more basic mobs this is
+going to see a **lot** of use.
 
 ## Changelog
 
-:cl: Melbert
-qol: The chaplain's armament beacon now displays a radial instead of a
-text list, showing previews of what all the armor sets look like
-qol: (Almost) all choice beacons now use a pod to send their item,
-instead of just magicking it under your feet
-code: Cleaned up some choice beacon code.
+:cl:
+add: Basic mobs have the capability of being upset that you kicked and
+punched them.
+add: Pigs destined for slaughter will now ineffectually attempt to
+resist their fate, at least until they lose sight of you.
+balance: Bar bots are better at noticing that you're trying to kill
+them.
 /:cl:
 
-Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
+* Basic Mob Carp: Retaliate Element
 
-* Chaplain armor beacon now uses radial + previews possible armor sets, plus some choice beacon code cleanup.
-
-* update modular
-
-Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
-Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
-Co-authored-by: Tom <8881105+tf-4@users.noreply.github.com>
-
----
-## [EastsidePreparatorySchool/ChemLogs](https://github.com/EastsidePreparatorySchool/ChemLogs)@[5378148e25...](https://github.com/EastsidePreparatorySchool/ChemLogs/commit/5378148e25d6156a49286cc3311862a8389b469c)
-#### Tuesday 2022-12-13 23:11:51 by Cluelessbutnothomeless
-
-Test Page for Chemical Searching
-
-When I started this page I had no idea what I was doing. I still have no idea what I am doing. But I can attest that the above code works, the majority of the time at least. I'm not sure how detailed this description is supposed to be but I will keep it short. It looks good I guess, at the very least its not an abhorrent aberration grotesque to all animal eyes. So that's good. :) While some might say I took my inspiration from the Nordstrom Active Apparel website I would be quick to remind them that there is a high possibility that Nordstrom stole their design form someone else and therefore my acting is the equivalent of balancing the cosmic scales. Now I'm sure being a cosmic balancer puts me dead in the sights of more than one ancient prophecy but I will remind the reader that I am still me. Still the same coder struggling to comprehend whether or not html is a language or a jumble of misshapen letters. Alas we have come to the end of my summary, I should hope it was informative to have a description of my mindset when coding the page. Maybe even helpful? Humbly, Aroura
-
----
-## [maesierra/adventOfCode2022](https://github.com/maesierra/adventOfCode2022)@[ca98746e21...](https://github.com/maesierra/adventOfCode2022/commit/ca98746e21cc1b3229a21da809e2d5a5e98dd8f3)
-#### Tuesday 2022-12-13 23:44:29 by maesierra
-
-day13
-
-Today was extremelly painful in Go. Object Oriented Programing is good. Inheritance is good
-It doesn't solve all the problems, but for some of them is so elegant an nice.
-
-Aparently you cannot cast from interface into concrete type and with no method overloading there is no way to do Comparable interface
-At least int good old C you can cast a pointer into anything (be a pointer my friend)
-In the end I have to do a horrible solution with composition. Yes you can use composition instead of inheritance but is ugly and more error prone
-
-And pointers... I'm getting used to start thining in pointer terms
-again. But I'd rather write stupid Java boilerplate than having this
-headaches of pointers. Pointers are difficult and error-prone
-
----
-## [nuke-ops/Nostra-13](https://github.com/nuke-ops/Nostra-13)@[8eec99b320...](https://github.com/nuke-ops/Nostra-13/commit/8eec99b3206e917bd711987a80422168de53f83d)
-#### Tuesday 2022-12-13 23:55:19 by LemonInTheDark
-
-Caches GetJobName. Fuck you (#274)
-
-* Caches GetJobName. Fuck you
-
-This code made me deeply upset, WHY IS IT RECURSIVE WHY WHY WHY WHY WHY WHY WHY WHY WHY WHY WHY
-
-* Centcom handling, properly this time
-
-* Empties out real_job_name
-
-* Sets real_job_name up in the right place
-
-* Moves real_job_name to SSjob, uses modularTM
-
-* Yeet
-
-* Removes old code, swaps over to the SSjob list
-
-* dme changes
-
-* indents... comments
-
-Co-authored-by: SandPoot <enric_gabirel@hotmail.com>
+Co-authored-by: Jacquerel <hnevard@gmail.com>
+Co-authored-by: tastyfish <crazychris32@gmail.com>
 
 ---
 
