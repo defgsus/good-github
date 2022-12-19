@@ -1236,4 +1236,5 @@
 [15](good-messages/2022/2022-12-15.md)
 [16](good-messages/2022/2022-12-16.md)
 [17](good-messages/2022/2022-12-17.md)
+[18](good-messages/2022/2022-12-18.md)
 
