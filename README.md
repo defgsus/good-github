@@ -5,287 +5,224 @@ an [index](docs/messages.md).
 
 ---
 
-# [2022-12-19](docs/good-messages/2022/2022-12-19.md)
+# [2022-12-20](docs/good-messages/2022/2022-12-20.md)
 
 
-2,216,118 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,216,118 were push events containing 3,221,133 commit messages that amount to 253,692,890 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 44 messages:
+2,163,197 events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,163,197 were push events containing 3,186,325 commit messages that amount to 259,196,702 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 52 messages:
 
 
-## [maesierra/adventOfCode2022](https://github.com/maesierra/adventOfCode2022)@[e4b29dfea2...](https://github.com/maesierra/adventOfCode2022/commit/e4b29dfea24acaf8816f39795d6f0e2ff5b49248)
-#### Monday 2022-12-19 00:41:05 by Maria-Eugenia Sierra
+## [apollographql/apollo-server](https://github.com/apollographql/apollo-server)@[32cca948be...](https://github.com/apollographql/apollo-server/commit/32cca948be82764e9d076be171b5c1657d412899)
+#### Tuesday 2022-12-20 00:00:42 by Trevor Scheer
 
-day18
+Update CS:CI config (#7254)
 
-after a surprisely easy part 1, part 2 took me ages becasue I insisted on not doing the right solution, locate the empty spots and try to see (recursively) if it can reach the surface.
-I insisted on using ranges or not thinking that I needed the recursion. It's slow as hell as I did not bother to memoize the recursion.
+CS:CI has reported that node 18 is now supported, meaning we should be
+able to simplify some config and remove a workaround.
 
-Fortunatelly I decided to use babylonjs playground to help me visualize and it help me a lot  https://playground.babylonjs.com/#9WMURK#3
+Also add missing packages to the ci.json.
 
-go rant...
-I miss map.hasKey() or contains_key and the ternaries. I don't waste my time in defining a variable every time I want to check if a map has a key.
-And the lack of ternaries make me do so many unnecessary variables... yes I know the compiler will inline them, but I have to waste my brain power in
-giving them a name. A naming it's a hard problem
+<!--
+First, 🌠 thank you 🌠 for taking the time to consider a contribution to
+Apollo!
 
-Also I miss constructors. Yes, I know I can create a factory method that's effectively a constructor. But
+Here are some important details to follow:
 
-  a) does not offer the security of a constructor to know all the initializations will go by one path. Yes outside your module,
-     but inside your module you're not forced to use your initialization method
-  b) you need to think on a name
-  c) the IDE does not help. I don't remeber the last time I had to create a constructor manually. The IDE will do that for me. So I end up not doing on go because I have to do it manually
+* ⏰ Your time is important
+To save your precious time, if the contribution you are making will take
+more
+than an hour, please make sure it has been discussed in an issue first.
+          This is especially true for feature requests!
+* 💡 Features
+Feature requests can be created and discussed within a GitHub Issue. Be
+sure to search for existing feature requests (and related issues!) prior
+to
+opening a new request. If an existing issue covers the need, please
+upvote
+that issue by using the 👍 emote, rather than opening a new issue.
+* 🔌 Integrations
+Apollo Server has many web-framework integrations including Express,
+Koa,
+Hapi and more. When adding a new feature, or fixing a bug, please take a
+peak and see if other integrations are also affected. In most cases, the
+fix can be applied to the other frameworks as well. Please note that,
+since new web-frameworks have a high maintenance cost, pull-requests for
+new web-frameworks should be discussed with a project maintainer first.
+* 🕷 Bug fixes
+These can be created and discussed in this repository. When fixing a
+bug,
+please _try_ to add a test which verifies the fix. If you cannot, you
+should
+still submit the PR but we may still ask you (and help you!) to create a
+test.
+* 📖 Contribution guidelines
+Follow
+https://github.com/apollographql/apollo-server/blob/main/CONTRIBUTING.md
+when submitting a pull request. Make sure existing tests still pass, and
+add
+          tests for all new behavior.
+* ✏️ Explain your pull request
+Describe the big picture of your changes here to communicate to what
+your
+pull request is meant to accomplish. Provide 🔗 links 🔗 to associated
+issues!
+
+We hope you will find this to be a positive experience! Open source
+contribution can be intimidating and we hope to alleviate that pain as
+much as possible. Without following these guidelines, you may be missing
+context that can help you succeed with your contribution, which is why
+we encourage discussion first. Ultimately, there is no guarantee that we
+will be able to merge your pull-request, but by following these
+guidelines we can try to avoid disappointment.
+-->
 
 ---
-## [Koshenko/mojave-sun-13](https://github.com/Koshenko/mojave-sun-13)@[fe5d6c7b56...](https://github.com/Koshenko/mojave-sun-13/commit/fe5d6c7b568d550f403eb892ed47ffaf6b4fd28c)
-#### Monday 2022-12-19 00:48:52 by Technobug14
+## [TaleStation/TaleStation](https://github.com/TaleStation/TaleStation)@[32a86ad184...](https://github.com/TaleStation/TaleStation/commit/32a86ad18489a5ed8eaa2d5ccea51d4c004dd89e)
+#### Tuesday 2022-12-20 00:02:22 by TaleStationBot
 
-Agriculture (#2230)
+[MIRROR] [MDB IGNORE] Smoothing groups optimization, save 265ms with configs, more on production & w/ space ruins (#3723)
 
-* Does Stuff
+* Smoothing groups optimization, save 265ms with configs, more on production & w/ space ruins (#71989)
 
-Beginnings of agriculture code, stripped down TG botany a bunch, got rid of scar botany whilst replacing most of it. Also some map edits to change the paths on stuff and add a few spades for farming.
+This one is fun.
 
-* Some NPK system framework
+On every /turf/Initialize and /atom/Initialize, we try to set
+`smoothing_groups` and `canSmoothWith` to a cached list of bitfields. At
+the type level, these are specified as lists of IDs, which are then
+`Join`ed in Initialize, and retrieved from the cache (or built from
+there).
 
-Removing more TG botany stuff and getting some framework down for NPK. Adds a "nutrient_type" variable to seeds and gives N, P or K as the type to every seed.
+The problem is that the cache only misses about 60 times, but the cache
+hits more than a hundred thousand times. This means we eat the cost of
+`Join` (which is very very slow, because strings + BYOND), as well as
+the preliminary `length` checks, for every single atom.
 
-* Removes Stuff, More NPK Framework
+Furthermore, as you might remember, if you have any list variable set on
+a type, it'll create a hidden `(init)` proc to create the list. On
+turfs, that costs us about 60ms.
 
-Still WIP on NPK stuff, removes more basic bitch TG botany stuff, needs a lot more content but in an almost-working state
+This PR does a cool trick where we can completely eliminate the `Join`
+*and* the lists at the cost of a little more work when building the
+cache.
 
-* Nutrient drain
+The trick is that we replace the current type definitions with this:
 
-Nutrients actually get drained properly now. Crop plots output their level of N, P and K when examined. Still need to make something to handle restoring nutrients and figure out a nutrient economy for plant consumption.
+```patch
+- smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_ASH)
+- canSmoothWith = list(SMOOTH_GROUP_FLOOR_ASH, SMOOTH_GROUP_CLOSED_TURFS)
++ smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_ASH
++ canSmoothWith = SMOOTH_GROUP_FLOOR_ASH + SMOOTH_GROUP_CLOSED_TURFS
+```
 
-* Mostly working, one major bug
+These defines, instead of being numbers, are now segments of a string,
+delimited by commas.
 
-This is mostly working now. The NPK now drains according to the seed planted, it replenishes over time, you can now get water from water tiles and the soil will properly adjust the waterlevel variable with the new water types.
+For instance, if ASH used to be 13, and CLOSED_TURFS used to be 37, this
+used to equal `list(13, 37)`. Now, it equals `"13,37,"`.
 
-HOWEVER, big bug. The way TG handled watering crops is ass. Doesn't delete, stays in the reagent_container of the soil, normally checks for if a reagent_container has water to bypass how full the soil's container is, bad system that sucks. Needs fixing.
+Then, when the cache misses, we take that string, and treat it as part
+of a JSON list, and decode it from there. Meaning:
+
+```java
+// Starting value
+"13,37,"
+
+// We have a trailing comma, so add a dummy value
+"13,37,0"
+
+// Make it an array
+"[13,37,0]"
+
+// Decode
+list(13, 37, 0)
+
+// Chop off the dummy value
+list(13, 37) // Done!
+```
+
+This on its own eliminates 265ms *without space ruins*, with the
+combined savings of turf/Initialize, atom/Initialize, and the hidden
+(init) procs that no longer exist.
+
+Furthermore, there's some other fun stuff we gain from this approach
+emergently.
+
+We previously had a difference between `S_TURF` and `S_OBJ`. The idea is
+that if you have any smoothing groups with `S_OBJ`, then you will gain
+the `SMOOTH_OBJ` bitflag (though note to self, I need to check that the
+cost of adding this is actually worth it). This is achieved by the fact
+that `S_OBJ` simply takes the last turf, and adds onto that, meaning
+that if the biggest value in the sorting groups is greater than that,
+then we know we're going to be smoothing to objects.
+
+This new method provides a limitation here. BYOND has no way of
+converting a number to a string at compile time, meaning that we can't
+evaluate `MAX_S_TURF + offset` into a string. Instead, in order to
+preserve the nice UX, `S_OBJ` now instead opts to make the numbers
+negative. This means that what used to be something like:
+
+```dm
+smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WEEDS)
+```
+
+...which may have been represented as
+
+```dm
+smoothing_groups = list(15, MAX_S_TURF + 3)
+```
+
+...will now become, at compile time:
+
+```dm
+smoothing_groups = "15,-3,"
+```
+
+Except! Because we guarantee smoothing groups are sorted through unit
+testing, this is actually going to look like:
+
+```dm
+smoothing_groups = "-3,15,"
+```
+
+Meaning that we can now check if we're smoothing with objects just by
+checking if `smoothing_groups[1] == "-"`, as that's the only way that is
+possible. Neat!
+
+Furthermore, though much simpler, what used to be `if
+(length(smoothing_groups))` (and canSmoothWith) on every single
+atom/Initialize and turf/Initialize can now be `if (smoothing_groups)`,
+since empty strings are falsy. `length` is about 15% slower than doing
+nothing, so in procs as hot as this, this gives some nice gains just on
+its own.
+
+For developers, very little changes. Instead of using `list`, you now
+use `+`. The order might change, as `S_OBJ` now needs to come first, but
+unit tests will catch you if you mess up. Also, you will notice that all
+`S_OBJ` have been increased by one. This is because we used to have
+`S_TURF(0)` and `S_OBJ(0)`, but with this new trick, -0 == 0, and so
+they conflicted and needed to be changed.
+
+* Smoothing groups optimization, save 265ms with configs, more on production & w/ space ruins
+
+* fixes
 
 * oops
 
-oopsie!!! fucked something!!! forgot to undo a change I made to the code, it's just there to remind me it's not working correctly
+* i hate this entire module
 
-* Last minute fixes/bandaids
+* what if i just kill you how about that
 
-I HATE TG BOTANY I HATE TG BOTANY I'M LOSING IT
+* uh
 
----
-## [mythaxis/mythaxis.github.io](https://github.com/mythaxis/mythaxis.github.io)@[7f31baae60...](https://github.com/mythaxis/mythaxis.github.io/commit/7f31baae60c4e72344ba8bca33ba194c16e170b3)
-#### Monday 2022-12-19 01:17:40 by AndrewLeonHudson
-
-Auto stash before merge of "master" and "origin/master"
-
-Made me shit myself, god damn it
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
+Co-authored-by: Jolly-66 <70232195+Jolly-66@users.noreply.github.com>
 
 ---
-## [i3roly/CMI8788](https://github.com/i3roly/CMI8788)@[3775d9e5d1...](https://github.com/i3roly/CMI8788/commit/3775d9e5d1fbacad476f2faff2c725ab5b3c5060)
-#### Monday 2022-12-19 01:22:53 by gagan sidhu
+## [TaleStation/TaleStation](https://github.com/TaleStation/TaleStation)@[da65cf0c23...](https://github.com/TaleStation/TaleStation/commit/da65cf0c23f052e291eb3aaafb564e7e6decf8f8)
+#### Tuesday 2022-12-20 00:02:28 by TaleStationBot
 
-you bet your sweet ass it's accessing the mapped memory.
+[MIRROR] [MDB IGNORE] refreshes syndi-kits and syndicate surplus crates, introduces shared limited stock (#3737)
 
-phil told me about this before too. i don't understand what the fuck is going on with legit DMA. it always does this.
-
-mb i should just try to access it using the getaddress call or something.
-
-anyways gonna let my mac take it easy for a bit because spotlight is probably rebuilding and i gave this thing a severe case of alzheimers over the past few hours.
-
----
-## [OliOliOnsiPree/Skyrat-tg](https://github.com/OliOliOnsiPree/Skyrat-tg)@[24ae11ad6f...](https://github.com/OliOliOnsiPree/Skyrat-tg/commit/24ae11ad6f6af9c0b6dab12986b95943f0cdf1f8)
-#### Monday 2022-12-19 01:23:50 by SkyratBot
-
-[MIRROR] Adds a reagent injector component and BCI manipulators to all circuit labs [MDB IGNORE] (#17617)
-
-* Adds a reagent injector component and BCI manipulators to all circuit labs (#71236)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
-
-## About The Pull Request
-
-This PR adds a reagent injector component that's exclusive to BCIs.
-(Requested to be integrated into BCIs by Mothblocks.)
-When outside of a circuit, the component itself stores the reagents.
-However, if it's inside of a BCI, the storage is moved to the BCI. The
-storage can contain up to 15u of reagents and acts like an open
-container. (However, it won't spill even if you throw it, it just acts
-like an open container code-wise, don't worry about it.)
-You can only have one reagent injector in a circuit. Trying to insert
-multiple will give you an error message.
-The entire dose is administered at once. (Requirement set by
-Mothblocks.)
-
-Please don't try to dispute any of the specific limitations in the
-comments as they're out of my control. They're reasonable anyways.
-
-Reagent Injector Input/Output:
-Inject (Input Signal) - Administers all reagents currently stored inside
-of the BCI into the user.
-Injected (Output Signal) - Triggered when reagents are injected. Not
-triggered if the reagent storage is empty.
-
-New BCI Input:
-Show Charge Meter (Number) - Toggles showing the charge meter action.
-(Adds some capacity for stealth.)
-
-Install Detector Outputs: (Added following a comment about having to use
-weird workarounds for proper loops.)
-Current State (Number) - Outputs 1 if the BCI is implanted and 0 if it's
-not.
-Installed (Signal) - Triggered when the BCI is implanted into it's user.
-Removed (Signal) - Triggered when the BCI is removed from it's user.
-
-This PR also adds BCI manipulation chambers to all currently present
-circuit labs. (Solution proposed by Mothblocks.)
-Yes I had to do some other mapping changes to allow for this. No I don't
-have any mapping experience, why do you ask?
-
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
-## Why It's Good For The Game
-
-One small step for BCIs, one giant leap for circuit kind. (First
-"proper" circuit to human interaction in the entire game!)
-
-This allows for some funky stuff and also makes it less of a pain in the
-ass to use BCIs. What's not to love?
-
-<!-- Argue for the merits of your changes and how they benefit the game,
-especially if they are controversial and/or far reaching. If you can't
-actually explain WHY what you are doing will improve the game, then it
-probably isn't good for the game in the first place. -->
-
-## Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
-and it's effects on PRs in the tgstation guides for contributors. Please
-note that maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. You can attempt to finagle the system
-all you want, but it's best to shoot for clear communication right off
-the bat. -->
-
-:cl:
-add: Added a reagent injector component and BCI manipulators to all
-circuit labs. (+ install detector component)
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
-* Adds a reagent injector component and BCI manipulators to all circuit labs
-
-Co-authored-by: RikuTheKiller <88713943+RikuTheKiller@users.noreply.github.com>
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-Co-authored-by: Paxilmaniac <paxilmaniac@gmail.com>
-
----
-## [OliOliOnsiPree/Skyrat-tg](https://github.com/OliOliOnsiPree/Skyrat-tg)@[f4335e5184...](https://github.com/OliOliOnsiPree/Skyrat-tg/commit/f4335e5184da0a4643bab601ae11c59e9d411a6e)
-#### Monday 2022-12-19 01:23:50 by SkyratBot
-
-[MIRROR] Fishing Odds Code Improvements and Rescue Hooks [MDB IGNORE] (#17697)
-
-* Fishing Odds Code Improvements and Rescue Hooks (#71415)
-
-## About The Pull Request
-I wanted to try and implement an easier way for people to fish out
-corpses from chasms, as I heard many tales of people trying to fish
-others out of chasms and it taking over one IRL hour, with some cases
-where it would take over two hours. Obviously, that's not really
-interesting gameplay, and it doesn't really give people an incentive to
-fish, it just turns it into an annoyance that people won't want to do
-for fun. Now, we don't want that, do we?
-
-As such, I've created the rescue hook, a special fishing hook that can
-only be used in chasms (as that's currently the only place you can find
-people into), which will only be able to fish out duds, skeleton
-corpses, any mob that's fallen into a chasm and hasn't been rescued yet,
-or rarely, a hostile monster lurking below. It has, at the time of
-writing this, a weight of 5 (50 without bait, lower with bait) for duds
-and a weight of 30 for chasm detritus, which themselves have a 50%
-chance to be a random skeleton corpse, or a lobstrosity, and the
-remaining 50% chance of fishing out a mob that's fallen into a chasm.
-I'm open to tweaking these values if we think it's too easy or too hard,
-but it's still a rather expensive item, so I'd consider it quite fine
-the way it is myself, as it's still not risk-free.
-
-It's currently only obtainable through buying it from cargo in the
-goodies section, at a default price of 600 credits (making it
-SIGNIFICANTLY more expensive than the rest of the fishing content, and
-making it something that assistants will have to put some elbow grease
-into if they want to be able to afford it).
-
-As it stands currently, it can't be used to recover the fallen's
-belongings that weren't on their person (i.e., their crusher if they
-were holding it in hands), ~*but* I'm down to make that easier to fish
-out using, for instance, the magnet hook, while also making it
-incompatible with fishing out bodies, which would make it a nice way to
-recover those lost items without spending over an hour fishing for them,
-if that's something that maintainers would want.~ Maintainers did want
-it, and as such...
-
-The Magnetic hook is now the go-to hook to retrieve objects from chasms!
-Not only does it inherently do a much better job at fishing out
-non-fishes, it also has a lesser chance of retrieving random junk from
-chasms, and an even lower chance of fishing out lobstrosities!
-
-I also improved the code for the fishing weights calculation so that the
-hooks and the rods can have an effect on the odds of certain types of
-rewards more easily, with the option of offloading a more of what's
-currently being calculated on `fishing_challenge` over on the rods or
-even the hooks themselves.
-
-I finished by fixing a handful of capitalization and punctuation issues
-in various fishing items, as that bugged me when I was testing my
-changes.
-
-## Why It's Good For The Game
-Corpses being recoverable from chasms was a great idea, however making
-it so people would have to sink a major portion of their shift for a
-chance at recovering a corpse doesn't create a particularly interesting
-gameplay loop. However, being able to spend your hard-earned funds in
-order to streamline that process without really being able to use that
-to cheese other mechanics sounds like a great deal to me.
-
-## Changelog
-
-:cl: GoldenAlpharex
-add: Added a Rescue Hook, that will allow the fishing rod it's attached
-onto to become a lot more proficient at recovering corpses from chasms,
-at the expense of making it unusable for more traditional fishing. It
-isn't entirely lobstrosity-proof, however...
-balance: The magnetic hook can no longer fish out corpses from chasms,
-but will fish out items much more efficiently than any other hooks,
-while also being much less attractive to lobstrosities. Some still fall
-for it regardless, however.
-spellcheck: Fixed the capitalization and punctuation in the description
-of multiple fishing accessories.
-code: Improved the code for fishing weights, to allow for different
-hooks to have some more noticeable results on the weights without having
-to add to an already massive proc.
-/:cl:
-
-* Fishing Odds Code Improvements and Rescue Hooks
-
-Co-authored-by: GoldenAlpharex <58045821+GoldenAlpharex@users.noreply.github.com>
-
----
-## [ShizCalev/tgstation](https://github.com/ShizCalev/tgstation)@[7687a28e7c...](https://github.com/ShizCalev/tgstation/commit/7687a28e7ceecea6b9e0aacdb58a2271b063f9d3)
-#### Monday 2022-12-19 01:34:48 by Sol N
-
-refreshes syndi-kits and syndicate surplus crates, introduces shared limited stock (#71869)
+* refreshes syndi-kits and syndicate surplus crates, introduces shared limited stock (#71869)
 
 ## About The Pull Request
 
@@ -431,1267 +368,20 @@ bal: role-restricted items no longer can be delivered by the stray
 syndicate drop pod event
 /:cl:
 
----
-## [ShizCalev/tgstation](https://github.com/ShizCalev/tgstation)@[6dd4839ef3...](https://github.com/ShizCalev/tgstation/commit/6dd4839ef321aa0a997549d1ae07fe7ccbba59ed)
-#### Monday 2022-12-19 01:34:48 by carshalash
+* refreshes syndi-kits and syndicate surplus crates, introduces shared limited stock
 
-Gatfruit will no longer drop from ice portals. (#72048)
+* slowly converting back to tg
 
-## About The Pull Request
-
-For some god-forsaken reason, somebody decided that ice portals should
-be able to drop one of the most disruptive items in the game. This PR
-amends this by removing it from the drop pool.
-
-## Why It's Good For The Game
-
-In 2013 gatfruit was introduced in the following PR #2000 . This was
-almost a decade ago at this point, repeatedly through the PR the creator
-states his belief that this item should only ever be obtainable through
-admin intervention due to its ridiculous capabilities. At the time
-everyone in the PR agreed it was a reasonable item to add **as it was
-unobtainable without admin intervention**. Over the years, it has crept
-its way to become more prevalent and openly obtainable, the most
-offensive of these options is the ice moon portal. As is, there is a 1
-in 28 chance of obtaining the seeds, this sounds pretty inoffensive
-right? That's just 3.44% probability. Now, let us search the instances
-of the portal that spawns this.
-
-
-![image](https://user-images.githubusercontent.com/16896032/208220173-bbefe604-0885-44a5-9add-b5f0c62067cc.png)
-
-That is a big number, a lot of chances to get that seed packet and other
-gamer looters. Now, let's take a look at the probability of being able
-to get these seeds, assuming you wipe out all of the portals.
-
-
-![image](https://user-images.githubusercontent.com/16896032/208220460-3f59a2ac-d936-4f3a-aa14-9c637af6a9d7.png)
-
-92.8% chance to be able to get these seeds each shift if you focus
-entirely on gaming the portals. That's a pretty insane probability of
-being able to obtain the gatfruit seeds.
-
-While I dislike people who sprint to the seed vault, there is at least
-the possibility of a pod person telling them to fuck off when they
-demand their _free_ gamer seed. There is also the fact that the ruin
-isn't a guaranteed spawn every shift.
-
-## Changelog
-
-:cl:
-balance: Gatfruit seeds will no longer drop from ice portals.
-/:cl:
+Co-authored-by: Sol N <116288367+flowercuco@users.noreply.github.com>
+Co-authored-by: Jolly-66 <70232195+Jolly-66@users.noreply.github.com>
 
 ---
-## [ShizCalev/tgstation](https://github.com/ShizCalev/tgstation)@[00e7d5d746...](https://github.com/ShizCalev/tgstation/commit/00e7d5d7465211ccf0e3d604e566e2c08775cd20)
-#### Monday 2022-12-19 01:34:48 by GoldenAlpharex
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[4cce4bcf10...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/4cce4bcf10aabec33f0652b07034bfe71bfca66a)
+#### Tuesday 2022-12-20 00:18:55 by SkyratBot
 
-*hand, or That /One/ Emote You Always Felt Was Missing (#71600)
+[MIRROR] Minor plane cube cleanup [MDB IGNORE] (#18223)
 
-## About The Pull Request
-It's happened to me _repeatedly_ that I'd see someone down on the floor,
-and wanted to just, give them a hand, so they could take it and get up
-that way, without just, directly clicking on them, since that's a little
-bland. I've also wanted to just, offer my hand to someone so they could
-grab it, so that I could pull them alongside me, rather than just
-targeting one of their arms and ctrl-clicking them.
-
-I've had this idea for a _long_ time, and only just decided to do this
-today.
-
-Now, I know what you might say. "Golden, that's a lot of code for
-something this simple!" You're not wrong. _However_. I decided to go
-along and to give some more love to the `/datum/status_effect/offering`
-status effect and the offering-related alerts, to make them a lot more
-versatile and a lot less hardcoded. Hence the whole "refactoring" part
-of this.
-
-Of course, when I add something, I don't do it half-way. So, the way the
-emote works is much like the `*slap` emote, except that:
-
-- When you click on someone, it does the exact same as if you were
-offering the item to them, except that it's targeted (much like
-ctrl-shift-click).
-- If there's nobody directly adjacent to you, it won't do anything.
-- If there's at least one person lying down around you, you will offer
-them your help to get up. Should they take your hand and let you help
-them up, you will both receive a simple memory about being helped up (or
-helping up), as well as a 45-seconds-long small mood buff, because it
-feels nice to be on either end of such a friendly gesture. If they get
-up, they automatically get disqualified from being offered some help
-standing up, and likewise, if you lie down, that offer goes away as
-well.
-- If there's at least one person around you, you will instead extend
-your hand in their direction, for them to grab onto it. Should they do
-so, you will then grab them by their arms and pull them.
-
-I reworked the offering status effect to no longer have a hardcoded
-`can_hold_items()` check, so that kisses and the hand offering would no
-longer need you to have free hands to complete. The logic here is that
-you can still pull someone even with both hands filled, so I figured I'd
-leave it this way.
-
-Note: If anyone would like to give the item a better sprite, by all
-means, go ahead, that'd be amazing. I'm just not really a great spriter
-and couldn't be bothered to waste hours making a very _meh_ hand.
-
-## Why It's Good For The Game
-It's fluff, and nice fluff at that. It makes it easier for people to be
-nice to one-another without having to necessarily spend so long writing
-up an emote that the person on the floor will already have gotten back
-up. I'm sure the MRP folks will like it, and I'm certain the HRP
-downstreams will love it too ;)
-
-## Changelog
-
-:cl:
-add: Added the *hand emote, which you can offer to someone standing up
-in order to give them the possibility to grab onto your hand and let you
-drag them away, or to someone lying down to help them back up, which
-always makes everyone involved a little happier!
-refactor: De-hardcoded and genericized a lot of the offering status
-effect and alert code, to make it require a lot less copy-paste to
-handle new cases.
-fix: Offering a kiss no longer requires the receiver to have free hands
-to accept said kiss!
-/:cl:
-
----
-## [VoltageOS-Devices/android_kernel_asus_sdm660](https://github.com/VoltageOS-Devices/android_kernel_asus_sdm660)@[3b55b34cf9...](https://github.com/VoltageOS-Devices/android_kernel_asus_sdm660/commit/3b55b34cf950527df3718c9c902d9eff9618219f)
-#### Monday 2022-12-19 02:05:03 by Christian Brauner
-
-BACKPORT: signal: add pidfd_send_signal() syscall
-
-The kill() syscall operates on process identifiers (pid). After a process
-has exited its pid can be reused by another process. If a caller sends a
-signal to a reused pid it will end up signaling the wrong process. This
-issue has often surfaced and there has been a push to address this problem [1].
-
-This patch uses file descriptors (fd) from proc/<pid> as stable handles on
-struct pid. Even if a pid is recycled the handle will not change. The fd
-can be used to send signals to the process it refers to.
-Thus, the new syscall pidfd_send_signal() is introduced to solve this
-problem. Instead of pids it operates on process fds (pidfd).
-
-/* prototype and argument /*
-long pidfd_send_signal(int pidfd, int sig, siginfo_t *info, unsigned int flags);
-
-/* syscall number 424 */
-The syscall number was chosen to be 424 to align with Arnd's rework in his
-y2038 to minimize merge conflicts (cf. [25]).
-
-In addition to the pidfd and signal argument it takes an additional
-siginfo_t and flags argument. If the siginfo_t argument is NULL then
-pidfd_send_signal() is equivalent to kill(<positive-pid>, <signal>). If it
-is not NULL pidfd_send_signal() is equivalent to rt_sigqueueinfo().
-The flags argument is added to allow for future extensions of this syscall.
-It currently needs to be passed as 0. Failing to do so will cause EINVAL.
-
-/* pidfd_send_signal() replaces multiple pid-based syscalls */
-The pidfd_send_signal() syscall currently takes on the job of
-rt_sigqueueinfo(2) and parts of the functionality of kill(2), Namely, when a
-positive pid is passed to kill(2). It will however be possible to also
-replace tgkill(2) and rt_tgsigqueueinfo(2) if this syscall is extended.
-
-/* sending signals to threads (tid) and process groups (pgid) */
-Specifically, the pidfd_send_signal() syscall does currently not operate on
-process groups or threads. This is left for future extensions.
-In order to extend the syscall to allow sending signal to threads and
-process groups appropriately named flags (e.g. PIDFD_TYPE_PGID, and
-PIDFD_TYPE_TID) should be added. This implies that the flags argument will
-determine what is signaled and not the file descriptor itself. Put in other
-words, grouping in this api is a property of the flags argument not a
-property of the file descriptor (cf. [13]). Clarification for this has been
-requested by Eric (cf. [19]).
-When appropriate extensions through the flags argument are added then
-pidfd_send_signal() can additionally replace the part of kill(2) which
-operates on process groups as well as the tgkill(2) and
-rt_tgsigqueueinfo(2) syscalls.
-How such an extension could be implemented has been very roughly sketched
-in [14], [15], and [16]. However, this should not be taken as a commitment
-to a particular implementation. There might be better ways to do it.
-Right now this is intentionally left out to keep this patchset as simple as
-possible (cf. [4]).
-
-/* naming */
-The syscall had various names throughout iterations of this patchset:
-- procfd_signal()
-- procfd_send_signal()
-- taskfd_send_signal()
-In the last round of reviews it was pointed out that given that if the
-flags argument decides the scope of the signal instead of different types
-of fds it might make sense to either settle for "procfd_" or "pidfd_" as
-prefix. The community was willing to accept either (cf. [17] and [18]).
-Given that one developer expressed strong preference for the "pidfd_"
-prefix (cf. [13]) and with other developers less opinionated about the name
-we should settle for "pidfd_" to avoid further bikeshedding.
-
-The  "_send_signal" suffix was chosen to reflect the fact that the syscall
-takes on the job of multiple syscalls. It is therefore intentional that the
-name is not reminiscent of neither kill(2) nor rt_sigqueueinfo(2). Not the
-fomer because it might imply that pidfd_send_signal() is a replacement for
-kill(2), and not the latter because it is a hassle to remember the correct
-spelling - especially for non-native speakers - and because it is not
-descriptive enough of what the syscall actually does. The name
-"pidfd_send_signal" makes it very clear that its job is to send signals.
-
-/* zombies */
-Zombies can be signaled just as any other process. No special error will be
-reported since a zombie state is an unreliable state (cf. [3]). However,
-this can be added as an extension through the @flags argument if the need
-ever arises.
-
-/* cross-namespace signals */
-The patch currently enforces that the signaler and signalee either are in
-the same pid namespace or that the signaler's pid namespace is an ancestor
-of the signalee's pid namespace. This is done for the sake of simplicity
-and because it is unclear to what values certain members of struct
-siginfo_t would need to be set to (cf. [5], [6]).
-
-/* compat syscalls */
-It became clear that we would like to avoid adding compat syscalls
-(cf. [7]).  The compat syscall handling is now done in kernel/signal.c
-itself by adding __copy_siginfo_from_user_generic() which lets us avoid
-compat syscalls (cf. [8]). It should be noted that the addition of
-__copy_siginfo_from_user_any() is caused by a bug in the original
-implementation of rt_sigqueueinfo(2) (cf. 12).
-With upcoming rework for syscall handling things might improve
-significantly (cf. [11]) and __copy_siginfo_from_user_any() will not gain
-any additional callers.
-
-/* testing */
-This patch was tested on x64 and x86.
-
-/* userspace usage */
-An asciinema recording for the basic functionality can be found under [9].
-With this patch a process can be killed via:
-
- #define _GNU_SOURCE
- #include <errno.h>
- #include <fcntl.h>
- #include <signal.h>
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
- #include <sys/stat.h>
- #include <sys/syscall.h>
- #include <sys/types.h>
- #include <unistd.h>
-
- static inline int do_pidfd_send_signal(int pidfd, int sig, siginfo_t *info,
-                                         unsigned int flags)
- {
- #ifdef __NR_pidfd_send_signal
-         return syscall(__NR_pidfd_send_signal, pidfd, sig, info, flags);
- #else
-         return -ENOSYS;
- #endif
- }
-
- int main(int argc, char *argv[])
- {
-         int fd, ret, saved_errno, sig;
-
-         if (argc < 3)
-                 exit(EXIT_FAILURE);
-
-         fd = open(argv[1], O_DIRECTORY | O_CLOEXEC);
-         if (fd < 0) {
-                 printf("%s - Failed to open \"%s\"\n", strerror(errno), argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         sig = atoi(argv[2]);
-
-         printf("Sending signal %d to process %s\n", sig, argv[1]);
-         ret = do_pidfd_send_signal(fd, sig, NULL, 0);
-
-         saved_errno = errno;
-         close(fd);
-         errno = saved_errno;
-
-         if (ret < 0) {
-                 printf("%s - Failed to send signal %d to process %s\n",
-                        strerror(errno), sig, argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         exit(EXIT_SUCCESS);
- }
-
-/* Q&A
- * Given that it seems the same questions get asked again by people who are
- * late to the party it makes sense to add a Q&A section to the commit
- * message so it's hopefully easier to avoid duplicate threads.
- *
- * For the sake of progress please consider these arguments settled unless
- * there is a new point that desperately needs to be addressed. Please make
- * sure to check the links to the threads in this commit message whether
- * this has not already been covered.
- */
-Q-01: (Florian Weimer [20], Andrew Morton [21])
-      What happens when the target process has exited?
-A-01: Sending the signal will fail with ESRCH (cf. [22]).
-
-Q-02:  (Andrew Morton [21])
-       Is the task_struct pinned by the fd?
-A-02:  No. A reference to struct pid is kept. struct pid - as far as I
-       understand - was created exactly for the reason to not require to
-       pin struct task_struct (cf. [22]).
-
-Q-03: (Andrew Morton [21])
-      Does the entire procfs directory remain visible? Just one entry
-      within it?
-A-03: The same thing that happens right now when you hold a file descriptor
-      to /proc/<pid> open (cf. [22]).
-
-Q-04: (Andrew Morton [21])
-      Does the pid remain reserved?
-A-04: No. This patchset guarantees a stable handle not that pids are not
-      recycled (cf. [22]).
-
-Q-05: (Andrew Morton [21])
-      Do attempts to signal that fd return errors?
-A-05: See {Q,A}-01.
-
-Q-06: (Andrew Morton [22])
-      Is there a cleaner way of obtaining the fd? Another syscall perhaps.
-A-06: Userspace can already trivially retrieve file descriptors from procfs
-      so this is something that we will need to support anyway. Hence,
-      there's no immediate need to add another syscalls just to make
-      pidfd_send_signal() not dependent on the presence of procfs. However,
-      adding a syscalls to get such file descriptors is planned for a
-      future patchset (cf. [22]).
-
-Q-07: (Andrew Morton [21] and others)
-      This fd-for-a-process sounds like a handy thing and people may well
-      think up other uses for it in the future, probably unrelated to
-      signals. Are the code and the interface designed to permit such
-      future applications?
-A-07: Yes (cf. [22]).
-
-Q-08: (Andrew Morton [21] and others)
-      Now I think about it, why a new syscall? This thing is looking
-      rather like an ioctl?
-A-08: This has been extensively discussed. It was agreed that a syscall is
-      preferred for a variety or reasons. Here are just a few taken from
-      prior threads. Syscalls are safer than ioctl()s especially when
-      signaling to fds. Processes are a core kernel concept so a syscall
-      seems more appropriate. The layout of the syscall with its four
-      arguments would require the addition of a custom struct for the
-      ioctl() thereby causing at least the same amount or even more
-      complexity for userspace than a simple syscall. The new syscall will
-      replace multiple other pid-based syscalls (see description above).
-      The file-descriptors-for-processes concept introduced with this
-      syscall will be extended with other syscalls in the future. See also
-      [22], [23] and various other threads already linked in here.
-
-Q-09: (Florian Weimer [24])
-      What happens if you use the new interface with an O_PATH descriptor?
-A-09:
-      pidfds opened as O_PATH fds cannot be used to send signals to a
-      process (cf. [2]). Signaling processes through pidfds is the
-      equivalent of writing to a file. Thus, this is not an operation that
-      operates "purely at the file descriptor level" as required by the
-      open(2) manpage. See also [4].
-
-/* References */
-[1]:  https://lore.kernel.org/lkml/20181029221037.87724-1-dancol@google.com/
-[2]:  https://lore.kernel.org/lkml/874lbtjvtd.fsf@oldenburg2.str.redhat.com/
-[3]:  https://lore.kernel.org/lkml/20181204132604.aspfupwjgjx6fhva@brauner.io/
-[4]:  https://lore.kernel.org/lkml/20181203180224.fkvw4kajtbvru2ku@brauner.io/
-[5]:  https://lore.kernel.org/lkml/20181121213946.GA10795@mail.hallyn.com/
-[6]:  https://lore.kernel.org/lkml/20181120103111.etlqp7zop34v6nv4@brauner.io/
-[7]:  https://lore.kernel.org/lkml/36323361-90BD-41AF-AB5B-EE0D7BA02C21@amacapital.net/
-[8]:  https://lore.kernel.org/lkml/87tvjxp8pc.fsf@xmission.com/
-[9]:  https://asciinema.org/a/IQjuCHew6bnq1cr78yuMv16cy
-[11]: https://lore.kernel.org/lkml/F53D6D38-3521-4C20-9034-5AF447DF62FF@amacapital.net/
-[12]: https://lore.kernel.org/lkml/87zhtjn8ck.fsf@xmission.com/
-[13]: https://lore.kernel.org/lkml/871s6u9z6u.fsf@xmission.com/
-[14]: https://lore.kernel.org/lkml/20181206231742.xxi4ghn24z4h2qki@brauner.io/
-[15]: https://lore.kernel.org/lkml/20181207003124.GA11160@mail.hallyn.com/
-[16]: https://lore.kernel.org/lkml/20181207015423.4miorx43l3qhppfz@brauner.io/
-[17]: https://lore.kernel.org/lkml/CAGXu5jL8PciZAXvOvCeCU3wKUEB_dU-O3q0tDw4uB_ojMvDEew@mail.gmail.com/
-[18]: https://lore.kernel.org/lkml/20181206222746.GB9224@mail.hallyn.com/
-[19]: https://lore.kernel.org/lkml/20181208054059.19813-1-christian@brauner.io/
-[20]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[21]: https://lore.kernel.org/lkml/20181228152012.dbf0508c2508138efc5f2bbe@linux-foundation.org/
-[22]: https://lore.kernel.org/lkml/20181228233725.722tdfgijxcssg76@brauner.io/
-[23]: https://lwn.net/Articles/773459/
-[24]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[25]: https://lore.kernel.org/lkml/CAK8P3a0ej9NcJM8wXNPbcGUyOUZYX+VLoDFdbenW3s3114oQZw@mail.gmail.com/
-
-Cc: "Eric W. Biederman" <ebiederm@xmission.com>
-Cc: Jann Horn <jannh@google.com>
-Cc: Andy Lutomirsky <luto@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Florian Weimer <fweimer@redhat.com>
-Signed-off-by: Christian Brauner <christian@brauner.io>
-Reviewed-by: Tycho Andersen <tycho@tycho.ws>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: David Howells <dhowells@redhat.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Serge Hallyn <serge@hallyn.com>
-Acked-by: Aleksa Sarai <cyphar@cyphar.com>
-
-(cherry picked from commit 3eb39f47934f9d5a3027fe00d906a45fe3a15fad)
-
-Conflicts:
-        arch/x86/entry/syscalls/syscall_32.tbl - trivial manual merge
-        arch/x86/entry/syscalls/syscall_64.tbl - trivial manual merge
-        include/linux/proc_fs.h - trivial manual merge
-        include/linux/syscalls.h - trivial manual merge
-        include/uapi/asm-generic/unistd.h - trivial manual merge
-        kernel/signal.c - struct kernel_siginfo does not exist in 4.14
-        kernel/sys_ni.c - cond_syscall is used instead of COND_SYSCALL
-        arch/x86/entry/syscalls/syscall_32.tbl
-        arch/x86/entry/syscalls/syscall_64.tbl
-
-(1. manual merges because of 4.14 differences
- 2. change prepare_kill_siginfo() to use struct siginfo instead of
-kernel_siginfo
- 3. use copy_from_user() instead of copy_siginfo_from_user() in copy_siginfo_from_user_any()
- 4. replaced COND_SYSCALL with cond_syscall
- 5. Removed __ia32_sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_32.tbl.
- 6. Replaced __x64_sys_pidfd_send_signal with sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_64.tbl.)
-
-Bug: 135608568
-Test: test program using syscall(__NR_pidfd_send_signal,..) to send SIGKILL
-Change-Id: I34da11c63ac8cafb0353d9af24c820cef519ec27
-Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-Signed-off-by: electimon <electimon@gmail.com>
-
----
-## [kingcons/advent-of-code](https://github.com/kingcons/advent-of-code)@[c1cce45fd9...](https://github.com/kingcons/advent-of-code/commit/c1cce45fd9f2434c40073b2e559221a6a303bd4e)
-#### Monday 2022-12-19 03:52:29 by Brit Butler
-
-Solve the hell out of day 13.
-
-This problem was an absolute nightmare for me. Was it my code?
-No. Somehow I absolutely fucked my input file but it was still
-parseable and I saw my code worked for the test data but not
-the _actual_ production data and spent waaaay too many hours debugging
-before I gave up and redownloaded the input data and sweet fuck am I
-ever filled with white hot rage.
-
-I have gone through at least three iterations of the actual code to
-solve the issue trying to eliminate any possible place where a bug
-lurks. This final iteration is actually the one I'm happiest with anyway.
-
----
-## [kamser/kams-breaking-bad-react](https://github.com/kamser/kams-breaking-bad-react)@[d6243521c0...](https://github.com/kamser/kams-breaking-bad-react/commit/d6243521c03ccfeff6d9ee2c5e532486be8f8824)
-#### Monday 2022-12-19 04:12:40 by kamser
-
-Update the fucking shit stupid shitgit statusgit status
-
----
-## [altude/altude](https://github.com/altude/altude)@[748ca335af...](https://github.com/altude/altude/commit/748ca335afedb233556a9b1a9ddcee5e074337cb)
-#### Monday 2022-12-19 05:28:20 by altude
-
-I just want relief from my stress
-
-SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, THIS LIFE GOT MY HEAD SPINNIN' WONDER WHAT I'D DO IF I KNEW THESE WERE MY LAST MINUTES WONDER IF I HAD A WEEK TO LIVE, WOULD I STAY TRIPPIN'? WASTIN' EVERY DAY THAT I HAD LEFT TRYNA SELL TICKETS OR MAYBE CALL MY DAD , SAY I LOVE HIM AND LAUGH WITH HIM TAKE A COUPLE DAYS AND GET AWAY FROM THIS FAST LIVIN' I DON'T LOVE MY WORK THE WAY I DID MAN, THIS WHOLE BUSINESS HAS GOT ME FEELIN' JADED FRIENDS I HAD, NOW THEY ACT DIFFERENT, IT'S ALL SWITCHIN', WHOA, IT'S PRETTY HARD TO WATCH THOSE THINGS YOU USED TO LOVE TURN TO THINGS THAT YOU WISH YOU FORGOT REAL MOMENTS THAT MAKE YOU QUESTION THE THINGS THAT YOU WANT'S GOT ME GROWIN' MENTALLY, BUT STRESSIN' ME OUT 'TIL I DROP OVER THE TOP , THAT'S WHERE I LIVE ON A DAILY BASIS I ALWAYS FIND A WAY TO FIND THE BAD IN GOOD SITUATIONS IT'S SAD, HUH?, I LIVE MY LIFE ON THE EDGE, DON'T WANT THE MEDS I'M JUST TRYNA GET RELIEF FROM MY STRESS, YOU KNOW?  SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  THESE STRESS LEVELS ARE NOT HEALTHY I'M WAITIN' FOR THAT CALL SAYIN' RECORDS ARE NOT SELLING I WONDER WHEN THIS ALL DISAPPEARS AND THEY FORGET ME WILL I FEEL LIKE I FOUND WHO I WAS OR BE MORE EMPTY? I WONDER WAS I WRONG THINKIN' THIS IS WHERE GOD LED ME OR DID I GET INVOLVED WITH SOMETHIN' THAT WAS TOO HEAVY? I DRIVE UNTIL I'M LOST AND JUST SIT IN MY CAR YELLING MY INNER CRITIC TALKS, I'M JUST HOPIN' THAT GOD HELPS ME TO STOP STRESSIN'   SOME DAYS I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS, I JUST WANNA LEAVE IT I JUST WANT RELIEF FROM MY STRESS SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS, SOME DAYS, SOME DAYS I JUST WANNA LEAVE, YEAH I JUST WANNA LEAVE, YEAHSOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  LATE NIGHTS, STARIN' OUT THE WINDOW DOIN' 85 GOT MY STATE OF MIND, WALKIN' ON THAT GRAY LINE HOPIN' THAT MY STRESS DIES IT'S LIKE I HATE IT BUT I LOVE IT AT THE SAME TIME PRESSURE PUSHIN' ME FROM ALL SIDES INSECURITIES OF ALL KINDS, I'M A HOSTAGE TO MY OWN PRIDE MOST IMPORTANT THINGS IN LIFE TO ME ARE THINGS I KNOW I CAN'T BUY AYY, YEAH, IT'S ME IN PHASES I'M NOT IN THE MOOD, YEAH, TO MEET ANOTHER STRANGER I'M NOT IN THE MOOD, YEAH, TO HAVE A CONVERSATION AND TALK ABOUT A BUNCH OF THINGS THAT I DON'T FEEL AMAZED WITH GETTIN' TOO CLOSE TO ME , WOO, COULD BE DANGEROUS I DON'T LIKE THE ENERGY, I LEAVE THE SITUATION ALL THIS NEGATIVITY THAT I CAN'T GET AWAY FROM ALL THIS NEGATIVITY, I THINK I NEED A BREAK FROM I'M THANKFUL, BUT SOME DAYS, I JUST WANNA LEAVE THE NEGATIVITY IN MY HEAD I JUST WANT RELIEF FROM MY STRESS I JUST WANT RELIEF FROM MY STRESS  SOME DAYS, I DON'T WANNA SEE OR HAVE A BUNCH OF PEOPLE TO IMPRESS I JUST WANT RELIEF FROM MY STRESS, I JUST WANT RELIEF FROM MY STRESS  YO, …
-
----
-## [reimakesgames/hybrid-conflict](https://github.com/reimakesgames/hybrid-conflict)@[3047b68ae3...](https://github.com/reimakesgames/hybrid-conflict/commit/3047b68ae3a65e182b877cf64bb177fd38815365)
-#### Monday 2022-12-19 06:15:59 by reimakesgames
-
-init-docs (#100)
-
-* init-docs
-
-i hate vercel, mkdocs, and literally everything else that makes it so hard to just host a simple static site
-IS THERE ANYTHING THAT AUTOMATES DEPLOYING A STATIC SITE TO VERCEL??????????
-
-* update
-
-* oh my fucking god
-
----
-## [jianghuanya6/Game-For-Peace](https://github.com/jianghuanya6/Game-For-Peace)@[e3afbf33dc...](https://github.com/jianghuanya6/Game-For-Peace/commit/e3afbf33dc03072a42679d949cbc60bf36beb616)
-#### Monday 2022-12-19 07:45:12 by jianghuanya6
-
-Version 1.20.13
-
-[A new version of theme play - space travel]
-
-The space center, a paradise for peaceful elites and China's space cooperation, was officially opened. Special soldiers, come to learn about space science, learn the spirit of space, and explore the universe together!
-
-1. New scene - space center: in the paradise of creation, a new rocket launch base has been added, so special forces can watch the shocking scene of rocket launch from a close distance and feel the extraordinary achievements of modern space science and technology
-
-2. New scene - space information station: the space information station is distributed all over the island. After entering, it can harvest delicious space vegetables and fruits and photonic chicken partners, and also can randomly convert the props in the backpack through the props conversion instrument, which is absolutely amazing
-
-3. New play method - anti gravity device: there are specific rooms in the creation park area, and anti gravity devices will be placed. After use, it can make the gravity disappear for a short time, accompanied by a large number of suspended material balls for special soldiers to collect under weightlessness. Warm prompt: Avoid weight-loss fluid when collecting materials to avoid affecting the moving speed
-
-4. New props - space mission card: after picking up, the special forces in the paradise will be recalled. After the recall process is started, the special forces will go into space by rocket to carry out the space rose cultivation task. After completing the task, they can return to the island with reward materials to continue fighting
-
-5. New props - space fruits and vegetables: delicious fruits cultivated through space breeding can restore the health value and signal value of special forces after eating
-
-6. New item - armor repair kit: damaged armor or helmet can be repaired after use
-
-7. New props - super physical props: Four super physical props will be put in the paradise area. The super physical props will bring strong special abilities to special soldiers. Welcome to experience. Please note that the hypersomatic center can only be used in the paradise, and will become invalid after leaving the park
-
-1) Hyperbody beacon transmitter: after use, it can scan the position of the enemy within the beacon range
-
-2) Hyperbody grenade launcher: after use, you can launch air explosive grenades without limit for a certain period of time
-
-3) Hyperbody - field medical station: after use, the upper limit of health value of oneself and team-mates will be increased. In addition, you can get self rescue defibrillator by interacting with the field medical station
-
-4) Hyperbody Commander's Flag: after use, the damage value and defence of yourself and your teammates will be increased
-
-[New mode of creative workshop - super body confrontation]
-
-In order to deal with the potential crisis in the future, the special forces will test the latest combat technology: hyperbody terminal, strengthen their respective differential combat capabilities, continue to improve the terminal performance, and start a new hyperbody confrontation adventure!
-
-In the hyperbody confrontation game, the special forces can choose eight different hyperbody terminals, which are loaded with the data and skills of eight career mentors. Flexible use of these capabilities and mutual assistance is the key to win the competition;
-
-1. Commander: a team leader who is proficient in firearms, and strengthens the frontal combat capability through energy shield and team gain
-
-2. Rocket boy: start the vector engine, control the air power, and coordinate with the time limited grenade launcher for precise guidance
-
-3. Dimensional geek: master the core technology of hyperbody terminal, create something out of nothing, go back in time and space, and greatly improve the team's material acquisition
-
-4. Field physician: an expert who studies battlefield recovery, can improve the health value of the whole team, and has strong self survival ability
-
-5. Demolition Captain: a fully armed demolition master who controls the battlefield through special missiles and large-scale air attacks
-
-6. Lightning spearhead: a highly mobile profession that moves through the battlefield, and enhances mobility to the extreme
-
-7. Colorful pilots: indulge in mechanical design, use their own vehicles in various ways, and improve the combat effectiveness of the team
-
-8. Phantom Hunter: a strong fighter in complex environment, hiding his own information, detecting the enemy's information, and killing him with one blow
-
-At the same time, in the battle, the special forces can pick up the super unit, upgrade the terminal personalized, obtain health value and gun damage improvement, and have a variety of terminal extension plug-in skills for the special forces to choose and explore, creating the strongest individual;
-
-[Classic Mode - New Content]
-
-1. New firearm - MK20-H: Shooter's rifle of Scar gun family, which uses 7.62mm bullets and can shoot automatically. It has excellent shooting accuracy and good ergonomics; Its own heavy barrel and foot stand make it a powerful deterrent in medium and long distance operations. The disadvantages are slow firing speed and poor stability
-
-2. New vehicle - G48 station wagon: It has the function of vehicle trunk. When approaching or getting on the vehicle, you can open the trunk interface through the backpack button to put or take out items. Refresh in the island, desert, snow and other maps
-
-3. New vehicle - mountain bike: it is obtained by picking up, can be folded and put into the backpack. It has strong cross-country ability and low voice, and is suitable for single person concealed transfer. Simulate the real feel, and quickly click the forward key to speed up. In addition, long press the Jump key, you can accumulate strength to jump slightly and jump over some small obstacles. Refresh in the island, valley, rainforest, resort island, golden island and other maps
-
-4. New accessory - impact gun holder: M16 A4, Mk47, SKS, SLR can be equipped. After assembly, the weapon will become fully automatic, and the stability will be sacrificed in exchange for full automatic continuous firing capability, with a controllable continuous firing speed lower than semi-automatic
-
-5. New scene - Photon chicken nest: a building in the island has been occupied by Photon chicken team and left interesting footprints. Special soldiers are welcome to explore
-
-[Balance adjustment and experience optimization]
-
-1. New features of shooter rifles and sniper rifles: they can cause a temporary deterrent effect when hitting the target
-
-2. Marksman Rifle Enhancement: slightly increase the body damage coefficient of marksman rifles
-
-3. Ammunition weight adjustment: reduce the weight of arrows and rocket arrows
-
-4. Optimization of combat experience: on the basis of automatic jumping climbing, independent climbing button and sliding climbing mode are added, and special forces can switch the jumping climbing mode in the settings
-
-5. Vehicle experience optimization:
-
-1) Motorcycle character riding animation optimization, including the optimization and effect improvement of character waist, hands, feet and other animations
-
-2) Optimize the performance of role getting off the vehicle
-
-6. Information display optimization:
-
-1) When rescuing a teammate or self rescue, the progress of the rescued person will be displayed on the rescue mark of the teammate or self rescue
-
-2) Optimize the performance icon of team killing prompt
-
-3) During the recall phase, you can jump with the teammates of the same aircraft, and there is a light column on the ground of the punctuation position
-
-4) During the parachute recall phase, when punctuating on the small map, the special effect prompt of new lighting column on the ground will be added
-
-5) After being eliminated, you can enter the game watching stage to view the punctuation information of your teammates
-
-6) Repeated chat messages will be folded, and the item marking information in the history will be more obvious
-
-7. Optimization of special training island:
-
-1) The new super body training ground can experience the professional play method of super body confrontation mode
-
-2) A new weapon storage box is added in the outdoor shooting range area to improve the convenience of firearms collection
-
-8. No UI shooting mode:
-
-1) New dance speed change function, supporting 0 to 3 times speed adjustment range
-
-2) New function of changing clothes. By default, the number and order of suites in the lobby are used
-
-3) Add 2 slow shake effect operation templates
-
-[Competition optimization]
-
-1. Optimization of the championship base: the championship base will be comprehensively upgraded, and the hall of honor will be expanded, which will present the champion honor of previous peace elite events
-
-[New functions and optimization of the system]
-
-1. Peak Race Upgrade:
-
-1) The entry action of the original peak segment can be unlocked after reaching the corresponding peak segment, and can be freely used in the hall and dance room this season and next season
-
-2) The competition system of the peak competition has been upgraded, synchronizing with PEL2022's new map to refresh the material probability
-
-The above adjustments will follow the SS20 season launch.
-
-2. A new query entry for season benefits is added. The "season season benefits" interface will display the rewards that can be obtained during the season as a whole, which is convenient for special soldiers to view. This feature will go live with the SS20 season.
-
-3. Download resource experience optimization:
-
-1) The team leader selects a map or play method and clicks to start the game. If the team members do not download relevant resources, a pop-up will remind them to download relevant resources
-
-2) When the team member finishes downloading, a pop-up prompt will be displayed to inform the team leader and relevant team members respectively, so that the team leader can quickly start the game
-
-4. When adding friends to the game successfully, both parties will receive a reminder in the private chat interface, where they can chat with new friends and quickly launch a team invitation
-
-5. Add one click to claim team athletic achievements
-
-[Optimization of the mechanism of injuring teammates]
-
-1. Technical upgrading: optimize the detection algorithm ability of malicious damage to teammates
-
-2. The punishment is aggravated:
-
-1) Penalty for extending the suspension time of maliciously injuring teammates' accounts
-
-2) The account number of a teammate who has been seriously and maliciously injured for many times will be blocked
-
-3) Face recognition detection will be added to the account of a teammate who has been seriously and maliciously injured for many times
-
-3. Perfection of rules:
-
-1) After the driver's vehicle hits an obstacle and his teammate is injured, the malicious damage caused by the teammate can trigger legitimate defense
-
-2) After being carried by team-mates, you can choose the active disengagement function to prevent being carried maliciously by team-mates
-
-[Problem Repair]
-
-1. Fix the problem that the sound effect of landing disappears due to fist swing before jumping to the ground
-
-2. Fix the problem of accidental loss of ammunition replacement animation
-
-3. Fix the problem that the special training island can achieve reverse firing
-
-4. Fix the problem that the character occasionally moves abnormally after falling to the ground
-
-5. Fix the problem that the person perspective cannot be switched when the fire fight mode leaves the vehicle
-
-6. Fix the problem that the occasional character moves quickly after being hit by a vehicle
-
-7. Repair the problem of island map vehicle occasional subsidence
-
-8. Fix the problem of occasionally frying wheat without voice input for a long time under the open wheat state
-
-9. Fix the problem that the team member number and team member thumbnail number of the occasional mini map are wrong
-
-10. Repair the problem of occasional material floating at the edge of island map
-
-11. Fix the problem that the air raid shelter can be stuck in the extreme pursuit mode
-
-12. Fix other known problems
-
-[Performance optimization]
-
-1. Optimized the map loading order, relieved the memory pressure, and reduced the crash probability during the game running
-
-2. The model loading process was optimized. Asynchronous loading was adopted for some steps to avoid affecting the main thread of the game and reduce the jam caused by resource loading
-
-3. The garbage collection mechanism was optimized to improve efficiency and reduce the sense of jamming
-
-4. Optimized the animation resource loading logic, and solved the problem of long loading time for some high-end models
-
-5. It optimizes the time consumption of some functions in the terrain loading process, and alleviates the possible jamming of long-distance vehicle movement
-
-6. The loading sequence of characters has been further optimized to alleviate the stuttering caused by loading other characters and open to more maps
-
-7. The loading process of materials has been further optimized. Asynchronous loading mode has been adopted to alleviate the jam caused by the main thread loading of the game and open to more maps
-
-[Safety Optimization]
-
-1. Technical strategy upgrade: The game optimizes multiple security strategies, including improving detection and recognition capabilities for perspective, self aiming, bullet tracking, acceleration and other plug-in functions
-
-2. Optimization of punishment function: increase gradient punishment status display, and account in gradient punishment will display gradient punishment label in role information interface
-
-3. Falcon system optimization:
-
-1) Expand the recruitment of falcon system, so that more special soldiers can participate in falcon patrol and attack plug-in
-
-2) The falcon patrol broadcast function is added, and falcon inspectors can send the patrol admission broadcast when conducting the inspection
-
-3) The function of Falcon seizure prompt is added. After the illegal user is seized by Falcon patrol system, the inspector gets prompt in time
-
-4. Upgrade of peripheral detection system: strengthen the detection and attack of illegal plug-ins, block the number of accounts that use illegal peripherals to bypass matching and isolation, and clear the segment points
-
-5. Upgrade the violation information identification system to improve the game information environment:
-
-1) Strengthen the crackdown on illegal behaviors of advertising voice, advertising accounts and friends in the lobby world chat channel
-
-2) Strengthen the detection and attack of illegal avatars and nicknames in the game
-
----
-## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[1c76ea5334...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/1c76ea533439dcd7fca15a2dd500a44dc6158883)
-#### Monday 2022-12-19 07:58:45 by SkyratBot
-
-[MIRROR] Changes our map_format to SIDE_MAP [MDB IGNORE] (#18070)
-
-* Changes our map_format to SIDE_MAP (#70162)
-
-## About The Pull Request
-
-This does nothing currently, but will allow me to test for layering
-issues on LIVE, rather then in just wallening.
-Oh also I'm packaging in a fix to one of my macros that I wrote wrong,
-as a joke
-
-[removes SEE_BLACKNESS usage, because we actually cannot use it
-effectively](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
-
-[c9a19dd](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
-
-Sidemap removes the ability to control it on a plane, so it basically
-just means there's an uncontrollable black slate even if you have other
-toggles set.
-
-This just like, removes that, since it's silly
-
-[fixes weird layering on solars and ai portraits. Pixel y was casuing
-things to render below who
-shouldn't](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
-
-[3885b9d](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
-
-[Fixes flicker
-issues](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
-
-[2defc0a](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
-
-Offsetting the vis_contents'd objects down physically, and then up
-visually resolves the confliciting that was going on between the text
-and its display.
-
-This resolves the existing reported flickering issues
-
-[fixes plated food not appearing in
-world](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
-
-[28a34c6](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
-
-pixel_y'd vis_contents strikes again. It's a tad hacky but we'll just
-use pixel_z for this
-
-[Adds wall and upper wall plane
-masters](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
-
-[89fe2b4](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
-
-We use these + the floor and space planes to build a mask of all the
-visible turfs.
-Then we take that, stick it in a plane master, and mask the emissive
-plane with it.
-
-This solves the lighting fulldark screen object getting cut by emissives
-Shifts some planes around to match this new layering. Also ensures we
-only shift fullscreen objects if they don't object to it.
-
-[compresses plane master
-controllers](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
-
-[bd64cc1](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
-
-we don't use them for much rn, but we might in future so I'm keeping it
-as a convienince thing
-
-:cl:
-refactor: The logic of how we well, render things has changed. Make an
-issue report if anything looks funky, particularly layers. PLEASE USE
-YOUR EYES
-/:cl:
-
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
-* Changes our map_format to SIDE_MAP
-
-* Modular!
-
-Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-Co-authored-by: Funce <funce.973@gmail.com>
-
----
-## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[7b658b3c0d...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/7b658b3c0d1b9c7b9672a0a1aa709d2789974190)
-#### Monday 2022-12-19 08:18:22 by SkyratBot
-
-[MIRROR] Drinking singulo ignores supermatter hallucinations and pulls nearby objects [MDB IGNORE] (#18157)
-
-* Drinking singulo ignores supermatter hallucinations and pulls nearby objects (#71927)
-
-## About The Pull Request
-Drinking a singulo will now:
-
-- Give immunity to supermatter hallucinations
-- Pulls objects to you based on the total volume in your system (20u =
-1x1, 45u = 2x2, 80u = 3x3)
-- Makes a burp and supermatter rays/sound when objects are pulled
-
-The new ingredient is:
-
-- Vokda 5u
-- Wine 5u
-- Liquid Dark Matter 1u (replaces Radium)
-
-## Why It's Good For The Game
-More cool effects for drinks. Singularity is all about gravity and the
-drink should have a theme around that.
-
-![dreamseeker_2q21YXS698](https://user-images.githubusercontent.com/5195984/207297517-90d26395-dd30-4106-bdd4-b30b1ba3e20b.gif)
-
-## Changelog
-:cl:
-add: Drinking singulo will now ignore supermatter hallucinations and
-pull objects to you
-balance: Change singulo drink recipe to require liquid dark matter
-instead of radium.
-/:cl:
-
-* Drinking singulo ignores supermatter hallucinations and pulls nearby objects
-
-Co-authored-by: Tim <timothymtorres@gmail.com>
-
----
-## [gladishd/The-Mangrove](https://github.com/gladishd/The-Mangrove)@[66139b7709...](https://github.com/gladishd/The-Mangrove/commit/66139b7709f3943e00c91e47f8d6585f2d1f75c9)
-#### Monday 2022-12-19 08:36:01 by gladishd
-
-Topic: Next up cookies! Login and Signup are counting on some kind of cookie middleware. Then we need like some sort of admin panel to identity verify info for politicians.
-
-About: A cookie is a key-value pair that is stored in the browser. The browser attaches cookies to every HTTP request that is sent to the server.
-
-Session Management in Node.js using ExpressJS and Express Session | Engineering Education (EngEd) Program | Section
-https://www.section.io/engineering-education/session-management-in-nodejs-using-expressjs-and-express-session/
-
-On the other hand, the session data is stored on the server-side, i.e., a database or a session store. Hence, it can accommodate larger amounts of data. To access data from the server-side, a session is authenticated with a secret key or a session id that we get from the cookie on every request.
-
-⦁ package.json manages the dependencies for this project's tutorial ⦁ libraries: Express - Express-session - Cookie-parser ⦁ To set up the session, you need to set a couple of Express-session options... secret, resave, saveUninitialized, cookie: { maxAge: oneDay } ⦁ When a client sends a request, the server will set a session ID and set the cookie equal to that session ID. The cookie is then stored in the set cookie HTTP header in the browser. ⦁ index.html, app.css... ⦁ In the server app.js, import all the Node.js libraries like express, cookie-parser, express-session ⦁ Initialize the Express app. Add the Express-session options. ⦁ Parse the HTML form. ⦁ Set the Cookie-parser. ⦁ Set the authentication credentials. Add the endpoints. Listen to the port of the server. ⦁ Once you log in successfully, a session will be generated, and a cookie will be saved in the browser. In this case, since we don't have a database to save the session, we will console.log(req.session) and glance at how it looks.
-
-Last time we tested signing up. Now we can upload straight to the real-time database. However we do it it would be convenient to do so within an established procedure!
-
-The way we did it at Qooley.com, was you take a basic sign up form with email and password, thereby precluding the need for a username which can be registered instead as a continuation of the email address.
-
-How to use cookies for persisting users in Nextjs - DEV Community 👩‍💻👨‍💻
-https://dev.to/debosthefirst/how-to-use-cookies-for-persisting-users-in-nextjs-4617
-To use cookies in NextJS, we need to install 2 packages. For this tutorial, we'll be using cookie and react-cookie. React-cookie allows us to set the cookie from the client-side while the cookie package lets us access the set cookie from the server-side. Install both packages by running npm install react-cookie cookie. Cookie-cutter is a tiny package that does the same thing as react-cookie.
-With both packages installed, it's time to set a cookie. Usually we set a cookie for a user once they've successfully signed in or signed up to our application. To set a cookie on Sign in, follow the example that we have set in our application.
-
-To ensure that every route in our application has access to the cookie, we need to wrap our APP component in a cookie provider.
-
-Cookies go here. 🙂
-
-We have made the cookies universally accessible from anywhere in the application, so that they can be used as a basis to store server-side session data related to that cookie. 😛
-
-Todo: Deploy to something other than Heroku simply because Heroku is to be defunct, November.
-
-https://github.com/thellllvirtuoso/Da-Repo We are making so much progress!
-
-In the snippet above, we call the setCookie hook from react-cookies and set it to a default name. In our case, that's user. We then make a request to sign in a user by calling a function to log the user in. We take the response from that API call, stringify the data (cookies are formatted as text) and store that data in a cookie.
-
-🥝 We also pass some additional options to the cookie including path - makes sure your cookie is accessible in all routes, 🥝 maxAge, how long from the time the cookie is set till it expires and 🥝 sameSite. Samesite indicates that this cookie can only be used on the site it originated from - It is important to set this to true to avoid errors within Firefox logs. What kind of errors does Firefox give if we don't set sameSite?
-
-Firefox Changes to SameSite Cookie Behavior Can Break Salesforce Integrations
-https://help.salesforce.com/s/articleView?id=000355255&type=1 The SameSite attribute on a cookie controls its cross-domain behavior. If no SameSite attribute is specified, Firefox sets cookies as SameSite=Lax by default. In previous versions of Firefox, the default was SameSite=None... The SameSite changes enhance security and privacy but require customers and... this regards the default cross-domain (SameSite) behavior of cookies.
-
-Giving your app access to the Cookie. To ensure that every route in our application has access to the cookie, we need to wrap our APP component in a cookie provider.
-
-Assuming that the app.js (_app.js) step is complete, we have wrapped our App component in the cookie provider.
-
-Setting up the function to parse the cookie.
-
-Next, we need to setup a function that will check if the cookie exists on the server, parse the cookie and return it. Create a new folder called helpers and within that add an index.js file see the code for parsing cookies.
-
-React Bootstrap provides the Form which, upon submission of the onSubmit={this.submitForm} function, provides us with a destructurable form that is posted to the axios.post /auth/setLogin API route. This route simply puts the user email address on the server-side session object (for example, not posting to the database).
-
-On the front-end, the /signup/saveUserToDatabase API route is posted with everything on the reqBody object, therefore this route is something to construct. On the /signup/saveUserToDatabase API route, we are posting the request body data (first onto the Express Session, then) on to the checking phase.
-
-var userRef = db.collection('users').doc(user.email) upon which point we invoke the userRef.get() function and if this value has the .exists property, then we return res.status(200).json({ success: 'user already exists' }).
-
-If the user does exist, then that's great; we don't continue with the rest of the code.
-
-If the user does not exist, then we adjust the .isCustomer and .isLocal attributes on the data object and then invoke const response = await db.collection('useres').doc(userId).set(data), before return res.status(200).json({ error: err }).
-
-The firebase object from the Firebase API is only used to invoke the .auth ... .createUserWithEmailAndPassword ... .then ... auth ... signInWithEmailAndPassword ... chain and subsequently the Router.push('/qooleybiz') is done after this chain of events, on the front-end.
-
-Todo: Test everything out on the Front-end first! We need a back-end technically but all the functions can be carried out on the front-end!
-
-In the newer version of Node JS, we are importing the firebaseConfig just the same as with the older version of Node JS.
-
-Test firebase imports:
-
-import firebase from 'firebase/compat/app';
-import 'firebase/compat/auth';
-import 'firebase/compat/firestore';
-
-const firebaseApp = firebase.initializeApp(firebaseConfig);
-
-var db = firebaseApp.firestore()
-
-Previously, at Qooley we had the most spectacular imports:
-
-import * as firebase from 'firebase'
-
-if (!firebase.apps.length) {
-firebase.initializeApp(firebaseConfig)
-}
-
-Todo: Google OAuth Login.
-
-Firebase makes Authentication easy for Engineers and Developers. Most Applications need to know the identity of the user so they can provide a customized experience, and keep their data secure.
-
-Firebase supports lots of different ways for users to authenticate. Email Address, Facebook, Twitter, GitHub, Google. It can also integrate with your existing account system. You can build your own interface, or you can take advantage of our open-source UI that incorporates years of Google-based experience building server-side apps.
-
-Three things happen. Callbacks allow you to personalize your app's experience for that particular user.
-
-This unique id is used to identify your user and to what sides of the backend system they have access.
-
-And of course, it works on Android, iOS, and the Web. That's Firebase All allowing you to focus on users, and not the signup infrastructure used to support them.
-
-Firebase Authentication
-https://firebase.google.com/docs/auth?authuser=0
-
-The FirebaseUI Auth component implements best practices for authentication on mobile devices and websites, which can maximize sign-in and sign-up conversion for your app. It also handles edge cases like account recovery and account linking that can be security sensitive and error-prone to handle correctly.
-
-The identity provider configuration is not found - React Native Firebase Authentication with FacebookAuthProvider - Stack Overflow
-https://stackoverflow.com/questions/55522640/the-identity-provider-configuration-is-not-found-react-native-firebase-authent
-https://console.firebase.google.com/u/0/project/the-midway-b98d8/authentication/providers
-
-XLSX (.xlsx, .xlsm)—Wolfram Language Documentation
-https://reference.wolfram.com/language/ref/format/XLSX.html
-Idea: use Mathematica functions to translate our data into readable forms, then upload to Firebase.
-
-This is going to be amazing.
-
-{{"Office", "District", "Party", "CandidateName", "Municipality",
-  "County", "State"},
-The text replacement is to be done at index 3 (from 1, 2, 3, 4, 5, 6, 7).
-change "REP" to "Republican", "DEM" to "Democrat", "LIB" to "Libertarian" and "KEY" to "Keystone Party"
-
-grn: green
-ind: independent
-key: keystone party
-lib: libertarian
-rep: republican
-swp: socialist worker's party
-
-💡 XLSX (.xlsx, .xlsm)—Wolfram Language Documentation
-https://reference.wolfram.com/language/ref/format/XLSX.html
-
-💡Directory—Wolfram Language Documentation
-https://reference.wolfram.com/language/ref/Directory.html
-
-💡ReplaceAll (/.)—Wolfram Language Documentation
-https://reference.wolfram.com/language/ref/ReplaceAll.html
-
-💡Does Mathematica have a function equivalent to Matlab's "unique" function - Stack Overflow
-https://stackoverflow.com/questions/2203737/does-mathematica-have-a-function-equivalent-to-matlabs-unique-function
-
-💡https://g562.sitehost.iu.edu/Handouts/ManipulatingDataInMathematica.pdf
-
-💡 list manipulation - Replacing within a column without extracting it/modifying data - Mathematica Stack Exchange
-https://mathematica.stackexchange.com/questions/202350/replacing-within-a-column-without-extracting-it-modifying-data
-
-🐍 python 3.x - How to force Discord to send a link without an embed? - Stack Overflow
-https://stackoverflow.com/questions/65657144/how-to-force-discord-to-send-a-link-without-an-embed
-
-Many apps want to leverage the power of an authentication system, but trying to sort out connections to various services and allowing an email login can be a lot of work. Thankfully, Firebase takes a lot of the work out of your hands and allows you to easily start with one service and add in additional services over time.
-
-Email/Password
-
-The most basic sign in option, this allows users to use their email/password to sign up/in. Enabling this is as easy as flipping the first toggle switch after clicking "Email/Password" from the Sign-In providers list, then clicking "Save".
-
-Finally, we access the cookie within the component to check if the user already has a valid cookie on the server side before rendering the requested route.
-
-Data from cookie: {"data":"data cookie data goes here from pages/loginCookies.js"}⭐
-
-OK, let's revisit what happens once we access the cookie on the browser. Do we send it to the server, for reference? How does the server know what the cookie means? The .getInitialProps is something to behold!
-
-Works Cited:
-
-Getting Started with Firebase for the Web - Authentication - Terabyte Tiger
-https://terabytetiger.com/lessons/getting-started-with-firebase-authentication
-
-Firebase Authentication throws HTTP 400 "CONFIGURATION NOT FOUND" · Issue #8 · googleinterns/step167-2020
-https://github.com/googleinterns/step167-2020/issues/8
-
-Firebase console
-https://console.firebase.google.com/u/0/project/the-midway-b98d8/authentication/providers
-
-How to Activate Full-Screen Mode in Google Chrome
-https://www.lifewire.com/activate-full-screen-mode-google-chrome-4103634#:~:text=For%20Chrome%20on%20macOS%2C%20in,Use%20the%20keyboard%20shortcut%20Ctrl%2BCommand%2BF.
-
-We're on ******How to use cookies for persisting users in Nextjs - DEV Community 👩‍💻👨‍💻
-https://dev.to/debosthefirst/how-to-use-cookies-for-persisting-users-in-nextjs-4617
-
-https://stackoverflow.com/questions/16800056/switching-between-chrome-browser-windows
-
-How to Make Google Chrome Full Screen: Mac and PC
-https://www.businessinsider.com/guides/tech/how-to-full-screen-google-chrome#:~:text=An%20curved%20arrow%20pointing%20right.&text=To%20go%20full%20screen%20on,exit%20full%20screen%20in%20Chrome.
-
-301 Moved Permanently
-The HyperText Transfer Protocol (HTTP) 301 Moved Permanently redirect status response code indicates that the requested resource has been definitively moved to the URL given by the Location headers. A browser redirects to the new URL and search engines update their links to the resource.
-https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/301
-
-Is the response object available?
-
-** Previously as seen on Qooley: the Express library provides the framework to set things like req.session.user = { email: user.email }, and then we are able to check for the presence of the sessions that are automatically maintained, that is autonomously integrated with the server via the Express library. Now, what we want to do is instead store an (expirable?) cookie on the local browser, which has already been done.
-☑️
-
-Now, what we need to do is send the cookie to the server and reference against something; perhaps the Firebase database itself can serve as our repository for the cookie reference. How can we turn our cookie into a session, server-side? Or can we log in without sessions?
-
-First, let's look at the Authentication of the Cookie via Express app.
-How to Authenticate Users in Your Node App with Cookies, Sessions, and Passport.js
-https://www.freecodecamp.org/news/authenticate-users-node-app/
-First, we set up our Express app and include the cookie-parser middleware. It parses the cookie header of the request, and adds it to req.cookies or req.signedCookies (if secret keys are being used) for further processing. What does it mean to use secret keys?
-
-While browsing this article Session Cookie Authentication in Node.js (With Complete Examples)
-https://www.sohamkamani.com/nodejs/session-cookie-authentication/ it looks like we can, instead of even having to host a server-side session, simply use the cookie itself as part of our request body, each time the client makes a request.
-
-Session vs. Cookies| Difference between Session and Cookies - javatpoint
-https://www.javatpoint.com/session-vs-cookies#:~:text=Difference%20table%20between%20Cookies%20and%20Session&text=A%20session%20stores%20the%20variables,or%20closes%20his%20web%20browser.
-
-Todo: test settings like expiration dates for the cookies. The cookie will be created, stored in the Firebase database collection of cookies (coming soon!): (1) POST to this database when someone logs in. (2) DELETE from this collection when someone logs out. (3) GET from this collection (fetch) when someone wants to access data. (4) PUT to this collection when... someone logs in and refreshes the page? (to be determined).
-
----
-## [gladishd/The-Mangrove](https://github.com/gladishd/The-Mangrove)@[1c4c483c46...](https://github.com/gladishd/The-Mangrove/commit/1c4c483c464406150ff0905820b80ae63774a537)
-#### Monday 2022-12-19 08:36:01 by gladishd
-
-Provided that some of the text is a bit wordy and the structure should have two buttons for Login and Signup, after the Welcome/Home Screen that starts out with a splash, we have Todo: When you click Signup you are prompted with a question, two more buttons that you can click; one of them is "I currently hold an official elected position/I am on the ballot" and the other is "I do not hold an official elected position and I am not on the ballot". If you click the first option (less wordy!) you get linked to the signup page specific for politicians.
-
-And if you click the second option (I'm a voter) you go straight to the much simpler Signup page for regular users. Later tonight we can demo this via pipeline to an official name like politic.com... the signup process isn't the key right now, it's data collection; when we speak to potential angel investors or VCS or even family/family friends, they will probably ask how we are going to get all that information on politicians, because it seems that there's no official openly available database of every politician currently on the ballot for every district in the country.
-
-Todo: Survey Page & Forum, designed for mobile view in Chrome DevTools with simulation of various screen sizes. Survey for feedback from our customers: ask about their experience, bug reports, satisfaction with the app. Forums so that the customers can chat and interact on the same platform.
-
-Chat is risky, political, and chaotic. We introduce the terms V2P and limit V2V interaction, V for voter, P for politician... like in business how it's things like P2P or P2B or B2B etc.
-
-On voters, Florida has a lot of info Vote-by-Mail Ballot Information and Status Lookup - Division of Elections - Florida Department of State
-https://dos.myflorida.com/elections/for-voters/check-your-voter-status-and-polling-place/vote-by-mail-ballot-information-and-status-lookup/.
-
-Creates in-line styles first, classes second so that we can crop the banner image. html - Crop image in CSS - Stack Overflow
-https://stackoverflow.com/questions/26218954/crop-image-in-css. The banner image is in overlay format via positioning and margins html - How to overlay one div over another div - Stack Overflow
-https://stackoverflow.com/questions/2941189/how-to-overlay-one-div-over-another-div.
-
-Todo: Currently, clicking the top left Learn with Login tab yoinks us back to the homepage at the Login button. This should direct us to the database.
-
-Here, unlike Jekyll where the base url is defined for the repository we can just write "/" signifying the base URL. The idea is to use dynamic variables to see more and explore more, while using static variables allows us to maintain what we have in the same medium.
-
-When we were building Qooley, Kanishka went to a startup conference in Chicago - 1871 startup demos. The site was glitching out, and he left his jacket at a restaurant. When he came back, we learned what Sohan had been working through all along and it wasn't scary; Cross-Origin Resource Sharing.
-
-Checking into a local corner store to pick up a smoothie, Kanishka spoke about the need for testing in four stages of testing, with the first stage being the localhost and the fourth stage being the production site at the domain named Qooley.com.
-
-So when you use dynamic variables, you want to be able to access those variables from anywhere in the app, which could mean across domains if your app is split into two distinct repositories: qooley-frontend and qooley-webapp.
-
-When building our site, we do the same on one repository instead of two.
-
-Our three column layout provides Politico type of review functionality. javascript - How to create a 3 column layout structure in react.js - Stack Overflow
-https://stackoverflow.com/questions/58277981/how-to-create-a-3-column-layout-structure-in-react-js
-
-Design inspired by
-
-(1) Politics, Policy, Political News- POLITICO
-https://www.politico.com/
-
-(2) Play Chess Online for free
-https://play.chessbase.com/en/
-
----
-## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[81ca11b95a...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/81ca11b95a59d5cf0eb0a066454b2903f4859503)
-#### Monday 2022-12-19 09:09:06 by SkyratBot
-
-[MIRROR] Basic Mob Carp: Retaliate Element [MDB IGNORE] (#18030)
-
-* Basic Mob Carp: Retaliate Element (#71593)
-
-## About The Pull Request
-
-Adds an Element and AI behaviour intended to replicate the "retaliate"
-behaviour which made up an entire widely-populated subtype of simple
-mobs.
-The behaviour is pretty simply "If you fuck with me I fuck with you".
-Mobs with the component will "remember" being attacked and will try to
-attack people who attacked them, until they lose sight of those people.
-They don't have very long memories so breaking line of sight is enough
-to remove you from their grudge list.
-The implementation unfortunately requires registering to 600 different
-"I have been attacked by X" signals but c'est la vie.
-
-It will still be cleaner than
-`/mob/living/simple_animal/hostile/retaliate/clown/clownhulk/honcmunculus`
-and `mob/living/simple_animal/hostile/retaliate/bat/sgt_araneus`.
-
-I attached it to the pig for testing and left it there because out of
-all the farm animals we have right now, a pig would probably get pissed
-off if you tried to kill it. Unfortunately it's got a sausage's chance
-in hell of ever killing anyone.
-
-## Why It's Good For The Game
-
-It doesn't have much purpose yet but as we make more basic mobs this is
-going to see a **lot** of use.
-
-## Changelog
-
-:cl:
-add: Basic mobs have the capability of being upset that you kicked and
-punched them.
-add: Pigs destined for slaughter will now ineffectually attempt to
-resist their fate, at least until they lose sight of you.
-balance: Bar bots are better at noticing that you're trying to kill
-them.
-/:cl:
-
-* Basic Mob Carp: Retaliate Element
-
-Co-authored-by: Jacquerel <hnevard@gmail.com>
-Co-authored-by: tastyfish <crazychris32@gmail.com>
-
----
-## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[91d74cabf6...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/91d74cabf652013e4c12158a7a33f3d5a8e30e66)
-#### Monday 2022-12-19 09:38:05 by SkyratBot
-
-[MIRROR] Bodypart code cleanup, robotic limbs can actually be disabled through damage again. [MDB IGNORE] (#18093)
-
-Bodypart code cleanup, robotic limbs can actually be disabled through damage again. (#71739)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
-
-Cleans up various variables and code comments in bodypart code so that
-it is easier to understand (hopefully) what the fuck is happening there.
-
-Fixes a hilarious oversight. For what may have been an entire 2 year
-span, robotic limbs were unable to be disabled whatsoever. Good stuff.
-
-Lost all your limbs and now have only surplus prosthetics?
-Congratulations! You're now more durable than even someone with proper
-robotic limbs, as your arms do not contribute anything more than 10
-damage (or 15 stamina) to your overall damage taken. Furthermore, taking
-the maximum amount of damage is actually entirely meaningless to you.
-
-Laugh as someone attempting to shoot your arms does almost no meaningful
-damage once you hit the cap! It's all sunk cost! You can't have it blown
-off anyway, because dismembering surplus limbs is gone!
-
-Who knew getting into a horrible bluespace/goliath accident could have
-such an impact on your combat prowess. Thanks Nanotrasen!
-
-Anyway, these vars are ugly.
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
-and it's effects on PRs in the tgstation guides for contributors. Please
-note that maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. You can attempt to finagle the system
-all you want, but it's best to shoot for clear communication right off
-the bat. -->
-
-:cl:
-code: Makes a lot of the bodypart variables clearer as to what they do.
-Includes more detailed code comments.
-fix: Robotic limbs are no longer immune to being disabled through
-reaching maximum damage.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
-Co-authored-by: necromanceranne <40847847+necromanceranne@users.noreply.github.com>
-
----
-## [LyaaaaaGames/AIdventure_Localization](https://github.com/LyaaaaaGames/AIdventure_Localization)@[227cbe04ab...](https://github.com/LyaaaaaGames/AIdventure_Localization/commit/227cbe04abbecf08fb9c99704952b44ce942a2ab)
-#### Monday 2022-12-19 09:40:40 by Lyaaaaaaaaaaaaaaa
-
-Fixed errors in the tags and added TAG_ before the tags keys.
-
-Fixed the following keys (French was in English and Spanish in French.
-Also added TAG_ before the name.
-- 1ST_PERSON
-- 2ND_PERSON
-- ADVENTURE
-- CYBERPUNK
-- DARK
-- DYSTOPIAN
-- FANTASY
-- FEMALE_PROTAGONIST
-- HISTORICAL
-- HORROR
-- LGBTQ
-- LOREBOOK_INCLUDED
-- MALE_PROTAGONIST
-- MEDIEVAL
-- MODERN_ERA
-- MYSTERY
-- PIRATE
-- POST_APOCALYPTIC
-- ROMANCE
-- SCIENCE_FICTION
-- STEAMPUNK
-- THRILLER
-- UPLIFTING
-- WILD_WEST
-- ZOMBIE
-
----
-## [FRC-6390/FRC-Season-2023](https://github.com/FRC-6390/FRC-Season-2023)@[43fdb1ef24...](https://github.com/FRC-6390/FRC-Season-2023/commit/43fdb1ef24d0f5d9540bc592493a7d3e1cb37312)
-#### Monday 2022-12-19 10:31:31 by Mathias
-
-Oh boy, debug time
-
-Using the new 2023 beta (JAVA 17!!!)
-
-Set up the code for the base swerve drive train that is planned to be used.
-
-Redid Custom PID System in Util to allow suppliers,
-Added in Custom Limelight, REVLimitSwitch, and Debounced Controller
-
-A simple wrapper class tbh, same thing new paint
-
-The Limelight class manages all the networking tables making it easier to use.
-
-The Debounced Control handles all of the controller inputs, removing clutter from the RobotContainer file, it also had the axis modification pre applied.
-
-All the debounced systems have been updated to the new Trigger Api, with this calling instant commands through buttons presses are a bit more annoying but there is not much that can be done about this at the moment
-
-Create a custom Swerve Module class to work with the new SwerveDriveKinimatics and SwerveDriveOdometry.
-The new class gives us complete control over the module and adds in the now required features not yet supported by SDS
-
-DesiredPosition 2.0 (WIP), Janus - The greek god of motion, Janus is the new name going forward for the Desired Position System. Janus is going under a complete rework from the ground up, being built on a better understanding of trajectories and autonomous routines using odometry
-
-The new swerve module system allows us to use the WPILIB trajectories, Janus will attempt to take advantage of the same concept but done differently to allow easier use of the creation of such routines.
-
-Added in a new system for test motors and subsystems, add the SystemTest interface to a subsystem will allow you to define a function that the TestSystem Command can cycle through to verify the functionality of hardware
-
-Constants are there but most need the correct values put in, I put in all the ones I could find at the time.
-
-Dashboard output needs to setup for the swerve modules and the addition of a limit switch sensor possibly for automatic offset alignment.
-
-Autoselector for smartdash was set up
-
-Everything needs testing a will most definitely break, will continue to add the rest of Janus, the smartdash data
-
-Hopefully this will allow us to jump straight into auto routines as soon as we have a robot. Swervebot or Switchblade testing advised.
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[9e69e5d6ac...](https://github.com/tgstation/tgstation/commit/9e69e5d6acae10bf0941155c418ea3b9194668e5)
-#### Monday 2022-12-19 10:34:06 by LemonInTheDark
-
-Minor plane cube cleanup (#72038)
+* Minor plane cube cleanup (#72038)
 
 ## About The Pull Request
 
@@ -1705,435 +395,178 @@ Stupid shit resolved
 [Fixes some uses of plane masters that only specified one rather then
 all](https://github.com/tgstation/tgstation/commit/a59ec96d29710b967bf8b3ffe8210b230cb194b3)
 
-We almost never only want to show SOME hidden planes. 
+We almost never only want to show SOME hidden planes.
 Should really make a helper for this someday
 
+* Minor plane cube cleanup
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+
 ---
-## [Huffie56/cmss13](https://github.com/Huffie56/cmss13)@[7f1e80ca3d...](https://github.com/Huffie56/cmss13/commit/7f1e80ca3dd4800f54b5ff4dc3663dd1f804c28c)
-#### Monday 2022-12-19 10:50:24 by carlarctg
+## [SecurityLab-CodeAnalysis/tgstation_tgstation](https://github.com/SecurityLab-CodeAnalysis/tgstation_tgstation)@[44008f485d...](https://github.com/SecurityLab-CodeAnalysis/tgstation_tgstation/commit/44008f485d6d72537935cfa8a3a5b6140eece744)
+#### Tuesday 2022-12-20 00:25:16 by Jacquerel
 
-MIDIs are now either 'Meme' or 'Atmospheric', players can toggle each option (#1939)
+Fishing-themed Escape Shuttle (#71805)
 
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
+## About The Pull Request
 
-# About the pull request
+I can't do much coding until you review my other PRs so I'm making a
+mapping PR instead.
+I actually made this a while ago while I was trying out strongDMM. It
+turns out: it's a good tool and easy to use.
 
-<!-- Remove this text and explain what the purpose of your PR is.
+![2022 12 09-10 51
+26](https://user-images.githubusercontent.com/7483112/206686234-ae952ba3-2cb4-4093-80a0-d086fe95a3fc.png)
 
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
+This mid-tier shuttle isn't enormous and is shaped like a fish. It
+dedicates much of its internal space to an artificial fishing
+environment, plus fishing equipment storage. Plus look at that lovely
+wood panelling!
+There's not a lot of seating or a large medbay, but there's five fishing
+rods for people to wrestle each other over plus some aquariums to store
+your catches in.
 
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
+It contains a variety of fishing biomes (ocean, moisture trap, hole,
+portal) but I couldn't fit "lava" in there even though I wanted to
+because it's hardcoded to only have fish in it on the mining z-level.
+If you're very lucky and nobody shoves you, the time between the shuttle
+docking at the station and arriving at Centcomm might be enough time for
+you to catch maybe four entire fish. Wow!
 
-Updated savefile number from 19 to 20. Meme and atmospheric preferences
-are enabled by default.
+## Why It's Good For The Game
 
-Admin sounds now need a selection between 'Meme' or 'Atmospheric' type.
-Ideally, this would let players decide if they want to listen to hijack
-or first drop songs without needing to listen to GOOD HITS or whatnot.
+There are plenty of novelty shuttle options but I think this one is good
+for a personal touch of "the Captain would rather be fishing than
+hearing you complain about the nuclear operatives".
 
-I am uncertain about the savefile bit of code. I don't fully understand
-it.
-
-As stated I don't care about GBP, so if the tags are teechnicallly
-incorrect go ahead and change them or whatever.
-
-# Explain why it's good for the game
-
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
-
-> Admin sounds now need a selection between 'Meme' or 'Atmospheric'
-type. Ideally, this would let players decide if they want to listen to
-hijack or first drop songs without needing to listen to GOOD HITS or
-whatnot.
-
-As it says. Lots of people hate the memes and just want to listen to the
-cool atmosphere. This is of course dependant on staff selecting the
-right option, which is sometimes up to opinion, but I fully trust staff
-will be able to handle this subjective affair correctly.
-
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-<details>
-<summary>Screenshots & Videos</summary>
-
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
-
-</details>
-
-
-# Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
+## Changelog
 
 :cl:
-refactor: Updated savefile number from 18 to 19. Meme and atmospheric
-preferences are enabled by default.
-admin: Admin sounds now need a selection between 'Meme' or 'Atmospheric'
-type. Ideally, this would let players decide if they want to listen to
-hijack or first drop songs without needing to listen to GOOD HITS or
-whatnot.
+add: Tell your crew how much you care by ordering a shuttle where half
+of the seats have been removed so that you can get some angling done
+before you clock out.
 /:cl:
 
-<!-- Both :cl:'s are required for the changelog to work! -->
+---
+## [Ziemas/pcsx2](https://github.com/Ziemas/pcsx2)@[87abacc632...](https://github.com/Ziemas/pcsx2/commit/87abacc63264f9cf554cddf02973e0fc9cd2af77)
+#### Tuesday 2022-12-20 01:05:43 by RedDevilus
 
-Co-authored-by: Stan_Albatross <66756236+stanalbatross@users.noreply.github.com>
+GameDB: Fix multiple games + maintenance
+
+- Area 51: Half Pixel Normal vertex for lighting and other places
+- Shrek 2: Basic mipmapping which kinda half fixes the sun missing
+- Galaxy Angel II: Normal vertex which reduces misalignment
+- Forgotten Realms - Demon Stone: Clamping Mode extra + preserve which will solve the occasional SPS + missing demo entry.
+- Spyro Dawn of dragon: SW clut + sprite which doesn't make you vomit from the overbloomification and looks similar to the software renderer
+- Castlevania Curse of darkness half sprite which will enlarge the font similar to software renderer + some missing fixes that were available on the Europe and America versions but not Japanese.
+- Drakengard 1 + 2 (Also know as Drag-on Dragoon) : Partial (no hashcache) to avoid slow transitions and other areas. Adds missing Japanese Drakengard 1
+- Urban reign: Partial texture preloading to fix performance issues in the gameplay
+- Onimusha Warlord: Partial preloading to fix performance issues
+- Sniper Elite: Fix sky lighting
+- Maintenance that add spaces in the titles for Disc1of1 to Disc 1 of 1 and more...
 
 ---
-## [morrowwolf/cmss13](https://github.com/morrowwolf/cmss13)@[70bcd3b6fb...](https://github.com/morrowwolf/cmss13/commit/70bcd3b6fbcf17b4c26640321f23c83da0ab80a3)
-#### Monday 2022-12-19 11:15:01 by carlarctg
+## [Wallemations/heavenstation](https://github.com/Wallemations/heavenstation)@[590847bdf7...](https://github.com/Wallemations/heavenstation/commit/590847bdf742b1e53f05ea700d48ec0676cdcf43)
+#### Tuesday 2022-12-20 01:10:29 by Andrew
 
-Queen eye shuffles weed sprites when passing over them. (#1901)
+Biogenerator tweaks, leather makes more belts and clothing (#71175)
 
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
+## About The Pull Request
 
-# About the pull request
-
-Queen eye shuffles weed sprites when passing over them.
-
-Fixed some single letter vars so the mantainer agenda can't delay this
-PR from merging.
+### Revamped the biogenerator UI:
 
 
+https://user-images.githubusercontent.com/3625094/200973283-b703f21b-c747-493e-98d9-043eef86d410.mp4
 
-<!-- Remove this text and explain what the purpose of your PR is.
-
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
-
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
-
-# Explain why it's good for the game
+### Changed biogenerator icon to use layers and see the biomass level:
 
 
-> Queen eye shuffles weed sprites when passing over them.
+https://user-images.githubusercontent.com/3625094/201396065-caeaa412-6676-46f6-875e-efa2dca34985.mp4
 
-It's a way for marines to know there's an entire queen eye looking over
-them. Basically means an MD isn't 100% necessary to know the queen will
-broadcast the location of your flank to the entire hive.
+### Biogenerator rebalance:
 
-https://streamable.com/kmnd72
+- Now you don't need the beaker to print solid products.
+- Biogenerator now accepts all food, not just plants.
+- Biogenerator now treats all nutriment subtypes as nutriments, so
+vitamins and proteins also turn into biomass.
+- Biomass now has the same units as other reagents (you get 5 biomass
+from 5 nutrient with tier 1 parts).
+- Doubled the cost of all items and reagents. (biomass generation
+reduced by 10 and prices - by 5)
+- Chemicals output amounts are now in units and you can select how much
+you want to output exactly. It will not let you specify more than the
+size of container or above 50 units with one button click.
+- Reduced the amount of stored items and introduced a limit to the
+biomass, both tied to the matter bin tier.
 
-It's more subtle than i wanted it to be, but WCYD. Also doesn't work on
-corner sprites.
+### Recipes changes:
 
-Also, it looks fucking creepy as hell! It's awesome.
+Made biogenerator more dumb by moving the clothing out from the
+biogenerator designs, and extending leather recipes instead.
 
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
+The biogenerator is a grinder/recycler style machine so it doesn't make
+sense that it outputs clothing.
+Also you need to make leather to craft the toolbelt, while you can't do
+the same to craft job-specific belts.
+Now you can print leather in biogenerator and craft the leather clothing
+by using the leather in-hand.
+And the rice hat is now crafted from bamboo, instead of biogenerator.
 
+Also added paper to the biogenerator recipes as it makes stuff from
+cellulose and barely anyone knows that you can craft paper from 1 log
+and 50 water. And paper is needed in large quantities to craft some
+items, like paper frames.
 
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-<details>
-<summary>Screenshots & Videos</summary>
+And it doesn't output a pack of rolling paper. It's dumb now. It prints
+the rolling paper sheets instead.
 
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
+## Why It's Good For The Game
 
-</details>
+Biogenerator had terrible UX and backend logic. I didn't improve much on
+BE though, but now it should be less frustrating to use.
 
+Also I hate how biogenerator is superior to all other means of obtaining
+its products. It doesn't make sense to grow and grind wheat, for
+instance, when you can just throw shit into biogenerator and get the
+flour fast. And the costs are ridiculous - you can get a couple of
+bottles of fertilizers just from one medium potato.
 
-# Changelog
+It honestly begs for more nerfing, at least to make the nutriment -
+chemicals exchange rate 1:1.
 
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
+The reason for the biomass cap is because people use it as a sink for
+veggies and generate infinite biomass. Maybe the limit will make them
+care more about the part upgrade and offload some of the veggies to the
+fridge for the Cook.
 
+Also it was weird that biogenerator could tailor some things, while
+others have to be crafted in-hand. Now you can print leather and craft
+all types of belts and leather clothing.
+
+## Changelog
 :cl:
-add: Queen eye shuffles weed sprites when passing over them.
-fix: Fixed some single letter vars so the mantainer agenda can't delay
-this PR from merging.
+refactor: biogenerator UI revamped
+qol: biogenerator no longer requires beaker for materials, monkey cubes
+and nori
+balance: biogenerator accepts all food, not just plants
+balance: biogenerator treats all nutriment subtypes as nutriments
+(vitamins, protein, etc.)
+balance: biogenerator product prices doubled
+balance: biogenerator biomass storage is limited depending on the level
+of matter bins
+balance: cowboy boots recipe moved from crafting to leather recipes
+balance: leather clothing & belt recipes moved from biogenerator to
+leather recipes
+balance: rice hat recipe moved from biogenerator to bamboo recipes
+balance: biogenerator now outputs rolling paper sheets instead of a pack
+add: biogenerator can now print paper
+imageadd: biogenerator icons now use overlays, have emissive layer and
+indicate the biomass volume
 /:cl:
 
-<!-- Both :cl:'s are required for the changelog to work! -->
-
 ---
-## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[aef93c4854...](https://github.com/mrakgr/The-Spiral-Language/commit/aef93c485489ff98839f615e4ed391cc6b2b9399)
-#### Monday 2022-12-19 11:36:27 by Marko Grdinić
-
-"7:10pm. Time to rest and relax. Tomorrow I'll crack that Python codegen.
-
-https://youtu.be/PDVlri6HUwc?list=PLcMKLtS9oWYFJ0o2bAc-Bh5e7kSnpCAl6&t=791
-
-This OST is banger.
-
-12/19/2022
-
-10:30am. Damn, I slept in late. Let's see, did I get any reply yet from the UPMEM guy? Ah, it was from 3 days ago. Damn, I should have checked it.
-
-Sent him an email as well notified him on Reddit.
-
-Now, let me just chill a little and I will get on with it.
-
-10:55am. MahoAko and Saki are out. Let me read them and then I'll get started on the Python backend.
-
-https://boards.4channel.org/a/thread/246488029/thoughts-on-ai-generated-manga-plots-and-art
-
-They are working on manga drawing AI already in Tezuka's style.
-
-https://boards.4channel.org/a/thread/246488029/thoughts-on-ai-generated-manga-plots-and-art#p246488313
-
-The way it captured Tezuka's style is amazing. This ability to seamlessly immitate styles is the kind of ability I'd most like to have had as a human. It is way beyond my talent.
-
-11:25am. Let me start.
-
-```fs
-    let rec binds_start (args : TyV []) (s : CodegenEnv) (x : TypedBind []) = binds (Codegen.C.refc_prepass' false (Set args) x).g_decr s BindsTailEnd x
-    and binds g_decr (s : CodegenEnv) (ret : BindsReturn) (stmts : TypedBind []) =
-        failwith ""
-```
-
-This is a good way to start things off. Yeah.
-
-11:45am. Ugh.
-
-```fs
-    and binds' (defs : CodegenEnv) (x : TypedBind []) =
-        let s = {defs with text = StringBuilder()}
-        binds (nullable_vars_of x) defs s (BindsTailEnd(binds_last_data x |> data_term_vars |> Array.isEmpty)) x
-        defs.text.Append(s.text) |> ignore
-    and binds_loop (nulls : Dictionary<obj,Tag Set>) (defs : CodegenEnv) (s : CodegenEnv) ret (stmts : TypedBind []) =
-        let rec loop i =
-            if i < stmts.Length then
-                let inline op a b c d = function
-                    | TyFailwith(_,b) -> line s $"raise Exception({tup b})"; false
-                    | e -> op a b c d e; true
-                let x = stmts.[i]
-                match x with
-                | TyLet(d,trace,a) ->
-                    try let d = data_free_vars d
-                        Array.iter (fun (L(i,t)) -> cdef_show "" defs i (tyv t)) d
-                        op nulls defs s (BindsLocal d) a
-                    with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-                | TyLocalReturnOp(trace,a,_) ->
-                    try op nulls defs s ret a
-                    with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-                | TyLocalReturnData(d,trace) ->
-                    try match ret with
-                        | BindsLocal [||] | BindsTailEnd true -> if i = 0 then line s "pass"
-                        | BindsTailEnd false -> line s $"return {tup d}"
-                        | BindsLocal ret -> line s $"{args ret} = {args' d}"
-                    with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-                    true
-                |> function
-                    | true -> print_nullables nulls s x; loop (i+1)
-                    | false -> ()
-        loop 0
-```
-
-Why am I passing booleans around in the Cython backend? Yeah, literally nobody is going to understand this. That is why I hate the backend so much. It started off well, but then I had to put in so many hacks. And as punchline at the end, its general performance is shit. Being 2x faster than Python does not mean much when the compilation times are destroyed and Python is already 1,000x slower than it should be anyway.
-
-11:55am. Let me just combine the C and the F# backends.
-
-```fs
-    and binds (s : CodegenEnv) (x : TypedBind []) =
-        Array.iter (function
-            | TyLet(d,trace,a) -> try op s (Some d) a with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-            | TyLocalReturnOp(trace,a,_) -> try op s None a with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-            | TyLocalReturnData(d,trace) -> try line s (tup d) with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-            ) x
-```
-
-Look at how clean it is.
-
-```fs
-    let rec binds_start (args : TyV []) (s : CodegenEnv) (x : TypedBind []) = binds (Codegen.C.refc_prepass' false (Set args) x).g_decr s BindsTailEnd x
-    and binds g_decr (s : CodegenEnv) (ret : BindsReturn) (stmts : TypedBind []) =
-        Array.iter (fun x ->
-            let _ =
-                let f (g : Dictionary<_,_>) = match g.TryGetValue(x) with true, x -> Seq.toArray x | _ -> [||]
-                (f g_decr) |> Seq.map (fun (L(i,_)) -> $"del v{i}") |> line' s
-            ()
-            ) stmts
-```
-
-This is a good way to start it off.
-
-12:10pm.
-
-```fs
-let lit = function
-    | LitInt8 x -> sprintf "(<signed char>%i)" x
-    | LitInt16 x -> sprintf "(<signed short>%i)" x
-    | LitInt32 x -> sprintf "(<signed long>%i)" x
-    | LitInt64 x -> sprintf "(<signed long long>%i)" x
-    | LitUInt8 x -> sprintf "(<unsigned char>%i)" x
-    | LitUInt16 x -> sprintf "(<unsigned short>%i)" x
-    | LitUInt32 x -> sprintf "(<unsigned long>%i)" x
-    | LitUInt64 x -> sprintf "(<unsigned long long>%i)" x
-    | LitFloat32 x ->
-        if x = infinityf then "(<float>float('inf'))"
-        elif x = -infinityf then "(<float>float('-inf'))"
-        elif Single.IsNaN x then "(<float>float())"
-        else sprintf "(<float>%s)" (x.ToString("R") |> add_dec_point)
-    | LitFloat64 x ->
-        if x = infinity then "(<double>float('inf'))"
-        elif x = -infinity then "(<double>float('-inf'))"
-        elif Double.IsNaN x then "(<double>float())"
-        else sprintf "(<double>%s)" (x.ToString("R") |> add_dec_point)
-    | LitString x ->
-        let strb = StringBuilder(x.Length+2)
-        strb.Append '"' |> ignore
-        String.iter (function
-            | '"' -> strb.Append "\\\""
-            | '\b' -> strb.Append @"\b"
-            | '\t' -> strb.Append @"\t"
-            | '\n' -> strb.Append @"\n"
-            | '\r' -> strb.Append @"\r"
-            | '\\' -> strb.Append @"\\"
-            | x -> strb.Append x
-            >> ignore
-            ) x
-        strb.Append '"' |> ignore
-        strb.ToString()
-    | LitChar x ->
-        match x with
-        | '\b' -> @"\b"
-        | '\n' -> @"\n"
-        | '\t' -> @"\t"
-        | '\r' -> @"\r"
-        | '\\' -> @"\\"
-        | x -> string x
-        |> sprintf "'%s'"
-    | LitBool x -> if x then "1" else "0"
-```
-
-Sure is nasty. Let me clean this up.
-
-```fs
-let lit = function
-    | LitInt8 x -> sprintf "%i" x
-    | LitInt16 x -> sprintf "%i" x
-    | LitInt32 x -> sprintf "%i" x
-    | LitInt64 x -> sprintf "%i" x
-    | LitUInt8 x -> sprintf "%i" x
-    | LitUInt16 x -> sprintf "%i" x
-    | LitUInt32 x -> sprintf "%i" x
-    | LitUInt64 x -> sprintf "%i" x
-    | LitFloat32 x ->
-        if x = infinityf then "float('inf')"
-        elif x = -infinityf then "float('-inf')"
-        elif Single.IsNaN x then "float()"
-        else x.ToString("R") |> add_dec_point
-    | LitFloat64 x ->
-        if x = infinity then "float('inf')"
-        elif x = -infinity then "float('-inf')"
-        elif Double.IsNaN x then "float()"
-        else x.ToString("R") |> add_dec_point
-    | LitString x ->
-        let strb = StringBuilder(x.Length+2)
-        strb.Append '"' |> ignore
-        String.iter (function
-            | '"' -> strb.Append "\\\""
-            | '\b' -> strb.Append @"\b"
-            | '\t' -> strb.Append @"\t"
-            | '\n' -> strb.Append @"\n"
-            | '\r' -> strb.Append @"\r"
-            | '\\' -> strb.Append @"\\"
-            | x -> strb.Append x
-            >> ignore
-            ) x
-        strb.Append '"' |> ignore
-        strb.ToString()
-    | LitChar x ->
-        match x with
-        | '\b' -> @"\b"
-        | '\n' -> @"\n"
-        | '\t' -> @"\t"
-        | '\r' -> @"\r"
-        | '\\' -> @"\\"
-        | x -> string x
-        |> sprintf "'%s'"
-    | LitBool x -> if x then "True" else "False"
-```
-
-Now it is fine.
-
-12:15pm. Since I will be using Python's native tuples, the returns will be much simplified.
-
-12:30pm.
-
-```fs
-    let rec binds_start (args : TyV []) (s : CodegenEnv) (x : TypedBind []) = binds (Codegen.C.refc_prepass' false (Set args) x).g_decr s BindsTailEnd x
-    and binds g_decr (s : CodegenEnv) (ret : BindsReturn) (stmts : TypedBind []) =
-        let tup_destruct (a,b) =
-            if 0 < Array.length a then
-                let a = Array.map (fun (L(i,_)) -> $"v{i}") a |> String.concat ", "
-                let b = Array.map show_w (data_term_vars b) |> String.concat ", "
-                sprintf "%s = %s" a b |> line s
-        Array.iter (fun x ->
-            let _ =
-                let f (g : Dictionary<_,_>) = match g.TryGetValue(x) with true, x -> Seq.toArray x | _ -> [||]
-                (f g_decr) |> Seq.map (fun (L(i,_)) -> $"del v{i}") |> line' s
-            match x with
-            | TyLet(d,trace,a) ->
-                try op g_decr s (BindsLocal (data_free_vars d)) a
-                with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-            | TyLocalReturnOp(trace,a,_) ->
-                try op g_decr s ret a
-                with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-            | TyLocalReturnData(d,trace) ->
-                try match ret with
-                    | BindsLocal l -> tup_destruct (l, d)
-                    | BindsTailEnd -> line s $"return {tup_data d}"
-                with :? CodegenError as e -> raise_codegen_error' trace e.Data0
-            ) stmts
-    and op g_decr s (ret : BindsReturn) a =
-        failwith ""
-    and tup_term_vars x =
-        let args = Array.map show_w x |> String.concat ", "
-        if 1 < x.Length then sprintf "(%s)" args else args
-    and tup_data x = tup_term_vars (data_term_vars x)
-```
-
-Perfect. It couldn't be any better. Most of the Ops I can just copy from the Cython backend.
-
-Let me have breakfast here."
-
----
-## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[1a226283e5...](https://github.com/cmss13-devs/cmss13/commit/1a226283e5c108dffcb74746af5d36ba29d51058)
-#### Monday 2022-12-19 12:02:26 by Diegoflores31
+## [ThePiachu/cmss13](https://github.com/ThePiachu/cmss13)@[1a226283e5...](https://github.com/ThePiachu/cmss13/commit/1a226283e5c108dffcb74746af5d36ba29d51058)
+#### Tuesday 2022-12-20 01:34:22 by Diegoflores31
 
 vamp lurker strain (#955)
 
@@ -2239,8 +672,8 @@ Co-authored-by: Shad0vvs <rtwdevelopment@gmail.com>
 Co-authored-by: harryob <me@harryob.live>
 
 ---
-## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[bba6239bc1...](https://github.com/cmss13-devs/cmss13/commit/bba6239bc19510ecd235acc31ec75783751f9bcc)
-#### Monday 2022-12-19 12:07:49 by Stan_Albatross
+## [ThePiachu/cmss13](https://github.com/ThePiachu/cmss13)@[bba6239bc1...](https://github.com/ThePiachu/cmss13/commit/bba6239bc19510ecd235acc31ec75783751f9bcc)
+#### Tuesday 2022-12-20 01:34:22 by Stan_Albatross
 
 sniper sentries rebalance (#1951)
 
@@ -2315,55 +748,1225 @@ balance: reduced the plasma sentry's delay between shots from 10s to 7s
 Co-authored-by: Stan_Albatross <swt91a@gmail.com>
 
 ---
-## [robins/postgres](https://github.com/robins/postgres)@[8272749e8c...](https://github.com/robins/postgres/commit/8272749e8ca1dbbcb5f8cf5632ec26a573ac3111)
-#### Monday 2022-12-19 12:11:20 by Tom Lane
+## [EdwardNashton/mojave-sun-13](https://github.com/EdwardNashton/mojave-sun-13)@[fe5d6c7b56...](https://github.com/EdwardNashton/mojave-sun-13/commit/fe5d6c7b568d550f403eb892ed47ffaf6b4fd28c)
+#### Tuesday 2022-12-20 01:35:36 by Technobug14
 
-Record dependencies of a cast on other casts that it requires.
+Agriculture (#2230)
 
-When creating a cast that uses a conversion function, we've
-historically allowed the input and result types to be
-binary-compatible with the function's input and result types,
-rather than necessarily being identical.  This means that the new
-cast is logically dependent on the binary-compatible cast or casts
-that it references: if those are defined by pg_cast entries, and you
-try to restore the new cast without having defined them, it'll fail.
-Hence, we should make pg_depend entries to record these dependencies
-so that pg_dump knows that there is an ordering requirement.
+* Does Stuff
 
-This is not the only place where we allow such shortcuts; aggregate
-functions for example are similarly lax, and in principle should gain
-similar dependencies.  However, for now it seems sufficient to fix
-the cast-versus-cast case, as pg_dump's other ordering heuristics
-should keep it out of trouble for other object types.
+Beginnings of agriculture code, stripped down TG botany a bunch, got rid of scar botany whilst replacing most of it. Also some map edits to change the paths on stuff and add a few spades for farming.
 
-Per report from David Turoň; thanks also to Robert Haas for
-preliminary investigation.  I considered back-patching, but
-seeing that this issue has existed for many years without
-previous reports, it's not clear it's worth the trouble.
-Moreover, back-patching wouldn't be enough to ensure that the
-new pg_depend entries exist in existing databases anyway.
+* Some NPK system framework
 
-Discussion: https://postgr.es/m/OF0A160F3E.578B15D1-ONC12588DA.003E4857-C12588DA.0045A428@notes.linuxbox.cz
+Removing more TG botany stuff and getting some framework down for NPK. Adds a "nutrient_type" variable to seeds and gives N, P or K as the type to every seed.
+
+* Removes Stuff, More NPK Framework
+
+Still WIP on NPK stuff, removes more basic bitch TG botany stuff, needs a lot more content but in an almost-working state
+
+* Nutrient drain
+
+Nutrients actually get drained properly now. Crop plots output their level of N, P and K when examined. Still need to make something to handle restoring nutrients and figure out a nutrient economy for plant consumption.
+
+* Mostly working, one major bug
+
+This is mostly working now. The NPK now drains according to the seed planted, it replenishes over time, you can now get water from water tiles and the soil will properly adjust the waterlevel variable with the new water types.
+
+HOWEVER, big bug. The way TG handled watering crops is ass. Doesn't delete, stays in the reagent_container of the soil, normally checks for if a reagent_container has water to bypass how full the soil's container is, bad system that sucks. Needs fixing.
+
+* oops
+
+oopsie!!! fucked something!!! forgot to undo a change I made to the code, it's just there to remind me it's not working correctly
+
+* Last minute fixes/bandaids
+
+I HATE TG BOTANY I HATE TG BOTANY I'M LOSING IT
 
 ---
-## [ACLANMILES00/app-dev](https://github.com/ACLANMILES00/app-dev)@[e2a5eb5cdc...](https://github.com/ACLANMILES00/app-dev/commit/e2a5eb5cdc0b69b0167788e1a756b17a3063cdc5)
-#### Monday 2022-12-19 12:45:48 by ACLANMILES00
+## [acarrasco/advent_of_code](https://github.com/acarrasco/advent_of_code)@[c627733e1a...](https://github.com/acarrasco/advent_of_code/commit/c627733e1a23022ca551e48fb09291c322129774)
+#### Tuesday 2022-12-20 01:57:28 by Alejandro Carrasco
+
+Year 2022 - day 19
+
+This was a tough cookie! When I read it in the morning I felt absolutely
+discouraged, since I had been having trouble with the previous days...
+
+But after the whole day minding my own business I got back home and
+decided to give it a go. The first part wasn't that difficult, it was
+just a matter of doing an exhaustive exploration of all the options with
+some caching.
+
+For the second part that didn't work. I was already in bed when I realized
+that given that the factory can only produce one robot at a time, there
+is no point in having more robots than what are actually needed to
+produce the requirements to build one geode cracking robot per turn.
+
+With that and a more efficient state representation (tuples instead of
+dicts) the search could finish in a few minutes.
+
+An extra optimization that I was considering was to group equivalent
+states ignoring the amount of geodes and geode-cracking robots, but it
+wasn't needed in the end.
+
+---
+## [Ryll-Ryll/tgstation](https://github.com/Ryll-Ryll/tgstation)@[29d766e25f...](https://github.com/Ryll-Ryll/tgstation/commit/29d766e25f18c5030972562ed649832077cdfc95)
+#### Tuesday 2022-12-20 02:19:48 by LemonInTheDark
+
+Fixes attempting to offset floating planes (#71490)
+
+## About The Pull Request
+
+This is a dumb idea, and leads to fucked rendering on occasion
+
+## Why It's Good For The Game
+
+Fixes another portion of #70258, a player will no longer have a hidden
+antag hud if they move down a z level after getting an antag. We were
+trying to offset the floating plane of their image, and it went to shit.
+Also fixes a bug with observers not having antag huds for the combo hud
+to see. We were only giving them one on mind.on_transfer, rather then on
+mind assignment. I hate mindcode
+
+---
+## [LemonInTheDark/tgstation](https://github.com/LemonInTheDark/tgstation)@[a753229ee2...](https://github.com/LemonInTheDark/tgstation/commit/a753229ee2541e32164772f05330669d3c6b75d8)
+#### Tuesday 2022-12-20 03:38:56 by GoldenAlpharex
+
+Biogen Refactor and Code Cleanup, Faster Biomass Conversion and No More Biomass Cap! (#71563)
+
+## About The Pull Request
+So, I looked at the Biogenerator code and there was just, _so_ much old
+and undocumented code, that I just spazzed out and started documenting
+and refactoring everything. There's now a lot less usage of contents
+lookups and for loops, and _almost_ everything is documented, now, too.
+
+As for the changes, as you can see in the title, I made biomass
+conversion faster. How much faster, you ask? 5 times faster with default
+parts, up to 20 times faster with the best parts. It was painfully slow,
+and that's not fun for anyone.
+
+I also lifted the biomass cap. It wasn't useful, it wasn't fun, and
+Melbert didn't really agree with it either. However, I enjoyed the look
+of the biomass going up, so I gave it a max visual amount of 5000, so
+you get to see it gradually filling up as you put your first 5000
+biomass in. After that, you do you, chief. Watch the funny numbers go up
+all you want.
+
+I also improved the maths so that it wasn't just rounding stuff
+constantly, and also gave a little bit more insight on how much biomass
+everything would cost you, down to two decimals. If there's no decimals,
+it won't show them, however.
+
+
+<details>
+<summary>Here's what that looks like now:</summary>
+That's one screenshot per different decimal places, there's no trailing
+zeros because I think we can all universally agree that those look bad
+in this kind of setting.
+
+
+![image](https://user-images.githubusercontent.com/58045821/204120744-a8c398dc-7c19-4ee0-a8cb-5615f1dce1ea.png)
+
+![image](https://user-images.githubusercontent.com/58045821/204120749-90aae203-bdb8-4322-a657-bb4fd313d808.png)
+
+![image](https://user-images.githubusercontent.com/58045821/204120755-8bed494d-0d70-4b4a-afa2-413610089f6d.png)
+
+</details>
+
+There's now also more information displayed when you examine the biogen,
+namely, how many items it has stored, and how many it can hold. I also
+fixed the formatting a bit, so it looks ever so slightly cleaner.
+
+Other than that, I just improved the code everywhere I saw it to be
+fitting, there shouldn't be any single-letter variables in there
+anymore, and the code should be more spaced out. Honestly, at this
+point, I wrote most of this code six hours ago so I don't remember all
+of it, and I'm too lazy to go through and check what I've changed again.
+Diff and changelog are there for that.
+
+## Why It's Good For The Game
+So, I'll be honest, there were two big reasons that motivated me to do
+this. First of all, the biomass cap. That was a little silly, anyone
+that has spent more than one shift in Hydroponics knows that you usually
+only put Watermelons in the biomass generator as they're usually the
+thing that nets you the most biomass. Botanists will generally stock the
+fridges first, and if they have a lot of excess, they'll put it in the
+generator if they want, but that's rarely what was done. I've talked
+with @MrMelbert about it and he gave me the go-ahead, as can be seen
+here:
+
+
+![image](https://user-images.githubusercontent.com/58045821/204115174-fb2610c0-61c5-44e1-845e-cc6925ee33e6.png)
+
+The other reason was the excruciatingly slow processing speed, which
+I've fixed. So we're good now. :)
+
+## Changelog
+
+:cl: GoldenAlpharex
+refactor: Went through and refactored a lot of the old code of the
+biogenerator, and made multiple improvements to its logic, which should
+hopefully make it behave more consistently. Nearly all of it is now also
+fully documented, so as to make it easier for anyone else that has to
+sift through it in the future.
+qol: The biogenerator now processes items five times faster, up to 20
+times faster if properly upgraded!
+qol: The biogenerator is no longer capped on biomass. Its visuals will
+change up until 5000 biomass, but you're free to go as high as you'd
+like with it! Sky's the limit!
+fix: Fixed the logic of the biogenerator that would make it so the
+amount of biomass used for recipes was wildly inconsistent. Now, there's
+no more back-end rounding up, it's all on the front end when it needs to
+be, so there's no loss or gain of biomass when there shouldn't be.
+spellcheck: Fixed a capitalization issue with the seaweed sheets in the
+biogenerator recipes.
+spellcheck: Fixed multiple inconsistencies between the messages sent to
+your chat by the biogenerator.
+/:cl:
+
+---
+## [LemonInTheDark/tgstation](https://github.com/LemonInTheDark/tgstation)@[35b5ac0c4e...](https://github.com/LemonInTheDark/tgstation/commit/35b5ac0c4e6bbaf2adf277a7ea7a4a4eab89726b)
+#### Tuesday 2022-12-20 03:38:56 by Fikou
+
+Psykers (#71566)
+
+## About The Pull Request
+Finishes #66471
+At burden level nine (or through a deadly genetic breakdown), you now
+turn into a psyker.
+This splits your skull in half and transforms it into a weird fleshy
+mass. You become blind, but your skull is perfectly suited for sending
+out psychic waves. You get potent psy abilities.
+First one is brainwave echolocation, inspired by Gehennites (but not as
+laggy).
+Secondly, you get the ability of Psychic Walls, which act similarly to
+wizard ones, but last shorter, and cause projectiles to ricochet off
+them.
+Thirdly, you get a projectile boost ability, this temporarily lets you
+fire guns twice as fast and gives them homing to the target you clicked.
+Lastly, you get the ability of psychic projection. This terrifies the
+victim, fucking their screen up and causing them to rapidfire any gun
+they have in their general direction (they'll probably miss you)
+With most of the abilities being based around guns, a burden level nine
+chaplain now gets a new rite, Transmogrify. This lets them turn their
+null rod into a 5-shot 18 damage .77 revolver. The revolver possesses a
+weaker version of antimagic (protects against mind and unholy spells,
+but not wizard/cult ones). It is reloaded by a prayer action (can also
+only be performed by a max burdened person).
+General Video: https://streamable.com/w3kkrk
+Psychic Projection Video: https://streamable.com/4ibu7o
+
+![image](https://user-images.githubusercontent.com/23585223/204150279-a6cf8e2f-c678-476e-b72c-6088cd8b684b.png)
+
+## Why It's Good For The Game
+Rewards the burdened chaplain with some pretty cool stuff for going
+through hell like losing half his limbs, cause the current psychics dont
+cut it as much as probably necessary, adds echolocation which can be
+used for neat stuff in the future (bat organs for DNA infuser for
+example).
+
+## Changelog
+:cl: Fikou, sprites from Halcyon, some old code from Basilman and
+Armhulen.
+refactor: Honorbound and Burdened mutations are brain traumas now.
+add: Psykers. Become a psyker through the path of the burdened, or a
+genetic breakdown.
+add: Echolocation Component.
+/:cl:
+
+Co-authored-by: tralezab <spamqetuo2@gmail.com>
+Co-authored-by: tralezab <40974010+tralezab@users.noreply.github.com>
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+
+---
+## [space-wizards/space-station-14](https://github.com/space-wizards/space-station-14)@[168bad2ef2...](https://github.com/space-wizards/space-station-14/commit/168bad2ef25cc25c2cffea788f643425b858be6d)
+#### Tuesday 2022-12-20 04:07:25 by Nemanja
+
+multi-handed item component (#12523)
+
+* multi-handed item component
+
+* pretty fucking obvious missed portion of this
+
+* holy shit was i on crack wtf was that code
+
+* DEWIT RIGHT
+
+---
+## [softcerv/Skyrat-tg](https://github.com/softcerv/Skyrat-tg)@[1c76ea5334...](https://github.com/softcerv/Skyrat-tg/commit/1c76ea533439dcd7fca15a2dd500a44dc6158883)
+#### Tuesday 2022-12-20 04:11:18 by SkyratBot
+
+[MIRROR] Changes our map_format to SIDE_MAP [MDB IGNORE] (#18070)
+
+* Changes our map_format to SIDE_MAP (#70162)
+
+## About The Pull Request
+
+This does nothing currently, but will allow me to test for layering
+issues on LIVE, rather then in just wallening.
+Oh also I'm packaging in a fix to one of my macros that I wrote wrong,
+as a joke
+
+[removes SEE_BLACKNESS usage, because we actually cannot use it
+effectively](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
+
+[c9a19dd](https://github.com/tgstation/tgstation/pull/70162/commits/c9a19dd7cce95038340ebd5c1a6e4cb27ee7c9ee)
+
+Sidemap removes the ability to control it on a plane, so it basically
+just means there's an uncontrollable black slate even if you have other
+toggles set.
+
+This just like, removes that, since it's silly
+
+[fixes weird layering on solars and ai portraits. Pixel y was casuing
+things to render below who
+shouldn't](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
+
+[3885b9d](https://github.com/tgstation/tgstation/pull/70162/commits/3885b9d9ed634cdc4c8041b19df5b5ea9a1a37ae)
+
+[Fixes flicker
+issues](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
+
+[2defc0a](https://github.com/tgstation/tgstation/pull/70162/commits/2defc0ad20a0ee7d12e0b071f6d31b6127b8765d)
+
+Offsetting the vis_contents'd objects down physically, and then up
+visually resolves the confliciting that was going on between the text
+and its display.
+
+This resolves the existing reported flickering issues
+
+[fixes plated food not appearing in
+world](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
+
+[28a34c6](https://github.com/tgstation/tgstation/pull/70162/commits/28a34c64f830660d7fb1cc669b9fc3ed9f5c7d61)
+
+pixel_y'd vis_contents strikes again. It's a tad hacky but we'll just
+use pixel_z for this
+
+[Adds wall and upper wall plane
+masters](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
+
+[89fe2b4](https://github.com/tgstation/tgstation/pull/70162/commits/89fe2b4eb40edc36879e4e1954dee8616be94522)
+
+We use these + the floor and space planes to build a mask of all the
+visible turfs.
+Then we take that, stick it in a plane master, and mask the emissive
+plane with it.
+
+This solves the lighting fulldark screen object getting cut by emissives
+Shifts some planes around to match this new layering. Also ensures we
+only shift fullscreen objects if they don't object to it.
+
+[compresses plane master
+controllers](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
+
+[bd64cc1](https://github.com/tgstation/tgstation/pull/70162/commits/bd64cc196a4265d42809eebbd1afa46fa33a576d)
+
+we don't use them for much rn, but we might in future so I'm keeping it
+as a convienince thing
+
+:cl:
+refactor: The logic of how we well, render things has changed. Make an
+issue report if anything looks funky, particularly layers. PLEASE USE
+YOUR EYES
+/:cl:
+
+Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
+
+* Changes our map_format to SIDE_MAP
+
+* Modular!
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
+Co-authored-by: Funce <funce.973@gmail.com>
+
+---
+## [BrynGhiffar/pj_projectservice](https://github.com/BrynGhiffar/pj_projectservice)@[8d0238c8ce...](https://github.com/BrynGhiffar/pj_projectservice/commit/8d0238c8cebbc07200e4ea98c63180b7302b7d54)
+#### Tuesday 2022-12-20 05:17:01 by Bumskee
+
+fixed the stupid ass bug it was all just because of cursor type object is messing with our fucking workflow
+
+---
+## [wahello/terminal](https://github.com/wahello/terminal)@[b4b6636b49...](https://github.com/wahello/terminal/commit/b4b6636b4952ac8ff6a9864f641973bb49d91ce4)
+#### Tuesday 2022-12-20 06:39:22 by Mårten Rånge
+
+Relax shader strictness in RELEASE mode (#13998)
+
+Disables strictness and warnings as errors for custom pixel shaders in
+RELEASE. Windows terminal is not telling the user why the shader won't
+compile which makes it very frustrating for the shader hacker.
+
+After trying the recent preview none of my shaders loaded anymore in
+Windows Terminal Preview which made me very sad. I had no idea what was
+wrong with them. After cloning the git repo, building it, fighting an
+issue that prevent DEBUG SDK from being used I finally was able to
+identify some issues that were blocking my shaders.
+
+> error X3556: integer modulus may be much slower, try using uints if possible.
+> error X4000: use of potentially uninitialized variable (rayCylinder)
+
+While the first one is a good warning I don't think it is an error and
+the tools I use didn't flag it so was hard to know.
+
+The second one I was staring at the code and was unable to identify what
+exactly was causing the issues, I fumbled with the code a few times and
+just felt the fun drain away.
+
+IMHO: I want it to be fun to develop shaders for windows terminal.
+Fighting invisible errors are not fun. I am not after building
+production shaders for Windows Terminal, I want some cool effects. So
+while I am as a .NET developer always runs with Warning as errors I
+don't think it's the right option here. Especially since Windows
+Terminal doesn't tell what is the problem.
+
+However, I understand if the shaders you ship with Windows Terminal
+should be free of errors and silly mistakes, so I kept the stricter
+setting in DEBUG mode.
+
+## Validation Steps Performed
+
+Loaded Windows Terminal in RELEASE and DEBUG mode and validated that
+RELEASE mode had reduced strictness but DEBUG retained the previous more
+restrictive mode.
+
+---
+## [san7890/bruhstation](https://github.com/san7890/bruhstation)@[d823151ada...](https://github.com/san7890/bruhstation/commit/d823151ada4bb9e0ccf65d6c448c5df78b28a3c7)
+#### Tuesday 2022-12-20 07:05:12 by san7890
+
+Guards against uplink failsafe code being the same as unlock code
+
+There's probably a better way to do this to be honest, but I think it's silly for both to potentially be the same and this should work alright.
+
+Traitor UI only shows Unlock/Failsafe Code if you have it
+
+There are cases in which you don't have an unlock code (if the uplink is implanted in you from the start) and you obviously don't always start with with a failsafe code (need to buy it). So, let's only fill in this fields in the UI should they exist.
+
+There might be something to be said about wanting to ensure that people remember that they can check this UI screen to find the failsafe code should they lose it later, and I wouldn't mind changing the string to be something like "Failsafe: None" in that case. However, I just thing something like:
+
+```txt
+Code:
+Failsafe:
+```
+
+is silly.
+
+---
+## [Clumsy0420/Rise6Launcher](https://github.com/Clumsy0420/Rise6Launcher)@[4976804721...](https://github.com/Clumsy0420/Rise6Launcher/commit/497680472131129a7feaa82f04ed1eac12807bfd)
+#### Tuesday 2022-12-20 07:45:02 by Clumsy0420
+
+Revert "fuck you clusmy"
+
+This reverts commit 2093f895742c352a3cb5f246c4c62d8e5b2e6662.
+
+---
+## [radnyi/My_new_projects_AI](https://github.com/radnyi/My_new_projects_AI)@[4544e695db...](https://github.com/radnyi/My_new_projects_AI/commit/4544e695dbb7a06df33bf994ee77b6cb0ca0c365)
+#### Tuesday 2022-12-20 08:29:51 by radnyi
+
+A
+
+Final project for the Building AI course of Univerity of Helsinki
+
+Summary
+This AI project target is to be able to identify for each main cosmetic scent (such as rose, pine, mint...) several set of images that have together a high probability to conjure the main scent when you see one of these AI-sorted set of images in a picture on a web page.
+
+In this AI project we would use only images to trigger scents. It would not use a scent-generating device. You can include the project in the general category of "Digital scent technology" but a very specific branch of this technology which tries to generate scents memories by using only images.
+
+Background
+The problem I want to solve is the problem of e-commerce selling products with high olfative charateristics and that do not have currently the way to convey these scents to their customers. I want to be able offer them a list of image proxy for each of the scents they need to convey.
+
+By putting their product inside a composition with the adequate images set, they will be able to summon the right scent memory by trying to use the scent experiences printed in the customer brain and triggered by the set of image.
+
+The categories of products that would benefit of a solution for this problem are : cosmetics, perfumes, cooked dishes, and in fact any product with a scent, or mix of scents, that need to be sold on a e-commerce web site.
+
+How is it used?
+One concrete example : I am selling on a e-commerce website a candle that smells like lemon and pine. How do I maximize the probability to summon the right lemon-pine scent memory when the customer is looking at the picture of my candle?
+
+We could say "put a lemon and a pine" behind your candle on a picture with the three items combined but it is far from satisfying and experience tends to show that a picture with a lemon-pie summon better the memory of lemon scent than the picture of a lemon. So what do I do if I am a e-commerce marketer to promote my lemon and pine candle using images?
+
+Therefore my AI solution would give you the capability to sort any bank of image into adequate subsets that are usually triggering the memory of a set of scents when you are looking at these subsets of images. For example if I have 10 main scents in my products and a bank of 1000 images, I would like to classify my bank in 10 lists, one for each scent. And each list would contain a number of set of images that have a high probability to trigger the scent I am trying to recall.
+
+By using my sorted bank of images, a e-commerce professional would be able to market efficiently its beautifully smelling products on the web by putting them in a picture that usually can generate the right scent memories he wants to generate for each product.
+
+The AI solution I will describe below could be used in theory on any available bank of images for any list of scents.
+
+Data sources and AI methods
+The global methodology I would use is a combination of brain imaging and deep learning.
+
+The steps I am seeing are :
+
+1/ COLLECT
+
+one big bank of images containging simple items in each picture (i.e : a lemon, a pine, a rose, a daisy....)
+one list of main scents that can be easily transported and stored
+a brain imaging set (not so easy)
+a group of people that are ready to participate to the classification process
+2/ RECORD BRAIN IMAGES FOR A BANK OF PICTURES AND A DIVERSE GROUP OF PERSONS
+
+you use the brain imagery to show the images (and any subset of images you have the time to show - for example you try all the pairs)
+you store the brain image generated by each picture for each subject
+3/ RECORD BRAIN IMAGES A FIRST IMAGE BANK TO A SET OF SCENTS
+
+you then have each sujects smelling all the samples of scents that you want to classify
+you store the brain image generated by each picture for each subject
+4/ AI CLASSIFICATION
+
+using AI methods you identify the brain images corresponding to pictures that match the best with brain images corresponding to scents
+the available AI algorithms for comparing pair of images are very mature and you can use very simple algorithms such MSE in python or very complex ones combining deep learning approaches (CNN, Siamese networks, deep neural networks...)
+you will never have perfect match but you will have probable matches because your are trying to trigger memories of odours using analogy in the brain with images you see
+the quality of the classification will evidently depends of the numer of persons you are able to put through this brain image recording process
+the efficiency of the classification will depend too of the content of your bank of image : maby your bank is not able at all to generate this right scent memory and your best match will be a very distant match with the brains area activated which are not the right ones whatever the picture you show to whatever the person in your group.
+5/ GENERALISATION
+
+when you have reached your first classified bank of image you can use it to classify a new bank of pictures using the same AI methods of image similarity without having to records any brain of any person : you are just trying to use a new picture (or a set of pictures) which have sufficient similarity with one set of your original bank in order to get a high probability of trigerring a particular scent memory to a maximum of potential customers.
+Challenges
+You need a lot of subjects to generate good results and you need brain imaging systems so the initial classification would be time-consuming and expansive. But my idea is to classify an "proto-bank" with brain imaging which would be used to classified other banks of pictures with only AI methods and therefore it will reduces the costs for a new bank of images that has not already been classified through brain imaging : you use only your proto-bank and the new bank.
+
+But the main challenge I see is to find the right diverisity of people that will maximize your results. All this project is based upon the scientific knowledge that a specific image you are looking at it able to trigger the memory of a scent (similar to madeleine de Proust) and therefore you need the right memories in the brain of the persons that will volunteer for the recording. But to get the samed memories than the ones of your customers you need to compose thoroughly your sample of people : the same culture, the same background, similar experiences, etc... If you are using a sample of people that have never smelt a lemon you will get nothing whatever the pictures in your bank.
+
+You can simplify this challenge by marketing : if your product is targeting one very specific segment of customers you will select your sample of people only inside this specific segment of customers and you will have higher probabilities of triggering the same scent memories by seing the same picture between a customer C and one person of your sample... But everything there is based upon similarities and not identities.
+
+What next?
+It seems that the main focus in 2021 is to try to generate scents by digital-devices and not by pictures therefore my project would not get the most help firstly but I think that it will come because as a customer I prefer something very simple such as the right set of pictures than putting an electrod in my nose to get the actual scent of having a sample of scents to use in my own room.
+
+Maybe we could find a bank of images already classified into "the-right-picture-for-the right-scent" through brain imaging and then the project would easily kickstart because it would only be a python project having an input unclassified bank of pictures and an output classified bank of pictures thanks to comparison with your proto-bank.
+
+Acknowledgments
+I want to thank my loved wife who is the creator of an e-commerce company creating and selling natural cosmetics and has forever be faced with this business problem of triggering scents without any scent on its website. Thank you my Dear for having given me this business problem. I dot not have the applied AI solution but I know that it will exist someday because it is not so difficult using the above technics, it requires just time and money :-)
+
+---
+## [saravanakumar-2003/Saravana-Kumar-C-practice](https://github.com/saravanakumar-2003/Saravana-Kumar-C-practice)@[2fbe2982f5...](https://github.com/saravanakumar-2003/Saravana-Kumar-C-practice/commit/2fbe2982f5203852eaf7ecba22b193fd478f6f9b)
+#### Tuesday 2022-12-20 08:35:40 by saravanakumar-2003
+
+Create Team Flash
+
+A young man named Diffny leaves home to travel to California, to join the Team Flash. Although Diffny is not able to join this elite team immediately, he befriends the three most formidable members of the age: Joe, Ramsey and vixon and gets involved in affairs of the state and court.At that time, the Villan was planning to dethrone the king and to take the kingdom and to remove the Team Flash of the guard. Since the Villan has spies mixed with the local public , Diffny decides to send a message of his whereabouts to the team Flash in unique way.He gave a note to a boy which has the following message. I am at the midpoint of the line joining the farmhouse next to the palace and the light house. The Team Flash were puzzled. Can you help them find out the location of Diffny?Given the coordinates of the 2 places (x1,y1) and (x2,y2), write a program to find the location of Diffny.
+
+Input & Output Format:
+
+Input consists of 4 integers.
+
+First value consists of x1.
+
+Second value consists of y1.
+
+Third value consists of x2.
+
+Fourth value consists of y2.
+
+Output consists of two float values.
+
+Sample Input
+2
+
+4
+
+10
+
+15
+
+Sample Output
+
+
+6.0
+9.5
+
+---
+## [saravanakumar-2003/Saravana-Kumar-C-practice](https://github.com/saravanakumar-2003/Saravana-Kumar-C-practice)@[d447623ea8...](https://github.com/saravanakumar-2003/Saravana-Kumar-C-practice/commit/d447623ea815c8ad712bf1594dd3b6c933f3a981)
+#### Tuesday 2022-12-20 08:36:25 by saravanakumar-2003
+
+Create The Chronicles of Narnia
+
+Four kids Peter,Susan,Edmond and Lucy travel through a wardrobe to the land of Narnia. Narnia is a fantasy world of magic with mythical beasts and talking animals.While exploring the land of narnia Lucy found Mr.Tumnus the two legged stag ,and she followed it, down a narrow path .She and Mr.Tumnus became friends and he offered a cup of coffee to Lucy in his small hut.It was time for Lucy to return to her family and so she bid good bye to Mr.Tumnus and while leaving Mr.Tumnus told that it is quite difficult to find the route back as it was already dark.He told her to see the trees while returning back and said that the first tree with two digits number will help her find the way and the way to go back to her home is the sum of digits of the tree and that numbered way will lead her to the tree next to the wardrobe where she can find the others.Lucy was already confused, so pls help her in finding the route to her home.... 
+
+Input Format:
+Input consists of an integer corresponding to the 2-digit number.
+Output Format:
+Output consists of an integer corresponding to the sum of its digits.
+
+Sample Input
+23
+
+Sample Output
+5
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[cf02f62298...](https://github.com/tgstation/tgstation/commit/cf02f622986932af8fb09e48cbdf5ec0ac567cf5)
+#### Tuesday 2022-12-20 08:51:55 by LemonInTheDark
+
+useless update_appearance reduction, emissive_blocker micro optimization (saves a second of init) (#71658)
+
+## About The Pull Request
+
+[Saves 0.2 seconds of init time. 50% of emissive
+blockers](https://github.com/tgstation/tgstation/commit/8318b648f6d32844aacbfb4c309152cd45801f5c)
+
+Emissive blockers are a decent expense during init, even these, which
+are the ones that update outside of initialize.
+I've inlined them, removed some redundant vars and checks, reduced the
+arg count, and shifted some things around. This ends up saving 200ms, or
+50% of its total cost.
+
+I also shifted mutable_appearance about a bit. it's not a massive
+saving, but it is technically faster
+
+[Prevents a few redundant appearance_updates, saves 0.8 seconds of
+init](https://github.com/tgstation/tgstation/commit/5475cd778b66b22b1e2c8d86b2c6d59fb84f219a)
+
+Prequisit info: update_appearance is decently expensive
+It's good then to only do it if we have a reason to, right?
+
+Me and moth were shooting the shit about just general init time, and we
+came up with the idea of tracking which update_appearances actually
+"worked" and which didn't.
+
+That bit comes later, let's enjoy the fruits of that work first
+
+First, holograms were calling update_appearance on process, for almost
+no reason.
+I patched the one event they don't already "react" to, and then locked
+it behind a change decection if.
+good for live, doesn't impact init.
+
+Next, decals. If you add a decal to something before it inits, it'll
+react to the after successful init signal.
+The trouble is the same atom could have its appearance updated from this
+MORE then once, since decals can be stacked on tiles, and signal
+unregisters don't work once the signal is sent.
+So we add a flag to track if we've had this happen to us or not, so it
+only happens once.
+saves 80 ms
+
+Power! lots of things call power_change on init, often more then once.
+We'll update appearance for each of those calls, even if only one is an
+actual change.
+That's silly, better to track what sort of power we're using for our
+appearance and go off that changing
+
+This was taking about 300ms. Really stupid
+
+Icon smoothing. After emissive blockers were added, any change to
+something's icon smoothing would lead to an update_appearance call.
+Nasty shit, specially cause of walls, which don't even use emissive
+blockers.
+Ok then, so we'll always update appearance for movables, and will allow
+turfs that are interested to hook it manually.
+Not many of those anyhow
+This is slightly a dev ux thing, but it saves 600ms so I think it's
+worth it. Rare case anyway
+
+Telecomms:
+telecomm machines were updating appearance on process. This is to cover
+for them turning on/off on process.
+Better then to just check if on actually changed.
+This cost adds up midgame, doesn't impact init tho
+
+Materials:
+There's this update_appearance call in material on_apply. it doesn't do
+anything.
+The logs will lie to you and say it does, but it's just like reapplying
+emissives. It doesn't need to exist
+Saves like 50ms
+
+Canisters:
+Live thing, lots of time wasted updating appearance for no reason, lets
+see if we change anything first yes?
+
+[Uses defines to wrap update_appearance for
+tracking](https://github.com/tgstation/tgstation/commit/4fa82e1c9d93577aadb3c743f17196331f62e67c)
+
+[Undoes _update_appearance changes, instead reccomends 2 regexes to
+use](https://github.com/tgstation/tgstation/commit/a8c8fec57a4e43d1fa636b5ac68459903faa9fc5)
+
+I need file and line number for my tracking, so I need to override
+update_appearance calls, and also preferably not require every override
+of update_appearance to handle dummy file + line args.
+
+So instead, I created a wrapper proc that checks to see if appearanaces
+match (they're unique remember, the two of the same visual appearance
+will be equivalent)
+The trouble is I can't intercept JUST proc calls, or JUST function
+definitions with defines. it needs to be both.
+
+So I renamed the /update_appearance proc to /_update_appearance
+
+this way I can capture old uses, and don't need to worry about merge/dev
+brain skew
+
+~~It does mean that all update_appearance proc definitions now look
+weird tho.
+My profiling is leaking into dev ux. I wish I had better templating.~~
+
+**The above is no longer being pr'd**, it's instead just recommended via
+a few regexes adjacent to the define.
+Smelled wrong anyhow
+
+[Adds a setter for panel_open, so I can update_appearance on
+it](https://github.com/tgstation/tgstation/pull/71658/commits/cf1df8a69fc1a816391d085ee7419b14f9fe9167)
+
+## Why It's Good For The Game
+
+Speed
+
+---
+## [vlebourl/ha-temperature-feels-like](https://github.com/vlebourl/ha-temperature-feels-like)@[0708b10542...](https://github.com/vlebourl/ha-temperature-feels-like/commit/0708b10542333382703e5232b06cd0b862664985)
+#### Tuesday 2022-12-20 09:26:07 by Vincent Le Bourlot
+
+Update units conversion for HA 2022.10+ (close #93)
+<!--
+  You are amazing! Thanks for contributing to our project!
+  Please, DO NOT DELETE ANY TEXT from this template! (unless instructed).
+-->
+## Breaking change
+<!--
+  If your PR contains a breaking change for existing users, it is important
+  to tell them what breaks, how to make it work again and why we did this.
+  This piece of text is published with the release notes, so it helps if you
+  write it towards our users, not us.
+  Note: Remove this section if this PR is NOT a breaking change.
+-->
+
+## Proposed change
+<!--
+  Describe the big picture of your changes here to communicate to the
+  maintainers why we should accept this pull request. If it fixes a bug
+  or resolves a feature request, be sure to link to that issue in the
+  additional information section.
+-->
+
+## Type of change
+<!--
+  What type of change does your PR introduce to Home Assistant?
+  NOTE: Please, check only 1! box!
+  If your PR requires multiple boxes to be checked, you'll most likely need to
+  split it into multiple PRs. This makes things easier and faster to code review.
+-->
+
+- [ ] Dependency upgrade
+- [ ] Bugfix (non-breaking change which fixes an issue)
+- [ ] New feature (which adds functionality to an this integration)
+- [ ] Breaking change (fix/feature causing existing functionality to break)
+- [ ] Code quality improvements to existing code or addition of tests
+
+## Example entry for `configuration.yaml`:
+<!--
+  Supplying a configuration snippet, makes it easier for a maintainer to test
+  your PR. Furthermore, for new integrations, it gives an impression of how
+  the configuration would look like.
+  Note: Remove this section if this PR does not have an example entry.
+-->
+
+```yaml
+# Example configuration.yaml
+
+```
+
+## Additional information
+<!--
+  Details are important, and help maintainers processing your PR.
+  Please be sure to fill out additional details, if applicable.
+-->
+
+- This PR fixes or closes issue: fixes #
+- This PR is related to issue:
+
+## Checklist
+<!--
+  Put an `x` in the boxes that apply. You can also fill these out after
+  creating the PR. If you're unsure about any of them, don't hesitate to ask.
+  We're here to help! This is simply a reminder of what we are going to look
+  for before merging your code.
+-->
+
+- [ ] The code change is tested and works locally.
+- [ ] There is no commented out code in this PR.
+- [ ] The code has been formatted using Black (`black --fast custom_components`)
+
+If user exposed functionality or configuration variables are added/changed:
+
+- [ ] Documentation added/updated to README.md
+
+<!--
+  Thank you for contributing <3
+-->
+
+---
+## [carshalash/tgstation](https://github.com/carshalash/tgstation)@[6dd4839ef3...](https://github.com/carshalash/tgstation/commit/6dd4839ef321aa0a997549d1ae07fe7ccbba59ed)
+#### Tuesday 2022-12-20 10:40:12 by carshalash
+
+Gatfruit will no longer drop from ice portals. (#72048)
+
+## About The Pull Request
+
+For some god-forsaken reason, somebody decided that ice portals should
+be able to drop one of the most disruptive items in the game. This PR
+amends this by removing it from the drop pool.
+
+## Why It's Good For The Game
+
+In 2013 gatfruit was introduced in the following PR #2000 . This was
+almost a decade ago at this point, repeatedly through the PR the creator
+states his belief that this item should only ever be obtainable through
+admin intervention due to its ridiculous capabilities. At the time
+everyone in the PR agreed it was a reasonable item to add **as it was
+unobtainable without admin intervention**. Over the years, it has crept
+its way to become more prevalent and openly obtainable, the most
+offensive of these options is the ice moon portal. As is, there is a 1
+in 28 chance of obtaining the seeds, this sounds pretty inoffensive
+right? That's just 3.44% probability. Now, let us search the instances
+of the portal that spawns this.
+
+
+![image](https://user-images.githubusercontent.com/16896032/208220173-bbefe604-0885-44a5-9add-b5f0c62067cc.png)
+
+That is a big number, a lot of chances to get that seed packet and other
+gamer looters. Now, let's take a look at the probability of being able
+to get these seeds, assuming you wipe out all of the portals.
+
+
+![image](https://user-images.githubusercontent.com/16896032/208220460-3f59a2ac-d936-4f3a-aa14-9c637af6a9d7.png)
+
+92.8% chance to be able to get these seeds each shift if you focus
+entirely on gaming the portals. That's a pretty insane probability of
+being able to obtain the gatfruit seeds.
+
+While I dislike people who sprint to the seed vault, there is at least
+the possibility of a pod person telling them to fuck off when they
+demand their _free_ gamer seed. There is also the fact that the ruin
+isn't a guaranteed spawn every shift.
+
+## Changelog
+
+:cl:
+balance: Gatfruit seeds will no longer drop from ice portals.
+/:cl:
+
+---
+## [carshalash/tgstation](https://github.com/carshalash/tgstation)@[00e7d5d746...](https://github.com/carshalash/tgstation/commit/00e7d5d7465211ccf0e3d604e566e2c08775cd20)
+#### Tuesday 2022-12-20 10:40:12 by GoldenAlpharex
+
+*hand, or That /One/ Emote You Always Felt Was Missing (#71600)
+
+## About The Pull Request
+It's happened to me _repeatedly_ that I'd see someone down on the floor,
+and wanted to just, give them a hand, so they could take it and get up
+that way, without just, directly clicking on them, since that's a little
+bland. I've also wanted to just, offer my hand to someone so they could
+grab it, so that I could pull them alongside me, rather than just
+targeting one of their arms and ctrl-clicking them.
+
+I've had this idea for a _long_ time, and only just decided to do this
+today.
+
+Now, I know what you might say. "Golden, that's a lot of code for
+something this simple!" You're not wrong. _However_. I decided to go
+along and to give some more love to the `/datum/status_effect/offering`
+status effect and the offering-related alerts, to make them a lot more
+versatile and a lot less hardcoded. Hence the whole "refactoring" part
+of this.
+
+Of course, when I add something, I don't do it half-way. So, the way the
+emote works is much like the `*slap` emote, except that:
+
+- When you click on someone, it does the exact same as if you were
+offering the item to them, except that it's targeted (much like
+ctrl-shift-click).
+- If there's nobody directly adjacent to you, it won't do anything.
+- If there's at least one person lying down around you, you will offer
+them your help to get up. Should they take your hand and let you help
+them up, you will both receive a simple memory about being helped up (or
+helping up), as well as a 45-seconds-long small mood buff, because it
+feels nice to be on either end of such a friendly gesture. If they get
+up, they automatically get disqualified from being offered some help
+standing up, and likewise, if you lie down, that offer goes away as
+well.
+- If there's at least one person around you, you will instead extend
+your hand in their direction, for them to grab onto it. Should they do
+so, you will then grab them by their arms and pull them.
+
+I reworked the offering status effect to no longer have a hardcoded
+`can_hold_items()` check, so that kisses and the hand offering would no
+longer need you to have free hands to complete. The logic here is that
+you can still pull someone even with both hands filled, so I figured I'd
+leave it this way.
+
+Note: If anyone would like to give the item a better sprite, by all
+means, go ahead, that'd be amazing. I'm just not really a great spriter
+and couldn't be bothered to waste hours making a very _meh_ hand.
+
+## Why It's Good For The Game
+It's fluff, and nice fluff at that. It makes it easier for people to be
+nice to one-another without having to necessarily spend so long writing
+up an emote that the person on the floor will already have gotten back
+up. I'm sure the MRP folks will like it, and I'm certain the HRP
+downstreams will love it too ;)
+
+## Changelog
+
+:cl:
+add: Added the *hand emote, which you can offer to someone standing up
+in order to give them the possibility to grab onto your hand and let you
+drag them away, or to someone lying down to help them back up, which
+always makes everyone involved a little happier!
+refactor: De-hardcoded and genericized a lot of the offering status
+effect and alert code, to make it require a lot less copy-paste to
+handle new cases.
+fix: Offering a kiss no longer requires the receiver to have free hands
+to accept said kiss!
+/:cl:
+
+---
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[500aaccb50...](https://github.com/treckstar/yolo-octo-hipster/commit/500aaccb5030bbe818b3942f52bc4160101cd655)
+#### Tuesday 2022-12-20 12:22:03 by treckstar
+
+Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
+
+---
+## [Manaball123/funny-gpt-overwrite](https://github.com/Manaball123/funny-gpt-overwrite)@[58810c4a32...](https://github.com/Manaball123/funny-gpt-overwrite/commit/58810c4a32514cf99a542119d5a309897b23eda8)
+#### Tuesday 2022-12-20 12:33:51 by Mana
+
+unfucked the repo
+
+i mean the main.cpp is basically the only source file so it should be pretty easy to compile it u can literal;ly just create a new project and copy and paste this into it
+i mean sure it kinda defeats the purpose of a git but who the fuck would wanna contribute to shit like this, like this shit isnt hard to make at all and there really is no point in "making it better" cuz this shit can already brick pcs by itself
+also do people even read these i actually tried to see if i can see the comments of a commit but i couldnt figure out how so im assuming its not something that is very convenient to do(that or im retarded)
+anyways thx for reading through my schizo rant
+
+---
+## [simoheinonen/EasyAdminBundle](https://github.com/simoheinonen/EasyAdminBundle)@[919545baeb...](https://github.com/simoheinonen/EasyAdminBundle/commit/919545baebcf0b7ae1f8a35210afc4bd92769161)
+#### Tuesday 2022-12-20 12:55:14 by Javier Eguiluz
+
+feature #5066 Allow `Translatable` objects in addition to `string` in translated context (Lustmored)
+
+This PR was squashed before being merged into the 4.x branch.
+
+Discussion
+----------
+
+Allow `Translatable` objects in addition to `string` in translated context
+
+This PR is pretty massive, yet almost all of it's code changes are just enablers for features that are already in Symfony Forms (5.4+) and Symfony Translation (also 5.4+). It allows passing `Translatable` objects as labels and other parts.
+
+### Background
+
+Currently my main problem with EasyAdmin is translation extraction. I maintain pretty large project where translation extraction is build into workflow very tightly and using manual extraction is unmaintainable. Fortunately most translations in admin context have no parameters, so I can workaround that by doing:
+```
+yield TextField::new('name', (string) t('Client name'));
+```
+But that's just a dirty hack and works only when label needs no parameters to translate properly. This is why I would benefit greatly if EasyAdmin would simply allow those objects internally and I think other users would welcome it too :smiley:
+
+I have tested those changes on real life projects and they worked like a charm :smile:
+
+### Complexity (?)
+
+As stated before most of the changes are just enablers. By just changing some signatures and adding very simple logic whenever EasyAdmin translates content I was able to pass `Translatable` objects to templates and Symfony Forms, where they handle it without any additional work.
+
+### Backwards compatibility
+
+Functional backwards compatibility is kept. By that I mean - if project uses strings in those contexts (or leaves them empty for Easy Admin to fill with default values), no incompatibility arises. Setters accept strings as before and getters will return those strings. Also - everything will be translated, as before.
+
+Unfortunately the same cannot be said about class signatures. Summary of signature changes are as follows:
+
+Final classes with signature changes:
+
+- Config\Action (new, setLabel); only docblocks and deprecation logic
+- Config\Menu\*MenuItem (constructors)
+- Config\MenuItem (linkTo*, section, subMenu)
+- Dto\ActionDto (getLabel, setLabel and private field)
+- Dto\CrudDto (getEntityLabelInSingular, setEntityLabelInSingular,getEntityLabelInPlural, setEntityLabelInPlural, setCustomPageTitle, getHelpMessage, setHelpMessage)
+- Dto\FieldDto (getLabel, setLabel, getHelp, setHelp)
+- Dto\FilterDto (getLabel, setLabel); only docblocks
+- Dto\MenuItemDto (getLabel, setLabel)
+- Field\*Field (new); only docblocks
+- Field\FormField (addPanel, addTab)
+
+Non-final classes with signature changes:
+
+- Config\Crud (setHelp)
+- Field\FieldTrait (setLabel, setHelp); setLabel only in docblock
+
+I wouldn't consider signature changes in setters in final classes as BI, but getters are - end user code might expect getter to return `?string`, while this PR changes it to `TranslatableInterface|string|null`. Again - in simple use case, where user is not using `Translatable` objects this assumption will still hold. But libraries, bundles and other code does not have such guarantee.
+
+Also one non-final class and commonly used trait have signature changes in parameter types that will raise errors when inherited.
+
+I don't see any way we can achieve the same without breaking BC, therefore I think this change can only target `5.0`. But I'd love to hear from the others :)
+
+### TODO
+
+- [x] get feedback
+- [x] write tests for functional changes (probably just translating part, there is no point in testing getters and setters IMO)
+- [x] Add UPGRADE/CHANGELOG entry documenting changes
+
+Commits
+-------
+
+7596f24f Allow `Translatable` objects in addition to `string` in translated context
+
+---
+## [sr229/garrysmod-chatsounds](https://github.com/sr229/garrysmod-chatsounds)@[b57b3d8d45...](https://github.com/sr229/garrysmod-chatsounds/commit/b57b3d8d45f8dd4c014640f92eced35d940d4a36)
+#### Tuesday 2022-12-20 13:54:24 by Ayane
+
+My name is Skyler White yo (#428)
+
+* My name is Walter Hartwell White.
+
+I live at 308 Negra Arroyo Lane, Albuquerque, New Mexico, 87104. This is my confession. If you're watching this tape, I'm probably dead, murdered by my brother-in-law Hank Schrader. Hank has been building a Virtual Youtuber empire for over a year now and using me as his recruiter. Shortly after my 50th birthday, Hank came to me with a rather, shocking proposition. He asked that I use my Live2D knowledge to recruit talents, which he would then hire using his connections in the Japanese utaite world. Connections that he made through his career with Niconico. I was... astounded, I... I always thought that Hank was a very moral man and I was... thrown, confused, but I was also particularly vulnerable at the time, something he knew and took advantage of. I was reeling from a cancer diagnosis that was poised to bankrupt my family. Hank took me on a ride along, and showed me just how much money even a small indie channel could make. And I was weak. I didn't want my family to go into financial ruin so I agreed. Every day, I think back at that moment with regret. I quickly realized that I was in way over my head, and Hank had a partner, a man named Motoaki Yagoo Tanigo, a businessman. Hank essentially sold me into servitude to this man, and when I tried to quit, Yagoo threatened my family. I didn't know where to turn. Eventually, Hank and Yagoo had a falling out. From what I can gather, Hank was always pushing for a greater share of the business, to which Yagoo flatly refused to give him, and things escalated. Yagoo was able to arrange, uh I guess I guess you call it a hit on my brother-in-law, and failed, but Hank was seriously injured, and I wound up paying his medical bills which amounted to a little over 77,000. Upon recovery, Hank was bent on revenge, working with a man named Riku Tazumi , he plotted to kill Yagoo, and did so. In fact, the bomb that he used was built by me, and he gave me no option in it. I have often contemplated suicide, but I'm a coward. I wanted to go to the police, but I was frightened. Hank had risen in the ranks to become the head of the Cover Corp, and about that time, to keep me in line, he took my children from me. For 3 months he kept them. My wife, who up until that point, had no idea of my vtubing activities, was horrified to learn what I had done, why Hank had taken our children. We were scared. I was in Hell, I hated myself for what I had brought upon my family. Recently, I tried once again to quit, to end this nightmare, and in response, he gave me this. I can't take this anymore. I live in fear every day that Hank will kill me, or worse, hurt my family. I... All I could think to do was to make this video in hope that the world will finally see this man, for what he really is.
+
+---
+## [Kinglove936/Rocky](https://github.com/Kinglove936/Rocky)@[d7af747388...](https://github.com/Kinglove936/Rocky/commit/d7af747388a597f8926a634e58cca8018147af9f)
+#### Tuesday 2022-12-20 13:58:36 by Start on that earth
 
 Update README.md
 
-The boys is very brutal and gory
-peacemaker is funny
-vincenzo is amazing
+# HHVM
 
-the dark knight is the best superhero movie of all time
-howl's moving castle is my first anime
-parasite is my favorite korean movie
+[HHVM page](https://hhvm.com) |
+[HHVM documentation](https://docs.hhvm.com/hhvm/) |
+[Hacklang page](http://hacklang.org) |
+[General group](https://www.facebook.com/groups/hhvm.general/) |
+[Dev group](https://www.facebook.com/groups/hhvm.dev/) |
+[Twitter](https://twitter.com/HipHopVM)
+
+HHVM is an open-source virtual machine designed for executing programs written in [Hack](http://hacklang.org). HHVM uses a just-in-time (JIT) compilation approach to achieve superior performance while maintaining amazing development flexibility.
+
+HHVM should be used together with a webserver like the built in, easy to deploy [Proxygen](https://docs.hhvm.com/hhvm/basic-usage/proxygen), or a [FastCGI](https://docs.hhvm.com/hhvm/advanced-usage/fastCGI)-based webserver on top of nginx or Apache.
+
+## Installing
+
+If you're new, try our [getting started guide](https://docs.hhvm.com/hhvm/getting-started/getting-started).
+
+You can install a [prebuilt package](https://docs.hhvm.com/hhvm/installation/introduction#prebuilt-packages) or [compile from source](https://docs.hhvm.com/hhvm/installation/building-from-source).
+
+## Running
+
+You can run standalone programs just by passing them to hhvm: `hhvm example.hack`.
+
+If you want to host a website:
+* Install your favorite webserver. [Proxygen](https://docs.hhvm.com/hhvm/basic-usage/proxygen) is built into HHVM, fast and easy to deploy.
+* Install our [package](https://docs.hhvm.com/hhvm/installation/introduction#prebuilt-packages)
+* Start your webserver
+* Run `sudo /etc/init.d/hhvm start`
+* Visit your site at `http://.../main.hack`
+
+Our [getting started guide](https://docs.hhvm.com/hhvm/getting-started/getting-started) provides a slightly more detailed introduction as well as links to more information.
+
+## Contributing
+
+We'd love to have your help in making HHVM better. If you're interested, please read our [guide to contributing](CONTRIBUTING.md).
+
+## License
+
+HHVM is licensed under the PHP and Zend licenses except as otherwise noted.
+
+The [Hack typechecker](hphp/hack) is licensed under the MIT [License](hphp/hack/LICENSE) except as otherwise noted.
+
+The [Hack Standard Library](hphp/hsl) is licensed under the MIT [License](hphp/hsl/LICENSE) except as otherwise noted.
+
+## Reporting Crashes
+
+See [Reporting Crashes](https://github.com/facebook/hhvm/wiki/Reporting-Crashes) for helpful tips on how to report crashes in an actionable manner.
+
+## Security
+
+For information on reporting security vulnerabilities in HHVM, see [SECURITY.md](SECURITY.md).
+
+## FAQ
+
+Our [user FAQ](https://docs.hhvm.com/hhvm/FAQ/faq) has answers to many common questions about HHVM, from [general questions](https://docs.hhvm.com/hhvm/FAQ/faq#general) to questions geared towards those that want to [use](https://docs.hhvm.com/hhvm/FAQ/faq#users).
+
+There is also a FAQ for [contributors](https://github.com/facebook/hhvm/wiki/FAQ#contributors) to HHVM.
 
 ---
-## [harryob/cmss13](https://github.com/harryob/cmss13)@[8f1ee35f1d...](https://github.com/harryob/cmss13/commit/8f1ee35f1de18e295fa29e4536ad00431e7f0d76)
-#### Monday 2022-12-19 13:25:46 by carlarctg
+## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[4cd592edfe...](https://github.com/mrakgr/The-Spiral-Language/commit/4cd592edfea836ff7d35bfb5ad131ad306f8a0fb)
+#### Tuesday 2022-12-20 14:51:16 by Marko Grdinić
 
-Refactored weed crossing to utilize signals and list data. (#1960)
+"2:15pm. I am feeling dizzy from all the thinking and the chores. Finally I can enjoy breakfast for a bit. Now that I've had time to compare programming and writing, they are not close in terms of intensity.
+
+2:35pm. https://huggingface.co/dreamlike-art/dreamlike-diffusion-1.0
+
+I'll keep this model in mind for when I get back to prompting.
+
+3:20pm. No replies yet. Are the questions I am asking difficult? Probably he just has work to take care of. It will take a few more days before I have the first backend operational, so it is no big deal.
+
+3:25pm. Right now, let me focus on testing out the new C backend. I have faith in the refc passes, but all the changes to the codegen might have wrecked something by accident. I'll know right away when I look at the diffs.
+
+```c
+void HeapDecref0(Heap0 * x){
+    if (x != NULL && --(x->refc) == 0) { HeapDecrefBody0(x); free(x); }
+    }
+}
+Heap0 * HeapCreate0(bool v0){
+    Heap0 * x = malloc(sizeof(Heap0));
+    x->refc = 1;
+    x->v0 = v0;
+    v0->refc++;
+    return x;
+}
+```
+
+Some borken syntax and bools being incref'd.
+
+```fs
+            | REFC_INCR ->
+                match t' with
+                | YUnion t when t.Item.layout = UStack -> Some $"USIncref{(ustack t).tag}(&({f v}));"
+                | YPrim t when t <> StringT -> None
+                | _ -> Some $"{f v}->refc++;"
+            | REFC_SUPPR ->
+                match t' with
+                | YUnion t when t.Item.layout = UStack -> Some $"USSuppref{(ustack t).tag}(&({f v}));"
+                | YPrim t when t <> StringT -> None
+                | _ -> Some $"{f v}->refc--;"
+```
+
+Ah wait, this would affect even macros.
+
+Ah, how annoying. Well whatever. Let me do them all in turn.
+
+```fs
+    and refc_change' (f : int * Ty -> string) (refc_flag : REFC) (x : TyV []) : string [] =
+        Array.choose (fun (L(i,t')) ->
+            let v = i,t'
+            let inline g decref =
+                match refc_flag with
+                | REFC_INCR -> Some $"{f v}->refc++;"
+                | REFC_DECR -> Some (decref())
+                | REFC_SUPPR -> Some $"{f v}->refc--;"
+            match t' with
+            | YUnion t ->
+                match t.Item.layout with
+                | UStack ->
+                    match refc_flag with
+                    | REFC_INCR -> Some $"USIncref{(ustack t).tag}(&({f v}));"
+                    | REFC_DECR -> Some $"USDecref{(ustack t).tag}(&({f v}));"
+                    | REFC_SUPPR -> Some $"USSuppref{(ustack t).tag}(&({f v}));"
+                | UHeap -> g (fun () -> $"UHDecref{(uheap t).tag}({f v});")
+            | YArray t -> g (fun () -> $"ArrayDecref{(carray t).tag}({f v});")
+            | YFun(a,b) -> g (fun () ->  $"{f v}->decref_fptr({f v});")
+            | YPrim StringT -> g (fun () ->  $"StringDecref({f v});" )
+            | YLayout(a,Heap) -> g (fun () ->  $"HeapDecref{(heap a).tag}({f v});")
+            | YLayout(a,HeapMutable) -> g (fun () ->  $"MutDecref{(mut a).tag}({f v});")
+            | _ -> None
+            ) x
+```
+
+This should fix bools getting incremented.
+
+Now let me fix the broken syntax.
+
+```fs
+let print_decref s_fun name_fun type_arg name_decref =
+    line s_fun (sprintf "void %s(%s * x){" name_fun type_arg)
+    let _ =
+        let s_fun = indent s_fun
+        line s_fun (sprintf "if (x != NULL && --(x->refc) == 0) { %s(x); free(x); }" name_decref)
+    line s_fun "}"
+```
+
+That should do it. Let me move on.
+
+3:45pm. https://cee.studio/
+
+Right now I am trying this. How did the commands to enable memory checking work?
+
+DTS_REPORT_UNRELEASED_MEMORY=1 DTS_REPORT_ALL_MEMORY_SPACES=1 DTS_MEMORY_UNINIT_CHECK=disabled ./a.out
+DTS_REPORT_UNRELEASED_MEMORY=1 DTS_REPORT_ALL_MEMORY_SPACES=1 ./a.out
+
+I just need to build and then run one of these commands.
+
+Let me go through them all in turn. I tested it on the last one so far.
+
+I'll want to check the rest."
+
+---
+## [Kordasauter/roprime-simulator.com](https://github.com/Kordasauter/roprime-simulator.com)@[c3fddaaff1...](https://github.com/Kordasauter/roprime-simulator.com/commit/c3fddaaff104f5f13c0c0acd7acfcf3d0340ce56)
+#### Tuesday 2022-12-20 15:11:20 by Kordasauter
+
+Triple Trouble Update
+
+20/12/2022:
+Has been added :
+Triple Trouble Update
+Horror Toy Factory
+Monsters
+Decorated Evil Tree
+Wicked Vice Plant Manager
+Vicious Cookie
+Corrupt Cruiser
+Evil Dwelling Box
+Creepy Demon
+Malicious Baby Ghost
+Dancing Marionette
+Abandoned Teddy Bear
+Celine Kimi
+Cards
+Decorated Evil Tree Card
+Vicious Cookie Card
+Evil Dwelling Box Card
+Creepy Demon Card
+Malicious Baby Ghost Card
+Dancing Marionette Card
+Abandoned Teddy Bear Card
+Celine Kimi Card
+Equipments and enchantments
+Old Parasol
+Red Lantern
+Hurt Mind
+Kind Heart
+Lush Rose
+Evil Spirit Gloves
+Celine''s Ribbon
+Noble Cross
+Nightmare Pyramids
+Monsters
+Verit (Nightmare)
+Mummy (Nightmare)
+Minorous (Nightmare)
+Mimic (Nightmare)
+Arclouse (Nightmare)
+Ancient Mummy (Nightmare)
+Amon Ra (Nightmare)
+Cards
+Nightmare Verit Card
+Nightmare Mummy Card
+Nightmare Minorous Card
+Nightmare Mimic Card
+Nightmare Arclouse Card
+Nightmare Ancient Mummy Card
+Nightmare Amon Ra Card
+Undersea Tunnel (6th floor)
+Monsters
+King Dramoh
+Sropho
+Pot Dofle
+Sedora
+Kraken
+Cards
+King Dramoh Card
+Sropho Card
+Pot Dofle Card
+Sedora Card
+Kraken Card
+
+---
+## [mach0/subsurface.github.io](https://github.com/mach0/subsurface.github.io)@[ad4b82193b...](https://github.com/mach0/subsurface.github.io/commit/ad4b82193be920f3b90c6a31a757368dcc202c54)
+#### Tuesday 2022-12-20 15:12:24 by Dirk Hohndel
+
+small updates to deal with horizontal lines
+
+I wonder if the magic that creates them isn't more trouble than it's worth.
+Maybe it would be better to make them explicit? This seems hacky...
+
+This commit also has a couple of tiny edits to the things Jason brought
+over from the old FAQ.
+
+Signed-off-by: Dirk Hohndel <dirk@hohndel.org>
+
+---
+## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[0dd70b12e5...](https://github.com/cmss13-devs/cmss13/commit/0dd70b12e5142b3b0f14bf237765c1e643fe8a3f)
+#### Tuesday 2022-12-20 15:33:18 by Stan_Albatross
+
+removes unused nanoui templates (#2012)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
@@ -2371,6 +1974,8 @@ not be viewable. -->
 # About the pull request
 
 <!-- Remove this text and explain what the purpose of your PR is.
+
+none of these templates are used anywhere
 
 Mention if you have tested your changes. If you changed a map, make sure
 you used the mapmerge tool.
@@ -2381,18 +1986,6 @@ Remember: something that is self-evident to you might not be to others.
 Explain your rationale fully, even if you feel it goes without saying.
 -->
 
-Refactored weed slowdown to work based on a signal sent to the recipient
-carrying list data.
-
-Added a variable for weed slowdown multiplier to species. Human Heroes
-have 0.5 weed slowdown because haha funny. Transferred Yautja's weed
-immunity to species.
-
-Added an admin-only example item 'hiking boots' that halve weed
-slowdown.
-
-Removed a useless define for XVX.
-
 # Explain why it's good for the game
 
 <!-- Please add a short description of why you think these changes would
@@ -2401,6 +1994,7 @@ worth adding, and may discourage maintainers from reviewing or merging
 your PR. This section is not strictly required for (non-controversial)
 fix PRs or backend PRs. -->
 
+fuck nanoui
 
 # Testing Photographs and Procedure
 <!-- Include any screenshots/videos/debugging steps of the modified code
@@ -2430,18 +2024,23 @@ GBP loss. Maintainers freely reserve the right to remove and add tags
 should they deem it appropriate. -->
 
 :cl:
-refactor: Refactored weed slowdown to work based on a signal sent to the
-recipient carrying list data.
-code: Added a variable for weed slowdown multiplier to species. Human
-Heroes have 0.5 weed slowdown because haha funny. Transferred Yautja's
-weed immunity to species.
+del: Removed ten unused nanoui templates. Don't worry, they'll all be
+going away soon.
 /:cl:
 
 <!-- Both :cl:'s are required for the changelog to work! -->
 
+Co-authored-by: Stan_Albatross <swt91a@gmail.com>
+
 ---
-## [Tercioo/Details-Damage-Meter](https://github.com/Tercioo/Details-Damage-Meter)@[b8851987bb...](https://github.com/Tercioo/Details-Damage-Meter/commit/b8851987bb559f42624ddbcef3336bed8f0c31cd)
-#### Monday 2022-12-19 13:41:41 by Flamanis
+## [newstools/2022-the-daily-sun](https://github.com/newstools/2022-the-daily-sun)@[7f4bb752ac...](https://github.com/newstools/2022-the-daily-sun/commit/7f4bb752acdc8aed3c07cb64f817414872365cce)
+#### Tuesday 2022-12-20 15:37:46 by Billy Einkamerer
+
+Created Text For URL [www.snl24.com/dailysun/news/cop-who-killed-his-2-girlfriends-commits-suicide-20221220]
+
+---
+## [Pewtro/Details-Damage-Meter](https://github.com/Pewtro/Details-Damage-Meter)@[b8851987bb...](https://github.com/Pewtro/Details-Damage-Meter/commit/b8851987bb559f42624ddbcef3336bed8f0c31cd)
+#### Tuesday 2022-12-20 16:05:40 by Flamanis
 
 Update SpecSpellList for DF live
 
@@ -2470,293 +2069,252 @@ Demon Hunter - Havoc has Blur
 Death Knights - Added the primary strikes. Heart Strike (Blood), Obliterate (Frost), Festering Strike (Unholy)
 
 ---
-## [Empire-Strikes-Back/Kylo-Ren](https://github.com/Empire-Strikes-Back/Kylo-Ren)@[9266dc107a...](https://github.com/Empire-Strikes-Back/Kylo-Ren/commit/9266dc107a169b03272c3b27227f257ede0d397f)
-#### Monday 2022-12-19 14:06:34 by Kylo-Ren
+## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[12d3f00303...](https://github.com/mrakgr/The-Spiral-Language/commit/12d3f00303f64de00bc58123b7fb6b8807c6867c)
+#### Tuesday 2022-12-20 16:33:07 by Marko Grdinić
 
-don't get cheap on me, Dodgson - it was Hammond's mistake
+"```
+// Does the partial evaluator optimize unused match cases?
+union t = A : heap i32 * mut (heap u64) | B : heap f64
+inl main () =
+    inl ~a, ~b, ~c = B (heap 5), B (heap 2), B (heap 1)
+    match (join a,b,c) with
+    | A, _, _ => 1i32
+    | _, A, _ => 2
+    | _, _, A => 3
+    | _ => 4
+```
 
-like Harstem I chose to do evil - sit in a high palce and speak
+I've decided to modify `test39`. I want to see if some of the branches are getting generated correctly.
 
-unlike Rich Hickey I no longer want to work for Money
+4:30pm. Have a bunch of unused variable warnings. They don't matter. I am assuming the C compiler will optimize them away.
 
-I heard Jesus - about two masters, man going to Jericho, high places and palaces, blind leads the blind\
+4:50pm. Done. All tests pass now. Let me push out a new version of Spiral.
 
-let my identity fruit be lychee
-let my language be clojure, runtime jvm
-like Iam Malcolm and everyone but bloodsucking lawyer I no longer agree with Hammond - to be a tool
+4:55pm. I published it on the VS Code marketplace, but why does the NPX command no longer work?
 
-:Samuel-L-Jackson be humble, sit down - you're about to get Black Snake owned
+Hmmm...remember how I complained yesterday that cmd doesn't work. It seems that npm doesn't work either. What is happening?
+
+...Uninstalling all those old Python version really wrecked my computer. I need to figure out why npm and cmd commands are not working.
+
+```
+PS C:\Users\Marko> where cmd
+PS C:\Users\Marko>
+```
+
+This is really bizzare.
+
+`cmd` is in the system32 directory, but it is not working.
+
+https://answers.microsoft.com/en-us/windows/forum/all/cmdexe-no-longer-opens-after-uninstalling-python/9ca0dd4a-4eff-4a21-ad30-16d6a8e28790
+
+> Can you check if running "cmd.exe /d" launches the Command Prompt correctly?
+
+Oh this does launch it.
+
+> reg delete "HKCU\SOFTWARE\Microsoft\Command Processor" /v "Autorun" /f
+
+Oh it worked!
+
+I just googled 'window command not working after python uninstall' and it was near the top of the search list. No way I would have figured it out on my own. `npm` is working as well.
+
+> Published mrakgr.spiral-lang-vscode v2.2.6
+
+Whops.
+
+> Unpublishing is not supported at the moment because that might break others who depend on a published extension. We could consider going for an approach like npm, i.e. allow to unpublish only in certain circumstances:
+
+Ah, whatever. It doesn't matter.
+
+5:20pm. My god, how long can it take to publish? At any rate, I am done.
+
+Let me paste what I've written a few entries ago.
+
+///
+
+12:35pm. That's about it. Now I'll have to go though the test cases again and even run them. The purpose of this is to make tail loops faster. I realized during the night that depending on where the jump is made, the compuler could potentially optimize the jump so skips both the decrement and the increment of the reference right at the start of the loop.
+
+For example...
+
+```c
+void foo(Heap0 * a) {
+    a->refc++;
+    ...
+    if (cond) {
+        a->refc--;
+        foo(a);
+        }
+    }
+```
+
+Consider something like this. When the tail call loop optimization is done, instead of jumpting right at the start of the function, it could skip the `a->refc++;` and the `a->refc--;` parts.
+
+When you inline foo once, you see that the inc and dec refs are right next to each other and can be eliminated.
+
+But with the previous function that I had...
+
+```c
+void HeapRefc0(Heap0 * x, REFC_FLAG q){
+    if (x != NULL) {
+        int refc = (x->refc += q & REFC_INCR ? 1 : -1);
+        if (!(q & REFC_SUPPR) && refc == 0) {
+            HeapRefcBody0(x, REFC_DECR);
+            free(x);
+        }
+    }
+}
+```
+
+You had things like this. An optimizing compiler is going to have a hard time optimizing this. A particular logical issue that was present here before is that increfing could potentially free the object. Now that is no longer a problem. You just have an increment and a decrement. And they are inlined instead of hidden behind functions.
+
+One consequence is that I can no longer read unitialized objects from arrays, but the assignment to them should be fine. This is perfectly acceptable. The only times I've used nullables is by mistake in F#. Maybe I've used null strings, but that is about it.
+
+...Well, I am doing a search through the project and it does seem like I've used them on occasion. But they are hardly necessary or irreplaceable.
+
+///
+
+This is basically the reason to do it like this. Replacing function calls with simple increment and decrement operations opens the door to optimizing them away in tail calls.
+
+```c
+void HeapDecref0(Heap0 * x){
+    if (x != NULL && --(x->refc) == 0) { HeapDecrefBody0(x); free(x); }
+}
+```
+
+Also, I much rather prefer the decrement to be like this. It is very succinct and understandable compared to those boolean operations I had going last time. Remember that it took me time to understand what was going on. I had forgotten that REFC_SUPPR was supposed to be 2 10 in binary and so on. This on the other hand is crystal clear.
+
+I think now I can say that I've done ref counting properly. Maybe in the future I'll extend the heap and mut types so they take in disposal pointers. That would allow them to handle file handle and other kinds of resources instead of just memory. It would be easy to add too.
+
+But it doesn't matter right now. What I should focus next is dealing with the Python backend. Once I have it, I can begin work on the UPMEM composite backend. After I have that I can begin work on the generic map, fold and filter kernels. And once I have that I'll be able to write an article for HN.
+
+I'll also do a C based UPMEM backend as well.
+
+I am not sure if doing this will benefit me much, but it will be a good showcase of my skills."
 
 ---
-## [Profakos/orbstation](https://github.com/Profakos/orbstation)@[de662db397...](https://github.com/Profakos/orbstation/commit/de662db39763674f850977dabc8bbe66388d2c9b)
-#### Monday 2022-12-19 14:45:35 by Sol N
+## [MervineN/Business-Statistical-Analysis](https://github.com/MervineN/Business-Statistical-Analysis)@[31db37cd5d...](https://github.com/MervineN/Business-Statistical-Analysis/commit/31db37cd5d9a9fd649ed5bb1c86d14e4f42f1083)
+#### Tuesday 2022-12-20 19:05:47 by MervineN
 
-Excercise Equipment is now craftable (#71190)
+Update README.md
 
-## About The Pull Request
+### Conclusion :
+I analyzed a dataset of the response of 100 randomly selected users divided into two groups(samples)-the treatment and the control group.The treatment group is served the new landing page and the control group is served the old landing page.My conclusions from the analysis made are:
 
-Imagine if you will a humble chaplain who wants nothing more than for
-all of the spiritual folk on the station to get as massive gains as they
-can, after finding that they can not just make more exercise equipment
-and that the station does not have any in public places, they go annoy
-security enough to get into permabrig only to find out that they cant
-even unwrench the equipment and move it to the church!!!
+* 54.0% of users in the dataset converted to subscribers of the news portal and 46.0% of users in the dataset did not convert to suscribers of the news portal.
+* There are 3 unique languages in this dataset that users use to view the landing page.The most choosen language used, is the French and Spanish language.
+* In this dataset,the time spent on the page by users ranges from ~0.19(minimum ) to ~10.7(maximum) minutes.The average time spent by users on the landing page is ~ 5.38 minutes.
+* Visually when we compare the time spent on the page distribution of the two samples(treatment and control group),**it seems the users spend more time on the new landing page than the old landing page and hence statistically,we have enough evidence to say that this holds.**
+* 33.0% of users who viewed the new landing page(treatment group) and 21.0% of users who viewed the old landing page(control group),converted to subscribers of the news portal.Visually,it seems the proportion of users who visit the new landing page and get converted to subscribers of the news portal is more than the proportion of users who visit the old landing page and get converted to subscribers of the news portal.Hence statistically,**we have enough evidence to say that the conversion rate for the new page is greater than the conversion rate for the old page.**
+* From the sample,21.0% of users who choosed English language,18.0% of users who choosed French language and 15.0% of users who choosed Spanish language to view the landing page, converted to subscribers of the news portal.Even though visually from the sample,it seems that the users who choosed English language had the highest converted status ,statistically,**there is not enough evidence to say that the converted status depends on the preferred language.**
+* When we compare the sample mean time spent on the new landing page for different language users,even though visually it seems as if the mean time spent on the new landing page differs among the three different language users,**there is enough statistical evidence to say that the mean time spent on the new page is same for the different language users.**
 
-NOT ANYMORE!!!
+### Business Recommendations :
+
+* From the above analysis and conclusions,the new landing page created by the design team of the company which suggest that it might be more captivating as the users spend more time on it.The new landing page is hence more effective to gather new subscribers.If the new landing page is maintained and why not perfected ,it might gather many more subscribers.
+* Eventhough statistically,they have been evidence that converted status is independent of preferred language which visually shows other wise,i think it's better for the company to carry out further investigations on users about this inorder to have a deeper insight and better viewers-news portal experience which might attract many more subscribers.
+* I suggest the company should further investigate subscription method and find ways to facilitate subscription.This is because some users though they spent alot of time on the new landing page,yet they don't subscribe.May be subscription method to the news portal is quite complex or time demanding for some users which might find it quite hard to subscribe eventhough they enjoy the news portal .
+
+---
+## [SimonN/lix-unstable](https://github.com/SimonN/lix-unstable)@[f5e9992668...](https://github.com/SimonN/lix-unstable/commit/f5e9992668527452733834ec9dc6066a46033789)
+#### Tuesday 2022-12-20 19:41:16 by Simon Naarmann
+
+Remove 6 Gaps, add Private Room
+
+Remove 6 Gaps, 5 Builders from Quirky. On Lemmings Forums, we think
+it's not pulling its weight as a puzzle, even if we were to fix it
+so that no single builder can cross 2 gaps, and you'd need 2 builders
+to cross 3 gaps.
+
+Move Ferry Tale from Lovely into Quirky. It's hard enough.
+
+Add Private Room Without Room, a new level by mobius, to Lovely.
+This fills Ferry Tale's old slot.
+
+---
+## [DolevSeri/EKrut_final](https://github.com/DolevSeri/EKrut_final)@[6970ff2664...](https://github.com/DolevSeri/EKrut_final/commit/6970ff26642768c32923de7868107420bcc0ad90)
+#### Tuesday 2022-12-20 20:21:42 by DolevSeri
+
+Merge pull request #13 from DolevSeri/Dolev_Work
+
+fuck you
+
+---
+## [DolevSeri/EKrut_final](https://github.com/DolevSeri/EKrut_final)@[45e06a3f0f...](https://github.com/DolevSeri/EKrut_final/commit/45e06a3f0f09a1bd2e22404ae033a09baec0980d)
+#### Tuesday 2022-12-20 20:25:43 by DolevSeri
+
+Merge pull request #14 from InbarMizrahi1/inbar_work
+
+fuck you too
+
+---
+## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[229a2e6ed2...](https://github.com/cmss13-devs/cmss13/commit/229a2e6ed24998b2b97421ae421cfe25b77ae1b1)
+#### Tuesday 2022-12-20 20:34:14 by Stan_Albatross
+
+Teleporter tgui and minor refactor (#1997)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+
+# About the pull request
+
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+converts teleporters to tgui and removes some shitcode
+
+# Explain why it's good for the game
+
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
+
+fuck nanoui
 
 
-![jS2aBMBa0B](https://user-images.githubusercontent.com/116288367/200889423-f1b6365c-24c4-4f45-8ca4-c96c9085cf27.png)
-crafting recipies
+![image](https://user-images.githubusercontent.com/66756236/208460209-8f260838-1da1-49af-8d6c-44efcc974efb.png)
 
 
-![dreamseeker_O4BgBRsFa8](https://user-images.githubusercontent.com/116288367/200889002-8dd7c927-0745-46a9-a4bc-578c7279042a.gif)
-demonstrating unwrenching and wrenching equipment
+![image](https://user-images.githubusercontent.com/66756236/208458960-7bd162fd-e2fe-4c23-a3f6-257cb73516f5.png)
 
 
-![dreamseeker_hCFQJZdzoS](https://user-images.githubusercontent.com/116288367/200889019-5f4c8399-d539-4d84-8a3f-7735c3ba1f68.gif)
-crafting a punching bag and punching it
+# Changelog
 
-Now you can craft as much exercise equipment as you want! May everyone
-on the station get as strong as possible and not just prisoners.
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
 
-Also I changed the message that plays when you try to use exercise
-equipment someone else is using into a balloon alert.
-
-![dreamseeker_PwNesmcR1f](https://user-images.githubusercontent.com/116288367/200890964-4f9fa3ee-ce07-4e6e-815c-a3f4593d06b1.png)
-
-## Why It's Good For The Game
-
-Access to exercise equipment on some maps is limited to static positions
-and is currently mostly only for prisoners as every map does not have
-public exercise equipment. Expanding the access means that you can have
-a Drill Sargent Head of Security or Captain who commands people use
-these or allows a psychologist to prescribe healthy exercise habits to
-their patients.
-
-I think having the potential for exercise equipment on every map is more
-fun and also if prisoners get their hands on tools they should be
-allowed to mess with these to annoy security or aid in their escape.
-
-## Changelog
 :cl:
-add: the punching bag, bench press, and chest press are all able to be
-crafted and unanchored.
-add: crafting recipes for the above
-qol: changed a chat message into a balloon alert
-qol: adds screentips to equipment (thanks for suggesting i do this
-mothblocks!)
+ui: swapped teleporters to use tgui.
+fix: teleporter consoles now have actual sprites!
+code: "improved" some teleporter code.
 /:cl:
 
----
-## [Sunilshelke/String-Questions-](https://github.com/Sunilshelke/String-Questions-)@[27629b4f38...](https://github.com/Sunilshelke/String-Questions-/commit/27629b4f38c63f4edc6af15781676c697e254c0e)
-#### Monday 2022-12-19 15:42:46 by Sunil Shelke
+<!-- Both :cl:'s are required for the changelog to work! -->
 
-Ptice
-
-Ptice
-Adrian, Bruno and Goran wanted to join the bird lovers’ club. However, they did not know that all applicants must pass an entrance exam. The exam consists of n questions, each with three possible answers: A, B and C.
-
-Unfortunately, they couldn’t tell a bird from a whale so they are trying to guess the correct answers. Each of the three boys has a theory of what set of answers will work best:
-
-Adrian claims that the best sequence is: A, B, C, A, B, C, A, B, C, A, B, C ...
-
-Bruno is convinced that this is better: B, A, B, C, B, A, B, C, B, A, B, C ...
-
-Goran laughs at them and will use this sequence: C, C, A, A, B, B, C, C, A, A, B, B ...
-
-Write a program that, given the correct answers to the exam, determines who of the three was right – whose sequence contains the most correct answers.
-
-Input Format
-First line contains an integer n denoting number of questions.
-
-Second line contains a string of n letters ‘A’, ‘B’ and ‘C’. These are, in order, the correct answers to the questions in the exam.
-
-Last line contains the indices separated by space.
-
-Output Format
-On the first line, output m, the largest number of correct answers one of the three boys gets.
-
-After that, output the names of the boys (in alphabetical order) whose sequences result in m correct answers.
-
-Example 1
-Input
-
-5
-BAACC
-Output
-
-3
-Bruno
-Explanation
-
-Here only Bruno has most correct answers i.e. 3.
-
-Example 2
-Input
-
-9
-AAAABBBBB
-Output
-
-4
-Adrian
-Bruno
-Goran
-Explanation
-
-Here all 3 have 4 correct answers.
-
-Constraints
-1 <= n <= 100
+Co-authored-by: Stan_Albatross <swt91a@gmail.com>
+Co-authored-by: harryob <me@harryob.live>
 
 ---
-## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[e7c8fed8e3...](https://github.com/odoo-dev/odoo/commit/e7c8fed8e373d7005c16c88d3a7bad6f425d13e5)
-#### Monday 2022-12-19 15:59:41 by qsm-odoo
-
-[FIX] website, *: allow to re-edit company team snippet images
-
-*: web_editor
-
-Since [1], it was not possible to edit a company team snippet image
-anymore as soon as the page was saved once. Indeed that commit added
-o_not_editable/contenteditable="false" on the parent column to make sure
-no text can be added in that column and contenteditable="true" on the
-images so that they are still editable (even though HTML-specs-wise
-adding contenteditable="true" on images probably does not mean much as
-images are self-closing tags, our editor understand that as the ability
-to edit the image anyway). That contenteditable="true" part is however
-removed when leaving edit mode... and was not restored upon entering
-edit mode again.
-
-This fixes the problems with an ugly patch. We'll review what to do in
-master.
-
-Funny enough, that bug was actually gone in 15.0... by mistake. A recent
-bug fix actually reintroduced that isolated bug at [2] (by reintroducing
-the fact that images in a non-editable environment are not possible to
-edit). The 3 opened tickets this commit mentions were actually reported
-for 15.0 immediately after that, while the 14.0 being broken about this
-since the beginning apparently did not bother anyone.
-
-[1]: https://github.com/odoo/odoo/commit/656cac1bf21c7c5a56aa569008aac58436c747fb
-[2]: https://github.com/odoo/odoo/commit/e113bae04a64a8bd341a80736086ab7c25079dd3
-
-opw-3031217
-opw-3032482
-opw-3035289
-
-closes odoo/odoo#104156
-
-Signed-off-by: Romain Derie (rde) <rde@odoo.com>
-
----
-## [Tangerineje/PsychonautStation](https://github.com/Tangerineje/PsychonautStation)@[4fd404aa8f...](https://github.com/Tangerineje/PsychonautStation/commit/4fd404aa8f15480ad4c8585e65268a83c60b26e1)
-#### Monday 2022-12-19 17:31:27 by tralezab
-
-Moves speaking verbs to tongues + subtypes, moves wing sprites to wing subtypes, bodypart damage examines to limbs, fixes sign language not working without a tongue (#71635)
-
-## About The Pull Request
-
-### Moves speaking verbs to tongues + subtypes
-Moves species say mod onto tongues, creates any tongues that didn't
-exist for the say mods they needed to hold.
-
-### moves wing sprites to wing subtypes
-Moves the logic of selecting a wing sprite onto subtypes of /functional
-on the wing type. Now, angel wings bring the holy trait with them, it
-isn't a special check on flight potions, and we can expand it. (EMPs
-taking down robowings? Fires burning megamoth wings? Cool stuff)
-
-### bodypart damage examines to limbs
-Instead of checking what your species says, it tallies up your limbs and
-provides the damage description that matches most of your limbs. So for
-example, If you're mostly human with one augmented part, you take
-bruises and cuts. If you're mostly robot augmented with one human part,
-you get robot damage descriptions. Yay!
-
-### fixes sign language working without a tongue
-Having no tongue would garble your speech, and this had no interaction
-with sign language, so you'd be speaking in broken gurgling with
-perfectly working hands. Now, the sign language component prevents any
-kind of garbling, since it brings its own garbling for full/missing arms
-
-
-![image](https://user-images.githubusercontent.com/40974010/204932511-42c8e020-a2d7-4fc1-befc-7cd46a2f2932.png)
-
-## Why It's Good For The Game
-
-Moving things off of species inherent makes the game expose way more
-interesting mechanics to play with. It sucks that you can't steal a
-jellyperson's chirping, since they can get a normal tongue and they'll
-go back to... chirping! LAME! THAT IS LAME!
-
-Ditto goes for wings, and for limbs, well, having someone be entirely
-augmented but get descriptions of bleeding because they didn't spawn as
-an android is kinda lame.
-
-<details>
-  <summary>Spoiler warning</summary>
-  
-
-![image](https://user-images.githubusercontent.com/40974010/204922627-333de052-a02b-4786-8ff9-f6e739443f2c.png)
-  
-</details>
-
-
-
-## Changelog
-:cl:
-refactor: Refactored wings, tongues, and some examine messages,
-hopefully with minimal effect on actual changes. A few more species have
-tongues, angel wings bring the holy trait with them, and wings have new
-descriptions. should be the biggest parts of it
-/:cl:
-
----
-## [Tangerineje/PsychonautStation](https://github.com/Tangerineje/PsychonautStation)@[9499a1542b...](https://github.com/Tangerineje/PsychonautStation/commit/9499a1542b156eb32efb25e0310b1fe7077caf5c)
-#### Monday 2022-12-19 17:31:27 by itseasytosee
-
-Corrects error in stamina HUD element display calculation. Increases stamina HUD readability. (#71623)
-
-## About The Pull Request
-Stamina was checking health instead of maxHealth. This is probably a
-remnant from when the damage stacked.
-I stopped the stamina from appearing like you had no stamina whenever
-you were stunned or knockdown. This would obscure potentially value
-information from the player while being unclear to interpret.
-We should probably represent status effects like this to the player, but
-through the stamina bar is not a useful method.
-The stamina bar is for stamina.
-Additionally, the stamina bar will now be greyed out while you are dead,
-like your health bar.
-
-I've done alot of work increasing the readability of the stamina bar.
-Firstly, I've cut some fat, removing the 100% sign when you are at full
-and the blinking exclamation point when you are close to zero. They
-aren't nessisary and add clutter.
-There's no more "full but because its blinking bright yellow you are
-actually at 20% or less" or "empty but because the whole thing isn't
-blinking you still have stamina"
-Its a now simple meter that decreases in 20% increments which blinks
-softly, at darker and more red colors the lower the meter goes, blinking
-faster at the higher percentages. When you are at zero, the empty space
-slowly glows a dark red.
-Its much more reasonable and intuitive than whatever the hell the old
-sprites were doing.
-## Why It's Good For The Game
-For the HUD changes, it improves the game feel, at least from my
-experience. We could probably benefit from an entirely new stamina bar
-design, but finding the right one is gonna be tricky.
-## Changelog
-:cl: itseasytosee
-fix: Stamina damage display calculation should be much more sane and
-reliable now
-imageadd: Simplified the stamina hud
-/:cl:
-
----
-## [gonzus/AdventOfCode](https://github.com/gonzus/AdventOfCode)@[8d848cb5b7...](https://github.com/gonzus/AdventOfCode/commit/8d848cb5b702acbcdf7182b970808098431f455d)
-#### Monday 2022-12-19 17:51:31 by Gonzalo Diethelm
+## [gonzus/AdventOfCode](https://github.com/gonzus/AdventOfCode)@[438093190d...](https://github.com/gonzus/AdventOfCode/commit/438093190d9fd66974c9955681056e1e115a7dd0)
+#### Tuesday 2022-12-20 20:44:07 by Gonzalo Diethelm
 
 2022 day 19
 
@@ -2773,152 +2331,195 @@ On my M1 laptop part 1 takes 19s and part 2 takes 30s.
 Shameful.
 
 ---
-## [Bjarl/Shiptest](https://github.com/Bjarl/Shiptest)@[3efa9b5382...](https://github.com/Bjarl/Shiptest/commit/3efa9b538241ffef48ddf1fe102feb589e88dff0)
-#### Monday 2022-12-19 17:59:42 by Zevotech
+## [Floofies/tgstation](https://github.com/Floofies/tgstation)@[a9fda932e2...](https://github.com/Floofies/tgstation/commit/a9fda932e2a9d8cf20f5f74fdcbdbcca86d580e6)
+#### Tuesday 2022-12-20 21:06:32 by Tim
 
-undoes a fuckup on a ruin (#1578)
-
-* undoes a fuckup on a ruin
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull request process. -->
+Drinking singulo ignores supermatter hallucinations and pulls nearby objects (#71927)
 
 ## About The Pull Request
-sets light range to 2 on the ruin areas of beach_colony.dmm
-<!-- Describe The Pull Request. Please be sure every change is documented or this can delay review and even discourage maintainers from merging your PR! -->
+Drinking a singulo will now:
 
-<!-- Tick the box below (put an X instead of a space between the brackets) if you have tested your changes and this is ready for review. Leave unticked if you have yet to test your changes and this is not ready for review. -->
+- Give immunity to supermatter hallucinations
+- Pulls objects to you based on the total volume in your system (20u =
+1x1, 45u = 2x2, 80u = 3x3)
+- Makes a burp and supermatter rays/sound when objects are pulled
 
-- [ ] I affirm that I have tested all of my proposed changes and that any issues found during tested have been addressed.
+The new ingredient is:
+
+- Vokda 5u 
+- Wine 5u
+- Liquid Dark Matter 1u (replaces Radium)
 
 ## Why It's Good For The Game
-the ruin is no longer pitch fucking dark in the middle of a daylit planet (hopefully)
-<!-- Please add a short description of why you think these changes would benefit the game. If you can't justify it in words, it might not be worth adding. -->
+More cool effects for drinks. Singularity is all about gravity and the
+drink should have a theme around that.
+
+
+![dreamseeker_2q21YXS698](https://user-images.githubusercontent.com/5195984/207297517-90d26395-dd30-4106-bdd4-b30b1ba3e20b.gif)
+
+## Changelog
+:cl:
+add: Drinking singulo will now ignore supermatter hallucinations and
+pull objects to you
+balance: Change singulo drink recipe to require liquid dark matter
+instead of radium.
+/:cl:
+
+---
+## [newstools/2022-sundiata-post](https://github.com/newstools/2022-sundiata-post)@[80f0c24291...](https://github.com/newstools/2022-sundiata-post/commit/80f0c242913dceae34c9b1f213290dd39429430c)
+#### Tuesday 2022-12-20 21:18:46 by Billy Einkamerer
+
+Created Text For URL [sundiatapost.com/south-african-police-officer-accused-of-killing-his-two-girlfriends-commits-suicide-in-prison-cell/]
+
+---
+## [SLASHEM-Extended/SLASHEM-Extended](https://github.com/SLASHEM-Extended/SLASHEM-Extended)@[6941110757...](https://github.com/SLASHEM-Extended/SLASHEM-Extended/commit/6941110757ed63b66f157c138ca450bc0d182017)
+#### Tuesday 2022-12-20 22:15:40 by AmyBSOD
+
+Finish the motherfucking artifacts
+
+Gaaaaaaaaaaaaah. I don't want to have to see any nethack code for the next month now because this was such a pain in the butt. Also, I want to sleep for 25 hours straight and have a bonus of €200 transferred to my account as a compensation for all the hard work I put into coding those artifacts.
+
+---
+## [bluerise/openbsd-src](https://github.com/bluerise/openbsd-src)@[0cffdb45a9...](https://github.com/bluerise/openbsd-src/commit/0cffdb45a9bb573ce4665f5540d1a0d50ff2e37f)
+#### Tuesday 2022-12-20 22:30:52 by tb
+
+acme-client: fix SAN-handling insanity
+
+The revoke process, which does a lot more than revoking a cert, wants to
+know the SANs in the cert to be revoked or renewed and check them against
+the ones configured in the config file.
+
+To find out which ones are, it prints the SAN extension to a BIO using
+X509V3_EXT_print(), slurps that into a buffer, tokenizes the undocumented
+output string and plucks out the "DNS:" names. This is reminiscent of
+node's hilarious CVE-2021-44532 and on about the same level of crazy, but
+fortunately not security relevant.
+
+Get the SAN extension as a GENERAL_NAMES from libcrypto, then we have an
+actual data structure to work with, which allows us to access the DNS names
+without problems. This simplifies things quite a bit, but the actual logic
+in this file remains unmodified. Be careful about ASN1_IA5STRINGs and do
+not assume they are C strings.
+
+Tested by florian, millert, Renaud Allard, thanks!
+
+ok florian jsing
+
+---
+## [Unit2E/tgstation](https://github.com/Unit2E/tgstation)@[3c187487b1...](https://github.com/Unit2E/tgstation/commit/3c187487b1884040608ba23b0a89aa8b0176c2aa)
+#### Tuesday 2022-12-20 22:38:43 by MrMelbert
+
+Renews a bunch of old roundend new reports that got lost. Plus, some roundend report QoL for cult and revs. (#71284)
+
+## About The Pull Request
+
+A few roundend reports got lost from moving to dynamic and other prs.
+This PRs re-allows them to occur. Namely: "Wizard Killed" (lost in
+dynamic), "Blob nuked" (lost in dynamic), "Cult escaped" (lost in cult
+rework), and "Nuke Ops Victory" (station destroyed via nuke) (lost from,
+what I can see, an oversight / accidental swap of report values).
+
+Additionally, small roundend report QOL for cult: Removes antag datums
+from spirit realm ghosts after being dusted, so they do not show up on
+the report. And in reverse, heads of staff who were dusted / destroyed
+in revolution rounds are now also shown in roundend reports.
+
+## Why It's Good For The Game
+
+Some of these reports are dead, which is is a shame because I think
+they're cool and fun.
 
 ## Changelog
 
-:cl:
-fix: changes light range to 2 on the areas of beach_colony
+:cl: Melbert
+qol: Successfully fending off a blob now has a cross station news report
+again. More pressing reports will take priority over it, though.
+qol: Successfully killing a wizard (and all of their apprentices) now
+has a cross station news report again.
+qol: If more than half of a cultist team manages to escape on the
+shuttle (rather than summoning Nar'sie), they will send a unique cross
+station news report. This is still a loss, by the way. Summon Nar'sie!
+qol: Nuclear Operatives successfully nuking the station now has its
+unique cross station news report again, and no longer uses the generic
+"The station was nuked" report.
+qol: Nuking the station to stop a blob infection now has a unique cross
+station news report again. Good luck convincing admins to allow this.
+qol: Cult ghosts from "Spirit Realm" no longer persist on the cult's
+team after being desummoned, meaning they will not show up on roundend
+report.
+qol: Heads of staff will now always show up on revolution roundend
+report - even if their body was fully destroyed.
 /:cl:
 
-<!-- Both :cl:'s are required for the changelog to work! You can put your name to the right of the first :cl: if you want to overwrite your GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the icon ingame) and delete the unneeded ones. Despite some of the tags, changelogs should generally represent how a player might be affected by the changes rather than a summary of the PR's contents. -->
+---
+## [Danielkaas94/TheNoitaGifCollection](https://github.com/Danielkaas94/TheNoitaGifCollection)@[87b214e678...](https://github.com/Danielkaas94/TheNoitaGifCollection/commit/87b214e6789499649b403b932723ff1d8aff34a5)
+#### Tuesday 2022-12-20 22:39:45 by Danielkaas94
 
-* im stupid
+🔨 THE EMPEROR NEED MOAR WIDTH! 🔨
+    • Victory needs no explanation, defeat allows none.
+    • The difference between heresy and treachery is ignorance.
+    • Heresy grows from idleness.
+    • Cleanse, Purge, KILL!
+    • Faith without deeds is worthless.
+    • We are the Space Marines! We are the Emperor’s fury!
+    • The Emperor guides my blade
+    • Walk softly, and carry a big gun
+    • For the Emperor!
+    • Without him there is nothing.
+    • Work earns Salvation.
+    • Prayer cleanses the soul, Pain cleanses the body.
+    • Cowards die in shame.
+    • Fear denies faith.
+    • Hope is the first step on the road to disappointment.
+    • Only in death does duty end 💀
 
 ---
-## [michaelbelong/ppuunnkk](https://github.com/michaelbelong/ppuunnkk)@[9a4b6af90d...](https://github.com/michaelbelong/ppuunnkk/commit/9a4b6af90da5101a3ad0c5380663c452385a659b)
-#### Monday 2022-12-19 18:25:42 by pugson
+## [nimblemachines/muforth](https://github.com/nimblemachines/muforth)@[5043786e38...](https://github.com/nimblemachines/muforth/commit/5043786e38d776d6dd38df152ac026b0a07a56e3)
+#### Tuesday 2022-12-20 23:42:10 by David Frech
 
-fix chakra theme bullshit
+[arm] O frabjous day! Working USB firmware for STM32F303/F072!!!!!
 
-fuck this stupid framework it’s literal garbage that no one should be using
+Late last night I realized that I the "variable" defining word was
+wrong, and wouldn't work for code compiled into flash.
 
----
-## [Binbers/oldified-new](https://github.com/Binbers/oldified-new)@[6120721323...](https://github.com/Binbers/oldified-new/commit/6120721323b6431a1d43d89d7354e1ea1763a734)
-#### Monday 2022-12-19 21:19:26 by carlarctg
+I fixed it, re-compiled the USB test code, and it immediately worked!
 
-Added various flasks to loadouts and canteen vendors. (#1802)
+This is after trying over and over to get it to work, and basically
+giving up on ST and the STM32. It turned out to be a stupid simple
+mistake on my part.
 
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
+I've made a few small changes to the USB code, including commenting out
+the possibly offensive "manufacturer string" and replacing it with
+something banal.
 
-## About The Pull Request
+I've also made the USB code the "out of the box" code that the STM32F072
+Discovery and F3 Discovery board files load.
 
-Resprited the W-Y Flask. Removed the gold badge from the former
-detective's flask.
+You too can try this at home!
 
-Renamed the former detective's flask and bar flask into the brown and
-black, respectively, leather flasks.
+  ./muforth -f target/ARM/board/stm32f072b-discovery.mu4
 
-Added a canteen (item) from an unused sprite.
+OR
 
-Canteens (item) and W-Y flasks can now be found in the canteen (place)
-vendors.
+  ./muforth -f target/ARM/board/stm32f3-discovery.mu4
 
-All flasks (and canteen (item)) can be selected in the character loadout
-items menu at the bottom.
+then
 
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
+  jtag
+  flash-image
+  verify
 
-## Why It's Good For The Game
+Reset the board, plug into the "user USB" jack, and watch your favorite
+OS enumerate the board. I've had success with Linux and Windows 10.
 
-> Resprited the W-Y Flask. Removed the gold badge from the former
-detective's flask.
+Pressing the reset switch will disconnect from the USB, and the board
+will re-enumerate.
 
-The old W-Y flask looked more like a skull than the logo. The gold badge
-bit was legacy from bay12.
+It doesn't do anything more than that, but the hard part was getting to
+this point. Adding code to process vendor requests to turn it into a
+chat target is pretty easy.
 
-> Renamed the former detective's flask and bar flask into the brown and
-black, respectively, leather flasks.
-
-Legacy renaming.
-
-> Added a canteen (item) from an unused sprite.
-
-Cool sprite. Fucked up we didn't have canteens until now when, uh.
-That's what people actually use in the military, not flasks. (To my
-knowledge)
-
-> Canteens (item) and W-Y flasks can now be found in the canteen (place)
-vendors.
-
-Canteens are the standard military container, W-Y flasks in the vendors
-are a good Lore way to show how much of a WY suckup the USCM is.
-
-> All flasks, vacuum and leather included, (and canteen (item)) can be
-selected in the character loadout items menu at the bottom.
-
-I think these flasks are cool ways to add flavor to your character, and
-it's a shame most of them either weren't in the game or were in very
-annoying to find places.
-
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
-
-## Changelog
-
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-
-:cl:
-
-imageadd: Resprited the W-Y Flask. Removed the gold badge from the
-former detective's flask.
-add: Renamed the former detective's flask and bar flask into the brown
-and black, respectively, leather flasks.
-add: Added a canteen (item) from an unused sprite.
-add: Canteens (item) and W-Y flasks can now be found in the canteen
-(place) vendors.
-add: All flasks, vacuum and leather included, (and canteen (item)) can
-be selected in the character loadout items menu at the bottom.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-
----
-## [jeff0167/GameEngine_sfml](https://github.com/jeff0167/GameEngine_sfml)@[e934d3852e...](https://github.com/jeff0167/GameEngine_sfml/commit/e934d3852e40b930be5c29f1d6620868986d8a2a)
-#### Monday 2022-12-19 22:40:00 by jefferen
-
-Delete yaml-cpp
-
-Omg dude took so long just to change branch, I just wanted to discard all changes, I wanted a copy of the development branch and everything that I currenly have opened, DISCARDED, forever. Why is is that I find my self copy and pasting and doing all sorts of manuveours that github was specificly made for to avoid, but I can't see any way out but having to find another push/pull system, out of the three available and at times finding no other option than resetting it all manually, by copy and paste, to get it to do what I want, cause no you're not allowed to stash those changes, dude I don't care. All I want is for my project to be the exact same one as the one in one of the branches on github, and I don't care about any differences on my project on disk, just discard(stash) and let me move on. I love github, this is how it is when you program alone I guess, no help
+Super exciting!!!!
 
 ---
 
