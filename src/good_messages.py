@@ -225,7 +225,7 @@ class GoodMessages:
     def render_stats_markdown(self) -> str:
         sha = self.get_words_commit_sha()
         return (
-            f'{self.stats["num_events"]:,d} events recorded by [gharchive.org](https://www.gharchive.org/)'
+            f'there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/)'
             f' of which {self.stats["num_push_events"]:,d} were push events'
             f' containing {self.stats["num_commit_messages"]:,d} commit messages'
             f' that amount to {self.stats["num_commit_characters"]:,d} characters'
