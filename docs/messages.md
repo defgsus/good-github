@@ -1277,4 +1277,5 @@
 [17](good-messages/2023/2023-01-17.md)
 [18](good-messages/2023/2023-01-18.md)
 [19](good-messages/2023/2023-01-19.md)
+[20](good-messages/2023/2023-01-20.md)
 
