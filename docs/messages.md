@@ -1294,4 +1294,5 @@
 #### February
 
 [01](good-messages/2023/2023-02-01.md)
+[02](good-messages/2023/2023-02-02.md)
 
