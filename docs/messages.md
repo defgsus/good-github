@@ -1296,4 +1296,5 @@
 [01](good-messages/2023/2023-02-01.md)
 [02](good-messages/2023/2023-02-02.md)
 [03](good-messages/2023/2023-02-03.md)
+[04](good-messages/2023/2023-02-04.md)
 
