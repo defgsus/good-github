@@ -5,65 +5,772 @@ an [index](docs/messages.md).
 
 ---
 
-# [2023-02-24](docs/good-messages/2023/2023-02-24.md)
+# [2023-02-25](docs/good-messages/2023/2023-02-25.md)
 
 
-there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,185,228 were push events containing 3,356,670 commit messages that amount to 247,979,066 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 48 messages:
+there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,828,989 were push events containing 2,594,512 commit messages that amount to 164,822,281 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 54 messages:
 
 
-## [tra-ins/trains](https://github.com/tra-ins/trains)@[bd24c1da8d...](https://github.com/tra-ins/trains/commit/bd24c1da8d5d47e9566628fde00bcba040823ff8)
-#### Friday 2023-02-24 00:05:11 by tra-ins
+## [GerHobbelt/jpeg-xl](https://github.com/GerHobbelt/jpeg-xl)@[fead2da64d...](https://github.com/GerHobbelt/jpeg-xl/commit/fead2da64d6b091317f71ce146edb03855e4a2ac)
+#### Saturday 2023-02-25 00:11:46 by Ger Hobbelt
 
-ap world history? uh yeah, i sure hope it does! criminal justice program of study people rise up!!!
+fix duplicated here after code review.
 
-oh yeah im crushing on some girl in my class btw. i dont even talk to her i just think shes cute and funny. is this confirmation that im not straight??
+----------------------
+
+tesseract: fix compiler errors due to windows system header file errors
+
+// mupdf headers cause some weird error in MSVC system header commdlg.h when include *after* <random> header below. And this only happens for params.cpp, i.e. when params.h has been included first. ... A definite case of WTF?!
+//
+// Which is why we include the mupdf headers here in monolithic builds...
+//
+// EDIT: Subsequent compiler runs and analysis now popped up the same 'crazy' errors in commdlg.h (caused by missing font struct definitions)
+// from control.cpp and a few other tesseract source files. Which forced me to investigate further.
+//
+// Debugging through running the preprocessor (cl /E /P ...) and some grepping
+//
+//   grep '#line' $( find -name control.i )  | grep -B 1000000 commdlg | grep -B 1000000 wingdi | grep -v "Program Files"
+//
+// showed the original culprit was probably MuPDF\\thirdparty\\curl\\lib\\setup-win32.h.
+// And indeed there we found the often-troublesome WIN32_LEAN_AND_MEAN and a few choice other NOXYZ feature defines before loading windows.h.
+//
+// > Rationale for the precise grep chain is out of scope.
+// > Hint: wingdi defines what commdlg needs. Chain + last filter takes care of getting loading file as last #line stmt, IFF you're lucky.
+// > Of course I was lucky. After N iterations, which got me to this grep chain. EFF that shite, with prejudice!
+//
+// This practice MUST be abolished in all libraries, everywhere, as it causes severe compile errors at surprise locations and at surprise times,
+// while the errors reported aren't always easy to diagnose for everybody. (How many programmers are well versed with gcc -E, cl /P and code inspection?)
+//
+// Setting these feature defines MUST be the sole prerogative of the final application code/project, if any. Or rather more precise: the final C/C++ *.c+*.cpp source files.
+// No-one else MUST mess with these in any header / include files, just to 'help' shorten compiler turn-around times. The road to Hell is paved with good intentions.
+// If you want to offer 'help' like that, consider making sure your header files work well with precompiled header caching in the various compilers instead.
+//
+
+See also cUrl repo.
 
 ---
-## [linyinfeng/dotfiles](https://github.com/linyinfeng/dotfiles)@[153780cbfc...](https://github.com/linyinfeng/dotfiles/commit/153780cbfcac324c87a7fbc2e0eed4559ebc8f4f)
-#### Friday 2023-02-24 02:36:51 by Lin Yinfeng
+## [SharezoneApp/sharezone-app](https://github.com/SharezoneApp/sharezone-app)@[34a4016318...](https://github.com/SharezoneApp/sharezone-app/commit/34a40163180ebcc2af1a5f6e52eefa047781a4b8)
+#### Saturday 2023-02-25 00:18:44 by Nils Reichardt
 
-Oracle, Fuck You
+Initialize Firebase via Dart (#376)
 
-Oracle Cloud just disabled my free account *without any notice*, and
-*does not provide any data recovery method*.
+## Description
 
-Remove all Oracle OCI state from terraform.  Deploy all services
-previously on the Oracle Ampere A1 machine to rica.
+With this PR we initialize Firebase also via Dart. This change requires
+setting the `main` file when running the Flutter app:
+
+```sh
+flutter run \
+  --flavor dev \
+  --target lib/main_dev.dart
+```
+
+This is because we need a way to know which flavor is used inside the
+Dart code to terminate which Firebase project we should initialize. An
+alternative would be to use `--dart-define`. However, I like the
+`--target` solution more because there is no default option and you have
+to explicitly set a flavor. With `--dart-define`, we would either need
+to set a default or throw an exception at runtime.
+
+Our file structure looks like this:
+```
+lib/
+  ...
+  main_common.dart
+  main_dev.dart
+  main_prod.dart
+```
+
+`main_common.dart` is just the old `main.dart` but with a required
+`flavor` parameter.
+
+We are going to keep the native Firebase initialization for Android on
+iOS because we need it for Crashlytics and from my experience is the
+initialize Firebase way for Android and iOS not that stable. It's no
+problem to have both solutions.
+
+## Related Tickets
+
+Closes #375 
+Closes #221
 
 ---
-## [KingkumaArt/KingkumaTGSS13](https://github.com/KingkumaArt/KingkumaTGSS13)@[66b7310039...](https://github.com/KingkumaArt/KingkumaTGSS13/commit/66b7310039297843b01c5b14a9b59180909ab52c)
-#### Friday 2023-02-24 02:38:39 by Rhials
+## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[3978cfe70f...](https://github.com/cmss13-devs/cmss13/commit/3978cfe70f7e32331243e8b05738067b6101ebe6)
+#### Saturday 2023-02-25 00:20:50 by spartanbobby
 
-STAY IN THE LIGHT: Adds terrify Nightmare spell, terrified status effect, and a reason to mind the shadows (#72282)
+LV522: Chances Changes (#2695)
 
-Adds the Terrify spell, and its associated status effect, Terrified.
-This new spell is given to antagonist nightmares, as a part of their
-brain. The spell only works in those surrounded by darkness, and will
-apply the Terrified status effect if successful. Upon being Terrified,
-victims will passively gain **Terror Buildup** if they remain in the
-dark. As buildup increases, so do the negative effects, including tunnel
-vision, panic attacks, dizziness, and more.
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
 
-There are two primary methods for mitigating terror buildup. The first
-is moving into the light, which will reverse the passive terror buildup
-and eventually make it go away. The other method is by getting a hug
-from a friendly hand, which will reduce buildup significantly.
+# About the pull request
 
-Getting a hug from an UNfriendly hand (a nightmare, for instance) will
-cause the victim to freak out and be briefly knocked down. This can be
-spammed on targets who are caught alone in the dark, keeping them in an
-unfavorable position (sideways) and adding to the victim's terror
-buildup considerably. Escape into the light as soon as possible, or
-you'll be pushed to MAXIMUM TERROR BUILDUP.
+This PR makes numerous Changes to LV522 as well as adds more props to
+ease of mapper use
 
-To what end? Heart failure. Past the soft terror cap (which limits how
-much passively generated terror you can make) exists the hard terror
-cap. Bypassing that threshold will cause a stress induced heart attack
-and knock you unconscious (embarrassing!)
+# Explain why it's good for the game
+
+The areas changes and reasons why as are follows
+**SW Reactor:** Entirely removed and replaced with a much more open
+containers area for the xenos to build up and defend, this area is now
+the linchpin of the map as marines have to push though it to get to
+other flanks inside the reactor meaning the xeno players should now have
+a much better understanding of where they need to defend instead of
+prior problems with the map of them being hard flanked and losing at
+12:26
+
+**LZ1:** LZ1 was moved slightly more north in an attempt to remove some
+deadspace and make the path from the front to the FOB slightly less
+long, more LZ1 tunnels and ways inside the FOB were added for xeno
+flankers aswell as LZ1 being locked down until the marines push a button
+to open it up
+
+**Colony admin** A sensor tower was added to colony admin to encourage
+marines to go over there and investigate, along with a lockdown to the
+area being added
+
+**LZ3** a FORECON prop LZ housing the Tornado was re-added after being
+removed in an attempt to downsize the map, basically I figured out where
+I could put it
+
+**props:** Alot of instanced props for the map were made into actual
+items such as, bedrolls and folded bedrolls, FORECON dogtags, used
+flares, jerry cans, used bandages and some weird gameboy thing
+
+Sprites: https://i.imgur.com/avi2fUo.png
+FORECON was always made to have a patch it was one of those things I
+wanted but never got, luckily while making this PR I was able to look
+into it and get the old sprite from tri to finish up myself with onmobs
+
+FORECON Balance changes: The M39 being in the primary weapon slot is
+more of a "fuck you" to people playing the roll than just unlucky RNG
+that is workaround able moving it to the secondary pool lets the FORECON
+play around with better weapons to survive with and the M39 extended
+magazines means it's one of the only weapons FORECON spawn with that has
+a decent amount of ammo
+
+# Testing Photographs and Procedure
+<!-- Include any screenshots/videos/debugging steps of the modified code
+functioning successfully, ideally including edge cases. -->
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
+
+:cl:SpartanBobby
+add: Made some instanced props on LV522 actual items for mapper ease of
+use
+maptweak: tweaked LV522, removing the SW reactor and replacing it with a
+much more open container area once used as the FORECONS FOB
+maptweak: tweaked LZ1 on LV522 making it start locked down and be
+slightly more north along with some extra tunnels and flanking routes
+for the xenos
+maptweak: LV522, added a lockdown and moved the sensor tower to colony
+admin
+maptweak: re-added the prop LZ in the NE of the colony
+maptweak: redistributed LV522 mining metal spawns to be more spread out
+maptweak: removed building color outlines from LV522 that were there to
+help with navigation during Test merges since the map has been out for
+long enough for the majority to properly navigate it
+tweak: M39 removed from FORECON primary weapon pool and added to
+secondary weapon pool along with extended mags instead of normal
+add: Added FORECON Patches for the survivors on LV522 sprites made by
+Triiodine while onmobs were made by myself with help from Kugamo
+fix: examing a uniform no longer tells you that it has "an
+USCM/FORECON/Falling falcons patch" instead it says "a patch"
+add: updated the USCM FORECON uniform name and description 
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! -->
+
+---------
+
+Co-authored-by: Nanu308 <59782240+Nanu308@users.noreply.github.com>
+
+---
+## [realforest2001/forest-cm13](https://github.com/realforest2001/forest-cm13)@[7d27d8508c...](https://github.com/realforest2001/forest-cm13/commit/7d27d8508ce0723dbbcf1dfad9810a3092a71f61)
+#### Saturday 2023-02-25 00:29:52 by TotalEpicness
+
+Fixes invincible base crusher (#2682)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+
+# About the pull request
+Fixes an oversight that allowed base crusher to have half it's intended
+shield cooldown
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+runs
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+# Explain why it's good for the game
+Never intended on the first place and led to crusher being busted as
+fuck as it is currently.
+
+This was never intended and was a mess up on my part. It fell through
+from the painfully long development that Charger had as months went by
+between testing sessions and TMs, along with my inexperience with larger
+projects and bad note taking at the time.
+
+Maintainers are also supposed to filter stuff like this but after like a
+billion code reviews Charger had, I can see how it got through on their
+end as well.
+
+Nevertheless this dies here. 
+
+funny contrib moment
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
+
+
+# Testing Photographs and Procedure
+it runs
+<!-- Include any screenshots/videos/debugging steps of the modified code
+functioning successfully, ideally including edge cases. -->
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
+
+:cl: Totalepicness
+balance: Fixes base crusher having half it's intended cooldown for the
+shield ability
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! -->
+
+Co-authored-by: Epicness <coolguyethanw@gmail.com>
+
+---
+## [Ultimate-Fluff/cmss13](https://github.com/Ultimate-Fluff/cmss13)@[b4954e1402...](https://github.com/Ultimate-Fluff/cmss13/commit/b4954e14028909b107d0b204da0ad06c5dfeb50a)
+#### Saturday 2023-02-25 00:33:48 by carlarctg
+
+zombie powder fix (#2315)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+
+# About the pull request
+
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+Fixes Zombie Powder bugging the fuck out by slapping a ton of FAKEDEATH
+checks everywhere. It now properly shows the holder as dead on HUDs and
+scans.
+
+Fixed an issue in which sometimes qdeleted reagents still procced on
+life.
+
+Fixed examining things changing your direction if you're incapacitated.
+
+Added FAKEDEATH to the mob_incapacitated() check.
+
+
+# Explain why it's good for the game
+
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
+
+
+# Testing Photographs and Procedure
+<!-- Include any screenshots/videos/debugging steps of the modified code
+functioning successfully, ideally including edge cases. -->
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
+
+:cl:
+fix: Fixes Zombie Powder bugging the fuck out by slapping a ton of
+FAKEDEATH checks everywhere. It now properly shows the holder as dead on
+HUDs and scans.
+fix: Fixed an issue in which sometimes qdeleted reagents still procced
+on life.
+fix: Fixed examining things changing your direction if you're
+incapacitated.
+fix: Added FAKEDEATH to the mob_incapacitated() check.
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! -->
+
+---------
+
+Co-authored-by: harryob <me@harryob.live>
+
+---
+## [Ultimate-Fluff/cmss13](https://github.com/Ultimate-Fluff/cmss13)@[b53c9f0531...](https://github.com/Ultimate-Fluff/cmss13/commit/b53c9f0531897023fe365961c16863d8f41983d9)
+#### Saturday 2023-02-25 00:33:48 by carlarctg
+
+Turns all instances of 'colour' into 'color' (#2609)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+
+# About the pull request
+
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+Turns all instances of 'colour' into 'color'.
+
+Changed a shittily-named crayon variable's name.
+
+# Explain why it's good for the game
+
+We use burgerclapper english and we should standardize this
+
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
+
+
+# Testing Photographs and Procedure
+<!-- Include any screenshots/videos/debugging steps of the modified code
+functioning successfully, ideally including edge cases. -->
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
+
+:cl:
+spellcheck: Removed all instances of 'colour' and replaced them with
+'color'
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! -->
+
+---
+## [CharlesWedge/Citadel-Station-13-RP](https://github.com/CharlesWedge/Citadel-Station-13-RP)@[81c1229373...](https://github.com/CharlesWedge/Citadel-Station-13-RP/commit/81c1229373208790c3375a138579aaf76a0006d0)
+#### Saturday 2023-02-25 00:41:12 by Captain277
+
+Adds Just Like, a Ton of Clothes (#5048)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
+
+## About The Pull Request
+
+1. **Adds a wide array of clothes, listed below.**
+
+## Why It's Good For The Game
+
+1. _My good friend Tech provided me with some sprite sheets when I was
+working on Ashlanders, requesting a hobo coat. Going through the sheets
+I found several different items I thought it would be fun to add to our
+expanding list of customization and fashion options. The list is huge so
+I'm just gonna itemize it here. As for attributions, as I understand it
+most of this is from a D&D server, and some from a 40k server._
+2. _Two of the outfits, the Belial and Lilin items, are sprites crafted
+by our very own Doopy, as part of their Lindenoak line!_
+
+## Outfits & Where to Get them
+
+**Costume Vendor**
+1. _Banana Costume_
+3. _Hashashin Costume_
+4. _Bard Hat_
+5. _Aquiline Enforcer Uniform_
+6. _Scavenging Sniper Set_
+7. _Spiral Hero Outfit_
+8. _Body Tape Wrapping_
+9. _Redcoat Uniform_
+10. _Despotic General Uniform_
+11. _Post-Revolution American Uniform_
+12. _Prussian Uniform_
+
+**Suit Vendor**
+1. _Ragged Coat_
+2. _Spiral Hero Cloak_
+3. _Nerdy Shirt_
+
+**Jumpsuit Vendor**
+1. _Toga_
+2. _Countess Dress_
+3. _Baroness Dress_
+4. _Revealing Cocktail Dress_
+5. _Belial Striped Shirt and Shorts_
+6. _Lilin Sash Dress_
+
+**Shoes Vendor**
+1. _Utilitarian Shoes_
+
+**Loadout**
+1. _Ragged Coat_
+7. _Spiral Hero Cloak_
+8. _Nerdy Shirt_
+9. _Bard Hat_
+10. _Utilitarian Shoes_
+11. _Toga_
+13. _Countess Dress_
+14. _Baroness Dress_
+15. _Scavenging Sniper Set_
+16. _Spiral Hero Outfit_
+17. _Body Tape Wrapping_
+18. _Revealing Cocktail Dress_
+19. _Belial Striped Shirt and Shorts_
+20. _Lilin Sash Dress_
+
+**Medieval Armor Supply Crate**
+1. _Crimson Knight Armor_
+2. _Forest Knight Armor_
+3. _Hauberk_
+4. _Elite Paladin Armor, Helmet, and Boots_
+5. _Alternate Knight Helmet_
+
+**Cryosuit Supply Crates (Under Voidsuit Menu)**
+1. _Cryosuit, Variants: Security, Engineering, Atmos, Mining_
+
+**Crafting Menu**
+1. _Duraskull Helmet_
+
+**Ashlander Specific Crafting Menu**
+1. _Ashen Vestment_
+2. _Ashen Tabard_
+
+**Ashlander Spawn**
+1. _Priests now spawn with the Ashen Vestment._
+
+**Admin Spawn**
+1. _Actual armored versions of all new Knight sets._
+5. _Utilitarian Military Helmet, Armor, and Boots._
+
+## Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
+and it's effects on PRs in the tgstation guides for contributors. Please
+note that maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. You can attempt to finagle the system
+all you want, but it's best to shoot for clear communication right off
+the bat. -->
+
+:cl:
+add: Adds a wide array of new clothing items. Itemized in PR. #5408
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[2b76197397...](https://github.com/tgstation/tgstation/commit/2b76197397b4241957e93a9779fdd9dfbada2688)
+#### Saturday 2023-02-25 01:14:06 by Jacquerel
+
+Makes Lesser Form into one ability & unit tests it (#73572)
+
+## About The Pull Request
+
+Fixes #73491
+Every time I have used this ability lately it's been fucked. 
+It would vanish from my actions at arbitrary moments, and also sometimes
+transform me into a horrible monkey-man thing instead of a monkey. This
+is a shame because being able to become a monkey can be pretty fun, even
+if it makes you very vulnerable to being butchered.
+
+Refactoring it into being one action instead of two actions which add
+and remove each other fixes the part where the action just disappears.
+It reliably sticks between transformations now, regardless of whether or
+not they were voluntary.
+
+I also noticed that when I was turning into a monkey it wasn't dropping
+the changeling "fake clothes" outfit pieces I had on as a human, leading
+to a really fucked up looking monkey. I fixed this by adding `force =
+TRUE` in the drop to ground proc in the check for if the equipment you
+have is still valid after your species changes. I don't _think_ this has
+any side effects but I never do and then someone finds some.
+For good measure I also made all of the changeling equipment abilities
+which don't work if you are a monkey detect if you become a monkey and
+retract themselves.
+
+I also noticed that for a long time Last Resort has been trying and
+failing to give you Lesser Form (well, Human Form rather) as a Headcrab,
+so I fixed that and now you actually get the ability.
+
+Finally I did a _little_ bit of housekeeping in general on the
+changeling actions, mostly balloon alerts. I think these definitely need
+more attention than I gave them though. I left a lot of the `to_chat`s
+in place because many of them give information you want to be a little
+sticky, or refer back to in order to double check what you just did.
+
+I also added a unit test which flips back and forth a few times to
+ensure the ability still works.
+This required adding an "instant" flag to the monkeyize/humanize procs
+to skip the timers, and idenitified a couple of weird issues.
+First point: Humanising a monkey would remove the monkey mutation and
+then call humanise again, which would not skip itself because it still
+regarded you as being a monkey. I changed the order of operations here
+slightly so that it will early return.
+Second point: Calling `domutcheck` on `human/consistent` would runtime
+because we skip the bit which sets up any mutations in their DNA. This
+is a part of changeling transformation, so I just made it return
+instantly.
+
+## Why It's Good For The Game
+
+You can use this ability again without getting stuck permanently as a
+monkey, or it just deleting itself from your list of abilities for no
+reason.
+Turning into a monkey with fake outfit pieces on won't turn you into an
+abomination.
+
+## Changelog
+
+:cl:
+refactor: Changeling's Lesser Form is now one ability instead of two
+which keep swapping, which should consistently turn you back and forth
+without deleting itself from your action bar.
+fix: Hatching from an egg left by a Last Resort headcrab should
+correctly grant you Lesser Form in addition to your other abilities.
+fix: Turning into a monkey while using the Changeling space suit won't
+leave you as a monkey with a weird inflated head.
+qol: Using lesser form as a monkey with only one stored DNA profile will
+skip asking which profile you want and will simply transform you
+immediately into the only option.
+/:cl:
+
+---------
+
+Co-authored-by: Zephyr <12817816+ZephyrTFA@users.noreply.github.com>
+
+---
+## [Clownsw/qemu](https://github.com/Clownsw/qemu)@[8d0efbcfa0...](https://github.com/Clownsw/qemu/commit/8d0efbcfa0656bef76e95d40933b6243feca58c9)
+#### Saturday 2023-02-25 01:25:00 by Paolo Bonzini
+
+docs: build-platforms: refine requirements on Python build dependencies
+
+Historically, the critical dependency for both building and running
+QEMU has been the distro packages.  Because QEMU is written in C and C's
+package management has been tied to distros (at least if you do not want
+to bundle libraries with the binary, otherwise I suppose you could use
+something like conda or wrapdb), C dependencies of QEMU would target the
+version that is shipped in relatively old but still commonly used distros.
+
+For non-C libraries, however, the situation is different, as these
+languages have their own package management tool (cpan, pip, gem, npm,
+and so on).  For some of these languages, the amount of dependencies
+for even a simple program can easily balloon to the point that many
+distros have given up on packaging non-C code.  For this reason, it has
+become increasingly normal for developers to download dependencies into
+a self-contained local environment, instead of relying on distro packages.
+
+Fortunately, this affects QEMU only at build time, as qemu.git does
+not package non-C artifacts such as the qemu.qmp package; but still,
+as we make more use of Python, we experience a clash between a support
+policy that is written for the C world, and dependencies (both direct
+and indirect) that increasingly do not care for the distro versions
+and are quick at moving past Python runtime versions that are declared
+end-of-life.
+
+For example, Python 3.6 has been EOL'd since December 2021 and Meson 0.62
+(released the following March) already dropped support for it.  Yet,
+Python 3.6 is the default version of the Python runtime for RHEL/CentOS
+8 and SLE 15, respectively the penultimate and the most recent version
+of two distros that QEMU would like to support.  (It is also the version
+used by Ubuntu 18.04, but QEMU stopped supporting it in April 2022).
+
+There are good reasons to move forward with the deprecation of Python
+3.6 in QEMU as well: completing the configure->meson switch (which
+requires Meson 0.63), and making the QAPI generator fully typed (which
+requires newer versions of not just mypy but also Python, due to PEP563).
+
+Fortunately, these long-term support distros do include newer versions of
+the Python runtime.  However, these more recent runtimes only come with
+a very small subset of the Python packages that the distro includes.
+Because most dependencies are optional tests (avocado, mypy, flake8)
+and Meson is bundled with QEMU, the most noticeably missing package is
+Sphinx (and the readthedocs theme).  There are four possibilities:
+
+* we change the support policy and stop supporting CentOS 8 and SLE 15;
+  not a good idea since CentOS 8 is not an unreasonable distro for us to
+  want to continue to support
+
+* we keep supporting Python 3.6 until CentOS 8 and SLE 15 stop being
+  supported.  This is a possibility---but we may want to revise the support
+  policy anyway because SLE 16 has not even been released, so this would
+  mean delaying those desirable reasons for perhaps three years;
+
+* we support Python 3.6 just for building documentation, i.e. we are
+  careful not to use Python 3.7+ features in our Sphinx extensions but are
+  free to use them elsewhere.  Besides being more complicated to understand
+  for developers, this can be quite limiting; parts of the QAPI generator
+  run at sphinx-build time, which would exclude one of the areas which
+  would benefit from a newer version of the runtime;
+
+* we only support Python 3.7+, which means CentOS 8 CI and users
+  have to either install Sphinx from pip or disable documentation.
+
+This proposed update to the support policy chooses the last of these
+possibilities.  It does by modifying three aspects of the support
+policy:
+
+* it introduces different support periods for *native* vs. *non-native*
+  dependencies.  Non-native dependencies are currently Python ones only,
+  and for simplicity the policy only mentions Python; however, the concept
+  generalizes to other languages with a well-known upstream package
+  manager, that users of older distributions can fetch dependencies from;
+
+* it opens up the possibility of taking non-native dependencies from their
+  own package index instead of using the version in the distribution.  The
+  wording right now is specific to dependencies that are only required at
+  build time.  In the future we may have to refine it if, for example, parts
+  of QEMU will be written in Rust; in that case, crates would be handled
+  in a similar way to submodules and vendored in the release tarballs.
+
+* it mentions specifically that optional build dependencies are excluded
+  from the platform policy.  Tools such as mypy don't affect the ability
+  to build QEMU and move fast enough that distros cannot standardize on
+  a single version of them (for example RHEL9 does not package them at
+  all, nor does it run them at rpmbuild time).  In other cases, such as
+  cross compilers, we have alternatives.
+
+Right now, non-native dependencies have to be download manually by
+running "pip" before "configure".  In the future, it will be desirable
+for configure to set up a virtual environment and download them in the
+same way that it populates git submodules (but, in this case, without
+vendoring them in the release tarballs).
+
+Just like with submodules, this would make things easier for people
+that can afford accessing the network in their build environment; the
+option to populate the build environment manually would remain for
+people whose build machines lack network access.  The change to the
+support policy neither requires nor forbids this future change.
+
+[Thanks to Daniel P. Berrangé, Peter Maydell and others for discussions
+ that were copied or summarized in the above commit message]
+
+Cc: Markus Armbruster <armbru@redhat.com>
+Cc: Peter Maydell <peter.maydell@linaro.org>
+Cc: John Snow <jsnow@redhat.com>
+Cc: Kevin Wolf <kwolf@redhat.com>
+Reviewed-by: Daniel P. Berrangé <berrange@redhat.com>
+Reviewed-by: Alex Bennée <alex.bennee@linaro.org>
+Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
+
+---
+## [ssharkk/DSG23-State-of-Flow](https://github.com/ssharkk/DSG23-State-of-Flow)@[963b88baa2...](https://github.com/ssharkk/DSG23-State-of-Flow/commit/963b88baa2bab711ec907f820140ed6c64c1d40c)
+#### Saturday 2023-02-25 01:35:00 by Piotrus Watson
+
+made a fucken series of pipes holy shit its still broken so bwec carefuyle
 
 ---
 ## [vijaydasmp/dash](https://github.com/vijaydasmp/dash)@[aec7441ac2...](https://github.com/vijaydasmp/dash/commit/aec7441ac2863b4d92c5032e98e8b2691262a912)
-#### Friday 2023-02-24 04:22:44 by Wladimir J. van der Laan
+#### Saturday 2023-02-25 01:57:01 by Wladimir J. van der Laan
 
 Merge #15277: contrib: Enable building in Guix containers
 
@@ -201,50 +908,140 @@ ACKs for top commit:
 Tree-SHA512: 50e6ab58c6bda9a67125b6271daf7eff0ca57d0efa8941ed3cd951e5bf78b31552fc5e537b1e1bcf2d3cc918c63adf19d685aa117a0f851024dc67e697890a8d
 
 ---
-## [JasmineD500/My-Chromatics](https://github.com/JasmineD500/My-Chromatics)@[5d57617c59...](https://github.com/JasmineD500/My-Chromatics/commit/5d57617c590566f2b5dbf156acfc73266e740f95)
-#### Friday 2023-02-24 05:01:03 by Jasmine D
+## [Sidpatchy/ClaireBot](https://github.com/Sidpatchy/ClaireBot)@[4731619c45...](https://github.com/Sidpatchy/ClaireBot/commit/4731619c45bd432e2a6db3c97bc66f1f1baa6e92)
+#### Saturday 2023-02-25 02:05:39 by Sidpatchy
 
-i hate my life
+v3.0.0-alpha.3
 
-why they replace me with some baddies mod
+This adds *a lot*.
 
----
-## [erikarn/wtf-os](https://github.com/erikarn/wtf-os)@[94b57c5821...](https://github.com/erikarn/wtf-os/commit/94b57c5821332dc58dfa316bc2f7afce2b42b20a)
-#### Friday 2023-02-24 05:07:56 by Adrian Chadd
+Finishes up the implementation of /config. The only thing missing is the language setting as I have not added that to the rest of the bot yet (and honestly i'm on the fence about doing that at all).
 
-[wtfos] lots of little bits for PIC userland task creation.
+On the topic of /config, I couldn't find a way to update ephemeral messages so I just gave up and started to respond with an interaction follow-up instead. This isn't as neat as I'd like, but oh well. 🤷‍♀️
 
-Which, fuck me, actually worked.  Yeah MPU setup isn't working yet
-because the memory allocations and alignment requirements suck,
-but i /am loading a task and running it/ for the love of god that
-is great.
+Next, it adds the info command, disables (until I get around to implementing it) /level and /leaderboard.
 
-Anyway:
+It also completely removes all music bot functionality, I do not have interest in maintaining that feature-set anymore.
 
-* add in arg and r9 parameters into the user task create func
-* and make sure we populate arg for the kern task create func
-* add some debugging during task creation because yes I need it
-* populate r9 in the stack frame setup rather than skipping over
-  it, as it's required for the PIC user stuff.
+Pushes all file-handling code to Robin, I honestly thought I already did this, but here we are.
 
-* finish parsing, memory allocation and setting up the task
-  and running it.
+I started an update to the 8ball command but decidedly gave up on that because as it turns out, making a generic response to non-yes/no questions is pretty hard. Even making answers that are comedically wrong is rather difficult.
 
-Now, this actually surprisingly works.  Holy shit etc.
+I also finally fixed the bloody log4j2.xml file to make it less awful to debug issues.
+
+The commands(.yml) file has been updated to feature the new overview field from Robin v1.1. You will need to regenerate or manually update your config file.
+
+The config(.yml) has a fully fleshed out series of options for ClaireData, so be sure to add that section or regenerate your config file.
+
+Besides some other misc. bugfixes, I think that's about it.
+
+P.S. the longest part of all of this was figuring out what I changed 3 months ago and then left partially complete. Probably don't do that.
 
 ---
-## [linyinfeng/blog](https://github.com/linyinfeng/blog)@[cbc29cbfd9...](https://github.com/linyinfeng/blog/commit/cbc29cbfd9ee7eafddfb85720d9a1f9bb9b6b27c)
-#### Friday 2023-02-24 05:33:18 by ImgBotApp
+## [xiaosen7/react](https://github.com/xiaosen7/react)@[b6978bc38f...](https://github.com/xiaosen7/react/commit/b6978bc38f6788c7e73982b9fd2771aabdf36f15)
+#### Saturday 2023-02-25 02:13:31 by Andrew Clark
 
-[ImgBot] Optimize images
+experimental_use(promise) (#25084)
 
-/content/posts/oracle-fuck-you/instances-page.png -- 183.02kb -> 150.75kb (17.63%)
+* Internal `act`: Unwrapping resolved promises
 
-Signed-off-by: ImgBotApp <ImgBotHelp@gmail.com>
+This update our internal implementation of `act` to support React's new
+behavior for unwrapping promises. Like we did with Scheduler, when 
+something suspends, it will yield to the main thread so the microtasks
+can run, then continue in a new task.
+
+I need to implement the same behavior in the public version of `act`,
+but there are some additional considerations so I'll do that in a
+separate commit.
+
+* Move throwException to after work loop resumes
+
+throwException is the function that finds the nearest boundary and
+schedules it for a second render pass. We should only call it right 
+before we unwind the stack — not if we receive an immediate ping and
+render the fiber again.
+
+This was an oversight in 8ef3a7c that I didn't notice because it happens
+to mostly work, anyway. What made me notice the mistake is that
+throwException also marks the entire render phase as suspended
+(RootDidSuspend or RootDidSuspendWithDelay), which is only supposed to
+be happen if we show a fallback. One consequence was that, in the 
+RootDidSuspendWithDelay case, the entire commit phase was blocked,
+because that's the exit status we use to block a bad fallback
+from appearing.
+
+* Use expando to check whether promise has resolved
+
+Add a `status` expando to a thrown thenable to track when its value has
+resolved.
+
+In a later step, we'll also use `value` and `reason` expandos to track
+the resolved value.
+
+This is not part of the official JavaScript spec — think of
+it as an extension of the Promise API, or a custom interface that is a
+superset of Thenable. However, it's inspired by the terminology used
+by `Promise.allSettled`.
+
+The intent is that this will be a public API — Suspense implementations
+can set these expandos to allow React to unwrap the value synchronously
+without waiting a microtask.
+
+* Scaffolding for `experimental_use` hook
+
+Sets up a new experimental hook behind a feature flag, but does not
+implement it yet.
+
+* use(promise)
+
+Adds experimental support to Fiber for unwrapping the value of a promise
+inside a component. It is not yet implemented for Server Components, 
+but that is planned.
+
+If promise has already resolved, the value can be unwrapped
+"immediately" without showing a fallback. The trick we use to implement
+this is to yield to the main thread (literally suspending the work
+loop), wait for the microtask queue to drain, then check if the promise
+resolved in the meantime. If so, we can resume the last attempted fiber
+without unwinding the stack. This functionality was implemented in 
+previous commits.
+
+Another feature is that the promises do not need to be cached between
+attempts. Because we assume idempotent execution of components, React
+will track the promises that were used during the previous attempt and
+reuse the result. You shouldn't rely on this property, but during
+initial render it mostly just works. Updates are trickier, though,
+because if you used an uncached promise, we have no way of knowing 
+whether the underlying data has changed, so we have to unwrap the
+promise every time. It will still work, but it's inefficient and can
+lead to unnecessary fallbacks if it happens during a discrete update.
+
+When we implement this for Server Components, this will be less of an
+issue because there are no updates in that environment. However, it's
+still better for performance to cache data requests, so the same
+principles largely apply.
+
+The intention is that this will eventually be the only supported way to
+suspend on arbitrary promises. Throwing a promise directly will
+be deprecated.
 
 ---
-## [amjoseph-nixpkgs/nixpkgs](https://github.com/amjoseph-nixpkgs/nixpkgs)@[ff1d1295aa...](https://github.com/amjoseph-nixpkgs/nixpkgs/commit/ff1d1295aa7fc76e6519131e959079e81daa21fb)
-#### Friday 2023-02-24 09:32:37 by Adam Joseph
+## [Pink-Chink/CEV-Eris-14](https://github.com/Pink-Chink/CEV-Eris-14)@[168bad2ef2...](https://github.com/Pink-Chink/CEV-Eris-14/commit/168bad2ef25cc25c2cffea788f643425b858be6d)
+#### Saturday 2023-02-25 03:33:57 by Nemanja
+
+multi-handed item component (#12523)
+
+* multi-handed item component
+
+* pretty fucking obvious missed portion of this
+
+* holy shit was i on crack wtf was that code
+
+* DEWIT RIGHT
+
+---
+## [amjoseph-nixpkgs/nixpkgs](https://github.com/amjoseph-nixpkgs/nixpkgs)@[0641490ad9...](https://github.com/amjoseph-nixpkgs/nixpkgs/commit/0641490ad9819094444c84129e8a5e9aa0ed29ce)
+#### Saturday 2023-02-25 03:35:35 by Adam Joseph
 
 stdenv: Nix-driven bootstrap of gcc
 
@@ -359,570 +1156,26 @@ coding binge at an opportune moment, so we wouldn't waste a
 [static lib{mpfr,mpc,gmp,isl}.a hack]: https://github.com/NixOS/nixpkgs/blob/2f1948af9c984ebb82dfd618e67dc949755823e2/pkgs/stdenv/linux/default.nix#L380
 
 ---
-## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[c68a159884...](https://github.com/odoo-dev/odoo/commit/c68a15988432b201ae3786eb54bac3110c4242f4)
-#### Friday 2023-02-24 10:55:43 by Arnold Moyaux
+## [rd-stuffs/android_frameworks_base](https://github.com/rd-stuffs/android_frameworks_base)@[e2ce96a5d9...](https://github.com/rd-stuffs/android_frameworks_base/commit/e2ce96a5d98e8333ac3af66255395d95db4ebe7d)
+#### Saturday 2023-02-25 05:12:07 by Adithya R
 
-[FIX] stock,purchase,mrp: accumulative security days
+[DNM][HACK] telephony: Force Class 0 SMS to Class 1
 
-Usecase to reproduce:
-- Set the warehouse as 3 steps receipt
-- Put a security delay of 3 days for purchase
-- Set a product with a vendor and 1 days as LT
-- Replenish with the orderpoint
+This kills Flash SMS messages. Fuck you airtel
 
-You expect to have a schedule date for tomorrow that contains all the
-product needed in the incoming 4 days.
-
-Currenly the internal transfer from QC -> Stock is for tomorrow (ok).
-The transfer from Inpur -> QC is plan for 2 days in the past. (not ok)
-The PO date is plan for 5 days in the past. (not ok)
-
-It happens because the system check at each `stock.rule` application if
-purchase is part of the route. If it's then it applies the security lead
-time. It's a mistake because we should apply it only the first time.
-
-To fix it we directly set it when the orderpoint run and not during
-`stock.move` creation.
-However for MTO it's not that easy. We don't want to deliver too
-early the customer. So we keep applying the delay during the
-`stock.move` creation but only when it goes under the warehouse stock
-location.
-
-X-original-commit: 97f52bd40d97109a7983549d252476959ddceada
-Part-of: odoo/odoo#112325
+Change-Id: Ifb0c9e8bae5c12868d178fbdaeceb2cc72a0ffb6
 
 ---
-## [readmeio/metrics-sdks](https://github.com/readmeio/metrics-sdks)@[42f074625b...](https://github.com/readmeio/metrics-sdks/commit/42f074625b81cd73dc2766afa25760c88f5c1894)
-#### Friday 2023-02-24 11:47:54 by Dom Harrington
+## [rain-world-map/rain-world-map.github.io](https://github.com/rain-world-map/rain-world-map.github.io)@[064227326a...](https://github.com/rain-world-map/rain-world-map.github.io/commit/064227326a614b26b6920134cc921e0e855630b6)
+#### Saturday 2023-02-25 06:17:19 by Dual-Iron
 
-fix: remove `HAS_HTTP_QUIRKS` flag from integration tests
+Adjust tiling
 
-OK here's where this PR gets interesting... I spent a bunch of time debugging
-the test failures here: https://github.com/readmeio/metrics-sdks/pull/653#pullrequestreview-1309362560
-
-I eventually settled on some code that was working, committed here:
-224e2ad54c9bef641db39e650bfdc464a55c929b
-
-But that was causing a bunch of `EOFErrors` from Ruby when sending the
-HTTP request out to the metrics server:
-
-```
-#<Thread:0x000000010c67e488 /Users/domh/Sites/readmeio/metrics-sdks/packages/ruby/lib/readme/request_queue.rb:30 run> terminated with exception (report_on_exception is true):
-/opt/homebrew/lib/ruby/gems/3.1.0/gems/net-protocol-0.1.3/lib/net/protocol.rb:227:in `rbuf_fill': end of file reached (EOFError)
-	from /opt/homebrew/lib/ruby/gems/3.1.0/gems/net-protocol-0.1.3/lib/net/protocol.rb:193:in `readuntil'
-<long stack trace omitted>
-```
-
-It turns out that this wasn't a problem on the Ruby side, but in fact a
-problem from the Node.js testing side, because when not in "quirks" mode
-our fake metrics server happily accepted requests but just ignored them
-and never responded to anything.
-
-https://github.com/readmeio/metrics-sdks/blob/7728160f522847b9a59ce7a565eca35610c6e015/test/integration-metrics.test.js#L88-L113
-
-Some languages are okay with this (node, PHP) and some are not okay with
-this (python, and Ruby with rack@3.0.0 evidently).
-
-Since it is kinda janky for us to create an HTTP server and just ignore
-everything and not respond with anything, I've opted to make the quirks
-behaviour the default with this PR! This seems to work for all languages
-I've tested locally but lets see if it passes for all of them on CI 🤞
-
-I also had to add another fix here where the body was being returned empty
-to the test because the HTTP request from Ruby wasn't complete yet, so if
-we hit this race condition, I've opted to just sleep for 300ms and try again.
-Using this property:
-
-https://nodejs.org/docs/latest/api/http.html#messagecomplete
-
-Oh don't you just love HTTP.
+And by that i mean fix fucking everything seriously im a goddamn idiot !!
 
 ---
-## [dvjromashkin/noble-networks](https://github.com/dvjromashkin/noble-networks)@[b5ea1b6a56...](https://github.com/dvjromashkin/noble-networks/commit/b5ea1b6a5604bb8651ee88e30c26bb53b0f7658a)
-#### Friday 2023-02-24 12:08:46 by Roman Shaulskyi
-
-Gentx Cryptech
-
-Greetings. Found your project on Twitter. I represent the Cryptech team. We would like to support your project with our infrastructure. We have our own data centre located in Ukraine. I saw that you are communicating with the project on telegram, add me to your telegram group: My telegram: @LifeHah
-Our project website: https://cryptech.com.ua
-I would also like to tell you more about us:
-
-Good afternoon, I want to introduce you our small team of 6 people. 
-Our dream team:
-Denis - Team Leader, Blockchain Expert
-Daria - Marketing Advisor
-Taras - Computer Systems Engineer
-Roman - DevOps, Network Engineer
-Ivan - DevOps, Cryptography Specialist
-Oleksii - Community Manager, DevOps
-
-We are enthusiasts who believe that very soon blockchain technologies will become an integral part of the life of an ordinary person. We are specialists in the field of system administration and have extensive experience in setting up and maintaining decentralized nodes of various networks.  Here are some of them: ALEO, Ironfish, Solana-TestNet, Neon-LAbs, Minima, KYVE, Asset Mantle, Game, Cosmic Horizon, KleverChain, TGRADE, Celestia, Archway, QUAI Network, APTOS, Penumbra, STARKNET, SUI, GNOLang, Sei, QuickSilver, OBOL, LAYER ZERO, Web3Auth, DWEB, Oasys, Algoracle, Covalent, Abacus, peaq, Crescent, DeFund, Laconic, Subspace, Gitopia, Massa, Kira, ANOMA, Humanode, ChainFlip, Masa Finance, Manta-Kalamari, GEAR, Supra Oracle, Cere Network, Secret Networt, MoonBeam, Ki-Chain, KOII, Spacemesh, Stargaze, BlockPI and many others. 
-
-Our team has many years of experience in network infrastructure, setting up and maintaining client servers based on Linux (Debian, Ubuntu, CentOS, etс.), creting monitoring and warning systems (Prometheus, Zabbix, Nagois, Grafana), writing and compiling Dockerfiles (above 4 years experience), writing scripts and programs in languages   (Python, Bash, PowerShell), knows programming languages such as RUST, Go, Javascript, which allows us to fully participate in projects based on CosmosSDK, Ethereum, Polkadot, ZK-snark, work with Bridges, and Blockchain Relays. We carry out full-fledged work with Github and search for Bugs, make various kinds of Feedbacks (bugreports, etc.)
-
-Since we are located in Ukraine, in the city of Dnipro (one of the largest cities in Ukraine with a population of 1 million citizens), we send most of the resources received from activities to support state institutions, volunteer work and support the Armed Forces of Ukraine. Of course, we are interested in financial support from the world community. And in exchange for this support, we want to provide our computing power and our experience in supporting and configuring decentralized nodes of various networks to support crypto projects. We want to ask you to support us and our country in this difficult time, just as our large Ukrainian community has been supporting and helping you for a long time. Do not stand aside and be on guard for world peace. Thank you for understanding and supporting us in the person of Ukrainian volunteers.
-
-For our part, we provide comprehensive assistance and support to development teams - we deploy and maintain nodes of their decentralized networks on our equipment, we conduct functional testing and search for bugs. We also promote projects and create educational content that reveals projects in simple terms from the technical, conceptual and practical sides. We write articles, translate blogs and technical documentation, create video materials in the form of short promos and lectures about projects (mostly in Russian, but we can do it in English). You can see our content and working projects at the links below: 
-
-http://cryptech.com.ua/
-https://cryptech-nodes.medium.com/
-https://www.youtube.com/channel/UCGwQIwKu1QuB9YxW-vElNbQ
-https://www.twitch.tv/projectcryptech (The last broadcast was quite a while ago because our speaker was ill, but we will be back to this activity soon)
-
-We do not rent cloud servers, we purchased, configured and maintain all the capacities on our own.
-We have created our own data center and work with the following equipment:
-HPE Proliant DL580 Gen9 Server Quad 24-Core E7-8894 v4 **96 Cores 512GB RAM, 8 x Intel P3520 Series 2 TB SSD
-4 x HP GEN 9, CPU - 2 x Intel Xeon E-4667 v3, RAM - DDR-4 368 GB, SSD - 4 x Intel P3520 Series 2 TB
-4 x Quanta - 2 x Intel (R) Xeon (R) CPU E5-2699 v3 @ 2.30GHz, RAM - DDR-4 368 GB, SSD - 4 x Intel P3520 Series 2 TB
-2 x Gigabyte 1U - 2 x Intel (R) Xeon (R) CPU E5-2699 v3 @ 2.30GHz, RAM - DDR-4 256 GB, SSD - 4 x Intel P3520 Series 2 TB
-2 x SuperMicro with SGX processors Intel Xeon E2278G, RAM - DDR-4 128 GB, 3 x Intel P3520 Series 2 TB
-We get the Internet from three backbone providers in our country: Eurotranstelecom, Vega Telecom, DataLine. We have our own autonomous system and communication channels with a speed of 1 Gigabit / s each and a backup power supply system, which allows our data center to work without interruptions 24/7 with 1000% uptime.
-
-For the last 4 years we have been working in the blockchain industry and participating in a large number of full-time projects. Before that, we were involved in various projects and various branches of the IT industry. BUT gradually we became interested in blockchains, and our hobby became our main occupation.
-Our contacts:
-https://twitter.com/CryptechNodes
-https://github.com/dvjromashkin
-cryptech.nodes@gmail.com
-
----
-## [Signal-K/client](https://github.com/Signal-K/client)@[69497a1500...](https://github.com/Signal-K/client/commit/69497a1500e3ec2237555d07581ab4cd40880de2)
-#### Friday 2023-02-24 12:29:22 by Liam Arbuckle
-
-🪁🥎 ↝ #8 Add file upload feature & auth handler
-
-1. Completed authentication header for web client. To the end user it is 100% offchain, with user profiles being stored on a postgresql database. However, I've taken a dive into the Magic sdk to create wallet addresses for each user, as well as a Flask-based authentication handler for future metamask/wallet interaction. I've made this decision for a few reasons (like simplicity), but the main reason is for the client to seem like a regular journal platform and not be confusing, as well as follow the 'web3-agnostic' design language I favour for projects like this due to confusion and/or distrust of web3 products/teams. However, since each user will have a wallet address, they'll be able to interact with smart contracts and IPFS just fine. Further discussion will need to take place to discuss long-term suitability of this model, including things like gas fees (currently everything regarding transactions is occurring on Goerli [testnet] and gas fees will be processed by a "superuser" so that there's no restrictions or huge expenses) and how we go about getting users to trust the web3 nature (which I've got a lot of experience with). However, I don't fully know the exact demographics we'll be targeting & also I understand that that's quite a while away, so I'll raise it now but won't spend any time thinking about it until the time comes
-          2. I've continued with the contracts for proposals/publications & updating the metadata standards. I favour a lazy minting approach with data processing being handled by a Flask blueprint (which is a formula my team have developed on signal-k/sytizen). Right now I'm using Thirdweb & Moralis for the contract interactions and I have also, with much difficulty, succeeded in getting Moralis to self-host on my Postgres server. Finally, I've begun the process of optimising the base layer contracts so that the gas fees (which are already reduced post-merge) are essentially negligible at this time.
-          3. File upload for posts/articles feature on the web client is complete, and the smart contracts now receive all file upload metadata from this.
-          4. Begun a new flask blueprint (forked from point #2) to generate dataset previews based on which modules (e.g. lightkurve) are used and to add interactive nature to the 'sandbox' feature discussed earlier
-          5. Reluctantly continued some documentation
-
-(above message from the Desci discord, see https://github.com/signal-k/sytizen/issues/16 for more info)
-
----
-## [VastKilleroOm/TG220VAST](https://github.com/VastKilleroOm/TG220VAST)@[a2295b2b04...](https://github.com/VastKilleroOm/TG220VAST/commit/a2295b2b049ba3c77186ffb0eaacb507c001cdc8)
-#### Friday 2023-02-24 12:34:45 by LemonInTheDark
-
-Lighting source refactor (Tiny) (#73284)
-
-## About The Pull Request
-
-I'm doing two things here. Let's get the boring bit out of the way.
-
-Lighting source updates do three distinct things, and those things were
-all in one proc.
-I've split that one proc into three, with the first two feeding into the
-third.
-
-Second, more interesting thing.
-
-An annoying aspect of our lighting system is the math we use for
-calculating luminosity is hardcoded.
-This means that we can't have subtypes that are angled, or that have
-squared falloff, etc. All has to look the same.
-This sucks, and it shows.
-
-It has to be, goes the thinking, because we need very fast lookups that
-OOP cannot provide.
-We can't bog down the main equation with fluff, because the main
-equation needs to be really speedy.
-
-The thing about this equation is the only variants on a turf to turf
-basis is exactly how far turfs are from the center.
-So what if, instead of doing the math in our corner worker loop, we
-build lookup tables to match our current source's state.
-The tables, like a heatmap, could encode the lighting of any point along
-the line.
-
-This is actually faster then doing the math each time, because the list
-generation can be cached.
-It also means we've pulled the part we want to override out of hotcode. 
-It's cheap to override now, and a complex subtype, with angles and such
-would have no impact on the typical usage.
-
-So the code's faster, easier to read, and more extensible. 
-And we can do stuff like squared falloff for some lights in future
-without breaking others.
-
-Winning!
-
-## Why It's Good For The Game
-
-Winning
-
----
-## [Latentish/Shiptest](https://github.com/Latentish/Shiptest)@[6d158bd3b3...](https://github.com/Latentish/Shiptest/commit/6d158bd3b37bba2cb2cec2a27fdb0b9b7d8275ac)
-#### Friday 2023-02-24 13:42:57 by spockye
-
-beach ruin, The Treasure Cove! (#1701)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
-
-## About The Pull Request
-This PR adds a new Beach ruin, Treasure Cove. 
-
-![2023 01 17-11 26
-30](https://user-images.githubusercontent.com/79304582/212874736-b17917a5-876e-4a7a-a073-1581cc394b8e.png)
-
-![2023 01 17-11 26
-58](https://user-images.githubusercontent.com/79304582/212874824-9a161419-b751-41d2-a82d-e50f06981025.png)
-
-
-![image](https://user-images.githubusercontent.com/79304582/212879021-bcdc2238-b50b-48c2-9cd0-d17cccbd50dc.png)
-
-Loot: 
-cm-16 rifle (main loot)
-energy gun
-pirate sabre
-frontiersmen hardsuit
-misc combat supplies
-secret documents
-2x abandoned crates
-research note / tesla researcher
-basic engineering supplies (smes/tools/autolathe/battery charger)
-two boats
-silver crate / hidden gold crate
-misc junk
-______
-Threat: 
-1x spacesuit ranged pirate
-2x sword pirates
-1x ranged pirate
-punji sticks
-_____
-
-Lore tidbit:
-This "humble abode" is the home of our 5- now 4 Pirate friends! After a
-mildly successful raid on a CMM VIP transport, they managed to take a
-Cargo tech (the VIP), and a CMM guard as hostage. sadly it didn't all go
-as planned, and the CMM officer managed to free himself and killed one
-of the pirates. This is where you now find the cave, with both hostages
-executed, their brother buried, and the pirates grieving his unfortunate
-passing.
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
-<!-- Tick the box below (put an X instead of a space between the
-brackets) if you have tested your changes and this is ready for review.
-Leave unticked if you have yet to test your changes and this is not
-ready for review. -->
-
-- [x] I affirm that I have tested all of my proposed changes and that
-any issues found during tested have been addressed.
-
-## Why It's Good For The Game
-more ruins = good.
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding. -->
-
-## Changelog
-
-:cl:
-add: Adds a new beach ruin, the beach_treasure_cove
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
----------
-
-Signed-off-by: Bjarl <94164348+Bjarl@users.noreply.github.com>
-Co-authored-by: Bjarl <94164348+Bjarl@users.noreply.github.com>
-
----
-## [BarteG44/Shiptest](https://github.com/BarteG44/Shiptest)@[84a2a8f394...](https://github.com/BarteG44/Shiptest/commit/84a2a8f394a0296ecc527f23c0da470b30280c0c)
-#### Friday 2023-02-24 13:44:13 by Bjarl
-
-Die Of Fate Change (#1760)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
-
-## About The Pull Request
-replaces the die of fate's d20 effect (spawn you as wizard) with spawn
-wizard clothes and magic mirror under you.
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
-## Why It's Good For The Game
-I'm sick of wizards spawning without admin intervention
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding. -->
-
-## Changelog
-
-:cl:
-balance: You can't be turned into a wizard by the die of fate, instead
-getting a magic mirror and wizard clothes.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
----
-## [edsavage/ml-cpp](https://github.com/edsavage/ml-cpp)@[4bc55b3d04...](https://github.com/edsavage/ml-cpp/commit/4bc55b3d04ebf5f2341ad75106e67ec3a7a3d3d9)
-#### Friday 2023-02-24 13:53:01 by Tom Veasey
-
-[ML] Logging enhancements plus compilation speed ups  (#2363)
-
-Currently, logging requires one to manage wrapping up calls to many types in core::CContainerPrinter::print.
-It would be nice if the logging experience was more streamlined. Another side effect is we ended up including
-core/CContainerPrinter.h very widely, in many cases for LOG_TRACE statements which are compiled away
-anyway. It would be nice to avoid this.
-
-This PR introduces a pseudo stream manipulator CScopePrintContainers. This is dropped into our logging
-macros so that all log lines simply get containers printed automatically. This approach first detects (at compile
-time) whether types can be written directly to a std::ostream and uses this approach in preference. I also fixed
-some obvious silly inefficiencies in CContainerPrinter. One might ask why not just specialise operator<< for
-std::ostream and containers in the std namespace? I did in fact try this, but it turns out other libraries tend
-to do this and you can easily get ODR violations. I hit this exact problem because libtorch does this and I
-couldn't then compile pytorch_inference.
-
-Separately, our compile times given the total LOC are rather long. One culprit is logging. Just including
-CLogger.h adds around 70k lines to the output of the preprocessor and, for my setup, 0.4s for this step
-alone to the compile time of file. Therefore, I've also started addressing some of the bottlenecks. I've migrated
-LOG_TRACE to really discard the code altogether. This means we can have a special CLoggerTrace.h which
-only optionally includes CLogger.h if we're not compiling with EXCLUDE_TRACE_LOGGING. (I think the
-improved build times warrant only finding out later if we break a log line and anyway many things now just
-print automatically, so this should be harder to do.) I also add CMemoryFwd.h to avoid including CMemory.h
-too widely. This includes a lot of STL headers. Finally, I migrated CLoggerThrottler to a pimpl and moved
-some obvious other details out of headers. The upshot for for my dev setup is 15% speed up to build everything.
-
----
-## [neurodebian/Psychtoolbox-3](https://github.com/neurodebian/Psychtoolbox-3)@[b85250b062...](https://github.com/neurodebian/Psychtoolbox-3/commit/b85250b062a7930681cdf7050f3e40457ff962b1)
-#### Friday 2023-02-24 14:17:48 by Mario Kleiner
-
-PsychHID/OSX: Avoid calling PsychHIDWarnAccessDenied frequently.
-
-The latest fix for the latest security bullshit, introduced sometime after macOS
-10.15 Catalina. This was found when testing Octave on macOS 12.5 Monterey.
-
-Apparently the call to IOHIDCheckAccess() by PsychHIDWarnAccessDenied()
-is now extremely costly on macOS 12 (possibly also macOS 11 - untested) iff
-the host application was launched from Terminal.app instead of standalone via
-clicking a launch icon. This showed on Octave 6.4 after upgrade to macOS 12.5,
-as octave is always launched from Terminal, regardless if in console mode or
-GUI mode. Matlab appeared unaffected, as it is usually launched by clicking the
-Matlab icon, but if one launches Matlab from a terminal, the same happens.
-
-Why IOHIDCheckAccess() was suddenly turned into such an expensive operation
-by the iDiots, i don't know, but our workaround is to no longer call it at each
-invocation of KbCheck or KbQueueCreate, but only at PsychHID startup, and
-hope this does not have other new bad effects.
-
-Note access time exploded from way less than 1 msec to over 15 msecs! Great
-work Apple!
-
-Now we are back to identical performance on Matlab and Octave in both GUI
-and commandline mode. Performance is bad compared to Linux or Windows,
-but manageable at about 2.4 msecs on macOS 12.5 Monterey on a MBP 2017.
-However, if run on a MacBook with touchbar, two PsychHID('KbCheck') calls
-are needed for each KbCheck() call, because the touchbar is a separate HID
-device, serving the important ESCape key and also function keys, so owners
-of a shitty touchbar machine will have to live with execution times of KbCheck
-on the order of 5 msecs on not that old hardware like the MBP 2017! This makes
-animation loops with KbChecks difficult to run beyond 60-100 fps. Such is the
-life of Apple customers...
-
-When we are here, improve troubleshooting instructions for security bullshit
-on macOS, and fix two compiler warnings new on macOS 12.
-
----
-## [neurodebian/Psychtoolbox-3](https://github.com/neurodebian/Psychtoolbox-3)@[9354870474...](https://github.com/neurodebian/Psychtoolbox-3/commit/9354870474eaff17302039fc07d6248c9ee5bace)
-#### Friday 2023-02-24 14:17:48 by Mario Kleiner
-
-PsychHID/OSX: Improve macOS security troubleshooting instructions.
-
-Sometimes macOS shitty security GUI lies about the permission status
-of "Input Monitoring" etc., and displays Matlab/Octave/Terminal as
-on the list and checked, and one does need to do more stupid stuff
-like unchecking or rechecking the checkbox. Add comments regarding
-this.
-
----
-## [DataDog/dd-trace-rb](https://github.com/DataDog/dd-trace-rb)@[ec45215541...](https://github.com/DataDog/dd-trace-rb/commit/ec452155411cbd1efa5d19331cd0c64ba8d48b1e)
-#### Friday 2023-02-24 14:35:13 by Ivo Anjo
-
-Remove Sorbet typechecker
-
-**What does this PR do?**:
-
-This PR is spiritually a revert of #1607, when we added the Sorbet
-typechecker to dd-trace-rb.
-
-It includes two commits: One where we remove all configuration
-and scaffolding surrounding Sorbet, and one where we remove all of the
-`# typed: ...` magic comments and `include Kernel` definitions added
-to make Sorbet happy.
-
-**Motivation**:
-
-As documented in #2641, the team has decided that the value vs pain
-equation for Sorbet has shifted in the past months, and thus that
-it was time to remove Sorbet.
-
-**Additional Notes**:
-
-Sorbet type checking in CI was actually removed earlier this week in
- #2617.
-
-**How to test the change?**:
-
-CI should still be green.
-
----
-## [M3IY0U/aniguess](https://github.com/M3IY0U/aniguess)@[2a821afa19...](https://github.com/M3IY0U/aniguess/commit/2a821afa19729f6517d2940cea06474ef3479c11)
-#### Friday 2023-02-24 14:48:59 by Sebastian Zill
-
-Stats restyling (#10)
-
-* Stats restyling
-
-* Oopsie Woopsie! We made a fucky wucky!!
-
-I am vewy sawwy about cwashing ;;w;; I had a pwoblem that caused a headache, so I took a nyappy-nyappy. Pwease forgive me onyi-chan
-
-* damn this guys formatter sucks ass
-
----------
-
-Co-authored-by: Timo <meiyou@posteo.de>
-
----
-## [qemu/qemu](https://github.com/qemu/qemu)@[8d0efbcfa0...](https://github.com/qemu/qemu/commit/8d0efbcfa0656bef76e95d40933b6243feca58c9)
-#### Friday 2023-02-24 15:07:11 by Paolo Bonzini
-
-docs: build-platforms: refine requirements on Python build dependencies
-
-Historically, the critical dependency for both building and running
-QEMU has been the distro packages.  Because QEMU is written in C and C's
-package management has been tied to distros (at least if you do not want
-to bundle libraries with the binary, otherwise I suppose you could use
-something like conda or wrapdb), C dependencies of QEMU would target the
-version that is shipped in relatively old but still commonly used distros.
-
-For non-C libraries, however, the situation is different, as these
-languages have their own package management tool (cpan, pip, gem, npm,
-and so on).  For some of these languages, the amount of dependencies
-for even a simple program can easily balloon to the point that many
-distros have given up on packaging non-C code.  For this reason, it has
-become increasingly normal for developers to download dependencies into
-a self-contained local environment, instead of relying on distro packages.
-
-Fortunately, this affects QEMU only at build time, as qemu.git does
-not package non-C artifacts such as the qemu.qmp package; but still,
-as we make more use of Python, we experience a clash between a support
-policy that is written for the C world, and dependencies (both direct
-and indirect) that increasingly do not care for the distro versions
-and are quick at moving past Python runtime versions that are declared
-end-of-life.
-
-For example, Python 3.6 has been EOL'd since December 2021 and Meson 0.62
-(released the following March) already dropped support for it.  Yet,
-Python 3.6 is the default version of the Python runtime for RHEL/CentOS
-8 and SLE 15, respectively the penultimate and the most recent version
-of two distros that QEMU would like to support.  (It is also the version
-used by Ubuntu 18.04, but QEMU stopped supporting it in April 2022).
-
-There are good reasons to move forward with the deprecation of Python
-3.6 in QEMU as well: completing the configure->meson switch (which
-requires Meson 0.63), and making the QAPI generator fully typed (which
-requires newer versions of not just mypy but also Python, due to PEP563).
-
-Fortunately, these long-term support distros do include newer versions of
-the Python runtime.  However, these more recent runtimes only come with
-a very small subset of the Python packages that the distro includes.
-Because most dependencies are optional tests (avocado, mypy, flake8)
-and Meson is bundled with QEMU, the most noticeably missing package is
-Sphinx (and the readthedocs theme).  There are four possibilities:
-
-* we change the support policy and stop supporting CentOS 8 and SLE 15;
-  not a good idea since CentOS 8 is not an unreasonable distro for us to
-  want to continue to support
-
-* we keep supporting Python 3.6 until CentOS 8 and SLE 15 stop being
-  supported.  This is a possibility---but we may want to revise the support
-  policy anyway because SLE 16 has not even been released, so this would
-  mean delaying those desirable reasons for perhaps three years;
-
-* we support Python 3.6 just for building documentation, i.e. we are
-  careful not to use Python 3.7+ features in our Sphinx extensions but are
-  free to use them elsewhere.  Besides being more complicated to understand
-  for developers, this can be quite limiting; parts of the QAPI generator
-  run at sphinx-build time, which would exclude one of the areas which
-  would benefit from a newer version of the runtime;
-
-* we only support Python 3.7+, which means CentOS 8 CI and users
-  have to either install Sphinx from pip or disable documentation.
-
-This proposed update to the support policy chooses the last of these
-possibilities.  It does by modifying three aspects of the support
-policy:
-
-* it introduces different support periods for *native* vs. *non-native*
-  dependencies.  Non-native dependencies are currently Python ones only,
-  and for simplicity the policy only mentions Python; however, the concept
-  generalizes to other languages with a well-known upstream package
-  manager, that users of older distributions can fetch dependencies from;
-
-* it opens up the possibility of taking non-native dependencies from their
-  own package index instead of using the version in the distribution.  The
-  wording right now is specific to dependencies that are only required at
-  build time.  In the future we may have to refine it if, for example, parts
-  of QEMU will be written in Rust; in that case, crates would be handled
-  in a similar way to submodules and vendored in the release tarballs.
-
-* it mentions specifically that optional build dependencies are excluded
-  from the platform policy.  Tools such as mypy don't affect the ability
-  to build QEMU and move fast enough that distros cannot standardize on
-  a single version of them (for example RHEL9 does not package them at
-  all, nor does it run them at rpmbuild time).  In other cases, such as
-  cross compilers, we have alternatives.
-
-Right now, non-native dependencies have to be download manually by
-running "pip" before "configure".  In the future, it will be desirable
-for configure to set up a virtual environment and download them in the
-same way that it populates git submodules (but, in this case, without
-vendoring them in the release tarballs).
-
-Just like with submodules, this would make things easier for people
-that can afford accessing the network in their build environment; the
-option to populate the build environment manually would remain for
-people whose build machines lack network access.  The change to the
-support policy neither requires nor forbids this future change.
-
-[Thanks to Daniel P. Berrangé, Peter Maydell and others for discussions
- that were copied or summarized in the above commit message]
-
-Cc: Markus Armbruster <armbru@redhat.com>
-Cc: Peter Maydell <peter.maydell@linaro.org>
-Cc: John Snow <jsnow@redhat.com>
-Cc: Kevin Wolf <kwolf@redhat.com>
-Reviewed-by: Daniel P. Berrangé <berrange@redhat.com>
-Reviewed-by: Alex Bennée <alex.bennee@linaro.org>
-Signed-off-by: Paolo Bonzini <pbonzini@redhat.com>
-
----
-## [shiptest-ss13/Shiptest](https://github.com/shiptest-ss13/Shiptest)@[d21740b475...](https://github.com/shiptest-ss13/Shiptest/commit/d21740b475aea65de3b250a5aea26a69677e30e8)
-#### Friday 2023-02-24 15:09:20 by tmtmtl30
+## [Davchikk/Shiptest](https://github.com/Davchikk/Shiptest)@[d21740b475...](https://github.com/Davchikk/Shiptest/commit/d21740b475aea65de3b250a5aea26a69677e30e8)
+#### Saturday 2023-02-25 06:26:56 by tmtmtl30
 
 Mapgen fixes and speedups (ignore the branch name. I'm dumb) (#1637)
 
@@ -1018,1092 +1271,1471 @@ somewhat.
 /:cl:
 
 ---
-## [salonized/dd-trace-rb](https://github.com/salonized/dd-trace-rb)@[eeabe537a2...](https://github.com/salonized/dd-trace-rb/commit/eeabe537a29191ea3aeb3086c9aa8b91c958c0f3)
-#### Friday 2023-02-24 15:37:17 by Ivo Anjo
+## [kyrofx/fuckben](https://github.com/kyrofx/fuckben)@[3482234f9d...](https://github.com/kyrofx/fuckben/commit/3482234f9d1e21ab6771fd0cb4dda4ebd0f3dbc7)
+#### Saturday 2023-02-25 06:48:08 by PupLord
 
-Second step of making some sample values optional: make StackRecorder configurable
+Update fuck you ben.py
 
-In the previous commit the `sample_values` struct was introduced, which
-abstracted how values are passed to libdatadog away from everywhere
-else in the profiler, and centralized this into the `StackRecorder`.
-
-In this commit, I reimplemented the `record_sample` function to,
-instead of using a hardcoded position for every value type, rely
-on two extra indirections:
-* `state->position_for`
-* `state->enabled_values_count`
-
-By default (e.g. when all profile types are enabled), this new
-strategy behaves exactly as before.
-
-The interesting thing happens when some profile types are disabled
-(via the constructor). When profile types are disabled,
-the two indirections above are reconfigured: `enabled_values_count`
-becomes less than `ALL_VALUE_TYPES_COUNT`, and `position_for` is
-updated to account for this as well.
-
-In pratice, the `position_for` array is treated as if it was a
-hashmap -- the key is a given profile type, and the value is the
-position that libdatadog is expected it to be written to.
-
-Thus, converting a `sample_values` to an array for libdatadog
-is as simple as
-
-```c
-  metric_values[position_for[CPU_TIME_VALUE_ID]]      = values.cpu_time_ns;
-  metric_values[position_for[CPU_SAMPLES_VALUE_ID]]   = values.cpu_samples;
-  metric_values[position_for[WALL_TIME_VALUE_ID]]     = values.wall_time_ns;
-  metric_values[position_for[ALLOC_SAMPLES_VALUE_ID]] = values.alloc_samples;
-```
-
-The trick here, is that when certain profile_types are disabled
-their `position_for` is changed, so they are put at the end of the
-`metric_values` array.
-
-For instance, when we disable both `CPU_TIME_VALUE` and
-`ALLOC_SAMPLES_VALUE` the `position_for` "hashmap" will look something
-like
-
-```ruby
-{
-  CPU_SAMPLES_VALUE_ID: 0,
-  WALL_TIME_VALUE_ID: 1,
-  CPU_TIME_VALUE_ID: 2,
-  ALLOC_SAMPLES_VALUE_ID: 3,
-}
-```
-
-And thus, given
-
-```ruby
-{ 'cpu-time' => 123, 'cpu-samples' => 456, 'wall-time' => 789, 'alloc-samples' => 4242 }
-```
-
-We will produce a `metrics_values` array with
-
-```
-+-----+-----+-----+------+
-| 456 | 789 | 123 | 4242 |
-+-----+-----+-----+------+
-```
-
-...but we'll tell libdatadog to only use the first 2 positions of
-the array, which contain the values for the enabled profile types!
-
-To be honest, this was more boilerplate than I wanted, but I'm happy
-that most of the complexity lies in `_native_initialize` around the
-creation of `position_for` and the values list for libdatadog, and
-everywhere else still looks kinda sane.
+Updated with error prevention and an end time display. goes from 1 to a billion from base 2-35
 
 ---
-## [AdelinFnk/codewars](https://github.com/AdelinFnk/codewars)@[7ac3533a75...](https://github.com/AdelinFnk/codewars/commit/7ac3533a75d0defed64465ea3f22453352f98ba3)
-#### Friday 2023-02-24 15:40:25 by Adelin
+## [kyrofx/fuckben](https://github.com/kyrofx/fuckben)@[e2dc870899...](https://github.com/kyrofx/fuckben/commit/e2dc870899ae2169036c03d16d05f4ee765a9def)
+#### Saturday 2023-02-25 06:49:18 by PupLord
 
-"When you arise in the morning, think of what a precious privilege it is to be alive – to breathe, to think, to enjoy, to love."- Marcus Aurelius
+Update fuck you ben.py
 
----
-## [delphix/linux-kernel-aws](https://github.com/delphix/linux-kernel-aws)@[9bd96fdf28...](https://github.com/delphix/linux-kernel-aws/commit/9bd96fdf28450ec3266fad2e5a183c63fa646dfe)
-#### Friday 2023-02-24 16:18:12 by Masahiro Yamada
-
-kbuild: remove the target in signal traps when interrupted
-
-BugLink: https://bugs.launchpad.net/bugs/1996812
-
-[ Upstream commit a7f3257da8a86b96fb9bf1bba40ae0bbd7f1885a ]
-
-When receiving some signal, GNU Make automatically deletes the target if
-it has already been changed by the interrupted recipe.
-
-If the target is possibly incomplete due to interruption, it must be
-deleted so that it will be remade from scratch on the next run of make.
-Otherwise, the target would remain corrupted permanently because its
-timestamp had already been updated.
-
-Thanks to this behavior of Make, you can stop the build any time by
-pressing Ctrl-C, and just run 'make' to resume it.
-
-Kbuild also relies on this feature, but it is equivalently important
-for any build systems that make decisions based on timestamps (if you
-want to support Ctrl-C reliably).
-
-However, this does not always work as claimed; Make immediately dies
-with Ctrl-C if its stderr goes into a pipe.
-
-  [Test Makefile]
-
-    foo:
-            echo hello > $@
-            sleep 3
-            echo world >> $@
-
-  [Test Result]
-
-    $ make                         # hit Ctrl-C
-    echo hello > foo
-    sleep 3
-    ^Cmake: *** Deleting file 'foo'
-    make: *** [Makefile:3: foo] Interrupt
-
-    $ make 2>&1 | cat              # hit Ctrl-C
-    echo hello > foo
-    sleep 3
-    ^C$                            # 'foo' is often left-over
-
-The reason is because SIGINT is sent to the entire process group.
-In this example, SIGINT kills 'cat', and 'make' writes the message to
-the closed pipe, then dies with SIGPIPE before cleaning the target.
-
-A typical bad scenario (as reported by [1], [2]) is to save build log
-by using the 'tee' command:
-
-    $ make 2>&1 | tee log
-
-This can be problematic for any build systems based on Make, so I hope
-it will be fixed in GNU Make. The maintainer of GNU Make stated this is
-a long-standing issue and difficult to fix [3]. It has not been fixed
-yet as of writing.
-
-So, we cannot rely on Make cleaning the target. We can do it by
-ourselves, in signal traps.
-
-As far as I understand, Make takes care of SIGHUP, SIGINT, SIGQUIT, and
-SITERM for the target removal. I added the traps for them, and also for
-SIGPIPE just in case cmd_* rule prints something to stdout or stderr
-(but I did not observe an actual case where SIGPIPE was triggered).
-
-[Note 1]
-
-The trap handler might be worth explaining.
-
-    rm -f $@; trap - $(sig); kill -s $(sig) $$
-
-This lets the shell kill itself by the signal it caught, so the parent
-process can tell the child has exited on the signal. Generally, this is
-a proper manner for handling signals, in case the calling program (like
-Bash) may monitor WIFSIGNALED() and WTERMSIG() for WCE although this may
-not be a big deal here because GNU Make handles SIGHUP, SIGINT, SIGQUIT
-in WUE and SIGTERM in IUE.
-
-  IUE - Immediate Unconditional Exit
-  WUE - Wait and Unconditional Exit
-  WCE - Wait and Cooperative Exit
-
-For details, see "Proper handling of SIGINT/SIGQUIT" [4].
-
-[Note 2]
-
-Reverting 392885ee82d3 ("kbuild: let fixdep directly write to .*.cmd
-files") would directly address [1], but it only saves if_changed_dep.
-As reported in [2], all commands that use redirection can potentially
-leave an empty (i.e. broken) target.
-
-[Note 3]
-
-Another (even safer) approach might be to always write to a temporary
-file, and rename it to $@ at the end of the recipe.
-
-   <command>  > $(tmp-target)
-   mv $(tmp-target) $@
-
-It would require a lot of Makefile changes, and result in ugly code,
-so I did not take it.
-
-[Note 4]
-
-A little more thoughts about a pattern rule with multiple targets (or
-a grouped target).
-
-    %.x %.y: %.z
-            <recipe>
-
-When interrupted, GNU Make deletes both %.x and %.y, while this solution
-only deletes $@. Probably, this is not a big deal. The next run of make
-will execute the rule again to create $@ along with the other files.
-
-[1]: https://lore.kernel.org/all/YLeot94yAaM4xbMY@gmail.com/
-[2]: https://lore.kernel.org/all/20220510221333.2770571-1-robh@kernel.org/
-[3]: https://lists.gnu.org/archive/html/help-make/2021-06/msg00001.html
-[4]: https://www.cons.org/cracauer/sigint.html
-
-Fixes: 392885ee82d3 ("kbuild: let fixdep directly write to .*.cmd files")
-Reported-by: Ingo Molnar <mingo@kernel.org>
-Reported-by: Rob Herring <robh@kernel.org>
-Signed-off-by: Masahiro Yamada <masahiroy@kernel.org>
-Tested-by: Ingo Molnar <mingo@kernel.org>
-Reviewed-by: Nicolas Schier <nicolas@fjasle.eu>
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-Signed-off-by: Kamal Mostafa <kamal@canonical.com>
-Signed-off-by: Stefan Bader <stefan.bader@canonical.com>
+changed object 'hexBase' to 'base'
 
 ---
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[32e59c7e0f...](https://github.com/treckstar/yolo-octo-hipster/commit/32e59c7e0fda15629921276ea9ebaaa1f2508998)
-#### Friday 2023-02-24 16:22:04 by treckstar
+## [VioletN/orbstation](https://github.com/VioletN/orbstation)@[c58cbb4dfb...](https://github.com/VioletN/orbstation/commit/c58cbb4dfb42e0d9d6198c3ad581dc5a4d2f8f48)
+#### Saturday 2023-02-25 06:55:26 by John Willard
 
-People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
+Reworked PDA menu & NtOS themes (#73070)
+
+## About The Pull Request
+
+This is a port/rework of
+https://github.com/yogstation13/Yogstation/pull/15735 - I changed a lot
+of how it acted (some themes are locked behind maintenance apps).
+
+The original author allowed this port to happen, and I really liked how
+it looked there so I'd like to add it here.
+
+### Applications
+
+Removes the hardware configurator application, as all it did was show
+you your space and battery now that all hardware was removed. These are
+things your PC does by default, so it was just a waste of space.
+Adds a Theme manager application instead, which allows you to change
+your PDA's theme at will.
+Adds a new Maintenance application that will give a new theme, however
+it will also increase the size of the theme manager app itself as it's
+bloatware.
+
+### Menu
+
+There's now a bar at the top of the menu showing 'special' tablet apps
+which, for one reason or another, should stand out from the rest of the
+apps. Currently this is PDA messenger and the Theme manager
+
+Flashlight and Flashlight color is now only an icon, and is shown on the
+same line as Updating you ID
+
+
+https://cdn.discordapp.com/attachments/961874788706574386/1069621173693972551/2023-01-30_09-10-52.mov
+
+
+![image](https://user-images.githubusercontent.com/53777086/215501361-5ea3086e-2ff5-4ab1-bde4-8a3d14014fce.png)
+
+### Themes
+
+Adds a lot of themes to choose from, although SOME are hidden behind
+Maintenance applications, which will give you a random theme. These are
+bloatware however, so they come with some extra cost to the app's
+required space storage.
+
+Themes are now supported on ALL APPLICATIONS! If you have a computer
+theme, you will have that theme in EVERY app you enter, rather than just
+a select few.
+ALSO also, emagging the tablet will automatically set & unlock the
+Syndicate theme, which makes your PDA obvious but you can disguise it if
+you wish through just re-painting it to something else.
+
+
+https://cdn.discordapp.com/attachments/828923843829432340/1069565383155122266/2023-01-30_05-29-53.mov
+
+### Preferences
+
+This also adds a pref for theme, reworking the ringtone code to work
+with it as well. I also removed 2 entirely unused PDA prefs just 'cause.
+
+Screenshot not up-to-date, they now have proper names.
+
+![image](https://user-images.githubusercontent.com/53777086/215463669-0fe9951a-71f8-4b71-a97d-b79b5a2f945a.png)
+
+### Other stuff
+
+Made defines for device_themes
+Added support for special app-side checks to download files
+Fixed programs downloading themselves TWICE because defines all had the
+same definition
+Removes the Chemistry computer disk as it was empty due to chemistry
+app's removal
+Removes the 'run_emag' proc, since apps can directly refer to the
+computer to check for emag status instead.
+Moved over and added better documentation on data computer files, and
+moved the ordnance ones to the same file as the others.
+
+## Why It's Good For The Game
+
+It makes PDAs a lot more customizable while adding more features to
+maintenance applications. I think the themes look cool and it fits with
+PDAs being "personal" anyways.
+
+I also explained most of my other arguments in the about section, such
+as the hardware configuration application.
+
+## Changelog
+
+:cl: Chubbygummibear & JohnFulpWillard
+add: A ton of new NtOS themes, which are accessible by the new Themify
+application that comes with all PCs.
+add: Emagging a PC now defaults it to the Syndicate option (and adds it
+to go back to it if you wish)
+add: There's a new maintenance app that gives you rarer themes
+qol: The NtOS Main menu was moved around, added "header" applications
+that are shown where the Flashlight is, such as your Theme manager and
+PDA messenger.
+code: Made defines for device_themes
+code: Added support for special app-side checks to download files
+code: Removes the 'run_emag' proc, since apps can directly refer to the
+computer to check for emag status instead.
+fix: Programs no longer download twice.
+del: Removes the Chemistry computer disk as it was empty due to
+chemistry app's removal
+/:cl:
+
+---------
+
+Co-authored-by: san7890 <the@san7890.com>
 
 ---
-## [Miziziziz/miziziziz.github.io](https://github.com/Miziziziz/miziziziz.github.io)@[e1e8ac3d50...](https://github.com/Miziziziz/miziziziz.github.io/commit/e1e8ac3d50ebb141eb6f0e2443f9baa4f6b8bba0)
-#### Friday 2023-02-24 16:43:03 by miziziziz
+## [SumStarLord/EE1103_Assignment10_ShortestPathAlgorithms](https://github.com/SumStarLord/EE1103_Assignment10_ShortestPathAlgorithms)@[4e10a467f9...](https://github.com/SumStarLord/EE1103_Assignment10_ShortestPathAlgorithms/commit/4e10a467f920a239bab1d1bc3bcde76641d9a68e)
+#### Saturday 2023-02-25 07:15:02 by Jhumid
 
-Merge branch 'master' of https://github.com/Miziziziz/miziziziz.github.io
+Adding pathfining_prob1.c, definitely is seg faulting in bellman ford, has alll the signss of it. For instance one of the ways to bypass the segfault is to include a printf statement within the code. The reason I know this is from my debugging experiences with LUdecomp. Something about having a print statement must like auto convert something or soemthing idk. But yeah my thoughts
 
-fuck you git
+---
+## [Aman-Vishwakarma1729/Python_For_Data_Science](https://github.com/Aman-Vishwakarma1729/Python_For_Data_Science)@[4e40ae2693...](https://github.com/Aman-Vishwakarma1729/Python_For_Data_Science/commit/4e40ae2693417e94a27d52c4a399337f01bdb81b)
+#### Saturday 2023-02-25 07:31:23 by Aman-Vishwakarma1729
+
+Add files via upload
+
+Q1. Create a function which will take a list as an argument and return the product of all the numbers
+after creating a flat list.
+
+Use the below-given list as an argument for your function.
+
+
+list1 = [1,2,3,4, [44,55,66, True], False, (34,56,78,89,34), {1,2,3,3,2,1}, {1:34, "key2": [55, 67, 78, 89], 4: (45,
+22, 61, 34)}, [56, 'data science'], 'Machine Learning']
+
+
+Note: you must extract numeric keys and values of the dictionary also.
+Q2. Write a python program for encrypting a message sent to you by your friend. The logic of encryption
+should be such that, for a the output should be z. For b, the output should be y. For c, the output should
+be x respectively. Also, the whitespace should be replaced with a dollar sign. Keep the punctuation
+marks unchanged.
+
+
+Input Sentence: I want to become a Data Scientist.
+
+
+Encrypt the above input sentence using the program you just created.
+
+---
+## [Offroaders123/Smart-Text-Editor](https://github.com/Offroaders123/Smart-Text-Editor)@[7b88518b82...](https://github.com/Offroaders123/Smart-Text-Editor/commit/7b88518b8260b61789f67b2629c2be6c94e53d46)
+#### Saturday 2023-02-25 08:01:34 by Offroaders123
+
+Editor Component!
+
+This is a big one! Been working on it all day.
+
+This merges the Editor functionality into a single component, currently just an object/class which will instead store the data for the given Editor, rather than relying on getting that data from the corresponding elements in the DOM, which has shown to be veerry messy. This is one step I've been wanting to take with this project for a while now, I think it really helps containerize/scope the logic for the different parts of the app. Next I will make it so that this Editor class is just an extension of `NumTextElement`, meaning it's just a single Web Component which internally manages it's own state, so you don't have to worry about how it works.
+
+This is the "last commit" on my Chromebook, at least before the new wave has come around. Ordered the base model 2021 MacBook Pro refurbished yesterday, with $8 one-day shipping, and it got here today! Was partway through a lot of this rework once UPS got here, haha. Heard the truck door from my room XD  Gonna make the next commit to my GitHub from the new Mac, it's all set up now! Transferred everything from my iMac using a Time Machine backup, and Migration Assistant. Appears to have worked amazingly so far! The only hiccup is that I'm having to manually remove and reinstall any apps/binaries/packages that are x86-64, and replace them with their Apple Silicon ARM counterparts. Alongside that, had to reinstall Homebrew and everything I had set up with that. But, all of my settings for all of the apps were still intacked, and that was my biggest thing that I was hoping I wouldn't have to deal with. Horray!
+
+Alright, taking a rest tonight after a long tech day, gonna have a second one tomorrow, now that everything is all set up and nearly ready to go. Time to make some more cool sh!ti Thanks Theo, haha.
+
+Oh yeah, tried vanilla Minecraft 1.19 with the native ARM build, got 102 fps while running 120hz, f yeah that's cool!
+
+---
+## [Chelseadamola/Testin-12](https://github.com/Chelseadamola/Testin-12)@[5725da7fa4...](https://github.com/Chelseadamola/Testin-12/commit/5725da7fa4431c6fe850f86d57af940b9b6b7cd3)
+#### Saturday 2023-02-25 08:10:47 by Chelseadamola
+
+Add files via upload
+
+# My Data Analytics Journey: Starting Out and Looking Ahead
+## Introduction
+Hello, my name is Chelsea. I have always had a passion for technology and have always been fascinated by the power of data to drive decisions and drive progress. I'm just starting out on my journey in data analytics, but I'm eager to see where it takes me.
+### Starting Out
+This week, I have a task to work on 2-3 projects using Microsoft Excel. I'm looking forward to putting my newfound skills to the test and seeing where this journey takes me.
+### Developing Skills
+I believe that the key skills for success in data analytics include attention to detail, critical thinking, and problem-solving. I plan on developing these skills by taking online courses, reading books on the subject, and seeking guidance from mentors in the field.
+I know that there will be challenges along the way, but I'm eager to face them head-on and grow as a data analyst. I'm confident that with hard work and dedication, I'll be able to achieve my goals.
+Working on Projects:
+So far, I haven't faced any major challenges in my data analytics journey. However, I'm eager to take on new projects and see what the future holds. I believe that with each project I complete, I'll become a better data analyst and gain valuable experience in the field.
+### Looking Ahead
+I see a bright future for data analytics, with the potential to revolutionize the way we make decisions and drive progress. I hope to be a part of this revolution and contribute to the advancement of this field.
+### Conclusion
+In conclusion, I'm just starting out on my journey in data analytics, but I'm eager to see where it takes me. With the support of my boss, and my determination to succeed, I'm confident that I'll make a difference in this field.
+I'm grateful for the opportunity to start my journey in data analytics and I'm looking forward to updating this article as I progress and make new achievements. I'm also thankful for the opportunity to meet with top data analysts and learn from their experiences. Thank you for reading and I hope my journey inspires others to pursue their passions in technology and data analytics.
+
+---
+## [CapCamIII/cmss13](https://github.com/CapCamIII/cmss13)@[4c373316ad...](https://github.com/CapCamIII/cmss13/commit/4c373316ad1e9a68e5cd7ae0e216bddcd52ee3aa)
+#### Saturday 2023-02-25 09:57:39 by NewyearnewmeUwu
+
+Alerts admins whenever humans try to gib another human. (#2560)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+
+# About the pull request
+Successor to #2237 that properly addresses the issues brought up by
+myself and others. This sends a admin alert similar to when a pred
+activates their SD that allows admins to jump to the (strictly human)
+player gibbing another human/human corpse and sleep them/amessage them.
+This also creates logs when someone _attempts_ to stuff someone into a
+gibber. I also fixed up some of the single letter variables in the
+gibber code.
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+# Explain why it's good for the game
+
+Insanity RP is bad, and this solution allows admins to respond in
+realtime. It takes 30 seconds to gib another human as a human, without
+any skill modifiers helping. It also doesn't flag the player if they're
+a pred, as they're _supposed_ to be doing funny human meat stuff.
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding, and may discourage maintainers from reviewing or merging
+your PR. This section is not strictly required for (non-controversial)
+fix PRs or backend PRs. -->
+
+
+# Testing Photographs and Procedure
+<!-- Include any screenshots/videos/debugging steps of the modified code
+functioning successfully, ideally including edge cases. -->
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. Please note that
+maintainers freely reserve the right to remove and add tags should they
+deem it appropriate. You can attempt to finagle the system all you want,
+but it's best to shoot for clear communication right off the bat. -->
+<!-- If you add a name after the ':cl', that name will be used in the
+changelog. You must add your CKEY after the CL if your GitHub name
+doesn't match. Be sure to properly mark your PRs to prevent unnecessary
+GBP loss. Maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. -->
+
+:cl:
+code: gibbing another human takes an unmodifiable 30 seconds
+admin: admins are alerted when a human tries to gib another human
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! -->
+
+---
+## [Riken-Shah/zulip](https://github.com/Riken-Shah/zulip)@[23a776c144...](https://github.com/Riken-Shah/zulip/commit/23a776c1448da18b906529e5951e24d8d58a7e81)
+#### Saturday 2023-02-25 10:33:39 by Mateusz Mandera
+
+maybe_send_to_registration: Don't reuse pre-existing PreregistraionUser.
+
+There was the following bug here:
+1. Send an email invite to a user.
+2. Have the user sign up via social auth without going through that
+   invite, meaning either going via a multiuse invite link or just
+   straight-up Sign up if the org permissions allow.
+
+That resulted in the PreregistrationUser that got generated in step (1)
+having 2 Confirmations tied to it - because maybe_send_to_registration
+grabbed the object and created a new confirmation link for it. That is a
+corrupted state, Confirmation is supposed to be unique.
+
+One could try to do fancy things with checking whether a
+PreregistrationUser already have a Confirmation link, but to avoid races
+between ConfirmationEmailWorker and maybe_send_to_registration, this
+would require taking locks and so on - which gets needlessly
+complicated. It's simpler to not have them compete for the same object.
+
+The point of the PreregistrationUser re-use in
+maybe_send_to_registration is that if an admin invites a user, setting
+their initial streams and role, it'd be an annoying experience if the
+user ends up signing up not via the invite and those initial streams
+streams etc. don't get set up. But to handle this, we can just copy the
+relevant values from the pre-existing prereg_user, rather than re-using
+the object itself.
+
+---
+## [Seinuve/Kudasai](https://github.com/Seinuve/Kudasai)@[cfde8f1e71...](https://github.com/Seinuve/Kudasai/commit/cfde8f1e713c73e8ad35209d9923397ad2116d15)
+#### Saturday 2023-02-25 10:35:31 by Seinu
+
+Suffering
+
+removed testing script because i don't need it and i hate my life
+switched from mecab to spacy
+changed some comments
+requirements.txt updated
+
+---
+## [haint126/obsidian](https://github.com/haint126/obsidian)@[7d5a30f056...](https://github.com/haint126/obsidian/commit/7d5a30f05653fd02c1938cbdbc3dc6156ce83132)
+#### Saturday 2023-02-25 10:46:11 by haint126
+
+Vault backup: 2023-02-25 17:46:05 : home
+
+Affected files:
+03_Life_experience/Books/Book to read/Others/20 books that helped me more than years at school by Ankur Warikoo/20 books that helped me more than years at school by Ankur Warikoo.md
+03_Life_experience/Habits/10 Productivity Hacks by Ankur Warikoo/10 Productivity Hacks by Ankur Warikoo.md
+03_Life_experience/Habits/17 life hacks from Ankur Warikoo/17 life hacks from Ankur Warikoo.md
+03_Life_experience/Habits/How I read my books by Ankur Warikoo/How I read my books by Ankur Warikoo.md
+03_Life_experience/Habits/_11 shocking facts about managing time/_11 shocking facts about managing time.md
+
+---
+## [LLLida/lidaEngine](https://github.com/LLLida/lidaEngine)@[8eacd67f30...](https://github.com/LLLida/lidaEngine/commit/8eacd67f30384526479887784cdd657e4729b690)
+#### Saturday 2023-02-25 10:47:04 by LLLida
+
+Index buffer for voxels🤙
+
+I was struggling a lot doing this. Anyway I did the thing saving us
+~1/3 voxel memory in future. Code is not very complex, it's just me
+being tired at night.
+
+For some reason we have a ridiculous bug: sometimes when we launch the
+application we get DEVICE_LOST error from Vulkan. This is very bad. I
+have no idea why this is happening. If I wouldn't find the reason I
+would just reboot my computer😎
+
+---
+## [LLLida/lidaEngine](https://github.com/LLLida/lidaEngine)@[bae2368a0d...](https://github.com/LLLida/lidaEngine/commit/bae2368a0da96f6e63b76cf61f4db8a438cbf94c)
+#### Saturday 2023-02-25 10:47:04 by LLLida
+
+Fix horrible device lost error😐
+
+It's ridiculous. I wasn't getting VK_ERROR_DEVICE_LOST when I
+implemented quad rendering system. Everything was OK. Then I moved to
+implementing index buffer for voxels. That was the moment where I was
+getting this stupid crash. I obviously thought that I'm doing
+something wrong with voxel indices. Of course I didn't find the reason
+and proceeded to implement index buffer with 60-80% crash rate. Then I
+did some few code improving things and got crash rate to nearly
+40-50%.
+
+I'm happy that I found the bug and I'm terrified of the reason. I
+forgot to initialise a pointer. Just a single pointer was getting me
+random device losts🥰
+
+---
+## [durgaprasad123n/python_projects](https://github.com/durgaprasad123n/python_projects)@[ccfa576340...](https://github.com/durgaprasad123n/python_projects/commit/ccfa5763404370fb5fb5c6d266034453cbc8593c)
+#### Saturday 2023-02-25 10:52:36 by durgaprasad123n
+
+Add files via upload
+
+Myntra Fashion Clothing 		
+Aim
+Myntra is a major Indian fashion e-commerce company headquartered in Bengaluru, Karnataka, India.] The company was founded in 2007 to sell personalized gift items. In May 2014, Myntra.com was acquired by Flipkart.
+We will be using data science skills to identify the apparel type that customers favours and their prices. To identify the parameter that attracts customers to make purchase. 
+Is it number of images, or colours, or brand name or price?
+Problem Statement
+The Myntra have shared the dataset with you to identify the attributes to increase sales. You are working as Lead consultant and your key role is to identify the parameters that are extremely important while making a decision.
+As a lead consultant you also have to show the results to your client and managers so it’s advised to create charts while you perform analysis and write down the insights in some separate sheet that you can refer later on.
+Some of the problems can be easily identified while solving the scenarios and tasks shared here but you are also required to further share your key points in the Conclusion.
+Exploratory Data Analysis (EDA) is an approach to analysing data sets to summarize the main characteristics of data by often using statistical graphs and other visualization methods such as by the use of statistical graphs.
+  
+
+Learning Outcome
+●	Pandas Joins and Merge
+●	Data Manipulation
+●	Data cleaning
+●	Creating charts and bars
+●	Perform wrangling operations to draw more insights
+●	Evaluation of bi-columns on the basis of next attribute
+●	Creating new columns to drill down on analysis
+
+Data Information
+There are 2 csv files that are shared here.
+A.	Product Details
+●	ProductID – ID assigned to the product
+●	ProductName – Name of the Product
+●	ProductBrand – Brand Name of the Product
+ 
+
+B.	Products Catalog
+●	Gender – gender to which specific products that have been designed
+●	Price (INR) – Price of the products
+●	NumImages  – Number of images that have been clicked for specific product
+●	ID - ID assigned to the product
+●	Description – full details of the product
+●	PrimaryColor – Color of the product
+
+ 
+
+
+Skill Requirement
+●	numpy 
+●	pandas 
+●	matplotlib
+●	seaborn 
+ 
+Scenario1
+
+You have been provided with 2 datasets. You will be learning here how to create the dataframe from 2 datasets and make some minor changes as required.
+Recognize the attributes carefully and make sure they are aligned in proper format.
+Task1
+1.	Import all the relevant packages (Eg: Numpy, Seaborn...)
+2.	Import the datasets into the python environment.
+3.	Check the structure, statistics and other important functions. (Only observe the changes)
+
+ Task2
+1.	Create a new dataframe “df” by joining the 2 datasets
+2.	Drop the duplicate data
+3.	Check for missing values
+Scenario2
+You have successfully created the dataframe from the two input files.
+Here we will be processing cleaning operations and intro to brief analysis.
+Expected shape of the dataset: 12491 rows and 8 columns
+Task
+1.	There is a column that needs string strip operation. Identify that and apply it.
+2.	Fill the missing value by ‘Others’ in the column containing it
+3.	Since all the column names are single word so you can convert the ‘Price (INR)’ also to single name ‘Price’.
+4.	Analyse the Gender column and include your viewpoints how to make it useful.
+
+ 
+Scenario3
+So far we have learnt the basics of the dataset and cleaned it as required. Over here you are going to perform deep analysis of the dataset with the help of data manipulation tricks as well as visualize the results. 
+This is the most time consuming tasks and make sure you do perform proper analysis method. While answering the question against all the tasks, it will be great if you can create charts to support it also.
+Expected shape of the dataset: 12491 rows and 8 columns
+Task1
+1.	Univariate analysis of each variable
+2.	Bivariate Analysis of categorical vs numerical variables (Take target variable as fixed variable here)
+3.	Multivariate Analysis of categorical and numerical variables
+4.	Check distribution of variables
+Task2
+1.	Create a new Column “NewGender” to analyse further its distribution. Going forward we will consider this group for tasks
+Logic Applied
+i.	Include Boys & Men as Men
+ii.	Include Girls & Women as Women
+iii.	Include Unisex & Unisex Kids as Unisex
+2.	Complete the analysis of NewGender along with other categorical cols.
+
+
+Task3
+1.	Create a new Column “DescriptionLength” to analyse further its distribution.
+Logic Applied
+i.	Each record of DescriptionLength is equal to the number of chars in Description
+
+2.	Complete the analysis of DescriptionLength along with other categorical cols. 
+3.	Isn’t it important to check if attribute information is also included in Description? Complete this task before answering it.
+
+---
+## [dsmith328/LC13Master](https://github.com/dsmith328/LC13Master)@[582f5b38cb...](https://github.com/dsmith328/LC13Master/commit/582f5b38cb9ad5d051cbea48af501089ba3f0206)
+#### Saturday 2023-02-25 10:57:44 by Lance
+
+Holy FUCK temporary commit
+
+Mixed between previous abno based spawning and new subsystem
+
+Cleanup Commit
+
+Removes a lot of previous code and paves the way for the subsystem method.
+
+Major Commit
+
+Apocalypse Bird drops it's loot and only spawns once. It'll not try to happen if there aren't enough birds, and if two are breached before the third arrives it'll take the third breaching to start the event, until the others are suppressed. Birds do not target people and are immortal while moving to the portal. If unable to reach it after 3 minutes they'll be forced in manually.
+
+Tweaked Proc
+
+Redundant Code Removal
+
+Remembered I didn't need this
+
+Enhanced Code
+
+Moved an if-statement to a better place to more adequately solve the issue.
+
+Test Commit
+
+Does this solution work?
+
+Global Abnormality Mob List
+
+Patrol Changes and Bird Grab changes
+
+Gaming Test?
+
+Temp Commit
+
+Second Commit
+
+Another Commit!
+
+Fourth Commit
+
+Subsystem changes. Dead abno cleansing. Lower speak cooldown. Debug text removal.
+
+P-bird fix
+
+Fixes P-bird able to die before reaching the portal
+
+---
+## [durgaprasad123n/python_projects](https://github.com/durgaprasad123n/python_projects)@[f30ccef78d...](https://github.com/durgaprasad123n/python_projects/commit/f30ccef78d135dbf585610ea40d945105c64ecd6)
+#### Saturday 2023-02-25 11:01:53 by durgaprasad123n
+
+Add files via upload
+
+Introduction to Project
+
+
+Aim
+
+The main goal of Exploratory Data Analysis is to identify errors in data sets. Give a better understanding about the relationship between various attributes in the dataset. Thus, we will be able to schedule all the other processes accordingly.
+
+Project explanation
+
+Agriculture sector is one of the most significant sectors of Indian Economy. It is a crucial contributor accounting about 15% of the GDP. In agriculture sector where farmers and agribusinesses have to make innumerable decisions every day and intricate complexities involves the various factors influencing them. 
+
+An essential issue for agricultural planning intention is the accurate yield estimation for the numerous crops involved in the planning. Exploratory Data Analysis are necessary for accomplishing practical and effective solutions for this problem. Agriculture has been an obvious target for big data. Environmental conditions, variability in soil, input levels, combinations and commodity prices have made it all the more relevant for farmers to use information and get help to make critical farming decisions.
+
+Problem Statement Description
+
+This dataset provides a huge amount of information on crop production in India ranging from several years across different states in India. Based on the Information the ultimate goal would be to predict crop production using powerful machine learning techniques.
+
+Business Context
+
+Historical crop yield information is also important for supply chain operation of companies engaged in industries. These industries use agricultural products as raw material, livestock, food, animal feed, chemical, poultry, fertilizer, pesticides, seed and paper.
+
+ An accurate estimate of crop production helps these companies in planning supply chain decision like production scheduling.
+
+Business such as seed, fertilizer, agrochemical and agricultural machinery industries plan production and marketing activities based on crop production estimates. 
+
+There are 2 factors which are helpful for the farmers and the government in decision making namely:
+
+It helps farmers in providing the historical crop yield record with a forecast reducing the risk management.
+It helps the government in making crop insurance policies and policies for supply chain operation.
+Exploratory Data Analysis plays a vital role in the analysis of data. Exploratory Data Analysis is the computing process of discovering patterns in large data sets involving methods at the intersection of artificial intelligence, machine learning, statistics, and database system.
+
+Data Explanation.
+
+This is the basic view of the dataset - link
+
+State-wise Crop Production in India for 2000 to 2014
+
+It also gave information about different seasonal crops at district level and area of cultivation along with total crop production. India being agriculture rich country, this data will have lots of minor and major facts which will help in charting a next successful agriculture revolution after 1965. 
+
+Doing an exploratory data analysis of this dataset would give insights into Indian agriculture status: state-wise, district-wise, crop-wise, area-wise and levels of productions. A complete analysis will paint a beautiful story of this important aspect of India.
+
+Dimensions of the dataset is 246091 rows and 7 columns.
 
 ---
 ## [claydegruchy/wfrp-map-osm](https://github.com/claydegruchy/wfrp-map-osm)@[0e589a7538...](https://github.com/claydegruchy/wfrp-map-osm/commit/0e589a7538c9ebadb0557bc0c61a985b9c59cc66)
-#### Friday 2023-02-24 17:37:24 by clay
+#### Saturday 2023-02-25 11:29:15 by clay
 
 fuck shit fucking tailwind overcomplicated motherfucker of a system make it fucking simple, dont make me learn some entirely new, janky css shit, might as well write it myself, at least the garbage always stays in one file isntead of being smeared over hte entire project FUCK
 
 ---
-## [KKQC/Portfolio](https://github.com/KKQC/Portfolio)@[fdde90d418...](https://github.com/KKQC/Portfolio/commit/fdde90d4185e63a4f9fdd3757f8c84170b32bf09)
-#### Friday 2023-02-24 17:48:23 by KKQC
+## [Danielkaas94/DTAP](https://github.com/Danielkaas94/DTAP)@[fa4754750f...](https://github.com/Danielkaas94/DTAP/commit/fa4754750fac5b8ea43ebcfce180e4be04e70c9a)
+#### Saturday 2023-02-25 13:18:04 by Danielkaas94
 
-corrected inexcusable sins
+✝ The Day We Meet Again ✝
+The day we meet again
+I'll be waiting there
+I'll be waiting there for you
+'Cause the years have been so lonely
+Like a dog without a home
+It's dangerous when you find out
+You've been drinking on your own
 
-fuck you korniak for using
+The day we meet again
+We will walk in peace
+Through the garden down the road
+Where the mist of time is lifting
+See it rising in the air
+Like the shadow I was chasing
+When I looked, it wasn't there, oh, no
 
-sth {
+Just in case you're wondering
+What was really on my mind
+It wasn't what you took, my love
+It's what you left behind
 
-}
+And just in case you're wondering
+Will it really be the same?
+Will it really be the same?
+You know we're only living for the day me meet again
 
-instead of
+So hold, hold on and don't let go
+Time, it heals, you know, I know
 
-sth
-{
+The day we meet again
+I'll be waiting there
+I'll be waiting there for you
+'Cause the years have been so lonely
+Like a dog without a home
+It's dangerous when you find out
+You've been drinking on your own
 
-}
+The day we meet again
+We will walk in peace
+Through the garden down the road
+Where the mist of time is lifting
+See it rising in the air
+Like the shadow I was chasing
+When I looked, oh, no, it wasn't there, oh, no
+It wasn't there, it wasn't there
 
----
-## [ORCACommander/Tannhauser-Gate-Dev](https://github.com/ORCACommander/Tannhauser-Gate-Dev)@[91f06a97d3...](https://github.com/ORCACommander/Tannhauser-Gate-Dev/commit/91f06a97d3f24c849241bf909b7de28b9b6ec951)
-#### Friday 2023-02-24 17:52:16 by candle :)
-
-Small VoxPrimalis Fixes (#18944)
-
-* fuck you i don't need to give you a fucking summary
-
-* fixes
-
----
-## [ORCACommander/Tannhauser-Gate-Dev](https://github.com/ORCACommander/Tannhauser-Gate-Dev)@[d95ca04819...](https://github.com/ORCACommander/Tannhauser-Gate-Dev/commit/d95ca048192f08a8fbaf524fdb4ab0ca498b319e)
-#### Friday 2023-02-24 17:52:16 by Rimi Nosha
-
-[MODULAR] Fixes All Known Modular Persistence (NIF) Saving Issues (#19096)
-
-* Fuck
-
-* Holy shit
-
----
-## [GoldenAlpharex/tgstation](https://github.com/GoldenAlpharex/tgstation)@[728a0f1b91...](https://github.com/GoldenAlpharex/tgstation/commit/728a0f1b9147197bb81f22d946f67e9d08719d5a)
-#### Friday 2023-02-24 19:07:39 by Jacquerel
-
-Grand Ritual: Alternate Wizard objective (Wizard Events II) (#72918)
-
-Adds an alternate greentext objective for Wizards known as the "Grand
-Ritual". This was initially the gimmick of a different wizard-related
-antagonist downstream. I didn't get permission to port it, so I'm
-attaching it to regular Wizards instead.
-
-Wizards will spawn in with a new Grand Ritual button next to their
-antagonist info button. Pressing it will pinpoint them towards their
-next Ritual Location (a randomly chosen region of the space station).
-Once within that location, pressing it will summon a magic circle and
-obliterate any dense objects which are in the way. This also puts the
-ability on a two minute cooldown.
-Clicking on the magic circle with an empty hand will begin a three-stage
-invocation to gather magical power. You can interrupt this invocation at
-any time and will resume from the last stage you completed (if you
-finished two stages you only need to do one more).
-Once you complete a ritual, a random event will be triggered based on
-how many rituals you have performed so far. These tend to be ones which
-annoy the crew in some manner, and Wizard Events are included in the
-list. Additionally, something weird will usually happen to the room you
-are in.
-Then you are assigned a new location and can toddle off to do it again.
-
-Once you have done this three times, you will be picked up by the
-station's sensors every time you start a subsequent ritual and should
-expect annoyed company to come investigate.
-Once you have done this six times, you can finally spend all of that
-accumulated power on the seventh Grand Finale ritual. Completing this
-grants you victory at the end of the round and will have a larger,
-flashier effect which you can pick from a list of options, think of it
-like a wizard equivalent of a Traitor Final Objective or Heretic
-Ascension.
-After that you can still keep doing rituals if you want to pester the
-crew further by summoning more random events, you've already "won" at
-this point so now it's your job to make them want to go home.
-
-I think it'd be more fun to just find out what the Finale ritual can do
-by seeing it happen but maintainers will probably want a list of its
-precise capabilities, so here it is:
-
-Currently completing a ritual also has a chance to create Heretic
-Reality Tears (of both varieties, available for Heretics to eat and
-visible to crew) as a kind of cross-antagonist interaction which seemed
-to make sense to me but if this seems thematically or mechanically
-inappropriate it's easy to strip out.
+It wasn't there, oh, no; oh, no; oh, no
 
 ---
-## [DEMOLITIONDON96/im-concerned-about-this-lmao](https://github.com/DEMOLITIONDON96/im-concerned-about-this-lmao)@[d36f4cd053...](https://github.com/DEMOLITIONDON96/im-concerned-about-this-lmao/commit/d36f4cd05312a5bc6b309969d3be1f3c89ea21bf)
-#### Friday 2023-02-24 19:16:11 by GDD
+## [jandaX/android_kernel_xiaomi_joyeuse](https://github.com/jandaX/android_kernel_xiaomi_joyeuse)@[543af705b8...](https://github.com/jandaX/android_kernel_xiaomi_joyeuse/commit/543af705b87748d4517391fa50638a8211d1bb0e)
+#### Saturday 2023-02-25 13:42:07 by Peter Zijlstra
 
-you'll never FUCKING believe what it is this time
+sched/core: Fix ttwu() race
 
-yeah
-btw if you read these commit comments you're cool
+Paul reported rcutorture occasionally hitting a NULL deref:
+
+  sched_ttwu_pending()
+    ttwu_do_wakeup()
+      check_preempt_curr() := check_preempt_wakeup()
+        find_matching_se()
+          is_same_group()
+            if (se->cfs_rq == pse->cfs_rq) <-- *BOOM*
+
+Debugging showed that this only appears to happen when we take the new
+code-path from commit:
+
+  2ebb17717550 ("sched/core: Offload wakee task activation if it the wakee is descheduling")
+
+and only when @cpu == smp_processor_id(). Something which should not
+be possible, because p->on_cpu can only be true for remote tasks.
+Similarly, without the new code-path from commit:
+
+  c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+
+this would've unconditionally hit:
+
+  smp_cond_load_acquire(&p->on_cpu, !VAL);
+
+and if: 'cpu == smp_processor_id() && p->on_cpu' is possible, this
+would result in an instant live-lock (with IRQs disabled), something
+that hasn't been reported.
+
+The NULL deref can be explained however if the task_cpu(p) load at the
+beginning of try_to_wake_up() returns an old value, and this old value
+happens to be smp_processor_id(). Further assume that the p->on_cpu
+load accurately returns 1, it really is still running, just not here.
+
+Then, when we enqueue the task locally, we can crash in exactly the
+observed manner because p->se.cfs_rq != rq->cfs_rq, because p's cfs_rq
+is from the wrong CPU, therefore we'll iterate into the non-existant
+parents and NULL deref.
+
+The closest semi-plausible scenario I've managed to contrive is
+somewhat elaborate (then again, actual reproduction takes many CPU
+hours of rcutorture, so it can't be anything obvious):
+
+					X->cpu = 1
+					rq(1)->curr = X
+
+	CPU0				CPU1				CPU2
+
+					// switch away from X
+					LOCK rq(1)->lock
+					smp_mb__after_spinlock
+					dequeue_task(X)
+					  X->on_rq = 9
+					switch_to(Z)
+					  X->on_cpu = 0
+					UNLOCK rq(1)->lock
+
+									// migrate X to cpu 0
+									LOCK rq(1)->lock
+									dequeue_task(X)
+									set_task_cpu(X, 0)
+									  X->cpu = 0
+									UNLOCK rq(1)->lock
+
+									LOCK rq(0)->lock
+									enqueue_task(X)
+									  X->on_rq = 1
+									UNLOCK rq(0)->lock
+
+	// switch to X
+	LOCK rq(0)->lock
+	smp_mb__after_spinlock
+	switch_to(X)
+	  X->on_cpu = 1
+	UNLOCK rq(0)->lock
+
+	// X goes sleep
+	X->state = TASK_UNINTERRUPTIBLE
+	smp_mb();			// wake X
+					ttwu()
+					  LOCK X->pi_lock
+					  smp_mb__after_spinlock
+
+					  if (p->state)
+
+					  cpu = X->cpu; // =? 1
+
+					  smp_rmb()
+
+	// X calls schedule()
+	LOCK rq(0)->lock
+	smp_mb__after_spinlock
+	dequeue_task(X)
+	  X->on_rq = 0
+
+					  if (p->on_rq)
+
+					  smp_rmb();
+
+					  if (p->on_cpu && ttwu_queue_wakelist(..)) [*]
+
+					  smp_cond_load_acquire(&p->on_cpu, !VAL)
+
+					  cpu = select_task_rq(X, X->wake_cpu, ...)
+					  if (X->cpu != cpu)
+	switch_to(Y)
+	  X->on_cpu = 0
+	UNLOCK rq(0)->lock
+
+However I'm having trouble convincing myself that's actually possible
+on x86_64 -- after all, every LOCK implies an smp_mb() there, so if ttwu
+observes ->state != RUNNING, it must also observe ->cpu != 1.
+
+(Most of the previous ttwu() races were found on very large PowerPC)
+
+Nevertheless, this fully explains the observed failure case.
+
+Fix it by ordering the task_cpu(p) load after the p->on_cpu load,
+which is easy since nothing actually uses @cpu before this.
+
+Fixes: c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+Reported-by: Paul E. McKenney <paulmck@kernel.org>
+Tested-by: Paul E. McKenney <paulmck@kernel.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
+Change-Id: Idd54334615da4c78698ca8b3b12b514ae9d8360f
+Signed-off-by: Alexander Winkowski <dereference23@outlook.com>
 
 ---
-## [fleetdm/fleet](https://github.com/fleetdm/fleet)@[6091556b7a...](https://github.com/fleetdm/fleet/commit/6091556b7a6f69f92b7bbb590b5a3068c3a4558d)
-#### Friday 2023-02-24 19:28:21 by Mike McNeil
+## [Gold3729/rustest_bander-version](https://github.com/Gold3729/rustest_bander-version)@[6d158bd3b3...](https://github.com/Gold3729/rustest_bander-version/commit/6d158bd3b37bba2cb2cec2a27fdb0b9b7d8275ac)
+#### Saturday 2023-02-25 14:01:20 by spockye
 
-Fix build (#10018)
-
-mikermcneil
-  3 minutes ago
-@Kathy Satterlee
- I think https://github.com/fleetdm/fleet/pull/9881 broke the build
-4 replies
-
- .
-mikermcneil
-  2 minutes ago
-https://github.com/fleetdm/fleet/pull/9979#issuecomment-1440604277
-
-
-Zay Hanlon
-  1 minute ago
-Oops. That was my approval/merge on Kathy's change
-
-
-Zay Hanlon
-  1 minute ago
-How do I fix?
-
-
-mikermcneil
-  < 1 minute ago
-@Zay Hanlon
-All good. I think we should make it so that PRs can't be merged until
-they pass the CI checks. It's annoying but would prevent things like
-this, which are expensive and involve multiple folks' time.
-@Zach Wasserman
- 
-@Luke Heath
-I'm going to turn on the branch protection that prevents merging when
-automated CI checks are failing.
-@Kathy Satterlee
- I'll follow up with a fix now.
-@Jarod Reyes
- Feel free to go ahead and merge your PR in the meantime.
-
-
-Zay Hanlon
-:spiral_calendar_pad: [11 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677091760162369?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-Sorry :disappointed:
-
-
-mikermcneil
-[10 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677091789685699?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-All good, inevitable
-
-
-Zach Wasserman
-[9 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677091841779269?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-FWIW turning that on will really slow down my dev process at times.
-
-
-Zach Wasserman
-[8 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677091942206439?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-eg. if I make one tiny change on a PR that I already know passes all the
-tests then I'll have to wait 15 mins for the whole CI to run before I
-can merge.
-
-
-mikermcneil
-[7 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677091967828479?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-it was an indentation issue:
-https://github.com/fleetdm/fleet/pull/10018/files#diff-68623aac08ce48b5c1275a38ea9f42a8a730a9c2e04ab1946174cdc67f4ce686R8
-:ty:
-1
-
-
-
-Luke Heath
-[7 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677092006055779?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-Is it possible to conditionally enable the required CI checks?
-
-
-Zach Wasserman
-[6 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677092018873739?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-Maybe you can just turn on a limited set of checks that we know go
-really fast and have a high true-positive rate?
-
-
-Luke Heath
-[6 minutes
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677092062859149?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-That's a good idea. FWIW we'll be removing e2e test runs in CI later
-this week, which will reduce the CI run time by ~25 minutes.
-
-
-mikermcneil
-[< 1 minute
-ago](https://fleetdm.slack.com/archives/C01EZVBHFHU/p1677092432337109?thread_ts=1677091575.384279&cid=C01EZVBHFHU)
-This is not the first time this has happened and I'd like to put an end
-to the emergency remediation that takes a chunk of the day's focus away
-from multiple people each time it occurs. If it causes a drain on our
-ability to move quickly, let's def change it back. If it's worth the
-friction (like the PR approval restriction), then we can keep it.
-I'm running into the problem of being able to select the "test-website"
-job from [this
-list](https://github.com/fleetdm/fleet/settings/branch_protection_rules/18283834),
-likely because it is already conditional:
-image.png
-
----
-## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[d39c53f9e1...](https://github.com/mrakgr/The-Spiral-Language/commit/d39c53f9e19241bf3a67d51937279106f949d38a)
-#### Friday 2023-02-24 20:03:07 by Marko Grdinić
-
-"https://youtu.be/PYCoRnJkn_c
-C# Developer Career Path Guide (ZERO TO HIRED)
-
-This guy is trustworthy. He says that C# is a boring business language, and that I am going to be working on boring things with it. He does say that the salaries are huge.
-
-https://youtu.be/PYCoRnJkn_c?t=232
-> These days Javascript is mandatory in any development discipline.
-
-https://youtu.be/PYCoRnJkn_c?t=464
-
-Now he talks about building apps. He says the app should have all the features that one should see in a corporate website.
-
-https://youtu.be/PYCoRnJkn_c?t=562
-> Stay out of machine learning. Stay out of data science.
-
-https://youtu.be/PYCoRnJkn_c?t=660
-> Employers aren't going to call you if you don't have unit tests.
-
-https://www.youtube.com/watch?v=PYCoRnJkn_c
-> Download a couple of Udemy courses on how to actually interview.
-
-7:15pm. Who is smart? Who is stupid here?
-
-I had no idea there are Udemy courses on interviewing. I guess that is something to think about.
-
-7:25pm. https://jobs.ashbyhq.com/motion/4f5f6a29-3af0-4d79-99a4-988ff7c5ba05?utm_source=hn
-
-Look at jobs like these. Just why couldn't I get them? No reason at all.
-
-One last note, he mentions I should have a cool hobby like running and that this is one of the reasons why employers are crazy about him. Egh, nevermind that. Getting out of the house was only ever on the schedule once I get out of the house. But that is not going to happen. I am on the path of self destruction.
-
-https://www.udemy.com/course/find-a-job-interview-skills-training-course/
-
-Oh this is a free course.
-
-https://youtu.be/7ZBiSyl9f_E?t=105
-> Half these jobs do not even have applicants.
-
-8pm. https://youtu.be/BDMh2evivzw
-Self-Taught C# Developer Road Map 2022
-
-Let me watch this as well.
-
-https://youtu.be/BDMh2evivzw?t=158
-> You can do backend if you want to, but I highly, highly recommend that you do full stack.
-> Because it is going to be way easier to get a job.
-
-https://youtu.be/BDMh2evivzw?t=186
-> C# is notoriously difficult to learn.
-
-Really? He keeps saying that, but I do not believe him.
-
-https://youtu.be/BDMh2evivzw?t=310
-> There is no Python jobs where I live.
-
-https://youtu.be/BDMh2evivzw?t=481
-> Don't spend too much time, learn the basics, move on...to C#.
-
-https://youtu.be/BDMh2evivzw?t=639
-
-If you think about how long this would take a beginner, I am making progress at a blistering speed.
-
-This is exactly the route I want to take, and he is pushing me in that direction. I really do want to add some knowledge about networking because I feel like an idiot when it comes to http requests and similar kinds of protocols.
-
-Let me just take the time to do this properly. Taking an extra month to learn all of this and build up my portfolio.
-
-https://youtu.be/BDMh2evivzw?t=785
-> Focus Entitiy framework, stay away from MongoDB, and stay away from any type of fancy database.
-
-https://youtu.be/BDMh2evivzw?t=907
-> If you can build an app like that, you don't need a college degree, you don't even need any work history.
-
-Huh, really? Ok, I'll give this a shot. I thought I might need to mess on the resume, but if a good app or two is enough.
-
-https://youtu.be/BDMh2evivzw?t=929
-> Is it going to be really difficult to make that app? Yes, but if...
-
-Bullshit. This will be piss easy.
-
-What this guy is saying is a good reality check for me. Right now I am feeling cursed, but if all I need is a good web app to get a good job, then that is a really easy goal to meet.
-
-I am basically crazy right now. I feel like nothing is going right, that no matter what effort I make I can't meet my goals. That even if I do all this, I won't be able to achieve anything. But that can't be it.
-
-I know that thanks to all the effort I put in, my programming skill should be remarkable.
-
-https://youtu.be/BDMh2evivzw?t=1054
-> You don't need to learn CSS all that much. You can get away with the Bootstrap framework.
-
-https://youtu.be/BDMh2evivzw?t=1072
-> I have a whole entire video on how to create a resume.
-
-I am going to check it out in the future.
-
-https://youtu.be/BDMh2evivzw?t=1155
-> After the first year is when you start making crazy amounts of money.
-
-He says that the first job is going to be crappy.
-
-8:35pm. Ok, let's leave it at this. I'll follow the path outlined here. I am not going to be applying to any more jobs until I have everything set. I'll get my portfolio done, get the webdev skills that I need.
-
-I won't pin too much hopes on the Valora F# job. That kind of depends on whether those people recognize my ability simply on the strength of the Spiral language project. And if my previous rounds are any indication, nobody cares.
-
-I'll go the classical route as it will be so easy for me. Right now, I am already OP in terms of programming skills, I just need to reach out a bit and acquire the skills people are willing to pay for.
-
-http://pythonnet.github.io/
-
-> Python.NET (pythonnet) is a package that gives Python programmers nearly seamless integration with .NET Framework, .NET Core and Mono runtime on Windows, Linux and macOS. Python.NET provides a powerful application scripting tool for .NET developers. Using this package you can script .NET applications or build entire applications in Python, using .NET services and components written in any language that targets the CLR (C#, VB.NET, F#, C++/CLI).
-
-> Python.NET is currently compatible and tested with Python releases 3.7 - 3.11.
-
-Ohhh, it is up to day. That could be really cool.
-
-I really need a way of transfering data between .NET and Python for my Holdem project later. Though I could do it over the network card, this way could be better.
-
-I'll keep it in mind. I really want access to Python's ML libraries from my .NET backends, but not much else. I just need a way of transfering primitive arrays without the slowness of going through the network card. As long as I had that, I have everything I need for the Holdem project.
-
-8:55pm. Let me close here for real. I need to believe that success and failure in the world make sense. I can't be paranoid and say that the black star is shining on me.
-
-All I want is a chance to show off my skills and get a job based on that.
-
-I can't really show off backend skills, so it makes sense to go the full stack route even if in the end all I get are backend jobs.
-
-9pm. I should have achieved something with ML, but I literally can't do a thing with it right now that would be in any way impressive. The poker agents I'll dome is possibly the best one could do for somebody in my circumstances."
-
----
-## [NewyearnewmeUwu/cmss13](https://github.com/NewyearnewmeUwu/cmss13)@[b53c9f0531...](https://github.com/NewyearnewmeUwu/cmss13/commit/b53c9f0531897023fe365961c16863d8f41983d9)
-#### Friday 2023-02-24 20:17:02 by carlarctg
-
-Turns all instances of 'colour' into 'color' (#2609)
+beach ruin, The Treasure Cove! (#1701)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
 
-# About the pull request
+## About The Pull Request
+This PR adds a new Beach ruin, Treasure Cove. 
 
-<!-- Remove this text and explain what the purpose of your PR is.
+![2023 01 17-11 26
+30](https://user-images.githubusercontent.com/79304582/212874736-b17917a5-876e-4a7a-a073-1581cc394b8e.png)
 
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
+![2023 01 17-11 26
+58](https://user-images.githubusercontent.com/79304582/212874824-9a161419-b751-41d2-a82d-e50f06981025.png)
 
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
 
-Turns all instances of 'colour' into 'color'.
+![image](https://user-images.githubusercontent.com/79304582/212879021-bcdc2238-b50b-48c2-9cd0-d17cccbd50dc.png)
 
-Changed a shittily-named crayon variable's name.
+Loot: 
+cm-16 rifle (main loot)
+energy gun
+pirate sabre
+frontiersmen hardsuit
+misc combat supplies
+secret documents
+2x abandoned crates
+research note / tesla researcher
+basic engineering supplies (smes/tools/autolathe/battery charger)
+two boats
+silver crate / hidden gold crate
+misc junk
+______
+Threat: 
+1x spacesuit ranged pirate
+2x sword pirates
+1x ranged pirate
+punji sticks
+_____
 
-# Explain why it's good for the game
+Lore tidbit:
+This "humble abode" is the home of our 5- now 4 Pirate friends! After a
+mildly successful raid on a CMM VIP transport, they managed to take a
+Cargo tech (the VIP), and a CMM guard as hostage. sadly it didn't all go
+as planned, and the CMM officer managed to free himself and killed one
+of the pirates. This is where you now find the cave, with both hostages
+executed, their brother buried, and the pirates grieving his unfortunate
+passing.
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
 
-We use burgerclapper english and we should standardize this
+<!-- Tick the box below (put an X instead of a space between the
+brackets) if you have tested your changes and this is ready for review.
+Leave unticked if you have yet to test your changes and this is not
+ready for review. -->
 
+- [x] I affirm that I have tested all of my proposed changes and that
+any issues found during tested have been addressed.
+
+## Why It's Good For The Game
+more ruins = good.
 <!-- Please add a short description of why you think these changes would
 benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
+worth adding. -->
 
-
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-<details>
-<summary>Screenshots & Videos</summary>
-
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
-
-</details>
-
-
-# Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
+## Changelog
 
 :cl:
-spellcheck: Removed all instances of 'colour' and replaced them with
-'color'
+add: Adds a new beach ruin, the beach_treasure_cove
 /:cl:
 
-<!-- Both :cl:'s are required for the changelog to work! -->
-
----
-## [Vhmit/kernel_asus_msm8937](https://github.com/Vhmit/kernel_asus_msm8937)@[79f6b96bc2...](https://github.com/Vhmit/kernel_asus_msm8937/commit/79f6b96bc242efd98197d22be1eca48441e25055)
-#### Friday 2023-02-24 20:38:04 by Steven Barrett
-
-ZEN: Implement zen-tune v4.12
-
-4.9:
-In a surprising turn of events, while benchmarking and testing
-hierarchical scheduling with BFQ + writeback throttling, it turns out
-that raising the number of requests in queue _actually_ improves
-responsiveness and completely eliminates the random stalls that would
-normally occur without hierarchical scheduling.
-
-To make this test more intense, I used the following test:
-
-Rotational disk1: rsync -a /source/of/data /target/to/disk1
-Rotational disk2: rsync -a /source/of/data /target/to/disk2
-
-And periodically attempted to write super fast with:
-dd if=/dev/zero of=/target/to/disk1/block bs=4096
-
-This wrote 10gb incredibly fast to writeback and I encountered zero
-stalls through this entire test of 10-15 minutes.
-
-My suspicion is that with cgroups, BFQ is more able to properly sort
-among multiple drives, reducing the chance of a starved process.  This
-plus writeback throttling completely eliminate any outstanding bugs with
-high writeback ratios, letting the user enjoy low latency writes
-(application thinks they're already done), and super high throughput due
-to batched writes in writeback.
-
-Please note however, without the following configuration, I cannot
-guarantee you will not get stalls:
-
-CONFIG_BLK_CGROUP=y
-CONFIG_CGROUP_WRITEBACK=y
-CONFIG_IOSCHED_CFQ=y
-CONFIG_CFQ_GROUP_IOSCHED=y
-CONFIG_IOSCHED_BFQ=y
-CONFIG_BFQ_GROUP_IOSCHED=y
-CONFIG_DEFAULT_BFQ=y
-CONFIG_SCSI_MQ_DEFAULT=n
-
-Special thanks to h2, author of smxi and inxi, for providing evidence
-that a configuration specific to Debian did not cause stalls found the
-Liquorix kernels under heavy IO load.  This specific configuration
-turned out to be hierarchical scheduling on CFQ (thus, BFQ as well).
-
-4.10:
-During some personal testing with the Dolphin emulator, MuQSS has
-serious problems scaling its frequencies causing poor performance where
-boosting the CPU frequencies would have fixed them.  Reducing the
-up_threshold to 45 with MuQSS appears to fix the issue, letting the
-introduction to "Star Wars: Rogue Leader" run at 100% speed versus about
-80% on my test system.
-
-Also, lets refactor the definitions and include some indentation to help
-the reader discern what the scope of all the macros are.
-
-4.11:
-Increase MICRO_FREQUENCY_UP_THRESHOLD from 95 to 85
-Increase MIN_FREQUENCY_UP_THRESHOLD from 11 to 6
-
-These changes should help make using CFS feel a bit more responsive when
-working with mostly idle workloads, browsing the web, scrolling through
-text, etc.
-
-Increasing the minimum frequency up threshold to 6% may be too
-aggressive though.  Will revert this setting if it causes significant
-battery drain.
-
-4.12:
-Make bfq the default MQ scheduler
-
-Reduce default sampling down factor from 10 to 1
-
-With the world eventually moving to a more laptop heavy configuration,
-it's getting more important that we can reduce our frequencies quickly
-after performing work.  This is normal with a ton of background
-processes that need to perform burst work then sleep.
-
-Since this doesn't really impact performance too much, lets not keep it
-part of ZEN_INTERACTIVE.
-
-Some time ago, the minimum frequency up threshold was set to 1 by
-default, but the zen configuration was never updated to take advantage
-of it.
-
-Remove custom MIN_FREQUENCY_UP_THRESHOLD for MuQSS / ZEN_INTERACTIVE
-configurations and make 1 the default for all choices.
-
-Change-Id: I2a31fbc97fe12ffce30457ec2e83ed25764e2daf
-Signed-off-by: Harsh Shandilya <msfjarvis@gmail.com>
-
----
-## [mrazael/examples](https://github.com/mrazael/examples)@[1485706bd4...](https://github.com/mrazael/examples/commit/1485706bd4a285b683618262a780aafb269cfc97)
-#### Friday 2023-02-24 21:15:59 by mrazael
-
-Add files via upload
-
-pulse %>%
-  ggplot(., aes(x = sex, y = rest)) +
-  geom_boxplot(aes(fill = sex)) +
-  facet_wrap(~smoke, labeller = labeller(smoke = c("N" = "Non-smoker", "Y" = "Smoker"))) +
-  theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
-        axis.ticks.x=element_blank()) +
-  scale_fill_discrete(name = "", labels = c("Female", "Male")) +
-  ylab("Resting heart rate") +
-  ggtitle("The relationship of sex and smoking to resting heart rate")
-
----
-## [Ultimate-Fluff/cmss13](https://github.com/Ultimate-Fluff/cmss13)@[b4954e1402...](https://github.com/Ultimate-Fluff/cmss13/commit/b4954e14028909b107d0b204da0ad06c5dfeb50a)
-#### Friday 2023-02-24 21:26:11 by carlarctg
-
-zombie powder fix (#2315)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-
-# About the pull request
-
-<!-- Remove this text and explain what the purpose of your PR is.
-
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
-
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
-
-Fixes Zombie Powder bugging the fuck out by slapping a ton of FAKEDEATH
-checks everywhere. It now properly shows the holder as dead on HUDs and
-scans.
-
-Fixed an issue in which sometimes qdeleted reagents still procced on
-life.
-
-Fixed examining things changing your direction if you're incapacitated.
-
-Added FAKEDEATH to the mob_incapacitated() check.
-
-
-# Explain why it's good for the game
-
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
-
-
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-<details>
-<summary>Screenshots & Videos</summary>
-
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
-
-</details>
-
-
-# Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
-
-:cl:
-fix: Fixes Zombie Powder bugging the fuck out by slapping a ton of
-FAKEDEATH checks everywhere. It now properly shows the holder as dead on
-HUDs and scans.
-fix: Fixed an issue in which sometimes qdeleted reagents still procced
-on life.
-fix: Fixed examining things changing your direction if you're
-incapacitated.
-fix: Added FAKEDEATH to the mob_incapacitated() check.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! -->
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
 
 ---------
 
-Co-authored-by: harryob <me@harryob.live>
+Signed-off-by: Bjarl <94164348+Bjarl@users.noreply.github.com>
+Co-authored-by: Bjarl <94164348+Bjarl@users.noreply.github.com>
 
 ---
-## [storyandfortune/bob](https://github.com/storyandfortune/bob)@[d5bd4f024f...](https://github.com/storyandfortune/bob/commit/d5bd4f024fb1ee84130efeac15bb0b2228712567)
-#### Friday 2023-02-24 21:35:01 by storyandfortune@github.com
+## [selliott512/freedoom](https://github.com/selliott512/freedoom)@[3efe8a0e41...](https://github.com/selliott512/freedoom/commit/3efe8a0e4114414d764d4a1f03400a9a0f2094dd)
+#### Saturday 2023-02-25 14:37:26 by mc776
 
-fuck you. what i put in my repo is my business. suck my dick you nosey fucking cunts.
+levels: fix various bugs. (#871)
 
----
-## [peff/git](https://github.com/peff/git)@[fc4734da47...](https://github.com/peff/git/commit/fc4734da47bb330c0261794e16ee24d993ca99b3)
-#### Friday 2023-02-24 21:47:14 by Jeff King
+* levels: fix various bugs.
 
-commit: give a hint when a commit message has been abandoned
+Thanks to Goji!, Inuk and rednakhla on Discord for pointing these out.
 
-If we launch an editor for the user to create a commit
-message, they may put significant work into doing so.
-Typically we try to check common mistakes that could cause
-the commit to fail early, so that we die before the user
-goes to the trouble.
 
-We may still experience some errors afterwards, though; in
-this case, the user is given no hint that their commit
-message has been saved. Let's tell them where it is.
+E1M3: Northern lift simplified to address texture alignment problems.
 
-Signed-off-by: Jeff King <peff@peff.net>
+E1M5: Door near (-205,1336) (leading out into open ceiling area with the big strip of lights down the middle) door tracks needed to be lower unpegged.
 
----
-## [peff/git](https://github.com/peff/git)@[88c331ac5a...](https://github.com/peff/git/commit/88c331ac5acceac43a47c2b846af8cb090fcf40b)
-#### Friday 2023-02-24 21:47:54 by Jeff King
+E1M9: Lift near (-2328,120) was split into 2 sectors, causing HOMs when they went out of sync. There's nothing that relies on this split (contrast the neat lighting stuff from Map22) so the lift is just merged into one sector.
 
-ahead-behind: do not die when we see no INTERESTING pending object
+E2M2: Shellbox near (-486,192) is right on the line between two stairs, causing it to rest on the bottom step which causes ports like GZDoom to have the sprite clip *very* visibly into the upper stair. Moved it slightly so it rests on the upper of those two stairs.
 
-We currently die if we are fed an ahead/behind with zero
-objects (`foo..foo` in the most basic case, but in practice
-something like `foo@{upstream}..foo`, when `foo` has just
-been merged).  The problem is that we let
-`handle_revision_arg` parse it, and then pick the pieces out
-of the pending object list. So "^foo" looks no different to
-us there than "foo".
+E2M3: Door leading to red key and "door" leading to soulsphere: former should be lower unpegged but latter should not, but were reversed. Two exit-door-textured doorframes also given more conventional DOORTRAK and lower unpegged treatment. The teleporter representing the hatch going down into the nukage is now fully repeatable.
 
-This patch hacks around it by picking up the UNINTERESTING
-object in that case. However, this isn't great because:
 
-  1. Now we won't notice some types of bogus input.
+Map07: Infinite height in vanilla would cause the spectres in the red key courtyard to trap the player on the entrance ledge from below in a way that could not be seen or diegetically explained. Those three spectres now warp in only after you cross the ledge. (Setting them to "ambush" would do nothing since you're in LOS with them from the top of the ledge.)
 
-  2. We end up reporting the name of the UNINTERESTING object.
+Map11: Lights above red keycard weren't aligned; moved that entire sector and added a few lines to round the corner. Removed a strobe effect on the exit teleporter to compensate for a GZDoom issue where the light would go to absolute zero during the blink.
 
-We probably should pick apart the ".." ourselves, or even
-just change it to ":" or whitespace.
+Map12: Room to the south with the 2 stimpacks, ammo boxes, 2 chaingunners and berserk would sometimes cause some of the items to be "levitated" to the highest sectors they touch. Moved them away from said higher sectors - it looks a bit sloppier but this is a backroom not a storefront lol.
 
-Signed-off-by: Jeff King <peff@peff.net>
+Map13: The easternmost archvile platform had the archvile stuck in the seam, preventing it from lowering in vanilla. (Worked fine in GZDoom) Moved it a little further in.
 
----
-## [AnimeAllstar/ubccsss.org](https://github.com/AnimeAllstar/ubccsss.org)@[a072092d42...](https://github.com/AnimeAllstar/ubccsss.org/commit/a072092d42ecf2c8a1b044de8fe93d9cc4107ea1)
-#### Friday 2023-02-24 22:22:07 by csssbot
+Map19: The combat slugs teleport in from a W1 teleporter which could sometimes be spent while one of the pinkies is blocking the destination, permanently preventing that slug from teleporting in. These are now WRs like the other teleporting enemies.
 
-New review for CPSC 310 by Andy Liang (#378)
+Map22: More W1 monster teleports that should be WR. Also filled in some missing textures in the multi-sector lift connecting the cavern to the hall in the southwest, which parts are clearly not meant to be seen moving separately but can - it still looks fucked up if you manage to desync them, but it's a diegetic fucked up now.
 
-> The course consists of a full stack project (no DB) where the hardest
-part of the project is actually more algorithm related ish (building a
-query engine) than it is software construction in my opinion. The
-project itself ended up being very useless (especially if you have done
-one decent full stack personal project or have coop experience) since
-there is no code quality enforcement. This means you are free to write
-garbage code, as long as it works. I would advice to start early on the
-project though!
+Map24: Another W1 spawn. This one is impossible to screw up in vanilla, but there are some mods that could end up spawning something there that could block the archviles from teleporting.
 
-The conceptual portion taught in lecture is useful. However the project,
-nor any other part of the course, really forces you to try the design
-patterns that you have learned. :)
->
-> Difficulty: 3/5
-> Quality: 2/5
-> <cite><a href=''>Andy Liang</a>, Feb 05 2023, course taken during
-2022W1</cite>
-<details><summary>View YAML for new review</summary>
-<pre>
-  - author: Andy Liang
-    authorLink: 
-    date: 2023-02-05
-    review: |
-The course consists of a full stack project (no DB) where the hardest
-part of the project is actually more algorithm related ish (building a
-query engine) than it is software construction in my opinion. The
-project itself ended up being very useless (especially if you have done
-one decent full stack personal project or have coop experience) since
-there is no code quality enforcement. This means you are free to write
-garbage code, as long as it works. I would advice to start early on the
-project though!
-      
-The conceptual portion taught in lecture is useful. However the project,
-nor any other part of the course, really forces you to try the design
-patterns that you have learned. :)
-    difficulty: 3
-    quality: 2
-    sessionTaken: 2022W1
+Map25: More W1 problems. The spawn source room now also has a small barrier to make sure each pinkie only goes to its own teleporter unless the initial teleport fails.
 
-<pre>
-</details>This is an auto-generated PR made using:
-https://github.com/ubccsss/course-review-worker
+Map27: Lizardbaby dropping too far meant that the bracket was falling along with it in a visibly unnatural way.
+
+Map29: Broke up all the long linedefs on the perimeter of the map to get around the invisible hitscan barrier bug: https://doomwiki.org/wiki/Hitscan_attacks_hit_invisible_barriers_in_large_open_areas
+(Ideally this entire perimeter should be redone to break up the box in favour of more natural-looking formations, but that's a bit outside the scope of a fix like this.)
+
+
+Also got rid of the Plutonia-style start/end teleports on the fixed Phase 2 maps, to address #867.
+
+* maps: more fixes.
+
+More floaty items and other things.
+
+E1M9
+- floater mid south stim by staircase
+E1M7
+- floater northwest clips near the tunnels
+- floaters near switch by railings, now all on the railings
+- duckproofed sector 439 barrier
+E2M9
+- floater thing #125 medikit on top of lift, now in middle of platform
+- shotgun guy (thing #309) and the spectre behind it stuck in geometry.
+- lines 430 and 761 both open the same door and are in the same room right next to each other. Since 761 is actually textured and positioned as a switch, the tag and special on 430 is removed.
+
+* levels: flag e2m7 DM stuff as multi-only.
+
+Marked the following based on eyeballing out what items are right next to DM spawns with no obvious alternate route to them: 487, 488; 203, 397; 499, 500, 501, 502; 482, 485; 491, 492, 493; 494; 496; 28, 486; 182; 54
+
+* levels: more misc. fixes.
+
+E1M6 W1 lines 2318 and 2321.
+
+E3M5 Removed all monster block lines in that gross blood room and raised the blood floor to only 4 below the normal floors, but flagged more monsters in there as ambush to make up for it. Also fixed a lot of texture alignment issues in the top skin panels and lowered the ceiling, along with adding a new sector to address texture tiling issues in the northern teleporter room.
+
+E4M1 fixed a mysterious HOM that was going on near the northern shadow line in the northern outdoor area. Merged a lot of sectors that were identical in their properties.
+
+E4M7 entrance to sector 985 seems to be intended that the player run off the ledge into that room, then the pinkie near the ledge ambushes the player from behind. Instead, what sometimes happens is that the pinkie is alerted somehow, then obstructs the player (vanilla infinite height) from being able to get down there. That means of getting down into that room is now walled off, and instead you step onto that lift to bring it down from above. Neat side effect: any monsters still in the ring when you enter that room will follow you down there.
+
+E4M5 linedefs 1724 and 1725 were facing the wrong way and couldn't be hit with projectiles.
+
+Map25 Float thing 217. Moved that entire row further south to address floating item issues.
+
+Map28 Float thing 464.
+
+* levels: use inner room texture in E4M7 lift.
+
+* levels: align side textures on that lift.
+
+Didn't realize the little squares were sticking into the floor at the *bottom* of the lift as well.
 
 ---
-## [jrprice/Halide](https://github.com/jrprice/Halide)@[e5fdbe3f3c...](https://github.com/jrprice/Halide/commit/e5fdbe3f3c32afaf9085cecf2d0dfd70ecac3224)
-#### Friday 2023-02-24 23:11:18 by Steven Johnson
+## [Jackraxxus/tgstation](https://github.com/Jackraxxus/tgstation)@[296ca23aa1...](https://github.com/Jackraxxus/tgstation/commit/296ca23aa1d8531fba291eb9b802b7282fee657b)
+#### Saturday 2023-02-25 17:13:00 by Jacquerel
 
-Partial fix for generator_aot_acquire_release()
+Most actions cannot be used while incapacitated (#73513)
 
-This adds the necessary (horrible hackery) to bring the WebGPU case in line with the other backends... but the test still fails, apparently due to the same copy-to-host bug we suspect for generator_aot_gpu_only.Pushing this anyway because it was annoying to write :-)
+## About The Pull Request
 
----
-## [GerHobbelt/thirdparty-freeglut](https://github.com/GerHobbelt/thirdparty-freeglut)@[d2f28919d3...](https://github.com/GerHobbelt/thirdparty-freeglut/commit/d2f28919d38580b208407eab1dd7c08c1a582b7e)
-#### Friday 2023-02-24 23:20:22 by Ger Hobbelt
+Fixes #39775
+The `TRAIT_INCAPACITATED` trait is intended to block you from acting but
+does not inherently block actions. Actions only check for "conscious",
+"has available hands", "immobile", or "lying down".
+Most actions still _can't_ be used while incapacitated. This is because
+most actions are spells, most spells have invocations, and you can't
+talk while you are incapacitated. This is silly.
 
-fix duplicated here after code review.
+I have resolved this by adding a new flag which blocks actions while
+incapacitated. This is somewhat redundant with "conscious" because most
+sources of that also make you incapacitated but not _always_, you might
+want the specificity.
 
-----------------------
+I have tried to be discerning about where this flag is applied, it is
+not in all cases (for instance you can still swallow implanted pills
+while incapacitated and such), but it's not only possible but I can't
+really avoid implementing this without it being a balance change in
+_some_ cases,
 
-tesseract: fix compiler errors due to windows system header file errors
+Actions this effects are things such as:
+Xenomorph Tail Sweep, Lesser Magic Missile (cult constucts), Heretic
+Shadow Cloak, the Smoke spell in general, Conjuring (but not firing)
+Infinite Guns, Mime spells
 
-// mupdf headers cause some weird error in MSVC system header commdlg.h when include *after* <random> header below. And this only happens for params.cpp, i.e. when params.h has been included first. ... A definite case of WTF?!
-//
-// Which is why we include the mupdf headers here in monolithic builds...
-//
-// EDIT: Subsequent compiler runs and analysis now popped up the same 'crazy' errors in commdlg.h (caused by missing font struct definitions)
-// from control.cpp and a few other tesseract source files. Which forced me to investigate further.
-//
-// Debugging through running the preprocessor (cl /E /P ...) and some grepping
-//
-//   grep '#line' $( find -name control.i )  | grep -B 1000000 commdlg | grep -B 1000000 wingdi | grep -v "Program Files"
-//
-// showed the original culprit was probably MuPDF\\thirdparty\\curl\\lib\\setup-win32.h.
-// And indeed there we found the often-troublesome WIN32_LEAN_AND_MEAN and a few choice other NOXYZ feature defines before loading windows.h.
-//
-// > Rationale for the precise grep chain is out of scope.
-// > Hint: wingdi defines what commdlg needs. Chain + last filter takes care of getting loading file as last #line stmt, IFF you're lucky.
-// > Of course I was lucky. After N iterations, which got me to this grep chain. EFF that shite, with prejudice!
-//
-// This practice MUST be abolished in all libraries, everywhere, as it causes severe compile errors at surprise locations and at surprise times,
-// while the errors reported aren't always easy to diagnose for everybody. (How many programmers are well versed with gcc -E, cl /P and code inspection?)
-//
-// Setting these feature defines MUST be the sole prerogative of the final application code/project, if any. Or rather more precise: the final C/C++ *.c+*.cpp source files.
-// No-one else MUST mess with these in any header / include files, just to 'help' shorten compiler turn-around times. The road to Hell is paved with good intentions.
-// If you want to offer 'help' like that, consider making sure your header files work well with precompiled header caching in the various compilers instead.
-//
+Times when these actions will no longer be available but were previously
+are such times as when the mob is:
+Stamina Crit, Stunned, Paralysis, and Time Stopped.
 
-See also cUrl repo.
+## Why It's Good For The Game
 
----
-## [dart-lang/dart_style](https://github.com/dart-lang/dart_style)@[fc29f837ff...](https://github.com/dart-lang/dart_style/commit/fc29f837ff05c8e1dc9a1884918a8a6c4051c6d9)
-#### Friday 2023-02-24 23:33:17 by Bob Nystrom
+The incapacitated trait is applied by effects which should block acting
+but still permits several actions which logically would be prevented.
+This fortunately hasn't come up too often due to the high ratio of
+actions with invocations, but it feels bad to stun someone and then have
+them still able to perform an action they logically wouldn't be able to
+take while stunned.
+This is especially egregious in the case of Time Stop (the only way to
+stun a lot of the mobs effected by this) but that's a rare pick on a
+rare antagonist and would also rarely be used on these mobs, so a bit of
+an edge case.
 
-Format switch cases that aren't valid patterns. (#1177)
+## Changelog
 
-* Better style for inline case bodies.
-
-In the previous PR, any case body that fit on one line was allowed to
-even if other cases in the same switch didn't. I tested it on a corpus
-and I found that led to confusing switches where it wasn't always
-clear where the case body starts.
-
-I think you really want it all or nothing: either every single case fits
-on the same line in which case you can make the whole switch compact,
-or every case should be on its own line, even the ones that would fit.
-
-Unfortunately, it's a little tricky to have formatter rules that span
-code containing hard splits, so getting that working took some doing.
-It also regressed performance pretty badly. But I figured out some
-optimizations in ChunkBuilder and it's basically back to the same
-performance it had before.
-
-Also, this incidentally fixes a bug where parameter metadata in trailing
-comma parameter lists was also supposed to have that same all-or-nothing
-splitting logic but didn't.
-
-I've tried this on a corpus and I'm pretty happy with the results. Right
-now, relatively few switches benefit because the mandatory breaks mean
-a lot of switches have at least two statements (which always causes the
-case to split). But as those breaks are removed, I think we'll see more
-compact switches. Even today, this code does improve some switches
-where every case is just a short return statement.
-
-* Format switch cases that aren't valid patterns.
-
-Fix #1164.
-
-The solution is kind of hacky, but users will probably never run into it
-and it avoids complicated the user experience of the formatter.
-
-To get this working, I had to update to analyzer 5.5.0 because 5.4.0 had
-an assert failure when it tried to parse an invalid switch case. But
-5.5.0 also has a bug which is causing a couple of formatter tests to
-fail: https://github.com/dart-lang/sdk/issues/51415.
-
-I'll probably wait until there's a fix for that out before this gets
-merged to master.
-
-Analyzer 5.5.0 also changes some of the AST types. Refactored how
-binary expressions and patterns are formatted to avoid copy/paste from
-that change.
-
-* Better docs.
+:cl:
+fix: Many spell-like abilities which could be stunned, paralysed, or
+frozen in time now cannot be.
+/:cl:
 
 ---
-## [ctm/Bataan-Memorial-Death-March](https://github.com/ctm/Bataan-Memorial-Death-March)@[bf815f8abe...](https://github.com/ctm/Bataan-Memorial-Death-March/commit/bf815f8abe0a7b8f06bee15e457f9ba257876d66)
-#### Friday 2023-02-24 23:51:03 by Clifford T. Matthews
+## [MM2-0/Kvaesitso](https://github.com/MM2-0/Kvaesitso)@[c664f2e777...](https://github.com/MM2-0/Kvaesitso/commit/c664f2e777df4226ae47988fd95d250f126f12af)
+#### Saturday 2023-02-25 17:31:27 by MM20
 
-includes today's 24 mile 41# pack run.
-
-This is the same training run I did on January 29th. In a normal training
-year I'd be faster, but my hot-spot got worse and not only was it painful,
-I was initially under the impression that my intervening training is what
-cause it to be worse, but then I remembered...
-
-...sometime in the last week I realized there was a fairly large bump around
-my hot-spot.  I thought there was some chance that my hot-spot was a callus,
-so I used a file to file it down quite a bit.  That actually seemed to make
-things better.  However, at today's turnaround, I looked and saw that due
-to my thinner skin, I could see a little brown dot.  That dot is either
-dried blood from a puncture that I sustained at some point or is actually
-foreign matter.  I'm going to find out later today which it is.
-
-My *guess* is I have more than one problem with that foot and that
-filing down the callous only made things worse.  There's also a chance
-that trying to figure out what that brown dot is will make things
-further worse, but I think more likely than not I'll either improve
-the situation or effectively not make it better or worse (famous last
-words).
-
-It's clear to me that I'm now moving slowly not only due to the pain
-in my foot, but also due to decrease fitness from the lack of running
-volume and lack of speedwork during this training period.  I don't
-think I'm in danger of DNF'ing (or DNS'ing) Western States, but I will
-not be signing up for the Tough Ruck this year, and I consequently, I
-may skip the Boston Marathon, since flying out to Boston just to do a
-slow Boston Marathon on a gimpy foot may not be a good use of money.
+Fuck you Android studio, please fix your goddamn focus, I wanted to type into the terminal, not the editor
 
 ---
-## [Not-radioactive/alx-low_level_programming](https://github.com/Not-radioactive/alx-low_level_programming)@[71e9fdc0a1...](https://github.com/Not-radioactive/alx-low_level_programming/commit/71e9fdc0a18420b8d0050dfaf3263f96ad06365d)
-#### Friday 2023-02-24 23:59:13 by Not-radioactive
+## [clintjedwards/gofer](https://github.com/clintjedwards/gofer)@[b216d820fd...](https://github.com/clintjedwards/gofer/commit/b216d820fd512e0b77b4d6d9215fda8a561f24d5)
+#### Saturday 2023-02-25 17:32:38 by Clint J Edwards
 
-This Task is cringe and all of this is cringe and fuck everthing and fuck life, I hate my life :c
+feat: Pipelines are now versioned
+
+In order to eventually have canary-able deployments in Gofer we must
+first support versioned pipelines.
+
+This allows us to:
+* Have a good target in which to roll back and forward.
+* Understand what we are gaining and losing on each change.
+* Track each update as it happens.
+
+This is not easy though as pipelines have parts which are easy to version
+(namely the config) and parts which are much harder to version (how do
+we handle the cutting over of triggers?).
+
+Because of this nuance, we've had to redesign a lot of earlier
+assumptions for how Gofer models worked. This was a major refactor and
+since I was here I made a few other large sweeping changes.
+
+* Full storage package refactor: The storage layer was hard to use,
+brittle, and inflexible. I've refactored it, leaning a bit more on
+sqlx and going back to basics. I tried to make the storage package
+work in the past by keeping the domain models to a minimum. I've since
+learned this does not work once things become reasonably complicated. One
+of the main refactors to the storage package is the introduction of
+dedicated storage models. This means that I have to write a bunch of
+boilerplate code to switch from in-memory models to the storage ones,
+but the looser coupling is worth it. More storage refactors coming
+as I learn what works at large scale and what doesn't.
+https://github.com/go-jet/jet looks interesting.
+
+* Removal of Triggers as Pipeline configuration: I desparately wanted
+to have pipeline configurations encompass everything a pipeline would
+have to offer, so that it was easy to look at a config and know exactly
+what was going on in a particular pipeline. Triggers were a pain in the
+ass though. Triggers unfortunately occupy a very special place in Gofer's
+archetecture. Without triggers nothing really gets done. And so allowing
+the user to apply all the same functionality to triggers as they would
+with any other deployment was short-sighted. Triggers don't make a lot
+of sense as a canary deployment. Triggers aren't ephemeral, they are
+either on or their off. No in-between.
+
+Instead Triggers can now be added to your pipeline via the command line.
+This way trigger subscriptions aren't held down by the paradigms of
+configuration change.
+
+* Pipelines are now versioned: Not only have we added versions to pipelines,
+but they now have deployments and configurations and metadata and a lot
+of smaller loosely coupled parts so that they aren't a huge data monolith.
+This means a lot of breaking changes for outward (and inward for that matter)
+apis.
+
+* Just lots of general breakages everywhere: Pretty much a large percentage
+of things just aren't the same anymore.
+
+---
+## [Saiswetha20/Basics-of-java](https://github.com/Saiswetha20/Basics-of-java)@[87fa1bfc58...](https://github.com/Saiswetha20/Basics-of-java/commit/87fa1bfc58f4ff5b4943758c86c65eb49faccf0e)
+#### Saturday 2023-02-25 17:33:46 by Saiswetha20
+
+Three.java
+
+Ajay, Binoy and Chandru were very close friends at school. They were very good in Mathematics and they were the pet students of Emily Mam. Their gang was known as 3-idiots. Ajay, Binoy and Chandru live in the same locality. A new student Dinesh joins their class and he wanted to be friends with them. He asked Binoy about his house address. Binoy wanted to test Dinesh's mathematical skills. Binoy told Dinesh that his house is at the midpoint of the line joining Ajay's house and Chandru's house. Dinesh was puzzled. Can you help Dinesh out? Given the coordinates of the 2 end points of a line (x1,y1) and (x2,y2), write a program to find the midpoint of the line.
+
+---
+## [nushell/nushell](https://github.com/nushell/nushell)@[378a3ae05f...](https://github.com/nushell/nushell/commit/378a3ae05f5459a64f97af3781d4336c35652db4)
+#### Saturday 2023-02-25 17:36:53 by Kovacsics Robert
+
+Use `with-env` to avoid calling external command on invalid command (#8209)
+
+# Description
+
+My terminal emulator happens to be called `st`
+(https://st.suckless.org/) which breaks these tests for me
+
+_(Thank you for improving Nushell. Please, check our [contributing
+guide](../CONTRIBUTING.md) and talk to the core team before making major
+changes.)_
+
+_(Description of your pull request goes here. **Provide examples and/or
+screenshots** if your changes affect the user experience.)_
+
+# User-Facing Changes
+
+_(List of all changes that impact the user experience here. This helps
+us keep track of breaking changes.)_
+
+# Tests + Formatting
+
+Don't forget to add tests that cover your changes.
+
+Make sure you've run and fixed any issues with these commands:
+
+- `cargo fmt --all -- --check` to check standard code formatting (`cargo
+fmt --all` applies these changes)
+- `cargo clippy --workspace -- -D warnings -D clippy::unwrap_used -A
+clippy::needless_collect` to check that you're using the standard code
+style
+- `cargo test --workspace` to check that all tests pass
+
+# After Submitting
+
+If your PR had any user-facing changes, update [the
+documentation](https://github.com/nushell/nushell.github.io) after the
+PR is merged, if necessary. This will help us keep the docs up to date.
+
+---
+## [hrzntal/fledermaus](https://github.com/hrzntal/fledermaus)@[90435a56b3...](https://github.com/hrzntal/fledermaus/commit/90435a56b3d4292306a5a0317b4636026aba5269)
+#### Saturday 2023-02-25 18:13:45 by SkyratBot
+
+[MIRROR] Smoothing groups optimization, save 265ms with configs, more on production & w/ space ruins [MDB IGNORE] (#18189)
+
+* Smoothing groups optimization, save 265ms with configs, more on production & w/ space ruins (#71989)
+
+This one is fun.
+
+On every /turf/Initialize and /atom/Initialize, we try to set
+`smoothing_groups` and `canSmoothWith` to a cached list of bitfields. At
+the type level, these are specified as lists of IDs, which are then
+`Join`ed in Initialize, and retrieved from the cache (or built from
+there).
+
+The problem is that the cache only misses about 60 times, but the cache
+hits more than a hundred thousand times. This means we eat the cost of
+`Join` (which is very very slow, because strings + BYOND), as well as
+the preliminary `length` checks, for every single atom.
+
+Furthermore, as you might remember, if you have any list variable set on
+a type, it'll create a hidden `(init)` proc to create the list. On
+turfs, that costs us about 60ms.
+
+This PR does a cool trick where we can completely eliminate the `Join`
+*and* the lists at the cost of a little more work when building the
+cache.
+
+The trick is that we replace the current type definitions with this:
+
+```patch
+- smoothing_groups = list(SMOOTH_GROUP_TURF_OPEN, SMOOTH_GROUP_FLOOR_ASH)
+- canSmoothWith = list(SMOOTH_GROUP_FLOOR_ASH, SMOOTH_GROUP_CLOSED_TURFS)
++ smoothing_groups = SMOOTH_GROUP_TURF_OPEN + SMOOTH_GROUP_FLOOR_ASH
++ canSmoothWith = SMOOTH_GROUP_FLOOR_ASH + SMOOTH_GROUP_CLOSED_TURFS
+```
+
+These defines, instead of being numbers, are now segments of a string,
+delimited by commas.
+
+For instance, if ASH used to be 13, and CLOSED_TURFS used to be 37, this
+used to equal `list(13, 37)`. Now, it equals `"13,37,"`.
+
+Then, when the cache misses, we take that string, and treat it as part
+of a JSON list, and decode it from there. Meaning:
+
+```java
+// Starting value
+"13,37,"
+
+// We have a trailing comma, so add a dummy value
+"13,37,0"
+
+// Make it an array
+"[13,37,0]"
+
+// Decode
+list(13, 37, 0)
+
+// Chop off the dummy value
+list(13, 37) // Done!
+```
+
+This on its own eliminates 265ms *without space ruins*, with the
+combined savings of turf/Initialize, atom/Initialize, and the hidden
+(init) procs that no longer exist.
+
+Furthermore, there's some other fun stuff we gain from this approach
+emergently.
+
+We previously had a difference between `S_TURF` and `S_OBJ`. The idea is
+that if you have any smoothing groups with `S_OBJ`, then you will gain
+the `SMOOTH_OBJ` bitflag (though note to self, I need to check that the
+cost of adding this is actually worth it). This is achieved by the fact
+that `S_OBJ` simply takes the last turf, and adds onto that, meaning
+that if the biggest value in the sorting groups is greater than that,
+then we know we're going to be smoothing to objects.
+
+This new method provides a limitation here. BYOND has no way of
+converting a number to a string at compile time, meaning that we can't
+evaluate `MAX_S_TURF + offset` into a string. Instead, in order to
+preserve the nice UX, `S_OBJ` now instead opts to make the numbers
+negative. This means that what used to be something like:
+
+```dm
+smoothing_groups = list(SMOOTH_GROUP_ALIEN_RESIN, SMOOTH_GROUP_ALIEN_WEEDS)
+```
+
+...which may have been represented as
+
+```dm
+smoothing_groups = list(15, MAX_S_TURF + 3)
+```
+
+...will now become, at compile time:
+
+```dm
+smoothing_groups = "15,-3,"
+```
+
+Except! Because we guarantee smoothing groups are sorted through unit
+testing, this is actually going to look like:
+
+```dm
+smoothing_groups = "-3,15,"
+```
+
+Meaning that we can now check if we're smoothing with objects just by
+checking if `smoothing_groups[1] == "-"`, as that's the only way that is
+possible. Neat!
+
+Furthermore, though much simpler, what used to be `if
+(length(smoothing_groups))` (and canSmoothWith) on every single
+atom/Initialize and turf/Initialize can now be `if (smoothing_groups)`,
+since empty strings are falsy. `length` is about 15% slower than doing
+nothing, so in procs as hot as this, this gives some nice gains just on
+its own.
+
+For developers, very little changes. Instead of using `list`, you now
+use `+`. The order might change, as `S_OBJ` now needs to come first, but
+unit tests will catch you if you mess up. Also, you will notice that all
+`S_OBJ` have been increased by one. This is because we used to have
+`S_TURF(0)` and `S_OBJ(0)`, but with this new trick, -0 == 0, and so
+they conflicted and needed to be changed.
+
+* Sorting how did I miss it
+
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
+Co-authored-by: Funce <funce.973@gmail.com>
+
+---
+## [RonSheely/Xyce](https://github.com/RonSheely/Xyce)@[87f47161f7...](https://github.com/RonSheely/Xyce/commit/87f47161f72bc2b56de8cb04fb01bf854d7a885e)
+#### Saturday 2023-02-25 19:02:35 by Tom Russo
+
+Let configure detect ABI clashes
+
+Ever since the very first commit of configure.ac (f5ebf77, back in
+2002), after hunting down all required libraries, Xyce's configure
+does a simple check to see if the entire link line actually works.
+This was something that Tammy Kolda had suggested back in those days,
+and I took her advice.
+
+Thing is, when configure is hunting down libraries it's already trying
+to link small programs with them, so this test has always been
+pointless.  All it does is make sure the libraries can be found, which
+honestly we already did earlier.
+
+And worse, ever since we started using the Trilinos Makefile.export
+thing instead of probing libraries normally, we NEVER actually link
+meaningful test programs with trilinos anymore.
+
+This means that while the libraries are found and a link of a trivial
+program succeeds, it could be the case that Trilinos has been compiled
+with a compiler that uses an ABI that is incompatible with the one
+we're trying to use now.
+
+This came up this weekend (again) when Eric tried to build Xyce on one
+of the ASCIC machines and tried to use our precompiled Trilinos
+archdir for gcc8.  These libraries were compiled with RHEL7 devtools-8
+gcc 8.3, but Eric was using CDE gcc 8.4.
+
+RHEL devtools gcc8 is compiled to use the old GCC ABI for compatibility
+with the native gcc4, but CDE gcc 8.4 is compiled with the default,
+new ABI.  It is not possible to use one with the other unless special
+macros are defined to make it use the the non-default ABI.
+
+And because we were only testing whether libraries would link by
+linking an empty main function with the libraries, no Trilinos
+functions are actually needed and so the linker never pulls them in
+and tries to use them.
+
+So configure succeeds, the build proceeds all the way to the final
+link phase, and then a semi-infinite number of undefined symbole
+errors show up.  It is frustrating and confusing for a user to have
+that happen.
+
+In this commit, I change this 20-year-old pointless link test into a
+meaningful link test.  Now, configure tries to build a small test
+program that includes Teuchos_RCP.hpp and tries to instantiate an
+RCP.  This is a real test --- if the Trilinos libraries are
+incompatible, this will fail, and fail before the user has bothered to
+try to build Xyce.
+
+if it fails, the user will get the message:
+checking whether libraries (-lfftw3  -llocaepetra ...  ) will link... no
+configure: error: FATAL: cannot link with the libraries detected so far ...
+It may be that your compiler is incompatible with the one that was
+used to build Trilinos.  See config.log for failure message.
+
+That final error message used to include the entire list of libraries,
+but that list is so freakin' long it makes the error message
+unreadable (the beginning of the message scrolls off the screen before
+the end of it gets printed).  So I shortened it.  The full list is in
+the previous message anyway.
+
+And config.log will have all of those undefined symbol errors instead
+of them showing up at final link time of the full build.
+
+This does not guarantee we won't get annoyed queries from users who
+hit this problem, but it at least gets that frustration to
+happen *before* they've spend an hour or so compiling Xyce.
+
+---
+## [TingTingShao/java_assignment_2022](https://github.com/TingTingShao/java_assignment_2022)@[f9ea7f722a...](https://github.com/TingTingShao/java_assignment_2022/commit/f9ea7f722a8ffc6515683f559c636527e2efcc7b)
+#### Saturday 2023-02-25 19:13:32 by TingTingShao
+
+Create README.md
+
+For the purpose of this assignment, you need to implement 2 types of alignments: the standard alignment as discussed above, and what we will refer to as a SNiP or SNP alignment. An SNP alignment is a different way of representing the same data as in the standard alignment, i.e., no separate input file is required from which to read a SNP alignment as you can obtain it directly from the standard alignment. Compared on a reference sequence, which is shown in full (see screenshot below) as in the standard alignment, only the (nucleotide) differences in the other genomes are shown, while identical nucleotides are represented as a dot (‘.’).
+
+Each alignment type needs to support at least the following operations:
+- search through the genomes for a specific sequence of characters (e.g., AACAAATG) and return the corresponding names / identifiers for those genomes in which the sequence can be found
+- replace a genome in the alignment with a new sequence (i.e., a genome that was previously not part of the alignment and that has a name / identifier that was not part of the initial FASTA file)
+- in a given genome, replace all occurrences of a given sequence of characters by a new sequence of characters (without changing the total length of the genome)
+- in the entire alignment, replace all occurrences of a given sequence of characters by a new sequence of characters (without changing the total length of the alignment)
+- adding a genome with its corresponding name / identifier
+- removing a genome, based on its name / identifier
+- other functions that you think are useful to edit an alignment
+It will be important to think about what effect some of these methods will have on the different alignment implementations. Finally, and to be 100% clear: you do NOT need to develop a graphical interface / visualisation of the alignment(s) as part of this assignment. The images provided above (from AliView) only serve to explain the data you will be working with.
+Description of the text (.txt) input file
+A bioinformatics team consists of a potentially large number of users that each have their own responsibilities and possible tasks they can perform. An example input text (.txt) file is provided on Toledo, describing each team member by her/his function, first and last name , and years of experience in the team. You can assume that a team member has a first and last name that consists of only one single word (without special characters).
+The goal of your application is to construct a standard alignment for each bioinformatician to work on, based on the data in the provided .fasta file. Both the .fasta and the .txt file can only be read in once! The .fasta file also serves as the input to create the optimal alignment that is stored in a repository, which is initially identical to each of the bioinformaticians’ alignments. The repository also contains the SNiP alignment that always corresponds to the current version of the optimal alignment. Only the team lead(ers) and the technical support members have access to the repository. The team lead(ers) and technical support can query the repository for each user’s personal alignment, but they cannot retrieve (nor directly access) the optimal alignment nor the SNiP alignment from the repository.
+As you have been able to deduce from the previous paragraphs, there are three types of team members:
+- bioinformaticians, who only have access to their own personal alignment (that can change over time due to editing operations), but not to the repository
+6
+Introduction to Object-Oriented Programming 2022-2023
+- team lead(ers), who have direct access to a repository that contains the optimal alignment (with the lowest score), its corresponding SNiP alignment and the personal alignment of each bioinformatician, i.e., the team lead(ers) do not have their own alignment to work on but can select the alignment of any user to be promoted as the optimal alignment based on a simply ‘difference score’ criterion; the team lead(ers) are not able to retrieve the optimal alignment nor the corresponding SNiP alignment from the repository, but the alignment from each specific user can be retrieved
+- technical support, who have direct access to the same repository as the team lead(ers); however, the functions of technical support members restrict themselves to backing up, restoring and removing / clearing the data in the repository
+The following functions / operations need to be provided for the bioinformaticians and the team lead(ers), but not for the technical support crew:
+- write data to file: for bioinformaticians, this means writing their own personal alignment to an output text file, of which the name is simply their first name + their last name with a .alignment.txt extension; for team lead(ers), this means writing all of the users’ alignments to one single file with the same naming convention
+- write a report to file: for bioinformaticians, this means writing the difference score (see below for more information) for their own personal alignment to an output text file, of which the name is simply their first name + their last name with a .score.txt extension; for team lead(ers), this means writing all of the users’ alignments scores to a file with the same naming convention
+The ‘difference score’ of an alignment is a simple metric to compute. Basically, you use one of the genomes in the alignment as the reference genome (typically the first / top genome) and compute the number of different positions / characters of each other genome compared to that reference genome. Add up all of those numbers to obtain the difference score. Importantly, this difference score also needs to be defined for the SNiP alignment! You can – for example – have this score computed in your main method to show how you have implemented this aspect.
+The following functions / operations need to be provided specifically for the bioinformaticians:
+- the functions that enable changes to the alignment, as listed above
+- retrieving the personal alignment (from that bioinformatician)
+The following functions / operations need to be provided specifically for the team lead(ers):
+- copy a user’s alignment to the optimal alignment in the repository (note that this will also affect the SNiP alignment); after this operation has been performed, changes to the user’s alignment do not affect the optimal alignment (nor the other way around)
+- overwrite a user’s alignment with the optimal alignment; after this operation has been performed, changes to the user’s alignment do not affect the optimal alignment (nor the other way around)
+The following functions / operations need to be provided for the technical support members:
+7
+
+Introduction to Object-Oriented Programming 2022-2023
+- backup the repository data: a hard / deep copy of the current optimal alignment, its corresponding SNiP alignment and, for each user, her/ his personal alignment; whenever such a backup is made, the date and time of the backup procedure is stored as an instance variable for the technical support member
+- restore the repository data: reinstating the backup data, and hence overwriting the contents of the current optimal alignment, its corresponding SNiP alignment and, for each user, her/ his personal alignment
+- clearing the repository data: removing / emptying the current optimal standard alignment, its corresponding SNiP alignment and, for each user, her/ his personal alignment
+The goal of the application is to provide the opportunity for each bioinformatician to work on their own personal alignment independently, through the operations mentioned earlier in this document. As such, each bioinformatician starts off with a personal copy of the same initial standard alignment, which she/he can independently work on and make changes to. As different bioinformaticians perform different operations on their personal alignment, they can hence end up with different alignments during the course of their work. The initial alignment also serves as the initial optimal alignment in the repository and as a source for creating the initial SNiP alignment. None of the users, regardless of their function, is able to edit the optimal alignment(s) directly, as the optimal alignment can only be copied as a whole, as described above in the functions for the team lead(ers).
+Description of the application / main method:
+First of all: provide sufficient comments in the code, especially in your main method, but also throughout the other classes you decide to implement.
+In your main method, the goal is to show how the different classes you decide to implement work together, and also what their main features are and how to use them. For example, start by reading in the two input files, constructing the required alignments (and printing them after having done so) and users, and have each user perform a number of tasks as described in this document. Then have the team lead(ers) and technical support personnel come in and perform a few tasks (as described above), after which the bioinformaticians can continue working on their alignments. A short (incomplete) example of what the output could look like is shown here (but yours should be more extensive / elaborate):
+...
+SNiP alignment:
+>1992.A1.UG.92.UG029 ....C..A...........................G......C.......C........A....................T.....G.G..... (full line not shown) >1998.A1.UG.98.98UG57135 ....C...................................T...T..............A.........G..................G......A.. (full line not shown)
+8
+
+Introduction to Object-Oriented Programming 2022-2023
+>1998.A1.UG.98.98UG57136 ....C.........C............................................A.........G..................G......A... (full line not shown)
+alignment score = 34443
+SNiP alignment score = 34443
+Replacing TTTTC with TTTTT in genome 1998.A1.UG.98.98UG57136 Marc Janssens's alignment score = 34444
+Promoting alignment from Marc Janssens to shared alignment Copying shared alignment to Werner Lippens
+Werner Lippens 's alignment score = 34444
+...
+Providing input to your implementation:
+At this point, the only aspect left to discuss for your application is how to instruct your implementation which text and FASTA file to read. Hard coding file names into your application should be avoided, and there are various options available to achieve this. The easiest one would be to provide this information via the program / command-line arguments, but you can also make use of a properties file. Which of these approaches to implement is entirely up to you and does not affect your score in any way. You may assume the presence (and name / location) of such a properties file in your implementation if you so choose. More information can be found here (for example):
+https://www.jetbrains.com/help/idea/properties-files.html
+https://stackoverflow.com/questions/30010833/creating-a-properties-file-in-java-and- eclipse/30010882
+For this assignment and the specific files discussed in this document, such a properties file (typically named config.properties) only needs to contain two lines of key-value pairs:
+teamfilename=team.txt fastafilename=hiv.fasta
+Important: both input files should only be read in once at the start of your program / implementation. In your main program, show how to use the functionality you have implemented in the different classes of your implementation and how the different classes are to be used together.
+Important: make sure that you use relative paths to the file that needs to be read so that your application works directly when copying your Eclipse / IntelliJ project files. Hard coding the location of the file into your implementation is considered poor practice.
+   9
+
+Introduction to Object-Oriented Programming 2022-2023
+Key points when implementing the assignment:
+The structure of your code is the most important evaluation for the project. This means you should take care to include as many of the object-oriented concepts covered in the course whenever applicable. That also means thinking about future extensions of your implementation and keeping an eye on possible code reuse (outside of the current assignment).
+Watch out for plagiarism! Online you may find similar partial implementations which you may use for inspiration, but you must write your own code! Note that many code examples you can find online are poorly written and/or poorly designed.
+We realize that design patterns such as Model-View-Controller are not part of the course material, and you are not meant to study this material for the project; you are however required to think about properly structuring your project code.
+Do not implement your project with solely the provided input files and their dimensions / number of lines in mind. Your project should run fine with a different .fasta and .txt files as well. Avoid hard coding aspects that relate to the specifics of these files at all cost.
+Finally, aim for a well-designed / well-structured project with cleanly written code, organized in different packages. As stated before, clearly state in the project if you were unable to provide certain requested aims of the project and provide some information (what did you try and where did it go wrong).
+Questions can be asked on the Discussion Board in Toledo.
+Report Guidelines
+You should prepare a short report of maximum 4 pages detailing important components of your project. It should include the following information:
+• Write a short description of every class, indicating what functionality is included in each class.
+• Describe the relationship between your classes (this may be text and/or a simple diagram, but not a UML diagram), for example, inheritance relationships or method calls from one class to another.
+• If you are unable to implement a certain part of the game, we encourage you to make a sensible decision, be upfront about this decision (i.e., explain it in your report) and explain what the main difficulty was. Additionally, if you encounter implementation difficulties or time constraints, it’s better to fully and correctly implement a subset of the functionality rather than to implement small parts of each of the targeted program parts.
+• Discuss what you think are the strengths and weaknesses in your project but focus on code design when doing so and not on how the application looks. Describe any difficulties you faced while working on the project.
+10
+
+---
+## [JasmineRickards/T.E.-station](https://github.com/JasmineRickards/T.E.-station)@[7dccb4c5ce...](https://github.com/JasmineRickards/T.E.-station/commit/7dccb4c5cef5ff2286ef31f80126d13e01153cac)
+#### Saturday 2023-02-25 19:56:25 by JasmineRickards
+
+Merge pull request #3 from IFuckedUpMerging/oh-god-i'm-stupid
+
+Buffs pay for all Species, minus humans, and nerfs monkey payday
+
+---
+## [midtsveen/midtsveen.github.io](https://github.com/midtsveen/midtsveen.github.io)@[d9c03cc197...](https://github.com/midtsveen/midtsveen.github.io/commit/d9c03cc19775fbdb8407b95f3b4342c9c98ce11a)
+#### Saturday 2023-02-25 20:43:44 by Erik Leander Midtsveen
+
+Yes
+
+ZOË is a fantastic French singer whose music always fills me with joy. Her upbeat melodies and infectious energy never fail to put me in a good mood, and her voice is like a ray of sunshine on a cloudy day. I listen to her music whenever I need a pick-me-up, and she's the only artist who's ever moved me to tears with the beauty of her songs. I'm grateful for the happiness and positivity she brings into my life through her music.
+
+---
+## [VinierAardvark1/Tactical-Intervention---RMC-Branch](https://github.com/VinierAardvark1/Tactical-Intervention---RMC-Branch)@[b7d84d78e5...](https://github.com/VinierAardvark1/Tactical-Intervention---RMC-Branch/commit/b7d84d78e58851bc5baab0eccb3e20642decf1ae)
+#### Saturday 2023-02-25 21:27:11 by Jayrazer
+
+"this took too long" yeah fuck you
+
+fuck you fesi fuck you i hate you meanest ever *gives you massive kiss* yeah fuck you
+
+---
+## [dsmith328/LC13Master](https://github.com/dsmith328/LC13Master)@[fc5dba0784...](https://github.com/dsmith328/LC13Master/commit/fc5dba078416e86fbb33a8ccd1b3c52747b294dd)
+#### Saturday 2023-02-25 21:37:42 by Lance
+
+Servant of Wrath
+
+Records and Instability
+
+Dash speed up
+
+Fuck you I'll space indent all I like
+
+There was some fuckin lint in this PR
+
+God damned there's a lot of lint in here
+
+Faction Check
+
+Sprite update, minor bug fixes
+
+Floating and Gun and Acid
+
+Minor Records
+
+---
+## [littlebabyman/quick-loadout](https://github.com/littlebabyman/quick-loadout)@[d3e2533cad...](https://github.com/littlebabyman/quick-loadout/commit/d3e2533cadb18705515aaf9bb49137f29802f5cc)
+#### Saturday 2023-02-25 21:40:32 by littlebabyman
+
+Fuck richtext actually, fuck rubat. fuck garry
+
+Go to hell
+Fuck off
+Die!!!!!!!!!!
+I just wasted several hours on garbage
+
+---
+## [VinierAardvark1/Tactical-Intervention---RMC-Branch](https://github.com/VinierAardvark1/Tactical-Intervention---RMC-Branch)@[511e5d6553...](https://github.com/VinierAardvark1/Tactical-Intervention---RMC-Branch/commit/511e5d655396cc0be17c5565feafac6d66de37e2)
+#### Saturday 2023-02-25 22:55:19 by VinierAardvark1
+
+Fixed the shitty ass sorting bullshit
+
+why was there a pistol in slot 3
+
+---
+## [Sulfurous-Impersonation/old-cpp-projects](https://github.com/Sulfurous-Impersonation/old-cpp-projects)@[87dee666bf...](https://github.com/Sulfurous-Impersonation/old-cpp-projects/commit/87dee666bf5be99fb98908dce4e1a06fef5e639c)
+#### Saturday 2023-02-25 23:52:37 by Sulfurous-Impersonation
+
+it's supposed to take input, but that's boring and I wanted to program a dice roller. I ain't gonna let some fuckin' book from the 90's tell me what to do, goddammit! Fuck that book! That book is boring! I don't wanna take input, all I've been doing is taking input! I wanna roll some fuckin' dice! Fuck you!
 
 ---
 
