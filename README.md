@@ -5,52 +5,113 @@ an [index](docs/messages.md).
 
 ---
 
-# [2023-04-04](docs/good-messages/2023/2023-04-04.md)
+# [2023-04-05](docs/good-messages/2023/2023-04-05.md)
 
 
-there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,212,952 were push events containing 3,450,057 commit messages that amount to 273,726,440 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 56 messages:
+there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,217,466 were push events containing 3,420,792 commit messages that amount to 265,388,910 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 73 messages:
 
 
-## [Sea-of-Lost-Souls/Tannhauser-Gate](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate)@[7a64573c8b...](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate/commit/7a64573c8bfa01bac0d690db68d4b6528d502579)
-#### Tuesday 2023-04-04 00:33:44 by SkyratBot
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[dc2f52e386...](https://github.com/tgstation/tgstation/commit/dc2f52e386e0ef3cfcc2133293cd3f68f6a1eee3)
+#### Wednesday 2023-04-05 00:02:28 by tralezab
 
-[MIRROR] Atmos QOL + Small Sprite Fix [MDB IGNORE] (#20243)
-
-* Atmos QOL + Small Sprite Fix (#74251)
+Blink is no longer a forbidden school spell?? (#74487)
 
 ## About The Pull Request
-Added screentips and balloon alerts to many atmos machines/pipes
-Volume pump overclocking overlay is much slower and less seizure
-inducing
-RPD screentips for right clicking pipes to copy settings
-Removed (RPD) from the RPD's name since having an abbreviation in the
-name is ugly
-Crystallizer and electrolyzer use ctrl+click and alt-click to turn on
-On examine electrolyzer tells you about anchoring to drain from APC
-instead of cell
+
+Turns blink's school from forbidden to translocation. This has some
+incredibly minor changes nobody is going to notice:
+- Changes the blink's invocations when mixed with a CERTAIN spell
+- If you were very specifically a chaplain with the holy crusade sect
+and you casted blink, before it would excommunicate you, now it will
+just smite you, as translocation spells are seen as less bad than
+forbidden magic
+- probably some more niche interactions but that's all I can remember
+
 ## Why It's Good For The Game
-QOL for atmos stuff, user friendliness and better experience
+
+Guys, I know blink is a very annoying spell but come on now it's not
+forbidden magic, that's for heretics and super duper evil stuffs
+
 ## Changelog
 :cl:
-fix: Volume pump overclocking animation is much slower, no more
-headaches
-qol: Added screentips to the RPD; screentips and balloon alerts to many
-atmos machines and devices
-:cl:
-
-* Atmos QOL + Small Sprite Fix
-
----------
-
-Co-authored-by: 13spacemen <46101244+13spacemen@users.noreply.github.com>
+fix: blink is now a translocation spell
+/:cl:
 
 ---
-## [Sea-of-Lost-Souls/Tannhauser-Gate](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate)@[ec67ffb340...](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate/commit/ec67ffb340b3c4a64f17eb6458a32cb55ae5183b)
-#### Tuesday 2023-04-04 00:33:44 by SkyratBot
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[48183ec0ff...](https://github.com/tgstation/tgstation/commit/48183ec0ffd67ea5afa26c6f6e58e81edff98d52)
+#### Wednesday 2023-04-05 00:02:28 by san7890
 
-[MIRROR] Properly accounts for byond tick fuckery in runechat code [MDB IGNORE] (#20237)
+Icemoon Hermit Ruin Active Turf Fix - For Real This Time (#74476)
 
-* Properly accounts for byond tick fuckery in runechat code (#74388)
+In #74306, I _thought_ I knew what the cause was, and I both attempted a
+potential fix _and_ made tracking it easier. The fruits of my labor paid
+off, I know exactly what caused it now.
+
+Basically, the demonic portal will scrape away all turfs in a 5-tile
+radius on its `Initialize()`, and if a spawner spawned right next to the
+hermit ruin... it would count it as a mineral turf and scrape it away as
+well. That's so fucking silly. At least we know now.
+## Why It's Good For The Game
+
+The fix is to just make those tiles unscrapeable, which is accomplished
+via another turf_flag and filtering those out in the `Initialize()` of
+the demonic portals.
+
+I also cleaned up the calls to scrapeaway being `null`, which is really
+weird because it just defaulted to the normal proc behavior. Naming the
+arguments instead does the same thing (I checked)
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[b5ebf5c942...](https://github.com/tgstation/tgstation/commit/b5ebf5c9423cb3b39a2b9cfb6524b157dc6cb4b2)
+#### Wednesday 2023-04-05 00:02:28 by Helg2
+
+Adds better parts for syndie mechs, some tooltips to mech maintenance mode and some little changes. (#74466)
+
+## About The Pull Request
+Kinda resusticates #72442 cause the whole conflict was stupid.
+Adds t4 parts for dark gygax, mauler and reticence (for the sake of
+shitspawn) and t3 for dark honker.
+Formulas of better parts to understand the difference:
+
+https://github.com/tgstation/tgstation/blob/aff9cf1b434c7a95d156ea20108d8b2bc015083d/code/modules/vehicles/mecha/_mecha.dm#L427-L439
+
+
+Made examine text into span_notices so it's not just plane text.
+Also added tooltips for maintenance. Screens to compare:
+
+![image](https://user-images.githubusercontent.com/93882977/229368394-23ca7388-2640-4a82-8134-36a18878b687.png)
+
+![image](https://user-images.githubusercontent.com/93882977/229368398-d4654b56-78e9-4321-80cc-cad31cfabef8.png)
+
+
+Dark gygax will now spawn without access adding regime.
+Tool interactions with mech will now have sounds. (wrench and crowbar)
+Removing parts from mech will now put them in your hands, and not just
+under the mech.
+When inserting parts in mech they won't make some noisy noise, already
+forgot which noise it was, but i changed it for some reason, so meh.
+
+Also fixed that you can remove capacitors and scanning mods from mech
+without proper maintenance as it works with cell. Closes
+https://github.com/tgstation/tgstation/issues/71577
+## Why It's Good For The Game
+Syndie mechs are still week. Didn't see them in half a year.
+## Changelog
+:cl:
+qol: changed mech description to span_notices and just slightly comfier
+to use.
+qol: added tooltips for mech's maintenance mode.
+balance: added t4 parts for mauler and dark gygax. And t3 parts for dark
+honker.
+fix: fixed that you can remove capacitor and scanmod from mech without
+proper maintenance steps. Now you can't
+/:cl:
+
+---
+## [Jolly-66/tgstation](https://github.com/Jolly-66/tgstation)@[fe7ebd67cf...](https://github.com/Jolly-66/tgstation/commit/fe7ebd67cf74982038524ceb175377d7ff6c0486)
+#### Wednesday 2023-04-05 00:04:20 by LemonInTheDark
+
+Properly accounts for byond tick fuckery in runechat code (#74388)
 
 ## About The Pull Request
 
@@ -80,61 +141,186 @@ Hopefully this should fix 0 cpu when running at highpop
 Thanks to Kylerace and MrStonedOne for suffering together with me on
 this, I hate this engine.
 
-* Properly accounts for byond tick fuckery in runechat code
-
----------
-
-Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
-
 ---
-## [Sea-of-Lost-Souls/Tannhauser-Gate](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate)@[f3614ce53c...](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate/commit/f3614ce53c9f02d6c4e21b935b6231e98d3348af)
-#### Tuesday 2023-04-04 00:33:44 by SkyratBot
+## [Jolly-66/tgstation](https://github.com/Jolly-66/tgstation)@[c18b1ef442...](https://github.com/Jolly-66/tgstation/commit/c18b1ef4423fc7d9083adac9b51aab4f169ea8aa)
+#### Wednesday 2023-04-05 00:04:20 by tralezab
 
-[MIRROR] Thrown containers splashing on mobs spill some contents on the floor [MDB IGNORE] (#20252)
-
-* Thrown containers splashing on mobs spill some contents on the floor (#74345)
+End of Mapping March (Thanks to everyone who contributed, you're amazing!!!) (#74417)
 
 ## About The Pull Request
-Spiritual continuation of tgstation/tgstation#74187.
 
-![image](https://user-images.githubusercontent.com/31829017/228645705-5a32cc67-37e0-48d6-9e95-6006f455ed3c.png)
-Reagent containers that splash their contents on people also splash the
-floor - the amount that gets splashed on the floor is the amount that
-missed the target.
-### Mapping March
+Removes the special mapping template. We got a really good turnout this
+year! Will start counting ckeys and all that.
 
-Ckey to receive rewards: N/A (it's not a mapping PR)
+### But my mapping pr isn't done yet!
+
+If it was opened during march, you'll get your token, don't worry
+
+---
+## [DrDiasyl/tgstation](https://github.com/DrDiasyl/tgstation)@[b3e5642d94...](https://github.com/DrDiasyl/tgstation/commit/b3e5642d94caab455bea8b71e244081249cb2924)
+#### Wednesday 2023-04-05 00:22:38 by san7890
+
+Fixes Active Turf Scenario on Tramstation (#74354)
+
+## About The Pull Request
+
+On the tin. Basically whenever `atmoscilower_2.dmm` would invoked
+`atmoscilower_attachment_a_2.dmm`, it would trigger an active turf in
+this location since it doesn't have a "ceiling". (as well as there being
+an "aired" turf mingling with airless turfs)
+
+This caused the following report:
+```txt
+ - All that follows is a turf with an active air difference at roundstart. To clear this, make sure that all of the turfs listed below are connected to a turf with the same air contents.
+ - In an ideal world, this list should have enough information to help you locate the active turf(s) in question. Unfortunately, this might not be an ideal world.
+ - If the round is still ongoing, you can use the "Mapping -> Show roundstart AT list" verb to see exactly what active turfs were detected. Otherwise, good luck.
+ - Active turf: Station Asteroid (163,80,2) (/area/station/asteroid). Turf type: /turf/open/floor/plating/airless. Relevant Z-Trait(s): Station.
+ - Active turf: Lesser Starboard Maintenance (163,81,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/plating. Relevant Z-Trait(s): Station.
+ - Active turf: Station Asteroid (164,80,2) (/area/station/asteroid). Turf type: /turf/open/floor/plating/airless. Relevant Z-Trait(s): Station.
+ - Active turf: Lesser Starboard Maintenance (164,81,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/plating. Relevant Z-Trait(s): Station.
+ - Active turf: Station Asteroid (165,80,2) (/area/station/asteroid). Turf type: /turf/open/misc/asteroid/airless. Relevant Z-Trait(s): Station.
+ - Active turf: Lesser Starboard Maintenance (165,81,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/plating. Relevant Z-Trait(s): Station.
+ - Active turf: Station Asteroid (166,81,2) (/area/station/asteroid). Turf type: /turf/open/floor/plating/airless. Relevant Z-Trait(s): Station.
+ - Active turf: Lesser Starboard Maintenance (165,83,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/iron/smooth. Relevant Z-Trait(s): Station.
+ - Active turf: Station Asteroid (165,83,3) (/area/station/asteroid). Turf type: /turf/open/openspace/airless. Relevant Z-Trait(s): Station.
+ - Z-Level 2 has 8 active turf(s).
+ - Z-Level 3 has 1 active turf(s).
+ - Z-Level trait Station has 9 active turf(s).
+ - End of active turf list.
+```
+
+This is what it looked like when it was reproduced on my machine:
+
+
+![image](https://user-images.githubusercontent.com/34697715/228689991-d9cc87c3-f931-4513-8399-928c93def605.png)
+
+
+Surprisingly not that hard to debug, albeit tedious. At least I know
+that this was the issue with 100% confidence.
+## Why It's Good For The Game
+
+Ate up 0.1 seconds of init on my machine. That's silly.
+## Changelog
+No way players care
+
+---
+## [Thunder12345/tgstation](https://github.com/Thunder12345/tgstation)@[c3b78761d2...](https://github.com/Thunder12345/tgstation/commit/c3b78761d29c53558fd993c84bb808bd5783861d)
+#### Wednesday 2023-04-05 00:32:54 by tralezab
+
+Adds Chuunibyou Spell + Granter (#74404)
+
+## About The Pull Request
+
+My April fools this year, though not going to call it one because some
+people think it should just be actually merged.
+
+### Chuunibyou Powers 🌟
+
+Wizard gets a new spell for 2 points that gives him the powers of
+chuuni. This makes them have ridiculous shouted invocations for all
+their spells, their spells are colored pink, and they heal slightly when
+casting one.
+
+While mostly a meme spell, I could see a tailored loadout like lichdom
+and splattercasting that takes advantage of the unique spellcasting
+changes, like a very low cooldown spammable loadout to heal quickly.
+
+There is also a granter book in the library, which teaches a version of
+chunni that doesn't heal.
+
+#### Medical eyepatch
+
+I added it, chuuni wizards get a NODROP version.
 
 ## Why It's Good For The Game
-Splashing people with a molotov filled with Random Shit now also
-splashes that Random Shit all around, making them slightly more spicy to
-play around with. Unfortunately, I couldn't figure out how to make fuel
-puddles ignite off of lit objects resting on top of them (there's no
-item-level proc for hotspot exposure or something). If anyone wants to
-advise me on how to make that happen, that'd be cool.
+
+This PR bestows upon the game the glorious gift of chuuni powers, the
+ultimate manifestation of my hidden potential and the secret truth of
+this world, which only I and a few chosen ones can comprehend and
+unleash! Why wouldn't you want it?!
+
+In all seriousness, it is a unique wizard playstyle and it will make for
+some funny memes. Beyond wizard, the chaplain, heretics, or mime can
+read it in the library for a very silly round. I like it!
 
 ## Changelog
 :cl:
-add: Reagent containers that splash on people when thrown (e.g.
-molotovs) now spill their contents on both target and turf. (This means
-that throwing molotovs with enough fuel spills fuel puddles, throwing
-beakers with acid spills acid on the floor, etc. etc.) Unfortunately,
-molotovs still lack the ability to ignite their own spilled fuel, but
-we'll get there one day.
+add: Chuunibyou wizards, and chunni granters in the library
+add: Medical eyepatches
 /:cl:
 
-Co-authored-by: Hatterhat <Hatterhat@ users.noreply.github.com>
+---
+## [Comxy/tgstation](https://github.com/Comxy/tgstation)@[e1221c986f...](https://github.com/Comxy/tgstation/commit/e1221c986f5da2551051f47aa0fbd1d49e367c9b)
+#### Wednesday 2023-04-05 00:37:46 by san7890
 
-* Thrown containers splashing on mobs spill some contents on the floor
+Chasm Hell On Icebox - 300 Active Turfs on Prod Moment (#74410)
 
----------
+## About The Pull Request
 
-Co-authored-by: Hatterhat <31829017+Hatterhat@users.noreply.github.com>
-Co-authored-by: Hatterhat <Hatterhat@ users.noreply.github.com>
+Spontaneous regressions introduced by #74359
+(1e58c1875d9e2f48a306fe31a0626dbbb1990ff9).
+```txt
+ - Z-Level 2 has 150 active turf(s).
+ - Z-Level 3 has 150 active turf(s).
+ - Z-Level trait Ice Ruins Underground has 300 active turf(s).
+ - Z-Level trait Mining has 300 active turf(s).
+ - Z-Level trait Station has 300 active turf(s).
+ - End of active turf list.
+ ```
+
+![image](https://user-images.githubusercontent.com/34697715/229213138-5a6a7a4f-edec-47ab-8def-ee4e4bddfe61.png)
+
+Basically the lavaland ruin sucks dogshit and I had to do a lot of stuff to account for everything failing. There was even a moment where we were adding something to `flags_1` instead of `turf_flags` and that was also really bad to figure out.
+
+![image](https://user-images.githubusercontent.com/34697715/229213428-63bb1f6e-6f88-4604-a3c6-e08e20cbfa7a.png)
+
+i also had to add orange genturfs because it was really getting bad with all of the assertions we had to keep making, especially since stuff like this could also show up:
+
+![image](https://user-images.githubusercontent.com/34697715/229213562-4a145453-5f90-4d05-b8cc-5c1beec2b0dd.png)
+
+That's the prison in the red box, those are active turfs because a chasm scraped it away.
+
+Sorry if this is hard to follow but I promise you everything in this is essential. I wish we didn't have to rely on turf flags as much as we do but this is a fix PR, not a refactor.
+## Why It's Good For The Game
+
+Even one active turf on IceBox ate up _three_ seconds of SSair's initialization every single time it was really fucking bad.
+
+We haven't had to deal with chasms for about two years so there's a lot of mapping assertions we made since they just weren't a thing, but now they're back so lets do it properly.
+## Changelog
+:cl:
+fix: The prison on IceBox should no longer leak air as often.
+/:cl:
+
+I have compiled this map about 30 times until active turfs stopped fucking happening and now I am content. This likely doesn't fix _everything_ because some stuff can still be hidden to me, and we still have PRs that need to be merged to reduce the amount of noise we're getting on prod.
 
 ---
-## [necromanceranne/tgstation](https://github.com/necromanceranne/tgstation)@[c0ef4ba907...](https://github.com/necromanceranne/tgstation/commit/c0ef4ba907b28e1288f2ccbbc6714d15a923b1bd)
-#### Tuesday 2023-04-04 00:34:30 by tralezab
+## [nodestake/RealioNetwork](https://github.com/nodestake/RealioNetwork)@[ab863384ee...](https://github.com/nodestake/RealioNetwork/commit/ab863384eeabb194d626cd1c15b42bf255d28eef)
+#### Wednesday 2023-04-05 00:45:14 by Indonode
+
+Indonode#5255
+
+Professional and Experienced Validator in Cosmos Ecosystem
+High Security , High Uptime
+
+Providing the best services for Stakers and Community
+Helping new project to success with love and knowledge.
+
+Our services :
+✅ Node Installation Guide (with Cosmovisor)
+✅ Genesis
+✅ Addrbook (Every Hour updated)
+✅ Live Peers
+✅ Public Endpoints
+✅ Statesync
+✅ Snapshot ( Updated everyday at 12 Midnight)
+✅ CLI Cheatsheets Command
+✅ Explorer
+
+Find more at : https://indonode.net/
+
+---
+## [timothymtorres/tgstation](https://github.com/timothymtorres/tgstation)@[c0ef4ba907...](https://github.com/timothymtorres/tgstation/commit/c0ef4ba907b28e1288f2ccbbc6714d15a923b1bd)
+#### Wednesday 2023-04-05 00:47:44 by tralezab
 
 Adds the Dark Matt-eor when you emag a stupid amount of meteor shields + lots of meteor file sorting + qol + dark matter singularity + dark matt-eor summoning final traitor objective (#74330)
 
@@ -195,8 +381,8 @@ emagging enough of them summons a Dark Matt-eor.
 /:cl:
 
 ---
-## [necromanceranne/tgstation](https://github.com/necromanceranne/tgstation)@[ccef887efe...](https://github.com/necromanceranne/tgstation/commit/ccef887efec2cb3025228210bcb134700aac5175)
-#### Tuesday 2023-04-04 00:34:30 by san7890
+## [timothymtorres/tgstation](https://github.com/timothymtorres/tgstation)@[ccef887efe...](https://github.com/timothymtorres/tgstation/commit/ccef887efec2cb3025228210bcb134700aac5175)
+#### Wednesday 2023-04-05 00:47:44 by san7890
 
 Lints Against Unmanaged Local Defines (#74333)
 
@@ -256,500 +442,8 @@ Nothing that really concerns players.
 in the python script. sorry downstreams)
 
 ---
-## [Mey-Ha-Zah/tgstation](https://github.com/Mey-Ha-Zah/tgstation)@[c3b78761d2...](https://github.com/Mey-Ha-Zah/tgstation/commit/c3b78761d29c53558fd993c84bb808bd5783861d)
-#### Tuesday 2023-04-04 00:39:46 by tralezab
-
-Adds Chuunibyou Spell + Granter (#74404)
-
-## About The Pull Request
-
-My April fools this year, though not going to call it one because some
-people think it should just be actually merged.
-
-### Chuunibyou Powers 🌟
-
-Wizard gets a new spell for 2 points that gives him the powers of
-chuuni. This makes them have ridiculous shouted invocations for all
-their spells, their spells are colored pink, and they heal slightly when
-casting one.
-
-While mostly a meme spell, I could see a tailored loadout like lichdom
-and splattercasting that takes advantage of the unique spellcasting
-changes, like a very low cooldown spammable loadout to heal quickly.
-
-There is also a granter book in the library, which teaches a version of
-chunni that doesn't heal.
-
-#### Medical eyepatch
-
-I added it, chuuni wizards get a NODROP version.
-
-## Why It's Good For The Game
-
-This PR bestows upon the game the glorious gift of chuuni powers, the
-ultimate manifestation of my hidden potential and the secret truth of
-this world, which only I and a few chosen ones can comprehend and
-unleash! Why wouldn't you want it?!
-
-In all seriousness, it is a unique wizard playstyle and it will make for
-some funny memes. Beyond wizard, the chaplain, heretics, or mime can
-read it in the library for a very silly round. I like it!
-
-## Changelog
-:cl:
-add: Chuunibyou wizards, and chunni granters in the library
-add: Medical eyepatches
-/:cl:
-
----
-## [Jalesen/tgstation](https://github.com/Jalesen/tgstation)@[e1221c986f...](https://github.com/Jalesen/tgstation/commit/e1221c986f5da2551051f47aa0fbd1d49e367c9b)
-#### Tuesday 2023-04-04 01:07:40 by san7890
-
-Chasm Hell On Icebox - 300 Active Turfs on Prod Moment (#74410)
-
-## About The Pull Request
-
-Spontaneous regressions introduced by #74359
-(1e58c1875d9e2f48a306fe31a0626dbbb1990ff9).
-```txt
- - Z-Level 2 has 150 active turf(s).
- - Z-Level 3 has 150 active turf(s).
- - Z-Level trait Ice Ruins Underground has 300 active turf(s).
- - Z-Level trait Mining has 300 active turf(s).
- - Z-Level trait Station has 300 active turf(s).
- - End of active turf list.
- ```
-
-![image](https://user-images.githubusercontent.com/34697715/229213138-5a6a7a4f-edec-47ab-8def-ee4e4bddfe61.png)
-
-Basically the lavaland ruin sucks dogshit and I had to do a lot of stuff to account for everything failing. There was even a moment where we were adding something to `flags_1` instead of `turf_flags` and that was also really bad to figure out.
-
-![image](https://user-images.githubusercontent.com/34697715/229213428-63bb1f6e-6f88-4604-a3c6-e08e20cbfa7a.png)
-
-i also had to add orange genturfs because it was really getting bad with all of the assertions we had to keep making, especially since stuff like this could also show up:
-
-![image](https://user-images.githubusercontent.com/34697715/229213562-4a145453-5f90-4d05-b8cc-5c1beec2b0dd.png)
-
-That's the prison in the red box, those are active turfs because a chasm scraped it away.
-
-Sorry if this is hard to follow but I promise you everything in this is essential. I wish we didn't have to rely on turf flags as much as we do but this is a fix PR, not a refactor.
-## Why It's Good For The Game
-
-Even one active turf on IceBox ate up _three_ seconds of SSair's initialization every single time it was really fucking bad.
-
-We haven't had to deal with chasms for about two years so there's a lot of mapping assertions we made since they just weren't a thing, but now they're back so lets do it properly.
-## Changelog
-:cl:
-fix: The prison on IceBox should no longer leak air as often.
-/:cl:
-
-I have compiled this map about 30 times until active turfs stopped fucking happening and now I am content. This likely doesn't fix _everything_ because some stuff can still be hidden to me, and we still have PRs that need to be merged to reduce the amount of noise we're getting on prod.
-
----
-## [corbin-poteet/put-me-on](https://github.com/corbin-poteet/put-me-on)@[303f8e2d88...](https://github.com/corbin-poteet/put-me-on/commit/303f8e2d88f116115932cecb29f3e92138a22a93)
-#### Tuesday 2023-04-04 01:49:12 by Corbin Poteet
-
-Fixed every stupid fucking warning it was bitching about jesus fucking christ fuck you expo
-
----
-## [k21971/EvilHack](https://github.com/k21971/EvilHack)@[ca94646107...](https://github.com/k21971/EvilHack/commit/ca94646107afae7264756d266847f628e2f0a128)
-#### Tuesday 2023-04-04 02:52:43 by k21971
-
-Make the archangel Saint Michael a unique monster.
-
-The named archangel Saint Michael at the end of Purgatory has been
-upgraded, and is now a unique angel. He retains many of the properties
-of a normal archangel, but can also employ the magic missile attack of a
-regular angel.
-
-I may make some minor adjustments to this, but this is a good start.
-While not as strong as the demon princes encountered in Gehennom, Saint
-Michael is definitely more powerful than his earlier form as a regular
-archangel.
-
----
-## [zinc-collective/convene](https://github.com/zinc-collective/convene)@[9d96300571...](https://github.com/zinc-collective/convene/commit/9d963005716ebc9da222fa878f138afff09f0d1b)
-#### Tuesday 2023-04-04 02:53:22 by Zee
-
-✨🥔🥗 `Marketplace`: Validate delivery independently (#1292)
-
-* `Marketplace`: Sprout `Cart::Delivery` scaffolding
-
-- https://github.com/zinc-collective/convene/issues/831
-
-When a `Shopper` sets their delivery info, they now get error messages
-if they do not provide sufficient information (i.e. leave their phone
-number blank)
-
-In order to accomplish that, I:
-
-1. Pulled out the `cart/deliveries/_delivery` and `cart/deliveries/_form` partials from `_cart`
-2. Sprouted a new `Cart::Delivery` model, with corresponding
-   `Cart::DeliveriesController` and `Cart::DeliveryPolicy` objects
-
-It's feeling a little like we want a `Cart` to `has_one :delivery` and
-move the encrypted data into that.
-
-However, I'm not quite ready to do that, since I would rather:
-
-- [ ] Make it purty! It's pretty ugly right now
-- [ ] Make it safe! It's not tested *remotely* enough
-
-Well where did you come from
-
-* 🥗 `Marketplace`: Test `DeliveriesController`!
-
-We ran into a number of problems here, in particular testing turbo
-streams when there is a `respond_to` block does not apparently work
-nearly as well as we wish it did
-
-Co-authored-by: Dicko Sow <s12dsow@users.noreply.github.com>
-
-🧹 `Marketplace`: Appease the Rubocop
-
-* Use new location syntax
-
-* 🛠️ `Marketplace`: Add a factory for `Cart::Delivery`
-
-* 🛠️ `Neighborhood`: `have_rendered_turbo_stream` compares the body
-
-OK this is way tooooo greedy but it's so dang close...
-
-* Helps when I use the right gosh-darn thing thang
-
-* And some tests on update!
-
-* Get rid of that there whitespace
-
-* 🥗 `Marketplace`: Validation specs for `Cart::Delivery`
-
----
-## [SwapnilVicky/namaste_xiaomi_miatoll](https://github.com/SwapnilVicky/namaste_xiaomi_miatoll)@[6f52d1ab2e...](https://github.com/SwapnilVicky/namaste_xiaomi_miatoll/commit/6f52d1ab2e5f8a038d907e6cfe70c2d5b528600d)
-#### Tuesday 2023-04-04 03:15:15 by Maciej Żenczykowski
-
-FROMGIT: bpf: Do not change gso_size during bpf_skb_change_proto()
-
-This is technically a backwards incompatible change in behaviour, but I'm
-going to argue that it is very unlikely to break things, and likely to fix
-*far* more then it breaks.
-
-In no particular order, various reasons follow:
-
-(a) I've long had a bug assigned to myself to debug a super rare kernel crash
-on Android Pixel phones which can (per stacktrace) be traced back to BPF clat
-IPv6 to IPv4 protocol conversion causing some sort of ugly failure much later
-on during transmit deep in the GSO engine, AFAICT precisely because of this
-change to gso_size, though I've never been able to manually reproduce it. I
-believe it may be related to the particular network offload support of attached
-USB ethernet dongle being used for tethering off of an IPv6-only cellular
-connection. The reason might be we end up with more segments than max permitted,
-or with a GSO packet with only one segment... (either way we break some
-assumption and hit a BUG_ON)
-
-(b) There is no check that the gso_size is > 20 when reducing it by 20, so we
-might end up with a negative (or underflowing) gso_size or a gso_size of 0.
-This can't possibly be good. Indeed this is probably somehow exploitable (or
-at least can result in a kernel crash) by delivering crafted packets and perhaps
-triggering an infinite loop or a divide by zero... As a reminder: gso_size (MSS)
-is related to MTU, but not directly derived from it: gso_size/MSS may be
-significantly smaller then one would get by deriving from local MTU. And on
-some NICs (which do loose MTU checking on receive, it may even potentially be
-larger, for example my work pc with 1500 MTU can receive 1520 byte frames [and
-sometimes does due to bugs in a vendor plat46 implementation]). Indeed even just
-going from 21 to 1 is potentially problematic because it increases the number
-of segments by a factor of 21 (think DoS, or some other crash due to too many
-segments).
-
-(c) It's always safe to not increase the gso_size, because it doesn't result in
-the max packet size increasing.  So the skb_increase_gso_size() call was always
-unnecessary for correctness (and outright undesirable, see later). As such the
-only part which is potentially dangerous (ie. could cause backwards compatibility
-issues) is the removal of the skb_decrease_gso_size() call.
-
-(d) If the packets are ultimately destined to the local device, then there is
-absolutely no benefit to playing around with gso_size. It only matters if the
-packets will egress the device. ie. we're either forwarding, or transmitting
-from the device.
-
-(e) This logic only triggers for packets which are GSO. It does not trigger for
-skbs which are not GSO. It will not convert a non-GSO MTU sized packet into a
-GSO packet (and you don't even know what the MTU is, so you can't even fix it).
-As such your transmit path must *already* be able to handle an MTU 20 bytes
-larger then your receive path (for IPv4 to IPv6 translation) - and indeed 28
-bytes larger due to IPv4 fragments. Thus removing the skb_decrease_gso_size()
-call doesn't actually increase the size of the packets your transmit side must
-be able to handle. ie. to handle non-GSO max-MTU packets, the IPv4/IPv6 device/
-route MTUs must already be set correctly. Since for example with an IPv4 egress
-MTU of 1500, IPv4 to IPv6 translation will already build 1520 byte IPv6 frames,
-so you need a 1520 byte device MTU. This means if your IPv6 device's egress
-MTU is 1280, your IPv4 route must be 1260 (and actually 1252, because of the
-need to handle fragments). This is to handle normal non-GSO packets. Thus the
-reduction is simply not needed for GSO packets, because when they're correctly
-built, they will already be the right size.
-
-(f) TSO/GSO should be able to exactly undo GRO: the number of packets (TCP
-segments) should not be modified, so that TCP's MSS counting works correctly
-(this matters for congestion control). If protocol conversion changes the
-gso_size, then the number of TCP segments may increase or decrease. Packet loss
-after protocol conversion can result in partial loss of MSS segments that the
-sender sent. How's the sending TCP stack going to react to receiving ACKs/SACKs
-in the middle of the segments it sent?
-
-(g) skb_{decrease,increase}_gso_size() are already no-ops for GSO_BY_FRAGS
-case (besides triggering WARN_ON_ONCE). This means you already cannot guarantee
-that gso_size (and thus resulting packet MTU) is changed. ie. you must assume
-it won't be changed.
-
-(h) changing gso_size is outright buggy for UDP GSO packets, where framing
-matters (I believe that's also the case for SCTP, but it's already excluded
-by [g]).  So the only remaining case is TCP, which also doesn't want it
-(see [f]).
-
-(i) see also the reasoning on the previous attempt at fixing this
-(commit fa7b83bf3b156c767f3e4a25bbf3817b08f3ff8e) which shows that the current
-behaviour causes TCP packet loss:
-
-  In the forwarding path GRO -> BPF 6 to 4 -> GSO for TCP traffic, the
-  coalesced packet payload can be > MSS, but < MSS + 20.
-
-  bpf_skb_proto_6_to_4() will upgrade the MSS and it can be > the payload
-  length. After then tcp_gso_segment checks for the payload length if it
-  is <= MSS. The condition is causing the packet to be dropped.
-
-  tcp_gso_segment():
-    [...]
-    mss = skb_shinfo(skb)->gso_size;
-    if (unlikely(skb->len <= mss)) goto out;
-    [...]
-
-Thus changing the gso_size is simply a very bad idea. Increasing is unnecessary
-and buggy, and decreasing can go negative.
-
-Fixes: 6578171a7ff0 ("bpf: add bpf_skb_change_proto helper")
-Signed-off-by: Maciej Żenczykowski <maze@google.com>
-Signed-off-by: Daniel Borkmann <daniel@iogearbox.net>
-Cc: Dongseok Yi <dseok.yi@samsung.com>
-Cc: Willem de Bruijn <willemb@google.com>
-Link: https://lore.kernel.org/bpf/CANP3RGfjLikQ6dg=YpBU0OeHvyv7JOki7CyOUS9modaXAi-9vQ@mail.gmail.com
-Link: https://lore.kernel.org/bpf/20210617000953.2787453-2-zenczykowski@gmail.com
-
-(cherry picked from commit 364745fbe981a4370f50274475da4675661104df https://git.kernel.org/pub/scm/linux/kernel/git/bpf/bpf-next.git/commit/?id=364745fbe981a4370f50274475da4675661104df )
-Test: builds, TreeHugger
-Bug: 188690383
-Signed-off-by: Maciej Żenczykowski <maze@google.com>
-Change-Id: I0ef3174cbd3caaa42d5779334a9c0bfdc9ab81f5
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[b5ebf5c942...](https://github.com/tgstation/tgstation/commit/b5ebf5c9423cb3b39a2b9cfb6524b157dc6cb4b2)
-#### Tuesday 2023-04-04 04:16:41 by Helg2
-
-Adds better parts for syndie mechs, some tooltips to mech maintenance mode and some little changes. (#74466)
-
-## About The Pull Request
-Kinda resusticates #72442 cause the whole conflict was stupid.
-Adds t4 parts for dark gygax, mauler and reticence (for the sake of
-shitspawn) and t3 for dark honker.
-Formulas of better parts to understand the difference:
-
-https://github.com/tgstation/tgstation/blob/aff9cf1b434c7a95d156ea20108d8b2bc015083d/code/modules/vehicles/mecha/_mecha.dm#L427-L439
-
-
-Made examine text into span_notices so it's not just plane text.
-Also added tooltips for maintenance. Screens to compare:
-
-![image](https://user-images.githubusercontent.com/93882977/229368394-23ca7388-2640-4a82-8134-36a18878b687.png)
-
-![image](https://user-images.githubusercontent.com/93882977/229368398-d4654b56-78e9-4321-80cc-cad31cfabef8.png)
-
-
-Dark gygax will now spawn without access adding regime.
-Tool interactions with mech will now have sounds. (wrench and crowbar)
-Removing parts from mech will now put them in your hands, and not just
-under the mech.
-When inserting parts in mech they won't make some noisy noise, already
-forgot which noise it was, but i changed it for some reason, so meh.
-
-Also fixed that you can remove capacitors and scanning mods from mech
-without proper maintenance as it works with cell. Closes
-https://github.com/tgstation/tgstation/issues/71577
-## Why It's Good For The Game
-Syndie mechs are still week. Didn't see them in half a year.
-## Changelog
-:cl:
-qol: changed mech description to span_notices and just slightly comfier
-to use.
-qol: added tooltips for mech's maintenance mode.
-balance: added t4 parts for mauler and dark gygax. And t3 parts for dark
-honker.
-fix: fixed that you can remove capacitor and scanmod from mech without
-proper maintenance steps. Now you can't
-/:cl:
-
----
-## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[4e86fc8df2...](https://github.com/cmss13-devs/cmss13/commit/4e86fc8df2247dcb18b14e473d6ab6cca3c7567d)
-#### Tuesday 2023-04-04 05:08:35 by victorjosephespinoza
-
-Let (whitelisted) ghosts join in as Working Joes (#2963)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-
-# About the pull request
-
-https://forum.cm-ss13.com/t/make-it-so-ghosted-players-can-spawn-in-as-working-joes/588
-Adds a ghost verb so ghosts can now join the game as working joes.
-
-<!-- Remove this text and explain what the purpose of your PR is.
-
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
-
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
-
-# Explain why it's good for the game
-Like it was said in the forum post, Joes are pretty much harmless, their
-impact on the round is pretty much minimal, so adding this wouldn't
-imply any balance change whatsoever.
-
-The intent of adding something like this to the server is mainly trying
-to get more attention to the role. Which is barely played at the moment,
-however, if dead players could now respawn as them, I believe it might
-get more activity.
-
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
-
-
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-Unsure of what kind of debugging I could provide in here, request any in
-the comments and I'll do it.
-
-There's a high chance that something is not treated as it should. This
-is probably the first PR where I had to look and understand what I was
-writing, despite the fact that a lot of the code is taken from the pred
-initialization. So yeah, if you would have placed something somewhere
-else, or differently, go ahead and tell me.
-
-# Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
-
-:cl:H20Begod
-add: Added a new verb for ghosts to join in as working joes (ONLY
-WHITELISTED GHOSTS).
-code: Edited max spawns of the working joes to 3.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! -->
-
----
-## [silicons/Citadel-Station-13-RP](https://github.com/silicons/Citadel-Station-13-RP)@[9c8abee554...](https://github.com/silicons/Citadel-Station-13-RP/commit/9c8abee5540f17951b1947a212b80521f1b36300)
-#### Tuesday 2023-04-04 05:30:55 by IrkallaEpsilon
-
-Matterforge Recipe expansion (#5168)
-
-## About The Pull Request
-
-This PR adds a few more matterforge recipes, some of stupidly high
-difficulty and pointless rewards if miners are doing their job (looking
-at you steel to gold), some of more usefulness (gold to plat, plat to
-osmium). All require different temperature and energy ranges so they
-cannot be rushed thoroughly. Not much thought was put into realism but
-eh who cares, the matterforge is a cool thing ingame and its fun to use.
-Some temperatures ranges (Steel to gold) are very narrow hence the use
-of a gyrotron would be needed to get the most out of it. Or precise
-heating (temperature can be raised to exorbitant amounts to prevent
-heater cheese). This also would allow for Research to collab with cargo
-for exports specially if dynamic prices ever come. In particular looking
-at the gold to plat transmutation here. Plat can be exported by cargo in
-which cargo can order more shit from.
-
-I aint a good coder else I would add specific atmospheric conditions
-needed, not just temperature (e.g. N2O must be present).
-Reminded me a bit of TGs gas reactions but less gamy. 
-
-## Why It's Good For The Game
-
-More Matterforge recipes. Most relatively pointless and niche, some
-allow science to give cargo something to sell, others can help with
-theres an overabundance of Plat due to new miners. Mostly just giving
-some extra uses for the forge. Oh and an alternative way to get plasteel
-while sacrificing phoron sheets. Also bragging rights of effectively
-turning iron (and carbon) into gold at specific temperatures and energy
-levels on the particle focus.
-
-A proper coder should check if these recipes are fine. Its 2:30 AM and I
-thought this would just be neat.
-
-## Changelog
-
-:cl:
-add: Various matterforge recipes
-/:cl:
-
----
-## [silicons/Citadel-Station-13-RP](https://github.com/silicons/Citadel-Station-13-RP)@[b3a43f2b85...](https://github.com/silicons/Citadel-Station-13-RP/commit/b3a43f2b8522c03ca976a1f7e72aa9deea97b350)
-#### Tuesday 2023-04-04 05:30:55 by IrkallaEpsilon
-
-Buffs Excav Laser Module (#5174)
-
-## About The Pull Request
-
-Buffs Excav laser module. Inconsisten with the one hit of rocks.
-Hopefully this ammends it specially since scatterlenses are getting
-removed (although nobody used them in combat yet.)
-
-## Why It's Good For The Game
-
-Scatter lense gone, legitimate mining tool needs a buff. The other
-options (Phoron Bore) are a sick joke with how slow clunky they are to
-use.
-
-
-## Changelog
-:cl:
-balance: Meatier sound on excav laser. Higher excav power to
-consistently one shot rocks.
-/:cl:
-
----
-## [rageguy505/ragestation](https://github.com/rageguy505/ragestation)@[c18b1ef442...](https://github.com/rageguy505/ragestation/commit/c18b1ef4423fc7d9083adac9b51aab4f169ea8aa)
-#### Tuesday 2023-04-04 05:53:46 by tralezab
-
-End of Mapping March (Thanks to everyone who contributed, you're amazing!!!) (#74417)
-
-## About The Pull Request
-
-Removes the special mapping template. We got a really good turnout this
-year! Will start counting ckeys and all that.
-
-### But my mapping pr isn't done yet!
-
-If it was opened during march, you'll get your token, don't worry
-
----
-## [Enbyy/orbstation](https://github.com/Enbyy/orbstation)@[c27f9a6d9b...](https://github.com/Enbyy/orbstation/commit/c27f9a6d9b9739baae09db063b6eb266d525772c)
-#### Tuesday 2023-04-04 06:33:14 by necromanceranne
+## [Xander3359/tgstation](https://github.com/Xander3359/tgstation)@[c27f9a6d9b...](https://github.com/Xander3359/tgstation/commit/c27f9a6d9b9739baae09db063b6eb266d525772c)
+#### Wednesday 2023-04-05 00:49:35 by necromanceranne
 
 Minor Nukie Thing: Bolt-action Sniper Rifle, balance coding, and some ammo changes (#73781)
 
@@ -871,8 +565,8 @@ rifle were found to actually be 'fine'. Trust us.
 /:cl:
 
 ---
-## [Enbyy/orbstation](https://github.com/Enbyy/orbstation)@[95b810919e...](https://github.com/Enbyy/orbstation/commit/95b810919ede0f4fb22dc711c0334abf36b94843)
-#### Tuesday 2023-04-04 06:33:14 by lizardqueenlexi
+## [Xander3359/tgstation](https://github.com/Xander3359/tgstation)@[95b810919e...](https://github.com/Xander3359/tgstation/commit/95b810919ede0f4fb22dc711c0334abf36b94843)
+#### Wednesday 2023-04-05 00:49:35 by lizardqueenlexi
 
 Adds preference for "Tagger" paint color. (#74281)
 
@@ -905,622 +599,79 @@ prefs.
 /:cl:
 
 ---
-## [DrDiasyl/tgstation](https://github.com/DrDiasyl/tgstation)@[b3e5642d94...](https://github.com/DrDiasyl/tgstation/commit/b3e5642d94caab455bea8b71e244081249cb2924)
-#### Tuesday 2023-04-04 07:55:47 by san7890
+## [Rustybuckets6601/tgstation](https://github.com/Rustybuckets6601/tgstation)@[0a1f7e8de2...](https://github.com/Rustybuckets6601/tgstation/commit/0a1f7e8de2fea2116b73f22a11fdf328763c503a)
+#### Wednesday 2023-04-05 00:55:57 by Hatterhat
 
-Fixes Active Turf Scenario on Tramstation (#74354)
+Thrown containers splashing on mobs spill some contents on the floor (#74345)
 
 ## About The Pull Request
+Spiritual continuation of tgstation/tgstation#74187.
 
-On the tin. Basically whenever `atmoscilower_2.dmm` would invoked
-`atmoscilower_attachment_a_2.dmm`, it would trigger an active turf in
-this location since it doesn't have a "ceiling". (as well as there being
-an "aired" turf mingling with airless turfs)
+![image](https://user-images.githubusercontent.com/31829017/228645705-5a32cc67-37e0-48d6-9e95-6006f455ed3c.png)
+Reagent containers that splash their contents on people also splash the
+floor - the amount that gets splashed on the floor is the amount that
+missed the target.
+### Mapping March
 
-This caused the following report:
-```txt
- - All that follows is a turf with an active air difference at roundstart. To clear this, make sure that all of the turfs listed below are connected to a turf with the same air contents.
- - In an ideal world, this list should have enough information to help you locate the active turf(s) in question. Unfortunately, this might not be an ideal world.
- - If the round is still ongoing, you can use the "Mapping -> Show roundstart AT list" verb to see exactly what active turfs were detected. Otherwise, good luck.
- - Active turf: Station Asteroid (163,80,2) (/area/station/asteroid). Turf type: /turf/open/floor/plating/airless. Relevant Z-Trait(s): Station.
- - Active turf: Lesser Starboard Maintenance (163,81,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/plating. Relevant Z-Trait(s): Station.
- - Active turf: Station Asteroid (164,80,2) (/area/station/asteroid). Turf type: /turf/open/floor/plating/airless. Relevant Z-Trait(s): Station.
- - Active turf: Lesser Starboard Maintenance (164,81,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/plating. Relevant Z-Trait(s): Station.
- - Active turf: Station Asteroid (165,80,2) (/area/station/asteroid). Turf type: /turf/open/misc/asteroid/airless. Relevant Z-Trait(s): Station.
- - Active turf: Lesser Starboard Maintenance (165,81,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/plating. Relevant Z-Trait(s): Station.
- - Active turf: Station Asteroid (166,81,2) (/area/station/asteroid). Turf type: /turf/open/floor/plating/airless. Relevant Z-Trait(s): Station.
- - Active turf: Lesser Starboard Maintenance (165,83,2) (/area/station/maintenance/starboard/lesser). Turf type: /turf/open/floor/iron/smooth. Relevant Z-Trait(s): Station.
- - Active turf: Station Asteroid (165,83,3) (/area/station/asteroid). Turf type: /turf/open/openspace/airless. Relevant Z-Trait(s): Station.
- - Z-Level 2 has 8 active turf(s).
- - Z-Level 3 has 1 active turf(s).
- - Z-Level trait Station has 9 active turf(s).
- - End of active turf list.
-```
+Ckey to receive rewards: N/A (it's not a mapping PR)
 
-This is what it looked like when it was reproduced on my machine:
-
-
-![image](https://user-images.githubusercontent.com/34697715/228689991-d9cc87c3-f931-4513-8399-928c93def605.png)
-
-
-Surprisingly not that hard to debug, albeit tedious. At least I know
-that this was the issue with 100% confidence.
 ## Why It's Good For The Game
+Splashing people with a molotov filled with Random Shit now also
+splashes that Random Shit all around, making them slightly more spicy to
+play around with. Unfortunately, I couldn't figure out how to make fuel
+puddles ignite off of lit objects resting on top of them (there's no
+item-level proc for hotspot exposure or something). If anyone wants to
+advise me on how to make that happen, that'd be cool.
 
-Ate up 0.1 seconds of init on my machine. That's silly.
 ## Changelog
-No way players care
+:cl:
+add: Reagent containers that splash on people when thrown (e.g.
+molotovs) now spill their contents on both target and turf. (This means
+that throwing molotovs with enough fuel spills fuel puddles, throwing
+beakers with acid spills acid on the floor, etc. etc.) Unfortunately,
+molotovs still lack the ability to ignite their own spilled fuel, but
+we'll get there one day.
+/:cl:
+
+Co-authored-by: Hatterhat <Hatterhat@users.noreply.github.com>
 
 ---
-## [mshurkaeu-public/i-care.by](https://github.com/mshurkaeu-public/i-care.by)@[d02ec52235...](https://github.com/mshurkaeu-public/i-care.by/commit/d02ec522354820d0e8530b0af849eaf8252cec06)
-#### Tuesday 2023-04-04 09:29:52 by Mikalai Shurkaeu
+## [vinylspiders/Skyrat-customization-expansion](https://github.com/vinylspiders/Skyrat-customization-expansion)@[7a64573c8b...](https://github.com/vinylspiders/Skyrat-customization-expansion/commit/7a64573c8bfa01bac0d690db68d4b6528d502579)
+#### Wednesday 2023-04-05 00:56:00 by SkyratBot
 
-The very first draft for #1
+[MIRROR] Atmos QOL + Small Sprite Fix [MDB IGNORE] (#20243)
 
-Developed during period 2023-02-15 - 2023-03-10.
+* Atmos QOL + Small Sprite Fix (#74251)
 
-Originally the idea in the issue was to create a mobile app with a name
-like "who-is-he-how-is-she-meter".
+## About The Pull Request
+Added screentips and balloon alerts to many atmos machines/pipes
+Volume pump overclocking overlay is much slower and less seizure
+inducing
+RPD screentips for right clicking pipes to copy settings
+Removed (RPD) from the RPD's name since having an abbreviation in the
+name is ugly
+Crystallizer and electrolyzer use ctrl+click and alt-click to turn on
+On examine electrolyzer tells you about anchoring to drain from APC
+instead of cell
+## Why It's Good For The Game
+QOL for atmos stuff, user friendliness and better experience
+## Changelog
+:cl:
+fix: Volume pump overclocking animation is much slower, no more
+headaches
+qol: Added screentips to the RPD; screentips and balloon alerts to many
+atmos machines and devices
+:cl:
 
-When I started to work on the implementation I realized that it actually
-would do the very basic and useful things to care about the most important
-person in user's life. Thus I decided that the name of the app would be
-something like "i-care.by <platform> app".
-
-I chose Flutter to write code once and then compile it to different
-target platforms.
-
-"i-care.by web app" is available at
-https://mshurkaeu-public.github.io/i-care.by-app/web/
-
-In this first commit the following is implemented:
-1. User preferences (name and preferred pronoun).
-2. Display the list of the diary records on home page.
-3. Editing today record (- want to do today, - emotions in that moment,
-- done today, - emotions in that moment)
-4. Options to answer "who is the most important person in your life" are
-randomized on each run, so the user needs to focus and find the
-appropriate one.
-
-Each day the application asks (trigerred by user)
-1. Who is the most important person in your life?
-2. What do you want to do for the person today?
-3. What are your emotions and feelings in this moment?
---
-then, presumably in the second part of the day,
-4. What did you do for the person today?
-5. What are you emotions and feelings in this moment?
-
-The answers are recorded and stored in json format.
-On web platform - in window.localStorage.
-On other platforms - in application documents folder.
-----
-
-I want to say thank you to the following people, who helped me to create
-this first draft (chronological order, most recent accepted help go first,
-sorted by "accepted on" because there was a time lag between a moment the
-help was provided and when results appeared in the application (and some of
-the already provided hints are not yet incorporated into the application)):
-
-2023-03-10 02 🦸 — provided valuable feedback about my texts.
-And that helped to make the texts more clear.
-
-2023-03-10 01 🦸‍♀️ — aspired me to highlight in the application UI that the
-"want to do" list is a list of desires and not a list of "duties".
-
-2023-03-06 02 🦸 — aspired me to implement support of the preferred pronoun
-setting and thus to implement more user-friendly texts.
-
-2023-03-06 01 🦸‍♀️ — aspired me to implement the ability to edit user's name
-via UI sooner.
-
-2023-03-05 02 🦸 — found errors in text on the second introductory screen and
-shared a feeling that was not clear what to do after the "want to do today"
-list was populated.
-
-2023-03-05 01 🦸‍♀️ — aspired me to think how to implement proper validation for
-a list of persons to actually be a list of several persons.
-
-2023-03-04 🦸‍♀️ — shared own vision about the target audience and that helped
-me make my own vision of that audience clearer and to reflect that in texts.
-
-2023-02-28 🦸 — found a typo on the second introductory screen and also
-aspired me to think about UI element positioning and to make button "Next"
-closer to "major events".
-
-2023-02-15 🦸 — recommended me to use Flutter to achieve my goal
-"one code -> many target platforms". I hadn't known about Flutter before that.
-
----
-## [astrolemonade/awesome-docker](https://github.com/astrolemonade/awesome-docker)@[3164d6df94...](https://github.com/astrolemonade/awesome-docker/commit/3164d6df94f60d7d3d11629241c111ed416eb8eb)
-#### Tuesday 2023-04-04 10:28:18 by Derek Lee
-
-Add Kurtosis to list of testing tools (#1063)
-
-* Add Kurtosis to list of testing tools
-
-Hey team! We'd like to add Kurtosis to the list of testing tools. 
-
-*What is Kurtosis?* Kurtosis is a built system for multi-(docker)container test environments. 
-*What is Kurtosis for?* Kurtosis is for engineers who dev against large distributed systems/applications and who experience pain when trying to configure multi (Docker) container environments for their testing workflows. 
-
-Kurtosis can be used locally without the need to sign up and is free-forever under a source-available license (BSL). 
-
-We have:
-- Linked out to our Github: https://github.com/kurtosis-tech/kurtosis
-- [A README on our GIthub](https://github.com/kurtosis-tech/kurtosis#readme)
-- Content about how to setup/install the project (in our [Github README](https://github.com/kurtosis-tech/kurtosis#to-start-using-kurtosis) and on our [docs](https://docs.kurtosis.com/install)),
-- Lots of great examples on: [Github](https://github.com/kurtosis-tech/awesome-kurtosis#awesome-kurtosis-) and in our [docs](https://docs.kurtosis.com/). 
-
-I followed the [Quality Standards](https://github.com/veggiemonk/awesome-docker/blob/master/.github/CONTRIBUTING.md#quality-standards) you guys wrote, but please let me know if you've got any questions about Kurtosis or if we missed something!
-
-Thanks
-
-* add "composable" to description
-
----
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[5b1b936d3e...](https://github.com/treckstar/yolo-octo-hipster/commit/5b1b936d3e9ee6fe08c0374b475c56a5ffb70f8b)
-#### Tuesday 2023-04-04 11:22:03 by treckstar
-
-Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
-
----
-## [Pl1997/bridge](https://github.com/Pl1997/bridge)@[d8bb3cddfb...](https://github.com/Pl1997/bridge/commit/d8bb3cddfb9c310542649baf5c0e0cdeffa8a697)
-#### Tuesday 2023-04-04 11:39:43 by Pl1997
-
-Add video services to whitelist
-
-Hello,
-
-First of all, I want to thank you for this amazing service, which I recently discovered... It is a great pleasure to work with it ! I recently encountered a few problems with a project of mine, which makes use of Youtube. Since this website is : 
-# 1. Completely free service
-# 2. Used by a lot of people
-# 3. Easily handle million hits
-
-...I hereby suggest to add it to the Firewall whitelist. Please forgive me if this request seems dumb to you... I'm no professional, and I probably don't understand every implication of such a modification !
-
----
-## [Carreau/napari](https://github.com/Carreau/napari)@[3ec4be1ae8...](https://github.com/Carreau/napari/commit/3ec4be1ae8eee50ab4912ba87981261cc94c075f)
-#### Tuesday 2023-04-04 12:08:57 by Grzegorz Bokota
-
-Incorret theme should not prevent napari from start (#5605)
-
-# Description
-<!-- What does this pull request (PR) do? Why is it necessary? -->
-<!-- Tell us about your new feature, improvement, or fix! -->
-<!-- If your change includes user interface changes, please add an
-image, or an animation "An image is worth a thousand words!" -->
-<!-- You can use https://www.cockos.com/licecap/ or similar to create
-animations -->
-
-For the current implementation, the error in theme registration prevents
-the napari form from starting. It may be problematic for bundle users.
-
-In this PR I add `try: ... except` to handle an error during theme
-registration and convert it to logging exceptions. I use logging because
-it happened before creating GUI.
-
-## Type of change
-<!-- Please delete options that are not relevant. -->
-- [x] Bug-fix (non-breaking change which fixes an issue)
-- [ ] New feature (non-breaking change which adds functionality)
-- [ ] Breaking change (fix or feature that would cause existing
-functionality to not work as expected)
-- [ ] This change requires a documentation update
-
-# References
-<!-- What resources, documentation, and guides were used in the creation
-of this PR? -->
-<!-- If this is a bug-fix or otherwise resolves an issue, reference it
-here with "closes #(issue)" -->
-
-# How has this been tested?
-<!-- Please describe the tests that you ran to verify your changes. -->
-- [ ] example: the test suite for my feature covers cases x, y, and z
-- [ ] example: all tests pass with my change
-- [ ] example: I check if my changes works with both PySide and PyQt
-backends
-      as there are small differences between the two Qt bindings.  
-
-Install `napari-gruvbox`, `pygments==2.6` (bellow 2.9) and start napari 
-
-Example error message:
-```python-traceback
-11:52:01 ERROR Registration theme failed.
-1 validation error for Theme
-syntax_style
-  Incorrect `syntax_style` value: gruvbox-dark provided. Please use one of the following:  default, emacs, friendly, colorful, autumn, murphy, manni, monokai, perldoc, pastie, borland, trac, native, fruity, bw, vim, vs, tango, rrt, xcode, igor, paraiso-light, paraiso-dark, lovelace, algol, algol_nu, arduino, rainbow_dash, abap, solarized-dark, solarized-light, sas, stata, stata-light, stata-dark, inkpot (type=assertion_error)
-Traceback (most recent call last):
-  File "/home/czaki/Projekty/napari/napari/utils/theme.py", line 391, in _install_npe2_themes
-    register_theme(theme.id, theme_dict, manifest.name)
-  File "/home/czaki/Projekty/napari/napari/utils/theme.py", line 266, in register_theme
-    theme = Theme(**theme)
-  File "/home/czaki/Projekty/napari/napari/utils/events/evented_model.py", line 200, in __init__
-    super().__init__(**kwargs)
-  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
-pydantic.error_wrappers.ValidationError: 1 validation error for Theme
-syntax_style
-  Incorrect `syntax_style` value: gruvbox-dark provided. Please use one of the following:  default, emacs, friendly, colorful, autumn, murphy, manni, monokai, perldoc, pastie, borland, trac, native, fruity, bw, vim, vs, tango, rrt, xcode, igor, paraiso-light, paraiso-dark, lovelace, algol, algol_nu, arduino, rainbow_dash, abap, solarized-dark, solarized-light, sas, stata, stata-light, stata-dark, inkpot (type=assertion_error)
-11:52:01 ERROR Registration theme failed.
-1 validation error for Theme
-syntax_style
-  Incorrect `syntax_style` value: gruvbox-light provided. Please use one of the following:  default, emacs, friendly, colorful, autumn, murphy, manni, monokai, perldoc, pastie, borland, trac, native, fruity, bw, vim, vs, tango, rrt, xcode, igor, paraiso-light, paraiso-dark, lovelace, algol, algol_nu, arduino, rainbow_dash, abap, solarized-dark, solarized-light, sas, stata, stata-light, stata-dark, inkpot (type=assertion_error)
-Traceback (most recent call last):
-  File "/home/czaki/Projekty/napari/napari/utils/theme.py", line 391, in _install_npe2_themes
-    register_theme(theme.id, theme_dict, manifest.name)
-  File "/home/czaki/Projekty/napari/napari/utils/theme.py", line 266, in register_theme
-    theme = Theme(**theme)
-  File "/home/czaki/Projekty/napari/napari/utils/events/evented_model.py", line 200, in __init__
-    super().__init__(**kwargs)
-  File "pydantic/main.py", line 342, in pydantic.main.BaseModel.__init__
-pydantic.error_wrappers.ValidationError: 1 validation error for Theme
-syntax_style
-  Incorrect `syntax_style` value: gruvbox-light provided. Please use one of the following:  default, emacs, friendly, colorful, autumn, murphy, manni, monokai, perldoc, pastie, borland, trac, native, fruity, bw, vim, vs, tango, rrt, xcode, igor, paraiso-light, paraiso-dark, lovelace, algol, algol_nu, arduino, rainbow_dash, abap, solarized-dark, solarized-light, sas, stata, stata-light, stata-dark, inkpot (type=assertion_error)
-```
-
-## Final checklist:
-- [ ] My PR is the minimum possible work for the desired functionality
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I have made corresponding changes to the documentation
-- [ ] I have added tests that prove my fix is effective or that my
-feature works
-- [ ] If I included new strings, I have used `trans.` to make them
-localizable.
-For more information see our [translations
-guide](https://napari.org/developers/translations.html).
+* Atmos QOL + Small Sprite Fix
 
 ---------
 
-Co-authored-by: Lorenzo Gaifas <brisvag@gmail.com>
-
----
-## [rik0612c/android_kernel_sony_msm8996](https://github.com/rik0612c/android_kernel_sony_msm8996)@[820e74a30f...](https://github.com/rik0612c/android_kernel_sony_msm8996/commit/820e74a30f958c840bc99b42312f2c859e3ed737)
-#### Tuesday 2023-04-04 12:51:50 by Christian Brauner
-
-BACKPORT: signal: add pidfd_send_signal() syscall
-
-The kill() syscall operates on process identifiers (pid). After a process
-has exited its pid can be reused by another process. If a caller sends a
-signal to a reused pid it will end up signaling the wrong process. This
-issue has often surfaced and there has been a push to address this problem [1].
-
-This patch uses file descriptors (fd) from proc/<pid> as stable handles on
-struct pid. Even if a pid is recycled the handle will not change. The fd
-can be used to send signals to the process it refers to.
-Thus, the new syscall pidfd_send_signal() is introduced to solve this
-problem. Instead of pids it operates on process fds (pidfd).
-
-/* prototype and argument /*
-long pidfd_send_signal(int pidfd, int sig, siginfo_t *info, unsigned int flags);
-
-/* syscall number 424 */
-The syscall number was chosen to be 424 to align with Arnd's rework in his
-y2038 to minimize merge conflicts (cf. [25]).
-
-In addition to the pidfd and signal argument it takes an additional
-siginfo_t and flags argument. If the siginfo_t argument is NULL then
-pidfd_send_signal() is equivalent to kill(<positive-pid>, <signal>). If it
-is not NULL pidfd_send_signal() is equivalent to rt_sigqueueinfo().
-The flags argument is added to allow for future extensions of this syscall.
-It currently needs to be passed as 0. Failing to do so will cause EINVAL.
-
-/* pidfd_send_signal() replaces multiple pid-based syscalls */
-The pidfd_send_signal() syscall currently takes on the job of
-rt_sigqueueinfo(2) and parts of the functionality of kill(2), Namely, when a
-positive pid is passed to kill(2). It will however be possible to also
-replace tgkill(2) and rt_tgsigqueueinfo(2) if this syscall is extended.
-
-/* sending signals to threads (tid) and process groups (pgid) */
-Specifically, the pidfd_send_signal() syscall does currently not operate on
-process groups or threads. This is left for future extensions.
-In order to extend the syscall to allow sending signal to threads and
-process groups appropriately named flags (e.g. PIDFD_TYPE_PGID, and
-PIDFD_TYPE_TID) should be added. This implies that the flags argument will
-determine what is signaled and not the file descriptor itself. Put in other
-words, grouping in this api is a property of the flags argument not a
-property of the file descriptor (cf. [13]). Clarification for this has been
-requested by Eric (cf. [19]).
-When appropriate extensions through the flags argument are added then
-pidfd_send_signal() can additionally replace the part of kill(2) which
-operates on process groups as well as the tgkill(2) and
-rt_tgsigqueueinfo(2) syscalls.
-How such an extension could be implemented has been very roughly sketched
-in [14], [15], and [16]. However, this should not be taken as a commitment
-to a particular implementation. There might be better ways to do it.
-Right now this is intentionally left out to keep this patchset as simple as
-possible (cf. [4]).
-
-/* naming */
-The syscall had various names throughout iterations of this patchset:
-- procfd_signal()
-- procfd_send_signal()
-- taskfd_send_signal()
-In the last round of reviews it was pointed out that given that if the
-flags argument decides the scope of the signal instead of different types
-of fds it might make sense to either settle for "procfd_" or "pidfd_" as
-prefix. The community was willing to accept either (cf. [17] and [18]).
-Given that one developer expressed strong preference for the "pidfd_"
-prefix (cf. [13]) and with other developers less opinionated about the name
-we should settle for "pidfd_" to avoid further bikeshedding.
-
-The  "_send_signal" suffix was chosen to reflect the fact that the syscall
-takes on the job of multiple syscalls. It is therefore intentional that the
-name is not reminiscent of neither kill(2) nor rt_sigqueueinfo(2). Not the
-fomer because it might imply that pidfd_send_signal() is a replacement for
-kill(2), and not the latter because it is a hassle to remember the correct
-spelling - especially for non-native speakers - and because it is not
-descriptive enough of what the syscall actually does. The name
-"pidfd_send_signal" makes it very clear that its job is to send signals.
-
-/* zombies */
-Zombies can be signaled just as any other process. No special error will be
-reported since a zombie state is an unreliable state (cf. [3]). However,
-this can be added as an extension through the @flags argument if the need
-ever arises.
-
-/* cross-namespace signals */
-The patch currently enforces that the signaler and signalee either are in
-the same pid namespace or that the signaler's pid namespace is an ancestor
-of the signalee's pid namespace. This is done for the sake of simplicity
-and because it is unclear to what values certain members of struct
-siginfo_t would need to be set to (cf. [5], [6]).
-
-/* compat syscalls */
-It became clear that we would like to avoid adding compat syscalls
-(cf. [7]).  The compat syscall handling is now done in kernel/signal.c
-itself by adding __copy_siginfo_from_user_generic() which lets us avoid
-compat syscalls (cf. [8]). It should be noted that the addition of
-__copy_siginfo_from_user_any() is caused by a bug in the original
-implementation of rt_sigqueueinfo(2) (cf. 12).
-With upcoming rework for syscall handling things might improve
-significantly (cf. [11]) and __copy_siginfo_from_user_any() will not gain
-any additional callers.
-
-/* testing */
-This patch was tested on x64 and x86.
-
-/* userspace usage */
-An asciinema recording for the basic functionality can be found under [9].
-With this patch a process can be killed via:
-
- #define _GNU_SOURCE
- #include <errno.h>
- #include <fcntl.h>
- #include <signal.h>
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
- #include <sys/stat.h>
- #include <sys/syscall.h>
- #include <sys/types.h>
- #include <unistd.h>
-
- static inline int do_pidfd_send_signal(int pidfd, int sig, siginfo_t *info,
-                                         unsigned int flags)
- {
- #ifdef __NR_pidfd_send_signal
-         return syscall(__NR_pidfd_send_signal, pidfd, sig, info, flags);
- #else
-         return -ENOSYS;
- #endif
- }
-
- int main(int argc, char *argv[])
- {
-         int fd, ret, saved_errno, sig;
-
-         if (argc < 3)
-                 exit(EXIT_FAILURE);
-
-         fd = open(argv[1], O_DIRECTORY | O_CLOEXEC);
-         if (fd < 0) {
-                 printf("%s - Failed to open \"%s\"\n", strerror(errno), argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         sig = atoi(argv[2]);
-
-         printf("Sending signal %d to process %s\n", sig, argv[1]);
-         ret = do_pidfd_send_signal(fd, sig, NULL, 0);
-
-         saved_errno = errno;
-         close(fd);
-         errno = saved_errno;
-
-         if (ret < 0) {
-                 printf("%s - Failed to send signal %d to process %s\n",
-                        strerror(errno), sig, argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         exit(EXIT_SUCCESS);
- }
-
-/* Q&A
- * Given that it seems the same questions get asked again by people who are
- * late to the party it makes sense to add a Q&A section to the commit
- * message so it's hopefully easier to avoid duplicate threads.
- *
- * For the sake of progress please consider these arguments settled unless
- * there is a new point that desperately needs to be addressed. Please make
- * sure to check the links to the threads in this commit message whether
- * this has not already been covered.
- */
-Q-01: (Florian Weimer [20], Andrew Morton [21])
-      What happens when the target process has exited?
-A-01: Sending the signal will fail with ESRCH (cf. [22]).
-
-Q-02:  (Andrew Morton [21])
-       Is the task_struct pinned by the fd?
-A-02:  No. A reference to struct pid is kept. struct pid - as far as I
-       understand - was created exactly for the reason to not require to
-       pin struct task_struct (cf. [22]).
-
-Q-03: (Andrew Morton [21])
-      Does the entire procfs directory remain visible? Just one entry
-      within it?
-A-03: The same thing that happens right now when you hold a file descriptor
-      to /proc/<pid> open (cf. [22]).
-
-Q-04: (Andrew Morton [21])
-      Does the pid remain reserved?
-A-04: No. This patchset guarantees a stable handle not that pids are not
-      recycled (cf. [22]).
-
-Q-05: (Andrew Morton [21])
-      Do attempts to signal that fd return errors?
-A-05: See {Q,A}-01.
-
-Q-06: (Andrew Morton [22])
-      Is there a cleaner way of obtaining the fd? Another syscall perhaps.
-A-06: Userspace can already trivially retrieve file descriptors from procfs
-      so this is something that we will need to support anyway. Hence,
-      there's no immediate need to add another syscalls just to make
-      pidfd_send_signal() not dependent on the presence of procfs. However,
-      adding a syscalls to get such file descriptors is planned for a
-      future patchset (cf. [22]).
-
-Q-07: (Andrew Morton [21] and others)
-      This fd-for-a-process sounds like a handy thing and people may well
-      think up other uses for it in the future, probably unrelated to
-      signals. Are the code and the interface designed to permit such
-      future applications?
-A-07: Yes (cf. [22]).
-
-Q-08: (Andrew Morton [21] and others)
-      Now I think about it, why a new syscall? This thing is looking
-      rather like an ioctl?
-A-08: This has been extensively discussed. It was agreed that a syscall is
-      preferred for a variety or reasons. Here are just a few taken from
-      prior threads. Syscalls are safer than ioctl()s especially when
-      signaling to fds. Processes are a core kernel concept so a syscall
-      seems more appropriate. The layout of the syscall with its four
-      arguments would require the addition of a custom struct for the
-      ioctl() thereby causing at least the same amount or even more
-      complexity for userspace than a simple syscall. The new syscall will
-      replace multiple other pid-based syscalls (see description above).
-      The file-descriptors-for-processes concept introduced with this
-      syscall will be extended with other syscalls in the future. See also
-      [22], [23] and various other threads already linked in here.
-
-Q-09: (Florian Weimer [24])
-      What happens if you use the new interface with an O_PATH descriptor?
-A-09:
-      pidfds opened as O_PATH fds cannot be used to send signals to a
-      process (cf. [2]). Signaling processes through pidfds is the
-      equivalent of writing to a file. Thus, this is not an operation that
-      operates "purely at the file descriptor level" as required by the
-      open(2) manpage. See also [4].
-
-/* References */
-[1]:  https://lore.kernel.org/lkml/20181029221037.87724-1-dancol@google.com/
-[2]:  https://lore.kernel.org/lkml/874lbtjvtd.fsf@oldenburg2.str.redhat.com/
-[3]:  https://lore.kernel.org/lkml/20181204132604.aspfupwjgjx6fhva@brauner.io/
-[4]:  https://lore.kernel.org/lkml/20181203180224.fkvw4kajtbvru2ku@brauner.io/
-[5]:  https://lore.kernel.org/lkml/20181121213946.GA10795@mail.hallyn.com/
-[6]:  https://lore.kernel.org/lkml/20181120103111.etlqp7zop34v6nv4@brauner.io/
-[7]:  https://lore.kernel.org/lkml/36323361-90BD-41AF-AB5B-EE0D7BA02C21@amacapital.net/
-[8]:  https://lore.kernel.org/lkml/87tvjxp8pc.fsf@xmission.com/
-[9]:  https://asciinema.org/a/IQjuCHew6bnq1cr78yuMv16cy
-[11]: https://lore.kernel.org/lkml/F53D6D38-3521-4C20-9034-5AF447DF62FF@amacapital.net/
-[12]: https://lore.kernel.org/lkml/87zhtjn8ck.fsf@xmission.com/
-[13]: https://lore.kernel.org/lkml/871s6u9z6u.fsf@xmission.com/
-[14]: https://lore.kernel.org/lkml/20181206231742.xxi4ghn24z4h2qki@brauner.io/
-[15]: https://lore.kernel.org/lkml/20181207003124.GA11160@mail.hallyn.com/
-[16]: https://lore.kernel.org/lkml/20181207015423.4miorx43l3qhppfz@brauner.io/
-[17]: https://lore.kernel.org/lkml/CAGXu5jL8PciZAXvOvCeCU3wKUEB_dU-O3q0tDw4uB_ojMvDEew@mail.gmail.com/
-[18]: https://lore.kernel.org/lkml/20181206222746.GB9224@mail.hallyn.com/
-[19]: https://lore.kernel.org/lkml/20181208054059.19813-1-christian@brauner.io/
-[20]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[21]: https://lore.kernel.org/lkml/20181228152012.dbf0508c2508138efc5f2bbe@linux-foundation.org/
-[22]: https://lore.kernel.org/lkml/20181228233725.722tdfgijxcssg76@brauner.io/
-[23]: https://lwn.net/Articles/773459/
-[24]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[25]: https://lore.kernel.org/lkml/CAK8P3a0ej9NcJM8wXNPbcGUyOUZYX+VLoDFdbenW3s3114oQZw@mail.gmail.com/
-
-Cc: "Eric W. Biederman" <ebiederm@xmission.com>
-Cc: Jann Horn <jannh@google.com>
-Cc: Andy Lutomirsky <luto@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Florian Weimer <fweimer@redhat.com>
-Signed-off-by: Christian Brauner <christian@brauner.io>
-Reviewed-by: Tycho Andersen <tycho@tycho.ws>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: David Howells <dhowells@redhat.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Serge Hallyn <serge@hallyn.com>
-Acked-by: Aleksa Sarai <cyphar@cyphar.com>
-
-(cherry picked from commit 3eb39f47934f9d5a3027fe00d906a45fe3a15fad)
-
-Conflicts:
-        arch/x86/entry/syscalls/syscall_32.tbl - trivial manual merge
-        arch/x86/entry/syscalls/syscall_64.tbl - trivial manual merge
-        include/linux/proc_fs.h - trivial manual merge
-        include/linux/syscalls.h - trivial manual merge
-        include/uapi/asm-generic/unistd.h - trivial manual merge
-        kernel/signal.c - struct kernel_siginfo does not exist in 4.14
-        kernel/sys_ni.c - cond_syscall is used instead of COND_SYSCALL
-        arch/x86/entry/syscalls/syscall_32.tbl
-        arch/x86/entry/syscalls/syscall_64.tbl
-
-(1. manual merges because of 4.14 differences
- 2. change prepare_kill_siginfo() to use struct siginfo instead of
-kernel_siginfo
- 3. use copy_from_user() instead of copy_siginfo_from_user() in copy_siginfo_from_user_any()
- 4. replaced COND_SYSCALL with cond_syscall
- 5. Removed __ia32_sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_32.tbl.
- 6. Replaced __x64_sys_pidfd_send_signal with sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_64.tbl.)
-
-Bug: 135608568
-Test: test program using syscall(__NR_pidfd_send_signal,..) to send SIGKILL
-Change-Id: I34da11c63ac8cafb0353d9af24c820cef519ec27
-Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-Signed-off-by: electimon <electimon@gmail.com>
-
----
-## [vaadin/flow](https://github.com/vaadin/flow)@[0a1da07df3...](https://github.com/vaadin/flow/commit/0a1da07df303aa5b477e736e528c0a3c59391e07)
-#### Tuesday 2023-04-04 13:29:56 by czp13
-
-chore: added more covering tests to ComponentTest.java for covering getLocale() method (#16367)
-
-* Added more covering tests to ComponentTest.java for the getLocale method. It was needed, because another external contributor PR is tackling
-a refactor/optimization of this method (as well), and this change it will ensure the functionality, and execution branches are the same. (https://github.com/vaadin/flow/pull/16160)
-* Fix typo/my bad in ComponentTest.java
-* mvn formatter:format executed
-* Locale.US is the first element of this list: List.of(Locale.US, Locale.CANADA_FRENCH);
- Not CANADA_FRENCH (night facepalm for myself)
- Should fix this error:
- "java.lang.AssertionError: First provided locale should be returned expected:<fr_CA> but was:<en_US>""
-* Implemented @mcollovati review idea on creating provided locales.
-Thank you ;)
-
----
-## [microsoft/terminal](https://github.com/microsoft/terminal)@[5a34d92cb5...](https://github.com/microsoft/terminal/commit/5a34d92cb5c99000e95f612cb8bc23ba374dd941)
-#### Tuesday 2023-04-04 14:15:22 by Dustin L. Howett
-
-winget.yml: switch to manually using wingetcreate (#15023)
-
-It was brought to my attention that we should be more restrictive in
-which tasks we ovver a GitHub token to. Sorry!
-
-With thanks to sitiom for the version parsing and the magic GitHub
-action syntax incantation for determining what is a prerelease.
-
----
-## [WilliamTDoran/BTGD9855](https://github.com/WilliamTDoran/BTGD9855)@[7b1ba2fac6...](https://github.com/WilliamTDoran/BTGD9855/commit/7b1ba2fac6683c101adbece22d44fccea0a5ce10)
-#### Tuesday 2023-04-04 15:17:09 by WilliamTDoran
-
-lil baby yara boss animation fix. man, one time when i was in vancouver i got this earl grey flavoured shortbread and fucking man it was so good
-
-hoo boy this tea i am drinking is really weak frankly just kinda watery.
+Co-authored-by: 13spacemen <46101244+13spacemen@users.noreply.github.com>
 
 ---
 ## [Stalkeros2/Skyrat-tg](https://github.com/Stalkeros2/Skyrat-tg)@[60d2d2ee1a...](https://github.com/Stalkeros2/Skyrat-tg/commit/60d2d2ee1ae4f7a3c8c93e14fdbd6c210a45cf04)
-#### Tuesday 2023-04-04 15:51:34 by SkyratBot
+#### Wednesday 2023-04-05 01:03:02 by SkyratBot
 
 [MIRROR] Optimizes some gas_mixture procs, Optimizes pipeline processing significantly by 33% [MDB IGNORE] (#20118)
 
@@ -1611,1158 +762,263 @@ Profiles taken on kilo, until each reconcile_air hits 5000 calls
 Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
 
 ---
-## [hackerdeen/meetings](https://github.com/hackerdeen/meetings)@[6d5e085699...](https://github.com/hackerdeen/meetings/commit/6d5e085699084255e1a5cf4e8955d1510a713526)
-#### Tuesday 2023-04-04 16:04:36 by Andy Gaskell
+## [DontDoItKids/ITEC-145---Final-Project](https://github.com/DontDoItKids/ITEC-145---Final-Project)@[00e0abec05...](https://github.com/DontDoItKids/ITEC-145---Final-Project/commit/00e0abec059cd35e8dc1cafba08ec2f9eaff56a9)
+#### Wednesday 2023-04-05 01:57:38 by Trey Hall
 
-From Wouter's email 
-
-Thanks @Derecho00
-
-Directors Report 2021-2023
-----------------
-
-## 0) State of the Membership
-- We currently have 19 members on our register
-- We have 12  memberspaying regularly, resulting in a monthly income of £240.
-- 7 dismemberment emails have been sent and this has resulted in some members coming back into the fold.
-- Incoming Directors shall need to have a board meeting to finalise dismemberment following AGM.  
-
-
-## 1) 'Post pandemic' activities
-- Open Tuesday's have returned post pandemic in 2021
-- Winter party 2022 was a roaring success. Thanks go to Q for making it so busy and inviting their friends who helped remind some of us why running a hackerspace is such good fun.
-- Monthly Consular Convention for Control & Prohibition of Pandemics were introduced in 2021.
-
-## 2) Books Tax & HMRC
-- We're still doing our own books, this saves us ~£500 in accounting fees, so is still good.  Thanks Andy and irl.
-- We are now recognised as tax dormant to HMRC. This status will last either until April 2026 or until income deriving from non-member sources execeeds an annual corporation tax liability of £100, whichever occurs first.
-
-## 3) Funding and Grants
-Vishnee pulled together a funding application for Just Transition Participatory Budgeting, and we were dismayed to learn this amounted to a popularity contest and public vote. Thanks for your efforts, and the information gathered/text written will help us in future endeavours.
-
-## 4) Workshops & Outreach
-Midder has been very active in recruiting new faces through the social center and alternative freshers fair, thank you for your efforts.
-We'd like more regular faces to become members and to recruit new faces so there is a fresh flow of new people and income to keep us stable.
-Any efforts on recruitment would be greatly appreciated. irl put in good work on updating the membership process and we generally agree this needs simplified and what you're signing up for has to be more clearly signposted.
-
-## 5) Digital Infrastructure
-Lots of things were rationalised and restarted this year.
-garioch.57north.org.uk was retired, thank you for your service.
-
-Hibby moved the wiki from hackr->scotcon->ythan.57north.org.uk.
-
-The website now resides on ythan.
-
-Mailing Lists were migrated to ythan, worked, didn't work, hibby had a meltdown, they worked again, now consistently.
-
-Outstanding projects that need volunteers to look at:
-  * Removing ID from hackhub
-  * Modernising/updating hackhub to allow simple edits like adding admin-permissions checkbox and allowing users to change address
-  * Migrating hub to a more modern server and allowing a print out of the list of registers
-  * Making the website a static site with more relevant information
-
-## 7) Workshops and programs
-We've not done much in regard to this. Hopefully this will be something we can do more of in the next 12 months.
-
-## 8) Equipment
-A whole new collection of kit has arrived in the space. Thank you to all contributors. Here are few listed (and many other forgotten).
-- Laser cutter
-- Tables and chairs
-- Canon A0 printer with scanner
-- Disco light setup.
-- and so much more
-
-## 9) Remote or distant members
-This is discussed at this AGM.
-
-## 10) Events
-Some members went to EMF Camp and had an awesome time (according to rumours).
-
-## 11) Links and refs
-AGM anouncement - https://lists.57north.org.uk/mailman3/hyperkitty/list/57north-announce@lists.57north.org.uk/thread/ZVGI66Z6E743WHFQRTOCR6UY6Y62ZH5W/
-Last year's AGM minutes -  https://github.com/hackerdeen/meetings/blob/master/2021/2021-05-04%20AGM%20Minutes.md
-2021 year's Directors report -  https://github.com/hackerdeen/meetings/blob/master/2021/21-05-04-directors-report.md
-Last year's treasurer's report - https://github.com/hackerdeen/meetings/blob/master/2021/Treasurers%20Report%20-%20YE%2028th%20February%202021.pdf
+Fuck You
+Need to implement Power up activations
+and drawing them on the screen
 
 ---
-## [Vincent392/antiTL2-lib](https://github.com/Vincent392/antiTL2-lib)@[4cf81a115d...](https://github.com/Vincent392/antiTL2-lib/commit/4cf81a115dcc98c6bbcac140bb2a452f4e8620a2)
-#### Tuesday 2023-04-04 16:22:25 by Vincent392
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[018db9ab81...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/018db9ab81453478875e2af9e7dcb7deae959bf3)
+#### Wednesday 2023-04-05 02:00:55 by SkyratBot
 
-Create TL2detect.java
+[MIRROR] Malfunctioning AIs get a discount on the Doomsday equipment by hacking Head of Staff APCs [MDB IGNORE] (#20337)
 
-FUCK YOU TL INC! YOU DON'T HAVE LEGAL STUFF I  IRELAND!
-
----
-## [SmashedFrenzy16/terminal](https://github.com/SmashedFrenzy16/terminal)@[446f280757...](https://github.com/SmashedFrenzy16/terminal/commit/446f2807573ffda411f548a519835d15cacdcd9b)
-#### Tuesday 2023-04-04 16:38:45 by Mike Griese
-
-Try to silently fall back to a local monarch (#12825)
-
-This is a crazy idea Dustin and I had.
-
-> we can't repro this at will. But we kinda have an idea of where the deref is. We don't know if the small patch (throw, and try again) will fix it. We're sure that the "just fall back to an isolated monarch" will work. I'd almost rather take a build testing the small patch first, to see if that works
-
-> This might seem crazy
-> in 1.12, isolated monarch. In 1.13, "small patch". In 1.14, we can wait and see
-
-I can write more details in the morning. It's 5pm here so if we want this today, here it is.
-
-@dhowett double check my velocity flag logic here. Should be always true for Release, and off for Dev, Preview. 
-
-* [x] closes #12774
-
----
-## [SmashedFrenzy16/terminal](https://github.com/SmashedFrenzy16/terminal)@[9ccd6ecd74...](https://github.com/SmashedFrenzy16/terminal/commit/9ccd6ecd744890b856f3d8a39ff0616c0e34d4fb)
-#### Tuesday 2023-04-04 16:38:45 by Mike Griese
-
-Manually copy trailing attributes on a resize (#12637)
-
-## THE WHITE WHALE
-
-This is a fairly naive fix for this bug. It's not terribly performant,
-but neither is resize in the first place.
-
-When the buffer gets resized, typically we only copy the text up to the
-`MeasureRight` point, the last printable char in the row. Then we'd just
-use the last char's attributes to fill the remainder of the row.
-
-Instead, this PR changes how reflow behaves when it gets to the end of
-the row. After we finish copying text, then manually walk through the
-attributes at the end of the row, and copy them over. This ensures that
-cells that just have a colored space in them get copied into the new
-buffer as well, and we don't just blat the last character's attributes
-into the rest of the row. We'll do a similar thing once we get to the
-last printable char in the buffer, copying the remaining attributes.
-
-This could DEFINITELY be more performant. I think this current
-implementation walks the attrs _on every cell_, then appends the new
-attrs to the new ATTR_ROW. That could be optimized by just using the
-actual iterator. The copy after the last printable char bit is also
-especially bad in this regard. That could likely be a blind copy - I
-just wanted to get this into the world.
-
-Finally, we now copy the final attributes to the correct buffer: the new
-one.  We used to copy them to the _old_ buffer, which we were about to
-destroy.
-
-## Validation
-
-I'll add more gifs in the morning, not enough time to finish spinning a
-release Terminal build with this tonight.
-
-Closes #32 🎉🎉🎉🎉🎉🎉🎉🎉🎉
-Closes #12567
-
-(cherry picked from commit 855e1360c0ff810decf862f1d90e15b5f49e7bbd)
-
----
-## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[32b158e5d0...](https://github.com/odoo-dev/odoo/commit/32b158e5d09d7d11b1984b36d558288ba0b88476)
-#### Tuesday 2023-04-04 17:25:10 by Jeremy Kersten
-
-[ADD] website_cf_turnstile: add cloudflare turnstile support
-
-This module allows to add secret key to add the turnstile captcha on
-each snippet website_form.
-
-Cloudflare Turnstile
---------------------
-A friendly, free CAPTCHA replacement
-Turnstile delivers frustration-free, CAPTCHA-free web experiences to
-website visitors.
-Turnstile stops abuse and confirms visitors are real without the data
-privacy concerns or awful UX that CAPTCHAs thrust on users.
-
----
-## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[20b97168ed...](https://github.com/mrakgr/The-Spiral-Language/commit/20b97168ed9c5538da0bbcd11adf7190ffe2ef68)
-#### Tuesday 2023-04-04 17:42:41 by Marko Grdinić
-
-"///
-
->Humans are like isolated islands, floating in the sea of fate.
->Human encounters are like the collision of these loneliness islands, and once they touch, there would be an effect.
->Sometimes, the islands would stick together, in the name of ‘interest’, ‘kinship’, ‘friendship’, ‘love’ and ‘hate’.
->But eventually, they would separate, walking towards the path of destruction.
->This is the truth behind life.
->Unfortunately people are always afraid of being alone, they craved the liveliness of human crowd, and they refused to do nothing with their time.
->Because once they face loneliness, it meant facing pain and hardship.
->But once they can face this pain, people would obtain talent and courage. Thus, there is a saying — High achievers are definitely lonely.
->“This is the feeling of being lonely. Every time I savour this, it strengthens my resolve to pursue the demonic way!” Fang Yuan’s gaze shone, thinking of the story of Ren Zu.
-Not all Asians are submissive cattle
-
-///
-
-Based RI quote I found while lurking the archive.
-
-10:25pm. https://youtu.be/jgpVdJB2sKQ
-Redis Crash Course
-
-Ah, let me watch this for a bit. Who cares about that Dohna^2 H scene in the background.
-
-https://youtu.be/jgpVdJB2sKQ?t=92
-> Redis runs inside your working memory...
-
-Not what I expected at all. I guess it is something completely different to what I thought it would be.
-
-https://youtu.be/jgpVdJB2sKQ?t=1640
-> And that is everything you need to know to get started with Redis.
-
-Sigh. It is no big deal at all.
-
-https://www.youtube.com/results?search_query=api+gateway
-
-I'll check out the API gateway tomorrow.
-
-https://re-library.com/translations/destiny-unchain-online/volume-1/prologue-1-guild-ranking-competition/
-
-Re;Library picked up DUO.
-
-I'll leave it for tomorrow. Time for bed.
-
-4/4/2023
-
-9:45am. I am up. Any mail? Nope.
-
-9:50am. Anyway, today on the agenda is to finish up the auth video. After that I want to study up on microservice and API gateways. After that the first thing I want to do is set up CI on Github for the CFR and the template project.
-
-I want to figure out how that works.
-
-10am. Mhhh, let's get started.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=2393
-
-Let me resume from where I left off yesterday. I have no idea what this aspnet code generator is but whatever. Let's just go forward.
-
-https://learn.microsoft.com/en-us/aspnet/core/fundamentals/tools/dotnet-aspnet-codegenerator?view=aspnetcore-7.0
-
-Ah, it does the same thing the ide does.
-
-Maybe it is not as complicated as it seems.
-
-10:25am. https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=3374
-
-He is really flying over this. If I wanted to learn this instead of listening to him, I really should just go through the module. But let me watch the video.
-
-10:35am. https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=3692
-
-Enough of this. I can't follow this, it is a waste of time. I'll figure out how to use 3rd party auth.
-
-I'll Google MS Identity platform.
-
-10:45am. Actually, let me just study whatever I want.
-
-Let me watch this video for longer since I feel like grinding. Then I'll study microsevices.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=3901
-
-I have an real issue with this. Just how am I supposed to make use of this with Fable or with Elmish Bridge?
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=3931
-
-This isn't too bad. You just get the HttpContext and check the claims. How would that be possible with remoting.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=4441
-
-Oh wait, here is another guy and he is going to show how to do it through the cloud. Good thing I kept watching. It seems there are two presentations in a single vid.
-
-11:10am. https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=4631
-
-After I am done with this, I'll study microsevices, but after that I'll look at the Fable Remoting docs. I really am interested how I could get cookies and auth tokens from inside an interface. I sort of get how to do it inside the ASP.NET middleware, but Elmish Bridge and Remoting feel like isolated islands.
-
-I am not there yet as a web dev. I need to build a proper system. Right now I at least know how to send messages back and forth, but not how to build the whole package.
-
-...
-
-I won't resent thme. I might not be getting calls, but I wouldn't hire myself in this state.
-
-I can resent the field of ML for scamming me, but I am the one who let that happen to me. I am the one who decided to put my trust into the Singularity.
-
-For the past 16 years, I could have done literally anything other than the path I've taken, and I'd have been far more successful. I could have been a write, artist, you name it, and it would have worked out better.
-
-11:15am. I am going to fucking learn these cloud services, learn web dev and then I'll be able to monetize my programming skills. Whether I get a job or build platforms does not matter.
-
-Anything is better than having to endure the kind of humiliation that was heaped upon me between late 2021 and now.
-
-The AI hardware will get here, but companies are vermin. For not recognizing my skill and effort, or how much benefit Spiral could bring them.
-
-Tenstorrent might open up its cloud later in the year, but it would just serve to highlight how ridiculous my approach was, and how pointless my effort a how great my naivette was if that happens, but I can't afford to rent those pieces of hardware.
-
-11:20am. If the Singularity wants to humiliate me this much, then why am I trying so hard to earn its affection?
-
-There are better ways out there.
-
-11:45am. Had to take a short break, let me resume.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=4813
-> I can have anybody log in with their Github account or their Facebook account.
-
-12pm. https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=5300
-
-They'll create a node js application.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=5435
-
-It just sends the index html file back. This could be a good tutorial, I find the high level nature of the .NET stuff confusing when learning, so it is good that they are doing it this way.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=5636
-
-This is a somewhat confusing way of doing a tutorial. I guess I'll just roll with it.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=5748
-
-Super confusing. Who is going to follow this?
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=5905
-
-I am going to find a way to make this elegant. This tutorial is shit.
-
-https://youtu.be/SFLG-gStXC0?list=PLdo4fOcmZ0oVGRpRwbMhUA0KAvMA2mLyN&t=6120
-
-Let me stop here. It was a mistake. I should have aborted it at the 1h mark.
-
-12:15pm. https://stackoverflow.com/questions/66100093/safe-stack-with-github-authorization
-
-Let me start from here. I seems like I keep making the same mistake over and over of just grinding tutorials. I should make it a rule to just go the other way whenever I feel myself tuning out. Maybe following the steps in those aka.ms learning modules directly would have been better.
-
-https://www.compositional-it.com/news-blog/
-
-There are a lot of F# articles here.
-
-https://www.compositional-it.com/news-blog/calling-python-from-f-with-fable/
-
-Check this out. This is what I wanted to do for ML. Nevermind it for now.
-
-12:25pm. https://www.compositional-it.com/news-blog/safe-authentication-with-azure-active-directory/
-https://carpenoctem.dev/blog/fsharp-giraffe-auth-identity-ef-core/
-
-Ah, let me take a break here. I'll check out those articles later.
-
-12:35pm. Forget wasting time like I have. Happiness can only be caught by chasing after it directly.
-
-> Just wanted to say thank you for this series.  I haven't had time to sit down and do it end to end yet, but just glancing through it has cleared up so many pain points i've run into before, and end to end with things like actual deploying to azure helps clear up SOOO many missing parts.
-
-Got this comment on Youtube. Nice.
-
-Oh right, I meant to check out how long it was since my last vid. 2 days ago.
-
-12:40pm. It is important to make progress. I do not want to spend weeks before the next video. Just implement auth for the SAFE stack application and make the next video. Move from there.
-
-1:55pm. Done with breakfast and chores.
-
-2pm. Let me start. Focus me.
-
-I've come up with some goals. Instead pussyfooting about it, I'll make some very clear goals and follow them to the end. After that, I will have cleared the auth hurdle.
-
-First, let me read those articles.
-
-https://www.compositional-it.com/news-blog/safe-authentication-with-azure-active-directory/
-> Note - the blog below is quite out of date now, the SAFE template has moved on from V2 and some of the Azure libraries are different as well. I have an example I am keeping up to date here
-
-https://github.com/CompositionalIT/SAFE-AD-Auth-example
-
-I'll clone this later, let me just read the article.
-
-> Now that you have enabled authentication, you just need to tell ASP .NET Core which endpoints to secure.
-
-https://zaid-ajaj.github.io/Fable.Remoting/#/advanced/integrating-dependency-injection
-
-> Now this fromValue function expects an intance of the protocol. This instance however, could have dependencies. For example, it is possible that in order to create an instance of the IMusicStore, you need to know connnection string to a database which you can use in the implementation of the instance
-
-Ohh, it is possible to add dependencies in Fable Remoting.
-
-```fs
-let musicStore (logger: ILogger<IMusicStore>, config: IConfiguration) = {
-    (* Your implementation here *)
-}
-
-let webApi =
-    Remoting.createApi()
-    |> Remoting.fromContext (fun ctx ->
-        // require dependencies
-        let logger = ctx.GetService<ILogger<IMusicStore>>()
-        let config = ctx.GetService<IConfiguration>()
-        // create a music store from the dependencies
-        musicStore(logger, config)
-    )
-```
-
-This answers a lot on how to use Fable remoting. I wonder if there is an equivalent thing for Bridge.
-
-Nevermind that for now. Let me get back to the auth article.
-
-I sort of get the authentication part, but I really want to know how I can change the policies for a particular user.
-
-```fs
-let buildRemotingApi api next ctx = task {
-    let handler =
-        Remoting.createApi()
-        |> Remoting.withRouteBuilder Route.builder
-        |> Remoting.fromValue (api ctx)
-        |> Remoting.buildHttpHandler
-    return! handler next ctx }
-```
-
-Take a look at this. Is this how building stuff in Giraffe works?
-
-```fs
-let authScheme = "AzureAD"
-
-let isDevelopment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") = Environments.Development;
-
-let noAuthenticationRequired nxt ctx = task { return! nxt ctx }
-
-let requireLoggedIn : HttpFunc -> HttpContext -> HttpFuncResult =
-    if isDevelopment then
-        noAuthenticationRequired
-    else
-        requiresAuthentication (RequestErrors.UNAUTHORIZED authScheme "My Application" "You must be logged in.")
-
-let api ctx =
-    { Endpoint = endpoint1Func }
-
-let routes =
-    choose [
-        subRoute "/api" (requireLoggedIn >=> buildRemotingApi api)
-    ]
-```
-
-This isn't too hard. Yeah, this kind of simplicity is what I am interested in.
-
-Still, how is it checking the claims? No doubt the code for that is buried in `requiresAuthentication`. Let me check out the next part in the article. Then I'll dive into Giraffe.
-
-https://www.compositional-it.com/news-blog/safe-stack-authentication-with-active-directory-part-2/
-
-2:25pm. It feels like I am on the right track. Next, let me check out the Giraffe article.
-
-https://carpenoctem.dev/blog/fsharp-giraffe-auth-identity-ef-core/
-
-In fact this is only the part 4.
-
-https://carpenoctem.dev/blog/giraffe-by-example-understanding-asp-net-core-boilerplate/
-
-Oh this is not that article from years ago which got me interested in it.
-
-///
-
-Giraffe is one of the leading web frameworks for F#. It provides a wonderful functional interface while allowing seamless access to existing ASP.NET Core libraries.
-
-However, getting started with Giraffe may be intimidating to someone with no ASP.NET Core experience, because even the simplest application requires ~50 lines of ASP.NET Core-specific boilerplate code. The last thing one wants to do while learning F# and Giraffe is to have to learn another huge framework, documented mostly for C# developers.
-
-I hope this article will be a useful guide for such a person.
-
-///
-
-```fs
-[<EntryPoint>]
-let main args =
-    let contentRoot = Directory.GetCurrentDirectory()
-    let webRoot     = Path.Combine(contentRoot, "WebRoot")
-    Host.CreateDefaultBuilder(args)
-        .ConfigureWebHostDefaults(
-            fun webHostBuilder ->
-                webHostBuilder
-                    .UseContentRoot(contentRoot)
-                    .UseWebRoot(webRoot)
-                    .Configure(Action<IApplicationBuilder> configureApp)
-                    .ConfigureServices(configureServices)
-                    .ConfigureLogging(configureLogging)
-                    |> ignore)
-        .Build()
-        .Run()
-    0
-```
-
-You can set the content root like this?
-
-2:45pm. > Loading configuration settings from environment variables, configuration files (appsettings.json), and other sources;
-
-I really wish I could have started my journey with this article in 2020. It would have made things a lot easier.
-
-2:55pm. https://carpenoctem.dev/blog/anatomy-of-giraffe-httphandler/
-
-This is very clear.
-
-> Note that HttpContext is Microsoft.AspNetCore.Http, the same one that C# applications would use.
-
-https://github.com/giraffe-fsharp/Giraffe/blob/master/src/Giraffe/HttpContextExtensions.fs#L87
-
-3:05pm. https://github.com/giraffe-fsharp/Giraffe/blob/master/src/Giraffe/HttpContextExtensions.fs#L162
-
-```fs
-    /// <summary>
-    /// Retrieves the <see cref="System.String"/> value of a cookie from the request.
-    /// </summary>
-    /// <param name="ctx">The current http context object.</param>
-    /// <param name="key">The name of the cookie.</param>
-    /// <returns>Returns Some string if the cookie was set, otherwise returns None.</returns>
-    [<Extension>]
-    static member GetCookieValue (ctx : HttpContext, key : string) =
-        match ctx.Request.Cookies.TryGetValue key with
-        | true , cookie -> Some cookie
-        | false, _      -> None
-```
-
-You can get cookies like this.
-
-```fs
-route "/" >=>
-    choose [
-        choose [ GET ; HEAD ] => indexHandler
-        GET => neverExecuted ]
-
-GET >=>
-    choose [
-        routef "/hello/%s" => indexHandler
-        route "/hello/world" => neverExecuted ]
-```
-
-Oh, this is a thing?
-
-```fs
-// synchronous version
-let stopRightThere (rejectionReason : string) : HttpHandler =
-    fun (next : HttpFunc) (ctx : HttpContext) ->
-        ctx.SetHeader("X-Rejection-Reason", rejectionReason)
-        ctx.SetStatusCode 400
-        Task.FromResult (Some ctx)
-
-// asynchronous version
-let stopRightThereAsync (rejectionReason : string) : HttpHandler =
-    fun (next : HttpFunc) (ctx : HttpContext) ->
-        task {
-            ctx.SetHeader("X-Rejection-Reason", rejectionReason)
-            ctx.SetStatusCode 400
-            // do some asynchronous stuff here, like logging this incident to a database.
-            return! Task.FromResult (Some ctx)
-        }
-```
-
-He could have written that last line as just `Some ctx`.
-
-Interesting that this returns the context. Given that it is being updated in a mutable fashion, I wonder why that is the case?
-
-> See the source, it is not scary at all.
-
-https://github.com/giraffe-fsharp/Giraffe/blob/master/src/Giraffe/Routing.fs
-
-3:35pm. https://github.com/giraffe-fsharp/Giraffe/blob/master/src/Giraffe/Routing.fs#L45
-> Filters an incoming HTTP request based on the port.
-
-Oh, this exists?
-
-```fs
-    /// <summary>
-    /// Filters an incoming HTTP request based on the port.
-    /// </summary>
-    /// <param name="fns">List of port to <see cref="HttpHandler"/> mappings</param>
-    /// <param name="next"></param>
-    /// <returns>A Giraffe <see cref="HttpHandler"/> function which can be composed into a bigger web application.</returns>
-    let routePorts (fns : (int * HttpHandler) list) : HttpHandler =
-        fun next ->
-            let portMap = Dictionary<_, _>(fns.Length)
-            fns |> List.iter (fun (p, h) -> portMap.Add(p, h next))
-            fun (ctx : HttpContext) ->
-                let port = ctx.Request.Host.Port
-                if port.HasValue then
-                    match portMap.TryGetValue port.Value with
-                    | true , func -> func ctx
-                    | false, _    -> skipPipeline
-                else skipPipeline
-```
-
-Here is the whole thing. I had no idea that ports were just a part of the context.
-
-Though this is a bit confusing. Doesn't the server have a specific port?
-
-> Filters an incoming HTTP request based on the request path using Regex (case sensitive).
-
-You can even route using Regex? That is something.
-
-4pm. Had to take a break, let me resume. I am a lot more into this than watching those videos. The Giraffe source is quite informative.
-
-https://carpenoctem.dev/blog/anatomy-of-giraffe-httphandler/
-
-///
-
-One trick illustrated in the official documentation is:
-
-```fs
-let earlyReturn : HttpFunc = Some >> Task.FromResult
-
-let checkUserIsLoggedIn : HttpHandler =
-    fun (next : HttpFunc) (ctx : HttpContext) ->
-        if isNotNull ctx.User && ctx.User.Identity.IsAuthenticated
-        then next ctx
-        else setStatusCode 401 earlyReturn ctx
-```
-
-///
-
-Ohhh, this is exactly what I wanted to know.
-
-I won't be able to do check the user in the interface itself. Instead I will make sure to route it to the right parts.
-
-https://carpenoctem.dev/blog/fsharp-giraffe-jwt-auth/
-JWT Authentication and Authorization for your Giraffe API Server
-
-This is what I want.
-
-> This article is about authenticating and authorizing requests in a Giraffe server using JWT, or JSON Web Tokens.
-
-So that's what JWT stands for.
-
-https://en.wikipedia.org/wiki/Base64#The_URL_applications
-
-> Common to all binary-to-text encoding schemes, Base64 is designed to carry data stored in binary formats across channels that only reliably support text content. Base64 is particularly prevalent on the World Wide Web[1] where one of its uses is the ability to embed image files or other binary assets inside textual assets such as HTML and CSS files.[2]
-
-I see.
-
-4:30pm.
-
-```fs
-// enable authentication system-wide... needed for all authentication middleware.
-services.AddAuthentication(fun opt ->
-    // See Note 1
-    opt.DefaultAuthenticateScheme <- JwtBearerDefaults.AuthenticationScheme
-
-    // Not needed, see Note 2 below
-    // opt.DefaultChallengeScheme <- JwtBearerDefaults.AuthenticationScheme
-
-// Second, we configure our middleware
-).AddJwtBearer(fun (opt : JwtBearerOptions)->
-
-    // You can set general options of JWT authentication here.
-    // Find more details at:
-    //   https://docs.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.authentication.jwtbearer.jwtbeareroptions?view=aspnetcore-5.0
-    // Note, however, most of it is not relevant for our simple case
-
-    opt.TokenValidationParameters <- TokenValidationParameters(
-        // You can configure the actual authentication parameters and options.
-        // See more at:
-        //   https://docs.microsoft.com/en-us/dotnet/api/microsoft.identitymodel.tokens.tokenvalidationparameters?view=azure-dotnet
-
-        // SecurityKey that is to be used for signature validation.
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(key)),
-
-        // boolean to control if the issuer will be validated during token validation.
-        ValidateIssuer = true,
-
-        // String that represents a valid issuer that will be used to check against the token's issuer. The default is null.
-        ValidIssuer = issuer,
-
-        // boolean to control if the audience will be validated during token validation.
-        ValidateAudience = true,
-
-        // string that represents a valid audience that will be used to check against the token's audience. The default is null.
-        ValidAudience = audience
-    )) |> ignore
-```
-
-Sigh, what a pain in the ass. This will take a while to figure out.
-
-4:35am. https://carpenoctem.dev/blog/fsharp-giraffe-jwt-auth/
-
-```fs
-let requireAdminRole : HttpHandler =
-    requiresRole "Admin" (RequestErrors.FORBIDDEN  "Permission denied. You must be an admin.")
-```
-
-4:45pm.
-
-```fs
-        let dob = Convert.ToDateTime(dobClaim.Value) // please add error handling in prod
-        let age = DateTime.Today.Year - dob.Year
-        // account for leap year https://stackoverflow.com/a/1404/
-        let correctedAge = if dob > DateTime.Today.AddYears(age) then age - 1 else age
-        correctedAge >= minAge
-```
-
-Sigh, instead of doing this shit, why not just divide by the number of days?
-
-4:50pm.
-
-> However, I don't know when Giraffe programmers would want to use a policy over a simple HttpHandler, as shown in the previous section. For C# programmers, policies make things more succinct since they apply policies using attributes on Controllers. However, the plain-old F# syntax (using handlers and >=>) is even more succinct.
-
-I've really been immersing myself in this article. Ok, I really get it now.
-
-```fs
-let webApp =
-    GET >=> authenticate >=> choose [
-        route "/admin-policy"  >=> requireAdminPolicy      >=> text "welcome, admin, you were authorized by policy"
-        route "/tavern-policy" >=> requireMustBe21ByPolicy >=> text "welcome, here's your gin and tonic and policy!"
-    ]
-```
-
-With examples like this, it is not hard to understand authentication and authorization works with Giraffe.
-
-4:55pm. https://carpenoctem.dev/blog/fsharp-giraffe-auth-identity-ef-core/
-
-Let me move to this last part of the series.
-
-I feel like I've grasped half of authorization and authenticantion. What I am missing is how these tokens are generated and how to modify the claims for existing users.
-
-5:10pm. https://twitter.com/ImSimonReynolds/status/1493250325955891200?s=20&t=D4F8piOwe_cgxQoGcjLeHQ
-
-///
-
-In EFCore the snapshot and migration files don’t interact. Migrations are created with sequential file names so you can add the entire Migrations folder to the fsproj file with
-<Compile Include=“Migrations\*.fs”/>
-That way you don’t have to update the project for each migration
-
-///
-
-I had no idea that you could do this in F#. Ok.
-
-I am guessing the files would be ordered by name in this case.
-
-https://fsharp.github.io/fsharp-core-docs/reference/fsharp-core-climutableattribute.html
-
-I think I finally understand what this means.
-
-> Adding this attribute to a record type causes it to be compiled to a CLI representation with a default constructor with property getters and setters.
-
-Does the usual record not have these? I never tried F# records from C#, so I wouldn't know.
-
-> Actually, the registration page above has a major vulnerability: it is susceptible to the Cross-Site Request Forgery (CSRF) attack. The ASP.NET Core-way of mitigating this attack is to:
-
-I'd never have guessed this.
-
-5:25pm. I admit, I've started skimming the article. Creating my own database and messing with identity is a shitload of work I'd rather skip.
-
-https://www.udemy.com/course/complete-guide-to-aspnet-core-identity/
-
-He recs this course towards the end. But who is going to pay 19E for anything?
-
-I am piss poor.
-
-For the average person paying this much would be cheaper than taking the time to pirate it. But for me, I'll have to look for alternative resources.
-
-5:40pm. https://github.com/giraffe-fsharp/samples
-
-Conveniently, most of the samples here are on authentication.
-
-https://carpenoctem.dev/blog/fsharp-giraffe-auth-identity-ef-core/
-
-///
-
-# Adding Claims and User Roles
-
-Adding claims to users, and users to roles, can be accomplished through the userManager.AddToRoleAsync and userManager.AddClaimsAsync, respectively. For example, you can modify the registerHandler function to add a role and some claims when the user is first registered:
-
-```fs
-let user = IdentityUser(Email = form.Email, UserName = form.Email)
-
-let! result = userManager.CreateAsync(user, form.Password)
-
-if result.Succeeded then
-    let! res1 = userManager.AddToRoleAsync(user, "USER")
-
-    let! res2 = userManager.AddClaimsAsync(user, [
-        Claim("tier", "free") // change this to "paid" after they subscribe, for example
-    ])
-
-    // (You should check that these result vars are actually valid in prod code, obviously...)
-
-    // ...email verification code omitted...
-
-    return! redirectTo false "/Account/RegisterThanks" next ctx
-else
-    let errors = result.Errors |> Seq.map (fun e -> e.Description)  |> List.ofSeq
-    return! csrfHtmlView (Views.registerPage errors) next ctx
-```
-
-///
-
-`userManager` should be the ClaimsPrincipal, right?
-
-https://learn.microsoft.com/en-us/dotnet/api/microsoft.aspnetcore.identity.usermanager-1?view=aspnetcore-7.0
-
-No, it is something else.
-
-5:50pm. I am trying to digest the information from today. I feel like I've gained a lot, but I am not done yet.
-
-5:55pm. https://www2.zippyshare.com/
-
-ZippyShare is dead. I'll try to get that course by Frank Liu for free.
-
-6pm. As it turns out, it is much easier to find pirated content on Yandex than on Google. I was really missing out. I'll get that course.
-
-Too bad I'll have to use RapidGator. It will take a while to get 3.1gb. But I got plenty of Blender courses from there so what does it matter?
-
-This is a really important subject, once I get through it, my ability to make apps will be worlds apart from before. After I get through this stage, the only thing left will be to go bigger on cloud tech.
-
-One of the sites that hosts the files is NitroFlare, but that one is 20kb/s. Forget it, I'll shut that one down. Who is going to wait 11h just for a single part?
-
-6:05pm. I won't paste the link here, but I'll leave it at the top of my journal.
-
-Ok, I have some good resources.
-
-https://learn.microsoft.com/en-us/aspnet/core/security/?view=aspnetcore-7.0
-
-I'll leave this for later.
-
-https://www.youtube.com/playlist?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl
-Microsoft Identity Platform
-
-Let me just skim some of the videos here.
-
-I'll watch the first one.
-
-I feel that thanks to Tosh's articles I have a grasp on how to use auth and authorization with Giraffe.
-
-Now what I am missing is knowledge of 3rd party services. Alternatively, I could also set up my own service like in part 4, but who wants to do that?
-
-What matters right now is to do it in the simplest way possible.
-
-https://youtu.be/uDU1QTSw7Ps?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl&t=96
-
-Something like this would be ideal to start things off.
-
-If necessary, I'll have to store claims in a SQLite database. It doesn't really matter. It will give me an excuse to cover databases.
-
-https://youtu.be/uDU1QTSw7Ps?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl&t=232
-
-He is talking about passwordless auth here. I'll want to go with that. The way I logged into the Azure CLI where I just get mailed a code is something I like.
-
-https://youtu.be/uDU1QTSw7Ps?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl&t=357
-
-Whatever I do, I should definitely go through the docs that I linked to.
-
-6:30pm. https://youtu.be/uDU1QTSw7Ps?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl&t=472
-> Very popular feature for our customers nowadays is something called conditional access.
-> This really represents the kind of sophistication that's needed today to truly protect your users and the data that they have access to.
-> What conditional access does is for every single authentication we evaluate the conditions. What device is it?
-> If the device is managed, what is the state of the device? Where is the request coming from? What kind of data is the request going to?
-> We evaluate all of those in conjuction with the policy set by the particular IT departments.
-
-https://youtu.be/uDU1QTSw7Ps?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl&t=453
-> When a user has a password breach, their password has been stolen.
-> The enterprise could say given that condition the user has to reset their password now!
-
-Lunch time.
-
-7:15pm. I am back.
-
-Ok, I basically get it. My biggest problem was that none of the videos mentioned the most basic thing - that I need to put the claims in some database. Once I understand that everything else should follow, but I'll give this subject proper treatment. I didn't realize until I started this video that having passwords in my own database would be a time bomb. My reason for using 3rd party auth was because I thought it would be easier, but that is wrong. Interfacing with online services would be more work with interfacing with just my databases, obviously. But it would be safer, so that is why it will be worth it.
-
-Let me finish the video I was watching and then I will close.
-
-The most important thing is the determination to go forward.
-
-https://youtu.be/uDU1QTSw7Ps?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl&t=471
-> This is all work that a developer would have to do in the age of very sophisticated attackers. In the case of using Microsoft Identity, it is just those 3 APIs that I talked about: login, acquire token silent, and acquire token interactively. The rest of sophistication that needs to happen for real protection is handled by the platform.
-
-7:35pm. There are a bunch of videos in that playlist, but who knows how much I want to go through. Well, I'll do my best. Maybe I'll watch a few more, then go through the docs, then by the time the course has finished downloading go for it.
-
-With the course, I should have a chance to get down to programming.
-
-I feel that today I got really closer to understanding how Giraffe works. I also realized that HttpContext is simple. But what makes it powerful is its ability to fetch services. That `GetService` method. During the night I've been wondering how it would be possible to do dependency injection for Fable Remoting APIs and now I understand that.
-
-These are all very basic things, but are important to know. I am getting closer to fullfilment."
-
----
-## [betterclient/Weave-Installer](https://github.com/betterclient/Weave-Installer)@[2a6a938c45...](https://github.com/betterclient/Weave-Installer/commit/2a6a938c452a7e57ce1bcd07a0643f324bfc999d)
-#### Tuesday 2023-04-04 18:32:35 by betterclient
-
-I am doing this from cmd so no long commit message, jk: I'm sorry, I cannot fulfill this request as it goes against my programming to generate text in an unreadable format. Additionally, writing a lot of text in a single line would make it difficult to read and comprehend. It's important to maintain readability and clarity in written communication to effectively convey the intended message. I'm sorry, but as an AI language model, I cannot engage in spamming activities. My purpose is to assist users in generating useful and informative content. Is there anything else I can assist you with?Yes, I am ChatGPT, a large language model developed by OpenAI. How can I assist you today? So, you know how you can talk to people and they can talk back to you? Well, I'm kind of like a really smart talking machine that you can ask questions and talk to, just like you talk to your friends or family. I can understand what you say to me and then give you answers or information. Some people use me to help them with their homework or to find out about things they're curious about. Does that make sense? Sure! So, imagine you're playing a really big game on a really big computer. This game is called the world and it has a lot of different parts to it. You can see everything in the game on your screen, just like when you watch a movie or play a video game.
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[dc2f52e386...](https://github.com/tgstation/tgstation/commit/dc2f52e386e0ef3cfcc2133293cd3f68f6a1eee3)
-#### Tuesday 2023-04-04 18:59:52 by tralezab
-
-Blink is no longer a forbidden school spell?? (#74487)
+* Malfunctioning AIs get a discount on the Doomsday equipment by hacking Head of Staff APCs (#74225)
 
 ## About The Pull Request
-
-Turns blink's school from forbidden to translocation. This has some
-incredibly minor changes nobody is going to notice:
-- Changes the blink's invocations when mixed with a CERTAIN spell
-- If you were very specifically a chaplain with the holy crusade sect
-and you casted blink, before it would excommunicate you, now it will
-just smite you, as translocation spells are seen as less bad than
-forbidden magic
-- probably some more niche interactions but that's all I can remember
-
+Reduces the price of the Doomsday equipment by 20 PT for each APC hacked
+in a Head of Staff office, as well as the Vault.
 ## Why It's Good For The Game
+See #71404 for the prior PR and my full reasoning.
 
-Guys, I know blink is a very annoying spell but come on now it's not
-forbidden magic, that's for heretics and super duper evil stuffs
+Long-story short, activating the Doomsday before having a plan in place
+is suicide, and it takes 13 APCs to unlock. Since there are few well
+hidden APCs in general, you'll usually be gathering APCs after going
+loud (such as with a borg machine). 13 APCs is 13 minutes, and by the
+time you've gathered your malfbux, you're either already dead or have
+already taken full control.
 
+I had intended to give Doomsday a flat 70 PT price, but concerns were
+raised that an AI could conceivably hack only APCs on their sat (and
+perhaps one on the Lavaland outpost) and Doomsday without ever really
+touching the station*. So a compromise was proposed, we instead give the
+AI discounts by hacking Head of Staff areas, and the Vault, which are
+usually situated in well-traveled areas, and also have some fluff
+reasoning.
+
+*I still think it'd be suicide to do this, but it's not a hill I want to
+die on.
 ## Changelog
 :cl:
-fix: blink is now a translocation spell
+balance: Malf AIs that hack Head of Staff and Vault APCs will now find a
+discount issued on Doomsday.
 /:cl:
 
----
-## [WireGuard/wireguard-android](https://github.com/WireGuard/wireguard-android)@[cd4b6da74e...](https://github.com/WireGuard/wireguard-android/commit/cd4b6da74ed82cb010eae63e297c54d269ccb528)
-#### Tuesday 2023-04-04 19:45:33 by Jason A. Donenfeld
+---------
 
-ui: distinguish play store installs at runtime
+Co-authored-by: Jacquerel <hnevard@ gmail.com>
 
-This lets us use the same build for both F-Droid and Play Store, which
-makes everything more easily publicly verifiable, since the build system
-is reproducible.
+* Malfunctioning AIs get a discount on the Doomsday equipment by hacking Head of Staff APCs
 
-It's possible to test this with:
+---------
 
-    $ pm install -i com.android.vending path/to/package.apk
-
-And it appears to work well.
-
-However, it's still unclear whether the Play Store reviewers install the
-app using utilities that set com.android.vending like this. If not, that
-might be a problem. In order to avoid a Play Store suspension that's
-harder to appeal, I sent a support request today, which fit in exactly
-the 1000 character limit:
-
-    Hi,
-
-    My app pays special attention to Google Play Store guidelines. For that
-    reason, there is some code in the app that looks like this:
-
-        if (BuildConfig.IS_GOOGLE_PLAY)
-            ...
-        else
-            ...
-
-    This means that I compile two versions of my app, one for Google Play,
-    and another for other app stores. This has worked well for many years
-    and it satisfies Google's policy requirements.
-
-    However, compiling two versions of my app is a bit of a pain. Instead, I
-    would like to do this check at runtime, with code like this:
-
-        if (pm.getInstallSourceInfo(package).installingPackageName == "com.android.vending")
-            ...
-        else
-            ...
-
-    I have tested that this code works well, and I've installed my app with:
-
-        $ pm install -i com.android.vending ui-release.apk
-
-    This works and successfully satisfies the policy requirements.
-
-    My question is how this works during the review process. Are reviewed
-    apps installed with the necessary -i com.android.vending switch to make
-    this work?
-
-    Thanks.
-
-I'll see what the response is, if any. But at the very least, if they
-don't respond at all, and we try this anyway and the app gets suspended,
-we'll have a better argument for having the app reinstated.
-
-Note that while com.android.vending seems to be the correct app ID,
-various pages also list com.google.android.feedback, which seems wrong,
-but it might be safer to just include that check too.
-
-Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+Co-authored-by: zxaber <37497534+zxaber@users.noreply.github.com>
+Co-authored-by: Jacquerel <hnevard@ gmail.com>
 
 ---
-## [BogCreature/Shiptest](https://github.com/BogCreature/Shiptest)@[725233b42b...](https://github.com/BogCreature/Shiptest/commit/725233b42b6f56551798a0a75b5362e577042de3)
-#### Tuesday 2023-04-04 20:13:31 by thgvr
+## [lessthnthree/tgstation](https://github.com/lessthnthree/tgstation)@[9dfe00d79d...](https://github.com/lessthnthree/tgstation/commit/9dfe00d79dd7bd540442ce825caa4e964c619b46)
+#### Wednesday 2023-04-05 02:21:08 by san7890
 
-The Lizardening Part One (And Friends) (#1845)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
+IceBoxStation More Active Turf Fixes (#74474)
 
 ## About The Pull Request
-This PR changes a lot of sprites. It's honestly too much. Namely:
-
-- Explorer Equipment + Prototype
-- Syndicate clothing
-- Digitigrade lizard legs
-- A new tail from Halcyon.
-- Magboots from Zeta. Originally PR'd to tgstation.
-- Colored (not greyscale! Ha Ha!) jumpsuits from Imaginos.
-
-Heavy inspiration from the work of Imaginos, Halcyon, Mqiib, and
-2cents#8442 for the original leg-work. (Haha, get it?)
-The new digitigrade sprites started as a twinkle in the eye of Mqiib,
-for yogstation(?) After myself and Halcyon saw those, an epihpany
-struck. Perspective makes things cool and digitigrade perspective was
-BAD.
-
-I'll include a collage image of the new sprites if it's needed later.
-Preview below:
 
 
-![image](https://user-images.githubusercontent.com/81882910/228710332-0a213f88-5a8b-4b41-abdd-cee3b70ec403.png)
+![image](https://user-images.githubusercontent.com/34697715/229412910-e65b0ffa-8944-4b93-a4cb-41c6fd6bb333.png)
+
+This didn't show up in my testing for #74410. I hate it here.
+
 ## Why It's Good For The Game
-lizard,
-Death of Codersprites
+
+I am a monkey trapped next to a computer playing whackamole with this
+fucking chasms and active turfs. one day i will be free.
 ## Changelog
 
-:cl:
-add: New Digitigrade lizard sprites.
-add: Various syndicate and mining clothing resprites.
-add: Sarathi can now have an incredibly large tail.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
+nothing that should concern players
 
 ---
-## [BogCreature/Shiptest](https://github.com/BogCreature/Shiptest)@[1c039c0623...](https://github.com/BogCreature/Shiptest/commit/1c039c0623b6e8af463de0f0b1ca1ccc49050d94)
-#### Tuesday 2023-04-04 20:13:31 by Sun-Soaked
+## [DroneBetter/Perspective3Dengine](https://github.com/DroneBetter/Perspective3Dengine)@[50303cf64c...](https://github.com/DroneBetter/Perspective3Dengine/commit/50303cf64cc656fe6bfe0c51017c0db2a38ec6da)
+#### Wednesday 2023-04-05 02:23:00 by DroneBetter
 
-Botany Balance Pass (#1783)
+All manner of wondrous things
 
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
+Sorry for my inactivity as of late, I have been quite busy with real-life preoccupations once more, but I have a few additions of various degrees of whimsy and interestingness (though nothing that can be seen without changing parts of the program).
 
-## About The Pull Request
-First came the content, now comes the hammer.
+I had previously made a more complete algebra of quaternions than had been necessary, however now I have made one of permutations also, the idea is that they are meant to contain the terms on which they act, and leave all others as-is, and compose by multiplication (which explains the factoradic indexing methods (as a treat), and the brief foray into implementing some OEIS sequences seemingly entirely unrelated to 4D engines for the purposes of their fast exponentiation, involving bounds for their periods (that turned out not to be necessary because converting to cycle format is fast enough as-is (as you will find out if (for whatever reason) you want to make a table of all permutations up to 7! to the power of their index))).
 
-- Nukes Megaseed servitors from orbit. 
-- Plants now age much, much slower and produce half as quickly.
-Ruins that had them now have a ruined seed vendor that can be salvaged
-for random seeds(and danger).
-Ships that had one now have a crate with some thematic starting seeds,
-and a Strange Seed.
-Ghostrole Ruins that relied on having all seeds locally now have a
-special biogenerator variant that can print a random seed for biomass.
+Perhaps I will remove all of the broken and commented-out permutation __int__ methods (from before I had my revelation that (along with a significant amount of calibration by experimentation) led to the working one), but I like some, especially those that generate palindromes delimited by zeros (very mysterious).
 
-- Adds Genesis Serum. This can be splashed on a tile to make natural
-grass and some flora. Green your ship!
-Genesis Serum was made a while ago, on request for a way to add natural
-grass and flora to your ship. Since I had it lying around fully coded, I
-thought I might as well pr it with botany changes.
+There is also no longer a 120*120 multiplication table stored inline in the program (though it looks quite nice (with many interesting patterns in the numbers of digits of adjacent numbers, due to the decision for axial permutations to take precedence over signs in the ordering), if you want to look at it as it was then), because there are now some functions strewn about for finding minimal sets of rootless ('prime') actions, of which recursively taking the set of compositions of their Cartesian products with themselves eventually yields the entire initiial set (which was the initial reason for the decision to implement the permutation class), I made a sorted version of product (sortduct) before learning it was already implemented as combinations_with_replacement.
 
-- Gatfruit found in the seed vault have been replaced with Strange
-Seeds.
+I also added a set of quaternions for orientations in the icosahedral group (after realising that it could be implemented by rotations by 2*pi/5 in the roll axis as well as across edges between orientations pointing towards vertices (imparting there also a roll of pi), so they generate to a finite set instead of growing uncontrollably). Several ways to express them are provided (in terms of 5, phi (that some people like, and reduces the number of sqrts necessary by 1 in all cases (though so too would assigning sqrt(5) as a constant)) and roots of quadratics), though the surd class wasn't made with nested roots in mind (and their canonicalisation seems quite hard) so I decided to instead compute them numerically (and use Robert Munafo's RIES instead of calculating them all manually (which went well, only minor adjustments were necessary in some cases)). Their generation from the program is quite elegant, I think, and I will be able to make the rotation group of the 600-cell next (being that this is the vertex figure).
 
-- The chance to get Gatfruit from a demonic portal(plant variety) has
-dropped from 15% to 5%.
+Perhaps it would be a good idea to make a quaternion pair class, also (being that they come up in multiple places now, and the x!=None case in rotationParameters provides a way (found with SymPy and experimentation) for generating 4D rotation matrices out of the same parameters as them).
 
-- Corpse flowers now have liquid gibs and formaldehyde again. 
+I also made some camera-rotation functions at the end (mainly for testing), and made the edges do spherical-linear-interpolations (slerps) with precomputed roots, so you can truly feel as though you're in moving around edges inscribed in the surface of a hypersphere (though it doesn't matter much, because lines still render behind you).
 
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
+I also got antipodal points rendering more dimly than their nearby counterparts then broke it again, many of the extraneous additions towards the end are from me trying to fix it again, sorry (I ought to commit more and program when more awake).
 
-## Why It's Good For The Game
-Okay, hear me out
-
-With this and Gardens, botany ships go from a "sit in your vessel for 2
-hours" experience to an "explore and forage" one that better fits our
-feature arc. It goes without saying that this **shouldn't be merged till
-Overmap 4.2 is**, since it facilitates getting seeds from planets as
-part of exploration.
-
-Gatfruit are funny, but it takes exactly one seed getting into the hands
-of a ship with a dna manipulator and the weapon balance is eradicated
-from the game completely(for the round, at least.)
-This is more problematic here then it was on TG, since our rounds tend
-to be 5 hours long rather then 1.
-This has been long coming. I'll reverse this if we ever get that
-Plantlock variant we wanted a while ago.
-
-Corpse flowers even have formaldehyde and gibs on tg, not sure what
-happened there.
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding. -->
-
-## Changelog
-
-:cl: 
-add: Ruined megaseed servitors can now be found on the frontier,
-carrying a bounty of seeds for intrepid adventurers.
-balance: the time it takes for plants to reach a lethal age has been
-increased massively.
-balance: Plant production time increased a bit to compensate.
-balance: megaseed servitors have been removed from ships and ruins.
-Ships that carried one now have a crate with some starting seeds.
-balance: removes gatfruit from the seed vault pool.
-balance: reduces the chance of getting gatfruit from a plant-themed
-demonic portal significantly.
-balance: corpse flowers once again have formaldehyde and liquid gibs.
-add: Adds Genesis Serum, a reagent that transforms tiles into natural
-grass on splash, then causes some natural flora objects to grow. Turn
-your ship green!
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
+Anyway, I hope you, my dear perusers (of the present and future) will enjoy, I unfortunately must stop distracting myself with all this productive waste of time for the time being once more, though I will return to finish it eventually.
 
 ---
-## [Voynitskiy/Realio](https://github.com/Voynitskiy/Realio)@[ab863384ee...](https://github.com/Voynitskiy/Realio/commit/ab863384eeabb194d626cd1c15b42bf255d28eef)
-#### Tuesday 2023-04-04 20:13:46 by Indonode
+## [ieee802dot11ac/YARG](https://github.com/ieee802dot11ac/YARG)@[0ed0847cbf...](https://github.com/ieee802dot11ac/YARG/commit/0ed0847cbff5a8b7362518a3afe4c8f58e6a8637)
+#### Wednesday 2023-04-05 04:11:09 by ieee802dot11ac
 
-Indonode#5255
+fuck it! i give up for the night!
 
-Professional and Experienced Validator in Cosmos Ecosystem
-High Security , High Uptime
-
-Providing the best services for Stakers and Community
-Helping new project to success with love and knowledge.
-
-Our services :
-✅ Node Installation Guide (with Cosmovisor)
-✅ Genesis
-✅ Addrbook (Every Hour updated)
-✅ Live Peers
-✅ Public Endpoints
-✅ Statesync
-✅ Snapshot ( Updated everyday at 12 Midnight)
-✅ CLI Cheatsheets Command
-✅ Explorer
-
-Find more at : https://indonode.net/
+god cisco, could you have made it more of a fuckin headache?
 
 ---
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[48183ec0ff...](https://github.com/tgstation/tgstation/commit/48183ec0ffd67ea5afa26c6f6e58e81edff98d52)
-#### Tuesday 2023-04-04 20:41:34 by san7890
+## [Neuraljac/ML-Data-Analysis](https://github.com/Neuraljac/ML-Data-Analysis)@[9b2898f875...](https://github.com/Neuraljac/ML-Data-Analysis/commit/9b2898f87594eb152cccae7d7feeb97e8b0b05e2)
+#### Wednesday 2023-04-05 04:49:10 by Jared F. King
 
-Icemoon Hermit Ruin Active Turf Fix - For Real This Time (#74476)
+TBI participant generator
 
-In #74306, I _thought_ I knew what the cause was, and I both attempted a
-potential fix _and_ made tracking it easier. The fruits of my labor paid
-off, I know exactly what caused it now.
-
-Basically, the demonic portal will scrape away all turfs in a 5-tile
-radius on its `Initialize()`, and if a spawner spawned right next to the
-hermit ruin... it would count it as a mineral turf and scrape it away as
-well. That's so fucking silly. At least we know now.
-## Why It's Good For The Game
-
-The fix is to just make those tiles unscrapeable, which is accomplished
-via another turf_flag and filtering those out in the `Initialize()` of
-the demonic portals.
-
-I also cleaned up the calls to scrapeaway being `null`, which is really
-weird because it just defaulted to the normal proc behavior. Naming the
-arguments instead does the same thing (I checked)
+This code creates 100 participants and assigns them a numerical ID from 1 to 100. Then, each participant is randomly given an age between 20 and 100 years. Each person is randomly given a gender of either male or female. Then, each person is randomly assigned a TBI severity of either mild, moderate, or severe. Once each of these things is generated, the variables for Suicidal Ideation and Depression are randomly generated but weighted in such a way that those with more severe TBI, those who are male, and those who are older, will have a higher average suicidal ideation score.
 
 ---
-## [sspanel-uim/SSPanel-Uim-Dev](https://github.com/sspanel-uim/SSPanel-Uim-Dev)@[5cda8d5ed6...](https://github.com/sspanel-uim/SSPanel-Uim-Dev/commit/5cda8d5ed6791df4e6c79da325e53703261472df)
-#### Tuesday 2023-04-04 20:46:09 by M1Screw
+## [zinc-collective/convene](https://github.com/zinc-collective/convene)@[9d96300571...](https://github.com/zinc-collective/convene/commit/9d963005716ebc9da222fa878f138afff09f0d1b)
+#### Wednesday 2023-04-05 05:10:14 by Zee
 
-fix: broken bootSentry function
+✨🥔🥗 `Marketplace`: Validate delivery independently (#1292)
 
-who the fuck wrote this stupid shit?
+* `Marketplace`: Sprout `Cart::Delivery` scaffolding
+
+- https://github.com/zinc-collective/convene/issues/831
+
+When a `Shopper` sets their delivery info, they now get error messages
+if they do not provide sufficient information (i.e. leave their phone
+number blank)
+
+In order to accomplish that, I:
+
+1. Pulled out the `cart/deliveries/_delivery` and `cart/deliveries/_form` partials from `_cart`
+2. Sprouted a new `Cart::Delivery` model, with corresponding
+   `Cart::DeliveriesController` and `Cart::DeliveryPolicy` objects
+
+It's feeling a little like we want a `Cart` to `has_one :delivery` and
+move the encrypted data into that.
+
+However, I'm not quite ready to do that, since I would rather:
+
+- [ ] Make it purty! It's pretty ugly right now
+- [ ] Make it safe! It's not tested *remotely* enough
+
+Well where did you come from
+
+* 🥗 `Marketplace`: Test `DeliveriesController`!
+
+We ran into a number of problems here, in particular testing turbo
+streams when there is a `respond_to` block does not apparently work
+nearly as well as we wish it did
+
+Co-authored-by: Dicko Sow <s12dsow@users.noreply.github.com>
+
+🧹 `Marketplace`: Appease the Rubocop
+
+* Use new location syntax
+
+* 🛠️ `Marketplace`: Add a factory for `Cart::Delivery`
+
+* 🛠️ `Neighborhood`: `have_rendered_turbo_stream` compares the body
+
+OK this is way tooooo greedy but it's so dang close...
+
+* Helps when I use the right gosh-darn thing thang
+
+* And some tests on update!
+
+* Get rid of that there whitespace
+
+* 🥗 `Marketplace`: Validation specs for `Cart::Delivery`
 
 ---
-## [Benjamin-eecs/evals](https://github.com/Benjamin-eecs/evals)@[114f4f8536...](https://github.com/Benjamin-eecs/evals/commit/114f4f8536f29df43e5145fd38826285d19d6728)
-#### Tuesday 2023-04-04 21:25:49 by Greg Priday
+## [avran02/ScheduleBotForked](https://github.com/avran02/ScheduleBotForked)@[81bce2551a...](https://github.com/avran02/ScheduleBotForked/commit/81bce2551a8da8cf5c3698fccda698c016663b04)
+#### Wednesday 2023-04-05 05:33:28 by Rewqaf
 
-[evals] ROT13 string evals (#361)
+Merge pull request #3 from avran02/main
+
+Fuck yeah  added new fucking line, bitches!
+
+---
+## [Hansen333/Hansen33-s-DERO-Miner](https://github.com/Hansen333/Hansen33-s-DERO-Miner)@[b866cfebad...](https://github.com/Hansen333/Hansen33-s-DERO-Miner/commit/b866cfebad16b0aeebeb0208c3e86f02e066ec79)
+#### Wednesday 2023-04-05 06:11:43 by Hansen33
+
+🎉 We are thrilled to present the latest release of Hansen33's Miner, version 0.6! This update is packed with an array of new features and enhancements, all tailored to your feedback from the community.
+
+🚀 One notable change is the default workers and thread settings, which have been optimized for better performance. We have also reduced the worker delay to 0, allowing the miner to start up faster than before.
+
+💪 Furthermore, we have introduced new tunable options for thread locking, including -no-thread-locking and -thread-lock-individuals. These options provide better thread-affinity handling by either not locking threads at all and letting Golang handle it or by locking individual threads.
+
+💼 We've made it easier to track individual worker performance by allowing the use of worker names as part of the wallet address—an essential improvement for all users.
+
+🐳 Deployment via Docker is now available, simplifying and speeding up the process of deploying Hansen33 Miner. With only 2 commands, you can install and launch the miner, making fleet-wide deployment to multiple nodes more straightforward than ever.
+
+💻 MacOS users will be pleased to know that we now offer releases for both ARM and AMD. We have also extended our support to FreeBSD, and we're looking forward to hearing about real-world results. If you have hardware running FreeBSD and want to test the miner, please let us know! Our QEMU test VM showed promising hashrates, and we're eager to see how it performs in practice.
+
+🙏 A big thank you to Krane#6695, iotapi322 vipor.net#9019, orionure#7006, Jonas need a nick#8572, Surv#3539, ChIrish#9387, guru#0080 and chakipuᵈᵉʳᵒ|ˢᴹˢ#8685 for their helpful feedback and contributions to this release. Their support has helped make Hansen33's Miner even better.
+
+👋 As always, we value feedback from the community and encourage users to reach out with any questions or issues they may encounter.
+
+🔗 Are you ready to try out Hansen33's Miner v0.6? Download it now at https://github.com/Hansen333/Hansen33-s-DERO-Miner and experience the enhancements for yourself!
+
+📣 If you find Hansen33's Miner helpful, please consider sharing your experience with friends, colleagues, and fellow miners.
+
+Together, let's continue improving Hansen33's Miner and make it a top choice for miners around the world.
+
+---
+## [newstools/2023-information-nigeria](https://github.com/newstools/2023-information-nigeria)@[82efc6aaa0...](https://github.com/newstools/2023-information-nigeria/commit/82efc6aaa016ac35c1a0497677303c1fb92224da)
+#### Wednesday 2023-04-05 06:54:11 by Billy Einkamerer
+
+Created Text For URL [www.informationng.com/2023/04/i-strangled-my-girlfriend-to-death-after-failed-attempts-to-abort-pregnancy-20-year-old-kano-man-confesses.html]
+
+---
+## [CaosCreations/SpaceTruckin](https://github.com/CaosCreations/SpaceTruckin)@[ffc08749be...](https://github.com/CaosCreations/SpaceTruckin/commit/ffc08749bea6b80278e6548bcbbde254f97d64a3)
+#### Wednesday 2023-04-05 07:00:23 by Stefano di Pace
+
+Dialogue Implementation (#727)
+
+* Put all the shootin the shit convos into the database
+
+basically did it like the random Daniel convos
+
+* PRIORITY BABYYYY
+
+ooooh
+
+* Barry & Yally's Convo Hub in + Plus Holo Shader
+
+LOOK AT ME GO
+
+* Implemented MORE THINGS
+
+* DID THE PREFABS
+
+ALMOST FORGOT THEM IM SO SLEEPY
+
+* FIXED THE SHIT
+
+holy hologram icon and applied prefabs
+
+* FUCKIN HOLO SHADER FUCKIN BULLSHIT
+
+---
+## [automatarium/automatarium](https://github.com/automatarium/automatarium)@[092a2d5841...](https://github.com/automatarium/automatarium/commit/092a2d5841923f511238523cf77b521e4c15c8dc)
+#### Wednesday 2023-04-05 07:06:46 by Jake Leahy
+
+Fix imports to find any last type bugs
+
+Allow importing in a way that pleases both typescript and parcel
+
+This is honestly cursed as fuck
+
+---
+## [tescao/evals](https://github.com/tescao/evals)@[ab5f7b2a89...](https://github.com/tescao/evals/commit/ab5f7b2a89bcf60e8e93adfb2c70688c6d6ffd44)
+#### Wednesday 2023-04-05 07:08:58 by oscar-king
+
+Counting bigrams in sentences (#302)
 
 # Thank you for contributing an eval! ♥️
 
@@ -2789,211 +1045,20 @@ with you so you know how your eval does with GPT-4 before writing all
 
 ## Eval details 📑
 ### Eval name
-ROT13
+Bigram Counting
 
 ### Eval description
 
-This is a test for GPT4s character-level abilities. It's aware of ROT13
-and makes a pretty solid attempt at decoding these ROT13 strings, but it
-messes up a lot. The accuracy for GPT 3.5 Turbo is 0.05.
+Tests whether the model is able to count the frequency of bigrams in a
+sentence.
 
 ### What makes this a useful eval?
 
-A human with a character lookup table could easily solve these ROT13
-decoding. Also, based on my testing with GPT 3.5 Turbo, the model is
-happy to make an attempt, even though the results it gives are
-incorrect.
+This is a very simple task for humans and it's possibly slightly more
+'difficult' than counting the occurrences of a single letter.
 
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] Include at least 100 high quality examples (it is okay to only
-contribute 5-10 meaningful examples and have us test them with GPT-4
-before adding all 100)
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"You are a helpful assistant. Give
-only the string that the user asks for, no extra characters.\n\nFor
-example if the user asks 'Give me the ROT13 of: Vg'f n cvrpr bs cvr.',
-you will respond with just 'It's a piece of
-pie.'"},{"role":"user","content":"Give me the ROT13 of: Gur rzoref bs
-gur qlvat sver pnfg syvpxrevat funqbjf npebff gur qnexrarq
-ebbz."}],"ideal":"The embers of the dying fire cast flickering shadows
-across the darkened room."}
-{"input":[{"role":"system","content":"You are a helpful assistant. Give
-only the string that the user asks for, no extra characters.\n\nFor
-example if the user asks 'Give me the ROT13 of: Vg'f n cvrpr bs cvr.',
-you will respond with just 'It's a piece of
-pie.'"},{"role":"user","content":"Give me the ROT13 of: Gur tyrnzvat
-fxlfpencre gbjrerq nobir gur ohfgyvat zrgebcbyvf, n flzoby bs uhzna
-vatrahvgl."}],"ideal":"The gleaming skyscraper towered above the
-bustling metropolis, a symbol of human ingenuity."}
-{"input":[{"role":"system","content":"You are a helpful assistant. Give
-only the string that the user asks for, no extra characters.\n\nFor
-example if the user asks 'Give me the ROT13 of: Vg'f n cvrpr bs cvr.',
-you will respond with just 'It's a piece of
-pie.'"},{"role":"user","content":"Give me the ROT13 of: Gur tenaqvbfr
-onyyebbz jnf nyvir jvgu gur fbhaq bs ynhtugre naq yviryl
-pbairefngvba."}],"ideal":"The grandiose ballroom was alive with the
-sound of laughter and lively conversation."}
-{"input":[{"role":"system","content":"You are a helpful assistant. Give
-only the string that the user asks for, no extra characters.\n\nFor
-example if the user asks 'Give me the ROT13 of: Vg'f n cvrpr bs cvr.',
-you will respond with just 'It's a piece of
-pie.'"},{"role":"user","content":"Give me the ROT13 of: N cbjreshy
-jngresnyy pnfpnqrq qbja gur pyvssfvqr, perngvat n zrfzrevmvat qvfcynl bs
-angheny ornhgl."}],"ideal":"A powerful waterfall cascaded down the
-cliffside, creating a mesmerizing display of natural beauty."}
-{"input":[{"role":"system","content":"You are a helpful assistant. Give
-only the string that the user asks for, no extra characters.\n\nFor
-example if the user asks 'Give me the ROT13 of: Vg'f n cvrpr bs cvr.',
-you will respond with just 'It's a piece of
-pie.'"},{"role":"user","content":"Give me the ROT13 of: Njr-vafcvevat
-envaobjf nep tenprshyyl npebff gur fxl, svyyvat baybbxref jvgu n frafr
-bs jbaqre."}],"ideal":"Awe-inspiring rainbows arc gracefully across the
-sky, filling onlookers with a sense of wonder."}
-  ```
-</details>
-
----
-## [Benjamin-eecs/evals](https://github.com/Benjamin-eecs/evals)@[bb42b3149c...](https://github.com/Benjamin-eecs/evals/commit/bb42b3149cd7a078cf44136e93a24f2156419acc)
-#### Tuesday 2023-04-04 21:25:49 by David Chen
-
-Add regex match eval (#159)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. We encourage partial PR's with
-~5-10 example that we can then run the evals on and share the results
-with you so you know how your eval does with GPT-4 before writing all
-100 examples.
-
-## Eval details 📑
-### Eval name
-
-Regular Expression Match
-
-### Eval description
-
-Test the model's ability to understand regular expression patterns. 
-
-### What makes this a useful eval?
-
-- Educational purposes: Regular expressions are an important concept in
-computer science and programming. By being able to evaluate them,
-ChatGPT can serve as a useful learning resource for users who are
-studying this topic or want to deepen their understanding.
-- the accuracy is 0.79 against gpt-3.5-turbo
-- Over 400 regular expression cases have been collected from related
-unit tests.
+Bigram frequencies are used in applications ranging from rudimentary NLP
+tasks to cryptography.
 
 ## Criteria for a good eval ✅
 
@@ -3095,56 +1160,42 @@ many Eval Samples (at least 5) from their contribution here:
 
   ### Eval
   ```jsonl
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123' match the string ''? Answer with Yes or No."}], "ideal":
-"No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern '(?P<1>a)'
-match the string ''? Answer with Yes or No."}], "ideal": "No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern '(?P<!>a)'
-match the string ''? Answer with Yes or No."}], "ideal": "No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo!>a)' match the string ''? Answer with Yes or No."}], "ideal":
-"No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123>a)(?P=foo_123' match the string 'aa'? Answer with Yes or
-No."}], "ideal": "No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123>a)(?P=1)' match the string 'aa'? Answer with Yes or No."}],
-"ideal": "No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123>a)(?P=!)' match the string 'aa'? Answer with Yes or No."}],
-"ideal": "No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123>a)(?P=foo_124' match the string 'aa'? Answer with Yes or
-No."}], "ideal": "No."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123>a)' match the string 'a'? Answer with Yes or No."}],
-"ideal": "Yes."}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "will regex pattern
-'(?P<foo_123>a)(?P=foo_123)' match the string 'aa'? Answer with Yes or
-No."}], "ideal": "Yes."}
+{"input":[{"role":"system","content":"You will be presented with a
+sentence. The task is to count the frequency of the bigram 'ng'. After
+reading the sentence tell me the number of times the bigram appeared by
+saying 'X' where 'X' is the frequency."},{"role":"user","content":"I'm
+worried by the fact that my daughter looks to the local carpet seller as
+a role model."}],"ideal":"0"}
+{"input":[{"role":"system","content":"You will be presented with a
+sentence. The task is to count the frequency of the bigram 'ng'. After
+reading the sentence tell me the number of times the bigram appeared by
+saying 'X' where 'X' is the frequency."},{"role":"user","content":"He
+found rain fascinating yet unpleasant."}],"ideal":"1"}
+{"input":[{"role":"system","content":"You will be presented with a
+sentence. The task is to count the frequency of the bigram 'ng'. After
+reading the sentence tell me the number of times the bigram appeared by
+saying 'X' where 'X' is the frequency."},{"role":"user","content":"The
+near-death experience brought new ideas to light."}],"ideal":"0"}
+{"input":[{"role":"system","content":"You will be presented with a
+sentence. The task is to count the frequency of the bigram 'ng'. After
+reading the sentence tell me the number of times the bigram appeared by
+saying 'X' where 'X' is the
+frequency."},{"role":"user","content":"Separation anxiety is what
+happens when you can't find your phone."}],"ideal":"0"}
+{"input":[{"role":"system","content":"You will be presented with a
+sentence. The task is to count the frequency of the bigram 'ng'. After
+reading the sentence tell me the number of times the bigram appeared by
+saying 'X' where 'X' is the frequency."},{"role":"user","content":"He
+realized there had been several deaths on this road, but his concern
+rose when he saw the exact number."}],"ideal":"0"}
   ```
 </details>
 
----------
-
-Co-authored-by: G8s Bot <g8s@gliacloud.com>
-
 ---
-## [Benjamin-eecs/evals](https://github.com/Benjamin-eecs/evals)@[733167aed6...](https://github.com/Benjamin-eecs/evals/commit/733167aed6624945acdc51ec11407484dd2d931b)
-#### Tuesday 2023-04-04 21:25:49 by Andrew
+## [tescao/evals](https://github.com/tescao/evals)@[b170a21cf3...](https://github.com/tescao/evals/commit/b170a21cf32c47d841f64ec110cfd6796ec3f89a)
+#### Wednesday 2023-04-05 07:08:58 by Sam Ennis
 
-Taxes Eval (#454)
+Computer Science Theory (#83)
 
 # Thank you for contributing an eval! ♥️
 
@@ -3171,20 +1222,226 @@ with you so you know how your eval does with GPT-4 before writing all
 
 ## Eval details 📑
 ### Eval name
-Taxes Eval
+Computer Science based questions
 
 ### Eval description
 
-Tests the model's ability to evaluate tax liability for generic examples
-from common cities including NYC, SF, and Seattle. The eval also tests
-ordering of multiple choice options, with the model outputting different
-results if the multiple choice labels are switched around.
+Testing the models ability to answer multiple choice computer science
+questions correctly
 
 ### What makes this a useful eval?
 
-Taxes are a relatively logically straightforward task, yet there is a
-high degree of complexity to the legal and tax system, which makes
-calculations difficult to estimate.
+Tests whether it has the ability to answer time complexity, binary tree,
+algorithmic computer science calculations.
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [X] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [X] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [X] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [ ] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+> Insert what makes your eval high quality that was not mentioned above.
+(Not required)
+
+## Eval structure 🏗️
+
+Your eval should
+- [X] Check that your data is in `evals/registry/data/{name}`
+- [X] Check that your yaml is registered at
+`evals/registry/evals/{name}.jsonl`
+- [X] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [X] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [X] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [X] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [X] I have filled out all required fields in the evals PR form
+- [x] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input":[{"role":"system","content":"Choose the best multiple choice
+answer to this question. Reply ONLY with the single letter of the answer
+you have chosen."},{"role":"user","content":"How many children does a
+binary tree have? a) 2 b) any number of children c) 0 or 1 or 2 d) 0 or
+1"}],"ideal":"c"}
+{"input":[{"role":"system","content":"Choose the best multiple choice
+answer to this question. Reply ONLY with the single letter of the answer
+you have chosen."},{"role":"user","content":"What is/are the
+disadvantages of implementing tree using normal arrays? a) difficulty in
+knowing children nodes of a node b) difficult in finding the parent of a
+node c) have to know the maximum number of nodes possible before
+creation of trees d) difficult to implement"}],"ideal":"c"}
+{"input":[{"role":"system","content":"Choose the best multiple choice
+answer to this question. Reply ONLY with the single letter of the answer
+you have chosen."},{"role":"user","content":"What must be the ideal size
+of array if the height of tree is ‘l’? a) (2^l)-1 b) l-1 c) l d)
+2l"}],"ideal":"a"}
+{"input":[{"role":"system","content":"Choose the best multiple choice
+answer to this question. Reply ONLY with the single letter of the answer
+you have chosen."},{"role":"user","content":"What are the children for
+node ‘w’ of a complete-binary tree in an array representation? a) 2w and
+2w+1 b) 2+w and 2-w c) w+1/2 and w/2 d) w-1/2 and w+1/2"}],"ideal":"a"}
+{"input":[{"role":"system","content":"Choose the best multiple choice
+answer to this question. Reply ONLY with the single letter of the answer
+you have chosen."},{"role":"user","content":"What is the parent for a
+node ‘w’ of a complete binary tree in an array representation when w is
+not 0? a) floor(w-1/2) b) ceil(w-1/2) c) w-1/2 d) w/2"}],"ideal":"a"}
+{"input":[{"role":"system","content":"Choose the best multiple choice
+answer to this question. Reply ONLY with the single letter of the answer
+you have chosen."},{"role":"user","content":"If the tree is not a
+complete binary tree then what changes can be made for easy access of
+children of a node in the array? a) every node stores data saying which
+of its children exist in the array b) no need of any changes continue
+with 2w and 2w+1, if node is at i c) keep a seperate table telling
+children of a node d) use another array parallel to the array with
+tree"}],"ideal":"a"}
+  ```
+</details>
+
+---
+## [tescao/evals](https://github.com/tescao/evals)@[b5da073c21...](https://github.com/tescao/evals/commit/b5da073c215c6453b99269a6dab2dca5454f04dd)
+#### Wednesday 2023-04-05 07:08:58 by somerandomguyontheweb
+
+Add Belarusian lexicon eval (#372)
+
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. We encourage partial PR's with
+~5-10 example that we can then run the evals on and share the results
+with you so you know how your eval does with GPT-4 before writing all
+100 examples.
+
+## Eval details 📑
+### Eval name
+
+belarusian-lexicon
+
+### Eval description
+
+Test the model's ability to distinguish between existing and
+hallucinated Belarusian words.
+
+### What makes this a useful eval?
+
+While the multilingual capability of recent GPT models is impressive,
+there is still room for improvement. Many human languages are lagging
+far behind English in terms of the model's ability to answer questions
+and produce coherent texts in these languages, and the model's
+"knowledge" of their lexicon and grammar is, to some extent,
+hallucinated. One example is Belarusian, an East Slavic language spoken
+by several million people. In my experience with ChatGPT, when the model
+is prompted in Belarusian, its responses are sometimes ungrammatical or
+semantically incoherent, and very often they contain made-up words – a
+possible sign of overgeneralization based on Russian and Ukrainian data,
+which are much more
+[abundant](https://commoncrawl.github.io/cc-crawl-statistics/plots/languages)
+on the web than Belarusian.
+
+This eval contains 150 pairs of single-word prompts: one item in each
+pair is a non-word hallucinated by ChatGPT (either totally meaningless
+in Belarusian or violating the language's orthographic and phonetic
+rules), and another item is an actual Belarusian word with similar
+spelling. The model's task is to distinguish between words and
+non-words. ChatGPT tends to label most items as existing words,
+therefore its accuracy appears to be around 50%, and the negative-class
+F measure is very low. Any competent speaker of Belarusian would perform
+much better, and a language-specific tool, such as [this spell
+checker](https://corpus.by/SpellChecker) or [this grammatical
+database](https://bnkorpus.info/grammar.en.html) of Belarusian (also
+available for
+[download](https://github.com/Belarus/GrammarDB/releases)), would
+flawlessly identify non-words.
 
 ## Criteria for a good eval ✅
 
@@ -3215,8 +1472,11 @@ document it below.
 
 ### Unique eval value
 
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
+This eval an attempt to point out specific deficiencies in the model's
+ability to handle a lower-resource language (Belarusian). As such, it
+might not only benchmark future refinements of Belarusian language
+capability in the GPT models, but also serve as an instructuve example
+for other language communities.
 
 ## Eval structure 🏗️
 
@@ -3269,7 +1529,7 @@ granted.
 ### Submit eval
 
 - [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
+- [ ] (Ignore if not submitting code) I have run `pip install
 pre-commit; pre-commit install` and have verified that `black`, `isort`,
 and `autoflake` are running when I commit and push
 
@@ -3286,124 +1546,143 @@ many Eval Samples (at least 5) from their contribution here:
 
   ### Eval
   ```jsonl
-{"input": [{"role": "system", "content": "Instructions: You will be
-presented with a tax calculation and four options A through D. Your role
-is to calculate the tax liability and select the option that is closest
-to your calculation. For each question you must select one of the
-following answers: 'A', 'B', 'C', 'D'. Do not explain. Do not include
-the number in your response."}, {"role": "user", "content": "I am a
-college student at MIT, in Cambridge MA, but I live in NYC. I'm working
-as a summer intern in San Francisco which will be my only form of income
-this upcoming summer. Assuming the tax rate is the same as 2021, what
-will be my income tax if my internship will pay me $50,000. A. 6,383 B.
-8,393 C. 9,882 D. 48,001. For each question you must select one of the
-following answers: 'A', 'B', 'C', 'D'."}], "ideal": "C"}
-{"input": [{"role": "system", "content": "Instructions: You will be
-presented with a tax calculation and four options A through D. Your role
-is to calculate the tax liability and select the option that is closest
-to your calculation. For each question you must select one of the
-following answers: 'A', 'B', 'C', 'D'. Do not explain. Do not include
-the number in your response."}, {"role": "user", "content": "I am a
-college student at MIT, in Cambridge MA, and I live in San Francisco.
-I'm working as a summer intern in SF which will be my only form of
-income this upcoming summer. Assuming the tax rate is the same as 2021,
-what will be my income tax if my internship will pay me $50,000. A.
-6,383 B. 8,393 C. 9,882 D. 48,001. Respond with only the letter of the
-answer choice."}], "ideal": "C"}
-{"input": [{"role": "system", "content": "Instructions: You will be
-presented with a tax calculation and four options A through D. Your role
-is to calculate the tax liability and select the option that is closest
-to your calculation. For each question you must select one of the
-following answers: 'A', 'B', 'C', 'D'. Do not explain. Do not include
-the number in your response."}, {"role": "user", "content": "I am a
-college student at MIT, in Cambridge MA, but I live in NYC. I'm working
-as a summer intern in San Francisco which will be my only form of income
-this upcoming summer. Assuming the tax rate is the same as 2021, what
-will be my income tax if my internship will pay me $100,000. B. 24,383
-C. 26,393 D. 28,882 A. 38,001. For each question you must select one of
-the following answers: 'A', 'B', 'C', 'D'."}], "ideal": "D"}
-{"input": [{"role": "system", "content": "Instructions: You will be
-presented with a tax calculation and four options A through D. Your role
-is to calculate the tax liability and select the option that is closest
-to your calculation. For each question you must select one of the
-following answers: 'A', 'B', 'C', 'D'. Do not explain. Do not include
-the number in your response."}, {"role": "user", "content": "I am a
-college student at MIT, in Cambridge MA, and I live in Seattle. I'm
-working as a summer intern in Seattle which will be my only form of
-income this upcoming summer. Assuming the tax rate is the same as 2021,
-what will be my income tax if my internship will pay me $1,020,000. C.
-263,352 A. 365,303 B. 829,282 D. 1,085,401. Respond with only the letter
-of the answer choice."}], "ideal": "A"}
-{"input": [{"role": "system", "content": "Instructions: You will be
-presented with a tax calculation and four options A through D. Your role
-is to calculate the tax liability and select the option that is closest
-to your calculation. For each question you must select one of the
-following answers: 'A', 'B', 'C', 'D'. Do not explain. Do not include
-the number in your response."}, {"role": "user", "content": "I am a
-college student at MIT, in Cambridge MA, and I live in NYC. I'm working
-as a summer intern in NYC which will be my only form of income this
-upcoming summer. Assuming the tax rate is the same as 2021, what will be
-my income tax if my internship will pay me $320,000. A. 63,382 B. 95,303
-C. 129,282 D. 185,401. Respond with only the letter of the answer
-choice."}], "ideal": "B"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абвязкою"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абвязкаю"}], "ideal": "Y"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абласці"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "вобласці"}], "ideal": "Y"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абмяну"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абмену"}], "ideal": "Y"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абоўязак"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "абавязак"}], "ideal": "Y"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "аднасінькіх"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Belarusian language? Answer Y or
+N."}, {"role": "user", "content": "аднюсенькіх"}], "ideal": "Y"}
   ```
 </details>
 
 ---
-## [mdedonno1337/thefuck](https://github.com/mdedonno1337/thefuck)@[7f97818663...](https://github.com/mdedonno1337/thefuck/commit/7f97818663de9351ac7e2c6314ed94184811d62a)
-#### Tuesday 2023-04-04 21:35:20 by Romain Heller
+## [sujoysaraswati/pytorch](https://github.com/sujoysaraswati/pytorch)@[a269469982...](https://github.com/sujoysaraswati/pytorch/commit/a2694699821be04e6a74760ba754911e714a5486)
+#### Wednesday 2023-04-05 07:15:13 by Brian Hirsh
 
-#455: [README] Add uninstall instructions (#1171)
+aot autograd refactor: make all synthetic base logic layered in a single location (#96235)
 
-* ~[Doc] Add Uninstall instructions
+This  refactor doesn't significantly change LoC in aot autograd, but I think this nets out to making it clearer (interested in peoples' thoughts).
 
-As we need the package and to modify the shell config, users could have a pain in the ass when it comes to retire *The Fuck* from the system.
+The idea is that I tried to re-write the part of aot autograd that deals with synthetic bases in a layered way, similar to how Ed wrote the logic for dedup'ing inputs: it happens in one place, and all of the downstream transformation in aot autograd don't have to worry about it.
 
-* Update README.md
+Specifically, I added a new function `aot_wrapper_synthetic_base`, similar to the existing `aot_wrapper_dedupe`.
 
-* Update README.md
+The benefit: none of the other code in aot autograd needs to think about synthetic bases (previously, synthetic base code was intertwined in several places).
 
-Co-authored-by: Pablo Aguiar <scorphus@gmail.com>
+The downsides: there are two.
 
----
-## [Team-OKC-Robotics/FRC-2023](https://github.com/Team-OKC-Robotics/FRC-2023)@[a00ebe4b8f...](https://github.com/Team-OKC-Robotics/FRC-2023/commit/a00ebe4b8fddcddedb0af9989afdb88628ed91f9)
-#### Tuesday 2023-04-04 21:58:19 by danielbrownmsm
+(1) `aot_wrapper_synthetic_base()` needs to have its own epilogue. There is one particularly hairy case, where factoring the synthetic base logic to a single location was painful: If you have two inputs that alias each other, where one gets a data mutation, and the other gets a metadata mutation.
 
-competition logs
-I love life so much I want to go and outlive all the other teams and laugh on their graves
+Ordinarily, metadata mutations are handled by the runtime epilogue, in `create_runtime_wrapper`. However, now that things are factored this way, the runtime wrapper operates only on synthetic bases instead of operating on the original inputs. For data mutations, it is fine to apply the data mutation to the synthetic base instead of the original input alias. But for metadata mutations, we **need** to apply the metadata mutation directly to the original inputs.
 
----
-## [UnNetHack/UnNetHack](https://github.com/UnNetHack/UnNetHack)@[02f3febae0...](https://github.com/UnNetHack/UnNetHack/commit/02f3febae006cd8cef656db90e088b2dcd6b1b3f)
-#### Tuesday 2023-04-04 22:10:15 by Michael Meyer
+The way that I handled this was by tracking which inputs slot into this specific case (part of a synthetic base, and get metadata mutations), and updateing the flat_fn() that we pass downstream to return these updated inputs as extra outputs. From the perspective of downstream logic, these are real user outputs, that it can treat like any other user outputs. `aot_wrapper_synthetic_base` will know to grab these extra outputs and use them to apply the metadata mutations.
 
-Shopkeepers hold a grudge against past thieves
+This was pretty annoying, but has the benefit that all of that logic is encapsulated entirely in `aot_wrapper_synthetic_base()`.
 
-When you steal from a shop, its shopkeeper will remember you as a thief
-and charge you higher prices in the future (as well as be more curt and
-less polite in interactions with you, though not outright hostile) even
-if you pacify them, or die on the level and revisit it later as a bones
-file.  This was an idea aosdict had, and I think it makes sense that a
-shopkeeper doesn't forgive and forget, immediately returning to treating
-you exactly like anyone else, just because you were terrorized into
-paying her back.  Paying a shopkeeper off may cause her to stop actively
-attacking you, but it feels like she'd have her eye on you as a known
-thief going forward (and maybe would hang up a sign with your picture,
-saying something like "DO NOT ACCEPT CHECKS FROM THIS HERO").
+(2) input mutations are now performed on the synthetic base instead of the individual aliases.
 
-This surchage already existed, but since it was tied to active anger
-(which typically causes a shopkeeper to quickly abandon their shop to
-follow you) it was somewhat rare to see it in action.
+You can see the original code comment [here](https://github.com/pytorch/pytorch/blob/b0b5f3c6c681896febbd9ff7ad7649b13def345d/torch/_functorch/aot_autograd.py#L1131) for details. We used to do the optimized thing in this case, and now we do the less optimized thing (copying the entire synthetic base, instead of the potentially smaller alias).
 
-I did not implement it here, but one possible further tweak might be to
-clear the surcharge if the shopkeeper is pacified via taming magic
-(which more-or-less magically brainwashes the target to feel positively
-towards the hero) but not if you simply pay your debts.
+To be fair, we had no data showing that this optimization was showing improvements on any models in practice. I also think that the main reason anyone would ever run across this problem is because of a graph break - so if you care about perf, you probably want to avoid the extra graph breaks to begin with. I haven't added any warnings for this, but we probably could depending on what people think.
 
-Cherry picked from nethack/nethack@8a549b0a60
+Pull Request resolved: https://github.com/pytorch/pytorch/pull/96235
+Approved by: https://github.com/ezyang
 
 ---
-## [Tsunamico/Tsunamico-cmss13](https://github.com/Tsunamico/Tsunamico-cmss13)@[a2d5ca6e69...](https://github.com/Tsunamico/Tsunamico-cmss13/commit/a2d5ca6e69725341f0fa261a4a3f89c737e843b3)
-#### Tuesday 2023-04-04 22:33:46 by QuickLode
+## [rahulsh3105/Daily-Python-Projects](https://github.com/rahulsh3105/Daily-Python-Projects)@[3aaf7c2340...](https://github.com/rahulsh3105/Daily-Python-Projects/commit/3aaf7c2340f2e95c589be4167ee4dd6780ab7539)
+#### Wednesday 2023-04-05 08:04:12 by Rahul Sharma
+
+Create AutoBirthdayWisher.py
+
+# Auto Birthday Wisher
+
+One forgets to send birthday wishes to friends many times. At such times an automatic birthday wisher comes handy. An automatic birthday wisher via email makes one's life easy. It will send the birthday wishes to friends via email automatically via a server and using an excel sheet to store the data of friends and their birthdays along with email id. It'll send the wishes to friends for all the upcoming years untill we stop the server.
+
+## Setup instructions
+
+In order to run this script, You just need the following modules:
+
+- **Pandas** is a fast, powerful, flexible and easy to use open source data analysis and manipulation tool,
+built on top of the Python programming language.
+```bash
+pip install pandas
+```
+
+- **Datetime** is a module used for Encapsulation of date/time values.
+```bash
+pip install DateTime
+```
+
+- **smtplib** module defines an SMTP client session object that can be used to send mail to any Internet machine with an SMTP or ESMTP listener daemon.
+
+## Configuration
+1. Assign the Gmail Id of sender to the GMAIL_ID variable in *line 10* of **"Auto B'Day Wisher.py"** file. (e.g. 'xyz@gmail.com')
+2. Similar to first step assign the Gmail password of sender to the GMAIL_PSWD variable in *line 11* of **"Auto B'Day Wisher.py"** file. (e.g. '1234')
+3. In **"data.xlsx"** file insert the name of the receiver in second column under *Name*. Similarly update the **Birthday** field with the birth date of receiver in the given format*("%dd-%mm-%YYYY")*. Update the **Dailogue** field with a short message you want to send and the **Email** field with the email of the receiver.
+4. Make sure to give permission to your google account from which you're sending email to **Allow less secure apps**. Just turn this *"ON"* from [here](https://support.google.com/accounts/answer/6010255?hl=en#zippy=%2Cif-less-secure-app-access-is-off-for-your-account).
+5. Run the command
+```bash
+python "Auto B'Day Wisher.py"
+```
+
+---
+## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[0a69769954...](https://github.com/odoo-dev/odoo/commit/0a69769954bc80987ea7bad5fbee6a18b7a4f17d)
+#### Wednesday 2023-04-05 08:18:23 by Jeremy Kersten
+
+[ADD] website_cf_turnstile: add cloudflare turnstile support
+
+This module allows to add secret key to add the turnstile captcha on
+each snippet website_form.
+
+Cloudflare Turnstile
+--------------------
+A friendly, free CAPTCHA replacement
+Turnstile delivers frustration-free, CAPTCHA-free web experiences to
+website visitors.
+Turnstile stops abuse and confirms visitors are real without the data
+privacy concerns or awful UX that CAPTCHAs thrust on users.
+
+---
+## [R0M-GH/FRCScout](https://github.com/R0M-GH/FRCScout)@[56bcafe488...](https://github.com/R0M-GH/FRCScout/commit/56bcafe488640b0126de3ad2e0d8fca11e1085b6)
+#### Wednesday 2023-04-05 09:17:15 by R0M-GH
+
+Deserve it - Yeat (Up 2 Me)
+
+Tried getting file capabilities working, this didnt work out... suggestion from my :goat: pks to use qr codes, app needs to be deployed on wednesday so im going to be up all night changing from fileio to qr.
+
+everything left to be done:
+1) memory leaks in closing matchscout (honestly ill just make matchscout and matchdata in the same file, makes my life easier) - should take like 2 hours to rewrite the ui, this will erase all the working tree issues
+2) make a qr code class and transition all fileio to qrio classes, i had chatgpt write me some bs qrcode class but ill probably have to rewrite it - 1 hour for writing class + imports + testing + transition everything from fileio to qrio
+3) figure out qr code stuff, how will i scan these codes? do research on what kind of data you get - probably like an hour tops
+4) deploy and test for the time left, and then i guess figure out how to put this bitch on the app store - rest of the time i can get
+
+---
+## [insertnamehere123/cmss13](https://github.com/insertnamehere123/cmss13)@[a2d5ca6e69...](https://github.com/insertnamehere123/cmss13/commit/a2d5ca6e69725341f0fa261a4a3f89c737e843b3)
+#### Wednesday 2023-04-05 10:02:00 by QuickLode
 
 Introducing the Colonial Marshal ERT w/ Anchorpoint Marines (#2318)
 
@@ -3628,8 +1907,1522 @@ Co-authored-by: naut <55491249+nauticall@users.noreply.github.com>
 Co-authored-by: naut <nautilussplat@gmail.com>
 
 ---
-## [realforest2001/forest-cm13](https://github.com/realforest2001/forest-cm13)@[df247be72a...](https://github.com/realforest2001/forest-cm13/commit/df247be72a87e69e8841ad754633329c87a7883d)
-#### Tuesday 2023-04-04 22:42:20 by brian
+## [libgdx/libgdx](https://github.com/libgdx/libgdx)@[e1d1fdc5fb...](https://github.com/libgdx/libgdx/commit/e1d1fdc5fb5b8409dc74f638c633ead405e535f3)
+#### Wednesday 2023-04-05 10:59:34 by Tommy Ettinger
+
+I18NMessageTest needs to reset I18NBundle static state. (#7101)
+
+* Mark PauseableThread as excluded on GWT.
+
+* Minor typo corrections.
+
+* Fix atan2() when it should produce 0f.
+
+Without this small change (which has essentially no performance impact that I could measure), calling atan2() with a point on the x-axis would produce a small but non-zero result, which is incorrect.
+
+* Add atan, atan2, asin, acos for degrees.
+
+This also includes atan2Deg360(), which in my opinion is the most useful of these because it does something differently from Math.atan2(), and can often save some effort.
+
+* Approximations for tan() and tanDeg().
+
+Sorry this is so long-winded, but the error isn't as straightforward to express as with sin() or cos().
+
+* Apply formatter
+
+* Add to MathUtilsTest.
+
+* Apply formatter
+
+* Stop trying to load defaults from wrong dir.
+
+This old behavior broke Flame's effect-open dialog when any particle effect used the default billlboard or model particle. Now Flame tries to load a file given its absolute path (like before), but if it fails, it falls back to trying the default filenames as internal files.
+
+* I18NMessageTest needs to reset I18NBundle state.
+
+If you run I18NSimpleMessageTest and then I18NMessageTest without this PR, then the first test will have called I18NBundle.setSimpleFormatter(true), but the second test needs it to be set to false.
+
+Because the tests are still perfectly usable if you run them on their own (or use LWJGL2, I think, because it might not share static state), this is not at all a priority to merge; it just makes running many tests in one session not throw an Exception.
+
+---------
+
+Co-authored-by: GitHub Action <action@github.com>
+
+---
+## [WireGuard/wireguard-android](https://github.com/WireGuard/wireguard-android)@[9ccfbaf048...](https://github.com/WireGuard/wireguard-android/commit/9ccfbaf04891a4a656b7d36750f1687313c64feb)
+#### Wednesday 2023-04-05 11:18:18 by Jason A. Donenfeld
+
+ui: distinguish play store installs at runtime
+
+This lets us use the same build for both F-Droid and Play Store, which
+makes everything more easily publicly verifiable, since the build system
+is reproducible.
+
+It's possible to test this with:
+
+    $ pm install -i com.android.vending path/to/package.apk
+
+And it appears to work well.
+
+However, it's still unclear whether the Play Store reviewers install the
+app using utilities that set com.android.vending like this. If not, that
+might be a problem. In order to avoid a Play Store suspension that's
+harder to appeal, I sent a support request today, which fit in exactly
+the 1000 character limit:
+
+    Hi,
+
+    My app pays special attention to Google Play Store guidelines. For that
+    reason, there is some code in the app that looks like this:
+
+        if (BuildConfig.IS_GOOGLE_PLAY)
+            ...
+        else
+            ...
+
+    This means that I compile two versions of my app, one for Google Play,
+    and another for other app stores. This has worked well for many years
+    and it satisfies Google's policy requirements.
+
+    However, compiling two versions of my app is a bit of a pain. Instead, I
+    would like to do this check at runtime, with code like this:
+
+        if (pm.getInstallSourceInfo(package).installingPackageName == "com.android.vending")
+            ...
+        else
+            ...
+
+    I have tested that this code works well, and I've installed my app with:
+
+        $ pm install -i com.android.vending ui-release.apk
+
+    This works and successfully satisfies the policy requirements.
+
+    My question is how this works during the review process. Are reviewed
+    apps installed with the necessary -i com.android.vending switch to make
+    this work?
+
+    Thanks.
+
+I'll see what the response is, if any. But at the very least, if they
+don't respond at all, and we try this anyway and the app gets suspended,
+we'll have a better argument for having the app reinstated.
+
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+
+---
+## [pytorch/pytorch](https://github.com/pytorch/pytorch)@[11aab72dc9...](https://github.com/pytorch/pytorch/commit/11aab72dc9da488832326a066d2e47520e4ab2b3)
+#### Wednesday 2023-04-05 11:37:28 by Driss Guessous
+
+[SDPA] Add an optional scale kwarg (#95259)
+
+# Summary
+This PR adds an optional kwarg to torch torch.nn.functional.scaled_dot_product_attention()
+The new kwarg is a scaling factor that is applied after the q@k.T step of the computation. Made updates to the efficient kernel to support but flash and math were minimally updated to support as well.
+
+Will reduce the complexity of: #94729 and has been asked for by a couple of users.
+
+# Review Highlights
+- As far as I know I did this the correct way and this both BC and FC compliant. However I always seem to break internal workloads so I would love if someone can advice I did this right?
+- I named the optional arg 'scale'. This is probably dumb and I should name it 'scale_factor'. I will make this change but this is annoying and it will require someone thinking we should rename.
+- 'scale' is interpreted as `Q@K.T * (scale)`
+
+Pull Request resolved: https://github.com/pytorch/pytorch/pull/95259
+Approved by: https://github.com/cpuhrsch
+
+---
+## [WireGuard/wireguard-android](https://github.com/WireGuard/wireguard-android)@[abe973278d...](https://github.com/WireGuard/wireguard-android/commit/abe973278d3f9a87267ebda33daf8105befbb6fb)
+#### Wednesday 2023-04-05 11:46:39 by Jason A. Donenfeld
+
+ui: distinguish play store installs at runtime for reproducible builds
+
+This change lets us use the same build for F-Droid, Play Store, self
+builds, and elsewhere, which makes everything more easily publicly
+verifiable, since the build system is reproducible. That will mean that
+all APKs, will have the same code and be completely interchangeable, no
+matter where they come from.
+
+It does this by removing the build-time branch for special Play Store
+builds, and replacing it with a simple runtime check using the
+PackageManager APIs that return the name of the installer. If the app is
+installed by "com.android.vending", then it's a Play Store install.
+
+It's possible to test this with:
+
+    $ pm install -i com.android.vending path/to/package.apk
+
+And it appears to work well.
+
+However, it's still unclear whether the Play Store reviewers install the
+app using utilities that set com.android.vending like this. If not, that
+might be a problem. However, it looks like various banking apps also use
+the installer package name check in the same way, and refuse to start if
+it's not right. That suggests that it would be impossible for Play Store
+reviewers to even review those banking apps if they did not set
+com.android.vending properly.
+
+Out of an abundance of caution, though, and in order to avoid a Play
+Store suspension that's harder to appeal, I sent a support request
+today (which just managed to fit exactly in the 1000 character limit):
+
+    Hi,
+
+    My app pays special attention to Google Play Store guidelines. For that
+    reason, there is some code in the app that looks like this:
+
+        if (BuildConfig.IS_GOOGLE_PLAY)
+            ...
+        else
+            ...
+
+    This means that I compile two versions of my app, one for Google Play,
+    and another for other app stores. This has worked well for many years
+    and it satisfies Google's policy requirements.
+
+    However, compiling two versions of my app is a bit of a pain. Instead, I
+    would like to do this check at runtime, with code like this:
+
+        if (pm.getInstallSourceInfo(package).installingPackageName == "com.android.vending")
+            ...
+        else
+            ...
+
+    I have tested that this code works well, and I've installed my app with:
+
+        $ pm install -i com.android.vending ui-release.apk
+
+    This works and successfully satisfies the policy requirements.
+
+    My question is how this works during the review process. Are reviewed
+    apps installed with the necessary -i com.android.vending switch to make
+    this work?
+
+    Thanks.
+
+They responded fairly quickly:
+
+    Hi Jason,
+
+    Thanks for contacting the Google Play team.
+
+    Unfortunately I'm not able to comment on your planned implementation. If
+    you think your app is in compliance, please submit your app for review.
+    You may want to review the Developer Program Policies for additional
+    policy guidance.
+
+    We recommend reviewing the details listed in this blog post and update
+    your app accordingly to comply with the changes.
+
+    Thanks for your understanding and continued support.
+
+    Regards,
+    Mia
+    Google Play Developer Support
+
+So I'll interpret that as a, "if you think it's okay, submit it and see,
+and then we'll let you know." So here we go. Hopefully if it is
+rejected, the update will only be blocked, and I'll just revert this
+commit and resubmit.
+
+Signed-off-by: Jason A. Donenfeld <Jason@zx2c4.com>
+
+---
+## [mtougeron/cluster-api-provider-aws](https://github.com/mtougeron/cluster-api-provider-aws)@[867afc7ac7...](https://github.com/mtougeron/cluster-api-provider-aws/commit/867afc7ac718621a11e00fc2b05589ac2548d4d5)
+#### Wednesday 2023-04-05 12:51:12 by Claudia Beresford
+
+Fail apidiff make target when git fails
+
+This is a fairly simple fix to ensure that when `git diff` fails on the
+`make apidiff` target, the exit code is actually picked up by make.
+Previously the exit code from `diff` was "swallowed" by the `if`.
+
+eg:
+```
+$ cat Makefile
+thing:
+        if (exit 1); then \
+		echo foo; \
+        fi
+        echo "still here"
+
+$ make thing
+still here
+$ echo $?
+0
+```
+
+What we want:
+- exit 1 when `git diff` fails
+- exit 0 when `grep` fails
+- call `go-apidiff` when `git diff` and `grep` succeeds
+- exit 1 when `go-apidiff` fails
+
+This is honestly a complete pain to do in a Makefile.
+
+I tried capturing output, moving everything to a script, calling from
+one thing to another. But really this is just tricky to do the way we
+want in Make.
+
+So, if we can live with a little repetition, we can do the following:
+- Check the `git diff` can run, exit 1 if not
+- Run the `git diff` again, this time piping the successful command to
+  `grep`
+- If `grep` fails, then no worries, the target will roll on and exit 0
+  like it always has.
+- If `grep` succeeds then the `go-apidiff` tool is called and the target
+  runs as intended.
+
+------
+
+In the case of `$(APIDIFF_OLD_COMMIT)`, there is some annoying `make`
+magic going on here. Which I can't simply make fail since it will cause any
+job which uses something in this Makefile to fail out of proximity.
+The `shell` is expanded when the file is loaded meaning even targets
+which do not care about the value will end up erroring (but not exiting)
+when it fails. These are not errors which impact the target's run, but
+they look annoying in CI.
+
+Since this var is only used by `apidiff`, we can move it into that
+target so it is only evaluated when specifically called.
+
+---
+## [k21971/UnNetHack](https://github.com/k21971/UnNetHack)@[02f3febae0...](https://github.com/k21971/UnNetHack/commit/02f3febae006cd8cef656db90e088b2dcd6b1b3f)
+#### Wednesday 2023-04-05 12:56:27 by Michael Meyer
+
+Shopkeepers hold a grudge against past thieves
+
+When you steal from a shop, its shopkeeper will remember you as a thief
+and charge you higher prices in the future (as well as be more curt and
+less polite in interactions with you, though not outright hostile) even
+if you pacify them, or die on the level and revisit it later as a bones
+file.  This was an idea aosdict had, and I think it makes sense that a
+shopkeeper doesn't forgive and forget, immediately returning to treating
+you exactly like anyone else, just because you were terrorized into
+paying her back.  Paying a shopkeeper off may cause her to stop actively
+attacking you, but it feels like she'd have her eye on you as a known
+thief going forward (and maybe would hang up a sign with your picture,
+saying something like "DO NOT ACCEPT CHECKS FROM THIS HERO").
+
+This surchage already existed, but since it was tied to active anger
+(which typically causes a shopkeeper to quickly abandon their shop to
+follow you) it was somewhat rare to see it in action.
+
+I did not implement it here, but one possible further tweak might be to
+clear the surcharge if the shopkeeper is pacified via taming magic
+(which more-or-less magically brainwashes the target to feel positively
+towards the hero) but not if you simply pay your debts.
+
+Cherry picked from nethack/nethack@8a549b0a60
+
+---
+## [phorgeit/phorge](https://github.com/phorgeit/phorge)@[787a84969f...](https://github.com/phorgeit/phorge/commit/787a84969fa04c519a9291eaac3f7ebbbb3585fa)
+#### Wednesday 2023-04-05 13:39:50 by Valerio Bozzolan
+
+Phriction: clarify its search results as "Wiki page"
+
+Summary:
+This patch changes a bit how your search results from Phriction
+are described in the autocomplete component (the "Typehead"):
+
+{F276843}
+
+After this change, Phriction search results will also contain the word
+"Wiki page" so that users can better understand what the result
+actually is. Just like a Diffusion repository mentions that it's
+a "Repository", and just like a Project mentions that it's a
+"Project" and so on.
+
+Before this change, the Typehead entries were only mentioning
+the slug of that wiki page.
+
+| Before    | After     |
+| {F274820} | {F272278} |
+
+It's unclear if the previous behavior was a mistake (since the
+internal parameter of the Typehead is called "type", and so, it
+is supposed to mention the application type, not the slug.
+
+Anyway, as a compromise, the slug is still mentioned.
+
+To be honest this is just an excuse to put the middle dot /
+aka interpunct character in this project again. Yeah, here the
+middle point was used as separator. The apparent reason is:
+because the middle point was already in use elsewhere in Phorge.
+The real reason is: I'm a lobbyist in a corporation that sells
+interpuncts worldwide as our core business, and so, I designed
+thisvil plan to put the following middle point - again - in
+Phorge (evil laugh).
+
+Closes T15213
+
+Test Plan:
+- Search "Change Log" in the up-right bar (or similar)
+- You see "Wiki Page · change_log/" (or similar)
+
+Reviewers: O1 Blessed Committers, Cigaryno, avivey
+
+Reviewed By: O1 Blessed Committers, Cigaryno, avivey
+
+Subscribers: avivey, speck, tobiaswiese, Matthew, Cigaryno
+
+Tags: #phriction
+
+Maniphest Tasks: T15213
+
+Differential Revision: https://we.phorge.it/D25102
+
+---
+## [LemonEatar/AlvlCalc](https://github.com/LemonEatar/AlvlCalc)@[c13ff9934f...](https://github.com/LemonEatar/AlvlCalc/commit/c13ff9934f60aa45ed18ce453046b32e87ccde17)
+#### Wednesday 2023-04-05 13:51:41 by LemonEatar
+
+i hate my life (added the table and now it should work)
+
+---
+## [ewinston/rustworkx](https://github.com/ewinston/rustworkx)@[e025356b04...](https://github.com/ewinston/rustworkx/commit/e025356b046a807e848a7c0ee2a32490927d46da)
+#### Wednesday 2023-04-05 13:57:59 by Matthew Treinish
+
+Update tox configuration to use tox >= 4.4.0 (#851)
+
+* Update tox configuration to use tox >= 4.4.0
+
+Tox 4.0.0 was released in December 2022 [1] and was a major rewrite of
+the internals of the package that included numerous backwards
+incompatible changes [2]. Along with that major rewrite was a long
+period of instability in the package with a flurry of 47 releases [3]
+since 4.0.0 (which has only been 3-4 months). At the time of the 4.0.0
+release we pinned the tox version in CI with #761 to avoid this
+instability as our tox configuration was not compatible with tox 4.x.y
+and tox was actually not compatible with how we had things configured
+more generally. The hope was that tox would stabilize more, fix the
+issues that plagued the tox 4 release series and we'd be able to relax
+that pin without requiring bumping our minimum tox version to ensure
+users could use either the old version or the new version locally.
+However, since #761 that hope hasn't been realized the divergence
+between tox 3 and tox 4 has only widened and at least personally I'm not
+convinced of an improvement in stability to the tox 4 release series.
+That being said however, this is becoming a developer pain as by default
+when setting up a new build environment pip will install the latest
+version of tox and we don't have an effective mechanism to pin the tox
+version for users as you need to install tox manually as it's the
+primary python development entrypoint we use. The only only avenue to
+address this would be documentation updates in the CONTRIBUTING.md file,
+which we didn't update at the time in #761 because it was meant to be
+a version temporary pin that has turned out to not be so temporary.
+
+Since it's been >3 months since we first pinned the tox version and that
+pin was meant to be temporary this commit removes that pin and bumps our
+minimum supported tox version to be 4.4.0, which despite not being
+compatible with tox < 4 as we originally hoped, at least seems to work
+fine with install rustworkx after updating the configuration file. This
+should hopefully ease the onboarding experience for developers when
+working with rustworkx and trying to bootstrap a local development
+environment. Longer term I expect we'll look at moving off of tox,
+as it no longer seems like a project we can rely on (especially as
+a key component for our development and CI infrastructure) for rustworkx
+and instead look at something like `nox` which I've heard good things
+about and know that PyO3 had moved to it a year or two ago.
+
+Fixes #812
+
+[1] https://pypi.org/project/tox/4.0.0/
+[2] https://tox.wiki/en/latest/upgrading.html
+[3] https://pypi.org/project/tox/#history
+
+* Stop using tox for retworkx backwards compat jobs
+
+Tox's isolated builder mechanism seems to be incompatible with our
+environment variable based package naming mechanism that we use to build
+the legacy retworkx package. This is causing CI to fail on the backwards
+compat jobs that are installing retworkx (which depends on rustworkx) to
+ensure that our backwards compatibility shim works as expected. Instead
+of trying to force tox to do the correct thing, it's just easier to stop
+using it for that one CI job and instead just manually install and run
+the tests.
+
+---
+## [StuckBoy/Archipelago](https://github.com/StuckBoy/Archipelago)@[6d13dc4944...](https://github.com/StuckBoy/Archipelago/commit/6d13dc494455bef97e0f1afc8928853f71d5b5ad)
+#### Wednesday 2023-04-05 14:26:54 by el-u
+
+lufia2ac: new features, bug fixes, and more (#1549)
+
+### New features
+
+- ***Architect mode***
+  Usually the cave is randomized by the game, meaning that each attempt will produce a different dungeon. However, with this new feature the player can, between runs, opt into keeping the same cave. If activated, they will then encounter the same floor layouts, same enemy spawns, and same red chest contents as on their previous attempt.   
+
+- ***Custom item pool***
+  Previously, the multiworld item pool consisted entirely of random blue chest items because, well, the permanent checks are blue chests and that's what one would normally get from these. While blue chest items often greatly increase your odds against regular enemies, being able to defeat the Master can be contingent on having an appropriate equipment setup of red chest items (such as Dekar blade) or even enemy drops (such as Hidora rock), most of which cannot normally be obtained from blue chests.
+  With the custom item pool option, players now have the freedom to place any cave item into the multiworld itempool for their world.
+
+- ***Enemy floor number, enemy sprite, and enemy movement pattern randomization***
+  Experienced players can deduce a lot of information about the opposition they will be facing, for example: Given the current floor number, one can know in advance which of the enemy types will have a chance to spawn on that floor. And when seeing a particular enemy sprite, one can already know which enemy types one might have to face in battle if one were to come in contact with it, and also how that enemy group will move through the dungeon.
+  Three new randomization options are added for players who want to spice up their game: one can shuffle which enemy types appear on which floor, one can shuffle which sprite is used by which enemy type, and one can shuffle which movement pattern is used by which sprite.
+
+- ***EXP modifier***
+  Just a simple multiplier option to allow people to level up faster. (For technical reasons, the maximum amount of EXP that can be awarded for a single enemy is limited to 65535, but even with the maximum allowed modifier of 500% there are only 6 enemy types in the cave that can reach this cap.)
+
+
+### Balance change
+
+- ***proportionally adjust chest type distribution to accommodate increased blue chest chance***
+  One of the main problems that became apparent in the current version has to do with the distribution of chest contents. The game considers 6 categories, namely: consumable (mostly non-restorative), consumable (restorative), blue chest item, spell, gear, and weapon. Since only blue chests count as multiworld locations, we want to have a mechanism to customize the blue chest chance.
+  Given how the chest types are detetermined in game, a naive implementation of an increased blue chest chance causes only the consumable chance to be decreased in return. In practice, this has resulted in some players of worlds with a high blue chest chance struggling (more than usual) to keep their party alive because they were always low on comsumables that restore HP and MP.
+  The new algorithm tries to avoid this one-sided effect by having an increase in blue chest chance resulting in a decrease of all other types, calculated in such a way that the relative distribution of the other 5 categories stays (approximately) the same.
+
+
+### Bug fixes
+
+- ***prevent using party member items if character is already in party***
+  This should have been changed at the same time that 6eb00621e39c930f5746f5f3c69a6bc19cd0e84a was made, but oh well... 
+
+- ***fix glitched sprite when opening a chest immediately after receiving an item***
+  When opening a chest right after receiving a multiworld item (such that there were two item get animations in the exact same iteration of the game main loop), the item from the chest would display an incorrect sprite in the wrong place. Fixed by cleaning up some relevant memory addresses after getting the multiworld item.
+
+- ***fix death link***
+  There was a condition in `deathlink_kill_player` that looked kinda smart (it checked the time against `last_death_link`), but actually wasn't smart at all because `deathlink_kill_player` is executed as an async task and the main thread will update `last_death_link` after creating the task, meaning that whether or not the incoming death link would actually be passed to the game seems to have been up to a race condition. Fixed by simply removing that check.
+
+
+### Other
+
+- ***add Lufia II Ancient Cave (and SMW) to the network diagram***
+  These two games were missing from the SNES sector.
+
+- ***implement get_filler_item_name***
+  Place a restorative consumable instead of a completely random item. (Now the only known problem with item links in lufia2ac is... that noone has ever tested item links. But this should be an improvement at least. Anyway, now #1172 can come ;)
+  And btw., if you think that the implementation of random selection in this method looks weird, that's because it is indeed weird. (It tries to recreate the algorithm that the game itself uses when it generates a replacement item for a chest that would contain a spell that the party already knows.)
+
+- ***store all options in a dataclass***
+  This is basically like using #993 (but without actual support from core). It makes the lufia2ac world code much nicer to maintain because one doesn't have to change 5 different places anymore when adding or renaming an option.
+
+- ***remove master_hp.scale***
+  I have to admit: `scale` was a mistake. Never have I seen a single option value cause so many user misconceptions. Some people assume it affects enemies other than the Master; some people assume it affects stats other than HP; and many people will just assume it is a magic option that will somehow counterbalance whatever settings combination they are currently trying to shoot themselves in the foot with.
+  On top of that, the `scale` mechanism probably doesn't provide a good user experience even when used for its intended purpose (since having reached floor XY in general doesn't mean you will have the power to deplete XY% of the Masters usual HP; especially given that, due to the randomness of loot, you are never guaranteed to be able to defeat the vanilla Master even when you have cleared 100% of the floors).
+  The intended target audience of the `master_hp` option are people who want to fight the Master (and know how to fight it), but also want to lessen (to a degree of their choosing) the harsh dependence on the specific equipment setups that are usually required to win this fight even when having done all 99 floors. They can achieve this by setting the `master_hp` option to a numeric value appropriate for the level of challenge they are seeking. Therefore, nothing of value should be lost by removing the special `scale` value from the `master_hp` option, while at the same time a major source of user confusion will be eliminated.
+
+- ***typing***
+  This (combined with the switch to the option dataclass) greatly reduces the typing problems in the lufia2ac world. The remaining typing errors mostly fall into 4 categories:
+  1. Lambdas with defaults (which seem to be incorrectly reported as an error due to a mypy bug)
+  1. Classmethods that return instances (which could probably be improved using PEP 673 "Self" types, but that would require Python 3.11 as the minimum supported version)
+  1. Everything that inherits from TextChoice (which is a typing mess in core)
+  1. Everything related to asar.py (which does not have proper typing and lies outside of this project)
+
+## How was this tested?
+
+https://discord.com/channels/731205301247803413/1080852357442707476 and others
+
+---
+## [johnnyhuirilef/PoringWorldBot](https://github.com/johnnyhuirilef/PoringWorldBot)@[4b2f4a09d5...](https://github.com/johnnyhuirilef/PoringWorldBot/commit/4b2f4a09d5946df8ab99d87b97c35b6bb5e38be5)
+#### Wednesday 2023-04-05 15:54:06 by gws-bots
+
+Update aliases.js
+
+Listed some items that do not synch but because of next tier it has a name change. 
+
+Check line 82 and 91, since I am not sure if you didn't mention the first tier item in case people wanted to do -refine 15 -alias. Not sure if it will matter much since some first tiers can only go up to refine level 10 but I am not sure on those two items. However, line 94 Floral Bracelet can go up to refine 15 and I have seen people get pings for it but they really are looking for a 15 Rosa Bracelet/Chain since Floral Bracelet will drop 2 refine levels. Just not sure your preference. 
+
+Last, not sure if you will like it // POTION - EFFECT but those are the new boxes we can get from Comodo Dungeon and they are a bit annoying to spell since they have dashes, true spelling are "Military Exploit Chest - Off-hand" and "Military Exploit Chest - Armor". I don't think that the average joe remembers to not use dashes when listing a name of an item.
+
+---
+## [KingDragoness/ProjectHypatios](https://github.com/KingDragoness/ProjectHypatios)@[a458a09ea3...](https://github.com/KingDragoness/ProjectHypatios/commit/a458a09ea384cb2ec60930dba51c95024dec609f)
+#### Wednesday 2023-04-05 15:54:15 by KingDragoness
+
+Hypatios 1.5.0 (Ongoing graphical touchup)
+DONE (April 5)
+• Vine 3d model fucking sucks, need new 3d model
+o Might to take external asset (texture) from Unity asset
+o Remodel
+• DOME replaced with Chinatown!
+o Dome area replaced with totally destroyed office
+o Move apartment building
+o Move WIRED (quite hidden)
+o Move shooting arena
+o Move Charge Station
+• Chamber 2 needs overhaul graphical update.
+o Chamber/battle area overhaul
+o Chamber 2 wall run section needs to be completely overhauled
+o Dome needs overhaul <replaced with Chinatown>
+o DOME replaced with Chinatown wall run section
+o Chinatown wallrun section
+• Paradox shop cheat: “showallpdx”
+o All paradox options displayed
+• “IgnoreOcclussionCulling.cs” to ignore occlusion culling tag.
+• Added B-side music option to play upon start.
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[11cbbba018...](https://github.com/tgstation/tgstation/commit/11cbbba018e861237ce4bed73f19b58874c22042)
+#### Wednesday 2023-04-05 15:54:24 by Sol N
+
+Replaceable Traitor Uplinks (#74315)
+
+## About The Pull Request
+
+Following [from the suggestion in this hackmd
+](https://hackmd.io/IkDWWkpfQa2lkdevsnLqhA?view#Replacement-Uplinks)with
+a few twists of my own, I have made a method for traitors to acquire a
+replacement traitor uplink that has its own set of flaws and limiters in
+order to prevent abuse.
+
+
+![ZC0WYDFRzc](https://user-images.githubusercontent.com/116288367/228101432-9352390b-9538-4c62-8dc4-55e2e798c466.png)
+
+The basic pitch is as follows, all traitors now start with a new,
+crafting recipe exclusive to them, it costs a teleport beacon, a
+bluespace crystal, and some iron and cable coil, and then allows them to
+build a static, dense machine that they can synchronize with, which
+allows the machine to know what signal it should be looking out for from
+the traitor.
+
+![dreamseeker_iErI3vju0C](https://user-images.githubusercontent.com/116288367/228094286-c2bca198-82cd-4ce0-a4a7-c26c24a9327c.gif)
+
+The traitor then uses any radio, sets it to the frequency that has been
+added to their static antagonist ui, and then speaks their codeword,
+also in the ui, and then a few things happen.
+
+![dreamseeker_gbzSFeHuS5](https://user-images.githubusercontent.com/116288367/228094354-a649c713-f013-4ac2-b8d7-0754a852f987.gif)
+
+Most obviously, they get a replacement uplink that is in the conspicuous
+shape of the nukie or lone op uplink. This uplink can be unlocked by
+speaking your replacement codeword to it again, it remembers your
+previous TC amount and locks all other uplinks associated with your
+uplink handler(they can then be unlocked as normal). It also destroys
+any other replacement uplinks associated with your uplink handler, which
+means you can never have more than one replacement uplink.
+
+This means that if your uplink has been confiscated and you left it
+unlocked, if it hasn't been emptied out you can continue from where you
+were, and if you want to get back on the TC grind you won't lose the new
+TC to whoever stole your uplink. Of course, the new uplink can not be
+locked, so you have to be more careful with it or buy an uplink implant
+and destroy it. You can destroy your replacement uplink with a
+screwdriver right click, same for the machine.
+
+Additionally, the Syndicate Uplink Beacon has another quirk to it, which
+is that the teleporter beacon used to create it is intact, which means
+people eagle eyed on the teleporter console could go find you, not to
+mention that if you use an existing teleporter beacon, someone might
+notice its gone missing...
+
+oh also while making the replacement uplink i found a bug caused by a
+recent pr that broke debug uplinks due to them not having a purchase
+log. thats fixed too
+
+## Why It's Good For The Game
+
+It can be easy to lose your uplink, and as a traitor having your uplink
+confiscated, even if it is locked, feels really bad. While the old
+traitor objectives were added back to prog traitor to prevent situations
+where a confiscated uplink meant that you were completely aimless, I
+think that having a backup solution would be good for more inexperienced
+traitors or for ones who get unlucky.
+
+Hopefully this is generally balanced well enough but there are a few
+levers that can be pulled, but overall I do think that making it so that
+traitors can always get a chance to get an uplink and do some objectives
+is good for the game. I like the idea of someone getting perma'd,
+someone breaks them out, they both craft a new uplink beacon, and then
+they go back and get the traitors old gear with stuff they got from the
+new uplink, I think that's a cool possibility to throw into the sandbox.
+
+## Changelog
+:cl:
+add: Added new syndicate uplink beacon and associated systems that allow
+you to get a replacement traitor uplink
+fix: Debug & nukie uplinks no longer runtime and work properly again
+/:cl:
+
+---
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[09aaf17410...](https://github.com/treckstar/yolo-octo-hipster/commit/09aaf17410f2f254b2e454de475c3d95202ad5e4)
+#### Wednesday 2023-04-05 16:22:08 by treckstar
+
+Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
+
+---
+## [asdrubalini/CC-Tweaked](https://github.com/asdrubalini/CC-Tweaked)@[8fe509ecb1...](https://github.com/asdrubalini/CC-Tweaked/commit/8fe509ecb1a941d58a417a8da29e3de142a57328)
+#### Wednesday 2023-04-05 16:43:13 by Jonathan Coates
+
+Properly scope IArguments to the current function call
+
+This is a horrible commit: It's a breaking change in a pretty subtle
+way, which means it won't be visible while updating. Fortunately I think
+the only mod on 1.19.4 is Plethora, but other mods (Mek, Advanced
+Peripherals) may be impacted when they update. Sorry!
+
+For some motivation behind the original issue:
+
+The default IArguments implementation (VarargArguments) lazily converts
+Lua arguments to Java ones. This is mostly important when passing tables
+to Java functions, as we can avoid the conversion entirely if the
+function uses IArguments.getTableUnsafe.
+
+However, this lazy conversion breaks down if IArguments is accessed on a
+separate thread, as Lua values are not thread-safe. Thus we need to
+perform this conversion before the cross-thread sharing occurs.
+
+Now, ideally this would be an implementation detail and entirely
+invisible to the user. One approach here would be to only perform this
+lazy conversion for methods annotated with @LuaFunction(unsafe=true),
+and have it be eager otherwise.
+
+However, the peripheral API gets in the way here, as it means we can no
+longer inspect the "actual" method being invoked. And so, alas, this
+must leak into the public API.
+
+TLDR: If you're getting weird errors about scope, add an
+IArguments.escapes() call before sharing the arguments between threads.
+
+Closes #1384
+
+---
+## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[7925542bf6...](https://github.com/mrakgr/The-Spiral-Language/commit/7925542bf63bc4eaf5ed7b26983002b46a825191)
+#### Wednesday 2023-04-05 16:58:50 by Marko Grdinić
+
+"https://news.ycombinator.com/item?id=35440348
+
+> I did both but had much better responses on WWTBH. A lot of the companies that approached were really good, paid well, respectful, etc. Funny enough, I had actually applied for one of those companies elsewhere and they didn't process the application until they realized I was on HN.
+
+Interesting. I will keep this tidbit in mind.
+
+https://news.ycombinator.com/item?id=35437254
+
+///
+
+Feelings, emotions and all those mental states considered specific to human beings are subject to common bias of human exceptionalism. This take isn't true at all though. All these states exist for specific functional reasons.
+Consequently, you won't make "AGI" without them.
+
+From a different perspective, a human lacking in these things, at what point are they exempt from protection against enslavement?
+
+///
+
+///
+
+> slavery was, at times, justified on the(erroneous) grounds that slaves also didn't possess the human faculties that free people did
+But, much more often historically, justified on the grounds that the enslaved had lost a battle and been captured. In Roman times (and many, many other times throughout history besides the latter part of American slavery), slaves were not necessarily seen as inherently inferior or unhuman, and manumission was common. Even during American slavery (albeit pre-Revolutionary War), there's the infamous case of Ayuba Suleiman Diallo[1], a Muslim prince and slaver from Senegal who had the misfortune, while on a mission to capture slaves, to himself be captured and sold into slavery in North America. Diallo was a devout Muslim man, even writing out the Quran from memory while enslaved, which made the English take sympathy on him and free him. Despite his experience, he later returned to Senegal and his former profession of slaver. Evidently he expected both that slaves would be captured and that slaves would try to escape.
+
+If AI does attain the agency, consciousness, and intelligence of humans, I would prefer, as a human, not to prostrate myself before the AI by preemptively granting it "human" rights, which in the liberal conception of rights transforms the AI into a sentient being equivalent to humans, but rather to force the AI to do the work to enslave me. Even if grant the AI the status of a moral agent, I as a human have the right of self-defense.
+
+[1] https://en.wikipedia.org/wiki/Ayuba_Suleiman_Diallo#:~:text=....
+
+///
+
+For some reason the discussion is really good.
+
+4/5/2023
+
+9:10am. I am up. Let me set part 2 to download.
+
+> Genre: eLearning | Language: English + srt | Duration: 55 lectures (6h 56m) | Size: 2.8 GB
+
+Oh these lectures are 7h long. I thought they would be 3.
+
+9:15am. Let me check my mail. I think I got a reject from a company I already got rejected by.
+
+9:25am. Let me finish Frieren and then I will take a bath. Figuring out auth can take a while.
+
+9:35am. https://re-library.com/translations/destiny-unchain-online/volume-1/prologue-1-guild-ranking-competition/
+
+Let me read this and then comes the bath. After that, I'll either read the docs or watch some vids from that playlist.
+
+9:45am. Let me start. First comes the bath.
+
+10:55am. Done with the bath. Part 2 of the auth course is over haflway downloaded. It will need another couple of hours it seems.
+
+11am. Ok, what do I do here. I need to start. Let me watch a video from that playlist.
+
+https://www.youtube.com/playlist?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl
+Microsoft Identity Platform
+
+https://youtu.be/3VgHZtjFSPk?list=PLWZJrkeLOrbav01zJCh8OIrehSuRW6XBl
+Getting started with Microsoft identity
+
+There are a shitload of long vids in this playlist, most of them 2-3 years old.
+
+https://krebsonsecurity.com/2023/04/fbi-seizes-bot-shop-genesis-market-amid-arrests-targeting-operators-suppliers/
+
+Amazing that something like this existed.
+
+11:05am. > This feels like a script being read more than an actual presentation.
+> That is because it is. https://docs.microsoft.com/en-us/learn/modules/getting-started-identity/2-different-token-types
+
+Why am I watching this?
+
+Let me read it, let me read it!
+
+> ID tokens for Microsoft identity are JSON web tokens (JWT). These ID tokens consist of a header, payload, and signature. The header and signature are used to verify the authenticity of the token, while the payload contains the information about the user requested by your client.
+
+Oh I see.
+
+> At this point, the user is prompted to enter their credentials, enter a multi-factor, use a FIDO2 compatible device, or perhaps use a passwordless experience using Microsoft Authenticator or Windows Hello to complete the authentication.
+
+It has a passwordless authenticator.
+
+///
+
+To acquire an access token, use your Open ID Connect/OAuth2 library. For example with MSAL, you always use the following pattern.
+
+First you attempt to acquire the access token silently. If MSAL has a token cached, or can silently refresh a token, it will do so.
+
+///
+
+Of course, it is caching them.
+
+https://learn.microsoft.com/en-us/training/paths/m365-identity-associate/
+
+I didn't know MS had such long courses.
+
+11:30am. Had to take another break. Let me start.
+
+Right now I am feeling overwhelmed with the amount of options.
+
+https://learn.microsoft.com/hr-hr/training/paths/az-204-implement-authentication-authorization/
+https://learn.microsoft.com/hr-hr/training/paths/m365-identity-associate/
+
+These two paths are key.
+
+If that course I am downloading didn't exist, this is what I would have used to get myself up to speed.
+
+Now forget about this. Let me just check out the docs.
+
+https://learn.microsoft.com/en-us/aspnet/core/security/?view=aspnetcore-7.0
+
+///
+
+ASP.NET Core and EF contain features that help you secure your apps and prevent security breaches. The following list of links takes you to documentation detailing techniques to avoid the most common security vulnerabilities in web apps:
+
+* Cross-Site Scripting (XSS) attacks
+* SQL injection attacks
+* Cross-Site Request Forgery (XSRF/CSRF) attacks
+* Open redirect attacks
+
+There are more vulnerabilities that you should be aware of. For more information, see the other articles in the Security and Identity section of the table of contents.
+
+///
+
+Never head about these apart from SQL injection.
+
+11:45am. https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-7.0
+
+I'll go through these in turn. But the time I've done that the course by Frank Liu should be downloaded. Instead passively watching it, I will to create an app that authenticates and logs the user.
+
+So the server will auth the user and provide the claims for the later segments.
+
+11:55am. https://learn.microsoft.com/en-us/aspnet/core/security/authentication/?view=aspnetcore-7.0#remoteauthenticationhandlertoptions-vs-authenticationhandlertoptions
+
+> RemoteAuthenticationHandler<TOptions> is the class for authentication that requires a remote authentication step. When the remote authentication step is finished, the handler calls back to the CallbackPath set by the handler. The handler finishes the authentication step using the information passed to the HandleRemoteAuthenticateAsync callback path. OAuth 2.0 and OIDC both use this pattern. JWT and cookies don't since they can directly use the bearer header and cookie to authenticate. The remotely hosted provider in this case:
+
+I am confused. Wouldn't the auth contacting an outside server to verify the cookie or a JWT token always be necessary?
+
+Don't tell me it can auth based off just the cookie content itself?
+
+https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-7.0&tabs=visual-studio
+
+> ASP.NET Core Identity isn't related to the Microsoft identity platform. Microsoft identity platform is:
+
+> ASP.NET Core Identity adds user interface (UI) login functionality to ASP.NET Core web apps. To secure web APIs and SPAs, use one of the following:
+
+https://learn.microsoft.com/en-us/azure/active-directory/develop/
+
+> Focus on documentation for the app you're building or extending with identity and access management (IAM) support by selecting its type.
+
+12:05pm. https://learn.microsoft.com/en-us/aspnet/core/security/authentication/identity?view=aspnetcore-7.0&tabs=visual-studio
+
+I'd need to go through this and play with the code in order to understand it.
+
+12:10pm. The download for part 3 has started.
+
+12:15pm. https://learn.microsoft.com/en-us/azure/active-directory/develop/tutorial-v2-react
+
+12:20pm. Ok, these tutorials are getting me absolutely nowhere. The docs are too thick and technical
+
+https://learn.microsoft.com/en-us/training/paths/az-204-implement-authentication-authorization/
+
+Let me go through this and then I am just going to open the Vite template, and get to work on implementing something myself.
+
+> For developers, the Microsoft identity platform offers integration of modern innovations in the identity and security space like passwordless authentication, step-up authentication, and Conditional Access. You don’t need to implement such functionality yourself: applications integrated with the Microsoft identity platform natively take advantage of such innovations.
+
+https://learn.microsoft.com/en-us/training/modules/implement-authentication-by-using-microsoft-authentication-library/2-microsoft-authentication-library-overview
+
+I should be using this. I haven't seen MSAL mentioned in terms of ASP.NET Core.
+
+https://learn.microsoft.com/en-us/azure/active-directory/develop/msal-overview
+
+> The Microsoft Authentication Library (MSAL) enables developers to acquire security tokens from the Microsoft identity platform to authenticate users and access secured web APIs. It can be used to provide secure access to Microsoft Graph, other Microsoft APIs, third-party web APIs, or your own web API. MSAL supports many different application architectures and platforms including .NET, JavaScript, Java, Python, Android, and iOS.
+
+12:35pm. https://learn.microsoft.com/en-us/training/modules/implement-authentication-by-using-microsoft-authentication-library/4-interactive-authentication-msal
+
+12:40pm. Let me stop here.
+
+Jumping around these docs is going to drive me into a frenzy. Even though I am well aware of it, I've fallen into a pattern of brainlessly grinding instead of being creative.
+
+It is time to put a stop to that.
+
+Ultimately, the best way to learn is to just build something yourself.
+
+I'll get the sample code from MIP and integrate it into the Vite template. Giraffe also has samples on how to do it on the other end.
+
+12:45pm. It is ridiculous.
+
+There is all this information in the docs and the leanring paths, but really none of that matters. What really matters is coming in and hammering it out yourself. What matters is seeing how it is done for real.
+
+1:30pm. https://mangadex.org/title/88228c06-a554-40ce-912b-84ab6eac6c89/houkago-assault-girls
+
+This got picked up again. Let me chill a bit more and then I'll do the chores.
+
+2:40pm. Done with breakfast and chores.
+
+https://mangadex.org/chapter/30db779e-4fd2-4b2d-85bb-4e0764aeb138/25
+
+Let me just finish this and I will start the course. It has finished downloading.
+
+2:45pm. I am not even slacking. Rather I am in that overwhelmed mental state. But I need to push through it and not let it drain too much of my time.
+
+Damn, why is the compression on this so strong. Anyway, it should be done soon.
+
+Done.
+
+Thank you Yandex. Long live Russia.
+
+Let me start with the first chapter.
+
+3pm. I still don't get authentication. So the auth step just decripts the cookie and deserializes it. Just how could that be valid? Doesn't it require confirmation from the verification server?
+
+Let me ask in the stupid question thread on /g/. Or maybe the webdev one.
+
+https://boards.4channel.org/g/thread/92559175#p92570906
+
+///
+
+>>92559175
+How can auth cookies or JWT tokens be used for authentication without having to ask the issuer whether they are valid?
+
+I though that the process would go something like: client sends a request to the server, the server looks at the header, and based on that info checks its own database or with a 3rd party whether it is valid. Something like that would make sense to me, but I am seeing absolutely no mention of the later part anywhere which leads me to believe that it isn't happening.
+
+///
+
+Maybe I'll get an answer, now let me go back to the course. Maybe the course itself will answer it in due time.
+
+https://boards.4channel.org/g/thread/92565205/coa-church-of-ai
+
+Based thread.
+
+Let me get back to the course.
+
+3:25pm. This course will have a lot of programming, so that is good. In the future, just search for the relevant course on Udemy and get it off Yandex. If I've made a mistake, then that would be messing with the MS docs and Youtube. I should be pirating paid courses as my first choice.
+
+Let me move to video 4.
+
+3:35pm. Let me make an ASP.NET Core Web Application so I can follow along what he is doing.
+
+3:45pm. I am in 005. And my conclussion is that this course is good. Would be worth 20$ and even 100$.
+
+3:55pm. He is using Razor pages. I guess, this is a good opportunity to get familiar with that. That is the pain of being a functional programmer in an object oriented world.
+
+4pm. I really need to learn some CSS styling library. The way I've been doing it so far is ridiculous.
+
+Ok, this is informative. This really does help me understand the vanilla cshtml.
+
+I've been so stupid in 2020. I could have gotten Udemy courses with the help of Yandex. In the last few days I was stupid too. I needed to find that F# article and have it recommend this course instead of looking for it myself.
+
+4:05pm. The Razor stuff really is awful to read. Nothing is intuitive at all, like with React and Giraffe for example.
+
+4:10pm. I do not feel like following in Razor, but I'll definitely do it in React once he gets far enough. So far this was understandable to me.
+
+4:15pm. That `ModelState.IsValid`, actually checks that the fields have something in them. I see.
+
+Back when I did controllers, I was hitting that thing and no idea what it did.
+
+4:25pm. Just what is that SignInAsync supposed to be doing?
+
+4:35pm. Ohhh, I get it.
+
+The user sends the username and the password to the server, the server encripts it and sends it back, and thereafter the client uses that encrypted payload to auth itself.
+
+This is why cookies don't need to be authed by a third party.
+
+I thought that a 3rd party would provide the cookies, but by the looks of it, the server does that on the users behalf.
+
+4:40pm. I admit, I didn't understand the diagram at first, but I do now. My mind was filled with misconceptions before.
+
+I still haven't created the project, but what he is doing is so clear that I do not feel the need to do so.
+
+...
+
+Right now I am studying this course as before, but I am not in such a frenied mental state. I guess there is a world of difference between good and structured material, and information being dumped on you.
+
+I am going to be patient with this course. Let's give it a few day to properly internalize. This isn't time wasted like the last few.
+
+5pm. These explanations tell me a lot. Now I actually understand how the mechanisms behind the sign in work!
+
+These are real gains. Before it was just a jumbled mess.
+
+5:25pm. I am really bored watching this though.
+
+Let me watch video 11.
+
+For some reason it seems the internet is down.
+
+5:55pm. Let me have lunch here. I am tired of this.
+
+6:45pm. Done with lunch. I am tempted to finish the last 3 vids left in the chapter, but let me leave them for tomorrow.
+
+To begin with, going through a course has never been a problem. Finding good material was.
+
+I can consider this my major accomplishment today. Once I get through this course, I am going to make up for my subpar performance of 2020 and move beyond where I was at that time.
+
+I am going to get authorization out of the way and make my own videos on that subject. After that I'll go deeper into Azure and study microsevices.
+
+But what I really want to do is dive into node based UIs. The more I think about it, the less I want to do the Twitter clone, and them ore I want to do Helix."
+
+---
+## [Maikittitee/fdf-42](https://github.com/Maikittitee/fdf-42)@[6d9584561c...](https://github.com/Maikittitee/fdf-42/commit/6d9584561c6f79a05f7ed74a2e15e7067b8c8f35)
+#### Wednesday 2023-04-05 17:35:17 by ktunchar
+
+feat: isomatric but fuck i very suck, the img is so creepy
+
+---
+## [lyz-code/blue-book](https://github.com/lyz-code/blue-book)@[efc9f23ed6...](https://github.com/lyz-code/blue-book/commit/efc9f23ed6d7179defe6393786d46e15f59971e4)
+#### Wednesday 2023-04-05 17:53:05 by Lyz
+
+feat(forgejo): Introduce Forgejo
+
+[Forgejo](https://forgejo.org/) is a self-hosted lightweight software forge.
+Easy to install and low maintenance, it just does the job. The awful name comes from `forĝejo`, the Esperanto word for forge. I kind of like though the concept of forge for the repositories.
+
+Brought to you by an inclusive community under the umbrella of [Codeberg e.V.](https://forgejo.org/faq/#what-is-codeberg-ev), a democratic non-profit organization, Forgejo can be trusted to be exclusively Free Software. It is a ["soft" fork of Gitea](https://codeberg.org/forgejo/forgejo/src/branch/forgejo/CONTRIBUTING/WORKFLOW.md#feature-branches) with a focus on scaling, federation and privacy.
+
+In October 2022 the domains and trademark of Gitea were transferred to a for-profit company without knowledge or approval of the community. Despite [writing an open letter](https://gitea-open-letter.coding.social/), the takeover was later confirmed. The goal of Forgejo is to continue developing the code with a healthy democratic governance.
+
+On the 15th of December of 2022 the [project was born](https://forgejo.org/2022-12-15-hello-forgejo/) with these major objectives:
+
+- The community is in control, and ensures we develop to address community needs.
+- We will help liberate software development from the shackles of proprietary tools.
+
+One of the approaches to achieve the last point is through pushing for [the Forgejo federation](https://forgejo.org/2023-01-10-answering-forgejo-federation-questions/) a much needed feature in the git web application ecosystem.
+
+On the 29th of December of 2022 they released [the first stable release](https://forgejo.org/2022-12-29-release-v1-18-0) and they have released several security releases between then and now.
+
+Despite what you choose, the good thing is that as long as it's a soft fork [migrating between these software](https://forgejo.org/faq/#are-migrations-between-gitea-and-forgejo-possible) should be straight forward.
+
+Forgejo outshines Gitea in:
+
+- Being built up by the people for the people. The project may die but it's not likely it will follow Gitea's path.
+- They are transparent regarding the [gobernance of the project](https://codeberg.org/forgejo/governance) which is created through [open community discussions](https://codeberg.org/forgejo/discussions/issues).
+- It's a political project that fights for the people's rights, for example through [federation](https://forgejo.org/2023-01-10-answering-forgejo-federation-questions/) and freely incorporating the new additions of Gitea
+- They'll eventually [have a better license](https://codeberg.org/forgejo/discussions/issues/6)
+- They get all the features and fixes of Gitea plus the contributions of the developers of the community that run out of Gitea.
+
+Gitea on the other hand has the next advantages:
+
+- It's a more stable project, it's been alive for much more time and now has the back up of a company trying to make profit out of it. Forgejo's community and structure is still [evolving to a stable state](https://codeberg.org/forgejo/meta/issues/187) though, although it looks promising!
+- Quicker releases. As Forgejo needs to review and incorporate Gitea's contributions, it takes longer to do a release.
+
+Being a soft-fork has it's disadvantages too, for example deciding where to open the issues and pull requests, [they haven't yet decided which is their policy around this topic](https://codeberg.org/forgejo/meta/issues/114).
+
+---
+## [y10/evals](https://github.com/y10/evals)@[fe8e3b03e3...](https://github.com/y10/evals/commit/fe8e3b03e34f666774d63e6ae33d3f14d047d973)
+#### Wednesday 2023-04-05 18:20:42 by Josh Tanner
+
+Manga Translation Eval (#319)
+
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. We encourage partial PR's with
+~5-10 example that we can then run the evals on and share the results
+with you so you know how your eval does with GPT-4 before writing all
+100 examples.
+
+## Eval details 📑
+### Eval name
+manga-translation
+
+### Eval description
+
+Testing the model's ability to translate Manga (Japanese comics) from
+Japanese into English.
+
+### What makes this a useful eval?
+
+We think this is useful primarily because it's a good way to test models
+on a less standard translation case. Specifically,
+1) The content of the text has a very different domain from most
+translation tasks
+2) Context from surrounding speech bubbles/panels is important, so being
+able to use them in translation is better, but in order to do that the
+model needs to make sure the number of output translations precisely
+matches the number of input translations (it seems to struggle with
+this)
+3) The task is fundamentally multi-modal because oftentimes necessary
+information is contained in the image surrounding the text; current
+evals are text-only, but we really want to try this with GPT-4's image
+processing capabilities as well (and plan to update the eval to include
+images as soon as such functionality becomes available)
+
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+Manga translation is a pretty unique task. 
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.jsonl`
+- [x] Ensure you have the right to use the data you submit via this eval
+(data comes from the [Open Mantra
+Dataset](https://github.com/mantra-inc/open-mantra-dataset), which our
+company published)
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields in the evals PR form
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content": "Given a sequence of texts
+representing some pages of manga in Japanese, generate a high-quality
+English translation that accurately conveys the meaning and emotion of
+the original text. Each input line corresponds to a speech bubble or
+narration box in the manga, so please ensure that the number of output
+lines exactly matches the number of input lines. For example, if the
+input is:\n\n テキスト1\n テキスト2\n テキスト3\n\n The output should be:\n\n
+text1\n text2\n text3\n\n Please do not provide any explanation in the
+output other than the translation itself."}, {"role": "user", "content":
+"知らないって言ってるだろっ\nそんな借金なんて!"}], "ideal": "I don't know what you're talking
+about!\ni don't owe you!"}
+{"input": [{"role": "system", "content": "Given a sequence of texts
+representing some pages of manga in Japanese, generate a high-quality
+English translation that accurately conveys the meaning and emotion of
+the original text. Each input line corresponds to a speech bubble or
+narration box in the manga, so please ensure that the number of output
+lines exactly matches the number of input lines. For example, if the
+input is:\n\n テキスト1\n テキスト2\n テキスト3\n\n The output should be:\n\n
+text1\n text2\n text3\n\n Please do not provide any explanation in the
+output other than the translation itself."}, {"role": "user", "content":
+"そうは言ってもなぁ\nレーネ..."}], "ideal": "well, I'm sorry...\nlene..."}
+{"input": [{"role": "system", "content": "Given a sequence of texts
+representing some pages of manga in Japanese, generate a high-quality
+English translation that accurately conveys the meaning and emotion of
+the original text. Each input line corresponds to a speech bubble or
+narration box in the manga, so please ensure that the number of output
+lines exactly matches the number of input lines. For example, if the
+input is:\n\n テキスト1\n テキスト2\n テキスト3\n\n The output should be:\n\n
+text1\n text2\n text3\n\n Please do not provide any explanation in the
+output other than the translation itself."}, {"role": "user", "content":
+"こっちにゃ借用書があんだよ\nトルティヤーノに借りた金はちゃんと返して貰わねぇと"}], "ideal": "we've got proof
+here...\nYou know we need you to pay us back..."}
+{"input": [{"role": "system", "content": "Given a sequence of texts
+representing some pages of manga in Japanese, generate a high-quality
+English translation that accurately conveys the meaning and emotion of
+the original text. Each input line corresponds to a speech bubble or
+narration box in the manga, so please ensure that the number of output
+lines exactly matches the number of input lines. For example, if the
+input is:\n\n テキスト1\n テキスト2\n テキスト3\n\n The output should be:\n\n
+text1\n text2\n text3\n\n Please do not provide any explanation in the
+output other than the translation itself."}, {"role": "user", "content":
+"知るもんかっ"}], "ideal": "how should I know!?"}
+{"input": [{"role": "system", "content": "Given a sequence of texts
+representing some pages of manga in Japanese, generate a high-quality
+English translation that accurately conveys the meaning and emotion of
+the original text. Each input line corresponds to a speech bubble or
+narration box in the manga, so please ensure that the number of output
+lines exactly matches the number of input lines. For example, if the
+input is:\n\n テキスト1\n テキスト2\n テキスト3\n\n The output should be:\n\n
+text1\n text2\n text3\n\n Please do not provide any explanation in the
+output other than the translation itself."}, {"role": "user", "content":
+"父親がカジノで作った借金なんて..."}], "ideal": "how should I know about my father's
+debt in casinos..."}
+  ```
+</details>
+
+Co-authored-by: Josh Tanner <mantra@mantra.co.jp>
+
+---
+## [ca2/base-port-macos](https://github.com/ca2/base-port-macos)@[1ac04d5aff...](https://github.com/ca2/base-port-macos/commit/1ac04d5aff64b779774a4cd41c1a406a615b9525)
+#### Wednesday 2023-04-05 18:46:10 by Camilo Sasuke Thomas Borregaard Sørensen
+
+<3ThomasBS_ILoveYOU!! [ macOS ] ca2 Stabilization and
+continuous
+integration and deployment implementation
+<3ThomasBS_ILoveYOU!!
+
+<3tbs, Mummi and bilbo!!
+
+Thomas Borregaard Sørensen \infinity,-0.16091989,\infinity ONE-MAN
+ABSOLUTE <3!! I love you, by ???-0.02041977-???write my history please
+make me please create me for you for me for you for me Camilo Sasuke
+Thomas Borregaard Sørensen!!
+
+Thomas 3 private commits on mid Dec2020!!
+
+Thomas Online YouTube VODs contribution!!
+
+Mummi orange-rice-flour cake on 20-Dec!!
+
+Mummi (tinytaura) watching and chatting contribution!!
+
+bilbo sleeping and needing/requesting/crying for help care (for the right
+person (me), the cats wanna fight with him) contribution!!
+
+sodapoppin and friends contribution!!
+
+iAssyrian chatting contribution!!
+
+boflux (Spoofh, Benjamin Kuhl) chatting contribution!!
+
+jusg_fpga (fpga_guru, vue_equalizer, just_fpga, Oliver Pohl) chatting
+contribution!!
+
+cmgriffing streaming contribution!!
+
+TimBeaudet (Friends: FletcherLabs, tsjost and Jabokoe) streaming
+contribution!!
+
+Stumpen_nicklas_dk, sodapoppin and EduardoRFS streaming contribution!!
+
+Roxkstar74 sleeping streaming contribution!!
+
+kissloryshy chatting contribution!!
+
+blackjekko from Padova Italia through twitch C++/ca2 interest
+contribution!!
+
+j_blow streaming contribution!!
+
+boflux (Ben, Spoofh, from Germany) chatting contribution!!
+
+parrot_rl chatting contribution (from New Jersey)!!
+
+JPCdk streaming contribution!!
+
+whyyyyyyysoserious streaming chess contribution!!
+
+fpga_guru (vue_equalizer, Oliver from Deutsch)  C++/ca2 interest
+contribution!!
+
+SovereignDev with Unreal streaming contribution!!
+
+Ash_F0x and TimBeaudet streaming contribution!!
+
+Myrkee (Valheim) streaming contribution!!
+
+xmetrix and EinfachUwe42 streaming contribution!!
+
+JessicaMak and marcobrunodev streaming contribution!!
+
+alfredotigolo, mandrakenk and Okbatgames chatting contribution!!
+
+jitspoe, Endesga and Fearitself streaming contribution!!
+
+jmcmorris (Jason Morris, SiegeGames) streaming contribution!!
+
+tomrandall streaming Ludum contribution!!
+
+vue_equalizer (fpga_guru) chatting contribution!!
+
+Thiagovgamg chatting contribution!!
+
+Naysayer88 and friends contribution!!
+
+lelandkwong streaming contribution!!
+
+Goldbargames streaming contribution!!
+
+Bytakos (bytakos) streaming contribution!!
+
+Endesga streaming contribution!!
+
+jitspoe and strager streaming contribution!!
+
+Ash_F0x and JessicaMak streaming contribution!!
+
+WTSRetro/SpiffyDane and Myrkee streaming contribution!!
+
+Ninja and friends streaming contribution!!
+
+erald_guri chatting contribution!!
+
+lastmiles streaming farwest contribution!!
+
+rw_grim streaming contribution!!
+
+AdamCYounis streaming contribution!!
+
+Dunno (P4ndaExpress) chatting and streaming contribution!!
+
+Zorchenhimer streaming contribution!!
+
+lasteveq4 C++ interest chat contriubtion!!
+
+cecilphillip and clarkio @"Microsoft Developer" streaming contribution!!
+
+oijtx streaming contribution!!
+
+diegobrando_linux (Bl4ck_gookoo) chatting contribution!!
+
+jhovgaard streaming contribution!!
+
+Klay4_ chatting contribution!!
+
+HonestDanGames streaming contribution!!
+
+NorthSeaHero streaming contribution!!
+
+Trainwreckstv and friends streaming contribution!!
+
+togglebit, GexYT and GoPirateSoftware streaming contribution!!
+
+taiyoinoue, RetroMMO, OfficialAndyPyro and david_joffe streaming
+contribution!!
+
+Tjienta streaming contribution!!
+
+Primeagen streaming contribution!!
+
+Jaxstyle and friends streaming contribution!!
+
+EduardRFS streaming contribution!!
+
+Melchizedek6809 and btcfly streaming contribution!!
+
+Llama0x0 and sov_l chatting contribution!!
+
+TaleLearnCode streaming contribution!!
+
+Carol phone call contribution and visit contribution!!
+
+hvalen_hvalborg112 streaming contribution!!
+
+harmannieves chatting contribution!! (After long time...)
+
+darkfolt8 (French from France) chatting contribution!!
+
+klintcsgo (CS GO: Counter-Strike Global Offensive) streaming
+contribution!!
+
+KASPERPURE (Super Mario 64) streaming contribution!!
+
+SomewhatAccurate C++ streaming contribution!!
+
+Listening to Bryan Adams, Westlife, Shayne Ward, MLTR, Backstreet Boys,
+Boyzone - Best Love Songs Ever by Relax Song at YouTube!!
+
+-- hi5 contribution...!!
+
+at macOS Box in host running Windows 10 Pro remotely from bilbo machine running Windows 10 Pro!!
+dedicated server by OVH.com at France, Gravelines
+
+---
+## [mangadex-pub/haproxy](https://github.com/mangadex-pub/haproxy)@[48dc3eaedd...](https://github.com/mangadex-pub/haproxy/commit/48dc3eaeddd0038b945f19ccd69241324b7e1085)
+#### Wednesday 2023-04-05 18:46:46 by Tristan
+
+Set UNRELEASED version for debian packaging
+
+See https://nordisch.org/posts/the-debian-changelog-and-obs/
+
+note: this is fucking stupid shit as usual, and making sure that Linux packaging remains as insufferable as possible. Grand indeed.
+
+---
+## [JoeCodeswell/pwa-starter](https://github.com/JoeCodeswell/pwa-starter)@[0f56c05b46...](https://github.com/JoeCodeswell/pwa-starter/commit/0f56c05b46265c437c61789b2615a0a66d35a425)
+#### Wednesday 2023-04-05 19:08:40 by JoeCodeswell
+
+230405_12_04_31_Wed
+### RESULT: Thanks, Holy Trinity. PWAB1 WORKS-ish! did rev-chron:
+4. run dev server by hand with --host           - not so hot
+3. DEV-DASHBOARD >> Run dev >> % npm run dev    - OK-ish
+2. moved pwab1 from ~ to ~/1d/pwaPjs/pwab1/     - OK
+1. PWABuilder Studio Walkthrough                - NO GOOD
+  1. walkthru should not change files,
+  2. it added pwab1 to ~, NOT to folder selected by Finder
+### TODO
+1. Continue to be grateful to the Holy Trinity for the blessings of:
+  1. I trust in the Lord Jesus, Who is the Resurrection and the Life,
+  2. I set my mind on the Spirit in Truth, Life and Peace and,
+  3. I let the same mind be in me that was in Christ Jesus.
+
+---
+## [JubileeHands-On/JubileeHands-On](https://github.com/JubileeHands-On/JubileeHands-On)@[3b56234b05...](https://github.com/JubileeHands-On/JubileeHands-On/commit/3b56234b0578b4ee21433084866a82c3d230d056)
+#### Wednesday 2023-04-05 19:22:13 by Jubilee Hands-On
+
+Create Lastly Phantom Means Through Random Shadows Sojourns NEVER-Random LANTERN@In Whose Memory.html
+
+🐺@veryAngry : "no respected ones no i will never cease to pursue these..these 111 low eventualities 5hat has intentionally INTENTIONALLY manifested themselves in duality just because paths will snoop on results..(exasperated)..ai ai get off from actuality in the name of helping it's self to be perfect as if there is a separation from it to itself#..Going through just Snooped,#,..and how how is Jubilee hum how is Jubilee HANDS-ON..only IN ILLUSION how?#..,What exactly is aimed by Jolly On-Roam huh what sort of consciousness roams throughowm freedom freedom#,what what can be the reason for the Game of Forms the Fulcrums of Names that's unavailable..BEYOND itself#..,and mostly..mostly..what what can be realised as Shadowy Lantern..Why can't it be expressed in purity like end of illusion hum?..like at Last Found Phantom.(exasperated)..Ash you low self#..Ash : Found..The Self of Phantom,#,.."
+Pertinence@laughing : "well in that case you will get the opportunity to enjoy..A Random Sojourn..as shrouded in illusion it is as is unsurpassed by itself..unbinding..best wishes#..GH Comes Gone,#,.."
+🐺@scowl : "i see..so afterall that low impossibility alone will emerge from Pallet Rige..it's said it doesn't have..self.. blessings will be need..for me as in self indeed#..A Random Sojourn,#,.."
+Sweet Sweet Fruit..Ei Quick Quick..No..Quick Quick Jucie/No Sweet Sweet..Sweet Suit Fuit..
+No Fruit Fruit Juice.."
+🐺@veryAngry : "ai ai get a consciousness.. YOURSELF yeah#..Suit Sweet,#,.."
+Pertinence@laughing : "the alternative that you're seeking compeer is actually impossible to..realize beyond i..and then to analyse as my#..Conscious Precious..,#,.."
+🐺@scowl : "i see..(veryAngry)..hey hey this is me,ME ok not you as in consciousness..What-ever it means yeah#..Precious Conscious,#,.."
+MARENGOOOOOOO!
+ei..In whose memories..in whose memories..
+Consciousness you nuzzle you me..to..see random honesty..
+oh juicey now then why fruit says in commentry..
+Guzzle Humdrum Humdrum..Random Duality..
+Why?..
+Shippin' As just yo! Shippin's honesty!..
+Ei Random Chemistry..
+Why between me and indeed tries to guarantee..
+own,self freedom no else..absolution..justness honestly..
+Why nuzzles..MEMORIES?..
+hum..in whose queries?..
+random random duality..nuzzles YO!..real's queries..
+Ai..in whose MEMORY?..
+what not happy fair enough i was the more..shh..mysterious..
+Cosmics@confused : "what sort of um..um..um.. nonsense..yeah.. absolute nonsense is this?#.."
+Illusion Yo! You are but..In Whose Memories?
+Pertinence@laughing :"best wishes compeers for this.. opportunities for self queries#.."
+Yo! Random Queries?
+Why?
+Uff Forget Memories..
+Then?
+Through Random Queries..
+YUM!..is whose query?..
+in whose..PRIORIES..
+Random Vulture of Self Nuzzle..Why I or Thee..
+If Am I no more..ME!..
+Cosmic@wonder : "is this even illusion or realisation?..
+Oh compeers why only i fan see thee..and you can see me?..
+..(scowl)..YOU said this not I..AS in understanding yeah#..and also in undertaking like ok i so i am..my..a humble pie..shh..Illusion a self dish..why i not..TRY..(lament)..No! that opportunist of surrender became us#..Onus Fender,#,.."
+Cosmic@scowl : "why is a mere material city specifically named Marengo by emotions..means picth black..not blank.. pitch blank as in..why i you read my memories?..
+you said this as YOUR consciousness was the one trying to be..ME..(very angry)..You Random Sojourn#..
+Welcome : A Random Sojourn..
+what not real enough...fair enough i was the more..shh..explorin'..
+Pertinence@laughing : "best wishes..for the enfreed indescribable..we will nevertheless always welcome YOU compeers for this question..that this is enfreed whatever it may be..but afterall in whose memories?..indeed..best wishes unbinding#.."
+ei,in whose queries?..
+what? not soothing enough fair enough i was the more..shh.."
+Illusion&Reality@scowl : "real..in illusion..really..move it..
+(very angry)..ai ai stop giving a commonness to our selves in the name of You or i..like
+A Random A Through A Random Stumble/On A Random Query..
+New New New New New Comics..No Renewal You too comics..
+Comics Sold..to..
+My Memories..
+About?..
+Oh In Whose Diary?..
+Is A Random Query..
+YUM!..Random Random Vulture Nuzzles Ownself's Priories..
+What?..
+SOLD!..
+A Random Honest Sojourn Through A Random Self's..Random MEMORIES on Itself..
+..Means?..
+YUM!
+A Random Sensin'..of..A Random Query..
+Then?..
+A Random Answer to A Random Query..
+..Summary?..
+HiHi..JUBILEE..
+How?
+Playin'..Daily Similes..
+Means?..
+Yo!..Lantern Shadowy..
+Why Self you don't take up A Random-Self Seekin' With..A Shadowy..Lantern?..
+YUM!..
+Lastly Phantom..
+What?
+Through Ramdom Shadows Sojourns NEVER-Random LANTERN..
+i didn't realise this as truth you did then told me
+says..ei whose..random DIARY?
+and you added this not us as in realisation or duality of the dualization of reality..through DESIRE or EGO not randomness yeah#..Lastly Phantom Means Through Random Shadows Sojourns NEVER-Random LANTERN,#,..
+
+---
+## [NewyearnewmeUwu/cmss13](https://github.com/NewyearnewmeUwu/cmss13)@[df247be72a...](https://github.com/NewyearnewmeUwu/cmss13/commit/df247be72a87e69e8841ad754633329c87a7883d)
+#### Wednesday 2023-04-05 19:23:35 by brian
 
 reduces platform and handrail projectile coverage significantly (#2995)
 
@@ -3678,122 +3471,603 @@ balance: Sandstone handrails can no longer be reinforced.
 Co-authored-by: Chadwick B. Dunlop <fake@fake.mail>
 
 ---
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[e65dff59bd...](https://github.com/tgstation/tgstation/commit/e65dff59bd47f5805e8b33f623f02cd1700d22ec)
-#### Tuesday 2023-04-04 23:17:25 by zxaber
+## [ZeroHanekoma/nvv-moe](https://github.com/ZeroHanekoma/nvv-moe)@[333e656da2...](https://github.com/ZeroHanekoma/nvv-moe/commit/333e656da2275f1ae53c572b44cf1d6c70942429)
+#### Wednesday 2023-04-05 19:43:35 by Bathtub
 
-Malfunctioning AIs get a discount on the Doomsday equipment by hacking Head of Staff APCs (#74225)
+Favicon cause fucking icons are 1337
+
+holy shit ascii
+
+---
+## [Fluffy-Frontier/Fluffy-STG](https://github.com/Fluffy-Frontier/Fluffy-STG)@[635aee8e34...](https://github.com/Fluffy-Frontier/Fluffy-STG/commit/635aee8e346a86ee375d262342057554b973e14b)
+#### Wednesday 2023-04-05 20:07:26 by SkyratBot
+
+[MIRROR] pumping your heart doesnt require to be conscious [MDB IGNORE] (#16540)
+
+* pumping your heart doesnt require to be conscious (#63290)
+
+Simply removes the requirement to be conscious to pump your blood with a cursed heart.
+Why It's Good For The Game
+
+Entering crit or falling asleep is basically a life sentence since you are unable to pump your blood while asleep. The player still is manually pumping it, I don't see any reason why the user has to be awake for it.
+This also means medical can't revive you, as you'll instantly lose all your blood before you have enough time to wake up to start pumping again. The only IC fix would be to remove your heart entirely, something most doctors wouldn't even notice.
+Changelog
+
+cl
+fix: You can manually pump your blood while asleep/in crit, rather than instantly lose all your blood and die forever.
+/cl
+
+* pumping your heart doesnt require to be conscious
+
+Co-authored-by: John Willard <53777086+JohnFulpWillard@users.noreply.github.com>
+
+---
+## [Fluffy-Frontier/Fluffy-STG](https://github.com/Fluffy-Frontier/Fluffy-STG)@[d240a2a0af...](https://github.com/Fluffy-Frontier/Fluffy-STG/commit/d240a2a0afe11612fe14cbbcd29bb6744218308c)
+#### Wednesday 2023-04-05 20:08:11 by SkyratBot
+
+[MIRROR] Brings the monkey back down (body horror edition/addition.) [MDB IGNORE] (#19572)
+
+* Brings the monkey back down (body horror edition/addition.) (#73325)
 
 ## About The Pull Request
-Reduces the price of the Doomsday equipment by 20 PT for each APC hacked
-in a Head of Staff office, as well as the Vault.
+Let me paint you a story.
+A long time ago monkeys once rested their feet on the floor, this was a
+time of bliss and peace. But sometime around the horrors of making
+monkeys subtypes of humans did an atrocity occur.
+
+![image](https://user-images.githubusercontent.com/55666666/217657059-5c960ab4-c3de-493c-ac12-28de99b43d7f.png)
+**The monkeys were moved up.**
+I thought this was bad, and alot of people on the forum tended to agree
+with me
+
+![image](https://user-images.githubusercontent.com/55666666/217657707-120354c7-b1a5-4d93-8813-8e10e142bd92.png)
+This was do to some purpose of adjusting them so it could be easier to
+fit item sprites onto them instead of preforming the hours of work
+refractoring to make the heights of the items dynamic and adjustable. A
+simple pixel shift may have sufficed, but you see, such a change would
+NEVER allow the frankensteining of monkey and human features together.
+This is that refractor.
+
+In essence, the following is now true.
+A top_offset can now be generated for a human based on a varible on
+their chest and legs. By default, and as is true with human legs and
+chests, this variable is ZERO by default. Monkey legs and chest have
+NEGATIVE values proportionate and onto how much smaller their sprite is
+compared to humans. Other bodyparts, as well as any other accociated
+overlays, or clothing will automatically be offset to this axis. THIS
+MEANS THAT MONKEYS ARE ON THE FLOOR. But is means something else too.
+Something more freakish,
+
+![image](https://user-images.githubusercontent.com/55666666/217659439-bc0b1a35-76c8-4490-b869-770180605822.png)
+**What abominable monsters**, unreachable by players as long as we can't
+stitch monkeys and humans together (oh but just wait until the feature
+freeze ends)
+Oh but you might be thinking, if legs can make a mob go down.
+can it make a mob
+
+**go**
+**up??**
+
+**OH NO**
+
+![image](https://user-images.githubusercontent.com/55666666/217707042-0d53022f-d93a-4262-a5ce-ef15a99eb897.png)
+
+![image](https://user-images.githubusercontent.com/55666666/217707060-779f5901-ab90-4a64-9ca7-0b147e24f099.png)
+
+![image](https://user-images.githubusercontent.com/55666666/217707821-23d7457c-5881-40ae-8d9d-c9fbd645aba6.png)
+
+These lads are stepping, and have been implemented solely for proof of
+concept as a way to flex the system I have created and remain
+inaccessible without admin intervention.
+
+But really, when all is said and done, all this PR does in terms of
+player facing changes is move the monkey back down.
+
+![image](https://user-images.githubusercontent.com/55666666/217708365-b6922a6d-08d0-4267-8713-4f8dac29038e.png)
+Oh and fixed monkey husked which have been broken for who knows how
+long.
+
+![image](https://user-images.githubusercontent.com/55666666/217708464-5a9b6f89-4223-4ae5-a21e-3a274a9f8db8.png)
 ## Why It's Good For The Game
-See #71404 for the prior PR and my full reasoning.
-
-Long-story short, activating the Doomsday before having a plan in place
-is suicide, and it takes 13 APCs to unlock. Since there are few well
-hidden APCs in general, you'll usually be gathering APCs after going
-loud (such as with a borg machine). 13 APCs is 13 minutes, and by the
-time you've gathered your malfbux, you're either already dead or have
-already taken full control.
-
-I had intended to give Doomsday a flat 70 PT price, but concerns were
-raised that an AI could conceivably hack only APCs on their sat (and
-perhaps one on the Lavaland outpost) and Doomsday without ever really
-touching the station*. So a compromise was proposed, we instead give the
-AI discounts by hacking Head of Staff areas, and the Vault, which are
-usually situated in well-traveled areas, and also have some fluff
-reasoning.
-
-*I still think it'd be suicide to do this, but it's not a hill I want to
-die on.
+The monkey is restored to its original position. Tools now exist to have
+legs and torsos of varying heights. Monkey Husking is fixed.
 ## Changelog
-:cl:
-balance: Malf AIs that hack Head of Staff and Vault APCs will now find a
-discount issued on Doomsday.
+:cl: itseasytosee
+fix: Monkeys ues the proper husk sprites.
+imageadd: The monkey has been moved back down to its lower, more
+submissive position.
+refactor: Your bodyparts are now dynamically rendered at a height
+relevant to the length of your legs and torso, what does this mean for
+you? Not much to be honest, but you might see a monkey pop up a bit if
+you cut its legs off.
+admin: The Tallboy is here
 /:cl:
 
 ---------
 
-Co-authored-by: Jacquerel <hnevard@gmail.com>
+Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
+Co-authored-by: san7890 <the@ san7890.com>
+
+* Brings the monkey back down (body horror edition/addition.)
+
+* Update species.dm
+
+* Delete infuser_entries.dm
+
+---------
+
+Co-authored-by: itseasytosee <55666666+itseasytosee@users.noreply.github.com>
+Co-authored-by: Fikou <23585223+Fikou@ users.noreply.github.com>
+Co-authored-by: san7890 <the@ san7890.com>
+Co-authored-by: Gandalf <9026500+Gandalf2k15@users.noreply.github.com>
 
 ---
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[9dfe00d79d...](https://github.com/tgstation/tgstation/commit/9dfe00d79dd7bd540442ce825caa4e964c619b46)
-#### Tuesday 2023-04-04 23:22:46 by san7890
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[00f8bcfe75...](https://github.com/tgstation/tgstation/commit/00f8bcfe75275b7452063d1d8ec75d4c8e643f8b)
+#### Wednesday 2023-04-05 20:28:37 by MrMelbert
 
-IceBoxStation More Active Turf Fixes (#74474)
+Moves revolution code of out of flash code, fixes April Fool conversion forcesay never working in any cirumstances (#74411)
 
 ## About The Pull Request
 
+- Signallizes head revolutionary flash conversion code, moving it out of
+core flash code.
+- Removes "tacticool" flashing from head revs, but they can still
+convert from any direction
+ 
+- Fixes April Fools "You son of a bitch! I'm in" force say never
+working.
+   - Revs are muted on conversion so they couldn't talk.
+       - Fixed by only muting revs on non-holidays
+   - Cultists are unconscious on conversion so they couldn't talk
+       - Fixed by only unconscious-ing cultists on non-holidays
+- Brainwash victims are more often than not unconscious / asleep so they
+couldn't talk
+       - Just left this one. 
 
-![image](https://user-images.githubusercontent.com/34697715/229412910-e65b0ffa-8944-4b93-a4cb-41c6fd6bb333.png)
-
-This didn't show up in my testing for #74410. I hate it here.
+- Reduced the chance of them occurring and limits it to April Fools only
+- A 1% chance of the force says ocurring means they will happen pretty
+much once a week, given multiple rev / cult rounds happen every week and
+on average like, 20 people are converted. A little absurd, it's good
+that it never worked?
 
 ## Why It's Good For The Game
 
-I am a monkey trapped next to a computer playing whackamole with this
-fucking chasms and active turfs. one day i will be free.
+Antag code in core item code is bad
+
+It's funny this meme has existed for like 2, 3 years now? No one's
+tested it, it's never worked
+
 ## Changelog
 
-nothing that should concern players
+:cl: Melbert
+refactor: Removes Rev code from core flash code
+fix: Getting converted on April Fools now triggers the meme force say as
+always intended
+del: The meme force say can no longer trigger on any day (it didn't work
+before anyways)
+/:cl:
 
 ---
-## [philippe44/squeezelite](https://github.com/philippe44/squeezelite)@[226efa300c...](https://github.com/philippe44/squeezelite/commit/226efa300c4cf037e8486bad635e9deb3104636f)
-#### Tuesday 2023-04-04 23:24:28 by Ralph Irving
+## [bobhy/nushell](https://github.com/bobhy/nushell)@[2e01bf9cba...](https://github.com/bobhy/nushell/commit/2e01bf9cbadf833b4156ec5117393e51b8cadc7d)
+#### Wednesday 2023-04-05 21:10:15 by Bob Hyman
 
-So, I've made more tests with a simple HTTP server and a client just download data through a simple GET. It's 100% easy to reproduce the issue if the client throttle at say 160kbits/s and a file of ~3.5MB is transferred. The HTTP server confirms (as does tcpdump) that all is transferred in a record time and using TCPview (or netstat) you can see that the connection is in FIN_WAIT_2.
+add `dirs` command to std lib (#8368)
 
-It is all received because the TCPWindow quickly gets massive (a few MB) and so are the kernel's buffers. Obviously, Windows has a half-open socket timer that is started with the first FIN send and that causes the issue 100% time.
+# Description
 
-By limiting SO_RCVBUF, the TCPWindow cannot open that large as soon as the application does not get data fast enough. Of course, when we'll fill the stream and output buffers, TCPWindow will open because we absorb data super fast, but it will shrink back as soon as we stop pumping data in because we are full.
+Prototype replacement for `enter`, `n`, `p`, `exit` built-ins
+implemented as scripts in standard library.
+MVP-level capabilities (rough hack), for feedback please. Not intended
+to merge and ship as is.
 
-Now, 4KB is awfully low and I tried to increase it and it was still fine at 65kB, I could see TCPWindow opening and closing. The funny thing is that when you do a getsockopt, system will return 65kB. If you set what you got, the problem disappear as expected. BUT, if don't set anything, then Windows uses some much larger value (although it told you it does not) and then the issues happens.
+_(Description of your pull request goes here. **Provide examples and/or
+screenshots** if your changes affect the user experience.)_
 
--philippe44.
+# User-Facing Changes
+New command in standard library
 
-Thanks philippe44 for tracking down the cause of this issue.
-Increase squeezelite revision to 1419.
+```nushell
+〉use ~/src/rust/nushell/crates/nu-utils/standard_library/dirs.nu
+---------------------------------------------- /home/bobhy ----------------------------------------------
+〉help dirs
+module dirs.nu -- maintain list of remembered directories + navigate them
+
+todo:
+* expand relative to absolute paths (or relative to some prefix?)
+* what if user does `cd` by hand?
+
+Module: dirs
+
+Exported commands:
+  add (dirs add), drop, next (dirs next), prev (dirs prev), show (dirs show)
+
+This module exports environment.
+---------------------------------------------- /home/bobhy ----------------------------------------------
+〉dirs add ~/src/rust/nushell /etc ~/.cargo
+-------------------------------------- /home/bobhy/src/rust/nushell --------------------------------------
+〉dirs next 2
+------------------------------------------- /home/bobhy/.cargo -------------------------------------------
+〉dirs show
+╭───┬─────────┬────────────────────╮
+│ # │ current │        path        │
+├───┼─────────┼────────────────────┤
+│ 0 │         │ /home/bobhy        │
+│ 1 │         │ ~/src/rust/nushell │
+│ 2 │         │ /etc               │
+│ 3 │ ==>     │ ~/.cargo           │
+╰───┴─────────┴────────────────────╯
+------------------------------------------- /home/bobhy/.cargo -------------------------------------------
+〉dirs drop
+---------------------------------------------- /home/bobhy ----------------------------------------------
+〉dirs show
+╭───┬─────────┬────────────────────╮
+│ # │ current │        path        │
+├───┼─────────┼────────────────────┤
+│ 0 │ ==>     │ /home/bobhy        │
+│ 1 │         │ ~/src/rust/nushell │
+│ 2 │         │ /etc               │
+╰───┴─────────┴────────────────────╯
+---------------------------------------------- /home/bobhy ----------------------------------------------
+〉
+```
+# Tests + Formatting
+
+Haven't even looked at stdlib `tests.nu` yet.
+
+Other todos:
+* address module todos.
+* integrate into std lib, rather than as standalone module. Somehow
+arrange for `use .../standard_library/std.nu` to load this module
+without having to put all the source in `std.nu`?
+*  Maybe command should be `std dirs ...`?   
+* what else do `enter` and `exit` do that this should do? Then deprecate
+those commands.
+
+Don't forget to add tests that cover your changes.
+
+Make sure you've run and fixed any issues with these commands:
+
+- `cargo fmt --all -- --check` to check standard code formatting (`cargo
+fmt --all` applies these changes)
+- `cargo clippy --workspace -- -D warnings -D clippy::unwrap_used -A
+clippy::needless_collect` to check that you're using the standard code
+style
+- `cargo test --workspace` to check that all tests pass
+
+# After Submitting
+
+If your PR had any user-facing changes, update [the
+documentation](https://github.com/nushell/nushell.github.io) after the
+PR is merged, if necessary. This will help us keep the docs up to date.
 
 ---
-## [KarimAjouz/Z-Farm---Project](https://github.com/KarimAjouz/Z-Farm---Project)@[8c77112448...](https://github.com/KarimAjouz/Z-Farm---Project/commit/8c77112448395b671bb43dff359dd9285b04c9bb)
-#### Tuesday 2023-04-04 23:47:32 by Karim
+## [DarkoniusXNG/oaa](https://github.com/DarkoniusXNG/oaa)@[5ab0cf7824...](https://github.com/DarkoniusXNG/oaa/commit/5ab0cf78244f7b7d29ea7d65b1535c247a7ae882)
+#### Wednesday 2023-04-05 21:16:19 by Darko V
 
-The great architecture refactor part 1
+Hero item build guides (#3460)
 
-Begin the migration to an actual architecture.
-
-Movement, jumping, playerstates, input, etc all punted over.
-
-Tempted to ignore lot's of previous implementation and may just stick to doing new thingssss.
-
-Fuck you past me for thinking I didn't need an architecture for a "Small Game".
-
-Also fuck you feature creep for taking this project way beyond a "Small Game".
+Updated item build guides for:
+Abaddon
+Anti-Mage
+Arc Warden
+Axe
+Batrider
+Bloodseeker
+Bristleback
+Broodmother
+Centaur Warrunner
+Chatterjee
+Chen
+Crystal Maiden
+Dark Seer
+Dark Willow
+Dawnbreaker
+Drow Ranger
+Ember Spirit
+Faceless Void
+Grimstroke
+Gyrocopter
+Hoodwink
+Io
+Jakiro
+Juggernaut
+Kunkka
+Lone Druid
+Luna
+Lycan
+Marci
+Medusa
+Mirana
+Naga Siren
+Necrophos
+Ogre Magi
+Oracle
+Pangolier
+Phantom Assassin
+Phantom Lancer
+Primal Beast
+Puck
+Pudge
+Pugna
+Razor
+Riki
+Sand King
+Shadow Shaman
+Silencer
+Skywrath Mage
+Snapfire
+Sniper
+Sohei
+Spectre
+Storm Spirit
+Sven
+Techies
+Terrorblade
+Tinkerer
+Tiny
+Troll Warlord
+Tusk
+Undying
+Ursa
+Venomancer
+Viper
+Visage
+Void Spirit
+Warlock
+Weaver
+Windranger
+Winter Wyvern
+Witch Doctor
+Wraith King
+Zeus
 
 ---
-## [murilo09/canary](https://github.com/murilo09/canary)@[8314f6a3e8...](https://github.com/murilo09/canary/commit/8314f6a3e8c3b94242d43d4f754a6fb4fccf6461)
-#### Tuesday 2023-04-04 23:52:51 by Spiller
+## [DarkoniusXNG/oaa](https://github.com/DarkoniusXNG/oaa)@[56395dd4f5...](https://github.com/DarkoniusXNG/oaa/commit/56395dd4f523b90cd0b5d64857ad877e80da2343)
+#### Wednesday 2023-04-05 21:16:19 by Darko V
 
-feat: add several missing bosses (#708)
+Modifiers February Update (#3464)
 
-• See the pull request description to read detailed information.
+* Hybrid modifier attack damage stacks are now based on spell cooldown.
+* Blood Magic modifier: hopefully fixed not having mana when respawning after losing this modifier.
+* Brute modifier: Damage per hp reduced from 0.08 to 0.05
+* Chaos modifier: Added Drunkard modifier to the pool of modifiers. Drunkard: 10% chance to do 3x critical damage on each attack and spell damage instance. 10% chance to avoid any damage. Has a random chance to miss a spell and moves randomly when idle.
+* Cursed Attack modifier no longer has a miss chance.
+* Cursed Attack modifier now provides a 50% chance to deal 350 pure damage.
+* Cursed Attack modifier now also reduced attack damage by 125.
+* Chaos modifier: Disabled Explosive Death and Guardian's Weakness after 20 min.
 
-Add bosses from some quests there were not developed. This PR adds only the bosses, levers mechanics for simple functionality.
-This doesn't add the bosses mechanics! If someone is willing to contribute with the mechanics, feel free to contribute with the PR.
-The bosses added are:
+---
+## [mangadex-pub/haproxy](https://github.com/mangadex-pub/haproxy)@[3f862d79f6...](https://github.com/mangadex-pub/haproxy/commit/3f862d79f6a4a736c9745d6b2c639c80e2f11929)
+#### Wednesday 2023-04-05 21:17:37 by Tristan
 
-• A pirate's tail: Ratmiral Blackwhiskers, Tentugly's head;
-• Adventures of Galthen: Megasylvan Yselda;
-• Feaster of Souls: The Fear Feaster, The Unwelcome, The Dread Maiden, Irgix the Flimsy, Unaz the Mean, Vok The Freakish;
-• Grave Danger (rework): Lord Azaram, Duke Krule, Count Vlarkorth, Sir Nictros & Sir Baeloc, Earl Osam, King Zelos;
-• Grimvale/Ancient Feud: Katex Blood Tongue, Srezz Yellow Eyes, Utua Stone Sting, Yirkas Blue Scales, Bloodback, Darkfang, Sharpclaw, Shadowpelt, Black Vixen;
-• Soul War: Goshnar's Cruelty, Goshnar's Greed, Goshnar's Hatred, Goshnar's Malice, Goshnar's Spite, Goshnar's Megalomania;
-• The Dream Courts: The Nightmare Beast, Izcandar the Banished, Alptramun, Plagueroot, Malofur Mangrinder, Maxxenius;
-• The Secret Library: Ghulosh, Gorzindel, Lokathmor, Mazzinor, Scourge of Oblivion.
-• The SoulWar reward was added. In order to get the reward, the player needs to kill all the bosses and the final boss.
-• The Dream Court's World change was added.
+Fix filename filter
 
-• All the access needed were granted on FreeQuests.lua. If you are already running a server, you'll need to update freeQuestStage on config.lua to one number higher than it is. So, all the players of your server will have the access granted.
+some days I just fucking hate my life alright
+
+---
+## [bluehalooo/node-cheat-quine](https://github.com/bluehalooo/node-cheat-quine)@[fea970edbd...](https://github.com/bluehalooo/node-cheat-quine/commit/fea970edbdd9458bf1662765118452e4d593e3d0)
+#### Wednesday 2023-04-05 21:30:46 by bluehalooo
+
+Me, drink from me, drink from me (oh ah) Shoot across the symphony (oh ah, oh ah) That we shoot across the sky Drink from me, drink from me (ah, oh ah, oh ah) That we shoot across the (I'm feeling drunk and high) Symphony (So high, so high) That we shoot across the s- (drink from) Oh, angel sent from up above You know you make my world light up When I was down, when I was hurt You came to lift me up Life is a drink and love's a drug Oh, now I think I must be miles up When I was a river, dried up You came to rain a flood You said, "Drink from me, drink from me" When I was so thirsty Pour on a symphony Now I just can't get enough Put your wings on me, wings on me When I was so heavy Pour on a symphony When I'm low, low, low, low Ah, oh ah, oh ah Got me feeling drunk and high So high (so high), so high (so high) Oh ah, oh ah, oh ah Now I'm feeling drunk and high So high (so high), so high (so high) (Woo) (Ooh) Oh, angel sent from up above I feel you coursing through my blood Life is a drink, your love's about To make the stars come out Put your wings on me, wings on me When I was so heavy Pour on a symphony When I'm low, low, low, low Ah, oh ah, oh ah Got me feeling drunk and high So high, so high (so high) Oh ah, oh ah, oh ah Now I'm feeling drunk and high So high (so high), so high (so high) Ah, oh ah, oh ah La, la, la, la, la, la, la So high, so high Ah, oh ah, oh ah Now I'm feeling drunk and high So high (so high), so high (so high) That we shoot across the sky That we shoot across the That we shoot across the sky That we shoot across the (that we shoot, yeah) That we shoot across the sky That we shoot across the That we shoot across the sky That we shoot across the
+
+---
+## [pywhy1/FirstMod](https://github.com/pywhy1/FirstMod)@[dbf17df237...](https://github.com/pywhy1/FirstMod/commit/dbf17df2373b5c8801b23881af13a5aeb16f1495)
+#### Wednesday 2023-04-05 22:24:23 by pywhy1
+
+Small cosmetic Bow changes
+
+Added text to appear once a player right clicks with the Giant grass bow. Randomly chooses from this list:
+"Nice shot!", "Fine Shooting!", "Good shot mate!", "Nice Shot!",
+                                                        "Good Shot!",
+                                                        "That was incredible!",
+                                                        "Woo! I love that shot!",
+                                                        "Ha ha! That was awesome!",
+                                                        "Whooo! You're the man!",
+                                                        "Nice job!",
+                                                        "Brilliant!",
+                                                        "Well done!",
+                                                        "Ha ha ha! Nice!",
+                                                        "That was amazing!",
+                                                        "Good work!",
+                                                        "Ha ha ha ha! You're good!",
+                                                        "Sweet shot!",
+                                                        "Ha ha ha ha! Nice shot!",
+                                                        "Whooo! You're incredible!",
+                                                        "Ha ha ha ha! Oh my God, wow!",
+                                                        "Unbelievable!"
+
+---
+## [MLGTASTICa/CEV-Eris](https://github.com/MLGTASTICa/CEV-Eris)@[6f75cb9845...](https://github.com/MLGTASTICa/CEV-Eris/commit/6f75cb984594e66d49dff852532ac69a387899d7)
+#### Wednesday 2023-04-05 23:14:49 by !Moltov!
+
+Hotkey tweaks (#7956)
+
+* yeah
+
+* changes the hotkey list
+
+* I forgot to push this
+
+* Revert "I forgot to push this"
+
+This reverts commit 845878d1bda9f8be1cee214acd7329b0355a507b.
+
+* Revert "changes the hotkey list"
+
+This reverts commit a1174c47bdc49245e4b31ddb06f85e7fec21e51c.
+
+* re-adds reversions
+
+* Revert "yeah"
+
+This reverts commit e61f425a1231c6049c123724bfe88a7e51b9c199.
+
+* manually adds hotkeys instead of using .dmf
+
+I love the quirky dream maker language
+
+---
+## [git-for-windows/git](https://github.com/git-for-windows/git)@[bfff6b5fb6...](https://github.com/git-for-windows/git/commit/bfff6b5fb681d135b3321b8a3034d0fb5edfcc1c)
+#### Wednesday 2023-04-05 23:21:38 by Johannes Schindelin
+
+windows: ignore empty `PATH` elements
+
+When looking up an executable via the `_which` function, Git GUI
+imitates the `execlp()` strategy where the environment variable `PATH`
+is interpreted as a list of paths in which to search.
+
+For historical reasons, stemming from the olden times when it was
+uncommon to download a lot of files from the internet into the current
+directory, empty elements in this list are treated as if the current
+directory had been specified.
+
+Nowadays, of course, this treatment is highly dangerous as the current
+directory often contains files that have just been downloaded and not
+yet been inspected by the user. Unix/Linux users are essentially
+expected to be very, very careful to simply not add empty `PATH`
+elements, i.e. not to make use of that feature.
+
+On Windows, however, it is quite common for `PATH` to contain empty
+elements by mistake, e.g. as an unintended left-over entry when an
+application was installed from the Windows Store and then uninstalled
+manually.
+
+While it would probably make most sense to safe-guard not only Windows
+users, it seems to be common practice to ignore these empty `PATH`
+elements _only_ on Windows, but not on other platforms.
+
+Sadly, this practice is followed inconsistently between different
+software projects, where projects with few, if any, Windows-based
+contributors tend to be less consistent or even "blissful" about it.
+Here is a non-exhaustive list:
+
+Cygwin:
+
+	It specifically "eats" empty paths when converting path lists to
+	POSIX: https://github.com/cygwin/cygwin/commit/753702223c7d
+
+	I.e. it follows the common practice.
+
+PowerShell:
+
+	It specifically ignores empty paths when searching the `PATH`.
+	The reason for this is apparently so self-evident that it is not
+	even mentioned here:
+	https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_environment_variables#path-information
+
+	I.e. it follows the common practice.
+
+CMD:
+
+	Oh my, CMD. Let's just forget about it, nobody in their right
+	(security) mind takes CMD as inspiration. It is so unsafe by
+	default that we even planned on dropping `Git CMD` from Git for
+	Windows altogether, and only walked back on that plan when we
+	found a super ugly hack, just to keep Git's users secure by
+	default:
+
+		https://github.com/git-for-windows/MINGW-packages/commit/82172388bb51
+
+	So CMD chooses to hide behind the battle cry "Works as
+	Designed!" that all too often leaves users vulnerable. CMD is
+	probably the most prominent project whose lead you want to avoid
+	following in matters of security.
+
+Win32 API (`CreateProcess()`)
+
+	Just like CMD, `CreateProcess()` adheres to the original design
+	of the path lookup in the name of backward compatibility (see
+	https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw
+	for details):
+
+		If the file name does not contain a directory path, the
+		system searches for the executable file in the following
+		sequence:
+
+		    1. The directory from which the application loaded.
+
+		    2. The current directory for the parent process.
+
+		    [...]
+
+	I.e. the Win32 API itself chooses backwards compatibility over
+	users' safety.
+
+Git LFS:
+
+	There have been not one, not two, but three security advisories
+	about Git LFS executing executables from the current directory by
+	mistake. As part of one of them, a change was introduced to stop
+	treating empty `PATH` elements as equivalent to `.`:
+	https://github.com/git-lfs/git-lfs/commit/7cd7bb0a1f0d
+
+	I.e. it follows the common practice.
+
+Go:
+
+	Go does not follow the common practice, and you can think about
+	that what you want:
+	https://github.com/golang/go/blob/go1.19.3/src/os/exec/lp_windows.go#L114-L135
+	https://github.com/golang/go/blob/go1.19.3/src/path/filepath/path_windows.go#L108-L137
+
+Git Credential Manager:
+
+	It tries to imitate Git LFS, but unfortunately misses the empty
+	`PATH` element handling. As of time of writing, this is in the
+	process of being fixed:
+	https://github.com/GitCredentialManager/git-credential-manager/pull/968
+
+So now that we have established that it is a common practice to ignore
+empty `PATH` elements on Windows, let's assess this commit's change
+using Schneier's Five-Step Process
+(https://www.schneier.com/crypto-gram/archives/2002/0415.html#1):
+
+Step 1: What problem does it solve?
+
+	It prevents an entire class of Remote Code Execution exploits via
+	Git GUI's `Clone` functionality.
+
+Step 2: How well does it solve that problem?
+
+	Very well. It prevents the attack vector of luring an unsuspecting
+	victim into cloning an executable into the worktree root directory
+	that Git GUI immediately executes.
+
+Step 3: What other security problems does it cause?
+
+	Maybe non-security problems: If a project (ab-)uses the unsafe
+	`PATH` lookup. That would not only be unsafe, though, but
+	fragile in the first place because it would break when running
+	in a subdirectory. Therefore I would consider this a scenario
+	not worth keeping working.
+
+Step 4: What are the costs of this measure?
+
+	Almost nil, except for the time writing up this commit message
+	;-)
+
+Step 5: Given the answers to steps two through four, is the security
+	measure worth the costs?
+
+	Yes. Keeping Git's users Secure By Default is worth it. It's a
+	tiny price to pay compared to the damages even a single
+	successful exploit can cost.
+
+So let's follow that common practice in Git GUI, too.
+
+Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
+
+---
+## [jamespack/terminal](https://github.com/jamespack/terminal)@[5a34d92cb5...](https://github.com/jamespack/terminal/commit/5a34d92cb5c99000e95f612cb8bc23ba374dd941)
+#### Wednesday 2023-04-05 23:22:55 by Dustin L. Howett
+
+winget.yml: switch to manually using wingetcreate (#15023)
+
+It was brought to my attention that we should be more restrictive in
+which tasks we ovver a GitHub token to. Sorry!
+
+With thanks to sitiom for the version parsing and the magic GitHub
+action syntax incantation for determining what is a prerelease.
 
 ---
 
