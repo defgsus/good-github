@@ -1383,4 +1383,5 @@
 [21](good-messages/2023/2023-04-21.md)
 [22](good-messages/2023/2023-04-22.md)
 [23](good-messages/2023/2023-04-23.md)
+[24](good-messages/2023/2023-04-24.md)
 
