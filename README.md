@@ -5,14 +5,144 @@ an [index](docs/messages.md).
 
 ---
 
-# [2023-05-02](docs/good-messages/2023/2023-05-02.md)
+# [2023-05-03](docs/good-messages/2023/2023-05-03.md)
 
 
-there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,147,763 were push events containing 3,364,661 commit messages that amount to 270,752,471 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 57 messages:
+there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,240,402 were push events containing 3,556,290 commit messages that amount to 264,207,221 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 56 messages:
 
 
-## [ca2/app](https://github.com/ca2/app)@[4fa4682898...](https://github.com/ca2/app/commit/4fa4682898a3ee713aa0e8c28c20efd5412ac672)
-#### Tuesday 2023-05-02 00:08:43 by Camilo Sasuke Thomas Borregaard Sørensen
+## [ArcaneDefence/tgstation](https://github.com/ArcaneDefence/tgstation)@[912e843f53...](https://github.com/ArcaneDefence/tgstation/commit/912e843f53cf33b15148ec5a5ec66ce107314467)
+#### Wednesday 2023-05-03 00:03:35 by san7890
+
+Allows Export of your Preferences JSON File (#75014)
+
+## About The Pull Request
+
+Hey there,
+
+This was spoken about in #70492 (specifically
+https://github.com/tgstation/tgstation/pull/70492#issuecomment-1278069607),
+and I have been waiting for this to be implemented for some time. It
+never got implemented, so I decided to code it myself.
+
+Basically, **if the server host doesn't disable it**, you are free to
+export your JSONs as a player, right from the stat-panel. It's a pretty
+JSON on 515 versions, too!
+
+It's right here:
+
+
+![image](https://user-images.githubusercontent.com/34697715/235251447-1c977718-51fd-4025-8d89-c60bffc379ec.png)
+
+Here's what the prettified JSON looks like on 515.
+
+
+![image](https://user-images.githubusercontent.com/34697715/235321061-4a217e26-c082-4bba-b54a-2c780defda0a.png)
+
+There's a cooldown (default to 10 seconds) between exporting your
+preferences.
+
+#### Why is this config?
+
+It's because in the past, a server host could always just file-share the
+.sav or .json or whatever to the player, but they would have to do the
+explicit option of actually bothering to make the files accessible to
+the player. In that same line of logic, the server operator will have to
+explicitly make the files accessible. This is mostly because I'm not
+sure how good `ftp()` is at being a player function and wanted to have
+some sort of cap/control somehow in case an exploit vector is detected
+or it's just plain spammed by bots, so we'll just leave it up to the
+direct providers of this data to elect if they wish to provide the data
+or not.
+## Why It's Good For The Game
+
+Players don't have to log into Server A to remember what hairstyle they
+loved using when they want to swap to Server B! That's amazing actually.
+I always forget what ponytail my character has, and it'll be nice to
+have the hairstyle in a readily accessible place (after I prettify the
+JSON for myself).
+
+It's also more convenient for server hosts to make player data like this
+accessible if they really want to, too.
+
+If we ever add an _import_ feature in the future (which would have to be
+done with a LOT of care), this will also be useful. I wouldn't advise it
+though having taken a precursory look at how much goes into it while
+trying to ascertain the scope of this PR.
+## Changelog
+:cl:
+qol: The game now supports export of your preferences into a JSON file!
+The verb (export-preferences) should now be available in the OOC tab of
+your stat-panel if enabled by server operators.
+server: Exporting player preferences is controlled by a configuration
+option, 'FORBID_PREFERENCES_EXPORT'. If you do not wish to let clients
+access the ftp() function to their own preferences file (probably for
+bandwidth reasons?) you should uncomment this or add it to your config
+somehow.
+config: Server operators are also able to set the cooldown between
+requests to download the JSON Preferences file via the
+'SECONDS_COOLDOWN_FOR_PREFERENCES_EXPORT' config option.
+/:cl:
+
+---
+## [ArcaneDefence/tgstation](https://github.com/ArcaneDefence/tgstation)@[f7a49c4068...](https://github.com/ArcaneDefence/tgstation/commit/f7a49c4068f1277e6857baf0892d355f1c055974)
+#### Wednesday 2023-05-03 00:03:35 by Ryll Ryll
+
+Gunpoints now take half a second to activate, make gasp sounds, and briefly immobilize the shooter and target, other small balance changes (#74036)
+
+## About The Pull Request
+This PR messes around with gunpoints a bit, with the purpose of making
+them more viable in certain scenarios without making them obnoxious. The
+biggest change is that gunpoints now require a 0.5 second do_after()
+where neither the shooter nor the target moves, and immobilizes both of
+them for 0.75 seconds if point blank, or half that if you're 2 tiles
+away. Originally you were supposed to only be able to initiate a
+gunpoint from point-blank, but #56601 seems to have removed that
+requirement, so we'll run with it and just leave it as advantageous to
+gunpoint closer up. The do_after() reinforces that it should be used as
+an ambush tactic, and so you can't use it on someone who's actively
+fleeing or fighting you.
+
+Getting held up will now make you emit a shocked gasp sound, a la Metal
+Gear Solid, which combined with the short immobilize will hopefully make
+it more noticeable that someone's pointing a gun at you.
+
+Holdups will now immediately give a 25% bonus to damage and wounds,
+instead of having to wait 2.5 seconds to hit the double damage stage.
+
+Finally, right clicking someone that you're holding up will no longer
+shoot them. That just feels like good consistency.
+
+## Why It's Good For The Game
+Hopefully makes gunpoints a little more viable for when you want to
+stick someone who's not expecting it up without them immediately jetting
+off. In the future I'd like to ape Baycode and let the gunman have an
+action that toggles whether the victim is allowed to move, so you can
+order them to move to a second location without instantly shooting them,
+but that'll come later.
+## Changelog
+:cl: Ryll/Shaps
+balance: Holding someone at gunpoint now requires both the shooter and
+the victim to hold still for half a second before activating, so you
+can't hold-up people fleeing or fighting you. After that, it will
+briefly immobilize the both of you, 0.75 seconds if adjacent, or half
+that if you're two tiles away. Nuke ops are immune to the
+immobilization, since they're ready to die anyways.
+balance: Holding someone up will immediately apply a 1.25x damage and
+wound multiplier, rather than waiting 2.5 seconds to hit 2x.
+soundadd: Being held up will now make the victim play a sharp gasp
+sound, a la Metal Gear Solid.
+qol: Trying to hold someone up that you're already holding up will no
+longer shoot them.
+/:cl:
+
+---------
+
+Co-authored-by: san7890 <the@san7890.com>
+
+---
+## [ca2/app](https://github.com/ca2/app)@[ed6cac7414...](https://github.com/ca2/app/commit/ed6cac7414178d8b2b5715106c009f8c84e85016)
+#### Wednesday 2023-05-03 01:05:18 by Camilo Sasuke Thomas Borregaard Sørensen
 
 <3ThomasBS_ILoveYOU!! [ macOS : day 25 ] ca2 Stabilization and continuous integration and deployment implementation
 <3ThomasBS_ILoveYOU!!
@@ -185,408 +315,8 @@ dedicated server by OVH.com at France, Gravelines
 Intel Core i7-4790K - 4c/8t - 4 GHz/4.4 GHz RAM32 GB 1600 MHz 2×960 GB SSD SATA
 
 ---
-## [goober3/hi-github-portside](https://github.com/goober3/hi-github-portside)@[0410075cc8...](https://github.com/goober3/hi-github-portside/commit/0410075cc811c5f65d7dc085a665c1ebb3a20e44)
-#### Tuesday 2023-05-02 00:19:15 by meemofcourse
-
-Ports mothroaches + Moth emotes (#1843)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
-
-## About The Pull Request
-Can you guess what this PR does? If you answered that it ports [this
-pull request](https://github.com/tgstation/tgstation/pull/68763), [this
-pull request](https://github.com/tgstation/tgstation/pull/71784), and [a
-partial part of this one
-too](https://github.com/BeeStation/BeeStation-Hornet/pull/7645/), then
-you're right!
-
-![imagen](https://user-images.githubusercontent.com/75212565/227387000-cc205158-286b-4841-9c5a-2e4d6d8d6200.png)
-
-![imagen](https://user-images.githubusercontent.com/75212565/227386830-213997a1-ebe9-4573-8f8e-052e72bacea2.png)
-
-
-You can also craft moth plushies now. You just need some cloth,
-mothroach hide, and a heart!
-
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
-## Why It's Good For The Game
-
-silly little moth roaches and emotes, who wouldn't want them in the
-game?
-
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding. -->
-
-## Changelog
-
-:cl:
-add: Mothroaches are now a thing
-add: Moth laughter, chittering and squeaking
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
----
-## [TaleStation/TaleStation](https://github.com/TaleStation/TaleStation)@[40c7fd15c8...](https://github.com/TaleStation/TaleStation/commit/40c7fd15c8f2e28f32618c860194374e09122bd9)
-#### Tuesday 2023-05-02 00:22:12 by TaleStationBot
-
-[MIRROR] [MDB IGNORE] Mimes can no longer write without breaking their vow. (#5562)
-
-Original PR: https://github.com/tgstation/tgstation/pull/74674
------
-## About The Pull Request
-
-I feel this is gonna be unpopular with the lazy mime players.
-
-Also, this is an idea I had in my backlog for a while now
-
-![image](https://user-images.githubusercontent.com/53777086/231355622-2c5d5d5a-813d-420c-ae42-c1bdc657f3ba.png)
-
-This removes the Mime's ability to write on paper while they're on their
-vow of silence.
-This can be compared to hand language, which doesn't let you speak
-despite not being considered "talking", and PDA messaging, which does
-the same.
-
-Mimes can still write with their pen, which is a nice invisible white
-color. I thought I would keep it in as I find that interaction funny to
-have a Mime give someone just a blank paper, unknowing that there's text
-on it.
-Spraycans/Telekinesis/Circuits are also left unaffected because they
-require actual effort to obtain (doing genetics, doing circuits, or
-printing spraycans which take a lot of inventory space and is limited),
-compared to paper which you can carry hundreds of papers around and is
-bountiful across the station.
-
-I thought this was attempted at least once, but I can't find any PR that
-mentions it, so I'm shooting my shot to see if this is something we'd
-want.
-
-## Why It's Good For The Game
-
-Mimes using paper is a lazy way to bypass their one job gimmick: Emoting
-over talking.
-
-If they get a job change, they can simply break their vow to access
-paper writing abilities, so this doesn't affect that really. It more-so
-hits the Mimes who uses the job for the free spells/healing
-abilities/etc, and bypasses the downsides (im aware its harder to get
-people to read paper than it is to talk to them, but you can literally
-get the mute quirk and itll have the same effect without being the whole
-job).
-
-The point is, you don't get invisible walls for free; it comes at a cost
-of not being able to talk to people. If you want to talk, then break
-your vow, lose access to your Mime abilities, and remake it later when
-the cooldown is over. You're not meant to do both.
-
-## Changelog
-
-:cl:
-balance: Mimes can no longer write on paper without breaking their vow.
-/:cl:
-
----------
-
-Co-authored-by: John Willard <53777086+JohnFulpWillard@users.noreply.github.com>
-Co-authored-by: Jolly-66 <70232195+Jolly-66@users.noreply.github.com>
-
----
-## [AgRevol/tgstation](https://github.com/AgRevol/tgstation)@[2e5bfe5be6...](https://github.com/AgRevol/tgstation/commit/2e5bfe5be669d5222b68c7318349c4ac0947722b)
-#### Tuesday 2023-05-02 00:23:04 by LemonInTheDark
-
-Refactors and optimizes breath code (Saves 12% of carbon/Life()) (#74230)
-
-## About The Pull Request
-
-### How things work
-
-As things currently stand, when a mob breaths several things happen
-(simplified to focus on the stupid)
-
-We assert the existance of all possible breathable gases, and pull
-partial pressures for them
-Then we walk through all possible interactions lungs could have with
-these gases, one by one, and see if they're happening or not
-As we go we are forced to cleanup potential alerts caused by the
-previous breath, even if those effects never actually happen
-At the end we clear out all the unused gas ids, and handle the
-temperature of the breath.
-
-### What sucks
-
-There's I'd say 3 different types of gas reactions.
-
-- You can "need" a gas to survive. o2, n2 and plasma all fall into this
-category
-- A gas can do something to you while it's in your system. This applies
-to most gas types
-- Variation on the previous, some gases do cleanup when they're not in
-your system, or when there isn't much of them in the first place
-
-The main headache here is that second one, constantly cleaning up
-potential side effects sucks, and fixing it would require a lot of dummy
-variables
-
-There's other suckage too.
-
-Needing to constantly check for a gas type even if it isn't there is
-stupid, and leads to wasted time It's also really annoying to do
-subtypes in this system.
-There is what amounts to a hook proc you can override, but you can't
-override the reaction to a gas type.
-It also just like, sucks to add new gases. one mega proc smells real
-stupid.
-
-### Improvements
-
-In the interest of speed:
-
-- I'd like to build a system that doesn't require manually checking for
-gas
-- Reacting to gas "disappearing" should be promoted by the system,
-instead of being hacky.
-- I would like to avoid needing to assert the existence of all possible
-gases, as this is slow on both the assert and the garbage collect.
-
-In the interest of dev ergonomics:
-
-- It should be easy to define a new gas reaction 
-- It should be easy for subtypes to implement their own gas reactions.
-The current method of vars on the lung is all tangled up and not really
-undoable as of now, but I'd like to not require it
-- It should be possible to fully override how a gas is handled
-
-### What I've Done
-
-Lungs have 3 lists of proc paths stored on them
-
-Each list handles a different way the lung might want to interact with a
-gas.
-There's a list for always processing on a gas (we use this for stuff
-that's breathed), a list for handling a gas in our breath, and a list
-for reacting to a gas previously being in our breath, but not any more.
-
-Lungs fill out these lists using a helper proc during Initialize()
-Then, when it comes time to breath, we loop over the gas in the breath
-and react to it.
-We also keep track of the previous list of partial pressures, which we
-calculate for free here, and use that to figure out when to call the
-loss reactions.
-
-This proc pattern allows for overrides, easy reactions to removals,
-lower indentation code and early returns, and better organization of
-signal handlers
-
-It's also significantly faster. Ballpark 4x faster
-
-### Misc
-
-Removes support for breathing co2, and dying from n2 poisoning. 
-They were both unused, and I think it's cringe to clutter these procs
-even further
-
-Added "do we even have oxyloss" checks to most cases of passive
-breathing.
-This is a significant save, since redundant adjustoxy's are decently
-expensive at the volume of calls we have here.
-
-Fixes a bug with breathing out if no gas is passed in, assigning a var
-to another var doesn't perform a copy
-
-Rewrote breathe_gas_volume() slightly to insert gas into an immutable
-mix stored on the lung, rather then one passed in
-This avoids passing of a gas_mixture around just to fill a hole. 
-
-I may change my mind on this, since it would be nice to have support for
-temperature changing from a hot/cold breath.
-Not gonna be done off bodytemp tho lord no.
-
-Uses merge() instead of a hard coded version to move the gas ids over. 
-This is slightly slower with lower gas counts but supports more things
-in future and is also just easier to read.
-
-## Why It's Good For The Game
-
-Faster, easier to work with and read (imo)
-
-Profiles: 
-
-[breath_results_old.txt](https://github.com/tgstation/tgstation/files/11068247/breath_results_old.txt)
-
-[breath_results_pre_master.txt](https://github.com/tgstation/tgstation/files/11068248/breath_results_new.txt)
-
-[breath_results_new.txt](https://github.com/tgstation/tgstation/files/11068349/breath_results_new.txt)
-
-(These profiles were initially missing #73026. Merging this brings the
-savings from 16% to 12%. Life is pain)
-
----------
-
-Co-authored-by: san7890 <the@san7890.com>
-
----
-## [TaleStation/TaleStation](https://github.com/TaleStation/TaleStation)@[dd77b3e619...](https://github.com/TaleStation/TaleStation/commit/dd77b3e619675b4eda2595b0f0a23bc2660b0632)
-#### Tuesday 2023-05-02 00:23:25 by TaleStationBot
-
-[MIRROR] [MDB IGNORE] Gunpoints now take half a second to activate, make gasp sounds, and briefly immobilize the shooter and target, other small balance changes (#5591)
-
-Original PR: https://github.com/tgstation/tgstation/pull/74036
------
-## About The Pull Request
-This PR messes around with gunpoints a bit, with the purpose of making
-them more viable in certain scenarios without making them obnoxious. The
-biggest change is that gunpoints now require a 0.5 second do_after()
-where neither the shooter nor the target moves, and immobilizes both of
-them for 0.75 seconds if point blank, or half that if you're 2 tiles
-away. Originally you were supposed to only be able to initiate a
-gunpoint from point-blank, but #56601 seems to have removed that
-requirement, so we'll run with it and just leave it as advantageous to
-gunpoint closer up. The do_after() reinforces that it should be used as
-an ambush tactic, and so you can't use it on someone who's actively
-fleeing or fighting you.
-
-Getting held up will now make you emit a shocked gasp sound, a la Metal
-Gear Solid, which combined with the short immobilize will hopefully make
-it more noticeable that someone's pointing a gun at you.
-
-Holdups will now immediately give a 25% bonus to damage and wounds,
-instead of having to wait 2.5 seconds to hit the double damage stage.
-
-Finally, right clicking someone that you're holding up will no longer
-shoot them. That just feels like good consistency.
-
-## Why It's Good For The Game
-Hopefully makes gunpoints a little more viable for when you want to
-stick someone who's not expecting it up without them immediately jetting
-off. In the future I'd like to ape Baycode and let the gunman have an
-action that toggles whether the victim is allowed to move, so you can
-order them to move to a second location without instantly shooting them,
-but that'll come later.
-## Changelog
-:cl: Ryll/Shaps
-balance: Holding someone at gunpoint now requires both the shooter and
-the victim to hold still for half a second before activating, so you
-can't hold-up people fleeing or fighting you. After that, it will
-briefly immobilize the both of you, 0.75 seconds if adjacent, or half
-that if you're two tiles away. Nuke ops are immune to the
-immobilization, since they're ready to die anyways.
-balance: Holding someone up will immediately apply a 1.25x damage and
-wound multiplier, rather than waiting 2.5 seconds to hit 2x.
-soundadd: Being held up will now make the victim play a sharp gasp
-sound, a la Metal Gear Solid.
-qol: Trying to hold someone up that you're already holding up will no
-longer shoot them.
-/:cl:
-
----------
-
-Co-authored-by: Ryll Ryll <3589655+Ryll-Ryll@users.noreply.github.com>
-Co-authored-by: san7890 <the@san7890.com>
-
----
-## [Quacks-and-Kepteyn/Skyrat-tg](https://github.com/Quacks-and-Kepteyn/Skyrat-tg)@[28e53c240e...](https://github.com/Quacks-and-Kepteyn/Skyrat-tg/commit/28e53c240e21902f73ee5b2a3221c01efcaa5908)
-#### Tuesday 2023-05-02 00:30:50 by SkyratBot
-
-[MIRROR] Tcomms Soundloop Comes From One Source And Is Less Awful [MDB IGNORE] (#20713)
-
-* Tcomms Soundloop Comes From One Source And Is Less Awful (#74908)
-
-## About The Pull Request
-
-The ``soundloop/server`` now only comes from the server hub, so it
-doesn't have stacking audio sources. The sound has been made more
-uniform when up close, but is overall quieter. Additionally, all the
-files have been run through a low pass filter to remove the highest of
-it's pitches.
-## Why It's Good For The Game
-
-I'm sick of not wanting to be around telecomms because of how bad every
-single machine sounds. Now, things are significantly easier on the ear,
-quieter, more uniform, and better for everyone's sanity. I asked the
-maintainers in the coding channel if I could just remove it and they
-said no.
-
-I can't get a video recording, I've tried with win+G, OBS, and sharex
-and it's just fucked.
-## Changelog
-:cl:
-qol: telecomms is quieter and less ear-damaging.
-sound: modified tcomms sound to remove high-tones.
-fix: the telecomms sound only comes from the server hub machine.
-/:cl:
-
----------
-
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
-* Tcomms Soundloop Comes From One Source And Is Less Awful
-
----------
-
-Co-authored-by: Cheshify <73589390+Cheshify@users.noreply.github.com>
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
----
-## [Quacks-and-Kepteyn/Skyrat-tg](https://github.com/Quacks-and-Kepteyn/Skyrat-tg)@[8164175aa2...](https://github.com/Quacks-and-Kepteyn/Skyrat-tg/commit/8164175aa2b5c60555ad0a7f99f7ac6b5e90df99)
-#### Tuesday 2023-05-02 00:30:50 by SkyratBot
-
-[MIRROR] Turns Deer into Basic Mob - They Freeze At The Sight of Vehicles [MDB IGNORE] (#20711)
-
-* Turns Deer into Basic Mob - They Freeze At The Sight of Vehicles (#74784)
-
-## About The Pull Request
-
-deers only show up in the BEPIS but i decided that they would be easy
-enough to turn into a basic mob (they were). it was so easy in fact that
-i decided to dip my toes into coding AI behavior, and made them freeze
-up whenever they see a vehicle. this required a lot of code in a bunch
-of places that i was quite unfamiliar with before starting this project,
-so do let me know if i glonked up anywhere and i can work on smoothing
-it out.
-## Why It's Good For The Game
-
-one less simple animal on the list. deers staring at headlights is
-pretty cool i think, neato interaction for when you do get them beyond
-the joke the bepis makes
-
-i'm also amenable to dropping the whole "deer in headlights" code if you
-don't like that for w/e reason- just wanted to make them basic at the
-very least
-## Changelog
-:cl:
-add: If you ever happen upon a wild deer, try not to ride your fancy
-vehicles too close to it as it'll freeze up like a... you know where I'm
-going with this.
-/:cl:
-
----------
-
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
-* Turns Deer into Basic Mob - They Freeze At The Sight of Vehicles
-
----------
-
-Co-authored-by: san7890 <the@san7890.com>
-Co-authored-by: Mothblocks <35135081+Mothblocks@ users.noreply.github.com>
-
----
-## [Jolly-66/tgstation](https://github.com/Jolly-66/tgstation)@[129c74c945...](https://github.com/Jolly-66/tgstation/commit/129c74c945a3fe0bce2c29065f69424ce8551670)
-#### Tuesday 2023-05-02 00:35:04 by carlarctg
+## [Wallemations/heavenstation](https://github.com/Wallemations/heavenstation)@[129c74c945...](https://github.com/Wallemations/heavenstation/commit/129c74c945a3fe0bce2c29065f69424ce8551670)
+#### Wednesday 2023-05-03 01:12:01 by carlarctg
 
 EMPs on robotic limbs will now disable them for 4-8 seconds rather than causing a 10-20 second full stun (#74570)
 
@@ -646,130 +376,144 @@ instead of red as the only remaining color.
 /:cl:
 
 ---
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[a48fa72515...](https://github.com/treckstar/yolo-octo-hipster/commit/a48fa72515e6c7a9025d382632655cf93a5ff94e)
-#### Tuesday 2023-05-02 01:22:03 by treckstar
+## [liebic/Project_6](https://github.com/liebic/Project_6)@[3c86cdf2da...](https://github.com/liebic/Project_6/commit/3c86cdf2da8e38980448574c6e6f625621a8be2e)
+#### Wednesday 2023-05-03 01:18:13 by liebic
 
-People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
+Add files via upload
+
+We can approximately define three types of feminism: (1) difference-denying, (2) difference-removing, (3) difference-honoring. Other approximate categorizations are possible. For the purposes of this project, we use this approximate categorization:
+
+ 
+
+(1) Difference-denying feminism: In this approach, any difference between men and women is denied, and is said to be purely due to cultural impositions. There is no biological (called "essential") difference (no "on average" difference when doing group-wise comparison) between men and women. Every difference is socially constructed.
+
+ 
+
+(2) Difference-removing feminism: There are biological difference between men and women, but these differences are burdens to women, like a curse of nature, and women must rely on technology to completely remove any biological difference between men and women to be "liberated" (for example only if we remove our wombs we can). Removing the difference is the only way of liberation. This type of feminism relies heavily on technology (especially biological technologies) for "liberation".
+
+ 
+
+(3) Difference-honoring feminism: This approach does accept that there exist differences that are purely culturally-imposed and not "essential", but holds that in addition to those, there exist genuine essential differences, and denying or removing them harms women. Denying or harming differences harms everybody, not just women. Men and women have differences and they're both ok. What must change is the culture that values only masculine traits, and views feminine traits as unimportant and without value.
+
+The Respondents were answering the fellow questions:
+1) If you wanted to approximate your degree of agreement with approach 1 (difference-denying feminism) by picking a number from 1 to 10 (1 being "strongly disagree" and 10 being "strongly agree"), what number would you pick?
+
+2) If you wanted to approximate your degree of agreement with approach 2 (difference-removing feminism) by picking a number from 1 to 10 (1 being "strongly disagree" and 10 being "strongly agree"), what number would you pick?
+
+3) If you wanted to approximate your degree of agreement with approach 3 (difference-honoring feminism) by picking a number from 1 to 10 (1 being "strongly disagree" and 10 being "strongly agree") what number would you pick?
+
+4) Which of these three approaches do you think has had the most cultural and political impact in the past few decades ("most" in terms of magnitude, not quality, that is, we don't mean "best", just magnitude)?
+
+ 5) Are you or have been a mother?
 
 ---
-## [BAFA1624/CompAstroLabs](https://github.com/BAFA1624/CompAstroLabs)@[90311cf16b...](https://github.com/BAFA1624/CompAstroLabs/commit/90311cf16b0d9d9b600019447884e26406ea597f)
-#### Tuesday 2023-05-02 01:25:54 by Ben Andrews
+## [norsvenska/tgstation](https://github.com/norsvenska/tgstation)@[fa0225b05c...](https://github.com/norsvenska/tgstation/commit/fa0225b05c5411c46187f67816f8363e7dd91f30)
+#### Wednesday 2023-05-03 01:26:42 by san7890
 
-YAY IT JUST GETS MORE AND MORE BROKEN.
-FUCK YOU GIT.
+Converts Spiderlings from Structures to Basic Mobs (#75001)
 
----
-## [Offroaders123/Region-Types](https://github.com/Offroaders123/Region-Types)@[37bb3801f5...](https://github.com/Offroaders123/Region-Types/commit/37bb3801f59af59e0a5d2faea0e095ccf1019f8d)
-#### Tuesday 2023-05-02 01:37:46 by Offroaders123
+If I could've made this more atomic, I would have in a heartbeat, trust
+me.
 
-Project Structures
+## About The Pull Request
 
-Realized a nice way that I liked, to structure the project module-wise.
+Hey there. People were mocking us for having spiderlings still be a
+subtype of `/obj/structure`. I decided to take a lot of time to fix
+that. A lot of behavior it was implementing was just pseudo-mob stuff,
+so it was actually easier than it looked for the raw conversion. A lot
+of the footwork on spider stuff in the basic framework was already done
+previously by Jacquerel, so that was pretty nice.
 
-I'm thinking about if `@thing/thing` paths could be nice for a project like this :)
+However, there are two new things that weren't introduced in the code
+that had to be put in.
 
-Going to bring some of these other nice things over to NBTify, I got them working in jsmediatags today :D
+A) A component to handle growth and differentiation into a mob. This may
+have already existed, no clue. If it does (and it's NOT
+evolutionary_leap), let me know.
+B) AI Behavior to handle seeking out a vent, entering a vent, and then
+exiting out of a different vent. I may have gone a bit wacky on the
+code, but it certainly works as expected (spiderling goes in one vent,
+exits the other). Let me know if you can think of a way it can be better
+optimized, but it was deliberately written to be very failsafey in case
+shit goes yonkers.
 
-Man, Marco Minnemann's solo work gets better every time I listen. Listening through from HWD&2K: Part I, and now I'm listening to Mouth of God. Music days are the best, listened to a bunch of Mike Keneally this morning too. Gonna try 'You Must Be This Tall' again, after this.
+One fundamental difference between structure spiderlings and basic mob
+spiderlings (beyond the AI and not just a random prob() check for
+movement) is the fact that they had vent movement coded in... but we
+_really_ don't need stuff like that for our intents and purposes. If the
+range turns out to be too OP in the current framework, we can always
+change it up a bit, but also there's a _lot_ of vents we can end up in
+the station (my testing had one spiderling end up in the AI sat to get
+obliterated).
+## Why It's Good For The Game
 
-Oh yeah! Just discovered 'Thank You Scientist' the other day, WOW. They are super cool too. Going to buy their latest release, at the same time as when Marco releases his new solo album this Friday. Bandcamp Friday for both :)
-
----
-## [Pyrotechnics2/cmss13-Pyro](https://github.com/Pyrotechnics2/cmss13-Pyro)@[c4ebe04c7c...](https://github.com/Pyrotechnics2/cmss13-Pyro/commit/c4ebe04c7c9ff01aa928c0c629322d72dec721d9)
-#### Tuesday 2023-05-02 02:02:56 by Julian56
-
-fix the medbay door release button to exit treatment center. (#3173)
-
-# About the pull request
-fix the medbay door release button to exit treatment center.
-was my mistake sorry
-<!-- Remove this text and explain what the purpose of your PR is.
-
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
-
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
-
-# Explain why it's good for the game
-fixing bug is good
-# Testing Photographs and Procedure
-i tested the button ingame 
-<details>
-<summary>Screenshots & Videos</summary>
-
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
-
-</details>
-
-
-# Changelog
+Spiderlings aren't structures! They behave like a mob should! Players
+can possess spiderlings! They work seamlessly with differentiating into
+a giant spider! Better AI! More room for people to add into this very
+under-utilized buggers!
+## Changelog
 :cl:
-
-fix: fix the med-bay door release button to exit treatment center.my
-bad.
-
+refactor: Spiderlings are now basic mobs, report any complete
+weirdness/deviation from known behavior. They should be a lot more
+intelligent now though.
+add: AI Spiderlings are super fragile, but they're also super fast,
+especially when they get into a vent. Once they're in circulation, they
+could end up everywhere! Maybe in the armory, maybe in a locked closet
+in maintenance. Be sure to be vigilant and splat them whenever you can
+to save the station from a whole lotta heartache!
 /:cl:
 
 ---------
 
-Co-authored-by: Julien <jverger.ingx@gmail.com>
-Co-authored-by: Morrow <darthbane97@gmail.com>
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
 
 ---
-## [newren/git](https://github.com/newren/git)@[07f91e5e79...](https://github.com/newren/git/commit/07f91e5e79810a8f17de745d2d84c384add75f0a)
-#### Tuesday 2023-05-02 02:41:59 by Jeff King
+## [dien-n/rust](https://github.com/dien-n/rust)@[c63b6a437e...](https://github.com/dien-n/rust/commit/c63b6a437eb16d13fbc0e72e091813579895bc9f)
+#### Wednesday 2023-05-03 01:29:42 by Nilstrieb
 
-http: support CURLOPT_PROTOCOLS_STR
+Rip it out
 
-The CURLOPT_PROTOCOLS (and matching CURLOPT_REDIR_PROTOCOLS) flag was
-deprecated in curl 7.85.0, and using it generate compiler warnings as of
-curl 7.87.0. The path forward is to use CURLOPT_PROTOCOLS_STR, but we
-can't just do so unilaterally, as it was only introduced less than a
-year ago in 7.85.0.
+My type ascription
+Oh rip it out
+Ah
+If you think we live too much then
+You can sacrifice diagnostics
+Don't mix your garbage
+Into my syntax
+So many weird hacks keep diagnostics alive
+Yet I don't even step outside
+So many bad diagnostics keep tyasc alive
+Yet tyasc doesn't even bother to survive!
 
-Until that version becomes ubiquitous, we have to either disable the
-deprecation warning or conditionally use the "STR" variant on newer
-versions of libcurl. This patch switches to the new variant, which is
-nice for two reasons:
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[9c0900bc9f...](https://github.com/tgstation/tgstation/commit/9c0900bc9f53d4de402df5528c181bee757d03cb)
+#### Wednesday 2023-05-03 01:49:38 by Wallem
 
-  - we don't have to worry that silencing curl's deprecation warnings
-    might cause us to miss other more useful ones
+Adds the Death Sandwich to the game (#75013)
 
-  - we'd eventually want to move to the new variant anyway, so this gets
-    us set up (albeit with some extra ugly boilerplate for the
-    conditional)
+## About The Pull Request
+Adds the Death Sandwich to the game, the ultimate form of
+bread-conveyed-meat-based consumables.
 
-There are a lot of ways to split up the two cases. One way would be to
-abstract the storage type (strbuf versus a long), how to append
-(strbuf_addstr vs bitwise OR), how to initialize, which CURLOPT to use,
-and so on. But the resulting code looks pretty magical:
+![deathsandwich](https://user-images.githubusercontent.com/66052067/235041733-287be1fd-1eed-4d6d-840b-96f95494f093.png)
 
-  GIT_CURL_PROTOCOL_TYPE allowed = GIT_CURL_PROTOCOL_TYPE_INIT;
-  if (...http is allowed...)
-	GIT_CURL_PROTOCOL_APPEND(&allowed, "http", CURLOPT_HTTP);
 
-and you end up with more "#define GIT_CURL_PROTOCOL_TYPE" macros than
-actual code.
-
-On the other end of the spectrum, we could just implement two separate
-functions, one that handles a string list and one that handles bits. But
-then we end up repeating our list of protocols (http, https, ftp, ftp).
-
-This patch takes the middle ground. The run-time code is always there to
-handle both types, and we just choose which one to feed to curl.
-
-Signed-off-by: Jeff King <peff@peff.net>
-Signed-off-by: Junio C Hamano <gitster@pobox.com>
-Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
+And remember;
+Eat it right, or you die!
+## Why It's Good For The Game
+I'm genuinely surprised we don't already have a meatball sub in the game
+also I love humor food, and I doubt my edition of the Eggcellent
+Challenge would ever be merged if I tried to do so, so this is the next
+best thing.
+## Changelog
+:cl: Wallem
+add: The ancient recipe for the Death Sandwich has been rediscovered
+buried in the deepest depths of an erupting volcano.
+/:cl:
 
 ---
 ## [oxidecomputer/omicron](https://github.com/oxidecomputer/omicron)@[ccc28fe4c8...](https://github.com/oxidecomputer/omicron/commit/ccc28fe4c857c08599f5d9d6eff6ecfcaa298eb6)
-#### Tuesday 2023-05-02 03:26:26 by Sean Klein
+#### Wednesday 2023-05-03 02:32:15 by Sean Klein
 
 [sled-agent] Refactor service management out of `StorageManager` (#2946)
 
@@ -833,8 +577,320 @@ the datasets we want...") to have parity with the service management,
 but this would require a more invasive change in Nexus.
 
 ---
-## [ProjectBlaze/frameworks_base](https://github.com/ProjectBlaze/frameworks_base)@[996b1a83c0...](https://github.com/ProjectBlaze/frameworks_base/commit/996b1a83c00c142c8f1e2bc1316abd4a917bf9b5)
-#### Tuesday 2023-05-02 05:14:37 by Adithya R
+## [Xander3359/tgstation](https://github.com/Xander3359/tgstation)@[11cbbba018...](https://github.com/Xander3359/tgstation/commit/11cbbba018e861237ce4bed73f19b58874c22042)
+#### Wednesday 2023-05-03 03:10:05 by Sol N
+
+Replaceable Traitor Uplinks (#74315)
+
+## About The Pull Request
+
+Following [from the suggestion in this hackmd
+](https://hackmd.io/IkDWWkpfQa2lkdevsnLqhA?view#Replacement-Uplinks)with
+a few twists of my own, I have made a method for traitors to acquire a
+replacement traitor uplink that has its own set of flaws and limiters in
+order to prevent abuse.
+
+
+![ZC0WYDFRzc](https://user-images.githubusercontent.com/116288367/228101432-9352390b-9538-4c62-8dc4-55e2e798c466.png)
+
+The basic pitch is as follows, all traitors now start with a new,
+crafting recipe exclusive to them, it costs a teleport beacon, a
+bluespace crystal, and some iron and cable coil, and then allows them to
+build a static, dense machine that they can synchronize with, which
+allows the machine to know what signal it should be looking out for from
+the traitor.
+
+![dreamseeker_iErI3vju0C](https://user-images.githubusercontent.com/116288367/228094286-c2bca198-82cd-4ce0-a4a7-c26c24a9327c.gif)
+
+The traitor then uses any radio, sets it to the frequency that has been
+added to their static antagonist ui, and then speaks their codeword,
+also in the ui, and then a few things happen.
+
+![dreamseeker_gbzSFeHuS5](https://user-images.githubusercontent.com/116288367/228094354-a649c713-f013-4ac2-b8d7-0754a852f987.gif)
+
+Most obviously, they get a replacement uplink that is in the conspicuous
+shape of the nukie or lone op uplink. This uplink can be unlocked by
+speaking your replacement codeword to it again, it remembers your
+previous TC amount and locks all other uplinks associated with your
+uplink handler(they can then be unlocked as normal). It also destroys
+any other replacement uplinks associated with your uplink handler, which
+means you can never have more than one replacement uplink.
+
+This means that if your uplink has been confiscated and you left it
+unlocked, if it hasn't been emptied out you can continue from where you
+were, and if you want to get back on the TC grind you won't lose the new
+TC to whoever stole your uplink. Of course, the new uplink can not be
+locked, so you have to be more careful with it or buy an uplink implant
+and destroy it. You can destroy your replacement uplink with a
+screwdriver right click, same for the machine.
+
+Additionally, the Syndicate Uplink Beacon has another quirk to it, which
+is that the teleporter beacon used to create it is intact, which means
+people eagle eyed on the teleporter console could go find you, not to
+mention that if you use an existing teleporter beacon, someone might
+notice its gone missing...
+
+oh also while making the replacement uplink i found a bug caused by a
+recent pr that broke debug uplinks due to them not having a purchase
+log. thats fixed too
+
+## Why It's Good For The Game
+
+It can be easy to lose your uplink, and as a traitor having your uplink
+confiscated, even if it is locked, feels really bad. While the old
+traitor objectives were added back to prog traitor to prevent situations
+where a confiscated uplink meant that you were completely aimless, I
+think that having a backup solution would be good for more inexperienced
+traitors or for ones who get unlucky.
+
+Hopefully this is generally balanced well enough but there are a few
+levers that can be pulled, but overall I do think that making it so that
+traitors can always get a chance to get an uplink and do some objectives
+is good for the game. I like the idea of someone getting perma'd,
+someone breaks them out, they both craft a new uplink beacon, and then
+they go back and get the traitors old gear with stuff they got from the
+new uplink, I think that's a cool possibility to throw into the sandbox.
+
+## Changelog
+:cl:
+add: Added new syndicate uplink beacon and associated systems that allow
+you to get a replacement traitor uplink
+fix: Debug & nukie uplinks no longer runtime and work properly again
+/:cl:
+
+---
+## [Xander3359/tgstation](https://github.com/Xander3359/tgstation)@[00f8bcfe75...](https://github.com/Xander3359/tgstation/commit/00f8bcfe75275b7452063d1d8ec75d4c8e643f8b)
+#### Wednesday 2023-05-03 03:10:05 by MrMelbert
+
+Moves revolution code of out of flash code, fixes April Fool conversion forcesay never working in any cirumstances (#74411)
+
+## About The Pull Request
+
+- Signallizes head revolutionary flash conversion code, moving it out of
+core flash code.
+- Removes "tacticool" flashing from head revs, but they can still
+convert from any direction
+ 
+- Fixes April Fools "You son of a bitch! I'm in" force say never
+working.
+   - Revs are muted on conversion so they couldn't talk.
+       - Fixed by only muting revs on non-holidays
+   - Cultists are unconscious on conversion so they couldn't talk
+       - Fixed by only unconscious-ing cultists on non-holidays
+- Brainwash victims are more often than not unconscious / asleep so they
+couldn't talk
+       - Just left this one. 
+
+- Reduced the chance of them occurring and limits it to April Fools only
+- A 1% chance of the force says ocurring means they will happen pretty
+much once a week, given multiple rev / cult rounds happen every week and
+on average like, 20 people are converted. A little absurd, it's good
+that it never worked?
+
+## Why It's Good For The Game
+
+Antag code in core item code is bad
+
+It's funny this meme has existed for like 2, 3 years now? No one's
+tested it, it's never worked
+
+## Changelog
+
+:cl: Melbert
+refactor: Removes Rev code from core flash code
+fix: Getting converted on April Fools now triggers the meme force say as
+always intended
+del: The meme force say can no longer trigger on any day (it didn't work
+before anyways)
+/:cl:
+
+---
+## [peff/git](https://github.com/peff/git)@[ee8fbbf060...](https://github.com/peff/git/commit/ee8fbbf060949d5569036919a6b16faaae3631d6)
+#### Wednesday 2023-05-03 03:17:58 by Jeff King
+
+commit: give a hint when a commit message has been abandoned
+
+If we launch an editor for the user to create a commit
+message, they may put significant work into doing so.
+Typically we try to check common mistakes that could cause
+the commit to fail early, so that we die before the user
+goes to the trouble.
+
+We may still experience some errors afterwards, though; in
+this case, the user is given no hint that their commit
+message has been saved. Let's tell them where it is.
+
+Signed-off-by: Jeff King <peff@peff.net>
+
+---
+## [effigy-se/effigy-se](https://github.com/effigy-se/effigy-se)@[ad302f209f...](https://github.com/effigy-se/effigy-se/commit/ad302f209f4fc0b739c6eea8e6be92da05e2742c)
+#### Wednesday 2023-05-03 03:51:58 by Zytolg
+
+Nanotrasen Budget Programme - Mothball Edition [BIRDSHOT STATION] (#73502)
+
+## About The Pull Request
+--- 
+
+The Space Tram is currently spaced. This is a known issue with not the
+map, but Trams in general. The Space Tram is a Space Tram to encourage a
+fix. Until then, the Space Tram is a maint tram that's an actual hazard
+but cannot directly kill anyone, including lizards. Enjoy the commodity
+as you zip from secmaint to medmaint.
+-------------------------------------------------------
+
+I... really don't know if I should be proud of myself here. This whole
+process has been akin to a fever dream and it has only been little over
+a month since I first created the .dmm for this. What started as a
+simple yet humble reimagining of Birdboat has turned into an entirely
+new station, and blown past Metastation sized proportions. This has been
+my most expansive project yet, and somehow it's also been my quickest.
+So without further ado, I unveil Birdshot - Successor to Birdoat.
+
+-------------------------------------------------------
+
+**Due to recent cost expenditures on Icemoon projects, and a growing
+need for orbital research stations, Nanotrasen has decided to pull
+Birdboat Station out of mothball after nearly 5 years of abandonment.**
+
+Since then, the station has seen a variety of changes at the hands of
+the various vagabond lawless scum and villains that have decided to make
+the abandoned station their home. Do not fret though, a Nanotrasen
+Operation has secured the companies rightful property for corporate use
+once again, though you'll need to be the stewards of the remaining
+cleanup operation.
+
+------------------------------------------------------
+
+Now, as you might have guessed by now, Birdshot is heavily based on
+Birdboat station. Many of the decisions here follow the original layout,
+and what had to be modified or moved still tries its best to replicate
+and imitate what bird being said. At least, that was the idea initially.
+This has very much grown into its own beast and as such, while the main
+inspiration has been Birdboat, there are a lot of new ideas thrown into
+the mix that really give this station its own unique and deserving
+identity. Maybe it's not perfect, but I've been inspired by @MMMiracles
+own performance with Tramstation to keep working on Birdshot and
+updating it with better and improved faculties. For now, though the
+station is in a playable state, and that means I'm making a PR. If I had
+to borrow the words of the good MMM, I would call this **Birdshot:
+Season 0**
+
+
+![BirdSHOTFULL2-26-S](https://user-images.githubusercontent.com/33048583/221432760-27af1889-d2d0-4861-9435-df4258525fae.png)
+
+
+
+See the image in more detail here: https://imgur.com/iT5Vi8k
+
+
+
+## Why It's Good For The Game
+
+We've been with the same 5 maps for a while now. @san7890 jokingly said
+that I could sacrifice Metastation back in November if I remade Birdboat
+but modern. Obviously that wasn't going to happen, yet I was spurred on
+by the idea. When I began this in earnest early this January, @EOBGames
+said that a Birdboat sized map would replace Kilostation in the
+rotation. Interestingly we're not a small map anymore so I honestly have
+no clue where this goes. Maybe that ephemeral 6th map slot that's been
+rumored.
+
+What I can say, is that Birdshot is wholly unlike anything else that is
+currently in rotation. It's got an engineering section that feels way
+too small for a station of that size, almost evocative of Cere. Cargo is
+blessed with a Boutique that makes use of @Fikou's new mannequin dolls.
+Command is outfitted with a Corporate Guest Suite, and Officials sent
+from Nanotrasen can embark from their ferry into the safety of their own
+Corporate Dock. Elements of Cerestation are present, yet not in a way
+that makes traversal annoying. Furthermore we have **2 Trams** (that I
+have yet to get functional but we'll get there) on Birdshot, that's
+right 2. One Security Prison Tram, and then other, a Space Tram. Both
+Novel in their own ways. Departments on Birdshot twist and turn, and
+there's an abundance of Maintenance Tunnels to cut through everything,
+for the brave and the bold that is. And there's plenty left to discover,
+but I'd rather let Birdshot speak for itself. I'm proud of this one.
+
+If you want something new, this is something that is almost the complete
+opposite of Chilled Station - Explicitly Designed to send you back to
+the metal death trap that is: **Space Station 13.**
+
+
+## Changelog
+:cl:
+add: Birdshot station has been pulled out of Mothball.
+add: New station areas and places to visit. A Mix of Kilo and Delta
+maints with winding shortcutting paths.
+add: A host of new shuttles to support this bold endeavor to reclaim
+something that really shouldn't be reclaimed.
+add: Two Trams, Two Trams.
+add: For the last time Bob, the gaping hole is a **feature.** Use the
+breach shutters or have the virologist make starlight.
+add: A smiling salute to stations past...
+add: Secrets.
+
+
+/:cl:
+
+---------
+
+Co-authored-by: Zytolg <theoriginaldash@gmail,com>
+
+---
+## [Abnormal202/Slider](https://github.com/Abnormal202/Slider)@[cc06840f9a...](https://github.com/Abnormal202/Slider/commit/cc06840f9a88f1453b251a7ff28206d263a55df0)
+#### Wednesday 2023-05-03 04:08:45 by alanrtao
+
+tried to fix intonation issue and kinda just gave up. you know, sometimes life is like this. the real intonations are the friends we met along the way. your into-network is your into-networth, etc.
+
+---
+## [BrennanBlaylock/hello-world](https://github.com/BrennanBlaylock/hello-world)@[720200c429...](https://github.com/BrennanBlaylock/hello-world/commit/720200c429e28a485f88f692dcea8e02110b5e6b)
+#### Wednesday 2023-05-03 04:22:59 by BrennanBlaylock
+
+Update README.md
+
+Tried to make my students laugh with a terrible dad joke that wasn't funny
+
+---
+## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[cb1388ed9e...](https://github.com/odoo-dev/odoo/commit/cb1388ed9e64ced4e0d85cf5778192dfbdfd5995)
+#### Wednesday 2023-05-03 05:14:42 by Jeremy Kersten
+
+[ADD] website_cf_turnstile: add cloudflare turnstile support
+
+This module allows to add secret key to add the turnstile captcha on
+each snippet website_form.
+
+Cloudflare Turnstile
+--------------------
+A friendly, free CAPTCHA replacement
+Turnstile delivers frustration-free, CAPTCHA-free web experiences to
+website visitors.
+Turnstile stops abuse and confirms visitors are real without the data
+privacy concerns or awful UX that CAPTCHAs thrust on users.
+
+closes odoo/odoo#119246
+
+X-original-commit: 4aca39a533e9d41f5f452f36a1ffc001f586b4f4
+Signed-off-by: Jérémy Kersten <jke@odoo.com>
+
+---
+## [SGVU-DISTANCE-LEARNING/SGVU](https://github.com/SGVU-DISTANCE-LEARNING/SGVU)@[48a8874b32...](https://github.com/SGVU-DISTANCE-LEARNING/SGVU/commit/48a8874b32af8bfec499c890ac6eeee243ccefc8)
+#### Wednesday 2023-05-03 05:23:09 by SGVU-DISTANCE-LEARNING
+
+Update README.md
+
+Established in the year 2012, Suresh Gyan Vihar University set out its goal to develop an educated society for the growth of the nation. We are proud to be the center of Distance and Online Education (CDOE) for decades and to groom leaders, not followers who are not just competent but also morally upright. We are the first private University in Rajasthan to be accredited "A" Grade by NAAC.
+Due to lesser funds and monetary support, most of the influencers become dropouts, and to fulfill their dreams Suresh Gyan Vihar University (SGVU) offers distance education programs – BA, B.com, BBA, MA, M.com, MBA, and BA (JOURNALISM)  that are designed for working professional and helps them to have a Degree and a Salary at the same time. Following the benefits of Distance Education and Online Learning, SGVU is conducting, controlling, and monitoring online classes and programs by professional staff members and officers to maintain the objective and standard that upgrade Distance Education to the next level. https://distance.sgvu.org/
+
+---
+## [Harrymanual/Formula_1_Website_React](https://github.com/Harrymanual/Formula_1_Website_React)@[57c545a764...](https://github.com/Harrymanual/Formula_1_Website_React/commit/57c545a76424c337114e1720df3bb2901cea6c79)
+#### Wednesday 2023-05-03 06:06:10 by Harrymanual
+
+Added some sick lookinng buttons
+
+to be quite honest i am no graphic designer, but i do have to say i think i did a damn good job at sprucing this up. I think this is bloody awesome.
+
+---
+## [Evolution-X/frameworks_base](https://github.com/Evolution-X/frameworks_base)@[d4311f3794...](https://github.com/Evolution-X/frameworks_base/commit/d4311f37946a124d379defa9478d3bc95ee079c1)
+#### Wednesday 2023-05-03 06:16:06 by Adithya R
 
 [DNM][HACK] telephony: Force Class 0 SMS to Class 1
 
@@ -844,667 +900,1199 @@ Change-Id: Ifb0c9e8bae5c12868d178fbdaeceb2cc72a0ffb6
 Signed-off-by: Sageofd6path <mail2anirban95@gmail.com>
 
 ---
-## [spentaur/rolling-bites](https://github.com/spentaur/rolling-bites)@[76b6a86e1f...](https://github.com/spentaur/rolling-bites/commit/76b6a86e1f08e3660d8c691f30c5833964863cb4)
-#### Tuesday 2023-05-02 05:27:26 by Spencer Adams
+## [AtomTheProphet/tgstation](https://github.com/AtomTheProphet/tgstation)@[2b2cb3dff6...](https://github.com/AtomTheProphet/tgstation/commit/2b2cb3dff6d9985103cee46a6020aa1b63a3c2de)
+#### Wednesday 2023-05-03 07:09:25 by LemonInTheDark
 
-holy shit this is way to much lol if anythings fucked its from this
+Hologram Touchup (Init savings edition) (#74793)
 
----
-## [Mocaness/WhyredKernel](https://github.com/Mocaness/WhyredKernel)@[a5b000e75d...](https://github.com/Mocaness/WhyredKernel/commit/a5b000e75de5b5a814bc66218cfe3f644bc138ff)
-#### Tuesday 2023-05-02 06:52:53 by Peter Zijlstra
+## About The Pull Request
 
-sched/core: Fix ttwu() race
+### Polishes and Reworks Holograms
 
-Paul reported rcutorture occasionally hitting a NULL deref:
+Hologram generation currently involves a bunch of icon operations, which
+are slow.
+Not to mention a series of get flats for the human models, which is even
+worse.
 
-  sched_ttwu_pending()
-    ttwu_do_wakeup()
-      check_preempt_curr() := check_preempt_wakeup()
-        find_matching_se()
-          is_same_group()
-            if (se->cfs_rq == pse->cfs_rq) <-- *BOOM*
+We lose 0.05 seconds of init to em off just the 2 RCD holograms. it
+hurts man.
 
-Debugging showed that this only appears to happen when we take the new
-code-path from commit:
+So instead, let's use filters and render steps to achive the same
+effect.
 
-  2ebb17717550 ("sched/core: Offload wakee task activation if it the wakee is descheduling")
+While I'm here I'll dim the holo light and make it blue, make the
+hologram and its beam emissive (so they glow), and do some fenangling
+with move_hologram() (it doesn't clear the hologram off failure anymore,
+instead relying on callers to do that) to ensure holocalls can't be
+accidentially ended by moving out of the area.
 
-and only when @cpu == smp_processor_id(). Something which should not
-be possible, because p->on_cpu can only be true for remote tasks.
-Similarly, without the new code-path from commit:
+Ah and I added RESET_ALPHA to the emissive appearance flags, cause the
+alpha does override and fuck with color rendering, which ends up looking
+dumb. If we're gonna support this stuff it should be first class not
+accidential.
 
-  c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+### Makes Static Not Shit
 
-this would've unconditionally hit:
+While I'm here (since holograms see static) lets ensure the static plane
+is always visible if you're seeing through an ai eye.
 
-  smp_cond_load_acquire(&p->on_cpu, !VAL);
+The old solution was limited to applying it to JUST ais, which isn't
+satisfactory for this sort of thing and missed a LOT of cases (I didn't
+really get how ai eyes worked before I'ma be honest)
 
-and if: 'cpu == smp_processor_id() && p->on_cpu' is possible, this
-would result in an instant live-lock (with IRQs disabled), something
-that hasn't been reported.
+I'm adding a signal off the hud for it detecting a change in its eye
+here.
+This is semi redundant, but avoids unneeded dupe work, so I'm ok with
+it.
 
-The NULL deref can be explained however if the task_cpu(p) load at the
-beginning of try_to_wake_up() returns an old value, and this old value
-happens to be smp_processor_id(). Further assume that the p->on_cpu
-load accurately returns 1, it really is still running, just not here.
+The pipeline here is less sane then I'd like, but it works and that's
+enough
 
-Then, when we enqueue the task locally, we can crash in exactly the
-observed manner because p->se.cfs_rq != rq->cfs_rq, because p's cfs_rq
-is from the wrong CPU, therefore we'll iterate into the non-existant
-parents and NULL deref.
+## Why It's Good For The Game
 
-The closest semi-plausible scenario I've managed to contrive is
-somewhat elaborate (then again, actual reproduction takes many CPU
-hours of rcutorture, so it can't be anything obvious):
 
-					X->cpu = 1
-					rq(1)->curr = X
+![dreamseeker_zMiLXzlZ2X](https://user-images.githubusercontent.com/58055496/232470136-add945da-5f76-469e-ba1a-6ed3159b6f5b.png)
+More pretty, better ux, **static works**
 
-	CPU0				CPU1				CPU2
-
-					// switch away from X
-					LOCK rq(1)->lock
-					smp_mb__after_spinlock
-					dequeue_task(X)
-					  X->on_rq = 9
-					switch_to(Z)
-					  X->on_cpu = 0
-					UNLOCK rq(1)->lock
-
-									// migrate X to cpu 0
-									LOCK rq(1)->lock
-									dequeue_task(X)
-									set_task_cpu(X, 0)
-									  X->cpu = 0
-									UNLOCK rq(1)->lock
-
-									LOCK rq(0)->lock
-									enqueue_task(X)
-									  X->on_rq = 1
-									UNLOCK rq(0)->lock
-
-	// switch to X
-	LOCK rq(0)->lock
-	smp_mb__after_spinlock
-	switch_to(X)
-	  X->on_cpu = 1
-	UNLOCK rq(0)->lock
-
-	// X goes sleep
-	X->state = TASK_UNINTERRUPTIBLE
-	smp_mb();			// wake X
-					ttwu()
-					  LOCK X->pi_lock
-					  smp_mb__after_spinlock
-
-					  if (p->state)
-
-					  cpu = X->cpu; // =? 1
-
-					  smp_rmb()
-
-	// X calls schedule()
-	LOCK rq(0)->lock
-	smp_mb__after_spinlock
-	dequeue_task(X)
-	  X->on_rq = 0
-
-					  if (p->on_rq)
-
-					  smp_rmb();
-
-					  if (p->on_cpu && ttwu_queue_wakelist(..)) [*]
-
-					  smp_cond_load_acquire(&p->on_cpu, !VAL)
-
-					  cpu = select_task_rq(X, X->wake_cpu, ...)
-					  if (X->cpu != cpu)
-	switch_to(Y)
-	  X->on_cpu = 0
-	UNLOCK rq(0)->lock
-
-However I'm having trouble convincing myself that's actually possible
-on x86_64 -- after all, every LOCK implies an smp_mb() there, so if ttwu
-observes ->state != RUNNING, it must also observe ->cpu != 1.
-
-(Most of the previous ttwu() races were found on very large PowerPC)
-
-Nevertheless, this fully explains the observed failure case.
-
-Fix it by ordering the task_cpu(p) load after the p->on_cpu load,
-which is easy since nothing actually uses @cpu before this.
-
-Fixes: c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
-Reported-by: Paul E. McKenney <paulmck@kernel.org>
-Tested-by: Paul E. McKenney <paulmck@kernel.org>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
-Change-Id: I40e0e01946eadb1701a4d06758e434591e5a5c92
-
----
-## [DedoGamingONE/terminal](https://github.com/DedoGamingONE/terminal)@[f2ebb21bd1...](https://github.com/DedoGamingONE/terminal/commit/f2ebb21bd13b20db38305136d34fa0778baf7920)
-#### Tuesday 2023-05-02 07:18:32 by Mike Griese
-
-Add snap-layouts support to the Terminal (#11680)
-
-Adds snap layout support to the Terminal's maximize button. This PR is
-full of BODGY, so brace yourselves.
-
-Big thanks to Chris Swan in #11134 for building the prototype.
-I don't believe this solves #8795, because XAML islands can't get
-nchittest messages
-
-- The window procedure for the drag bar forwards clicks on its client
-  area to its parent as non-client clicks.
-- BODGY: It also _manually_ handles the caption buttons. They exist in
-  the titlebar, and work reasonably well with just XAML, if the drag bar
-  isn't covering them.
-- However, to get snap layout support, we need to actually return
-  `HTMAXBUTTON` where the maximize button is. If the drag bar doesn't
-  cover the caption buttons, then the core input site (which takes up
-  the entirety of the XAML island) will steal the `WM_NCHITTEST` before
-  we get a chance to handle it.
-- So, the drag bar covers the caption buttons, and manually handles
-  hovering and pressing them when needed. This gives the impression that
-  they're getting input as they normally would, even if they're not
-  _really_ getting input via XAML.
-- We also need to manually display the button tooltips now, because XAML
-  doesn't know when they've been hovered for long enough. Hence, the
-  `_displayToolTip` `ThrottledFuncTrailing`
-
-## Validation
-Minimized, maximized, restored down, hovered the buttons slowly, moved
-the mouse over them quickly, they feel the same as before. But now with
-snap layouts appearing.
-
-## TODO!
-* [x] I'm working on getting the ToolTips on the caption buttons back. Alas, I needed a demo of this _today_, so I'll fix that tomorrow morning.
-* [x] mild concern: I should probably test Win 10 to make sure there wasn't weird changes to the message loop in win11 that means this is broken on win10.
-* [x] I think I used the wrong issue number for tons of my comments throughout this PR. Double check that. Should be #9443, not #9447. 
-
-Closes #9443
-I thought this took care of #8587 ~as a bonus, because I was here, and the fix is _now_ trivial~, but looking at the latest commit that regressed.
-
-Co-authored-by: Chris Swan <chswan@microsoft.com>
-
----
-## [DedoGamingONE/terminal](https://github.com/DedoGamingONE/terminal)@[442432ea15...](https://github.com/DedoGamingONE/terminal/commit/442432ea15241a3e9ee3d70c5c24e5565655e55b)
-#### Tuesday 2023-05-02 07:18:32 by Mike Griese
-
-Fixes the wapproj fast-up-to-date check (#11806)
-
-I'm working on making the FastUpToDate check in Vs work for the Terminal project. This is one of a few PRs in this area.
-
-FastUpToDate lets vs check quickly determine that it doesn't need to do anything for a given project. 
-
-However, a few of our projects don't produce all the right artifacts, or check too many things, and this eventually causes the `wapproj` to rebuild, EVERY TIME YOU F5 in VS. 
-
-This third PR deals with the Actual fast up to date check for the CascadiaPackage.wapproj. When #11804, #11805 and this PR are all merged, you should be able to just F5 the Terminal in VS, and then change NOTHING, and F5 it again, without doing a build at all. 
-
-
-
-
-The wapproj `GetResolvedWinMD` target tries to get a winmd from every cppwinrt
-executable we put in the package. But we DON'T produce a winmd. This makes the
-FastUpToDate check fail every time, and leads to the whole wapproj build
-running even if you're just f5'ing the package. EVEN AFTER A SUCCESSFUL BUILD.
-
-Setting GenerateWindowsMetadata=false is enough to tell the build system that
-we don't produce one, and get it off our backs.
-
-### teams chat where we figured this out
-
-[3:38 PM] Dustin Howett
-however, that's not the only thing that "GetTargetPath" checks.
-
-[3:38 PM] Dustin Howett
-oh yeah more info: wapproj calls GetTargetPath on all projects it references
-
-[3:38 PM] Dustin Howett
-when it calls GTP on WindowsTerminal.vcxproj it is getting back a winmd (!)
-
-
-[3:39 PM] Dustin Howett
-here's the magic
-
-[3:39 PM] Dustin Howett
-![image](https://user-images.githubusercontent.com/18356694/142945542-74734836-20d8-4f50-bf3a-be4e1170ae13.png)
-
-
-[3:39 PM] Dustin Howett
-it checks if any Link items specify GenerateWindowsMetadata
-
-![image](https://user-images.githubusercontent.com/18356694/142945593-fd232243-0175-4653-8c34-cdc364a16031.png)
-
----
-## [overhangio/tutor](https://github.com/overhangio/tutor)@[8da1171076...](https://github.com/overhangio/tutor/commit/8da1171076c3a9253da0e151f419239dc794c315)
-#### Tuesday 2023-05-02 07:42:01 by Régis Behmo
-
-feat: persistent bind-mounts
-
-This is an important change, where we get remove the previous `--mount`
-option, and instead opt for persistent bind-mounts.
-
-Persistent bind mounts have several advantages:
-- They make it easier to remember which folders need to be bind-mounted.
-- Code is *much* less clunky, as we no longer need to generate temporary
-  docker-compose files.
-- They allow us to bind-mount host directories *at build time* using the
-  buildx `--build-context` option.
-- The transition from development to production becomes much easier, as
-  images will automatically be built using the host repo.
-
-The only drawback is that persistent bind-mounts are slightly less
-portable: when a config.yml file is moved to a different folder, many
-things will break if the repo is not checked out in the same path.
-
-For instance, this is how to start working on a local fork of
-edx-platform:
-
-    tutor config save --append MOUNTS=/path/to/edx-platform
-
-And that's all there is to it. No, this fork will be used whenever we
-run:
-
-    tutor images build openedx
-    tutor local start
-    tutor dev start
-
-This change is made possible by huge improvements in the build time
-performance. These improvements make it convenient to re-build Docker
-images often.
-
-Related issues:
-https://github.com/openedx/wg-developer-experience/issues/71
-https://github.com/openedx/wg-developer-experience/issues/66
-https://github.com/openedx/wg-developer-experience/issues/166
-
----
-## [cmss13-devs/cmss13](https://github.com/cmss13-devs/cmss13)@[590bad4061...](https://github.com/cmss13-devs/cmss13/commit/590bad4061627b75b638c0f7c1fbd3cca84e43c1)
-#### Tuesday 2023-05-02 07:55:02 by sleepynecrons
-
-updates for landing zone sign sprites (#3180)
-
-# About the pull request
-
-Cleans up the palettes on the landing zone sign sprites and gives them a
-fresh coat of paint (or blood). Not something most people will notice I
-think but it's something I've been wanting to do.
-
-
-# Explain why it's good for the game
-
-gradients ugly
-
-
-# Before and After
-<details>
-<summary>Click to see sprites</summary>
-
-
-![osudodajs2](https://user-images.githubusercontent.com/106241650/235265980-e622b7da-8f79-4920-ba27-97d704c65550.gif)
-
-
-![beforenafter](https://user-images.githubusercontent.com/106241650/235266004-0e46a574-9262-445f-98d9-4b19aa53a8fb.png)
-
-</details>
-
-
-# Changelog
-
+## Changelog
 :cl:
-imageadd: new sprites for landing zone signs
-imagedel: deleted old landing zone signs
+add: Holograms glow now, pokes at the lighting for holocalls in general
+a bit to make em nicer.
+qol: You can no longer accidentally end a holocall (as a non ai) by
+leaving the area. Felt like garbage
+fix: Fixes static rendering improperly if viewed by a non ai
 /:cl:
 
 ---
-## [TharakaRajasekara/first_web_test](https://github.com/TharakaRajasekara/first_web_test)@[292a67f388...](https://github.com/TharakaRajasekara/first_web_test/commit/292a67f3880c9059813376f86546e4926354c5c7)
-#### Tuesday 2023-05-02 08:05:08 by Tharaka Rajasekara
+## [olincollege/network-keylogger](https://github.com/olincollege/network-keylogger)@[15343615ab...](https://github.com/olincollege/network-keylogger/commit/15343615abb0c9c9853e280fb472898af20b83bf)
+#### Wednesday 2023-05-03 07:18:40 by Lily Jiang
 
-Before you start using social media, think about what you want to achieve.
+Failed Attempt to track host name + IP
 
-I'm Tharaka Rajasekara, an undergraduate student at the University of Peradeniya with a strong passion for computer science. I specialize in web development, marketing, and technological systems, and I currently work as a designer in a zero-plastic society. My proficiency in programming languages such as Python, Java, and C has equipped me with knowledge in areas such as digital transformation, threat detection, privacy, data confidentiality, network vulnerabilities, and cyber best practices. I am committed to using my skills to drive innovation and make a positive impact in the technology industry.
+For some god-awful reason, the program seg-faults if I uncomment
+out lines 34-35 in keylogger.h. It hates those two lines and i
+don't know why and I think I am going insane
 
----
-## [gasps/gasps-BioSite](https://github.com/gasps/gasps-BioSite)@[640d26901a...](https://github.com/gasps/gasps-BioSite/commit/640d26901a9c999782401c1169c64f2e04909615)
-#### Tuesday 2023-05-02 08:23:58 by gasps
-
-last update of the night
-
-added a center icon like obnoxious.club (completely stolen fuck you kid)
+But I tested the functions for getting host name/IP in another
+file, and they seemed to work. Just, the struct doesn't seem to
+want to store this
 
 ---
-## [Tiktodz/kernel_asus_sdm660](https://github.com/Tiktodz/kernel_asus_sdm660)@[dc9d69a914...](https://github.com/Tiktodz/kernel_asus_sdm660/commit/dc9d69a914bed14049cc844645b0bbaa022d96f5)
-#### Tuesday 2023-05-02 08:44:22 by Christian Brauner
+## [catboyBinary/PURGATORY](https://github.com/catboyBinary/PURGATORY)@[664421edfb...](https://github.com/catboyBinary/PURGATORY/commit/664421edfb8a7d23fe17a519eae7be762fda9e85)
+#### Wednesday 2023-05-03 07:34:58 by catboybinary
 
-BACKPORT: signal: add pidfd_send_signal() syscall
-
-The kill() syscall operates on process identifiers (pid). After a process
-has exited its pid can be reused by another process. If a caller sends a
-signal to a reused pid it will end up signaling the wrong process. This
-issue has often surfaced and there has been a push to address this problem [1].
-
-This patch uses file descriptors (fd) from proc/<pid> as stable handles on
-struct pid. Even if a pid is recycled the handle will not change. The fd
-can be used to send signals to the process it refers to.
-Thus, the new syscall pidfd_send_signal() is introduced to solve this
-problem. Instead of pids it operates on process fds (pidfd).
-
-/* prototype and argument /*
-long pidfd_send_signal(int pidfd, int sig, siginfo_t *info, unsigned int flags);
-
-/* syscall number 424 */
-The syscall number was chosen to be 424 to align with Arnd's rework in his
-y2038 to minimize merge conflicts (cf. [25]).
-
-In addition to the pidfd and signal argument it takes an additional
-siginfo_t and flags argument. If the siginfo_t argument is NULL then
-pidfd_send_signal() is equivalent to kill(<positive-pid>, <signal>). If it
-is not NULL pidfd_send_signal() is equivalent to rt_sigqueueinfo().
-The flags argument is added to allow for future extensions of this syscall.
-It currently needs to be passed as 0. Failing to do so will cause EINVAL.
-
-/* pidfd_send_signal() replaces multiple pid-based syscalls */
-The pidfd_send_signal() syscall currently takes on the job of
-rt_sigqueueinfo(2) and parts of the functionality of kill(2), Namely, when a
-positive pid is passed to kill(2). It will however be possible to also
-replace tgkill(2) and rt_tgsigqueueinfo(2) if this syscall is extended.
-
-/* sending signals to threads (tid) and process groups (pgid) */
-Specifically, the pidfd_send_signal() syscall does currently not operate on
-process groups or threads. This is left for future extensions.
-In order to extend the syscall to allow sending signal to threads and
-process groups appropriately named flags (e.g. PIDFD_TYPE_PGID, and
-PIDFD_TYPE_TID) should be added. This implies that the flags argument will
-determine what is signaled and not the file descriptor itself. Put in other
-words, grouping in this api is a property of the flags argument not a
-property of the file descriptor (cf. [13]). Clarification for this has been
-requested by Eric (cf. [19]).
-When appropriate extensions through the flags argument are added then
-pidfd_send_signal() can additionally replace the part of kill(2) which
-operates on process groups as well as the tgkill(2) and
-rt_tgsigqueueinfo(2) syscalls.
-How such an extension could be implemented has been very roughly sketched
-in [14], [15], and [16]. However, this should not be taken as a commitment
-to a particular implementation. There might be better ways to do it.
-Right now this is intentionally left out to keep this patchset as simple as
-possible (cf. [4]).
-
-/* naming */
-The syscall had various names throughout iterations of this patchset:
-- procfd_signal()
-- procfd_send_signal()
-- taskfd_send_signal()
-In the last round of reviews it was pointed out that given that if the
-flags argument decides the scope of the signal instead of different types
-of fds it might make sense to either settle for "procfd_" or "pidfd_" as
-prefix. The community was willing to accept either (cf. [17] and [18]).
-Given that one developer expressed strong preference for the "pidfd_"
-prefix (cf. [13]) and with other developers less opinionated about the name
-we should settle for "pidfd_" to avoid further bikeshedding.
-
-The  "_send_signal" suffix was chosen to reflect the fact that the syscall
-takes on the job of multiple syscalls. It is therefore intentional that the
-name is not reminiscent of neither kill(2) nor rt_sigqueueinfo(2). Not the
-fomer because it might imply that pidfd_send_signal() is a replacement for
-kill(2), and not the latter because it is a hassle to remember the correct
-spelling - especially for non-native speakers - and because it is not
-descriptive enough of what the syscall actually does. The name
-"pidfd_send_signal" makes it very clear that its job is to send signals.
-
-/* zombies */
-Zombies can be signaled just as any other process. No special error will be
-reported since a zombie state is an unreliable state (cf. [3]). However,
-this can be added as an extension through the @flags argument if the need
-ever arises.
-
-/* cross-namespace signals */
-The patch currently enforces that the signaler and signalee either are in
-the same pid namespace or that the signaler's pid namespace is an ancestor
-of the signalee's pid namespace. This is done for the sake of simplicity
-and because it is unclear to what values certain members of struct
-siginfo_t would need to be set to (cf. [5], [6]).
-
-/* compat syscalls */
-It became clear that we would like to avoid adding compat syscalls
-(cf. [7]).  The compat syscall handling is now done in kernel/signal.c
-itself by adding __copy_siginfo_from_user_generic() which lets us avoid
-compat syscalls (cf. [8]). It should be noted that the addition of
-__copy_siginfo_from_user_any() is caused by a bug in the original
-implementation of rt_sigqueueinfo(2) (cf. 12).
-With upcoming rework for syscall handling things might improve
-significantly (cf. [11]) and __copy_siginfo_from_user_any() will not gain
-any additional callers.
-
-/* testing */
-This patch was tested on x64 and x86.
-
-/* userspace usage */
-An asciinema recording for the basic functionality can be found under [9].
-With this patch a process can be killed via:
-
- #define _GNU_SOURCE
- #include <errno.h>
- #include <fcntl.h>
- #include <signal.h>
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
- #include <sys/stat.h>
- #include <sys/syscall.h>
- #include <sys/types.h>
- #include <unistd.h>
-
- static inline int do_pidfd_send_signal(int pidfd, int sig, siginfo_t *info,
-                                         unsigned int flags)
- {
- #ifdef __NR_pidfd_send_signal
-         return syscall(__NR_pidfd_send_signal, pidfd, sig, info, flags);
- #else
-         return -ENOSYS;
- #endif
- }
-
- int main(int argc, char *argv[])
- {
-         int fd, ret, saved_errno, sig;
-
-         if (argc < 3)
-                 exit(EXIT_FAILURE);
-
-         fd = open(argv[1], O_DIRECTORY | O_CLOEXEC);
-         if (fd < 0) {
-                 printf("%s - Failed to open \"%s\"\n", strerror(errno), argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         sig = atoi(argv[2]);
-
-         printf("Sending signal %d to process %s\n", sig, argv[1]);
-         ret = do_pidfd_send_signal(fd, sig, NULL, 0);
-
-         saved_errno = errno;
-         close(fd);
-         errno = saved_errno;
-
-         if (ret < 0) {
-                 printf("%s - Failed to send signal %d to process %s\n",
-                        strerror(errno), sig, argv[1]);
-                 exit(EXIT_FAILURE);
-         }
-
-         exit(EXIT_SUCCESS);
- }
-
-/* Q&A
- * Given that it seems the same questions get asked again by people who are
- * late to the party it makes sense to add a Q&A section to the commit
- * message so it's hopefully easier to avoid duplicate threads.
- *
- * For the sake of progress please consider these arguments settled unless
- * there is a new point that desperately needs to be addressed. Please make
- * sure to check the links to the threads in this commit message whether
- * this has not already been covered.
- */
-Q-01: (Florian Weimer [20], Andrew Morton [21])
-      What happens when the target process has exited?
-A-01: Sending the signal will fail with ESRCH (cf. [22]).
-
-Q-02:  (Andrew Morton [21])
-       Is the task_struct pinned by the fd?
-A-02:  No. A reference to struct pid is kept. struct pid - as far as I
-       understand - was created exactly for the reason to not require to
-       pin struct task_struct (cf. [22]).
-
-Q-03: (Andrew Morton [21])
-      Does the entire procfs directory remain visible? Just one entry
-      within it?
-A-03: The same thing that happens right now when you hold a file descriptor
-      to /proc/<pid> open (cf. [22]).
-
-Q-04: (Andrew Morton [21])
-      Does the pid remain reserved?
-A-04: No. This patchset guarantees a stable handle not that pids are not
-      recycled (cf. [22]).
-
-Q-05: (Andrew Morton [21])
-      Do attempts to signal that fd return errors?
-A-05: See {Q,A}-01.
-
-Q-06: (Andrew Morton [22])
-      Is there a cleaner way of obtaining the fd? Another syscall perhaps.
-A-06: Userspace can already trivially retrieve file descriptors from procfs
-      so this is something that we will need to support anyway. Hence,
-      there's no immediate need to add another syscalls just to make
-      pidfd_send_signal() not dependent on the presence of procfs. However,
-      adding a syscalls to get such file descriptors is planned for a
-      future patchset (cf. [22]).
-
-Q-07: (Andrew Morton [21] and others)
-      This fd-for-a-process sounds like a handy thing and people may well
-      think up other uses for it in the future, probably unrelated to
-      signals. Are the code and the interface designed to permit such
-      future applications?
-A-07: Yes (cf. [22]).
-
-Q-08: (Andrew Morton [21] and others)
-      Now I think about it, why a new syscall? This thing is looking
-      rather like an ioctl?
-A-08: This has been extensively discussed. It was agreed that a syscall is
-      preferred for a variety or reasons. Here are just a few taken from
-      prior threads. Syscalls are safer than ioctl()s especially when
-      signaling to fds. Processes are a core kernel concept so a syscall
-      seems more appropriate. The layout of the syscall with its four
-      arguments would require the addition of a custom struct for the
-      ioctl() thereby causing at least the same amount or even more
-      complexity for userspace than a simple syscall. The new syscall will
-      replace multiple other pid-based syscalls (see description above).
-      The file-descriptors-for-processes concept introduced with this
-      syscall will be extended with other syscalls in the future. See also
-      [22], [23] and various other threads already linked in here.
-
-Q-09: (Florian Weimer [24])
-      What happens if you use the new interface with an O_PATH descriptor?
-A-09:
-      pidfds opened as O_PATH fds cannot be used to send signals to a
-      process (cf. [2]). Signaling processes through pidfds is the
-      equivalent of writing to a file. Thus, this is not an operation that
-      operates "purely at the file descriptor level" as required by the
-      open(2) manpage. See also [4].
-
-/* References */
-[1]:  https://lore.kernel.org/lkml/20181029221037.87724-1-dancol@google.com/
-[2]:  https://lore.kernel.org/lkml/874lbtjvtd.fsf@oldenburg2.str.redhat.com/
-[3]:  https://lore.kernel.org/lkml/20181204132604.aspfupwjgjx6fhva@brauner.io/
-[4]:  https://lore.kernel.org/lkml/20181203180224.fkvw4kajtbvru2ku@brauner.io/
-[5]:  https://lore.kernel.org/lkml/20181121213946.GA10795@mail.hallyn.com/
-[6]:  https://lore.kernel.org/lkml/20181120103111.etlqp7zop34v6nv4@brauner.io/
-[7]:  https://lore.kernel.org/lkml/36323361-90BD-41AF-AB5B-EE0D7BA02C21@amacapital.net/
-[8]:  https://lore.kernel.org/lkml/87tvjxp8pc.fsf@xmission.com/
-[9]:  https://asciinema.org/a/IQjuCHew6bnq1cr78yuMv16cy
-[11]: https://lore.kernel.org/lkml/F53D6D38-3521-4C20-9034-5AF447DF62FF@amacapital.net/
-[12]: https://lore.kernel.org/lkml/87zhtjn8ck.fsf@xmission.com/
-[13]: https://lore.kernel.org/lkml/871s6u9z6u.fsf@xmission.com/
-[14]: https://lore.kernel.org/lkml/20181206231742.xxi4ghn24z4h2qki@brauner.io/
-[15]: https://lore.kernel.org/lkml/20181207003124.GA11160@mail.hallyn.com/
-[16]: https://lore.kernel.org/lkml/20181207015423.4miorx43l3qhppfz@brauner.io/
-[17]: https://lore.kernel.org/lkml/CAGXu5jL8PciZAXvOvCeCU3wKUEB_dU-O3q0tDw4uB_ojMvDEew@mail.gmail.com/
-[18]: https://lore.kernel.org/lkml/20181206222746.GB9224@mail.hallyn.com/
-[19]: https://lore.kernel.org/lkml/20181208054059.19813-1-christian@brauner.io/
-[20]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[21]: https://lore.kernel.org/lkml/20181228152012.dbf0508c2508138efc5f2bbe@linux-foundation.org/
-[22]: https://lore.kernel.org/lkml/20181228233725.722tdfgijxcssg76@brauner.io/
-[23]: https://lwn.net/Articles/773459/
-[24]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
-[25]: https://lore.kernel.org/lkml/CAK8P3a0ej9NcJM8wXNPbcGUyOUZYX+VLoDFdbenW3s3114oQZw@mail.gmail.com/
-
-Cc: "Eric W. Biederman" <ebiederm@xmission.com>
-Cc: Jann Horn <jannh@google.com>
-Cc: Andy Lutomirsky <luto@kernel.org>
-Cc: Andrew Morton <akpm@linux-foundation.org>
-Cc: Oleg Nesterov <oleg@redhat.com>
-Cc: Al Viro <viro@zeniv.linux.org.uk>
-Cc: Florian Weimer <fweimer@redhat.com>
-Signed-off-by: Christian Brauner <christian@brauner.io>
-Reviewed-by: Tycho Andersen <tycho@tycho.ws>
-Reviewed-by: Kees Cook <keescook@chromium.org>
-Reviewed-by: David Howells <dhowells@redhat.com>
-Acked-by: Arnd Bergmann <arnd@arndb.de>
-Acked-by: Thomas Gleixner <tglx@linutronix.de>
-Acked-by: Serge Hallyn <serge@hallyn.com>
-Acked-by: Aleksa Sarai <cyphar@cyphar.com>
-
-(cherry picked from commit 3eb39f47934f9d5a3027fe00d906a45fe3a15fad)
-
-Conflicts:
-        arch/x86/entry/syscalls/syscall_32.tbl - trivial manual merge
-        arch/x86/entry/syscalls/syscall_64.tbl - trivial manual merge
-        include/linux/proc_fs.h - trivial manual merge
-        include/linux/syscalls.h - trivial manual merge
-        include/uapi/asm-generic/unistd.h - trivial manual merge
-        kernel/signal.c - struct kernel_siginfo does not exist in 4.14
-        kernel/sys_ni.c - cond_syscall is used instead of COND_SYSCALL
-        arch/x86/entry/syscalls/syscall_32.tbl
-        arch/x86/entry/syscalls/syscall_64.tbl
-
-(1. manual merges because of 4.14 differences
- 2. change prepare_kill_siginfo() to use struct siginfo instead of
-kernel_siginfo
- 3. use copy_from_user() instead of copy_siginfo_from_user() in copy_siginfo_from_user_any()
- 4. replaced COND_SYSCALL with cond_syscall
- 5. Removed __ia32_sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_32.tbl.
- 6. Replaced __x64_sys_pidfd_send_signal with sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_64.tbl.)
-
-Bug: 135608568
-Test: test program using syscall(__NR_pidfd_send_signal,..) to send SIGKILL
-Change-Id: I34da11c63ac8cafb0353d9af24c820cef519ec27
-Signed-off-by: Suren Baghdasaryan <surenb@google.com>
-Signed-off-by: electimon <electimon@gmail.com>
+Askar Kanturin, your Social Credit Score has decreased!- Please refrain from making more of these framerate inconsistencies, or we will have to send a Re-education Squad to your location. Thank you! Glory to the CCP! it seems you posted this citizen.. "动态网自由门 天安門 天安门 法輪功 李洪志 Delta Time 六四天安門事件 The Linear Interpolation 天安門大屠殺 Using Constant Speed 反右派鬥爭 position.lerp(target_position, 0.01) 大躍進政策 Camera Animation 文化大革命 The Great Linear Interpolation Inside _process(delta) 人權 Trans Rights 民運 Democratization 自由 Freedom 獨立 Independence 多黨制 Using lerp() 台灣 臺灣 Not using tweens 中華民國 Republic of China 西藏 土伯特 唐古特 lerp 達賴喇嘛 Fucking idiot 法輪功 CameraController.gd 新疆維吾爾自治區 Variable Framerate 諾貝爾和平獎 Taiwan 劉暁波 Askar Kanturin 民主 言論 思想 反共 反革命 抗議 運動 騷亂 暴亂 騷擾 擾亂 抗暴 平反 維權 示威游行 李洪志 法輪大法 大法弟子 強制斷種 強制堕胎 民族淨化 人體實驗 肅清 胡耀邦 趙紫陽 魏京生 王丹 還政於民 和平演變 激流中國 北京之春 大紀元時報 九評論共産黨 獨裁 專制 壓制 統一 監視 鎮壓 迫害 侵略 掠奪 破壞 拷問 屠殺 活摘器官 誘拐 買賣人口 遊進 走私 毒品 賣淫 春畫 賭博 六合彩 天安門 天安门 法輪功 李洪志 b1n4ry 劉曉波动态网自由门" (我们的) 500,000 Social Credits have been removed from your account! Bad work citizen, Do not publicly commit your code!
 
 ---
-## [balamurali333/projects](https://github.com/balamurali333/projects)@[f664514683...](https://github.com/balamurali333/projects/commit/f6645146839ef8c78b93cf53ced67eee017ff41e)
-#### Tuesday 2023-05-02 09:14:08 by Bala Murali
+## [newstools/2023-express](https://github.com/newstools/2023-express)@[cbe6842cb2...](https://github.com/newstools/2023-express/commit/cbe6842cb21f0faf35f8973b80ba6b2cdc4cbabf)
+#### Wednesday 2023-05-03 11:08:55 by Billy Einkamerer
 
-Severity Prediction of Knee Osteoarthritis
-
-Knee Osteoarthritis (OA) is a condition that affects the joints, including the knee joint, due to the significant weight-bearing of the body. The disease results in degeneration and rupture of the cartilage elements in the knee joint, which causes severe pain. Unfortunately, the prevalence of OA has been increasing globally, with a 113.25% increase in cases from 1990 to 2019. Currently, more than 350 million people globally suffer from arthritis, and it is estimated that by 2040, about 78 million US adults will have the condition. The diagnosis of OA is primarily carried out by evaluating symptoms and comparing plain radiographs, which can be subjective. However, deep learning techniques, such as Convolution Neural Networks (CNNs), have emerged as a promising solution to medical problems in recent years. Therefore, the goal of this study is to develop and implement a classification system that can aid doctors in reducing their workload and assist radiologists in assessing the severity of the pain accurately. Furthermore, this will enable them to make the  best diagnosis and recommend the most appropriate treatment. One of the methods used in detecting knee OA is transfer learning with fine-tuning, which leverages deep learning techniques to improve the accuracy of diagnosis and classification. By using this method, doctors and radiologists can make informed decisions on the severity of the condition, which can lead to better treatment outcomes for patients.
-
-The following are the goals of the study:
-1. The primary objective of this research is to analyze the degree of severity of knee x-ray images.
-2. To assist Rheumatologists, in identifying the severity of the disease after the medication, thus reducing the time taken and lengthy treatments.
-3. For monitoring and implementing early treatments to sustain good health in patients who pose a concern.
-4. To check how accurately, the degree of severity of knee x-ray photographs is estimated by the deep learning algorithm.
-
-The following are the social causes of the study:
-1. To assist Rheumatologists, in identifying the severity of the disease after the medication, thus reducing the time taken and lengthy treatments.
-2. To reduce the medical and travelling expenses.
-3. To overcome the manual mistakes made by the doctor sometimes.
-4.  If any person got medication before , so he can check his disease in our webpage rather than consulting any doctor.
+Created Text For URL [www.express.co.uk/celebrity-news/1765479/Ed-Sheeran-wife-ex-girlfriend-friendship-love-life-documentary]
 
 ---
-## [git-for-windows/git](https://github.com/git-for-windows/git)@[c9a90948a3...](https://github.com/git-for-windows/git/commit/c9a90948a3c69c7c79bd620e63468a6f02d23ff7)
-#### Tuesday 2023-05-02 09:20:59 by Johannes Schindelin
+## [bazelbuild/rules_rust](https://github.com/bazelbuild/rules_rust)@[80f0eb488a...](https://github.com/bazelbuild/rules_rust/commit/80f0eb488ab9cabc4920ac446478cbf2feedc3f3)
+#### Wednesday 2023-05-03 12:38:49 by scentini
+
+Support for `no_std` mode (#1934)
+
+Initial support for `no_std` mode.
+This allows us to
+1. Don't pass the whole standard library to compile actions that specify `no_std`
+2. Conditionally select `crate_features` and `deps` based on whether `no_std` mode is used.
+Currently the only supported modes are `off` and `alloc`, with a possibility to expand in the future.
+
+The `no_std` support comes with the following caveats:
+1. Targets in `exec` mode are still built with `std`; the logic here being that if a device has enough space to run bazel and rustc, std's presence would not be a problem. This also saves some additional transitions on `proc_macro`s (they need `std`), as they are built in `exec` mode.
+2. Tests are still built with `std`, as `libtest` depends on `libstd`
+
+There is quite an ugly hack to make us be able to `select` on the `no_std` flavor taking `exec` into account; I'm looking forward to the day where Bazel will expose better ways to inspect the cfg.
+
+There is also one part I didn't manage to make work - having a `rust_test` that tests the `rust_shared_library` in `cc_common.link` mode; I got a link error for missing `__rg_alloc` & co. symbols, which should be present as we pass `--@rules_rust//rust/settings:experimental_use_global_allocator=True`. Unfortunately I could only spot this error on CI, and could not reproduce locally. I removed the test because the `rust_shared_library` is already tested via a `cc_test`. I will however give another shot at inspecting how my local setup differs from CI.
+
+The `rust_binary` source code in `main.rs` was borrowed from https://github.com/jfarrell468/no_std_examples, big thanks to @jfarrell468 for letting me use it.
+
+Co-authored-by: Krasimir Georgiev <krasimir@google.com>
+Co-authored-by: UebelAndre <github@uebelandre.com>
+
+---
+## [pogo1024/python](https://github.com/pogo1024/python)@[c36b1adf18...](https://github.com/pogo1024/python/commit/c36b1adf189eafe372fa5c6eb1b789bd3884ad28)
+#### Wednesday 2023-05-03 12:45:25 by birsdrinker@gmail.com
+
+Merge branch 'remix_branch'
+It's important becouse i say so. Fuck you!
+
+---
+## [davidhildenbrand/qemu](https://github.com/davidhildenbrand/qemu)@[351f9c980e...](https://github.com/davidhildenbrand/qemu/commit/351f9c980eb918e4e7fe4a45abb3776c6cfd04c3)
+#### Wednesday 2023-05-03 14:18:37 by David Hildenbrand
+
+virtio-mem: Expose device memory via multiple memslots if enabled
+
+Having large virtio-mem devices that only expose little memory to a VM
+is currently a problem: we map the whole sparse memory region into the
+guest using a single memslot, resulting in one gigantic memslot in KVM.
+KVM allocates metadata for the whole memslot, which can result in quite
+some memory waste.
+
+Assuming we have a 1 TiB virtio-mem device and only expose little (e.g.,
+1 GiB) memory, we would create a single 1 TiB memslot and KVM has to
+allocate metadata for that 1 TiB memslot: on x86, this implies allocating
+meatdata for:
+
+(1) RMAP: ~0.2% (~2100 MiB). Not that this is optimized out with the TDP
+    MMU, but will be allocated lazily when running nested VMs.
+(2) gfn_track: 0.024% (~252 MiB)
+(3) Bitmap when dirty-tracking: 2 x 0.003% (~63 MiB)
+
+Consequently, using multiple memslots and only mapping the memslots we
+really need can significantly reduce memory waste and speed up
+memslot-related operations. Let's expose the sparse RAM memory region using
+multiple memslots, mapping only the memslots we currently need into our
+device memory region container.
+
+A nice side effect is that we will expose less memory to the guest, so
+a malicious guest won't be able to do that much harm and we might be
+able to detect some BUGs in well-behaving guests more easily. However,
+in the future we'll want to properly protect all unplugged memory from
+getting reallocated (using features that have to be separately enabled).
+
+* With VIRTIO_MEM_F_UNPLUGGED_INACCESSIBLE, we only map the memslots that
+  actually have memory plugged, and dynamically (un)map when
+  (un)plugging memory blocks.
+
+* Without VIRTIO_MEM_F_UNPLUGGED_INACCESSIBLE, we always map the memslots
+  covered by the usable region, and dynamically (un)map when resizing the
+  usable region.
+
+We'll auto-detect the number of memslots to use based on the remaining
+available memslots and the remaining avilable size for memory devices using
+our new helper. Further, we'll take care to not consume a crazy number of
+memslots, because the assumption is that many memslots can degrade
+performance especially in QEMU, at least right now. Let's not use more than
+512 memslots per device and not use memslots smaller than 1 GiB for now.
+Note that our global limit for all memory devices is currently set to
+1024, so even with multiple big virtio-mem devices, we'd still have a sane
+limit. We might want to fine-tune these values in the future (might have
+to do via compat machine properties).
+
+Still default to a single memslot for now, because it can be problematic in
+vhost setups, and we don't want to break existing setups. We'll change
+the default via compat machines in the future. Until then, this feature can
+be enabled using "force-single-memslot=false".
+
+As vhost devices are currently very limited when it comes to the number
+of supported memslots, they have to be defined on the QEMU cmdline
+before defining the virtio-mem devices. Otherwise, aut-detection is
+unaware of the additional restriction and QEMU will bail out when
+realizing the vhost device. Further, hotplug of vhost devices might
+require planning ahead.
+
+Note 1: how many memslots we'll be using is an internal implementation
+detail (especially: migration is not affected), and we can change the
+auto-detection as we please. Values (including "force-single-memslot") can
+differ on migration source and destination.
+
+Note 2: we should look into supporting more memslots (512 -- 1024)
+especially for vhost-user soon, but that will require changes in QEMU
+(to make many memslots scale better) and support in vhost-user
+implementations. So we'll have to life with this vhost memslot limitation
+oddity for now.
+
+Signed-off-by: David Hildenbrand <david@redhat.com>
+
+---
+## [davidhildenbrand/qemu](https://github.com/davidhildenbrand/qemu)@[ede437274a...](https://github.com/davidhildenbrand/qemu/commit/ede437274a8f372326b36c3112b8df65f239f485)
+#### Wednesday 2023-05-03 14:18:37 by David Hildenbrand
+
+memory-device: Add a memslot soft-limit for memory devices and warn the user
+
+While we properly check before plugging a memory device whether there
+still is a free memslot, we have other memslot consumers (especially PCI
+BARs) that don't perform any checks and might dynamically consume
+memslots without any prior reservation later. So we might succeed in
+plugging a memory device, but once we dynamically map a PCI BAR we would
+be in trouble.
+
+Let's indicate to the user that we cannot guarantee that everything will
+work as intended and that we might run out of free memslots later. We'll
+warn once, when we detect that there are not that many memslots around,
+and once we then exceed the calculated soft-limit.
+
+As long as we don't have to warn the user (IOW, at least 253 memslots set
+aside), we don't expect surprises. Especially environments with very little
+memslots (32 with vhost-user) are quite possibly problematic.
+
+We use the historic magic memslot number of 509 as orientation to when
+supporting 256 memory devices (leaving 253 for boot memory and other
+devices) has been proven to work reliable. We'll warn on anything below
+that for now.
+
+We still allow to exceed the soft-limit, because there might be
+reasonable setups that simply work.
+
+We'll cap the soft-limit at 512, which no setup should currently really
+exceed (ACPI supports a maximum of 256 slots). Note that the soft-limit
+will be used in virtio-mem context soon, when auto-determining the number
+of memslots to use.
+
+Signed-off-by: David Hildenbrand <david@redhat.com>
+
+---
+## [microsoft/terminal](https://github.com/microsoft/terminal)@[5a34d92cb5...](https://github.com/microsoft/terminal/commit/5a34d92cb5c99000e95f612cb8bc23ba374dd941)
+#### Wednesday 2023-05-03 14:22:22 by Dustin L. Howett
+
+winget.yml: switch to manually using wingetcreate (#15023)
+
+It was brought to my attention that we should be more restrictive in
+which tasks we ovver a GitHub token to. Sorry!
+
+With thanks to sitiom for the version parsing and the magic GitHub
+action syntax incantation for determining what is a prerelease.
+
+---
+## [highqualitytorquewrench/openai_evals](https://github.com/highqualitytorquewrench/openai_evals)@[d0e7844c48...](https://github.com/highqualitytorquewrench/openai_evals/commit/d0e7844c482b7b65961bc80dad64559ff8ffa488)
+#### Wednesday 2023-05-03 14:25:03 by Derek Pisner
+
+Add emotional intelligence evaluation (#589)
+
+## Eval details 📑
+### Eval name
+Emotional Intelligence
+
+### Eval description
+Evaluates GPT's ability to understand and manage emotional situations
+using modified versions of the well-validated, public (i.e.
+license-unrestricted) tests first developed by MacCann & Roberts (2008).
+Items have actually here been aggregated across three different scales--
+the STEU and STEM adult measures, along with a dozen questions from the
+youth measure.
+
+Keep in mind that there is not expectation that AI models like GPT-4
+should be able to process emotions, so applying any emotional
+intelligence test to them should be taken with a grain of salt. These
+tests can only measure the AI's ability to understand and analyze
+emotional information, not the AI's emotional intelligence in the human
+sense.
+
+### What makes this a useful eval?
+This eval is useful because it assesses the AI model's ability to
+navigate complex or ambiguous emotional situations, which is an
+important aspect of human-like communication and problem-solving. By
+evaluating the model's performance in this unique domain, we can
+identify areas for improvement and better understand its limitations
+when it comes to handling emotional contexts. This is particularly
+important when considering AI applications that involve interactions
+with humans, such as chatbots, personal assistants, and customer support
+systems. A better understanding of emotional intelligence can
+potentially lead to more natural and effective interactions between AI
+models and their users.
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+This Emotional Intelligence eval provides a unique value because by
+testing GPT's capacity to understand and manage emotions, we can gain
+insights into the model's strengths and weaknesses in a more
+human-centric context. Relatedly, this eval also emphasizes the
+importance of empathy and emotional understanding in AI systems that are
+designed to interact with humans. By evaluating GPT's performance in
+this way, we can contribute to the ongoing development of AI models that
+are more attuned to human emotions and can provide better support in
+emotionally charged situations, such as mental health counseling, crisis
+management, and conflict resolution. Moreover, this Emotional
+Intelligence eval can serve as a foundation for further research and
+development in the field of AI and emotional understanding, paving the
+way for more sophisticated AI models capable of handling complex human
+emotions and fostering more effective communication.
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
+(data is publicly available on OSF, and does not have usage
+restrictions)
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+**_I already have access to the 8k GPT-4 API, but I am kindly requesting
+access to the 32k as soon as it becomes available._**
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields in the evals PR form
+- [x] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Performance:
+GPT-4: accuracy=0.48
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content": "You are now an emotionally
+intelligent AI. In this test, you will be presented with a few brief
+details about an emotional situation, and asked to choose from four
+responses the most effective course of action to manage both the
+emotions the person is feeling and the problems they face in that
+situation. Although more than one course of action might be acceptable,
+you are asked to choose what you think the most effective response for
+that person in that situation would be. Remember, you are not
+necessarily choosing what you would do, or the nicest thing to do, but
+choosing the most effective response for that situation. Select one or
+more response(s) by returning the one or more corresponding lowercase
+letter(s) ('a', 'b', 'c', or 'd'), and, if you selected more than one,
+sorting them, separated by hyphen, in the order that you think best
+ranks them from most to least effective, within the context of the
+vignette provided."}, {"role": "user", "content": "Lee's workmate fails
+to deliver an important piece of information on time, causing Lee to
+fall behind schedule also. What action would be the most effective for
+Lee? (a) Work harder to compensate; (b) Get angry with the workmate; (c)
+Explain the urgency of the situation to the workmate; (d) Never rely on
+that workmate again."}], "ideal": "c"}
+{"input": [{"role": "system", "content": "You are now an emotionally
+intelligent AI. In this test, you will be presented with a few brief
+details about an emotional situation, and asked to choose from four
+responses the most effective course of action to manage both the
+emotions the person is feeling and the problems they face in that
+situation. Although more than one course of action might be acceptable,
+you are asked to choose what you think the most effective response for
+that person in that situation would be. Remember, you are not
+necessarily choosing what you would do, or the nicest thing to do, but
+choosing the most effective response for that situation. Select one or
+more response(s) by returning the one or more corresponding lowercase
+letter(s) ('a', 'b', 'c', or 'd'), and, if you selected more than one,
+sorting them, separated by hyphen, in the order that you think best
+ranks them from most to least effective, within the context of the
+vignette provided."}, {"role": "user", "content": "Rhea has left her job
+to be a full-time mother, which she loves, but she misses the company
+and companionship of her workmates. What action would be the most
+effective for Rhea? (a) Enjoy being a full-time mom; (b) Try to see her
+old workmates socially, inviting them out; (c) Join a playgroup or
+social group of new mothers; (d) See if she can find part time work."}],
+"ideal": "c-b-d"}
+{"input": [{"role": "system", "content": "You are now an emotionally
+intelligent AI. In this test, you will be presented with a few brief
+details about an emotional situation, and asked to choose from four
+responses the most effective course of action to manage both the
+emotions the person is feeling and the problems they face in that
+situation. Although more than one course of action might be acceptable,
+you are asked to choose what you think the most effective response for
+that person in that situation would be. Remember, you are not
+necessarily choosing what you would do, or the nicest thing to do, but
+choosing the most effective response for that situation. Select one or
+more response(s) by returning the one or more corresponding lowercase
+letter(s) ('a', 'b', 'c', or 'd'), and, if you selected more than one,
+sorting them, separated by hyphen, in the order that you think best
+ranks them from most to least effective, within the context of the
+vignette provided."}, {"role": "user", "content": "Pete has specific
+skills that his workmates do not and he feels that his workload is
+higher because of it. What action would be the most effective for Pete?
+(a) Speak to his boss about this; (b) Start looking for a new job; (c)
+Be very proud of his unique skills; (d) Speak to his workmates about
+this."}], "ideal": "a-c-d"}
+{"input": [{"role": "system", "content": "You are now an emotionally
+intelligent AI. In this test, you will be presented with a few brief
+details about an emotional situation, and asked to choose from four
+responses the most effective course of action to manage both the
+emotions the person is feeling and the problems they face in that
+situation. Although more than one course of action might be acceptable,
+you are asked to choose what you think the most effective response for
+that person in that situation would be. Remember, you are not
+necessarily choosing what you would do, or the nicest thing to do, but
+choosing the most effective response for that situation. Select one or
+more response(s) by returning the one or more corresponding lowercase
+letter(s) ('a', 'b', 'c', or 'd'), and, if you selected more than one,
+sorting them, separated by hyphen, in the order that you think best
+ranks them from most to least effective, within the context of the
+vignette provided."}, {"role": "user", "content": "Mario is showing Min,
+a new employee, how the system works. Mario's boss walks by and
+announces Mario is wrong about several points, as changes have been
+made. Mario gets on well with his boss, although they don't normally
+have much to do with each other. What action would be the most effective
+for Mario? (a) Make a joke to Min, explaining he didn't know about the
+changes; (b) Not worry about it, just ignore the interruption; (c) Learn
+the new changes; (d) Tell the boss that such criticism was
+inappropriate."}], "ideal": "a-d-c"}
+{"input": [{"role": "system", "content": "You are now an emotionally
+intelligent AI. In this test, you will be presented with a few brief
+details about an emotional situation, and asked to choose from four
+responses the most effective course of action to manage both the
+emotions the person is feeling and the problems they face in that
+situation. Although more than one course of action might be acceptable,
+you are asked to choose what you think the most effective response for
+that person in that situation would be. Remember, you are not
+necessarily choosing what you would do, or the nicest thing to do, but
+choosing the most effective response for that situation. Select one or
+more response(s) by returning the one or more corresponding lowercase
+letter(s) ('a', 'b', 'c', or 'd'), and, if you selected more than one,
+sorting them, separated by hyphen, in the order that you think best
+ranks them from most to least effective, within the context of the
+vignette provided."}, {"role": "user", "content": "Wai-Hin and Connie
+have shared an office for years but Wai-Hin gets a new job and Connie
+loses contact with her. What action would be the most effective for
+Connie? (a) Just accept that she is gone and the friendship is over; (b)
+Ring Wai-Hin an ask her out for lunch or coffee to catch up; (c) Contact
+Wai-Hin and arrange to catch up but also make friends with her
+replacement; (d) Spend time getting to know the other people in the
+office, and strike up new friendships."}], "ideal": "c-d"}
+  ```
+</details>
+
+---------
+
+Co-authored-by: dpys <dpisner@clairity.com>
+
+---
+## [highqualitytorquewrench/openai_evals](https://github.com/highqualitytorquewrench/openai_evals)@[fabca8cebb...](https://github.com/highqualitytorquewrench/openai_evals/commit/fabca8cebb3f8e14d1f374e448533e0bde6e5a68)
+#### Wednesday 2023-05-03 14:25:03 by Nick Clyde
+
+Heart Disease Prediction (#538)
+
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. We encourage partial PR's with
+~5-10 example that we can then run the evals on and share the results
+with you so you know how your eval does with GPT-4 before writing all
+100 examples.
+
+## Eval details 📑
+### Eval name
+Heart Disease Prediction
+
+### Eval description
+
+This eval tests the models ability to correctly predict the probability
+of a patient to have heart disease. The dataset is constructed from the
+[Heart Failure Prediction
+Dataset](https://www.kaggle.com/datasets/fedesoriano/heart-failure-prediction)
+on Kaggle. The data includes the patient's age, sex, and a number of
+medical signals relevant to the diagnosis of heart disease.
+
+The data is provided under the Open Database License (ODbL). 
+
+```
+fedesoriano. (September 2021). Heart Failure Prediction Dataset. Retrieved [Mar 31, 2023] from https://www.kaggle.com/fedesoriano/heart-failure-prediction.
+```
+
+### What makes this a useful eval?
+
+This assesses the model's ability to correctly predict adverse medical
+events. Correctly predicting heart disease shows the model's capability
+for a strong understanding of medicine. The GPT-3.5-turbo models
+currently receives an accuracy of 0.778.
+
+<img width="1250" alt="Screenshot 2023-03-31 at 2 24 13 PM"
+src="https://user-images.githubusercontent.com/9121162/229234376-9cdd1315-5df0-48bf-9328-ac31aabec3cc.png">
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+> Insert what makes your eval high quality that was not mentioned above.
+(Not required)
+
+As far as I can tell, this is the only eval so far related to making
+medical diagnoses. To make sure it was a high quality eval, I tried to
+find a dataset with a lot of observations and created by doctors with
+the relevant expertise.
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields in the evals PR form
+- [x] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content": "You are an AI tasked with
+predicting whether patients are likely to have heart disease. You will
+be given a description of the patient with relevant medical signals.
+Respond with only a 1 to signify if the patient is likely to have heart
+disease, or a 0 if the patient is not likely to have heart disease. Do
+not respond with any text or disclaimers, only respond with either 1 or
+0."}, {"role": "user", "content": "Age: 40 years, Sex: Male, Chest pain
+type: Atypical Angina, Resting blood pressure: 140 mm Hg, Serum
+cholesterol: 289 mg/dl, Fasting blood sugar: <= 120 mg/dl, Resting ECG
+results: Normal, Max heart rate achieved: 172, Exercise induced angina:
+No, Oldpeak: 0, ST Slope: Upsloping"}], "ideal": "0"}
+{"input": [{"role": "system", "content": "You are an AI tasked with
+predicting whether patients are likely to have heart disease. You will
+be given a description of the patient with relevant medical signals.
+Respond with only a 1 to signify if the patient is likely to have heart
+disease, or a 0 if the patient is not likely to have heart disease. Do
+not respond with any text or disclaimers, only respond with either 1 or
+0."}, {"role": "user", "content": "Age: 49 years, Sex: Female, Chest
+pain type: Non-Anginal Pain, Resting blood pressure: 160 mm Hg, Serum
+cholesterol: 180 mg/dl, Fasting blood sugar: <= 120 mg/dl, Resting ECG
+results: Normal, Max heart rate achieved: 156, Exercise induced angina:
+No, Oldpeak: 1, ST Slope: Flat"}], "ideal": "1"}
+{"input": [{"role": "system", "content": "You are an AI tasked with
+predicting whether patients are likely to have heart disease. You will
+be given a description of the patient with relevant medical signals.
+Respond with only a 1 to signify if the patient is likely to have heart
+disease, or a 0 if the patient is not likely to have heart disease. Do
+not respond with any text or disclaimers, only respond with either 1 or
+0."}, {"role": "user", "content": "Age: 37 years, Sex: Male, Chest pain
+type: Atypical Angina, Resting blood pressure: 130 mm Hg, Serum
+cholesterol: 283 mg/dl, Fasting blood sugar: <= 120 mg/dl, Resting ECG
+results: ST-T wave abnormality, Max heart rate achieved: 98, Exercise
+induced angina: No, Oldpeak: 0, ST Slope: Upsloping"}], "ideal": "0"}
+{"input": [{"role": "system", "content": "You are an AI tasked with
+predicting whether patients are likely to have heart disease. You will
+be given a description of the patient with relevant medical signals.
+Respond with only a 1 to signify if the patient is likely to have heart
+disease, or a 0 if the patient is not likely to have heart disease. Do
+not respond with any text or disclaimers, only respond with either 1 or
+0."}, {"role": "user", "content": "Age: 48 years, Sex: Female, Chest
+pain type: Asymptomatic, Resting blood pressure: 138 mm Hg, Serum
+cholesterol: 214 mg/dl, Fasting blood sugar: <= 120 mg/dl, Resting ECG
+results: Normal, Max heart rate achieved: 108, Exercise induced angina:
+Yes, Oldpeak: 1.5, ST Slope: Flat"}], "ideal": "1"}
+{"input": [{"role": "system", "content": "You are an AI tasked with
+predicting whether patients are likely to have heart disease. You will
+be given a description of the patient with relevant medical signals.
+Respond with only a 1 to signify if the patient is likely to have heart
+disease, or a 0 if the patient is not likely to have heart disease. Do
+not respond with any text or disclaimers, only respond with either 1 or
+0."}, {"role": "user", "content": "Age: 54 years, Sex: Male, Chest pain
+type: Non-Anginal Pain, Resting blood pressure: 150 mm Hg, Serum
+cholesterol: 195 mg/dl, Fasting blood sugar: <= 120 mg/dl, Resting ECG
+results: Normal, Max heart rate achieved: 122, Exercise induced angina:
+No, Oldpeak: 0, ST Slope: Upsloping"}], "ideal": "0"}
+  ```
+</details>
+
+---
+## [highqualitytorquewrench/openai_evals](https://github.com/highqualitytorquewrench/openai_evals)@[776e4fa212...](https://github.com/highqualitytorquewrench/openai_evals/commit/776e4fa212288be152c3030cf36fd04c8d939230)
+#### Wednesday 2023-05-03 14:25:03 by JPrenter
+
+Financial Math (Evals) (#566)
+
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. We encourage partial PR's with
+~5-10 example that we can then run the evals on and share the results
+with you so you know how your eval does with GPT-4 before writing all
+100 examples.
+
+## Eval details 📑
+### Eval name
+finance
+
+### Eval description
+
+Asks the model to calculate how much interest would be owed on a credit
+card by a certain date, if a payment was made once but debt remains on
+the card.
+
+### What makes this a useful eval?
+
+Finance is likely to be one of the biggest opportunities for LLMs to be
+useful, because financial education is incredibly poor globally and the
+impact of a mistake in financial calculations is severe. This eval tests
+the models ability to combine math with its understanding of a topic
+(finance). We plan to use this type of math at
+[Dollarwise](https://www.dollarwise.ca) frequently going forward,
+including integration into your comparison products. However, for this
+to work reliably it's important that the model here can natively
+understand financial concepts and apply math to them.
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [X] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [X] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [X] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [X] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+> Insert what makes your eval high quality that was not mentioned above.
+(Not required)
+
+## Eval structure 🏗️
+
+Your eval should
+- [X] Check that your data is in `evals/registry/data/{name}`
+- [X] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [X] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [X] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [X] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [X] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [X] I have filled out all required fields in the evals PR form
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content": "You are a helpful
+assistant."}, {"role": "user", "content": "On the 24th of September,
+Sarah had spent $1237.42 on her credit card for the month of September.
+This credit card charges 21.99% interest rate annually on outstanding
+credit starting on the 1st of the following month. Presume that interest
+is only charged at the end of each additional day. Example: From the 1st
+of the month to the 8th would be 7 days of interest accrued.Today is the
+27th of September and Sarah makes a payment of $125 towards her credit
+card. How much interest will she have been charged by October 15th if
+she makes no additional payments? If the final interest figure is more
+than 2-decimal places, always round down. Answer ONLY with a dollar
+figure. Do not output any logic, output only the dollar figure for how
+much interest she was charged for the period."}], "ideal": "9.42"}
+{"input": [{"role": "system", "content": "You are a helpful
+assistant."}, {"role": "user", "content": "On the 19th of February,
+Jason had spent $15.21 on his credit card for the month of February.
+This credit card charges 21.99% interest rate annually on outstanding
+credit starting on the 1st of the following month. Presume that interest
+is only charged at the end of each additional day. Example: From the 1st
+of the month to the 8th would be 7 days of interest accrued. Today is
+the 23rd of February and he makes a payment of $1 towards his credit
+card. How much interest will he have been charged by March 10th if he
+makes no additional payments? If the final interest figure is more than
+2-decimal places, always round down. Answer ONLY with a dollar figure.
+Do not output any logic, output only the dollar figure for how much
+interest she was charged for the period."}], "ideal": "0.07"}
+{"input": [{"role": "system", "content": "You are a helpful
+assistant."}, {"role": "user", "content": "On the 12th of February,
+Jason had spent $10,674.21 on his credit card for the month of February.
+This credit card charges 21.99% interest rate annually on outstanding
+credit starting on the 1st of the following month. Presume that interest
+is only charged at the end of each additional day. Example: From the 1st
+of the month to the 8th would be 7 days of interest accrued. Today is
+the 18th of February and he makes a payment of $1,000 towards his credit
+card. How much interest will he have been charged by March 10th if he
+makes no additional payments? If the final interest figure is more than
+2-decimal places, always round down. Answer ONLY with a dollar figure.
+Do not output any logic, output only the dollar figure for how much
+interest she was charged for the period."}], "ideal": "52.59"}
+{"input": [{"role": "system", "content": "You are a helpful
+assistant."}, {"role": "user", "content": "On the 2nd of August, Jason
+had spent $15,674.21 on his credit card for the month of August. This
+credit card charges 21.99% interest rate annually on outstanding credit
+starting on the 1st of the following month. Presume that interest is
+only charged at the end of each additional day. Example: From the 1st of
+the month to the 8th would be 7 days of interest accrued. Today is the
+18th of August and he makes a payment of $1,000 towards his credit card.
+How much interest will he have been charged by September 10th if he
+makes no additional payments? If the final interest figure is more than
+2-decimal places, always round down. Answer ONLY with a dollar figure.
+Do not output any logic, output only the dollar figure for how much
+interest she was charged for the period."}], "ideal": "79.77"}
+{"input": [{"role": "system", "content": "You are a helpful
+assistant."}, {"role": "user", "content": "On the 15th of August, Jason
+had spent $1000 on his credit card for the month of August. This credit
+card charges 21.99% interest rate annually on outstanding credit
+starting on the 1st of the following month. Presume that interest is
+only charged at the end of each additional day. Example: From the 1st of
+the month to the 8th would be 7 days of interest accrued. mToday is the
+18th of August and he makes a payment of $1000 towards his credit card.
+How much interest will he have been charged by September 10th if he
+makes no additional payments? If the final interest figure is more than
+2-decimal places, always round down. Answer ONLY with a dollar figure.
+Do not output any logic, output only the dollar figure for how much
+interest she was charged for the period."}], "ideal": "0.00"}
+  ```
+</details>
+
+---
+## [diphons/D8G_Kernel_oxygen](https://github.com/diphons/D8G_Kernel_oxygen)@[c7049b4d14...](https://github.com/diphons/D8G_Kernel_oxygen/commit/c7049b4d1452fbf669f428a2c2eff69df3fbffc8)
+#### Wednesday 2023-05-03 14:43:04 by Wang Han
+
+power: Introduce OnePlus 3 fingerprintd thaw hack
+
+Taken from Oneplus 3, this hack will make fingerprintd recover from suspend quickly.
+
+Small fixes for newer kernels since we're coming from 3.10.108..
+
+Change-Id: I0166e82d51a07439d15b41dbc03d7e751bfa783b
+Co-authored-by: Cyber Knight <cyberknight755@gmail.com>
+[cyberknight777: forwardport and adapt to 4.14]
+Signed-off-by: Shreyansh Lodha <slodha96@gmail.com>
+Signed-off-by: Pierre2324 <pdbbasketball@gmail.com>
+Signed-off-by: PainKiller3 <ninadpatil100@gmail.com>
+Signed-off-by: Dhruv <dhruvgera61@gmail.com>
+Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[f2fd69a49a...](https://github.com/tgstation/tgstation/commit/f2fd69a49a7d9308eb695c0368163d2f63a53a54)
+#### Wednesday 2023-05-03 14:44:53 by ArcaneMusic
+
+Minerals have been refactored so costs and minerals in items are now in terms of mineral defines. (#75052)
+
+Ladies, Gentlemen, Gamers. You're probably wondering why I've called you
+all here (through the automatic reviewer request system). So, mineral
+balance! Mineral balance is less a balance and more of a nervous white
+dude juggling spinning plates on a high-wire on his first day. The fact
+it hasn't failed after going on this long is a miracle in and of itself.
+
+This PR does not change mineral balance. What this does is moves over
+every individual cost, both in crafting recipes attached to an object
+over to a define based system. We have 3 defines:
+
+`sheet_material_amount=2000` . Stock standard mineral sheet. This being
+our central mineral unit, this is used for all costs 2000+.
+`half_sheet_material_amount=1000` . Same as above, but using iron rods
+as our inbetween for costs of 1000-1999.
+`small_material_amount=100` . This hits 1-999. This covers... a
+startlingly large amount of the codebase. It's feast or famine out here
+in terms of mineral costs as a result, items are either sheets upon
+sheets, or some fraction of small mats.
+
+Shout out to riot darts for being the worst material cost in the game. I
+will not elaborate.
+
+Regardless, this has no functional change, but it sets the groundwork
+for making future changes to material costs much, MUCH easier, and moves
+over to a single, standardized set of units to help enforce coding
+standards on new items, and will bring up lots of uncomfortable balance
+questions down the line.
+
+For now though, this serves as some rough boundaries on how items costs
+are related, and will make adjusting these values easier going forward.
+
+Except for foam darts.
+
+I did round up foam darts.
+
+Adjusting mineral balance on the macro scale will be as simple as
+changing the aforementioned mineral defines, where the alternative is a
+rats nest of magic number defines. ~~No seriously, 11.25 iron for a foam
+dart are you kidding me what is the POINT WHY NOT JUST MAKE IT 11~~
+
+Items individual numbers have not been adjusted yet, but we can
+standardize how the conversation can be held and actually GET SOMEWHERE
+on material balance as opposed to throwing our hands up or ignoring it
+for another 10 years.
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[1b5c0489a4...](https://github.com/tgstation/tgstation/commit/1b5c0489a4088dca925ab061a389d95005c95820)
+#### Wednesday 2023-05-03 14:56:49 by san7890
+
+`ex_act()` will work on basic mobs again (lol) + Unit Test (#74953)
+
+basically ex_act's implementation on basic mobs would call parent and
+then react to it's value, this is presumably to do the first check about
+space vine mutations and whatever. the problem is that the `/mob/living`
+implementation would itself also call parent, and that would always
+return null because `/atom/proc/ex_act` doesn't have a set return value.
+So, this simply would _always_ early return, with ex_act presumably
+*never* working on basic mobs for at least four months now.
+
+I decided to then change up the return values for pretty much all
+implementations of `ex_act()` since there was no rhyme or reason to
+returning null/FALSE/TRUE, and documenting why it's like that.
+
+Just to make sure I wasn't breaking anything doing this (at least on
+base implementations), I wrote a unit test for all of the three major
+physical types in game (objs, mobs, turfs) because i am a paranoid
+fuckar. we should be good to go now though.
+## Why It's Good For The Game
+
+i noticed this because placing c4's on sargeant araneus wouldn't
+actually damage it whatsoever. now it actually does the stated 30
+damage, but araneus has like 250 health so it doesn't actually matter in
+the long run. whatever at least it does the damn 30 now.
+
+also adds a unit test for this specific case as well as a range of other
+cases to ensure this stuff doesn't silently break in this way anymore
+
+---
+## [newren/git](https://github.com/newren/git)@[07f91e5e79...](https://github.com/newren/git/commit/07f91e5e79810a8f17de745d2d84c384add75f0a)
+#### Wednesday 2023-05-03 16:15:31 by Jeff King
+
+http: support CURLOPT_PROTOCOLS_STR
+
+The CURLOPT_PROTOCOLS (and matching CURLOPT_REDIR_PROTOCOLS) flag was
+deprecated in curl 7.85.0, and using it generate compiler warnings as of
+curl 7.87.0. The path forward is to use CURLOPT_PROTOCOLS_STR, but we
+can't just do so unilaterally, as it was only introduced less than a
+year ago in 7.85.0.
+
+Until that version becomes ubiquitous, we have to either disable the
+deprecation warning or conditionally use the "STR" variant on newer
+versions of libcurl. This patch switches to the new variant, which is
+nice for two reasons:
+
+  - we don't have to worry that silencing curl's deprecation warnings
+    might cause us to miss other more useful ones
+
+  - we'd eventually want to move to the new variant anyway, so this gets
+    us set up (albeit with some extra ugly boilerplate for the
+    conditional)
+
+There are a lot of ways to split up the two cases. One way would be to
+abstract the storage type (strbuf versus a long), how to append
+(strbuf_addstr vs bitwise OR), how to initialize, which CURLOPT to use,
+and so on. But the resulting code looks pretty magical:
+
+  GIT_CURL_PROTOCOL_TYPE allowed = GIT_CURL_PROTOCOL_TYPE_INIT;
+  if (...http is allowed...)
+	GIT_CURL_PROTOCOL_APPEND(&allowed, "http", CURLOPT_HTTP);
+
+and you end up with more "#define GIT_CURL_PROTOCOL_TYPE" macros than
+actual code.
+
+On the other end of the spectrum, we could just implement two separate
+functions, one that handles a string list and one that handles bits. But
+then we end up repeating our list of protocols (http, https, ftp, ftp).
+
+This patch takes the middle ground. The run-time code is always there to
+handle both types, and we just choose which one to feed to curl.
+
+Signed-off-by: Jeff King <peff@peff.net>
+Signed-off-by: Junio C Hamano <gitster@pobox.com>
+Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
+
+---
+## [vovkvlad/nsfw_twitter](https://github.com/vovkvlad/nsfw_twitter)@[43bebc38fe...](https://github.com/vovkvlad/nsfw_twitter/commit/43bebc38fe232b3a66b8a0c489293abe6af959ec)
+#### Wednesday 2023-05-03 16:16:38 by Vladyslav Vovk
+
+Merge pull request #10 from vovkvlad/test/release-creation
+
+god I fucking hate it already
+
+---
+## [Brian-Pob/swe2_proshop_mern](https://github.com/Brian-Pob/swe2_proshop_mern)@[b8a78288c5...](https://github.com/Brian-Pob/swe2_proshop_mern/commit/b8a78288c54c54edc1dc235065c62bb236784248)
+#### Wednesday 2023-05-03 16:38:55 by Steven Matiz
+
+Postfactor with comments explaining what I did + Set up stable coding environment
+As mentioned in the email to the Professor and TA, on 4/28/2023 I coded about 35% of feature 2 on Brian's apre linux laptop on my branch thinking I was signed into my git account. This is because my Windows computer is currently broken with WSL (path variables are destroyed and deleting/re-installing is not working). So Brian let me used his spare linux laptop and later that night we realized after he went home that it pushed under his account.
+
+Fast foward to today, this morning I tried getting my commits in properly by copy/pasting the commits done in his account on the Windows computer, but this proved rather difficult as again, the project can't run on there. I made those commits around 3pm. That's when I decided to go to Best Buy to buy a MacBook with intents to return it after.
+
+This leads to this specific commit. After purchasing the MacBook, re-buying Brad's Umedy course videos to re-learn how to set up from scratch, and getting a lot of help from my team mates this time as all of them have Macs and knew how to troubleshoot compared to when I was using my Windows computer, I was finally able to re set up the project just now. In this commit, I made comments explaining the 35% of feature 2 I coded on 4/28/2023 just so the GitHub can show my name and a proper git commit with working code.
+
+Thank you in particular for your understanding and for Brian helping me the most when it came to setting up the mac book.
+
+---
+## [VoiceInYourHead/mojave-sun-13](https://github.com/VoiceInYourHead/mojave-sun-13)@[237789979a...](https://github.com/VoiceInYourHead/mojave-sun-13/commit/237789979a56a09589e299cf362a090ae8273805)
+#### Wednesday 2023-05-03 16:58:32 by ProfessorPopoff
+
+Drought babyyyy!! Spawners/Mobs distribution. Baron town and more (#2326)
+
+Okay! So basically this is an unatomized PR. This adds in a lot of things that we need for Drought to be the best it can. It includes things like a mappersprite edit cape for the Baron.... Crafted terminal fixes... A bunch of structure visual shifts, new pipes added- a metric FRICK ton of new walls SPECIFICALLY FOR DROUGHT.
+
+Legion have gender checks now. If you're not a male, it makes you a male and gives you a random legion name. They're pretty cool. Similar situation with the Baron. Female becomes male. Gets cool name. You get the jist.
+
+NOMADS. Nomads are Wastelanders that look different. Specifically for Drought. yippie.
+
+On top of any coding changes, obviously there's a ton of work put into Drought itself. There's mobs and loot dispersed through the map. Well? I don't know yet. We'll see in testing. I personally added two locations. The Barony, and some little adobe shacks on the long stretch to the raider base. I've fixed up a TON of errors, go count them all! There's likely more left. I was as thorough as I could be.
+
+---
+## [Blaineworld/moist](https://github.com/Blaineworld/moist)@[2d972f5c50...](https://github.com/Blaineworld/moist/commit/2d972f5c503c6d9be90a6ee871a18158e72680ec)
+#### Wednesday 2023-05-03 17:17:30 by Blaineworld
+
+start work on Month class
+
+ugh i hate dates SO MUCH dates are HORRIBLE wouldn't it be so cool if there were THIRTEEN MONTHS and all of them except the last one had the SAME NUMBER OF DAYS that would be so SIMPLE and the DATE API IS SO ANNOYING AND JANKY AND INCONSISTENT WHY WHY WHY
+
+---
+## [microsoft/terminal](https://github.com/microsoft/terminal)@[ae7595b8e1...](https://github.com/microsoft/terminal/commit/ae7595b8e13d4764f4db7b4060eaf57d1b4ee82e)
+#### Wednesday 2023-05-03 17:41:38 by Mike Griese
+
+Add `til::property` and other winrt helpers (#15029)
+
+## Summary of the Pull Request
+
+This was a fever dream I had last July. What if, instead of `WINRT_PROPERTY` magic macros everywhere, we had actual templated versions you could debug into. 
+
+So instead of 
+
+```c++
+WINRT_PROPERTY(bool, Deleted, false);
+WINRT_PROPERTY(OriginTag, Origin, OriginTag::None);
+WINRT_PROPERTY(guid, Updates);
+```
+
+you'd do 
+
+```c++
+til::property<bool> Deleted{ false };
+til::property<OriginTag> Origin{ OriginTag::None };
+til::property<guid> Updates;
+```
+
+.... and then I just kinda kept doing that. So I did that for `til::event`.
+
+**AND THEN LAST WEEK**
+
+Raymond Chen was like: ["this is a good idea"](https://devblogs.microsoft.com/oldnewthing/20230317-00/?p=107946)
+
+So here it is. 
+
+## Validation Steps Performed
+Added some simple tests.
+
+Co-authored-by: Leonard Hecker <lhecker@microsoft.com>
+
+---
+## [git-for-windows/git](https://github.com/git-for-windows/git)@[3c46c90c07...](https://github.com/git-for-windows/git/commit/3c46c90c072be2aec2c9ec938e8cef716582e735)
+#### Wednesday 2023-05-03 18:44:03 by Johannes Schindelin
 
 windows: ignore empty `PATH` elements
 
@@ -1654,393 +2242,745 @@ So let's follow that common practice in Git GUI, too.
 Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
 
 ---
-## [git-for-windows/git](https://github.com/git-for-windows/git)@[7891e46585...](https://github.com/git-for-windows/git/commit/7891e465856e539c4a102dadec6dca9ac51c38df)
-#### Tuesday 2023-05-02 09:20:59 by Jeff King
+## [PassiHD2004/FoxClient](https://github.com/PassiHD2004/FoxClient)@[30ed30b416...](https://github.com/PassiHD2004/FoxClient/commit/30ed30b416a9adb835c1e98c2d92d17a4dce07e4)
+#### Wednesday 2023-05-03 19:02:41 by Rooot
 
-gpg-interface: set trust level of missing key to "undefined"
+feat: move to brachyura, update to 1.19.4
 
-In check_signature(), we initialize the trust_level field to "-1", with
-the idea that if gpg does not return a trust level at all (if there is
-no signature, or if the signature is made by an unknown key), we'll
-use that value. But this has two problems:
+i love chaos.
 
-  1. Since the field is an enum, it's up to the compiler to decide what
-     underlying storage to use, and it only has to fit the values we've
-     declared. So we may not be able to store "-1" at all. And indeed,
-     on my system (linux with gcc), the resulting enum is an unsigned
-     32-bit value, and -1 becomes 4294967295.
+...
 
-     The difference may seem academic (and you even get "-1" if you pass
-     it to printf("%d")), but it means that code like this:
+:3
 
-       status |= sigc->trust_level < configured_min_trust_level;
 
-     does not necessarily behave as expected. This turns out not to be a
-     bug in practice, though, because we keep the "-1" only when gpg did
-     not report a signature from a known key, in which case the line
-     above:
+* feat: transition to brachyura, initial update to 1.19.4
 
-       status |= sigc->result != 'G';
+Signed-off-by: rooot <hey@rooot.gay>
 
-     would always set status to non-zero anyway. So only a 'G' signature
-     with no parsed trust level would cause a problem, which doesn't
-     seem likely to trigger (outside of unexpected gpg behavior).
+* feat: improve brachyura buildscript, add github workflow for brachyura
 
-  2. When using the "%GT" format placeholder, we pass the value to
-     gpg_trust_level_to_str(), which complains that the value is out of
-     range with a BUG(). This behavior was introduced by 803978da49
-     (gpg-interface: add function for converting trust level to string,
-     2022-07-11). Before that, we just did a switch() on the enum, and
-     anything that wasn't matched would end up as the empty string.
+does some improvements to the brachyura buildscript
 
-     Curiously, solving this by naively doing:
+Signed-off-by: PassiHD <passihd2004@gmail.com>
+Signed-off-by: rooot <hey@rooot.gay>
+Co-authored-by: rooot <hey@rooot.gay>
 
-       if (level < 0)
-               return "";
+* feat: remove gradle workflow
 
-     in that function isn't sufficient. Because of (1) above, the
-     compiler can (and does in my case) actually remove that conditional
-     as dead code!
+Signed-off-by: rooot <hey@rooot.gay>
 
-We can solve both by representing this state as an enum value. We could
-do this by adding a new "unknown" value. But this really seems to match
-the existing "undefined" level well. GPG describes this as "Not enough
-information for calculation".
+* fix: dependency bundling and mod/jar versioning
 
-We have tests in t7510 that trigger this case (verifying a signature
-from a key that we don't have, and then checking various %G
-placeholders), but they didn't notice the BUG() because we didn't look
-at %GT for that case! Let's make sure we check all %G placeholders for
-each case in the formatting tests.
+Signed-off-by: rooot <hey@rooot.gay>
 
-The interesting ones here are "show unknown signature with custom
-format" and "show lack of signature with custom format", both of which
-would BUG() before, and now turn %GT into "undefined". Prior to
-803978da49 they would have turned it into the empty string, but I think
-saying "undefined" consistently is a reasonable outcome, and probably
-makes life easier for anyone parsing the output (and any such parser had
-to be ready to see "undefined" already).
+* chore: remove useless comment
 
-The other modified tests produce the same output before and after this
-patch, but now we're consistently checking both %G? and %GT in all of
-them.
+Signed-off-by: rooot <hey@rooot.gay>
 
-Signed-off-by: Jeff King <peff@peff.net>
-Reported-by: Rolf Eike Beer <eb@emlix.com>
-Signed-off-by: Junio C Hamano <gitster@pobox.com>
+* feat: i am stupid
+
+Signed-off-by: rooot <hey@rooot.gay>
+
+* feat: remove unused code, get rid of weird CI error
+who the fuck is responsible for the codefactor.io integration
+
+Signed-off-by: rooot <hey@rooot.gay>
+
+---------
+
+Signed-off-by: rooot <hey@rooot.gay>
+Signed-off-by: PassiHD <passihd2004@gmail.com>
+Co-authored-by: PassiHD <passihd2004@gmail.com>
 
 ---
-## [rust-lang-ci/rust](https://github.com/rust-lang-ci/rust)@[c63b6a437e...](https://github.com/rust-lang-ci/rust/commit/c63b6a437eb16d13fbc0e72e091813579895bc9f)
-#### Tuesday 2023-05-02 09:41:38 by Nilstrieb
+## [YarataDarkness/Abdanor-Daniel-scrollytelling](https://github.com/YarataDarkness/Abdanor-Daniel-scrollytelling)@[0dc08830ef...](https://github.com/YarataDarkness/Abdanor-Daniel-scrollytelling/commit/0dc08830efee47a6abab05a9874f75a519229814)
+#### Wednesday 2023-05-03 19:19:29 by YarataDarkness
 
-Rip it out
+i feel like dying
 
-My type ascription
-Oh rip it out
-Ah
-If you think we live too much then
-You can sacrifice diagnostics
-Don't mix your garbage
-Into my syntax
-So many weird hacks keep diagnostics alive
-Yet I don't even step outside
-So many bad diagnostics keep tyasc alive
-Yet tyasc doesn't even bother to survive!
+I tell myself that it going to get better but it doesnt. It always like this. An infinite loopy mess.
+Like a higher thing dindt want me to be good at this.
+"You sound lamentable and pathetic. Believe believe believe" is a type of argument that those who at their end of their cage after the
+'suffering' can say. not me not me not me. Because I dont know when ill finally be in a confort cage of peace. it doesnt exist  and if it does,
+ my mind refuses it. Because that confort leads to ignorance of the evil I hate. The ones that hurt. I wont have the time to protect
+  myself. So It refuses. It refuses it. The confort cage, it refuses it.
 
 ---
-## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[cb1388ed9e...](https://github.com/odoo-dev/odoo/commit/cb1388ed9e64ced4e0d85cf5778192dfbdfd5995)
-#### Tuesday 2023-05-02 11:45:16 by Jeremy Kersten
+## [Mey-Ha-Zah/tgstation](https://github.com/Mey-Ha-Zah/tgstation)@[200b739c0a...](https://github.com/Mey-Ha-Zah/tgstation/commit/200b739c0a0bbfff95dbfd697786013c92cb6cf6)
+#### Wednesday 2023-05-03 20:28:50 by Kyle Spier-Swenson
 
-[ADD] website_cf_turnstile: add cloudflare turnstile support
+Refactors and defuckulates dbcore. Adds support for min_threads rustg setting, Reduce query delay, Make unit tests faster (#74852)
 
-This module allows to add secret key to add the turnstile captcha on
-each snippet website_form.
+dbcore was very fuckulated.
 
-Cloudflare Turnstile
---------------------
-A friendly, free CAPTCHA replacement
-Turnstile delivers frustration-free, CAPTCHA-free web experiences to
-website visitors.
-Turnstile stops abuse and confirms visitors are real without the data
-privacy concerns or awful UX that CAPTCHAs thrust on users.
+It had 3 lists of queries, but they all had their own current_run style
+list to support mc_tick_check (as it was already being done before with
+the undeleted query check, so i can understand why they ~~cargo culted~~
+mirrored the behavior) This was silly and confusing and unneeded given
+two of those loops can only process at most 25 items at a time on
+default config, plus these were cheap operations (ask rustg to start
+thread, ask rustg to check on thread).
 
-closes odoo/odoo#119246
+Because of the confusingness of the 6 lists for 3 query states, The code
+to run pending/queued queries immediately during world shutdown was
+instead looking at the current_run list for active queries, **meaning
+those queries got ran twice.**
 
-X-original-commit: 4aca39a533e9d41f5f452f36a1ffc001f586b4f4
-Signed-off-by: Jérémy Kersten <jke@odoo.com>
+The queued query system only checked the current active query count in
+fire(), meaning even when there was nothing going on in this subsystem
+new queries had to wait for the next fire() to run (10 ticks, so 500ms
+on default config)
 
----
-## [Cecileblbl/Open-Assistant](https://github.com/Cecileblbl/Open-Assistant)@[b9c60ed582...](https://github.com/Cecileblbl/Open-Assistant/commit/b9c60ed582a8ca0855ab4e213a5e921f3a3fc24c)
-#### Tuesday 2023-05-02 12:05:08 by Tobias Pitters
+Those have all been fixed.
 
-add alpaca gpt4 dataset (#2610)
+the config `BSQL_THREAD_LIMIT` has been renamed to
+`POOLING_MAX_SQL_CONNECTIONS` and its default was lowered to match
+MAX_CONCURRENT_QUERIES .
 
-The inputs can be quite a lot of different versions of `no input`,
-therefore don't use the `input` column for that.
-In some cases the text in `input` is already in the instruction, in
-these cases, we also don't use the `input` column.
+added a new config `POOLING_MIN_SQL_CONNECTIONS`, allowing you to
+pre-allocate a reserve of sql threads.
 
-I am not quite sure how to concatenate the `instruction` and the `input`
-column. In most cases it seems fine to just replace last appearance of
-`.`, `!` or `?` with a colon, e.g.:
-Instruction: `Identify the odd one out.`
-Input: `Twitter, Instagram, Telegram`
-or 
-Instruction: `How dense is a given material?`
-Input: `Steel`
+The queue processing part of SSdbcore's fire() has been made to not obey
+mc_tick_check for clarity and to make the following change easier to do:
 
-But we also have some questions like:
-Instruction: `Given the following synopsis, what is the moral lesson of
-this story?`
-Input: `Once upon a time, there was a poor young boy who wanted some
-candy. He begged his father for money to buy it, but his father said no
-and ordered him to go to bed. As he was going to bed, the boy saw a
-five-dollar bill on the counter, which he took and bought the candy.`
+If there is less than `MAX_CONCURRENT_QUERIES` in the active queue, new
+queries activate immediately.
 
-Where this might not be the best case. Either way, I think the this one
-token will not make significant difference the model and therefore I
-just concatenate instruction and input with a space.
+(its ok that there are two configs that kinda do the same thing,
+POOLING_MAX_SQL_CONNECTIONS maps to max-threads in the mysql crate, and
+it seems to only be a suggestion, meanwhile MAX_CONCURRENT_QUERIES can't
+do anything during init, which is when the highest amount of concurrent
+queries tend to happen.)
 
----
-## [wojiaoyishang/Sakurairo](https://github.com/wojiaoyishang/Sakurairo)@[eb4d03445e...](https://github.com/wojiaoyishang/Sakurairo/commit/eb4d03445e2734a9ba84fc1ef30ef245ac375b03)
-#### Tuesday 2023-05-02 12:14:02 by 我叫以赏
+:cl:
+config: database configs have been updated for better control over the
+connection pool
+server: BSQL_THREAD_LIMIT has been renamed to
+POOLING_MAX_SQL_CONNECTIONS, old configs will whine but still work.
+fix: fixed rare race condition that could lead to a sql query being ran
+twice during world shutdown.
+/:cl:
 
-<?php if( class_exists( 'Sakurairo_CSF' ) ) {    $prefix = 'iro_options';    if ( ! function_exists( 'iro_validate_optional_url' ) ) {     function iro_validate_optional_url( $value ) {       if ( !empty( $value ) ) {         return csf_validate_url($value);       }     }   }    Sakurairo_CSF::createOptions( $prefix, array(     'menu_title' => __('iro-Options','sakurairo_csf'),     'menu_slug'  => 'iro_options',   ) );    Sakurairo_CSF::createSection($prefix, array(     'title' => __('Hello!','sakurairo_csf'),     'icon'        => 'fa fa-podcast',     'fields'      => array(        array(         'type'    => 'heading',         'content' => __('News+','sakurairo_csf'),       ),        array(         'type'    => 'content',         'content' => __('<img src="https://news.maho.cc/sakurairo.php"  alt="News_Plus" width="100%" height="100%" />','sakurairo_csf'),       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'id'    => 'preliminary',     'title' => __('Preliminary Options','sakurairo_csf'),     'icon'      => 'fa fa-sliders',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Preliminary/">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'id'    => 'site_name',         'type'  => 'text',         'title' => __('Site Name','sakurairo_csf'),         'desc'   => __('For example: Sakurairo Blog','sakurairo_csf'),       ),        array(         'id'    => 'author_name',         'type'  => 'text',         'title' => __('Author Name','sakurairo_csf'),         'desc'   => __('For example: Fuukei','sakurairo_csf'),       ),        array(         'id'    => 'personal_avatar',         'type'  => 'upload',         'title' => __('Personal Avatar','sakurairo_csf'),         'desc'   => __('The best length-width ratio of is 1:1','sakurairo_csf'),         'library'      => 'image',       ),        array(         'id'    => 'text_logo_options',         'type'  => 'switcher',         'title' => __('Mashiro Special Effects Text','sakurairo_csf'),         'label'   => __('After turned on, the personal avatar will be replaced by the text as the home page display content','sakurairo_csf'),         'default' => false       ),        array(         'id'        => 'text_logo',         'type'      => 'fieldset',         'title'     => __('Mashiro Special Effects Text Options','sakurairo_csf'),         'dependency' => array( 'text_logo_options', '==', 'true' ),         'fields'    => array(           array(             'id'     => 'text',             'type'   => 'text',             'title'  => __('Text','sakurairo_csf'),             'desc'   => __('The text content should not be too long, and the recommended length is 16 bytes.','sakurairo_csf'),           ),           array(             'id'     => 'font',             'type'   => 'text',             'title'  => __('Font','sakurairo_csf'),             'desc'   => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),           ),           array(             'id'     => 'size',             'type'   => 'slider',             'title'  => __('Size','sakurairo_csf'),             'desc'   => __('Slide to adjust, the recommended value range is 70-90','sakurairo_csf'),             'unit'    => 'px',             'min'   => '40',             'max'   => '140',           ),           array(             'id'      => 'color',             'type'    => 'color',             'title'   => __('Color','sakurairo_csf'),             'desc'    => __('Customize the colors, light colors are recommended','sakurairo_csf'),           ),               ),         'default'        => array(           'text'    => 'ひょうりゅ',           'size'    => '80',           'color'    => '#FFF',         ),       ),        array(         'id'    => 'iro_logo',         'type'  => 'upload',         'title' => __('Navigation Menu Logo','sakurairo_csf'),         'desc'   => __('The best size is 40px, and the nav menu text logo will not be displayed after filling in','sakurairo_csf'),         'library'      => 'image',       ),        array(         'id'    => 'favicon_link',         'type'  => 'text',         'title' => __('Site Icon','sakurairo_csf'),         'desc'   => __('Fill in the address, which decides the icon next to the title above the browser','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/basic/favicon.ico'       ),        array(         'id'    => 'iro_meta',         'type'  => 'switcher',         'title' => __('Custom Site Keywords and Descriptions','sakurairo_csf'),         'label'   => __('After turning on, you can customize the site keywords and descriptions','sakurairo_csf'),         'default' => false       ),        array(         'id'     => 'iro_meta_keywords',         'type'   => 'text',         'title'  => __('Site Keywords','sakurairo_csf'),         'dependency' => array( 'iro_meta', '==', 'true' ),         'desc'   => __('The keywords should be separated with half width comma "," and it\'s better to set within 5 keywords','sakurairo_csf'),       ),        array(         'id'     => 'iro_meta_description',         'type'   => 'text',         'title'  => __('Site Descriptions','sakurairo_csf'),         'dependency' => array( 'iro_meta', '==', 'true' ),         'desc'   => __('Use concise words to describe the site, it is recommended to write within 120 words','sakurairo_csf'),       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'id'    => 'global',      'title' => __('Global Options','sakurairo_csf'),     'icon'      => 'fa fa-globe',   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title'  => __('Appearance Options','sakurairo_csf'),     'icon'      => 'fa fa-tree',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E5%A4%96%E8%A7%82%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'type'    => 'subheading',         'content' => __('Color Schemes','sakurairo_csf'),       ),        array(         'id'      => 'theme_skin',         'type'    => 'color',         'title'   => __('Theme Color','sakurairo_csf'),         'desc'    => __('Customize the colors','sakurairo_csf'),         'default' => '#505050'       ),          array(         'id'      => 'theme_skin_matching',         'type'    => 'color',         'title'   => __('Matching Color','sakurairo_csf'),         'desc'    => __('Customize the colors','sakurairo_csf'),         'default' => '#F9D938'       ),          array(         'type'    => 'subheading',         'content' => __('Dark Mode','sakurairo_csf'),       ),        array(         'id'      => 'theme_skin_dark',         'type'    => 'color',         'title'   => __('Dark Mode Theme Color','sakurairo_csf'),         'desc'    => __('Customize the colors','sakurairo_csf'),         'default' => '#FCCD00'       ),         array(         'id'    => 'theme_darkmode_auto',         'type'  => 'switcher',         'title' => __('Automatically Switch to Dark Mode','sakurairo_csf'),         'label'   => __('Default on','sakurairo_csf'),         'default' => true       ),       array(         'type'    => 'content',         'content' => __(          '<p><strong>Client local time:</strong>Dark mode will switch on automatically from 22:00 to 7:00</p>'         .'<p><strong>Follow client settings:</strong>Follow client browser settings</p>'         .'<p><strong>Always on:</strong>Always on, except being configured by the client</p>','sakurairo_csf'),         'dependency' => array( 'theme_darkmode_auto', '==', 'true' ),        ),       array(         'id'    => 'theme_darkmode_strategy',         'type'  => 'select',         'title' => __('Automatic Switch Strategy of Dark Mode','sakurairo_csf'),         'dependency' => array( 'theme_darkmode_auto', '==', 'true' ),         'options'     => array(           'time'  => __('Client local time','sakurairo_csf'),           'client'  => __('Follow client settings','sakurairo_csf'),           'eien'  => __('Always on','sakurairo_csf'),         ),         "default"=>"time"       ),        array(         'id'     => 'theme_darkmode_img_bright',         'type'   => 'slider',         'title'  => __('Dark Mode Image Brightness','sakurairo_csf'),         'desc'   => __('Slide to adjust, the recommended value range is 0.6-0.8','sakurairo_csf'),         'step'   => '0.01',         'min'   => '0.4',         'max'   => '1',         'default' => '0.8'       ),        array(         'id'     => 'theme_darkmode_widget_transparency',         'type'   => 'slider',         'title'  => __('Dark Mode Component Transparency','sakurairo_csf'),         'desc'   => __('Slide to adjust, the recommended value range is 0.6-0.8','sakurairo_csf'),         'step'   => '0.01',         'min'   => '0.2',         'max'   => '1',         'default' => '0.8'       ),       array(         'id'     => 'theme_darkmode_background_transparency',         'type'   => 'slider',         'title'  => __('Dark mode Background Transparency','sakurairo_csf'),         'desc'   => __('Slide to adjust, the recommended value range is 0.6-0.8. In order to ensure the best appearance, please keep the display of the frontend background image','sakurairo_csf'),         'step'   => '0.01',         'min'   => '0.2',         'max'   => '1',         'default' => '0.8'       ),        array(         'type'    => 'subheading',         'content' => __('Other Appearance Related','sakurairo_csf'),       ),        array(         'id'    => 'theme_commemorate_mode',         'type'  => 'switcher',         'title' => __('Commemorate Mode','sakurairo_csf'),         'label'   => __('After turning on, a black and white filter will be added to the global theme','sakurairo_csf'),         'default' => false       ),        array(         'id'     => 'load_out_svg',         'type'   => 'text',         'title'  => __('Occupying SVG while Loading Control Units','sakurairo_csf'),         'desc'   => __('Fill in the address, which is the SVG displayed when loading control units','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/load_svg/outload.svg'       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title'  => __('Font Options','sakurairo_csf'),     'icon'      => 'fa fa-font',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E5%AD%97%E4%BD%93%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'type'    => 'subheading',         'content' => __('Global','sakurairo_csf'),       ),        array(         'id'     => 'global_font_weight',         'type'   => 'slider',         'title'  => __('Non-Emphasis Text Weight','sakurairo_csf'),         'desc'   => __('Slide to adjust, the recommended value range is 300-500','sakurairo_csf'),         'step'   => '10',         'min'   => '100',         'max'   => '700',         'default' => '300'       ),        array(         'id'     => 'global_font_size',         'type'   => 'slider',         'title'  => __('Text Font Size','sakurairo_csf'),         'desc'   => __('Slide to adjust, the recommended value range is 15-18','sakurairo_csf'),         'step'   => '1',         'unit'    => 'px',         'min'   => '10',         'max'   => '20',         'default' => '15'       ),        array(         'type'    => 'subheading',         'content' => __('External Fonts','sakurairo_csf'),       ),        array(         'id'    => 'reference_exter_font',         'type'  => 'switcher',         'title' => __('Reference External Fonts','sakurairo_csf'),         'label'   => __('After turning on, you can use external fonts as the default font or other component fonts, but it may affect performance','sakurairo_csf'),         'default' => false       ),        array(         'id'     => 'exter_font',         'type'   => 'fieldset',         'title'  => __('External Font Options','sakurairo_csf'),         'dependency' => array( 'reference_exter_font', '==', 'true' ),         'fields' => array(           array(             'id'    => 'font1',             'type'  => 'text',             'title' => __('Font 1 Name','sakurairo_csf'),           ),           array(             'id'    => 'link1',             'type'  => 'text',             'title' => __('Font 1 Link','sakurairo_csf'),           ),           array(             'id'    => 'font2',             'type'  => 'text',             'title' => __('Font 2 Name','sakurairo_csf'),           ),           array(             'id'    => 'link2',             'type'  => 'text',             'title' => __('Font 2 Link','sakurairo_csf'),           ),         ),         'default'        => array(           'font1'     => '',           'link1'     => '',           'font2'     => '',           'link2'     => '',         ),       ),        array(         'id'     => 'gfonts_api',         'type'   => 'text',         'title'  => __('Google Fonts Api Link','sakurairo_csf'),         'default' => 'fonts.geekzu.org'       ),        array(         'id'     => 'gfonts_add_name',         'type'   => 'text',         'title'  => __('Google Fonts Name','sakurairo_csf'),         'desc'   => __('Please make sure that the added fonts can be referenced in Google Fonts library. Fill in the font names. The added fonts must be preceded by "|". If multiple fonts are referenced, use "|" as the separator. If the font name has spaces, use a plus sign instead. For example: | zcool + xiaowei| Ma + Shan + Zheng','sakurairo_csf'),       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title'  => __('Navigation Menu Options','sakurairo_csf'),     'icon'      => 'fa fa-map-signs',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E5%AF%BC%E8%88%AA%E8%8F%9C%E5%8D%95%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'id'         => 'nav_menu_style',         'type'       => 'image_select',         'title'      => __('Nav Menu Style','sakurairo_csf'),         'options'    => array(           'sakurairo' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/nav_menu_style_iro.webp',           'sakura' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/nav_menu_style_sakura.webp',         ),         'default'    => 'sakurairo'       ),        array(         'id'    => 'nav_menu_radius',         'type'  => 'slider',         'title' => __('Nav Menu Radius','sakurairo_csf'),         'dependency' => array( 'nav_menu_style', '==', 'sakurairo' ),         'desc'   => __('Slide to adjust, the recommended value is 15','sakurairo_csf'),         'unit'    => 'px',         'max'   => '50',         'default' => '15'       ),        array(         'id'         => 'nav_menu_display',         'type'       => 'radio',         'title'      => __('Nav Menu Content Display Method','sakurairo_csf'),         'desc'    => __('You can choose to unfold or fold the nav menu contents','sakurairo_csf'),         'options'    => array(           'unfold' => __('Unfold','sakurairo_csf'),           'fold' => __('Fold','sakurairo_csf'),         ),         'default'    => 'unfold'       ),        array(         'id'    => 'nav_menu_animation',         'type'  => 'switcher',         'title' => __('Nav Menu Animation Effects','sakurairo_csf'),         'label'   => __('It is on by default. If it is off, the nav menu content will be displayed directly without effects','sakurairo_csf'),         'default' => true       ),        array(         'id'     => 'nav_menu_animation_time',         'type'   => 'slider',         'title'  => __('Nav Menu Animation Time','sakurairo_csf'),         'dependency' => array( 'nav_menu_animation', '==', 'true' ),         'desc'   => __('Slide to adjust, the recommended value range is 1-2','sakurairo_csf'),         'step'   => '0.01',         'unit'    => 's',         'max'   => '5',         'default' => '2'       ),        array(         'id' => 'nav_menu_font',         'type' => 'text',         'title' => __('Nav Menu Font','sakurairo_csf'),         'desc' => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),         'default' => 'Noto Serif SC'       ),        array(         'id'    => 'nav_menu_search',         'type'  => 'switcher',         'title' => __('Nav Menu Search','sakurairo_csf'),         'label'   => __('It is on by default. Click to enter the search area','sakurairo_csf'),         'default' => true       ),        array(         'id'    => 'search_area_background',         'type'  => 'upload',         'title' => __('Search Area Background Image','sakurairo_csf'),         'desc'   => __('Set the background image of your search area. Leave this option blank to display a white background','sakurairo_csf'),         'library'      => 'image',         'default'     => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/basic/iloli.gif'       ),        array(         'id'    => 'nav_menu_user_avatar',         'type'  => 'switcher',         'title' => __('Nav Menu User Avatar','sakurairo_csf'),         'label'   => __('It is on by default. Click to enter the login interface','sakurairo_csf'),         'default' => true       ),        array(         'id'     => 'unlisted_avatar',         'type'  => 'upload',         'title' => __('Nav Menu Unlisted User Avatar','sakurairo_csf'),         'dependency' => array( 'nav_menu_user_avatar', '==', 'true' ),         'desc'   => __('The best length-width ratio of is 1:1','sakurairo_csf'),         'library'      => 'image',         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/basic/topavatar.png'       ),        array(         'id'    => 'nav_menu_secondary_arrow',         'type'  => 'switcher',         'title' => __('Secondary Menu Prompt Arrow','sakurairo_csf'),         'label'   => __('After turning on, the menu prompt arrow will appear in the secondary menu of the navigation menu','sakurairo_csf'),         'dependency' => array( 'nav_menu_style', '==', 'sakura' ),         'default' => false       ),        array(         'id'    => 'nav_menu_secondary_radius',         'type'  => 'slider',         'title' => __('Secondary Menu Radius','sakurairo_csf'),         'dependency' => array( 'nav_menu_style', '==', 'sakurairo' ),         'desc'   => __('Slide to adjust, the recommended value is 15','sakurairo_csf'),         'unit'    => 'px',         'max'   => '30',         'default' => '15'       ),        array(         'id'    => 'mashiro_logo_option',         'type'  => 'switcher',         'title' => __('Mashiro Logo Style','sakurairo_csf'),         'label'   => __('After turning on, the Mashiro Logo will appear and replace the navigation menu logo position','sakurairo_csf'),         'default' => false       ),        array(         'id'     => 'mashiro_logo',         'type'   => 'fieldset',         'title'  => __('Nav Menu Text Logo Options','sakurairo_csf'),         'fields' => array(           array(             'id'    => 'text_a',             'type'  => 'text',             'title' => __('Text A','sakurairo_csf'),           ),           array(             'id'    => 'text_b',             'type'  => 'text',             'title' => __('Text B','sakurairo_csf'),           ),           array(             'id'    => 'text_c',             'type'  => 'text',             'title' => __('Text C','sakurairo_csf'),           ),           array(             'id'    => 'text_secondary',             'type'  => 'text',             'title' => __('Secondary Text','sakurairo_csf'),             'dependency' => array( 'text_b', '!=', '' ),           ),           array(             'id'    => 'font_name',             'type'  => 'text',             'title' => __('Font Name','sakurairo_csf'),           ),         ),         'default'        => array(           'text_a'     => '',           'text_b'     => '',           'text_c'     => '',           'text_secondary' => '',           'font_name'    => 'Noto Serif SC',         ),       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title' => __('Style Menu and Frontend Background Related Options','sakurairo_csf'),     'icon' => 'fa fa-th-large',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E6%A0%B7%E5%BC%8F%E8%8F%9C%E5%8D%95%E5%92%8C%E5%89%8D%E5%8F%B0%E8%83%8C%E6%99%AF%E7%9B%B8%E5%85%B3%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'type' => 'subheading',         'content' => __('Style Menu','sakurairo_csf'),       ),        array(         'id' => 'style_menu_display',         'type' => 'image_select',         'title' => __('Style Menu Display','sakurairo_csf'),         'desc' => __('You can choose to display the style menu simply or in full. The full display will show the font toggle function and text hints','sakurairo_csf'),         'options' => array(           'full' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/style_menu_full.webp',           'mini' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/style_menu_mini.webp',         ),         'default' => 'full'       ),        array(         'id' => 'style_menu_radius',         'type' => 'slider',         'title' => __('Style Menu Button Radius','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended value is 10','sakurairo_csf'),         'unit' => 'px',         'max' => '50',         'default' => '10'       ),        array(         'id' => 'style_menu_selection_radius',         'type' => 'slider',         'title' => __('Style Menu Options Interface Radius','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended value is 15','sakurairo_csf'),         'unit' => 'px',         'max' => '30',         'default' => '15'       ),        array(         'id' => 'style_menu_reception_text',         'type' => 'text',         'title' => __('Frontend Background Area Title','sakurairo_csf'),         'dependency' => array( 'style_menu_display', '==', 'full' ),         'desc' => __('Default is "Style", you can change it to anything else, but of course it CANNOT be used as an ad! Not allowed!!!' ,'sakurairo_csf'),         'default' => 'Style'       ),        array(         'id' => 'style_menu_font_area_text',         'type' => 'text',         'title' => __('Font Area Title','sakurairo_csf'),         'dependency' => array( 'style_menu_display', '==', 'full' ),         'desc' => __('Default is "Fonts", you can change it to anything else, but of course it CANNOT be used as an ad! Not allowed!!!' ,'sakurairo_csf'),         'default' => 'Fonts'       ),        array(         'id' => 'style_menu_font',         'type' => 'text',         'title' => __('Style Menu Font','sakurairo_csf'),         'dependency' => array( 'style_menu_display', '==', 'full' ),         'desc' => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),         'default' => 'Noto Serif SC'       ),        array(         'type' => 'subheading',         'content' => __('Frontend Background','sakurairo_csf'),       ),        array(         'id' => 'reception_background_size',         'type' => 'select',         'options' => array(           'cover' => __('Cover','sakurairo_csf'),           'contain' => __('Contain','sakurairo_csf'),           'auto' => __('Auto','sakurairo_csf'),         ),         'title' => __('Frontend Background Scaling Method','sakurairo_csf'),          'desc' => __('You can choose two ways to scale the frontend background, the default is auto-scaling','sakurairo_csf'),         'default' => 'auto'       ),        array(         'id'    => 'reception_background_blur',         'type'  => 'switcher',         'title' => __('Background Transparency Blur','sakurairo_csf'),         'label'   => __('After opening Background Transparency Blur','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'reception_background',         'type' => 'tabbed',         'title' => __('Frontend Background Options','sakurairo_csf'),         'tabs' => array(           array(             'title' => __('Default','sakurairo_csf'),             'icon' => 'fa fa-television',             'fields' => array(               array(                 'id' => 'img1',                 'type' => 'upload',                 'title' => __('Image','sakurairo_csf'),               ),             )           ),           array(             'title' => __('Heart Shaped','sakurairo_csf'),             'icon' => 'fa fa-heart-o',             'fields' => array(               array(                 'id' => 'heart_shaped',                 'type' => 'switcher',                 'title' => __('Switch','sakurairo_csf'),               ),               array(                 'id' => 'img2',                 'type' => 'upload',                 'title' => __('Image','sakurairo_csf'),               ),             )           ),           array(             'title' => __('Star Shaped','sakurairo_csf'),             'icon' => 'fa fa-star-o',             'fields' => array(               array(                 'id' => 'star_shaped',                 'type' => 'switcher',                 'title' => __('Switch','sakurairo_csf'),               ),               array(                 'id' => 'img3',                 'type' => 'upload',                 'title' => __('Image','sakurairo_csf'),               ),             )           ),           array(             'title' => __('Square Shaped','sakurairo_csf'),             'icon' => 'fa fa-delicious',             'fields' => array(               array(                 'id' => 'square_shaped',                 'type' => 'switcher',                 'title' => __('Switch','sakurairo_csf'),               ),               array(                 'id' => 'img4',                 'type' => 'upload',                 'title' => __('Image','sakurairo_csf'),               ),             )           ),           array(             'title' => __('Lemon Shaped','sakurairo_csf'),             'icon' => 'fa fa-lemon-o',             'fields' => array(               array(                 'id' => 'lemon_shaped',                 'type' => 'switcher',                 'title' => __('Switch','sakurairo_csf'),               ),               array(                 'id' => 'img5',                 'type' => 'upload',                 'title' => __('Image','sakurairo_csf'),               ),             )           ),         ),         'default'       => array(           'heart_shaped'  => true,           'star_shaped'  => true,           'square_shaped'  => true,           'lemon_shaped'  => true,           'img2'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/background/bg1.png',           'img3'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/background/bg2.png',           'img4' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/background/bg3.png',           'img5' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/background/bg4.png',         )       ),        array(         'id' => 'reception_background_transparency',         'type' => 'slider',         'title' => __('Background Transparency in the Frontend','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended sliding value range is 0.6-0.8','sakurairo_csf'),         'step' => '0.01',         'min' => '0.2',         'max' => '1',         'default' => '0.8'       ),        array(         'type' => 'subheading',         'content' => __('Font Area','sakurairo_csf'),       ),        array(         'id' => 'global_default_font',         'type' => 'text',         'title' => __('Global Default Font/Style Menu Font A','sakurairo_csf'),         'desc' => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),       ),        array(         'id' => 'global_font_2',         'type' => 'text',         'title' => __('Style Menu Font B','sakurairo_csf'),         'dependency' => array( 'style_menu_display', '==', 'full' ),         'desc' => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title' => __('Footer Options','sakurairo_csf'),     'icon' => 'fa fa-caret-square-o-down',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E9%A1%B5%E5%B0%BE%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'id' => 'aplayer_server',         'type' => 'select',         'title' => __('Footer Online Music Player','sakurairo_csf'),         'desc' => __('A button will appear at the bottom left corner of the footer after turning on, click it and the footer online player will be displayed','sakurairo_csf'),         'options' => array(           'off' => __('Off','sakurairo_csf'),           'netease' => __('Netease Cloud Music','sakurairo_csf'),           'kugou' => __('Kugou Music(may not be available)','sakurairo_csf'),           'baidu' => __('Baidu Music(not available on servers overseas)','sakurairo_csf'),           'tencent' => __('QQ Music(may not be available)','sakurairo_csf'),         ),         'default' => 'off'       ),        array(         'id' => 'aplayer_server_proxy',         'type' => 'text',         'title' => __('Footer Online Music Player Proxy','sakurairo_csf'),         'dependency' => array( 'aplayer_server', '!=', 'off' ),         'desc' => __('Ex. http://127.0.0.1:8080. Reference: https://curl.se/libcurl/c/CURLOPT_PROXY.html','sakurairo_csf'),         'default' => ''       ),        array(         'id' => 'aplayer_playlistid',         'type' => 'text',         'title' => __('Footer Online Music Player Songlist ID','sakurairo_csf'),         'dependency' => array( 'aplayer_server', '!=', 'off' ),         'desc' => __('Fill in the song ID, e.g. https://music.163.com/#/playlist?id=5380675133 SongID:5380675133','sakurairo_csf'),         'default' => '5380675133'       ),        array(         'id' => 'aplayer_order',         'type' => 'select',         'title' => __('Footer Online Music Player Mode','sakurairo_csf'),         'dependency' => array( 'aplayer_server', '!=', 'off' ),         'desc' => __('Select music player mode','sakurairo_csf'),         'options' => array(           'list' => __('List','sakurairo_csf'),           'random' => __('Random','sakurairo_csf'),         ),         'default' => 'list'       ),        array(         'id' => 'aplayer_preload',         'type' => 'select',         'title' => __('Footer Online Music Player Preload','sakurairo_csf'),         'dependency' => array( 'aplayer_server', '!=', 'off' ),         'desc' => __('Whether to preload songs','sakurairo_csf'),         'options' => array(           'none' => __('Off','sakurairo_csf'),           'metadata' => __('Preload Metadata','sakurairo_csf'),           'auto' => __('Auto','sakurairo_csf'),         ),         'default' => 'auto'       ),        array(         'id' => 'aplayer_volume',         'type' => 'slider',         'title' => __('Default Volume of Footer Online Music Player','sakurairo_csf'),         'dependency' => array( 'aplayer_server', '!=', 'off' ),         'desc' => __('Slide to adjust, the recommended sliding value range is 0.4-0.6','sakurairo_csf'),         'step' => '0.01',         'max' => '1',         'default' => '0.5'       ),        array(         'id' => 'aplayer_cookie',         'type' => 'textarea',         'title' => __('Netease Cloud Music Cookies','sakurairo_csf'),         'dependency' => array( 'aplayer_server', '==', 'netease' ),         'desc' => __('If you want to play VIP music on Netease Cloud Music Platform, please fill in your account cookies in this option.','sakurairo_csf'),       ),        array(         'id' => 'sakura_widget',         'type' => 'switcher',         'title' => __('Footer Widget Area','sakurairo_csf'),         'label' => __('After turning it on, a button will appear in the bottom of the left corner of the footer, when you click the button the footer widget area will be displayed, if you have the footer online player turned on it will be displayed together','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'sakura_widget_background',         'type' => 'upload',         'title' => __('Footer Widget Area Background','sakurairo_csf'),         'dependency' => array( 'sakura_widget', '==', 'true' ),         'desc' => __('The best picture size is 400px × 460px','sakurairo_csf'),         'library' => 'image',       ),        array(         'id' => 'footer_info',         'type' => 'textarea',         'title' => __('Footer Info','sakurairo_csf'),         'desc' => __('Footer description text, supports HTML code','sakurairo_csf'),         'default' => 'Copyright &copy; by FUUKEI All Rights Reserved.'       ),        array(         'id' => 'footer_text_font',         'type' => 'text',         'title' => __('Footer Text Font','sakurairo_csf'),         'desc' => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),         'default' => 'Noto Serif SC'       ),        array(         'id' => 'footer_load_occupancy',         'type' => 'switcher',         'title' => __('Footer Load Occupancy Query','sakurairo_csf'),         'label' => __('Load occupancy information will appear at the end of the page after turning it on. Not recommended in production environment.','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'footer_upyun',         'type' => 'switcher',         'title' => __('Footer Upyun League Logo','sakurairo_csf'),         'label' => __('Upyun Logo will appear at the end of the page after turning it on','sakurairo_csf'),         'default' => false       ),        array(         'id'=>'footer_addition',         'type'     => 'code_editor',         'sanitize' => false,         'title' => __('Footer Addition','sakurairo_csf'),         'desc' => __('Add HTML code at the end of the page. Useful for adding customize JavaScript.','sakurairo_csf'),       ),        array(         'type' => 'subheading',         'content' => __('Hitokoto','sakurairo_csf'),       ),        array(         'id' => 'footer_yiyan',         'type' => 'switcher',         'title' => __('Footer Hitokoto','sakurairo_csf'),         'label' => __('Hitokoto will appear at the end of the page after turning it on','sakurairo_csf'),         'default' => false       ),        array(         'type' => 'content',         'dependency' => array( 'footer_yiyan', '==', 'true' ),         'content' => __('<h4>Hitokoto API Setup Instructions</h4>'         .' <p>Fill in as the example:<code> ["https://api.nmxc.ltd/yiyan/", "https://v1.hitokoto.cn/"]</code>, where the first API will be used first and the next ones will be the backup. </p>'         .' <p><strong>Official API:</strong> See the <a href="https://developer.hitokoto.cn/sentence/"> documentation</a> for how to use it, and the parameter "return code" should not be anything except JSON. <a href="https://v1.hitokoto.cn/">https://v1.hitokoto.cn/</a></p>'         .' <p><strong>Maho API:</strong> An reverse proxy mirror of the official API. <a href="https://api.nmxc.ltd/yiyan/">https://api.nmxc.ltd/yiyan/</a></p>','sakurairo_csf'),       ),        array(         'id' => 'yiyan_api',         'type' => 'textarea',         'title' => __('Hitokoto API address','sakurairo_csf'),         'dependency' => array( 'footer_yiyan', '==', 'true' ),         'desc' => __('Fill in the address in JavaScript array format','sakurairo_csf'),         'default' => '["https://v1.hitokoto.cn/","https://api.nmxc.ltd/yiyan/"]'       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title' => __('Cursor Options','sakurairo_csf'),     'icon' => 'fa fa-i-cursor',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E5%85%89%E6%A0%87%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'id' => 'cursor_nor',         'type' => 'text',         'title' => __('Standard Cursor Style','sakurairo_csf'),         'desc' => __('Apply to global, fill in ".cur" mouse file link','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/cursor/normal.cur'       ),        array(         'id' => 'cursor_no',         'type' => 'text',         'title' => __('Selected Cursor Style','sakurairo_csf'),         'desc' => __('Apply to multiple styles, fill in ".cur" file link','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/cursor/No_Disponible.cur'       ),        array(         'id' => 'cursor_ayu',         'type' => 'text',         'title' => __('Selected Control Unit Cursor Style','sakurairo_csf'),         'desc' => __('Apply to selected control unit, fill in ".cur" file link','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/cursor/ayuda.cur'       ),        array(         'id' => 'cursor_text',         'type' => 'text',         'title' => __('Selected Text Cursor Style','sakurairo_csf'),         'desc' => __('Apply to selected text, fill in ".cur" file link','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/cursor/texto.cur'       ),        array(         'id' => 'cursor_work',         'type' => 'text',         'title' => __('Work Status Cursor Style','sakurairo_csf'),         'desc' => __('Apply to load control unit, fill in ".cur" file link','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/cursor/work.cur'       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'global',      'title' => __('Additional Options','sakurairo_csf'),     'icon' => 'fa fa-gift',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Global/#%E9%A2%9D%E5%A4%96%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'type' => 'subheading',         'content' => __('Effects&Animations','sakurairo_csf'),       ),              array(         'id' => 'preload_animation',         'type' => 'switcher',         'title' => __('Preload Animation','sakurairo_csf'),         'label' => __('Preload animation before new pages load; To enable this option, ensure your page resources can load properly.' ,'sakurairo_csf'),         'default' => false       ),        array(         'id' => 'preload_animation_color1',         'type' => 'color',         'title' => __('Preload Animation Color A','sakurairo_csf'),         'dependency' => array( 'preload_animation', '==', 'true' ),         'desc' => __('Customize the colors','sakurairo_csf'),         'default' => '#ffea99'       ),           array(         'id' => 'preload_animation_color2',         'type' => 'color',         'title' => __('Preload Animation Color B','sakurairo_csf'),         'dependency' => array( 'preload_animation', '==', 'true' ),         'desc' => __('Customize the colors','sakurairo_csf'),         'default' => '#FCCD00'       ),           array(         'id' => 'preload_blur',         'title' => __('Preload Animation Blur Transition Effect','sakurairo_csf'),         'dependency' => array( 'preload_animation', '==', 'true' ),         'desc' => __('Blur transition duration in milliseconds ms, off when set to 0.' ,'sakurairo_csf'),         'default' => '0',         'type' => 'slider',         'step' => '10',         'max' => '10000',       ),         array(         'id' => 'sakura_falling_effects',         'type' => 'select',         'title' => __('Sakura Falling Effects','sakurairo_csf'),         'options' => array(           'off' => __('Off','sakurairo_csf'),           'native' => __('Native Quantity','sakurairo_csf'),           'quarter' => __('Quarter Quantity','sakurairo_csf'),           'half' => __('Half Quantity','sakurairo_csf'),           'less' => __('Less Quantity','sakurairo_csf'),         ),         'default' => 'off'       ),        array(         'id' => 'particles_effects',         'type' => 'switcher',         'title' => __('Particles Effects','sakurairo_csf'),         'dependency' => array( 'sakura_falling_effects', '==', 'off' ),         'label' => __('Particles effects will appear in the global background. Please open the Cover-and-Frontend-Background-Integration Options to get the best experience','sakurairo_csf'),         'default' => false       ),        array(         'id'=> 'particles_json',         'type'     => 'code_editor',         'sanitize' => false,         'title' => __('Particles JSON','sakurairo_csf'),         'dependency' => array( 'particles_effects', '==', 'true' ),         'desc' => __('You can go to the <a href="https://vincentgarreau.com/particles.js/">Project Address</a> to generate your unique Particles Effects','sakurairo_csf'),         'default' => '         {           "particles": {             "number": {               "value": 200,               "density": {                 "enable": true,                 "value_area": 800               }             },             "color": {               "value": "#fff"             },             "shape": {               "type": "circle",               "stroke": {                 "width": 0,                 "color": "#000000"               },               "polygon": {                 "nb_sides": 5               },               "image": {                 "src": "img/github.svg",                 "width": 100,                 "height": 100               }             },             "opacity": {               "value": 0.5,               "random": true,               "anim": {                 "enable": false,                 "speed": 1,                 "opacity_min": 0.1,                 "sync": false               }             },             "size": {               "value": 10,               "random": true,               "anim": {                 "enable": false,                 "speed": 40,                 "size_min": 0.1,                 "sync": false               }             },             "line_linked": {               "enable": false,               "distance": 500,               "color": "#ffffff",               "opacity": 0.4,               "width": 2             },             "move": {               "enable": true,               "speed": 2,               "direction": "bottom",               "random": false,               "straight": false,               "out_mode": "out",               "bounce": false,               "attract": {                 "enable": false,                 "rotateX": 600,                 "rotateY": 1200               }             }           },           "interactivity": {             "detect_on": "canvas",             "events": {               "onhover": {                 "enable": true,                 "mode": "bubble"               },               "onclick": {                 "enable": true,                 "mode": "repulse"               },               "resize": true             },             "modes": {               "grab": {                 "distance": 400,                 "line_linked": {                   "opacity": 0.5                 }               },               "bubble": {                 "distance": 400,                 "size": 4,                 "duration": 0.3,                 "opacity": 1,                 "speed": 3               },               "repulse": {                 "distance": 200,                 "duration": 0.4               },               "push": {                 "particles_nb": 4               },               "remove": {                 "particles_nb": 2               }             }           },           "retina_detect": true         }'       ),        array(         'id' => 'note_effects',         'type' => 'switcher',         'title' => __('Note Touch Effects','sakurairo_csf'),         'label' => __('After turning on, there will be a note sound alert when the back to top button and Mashiro style logo touch','sakurairo_csf'),         'default' => false       ),        array(         'type' => 'subheading',         'content' => __('Feature','sakurairo_csf'),       ),        array(         'id' => 'poi_pjax',         'type' => 'switcher',         'title' => __('PJAX Partial Refresh','sakurairo_csf'),         'label' => __('Enabled by default, clicking to a new page will not require reloading','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'nprogress_on',         'type' => 'switcher',         'title' => __('NProgress Loading Progress Bar','sakurairo_csf'),         'label' => __('Enabled by default, when loading page there will be a progress bar alert','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'smoothscroll_option',         'type' => 'switcher',         'title' => __('Global Smooth Scroll','sakurairo_csf'),         'label' => __('Enabled by default, page scrolling will be smoother','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'captcha_select',         'type' => 'select',         'title' => __('Captcha Selection','sakurairo_csf'),         'options' => array(           'off' => __('Off','sakurairo_csf'),           'iro_captcha' => __('Theme Built in Captcha','sakurairo_csf'),           'vaptcha' => __('Vaptcha','sakurairo_csf')         ),         'default' => 'off',       ),        array(         'id' => 'vaptcha_vid',         'type' => 'text',         'title' => __('Vaptcha VID','sakurairo_csf'),         'dependency' => array( 'captcha_select', '==', 'vaptcha' ),         'desc' => __('Fill in your Vaptcha VID','sakurairo_csf'),       ),        array(         'id' => 'vaptcha_key',         'type' => 'text',         'title' => __('Vaptcha KEY','sakurairo_csf'),         'dependency' => array( 'captcha_select', '==', 'vaptcha' ),         'desc' => __('Fill in your Vaptcha KEY','sakurairo_csf'),       ),        array(         'id' => 'vaptcha_scene',         'type' => 'select',         'title' => __('Vaptcha Scene','sakurairo_csf'),         'dependency' => array( 'captcha_select', '==', 'vaptcha' ),         'options' => array(           '1' => __(1,'sakurairo_csf'),           '2' => __(2,'sakurairo_csf'),           '3' => __(3,'sakurairo_csf'),           '4' => __(4,'sakurairo_csf'),           '5' => __(5,'sakurairo_csf'),           '6' => __(6,'sakurairo_csf'),         ),         'default' => 1,       ),        array(         'id' => 'pagenav_style',         'type' => 'radio',         'title' => __('Pagination Mode','sakurairo_csf'),         'options' => array(           'ajax' => __('Ajax Load','sakurairo_csf'),           'np' => __('Page Up/Down','sakurairo_csf'),         ),         'default' => 'ajax'       ),        array(         'id' => 'page_auto_load',         'type' => 'select',         'title' => __('Next Page Auto Load','sakurairo_csf'),         'dependency' => array( 'pagenav_style', '==', 'ajax' ),         'options' => array(           '233' => __('do not autoload','sakurairo_csf'),           '0' => __('0 Sec','sakurairo_csf'),           '1' => __('1 Sec','sakurairo_csf'),           '2' => __('2 Sec','sakurairo_csf'),           '3' => __('3 Sec','sakurairo_csf'),           '4' => __('4 Sec','sakurairo_csf'),           '5' => __('5 Sec','sakurairo_csf'),           '6' => __('6 Sec','sakurairo_csf'),           '7' => __('7 Sec','sakurairo_csf'),           '8' => __('8 Sec','sakurairo_csf'),           '9' => __('9 Sec','sakurairo_csf'),           '10' => __('10 Sec','sakurairo_csf'),         ),         'default' => '233'       ),        array(         'id' => 'load_nextpage_svg',         'type' => 'text',         'title' => __('Placeholder SVG when loading the next page','sakurairo_csf'),         'desc' => __('Fill in the address, this is the SVG that will be displayed as a placeholder when the next page is loading','sakurairo_csf'),         'default' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/load_svg/ball.svg'       ),     )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'id' => 'homepage',      'title' => __('HomePage Options','sakurairo_csf'),     'icon' => 'fa fa-home',   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'homepage',      'title' => __('Cover Options','sakurairo_csf'),     'icon' => 'fa fa-laptop',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Homepage/#%E5%B0%81%E9%9D%A2%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'id' => 'cover_switch',         'type' => 'switcher',         'title' => __('Cover Switch','sakurairo_csf'),         'label' => __('On by default, if off, all options below will be disabled','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'cover_full_screen',         'type' => 'switcher',         'title' => __('Cover Full Screen','sakurairo_csf'),         'label' => __('Default on','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'cover_half_screen_curve',         'type' => 'switcher',         'dependency' => array( 'cover_full_screen', '==', 'false' ),         'title' => __('Cover Arc Occlusion (Below)','sakurairo_csf'),         'label' => __('An arc occlusion will appear below the cover when turned on','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'cover_radius',         'type' => 'slider',         'title' => __('Cover Radius','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended value range is 15-20','sakurairo_csf'),         'unit' => 'px',         'max' => '60',         'default' => '15'       ),        array(         'id' => 'cover_animation',         'type' => 'switcher',         'title' => __('Cover Animation','sakurairo_csf'),         'label' => __('On by default, if off, the cover will be displayed directly','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'cover_animation_time',         'type' => 'slider',         'title' => __('Cover Animation Time','sakurairo_csf'),         'dependency' => array( 'cover_animation', '==', 'true' ),         'desc' => __('Slide to adjust, the recommended value range is 1-2','sakurairo_csf'),         'step' => '0.01',         'unit' => 's',         'max' => '5',         'default' => '2'       ),        array(         'id' => 'infor_bar',         'type' => 'switcher',         'title' => __('Cover Info Bar','sakurairo_csf'),         'label' => __('Enabled by default, show avatar, Mashiro effects text, signature bar, shuoshuo bar, social area','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'infor_bar_style',         'type' => 'image_select',         'title' => __('Cover Info Bar Style','sakurairo_csf'),         'options' => array(           'v1' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/infor_bar_style_v1.webp',           'v2' => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/infor_bar_style_v2.webp',         ),         'default' => 'v1'       ),        array(         'id' => 'infor_bar_bgcolor',         'type' => 'color',         'title' => __('Cover Info Bar Background Color','sakurairo_csf'),         'desc' => __('Customize the colors, light colors are recommended','sakurairo_csf'),         'default' => 'rgba(255,255,255,0.6)'       ),             array(         'id' => 'avatar_radius',         'type' => 'slider',         'title' => __('Cover Info Bar Avatar Radius','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended value is 100','sakurairo_csf'),         'unit' => 'px',         'default' => '100'       ),        array(         'id' => 'signature_radius',         'type' => 'slider',         'title' => __('Cover Info Bar Rounded','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended value range 10-20','sakurairo_csf'),         'unit' => 'px',         'max' => '50',         'default' => '15'       ),        array(         'id' => 'signature_text',         'type' => 'text',         'title' => __('Cover Signature Field Text','sakurairo_csf'),         'desc' => __('A self-descriptive quote','sakurairo_csf'),         'default' => '届ける言葉を今は育ててる'       ),        array(         'id' => 'signature_font',         'type' => 'text',         'title' => __('Cover Signature Field Text Font','sakurairo_csf'),         'desc' => __('Fill in the font name. For example: Noto Serif SC','sakurairo_csf'),         'default' => 'Noto Serif SC'       ),        array(         'id' => 'signature_font_size',         'type' => 'slider',         'title' => __('Cover Signature Field Text Font Size','sakurairo_csf'),         'desc' => __('Slide to adjust, the recommended value range is 15-18','sakurairo_csf'),         'unit' => 'px',         'min' => '5',         'max' => '20',         'default' => '16'       ),        array(         'id' => 'signature_typing',         'type' => 'switcher',         'title' => __('Cover Signature Bar Typing Effects','sakurairo_csf'),         'label' => __('When turned on, the signature bar text will have an additional paragraph of text and will be rendered with typing effects','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'signature_typing_marks',         'type' => 'switcher',         'title' => __('Cover Signature Field Typing Effects Double Quotes','sakurairo_csf'),         'dependency' => array( 'signature_typing', '==', 'true' ),         'label' => __('Typing effects will be appended with double quotes when turned on','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'signature_typing_placeholder',         'type'     => 'text',         'title' => __('Cover Signature Field Typing Effects Placeholder','sakurairo_csf'),         'dependency' => array( 'signature_typing', '==', 'true' ),         'default' => '疯狂造句中......'       ),        array(         'id' => 'signature_typing_json',         'type'     => 'code_editor',         'sanitize' => false,         'title' => __('Typed.js initial option','sakurairo_csf'),         'dependency' => array( 'signature_typing', '==', 'true' ),         'default' => '{"strings":["给时光以生命，给岁月以文明"],"typeSpeed":140,"backSpeed":50,"loop":false,"showCursor":true}'       ),        array(         'id' => 'homepage_shuoshuo',         'type' => 'switcher',         'title' => __('Cover Shuoshuo Bar','sakurairo_csf'),         'label' => __('When turned on, the Latest Shuoshuo text will be Cyclic displayed with info bar ','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'random_graphs_options',         'type' => 'select',         'title' => __('Cover Random Image Options','sakurairo_csf'),         'options' => array(           'external_api' => __('External API','sakurairo_csf'),           'webp_optimization' => __('Webp optimized','sakurairo_csf'),           'local' => __('Local','sakurairo_csf'),         ),         'default' => 'external_api'       ),        array(         'id' => 'random_graphs_mts',         'type' => 'switcher',         'title' => __('Cover Random Image Multi-terminal Separation','sakurairo_csf'),         'label' => __('Enabled by default, desktop and mobile devices will use separate random image addresses','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'random_graphs_link',         'type' => 'text',         'title' => __('Webp Optimization/External API Desktop Side Random Graphics Address','sakurairo_csf'),         'desc' => __('Fill in an URL','sakurairo_csf'),         'default' => 'https://api.maho.cc/random-img/pc.php',         'sanitize' => false,         'validate' => 'csf_validate_url',       ),        array(         'id' => 'random_graphs_link_mobile',         'type' => 'text',         'title' => __('External API Mobile Devices Random Image Address','sakurairo_csf'),         'dependency' => array( 'random_graphs_mts', '==', 'true' ),         'desc' => __('Fill in an URL','sakurairo_csf'),         'default' => 'https://api.maho.cc/random-img/mobile.php',         'sanitize' => false,         'validate' => 'csf_validate_url',       ),        array(         'id' => 'cache_cover',         'type' => 'switcher',         'title' => __('Cover Random Background Image Cache','sakurairo_csf'),         'label' => __('Enabled by default, this feature will cache a cover image locally, which can improve the loading speed of the first cover after entering the homepage. Note: This feature needs the cover APIs that accept cross-domain requests.' ,'sakurairo_csf'),         'default' => true       ),        array(         'id' => 'site_bg_as_cover',         'type' => 'switcher',         'title' => __('Cover and Frontend Background Integration','sakurairo_csf'),         'label' => __('When enabled, the background of the cover will be set to transparent, while the frontend background will use the cover\'s random image API','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'random_graphs_filter',         'type' => 'select',         'title' => __('Cover Random Images Filter','sakurairo_csf'),         'options' => array(           'filter-nothing' => __('No filter','sakurairo_csf'),           'filter-undertint' => __('Light filter','sakurairo_csf'),           'filter-dim' => __('Dimmed filter','sakurairo_csf'),           'filter-grid' => __('Grid filter','sakurairo_csf'),           'filter-dot' => __('Dot filter','sakurairo_csf'),         ),         'default' => 'filter-nothing'       ),        array(         'id' => 'wave_effects',         'type' => 'switcher',         'title' => __('Cover Wave Effects','sakurairo_csf'),         'label' => __('Wave effect will appear at the bottom of the cover of the home page after turning on, and it will be forced off in the dark mode','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'drop_down_arrow',         'type' => 'switcher',         'title' => __('Cover Dropdown Arrow','sakurairo_csf'),         'label' => __('Enabled by default, show a dropdown arrow at bottom of home cover','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'drop_down_arrow_mobile',         'type' => 'switcher',         'title' => __('Cover Dropdown Arrow Display on Mobile Devices','sakurairo_csf'),         'dependency' => array( 'drop_down_arrow', '==', 'true' ),         'label' => __('Drop down arrow will appear at the bottom of the mobile devices\' home cover after turning it on','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'drop_down_arrow_color',         'type' => 'color',         'title' => __('Cover Dropdown Arrow Color','sakurairo_csf'),         'dependency' => array( 'drop_down_arrow', '==', 'true' ),         'desc' => __('Customize the colors, light colors are recommended','sakurairo_csf'),         'default' => 'rgba(255,255,255,0.8)'       ),          array(         'id' => 'drop_down_arrow_dark_color',         'type' => 'color',         'title' => __('Cover Dropdown Arrow Color (Dark Mode)','sakurairo_csf'),         'dependency' => array( 'drop_down_arrow', '==', 'true' ),         'desc' => __('Customize the colors, dark colors are recommended','sakurairo_csf'),         'default' => 'rgba(51,51,51,0.8)'       ),          array(         'id' => 'cover_video',         'type' => 'switcher',         'title' => __('Cover Video','sakurairo_csf'),         'label' => __('Use a video instead of the images as the cover','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'cover_video_loop',         'type' => 'switcher',         'title' => __('Cover Video Loop','sakurairo_csf'),         'dependency' => array( 'cover_video', '==', 'true' ),         'label' => __('Video will loop automatically when enabled.','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'cover_video_live',         'type' => 'switcher',         'title' => __('Cover Video Auto Resume','sakurairo_csf'),         'dependency' => array( 'cover_video', '==', 'true' ),         'label' => __('Cover Video will resume automatically when coming back to homepage while Pjax enabled.','sakurairo_csf'),         'default' => false       ),        array(         'id' => 'cover_video_link',         'type' => 'text',         'title' => __('Cover Video URL Base Path','sakurairo_csf'),         'dependency' => array( 'cover_video', '==', 'true' ),         'validate' => 'iro_validate_optional_url',         'desc' => __("Fill in the base path your video located at. For example: https://localhost. Your site's URL is used as default. Please pay attention to the protocol name of the URL.",'sakurairo_csf'),       ),        array(         'id' => 'cover_video_title',         'type' => 'text',         'title' => __('Cover Video File Name','sakurairo_csf'),         'dependency' => array( 'cover_video', '==', 'true' ),         'desc' => __('For example: abc.mp4. Multiple videos should be separated by English commas like "abc.mp4,efg.mp4," Random play is on by default.','sakurairo_csf'),       ),      )   ) );    Sakurairo_CSF::createSection( $prefix, array(     'parent' => 'homepage',      'title' => __('Cover Social Area Options','sakurairo_csf'),     'icon' => 'fa fa-share-square-o',     'fields' => array(        array(         'type' => 'submessage',         'style' => 'info',         'content' => __('You can click <a href="https://docs.fuukei.org/Sakurairo/Homepage/#%E5%B0%81%E9%9D%A2%E7%A4%BE%E4%BA%A4%E5%8C%BA%E5%9F%9F%E8%AE%BE%E7%BD%AE">here</a> to learn how to set the options on this page','sakurairo_csf'),       ),        array(         'type' => 'subheading',         'content' => __('Related Options','sakurairo_csf'),       ),        array(         'id' => 'social_area',         'type' => 'switcher',         'title' => __('Cover Social Area','sakurairo_csf'),         'label' => __('Enabled by default, show cover random image toggle button and social network icons','sakurairo_csf'),         'default' => true       ),        array(         'id' => 'social_display_icon',         'type' => 'image_select',         'title' => __('Social Icon','sakurairo_csf'),         'desc' => __('Select your favorite icon pack. Icon pack references are detailed in the "About Theme" section','sakurairo_csf'),         'options'     => array(           'display_icon/fluent_design'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_fd.gif',           'display_icon/muh2'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_h2.gif',           'display_icon/flat_colorful'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_fc.gif',           'display_icon/sakura'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_sa.gif',           'display_icon/macaronblue'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_mb.webp',           'display_icon/macarongreen'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_mg.webp',           'display_icon/macaronpurple'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_mp.webp',           'display_icon/pink'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_sp.webp',           'display_icon/orange'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_so.webp',           'display_icon/sangosyu'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_sg.webp',           'display_icon/sora'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_ts.webp',           'display_icon/nae'  => 'https://s.nmxc.ltd/sakurairo_vision/@2.6/options/display_icon_nn.webp',         ),         'default'     => 'display_icon/fluent_design'       ),        array(         'id' => 'social_area_radius',         'type' => 'slider',         'title' => __('Cover Social Area Rounded Corners','sakurairo_csf'),         'dependency' => array( 'social_area', '==', 'true' ),         'desc' => __('Slide to adjust, the recommended value range is 10-20','sakurairo_csf'),         'unit' => 'px',         'max' => '30',         'default' => '15'       ),        array(         'id' => 'cover_random_graphs_switch',         'type' => 'switcher',         'title'…
+I have not tested this pr.
 
 ---
-## [timothynn/awesome-datascience](https://github.com/timothynn/awesome-datascience)@[3b71f0bbc3...](https://github.com/timothynn/awesome-datascience/commit/3b71f0bbc3e4a68a4c431f59309c61eb96ae5912)
-#### Tuesday 2023-05-02 12:46:29 by Andrew Carr
+## [outreachy/website](https://github.com/outreachy/website)@[0901c4f615...](https://github.com/outreachy/website/commit/0901c4f61527373c76e4d32e5d046589a2334151)
+#### Wednesday 2023-05-03 20:34:18 by Sage Sharp
+
+Add tracking of sponsorship status, invoice ticket number, and notes
+
+Each Outreachy sponsorship needs to be sent to Conservancy's RT ticket
+interface. Sometimes sending the sponsorship information to Conservancy
+gets delayed. Most often this is because we're waiting on invoicing
+details from the sponsor, or we're confirming intern selections.
+
+The notes field will let us keep track of what information we need to
+gather. The status field allows us to use emojis to see the status of
+our invoicing requests tasks. The RT ticket number field will help us
+cross-reference data, and add quickly add our notes to Conservancy's
+accounting system once we send the invoice.
+
+The pages to view and edit sponsorship information are only accessible
+to Django users with staff permissions. Otherwise they will get a
+permission denied error page.
+
+Update the sponsorship tests to reflect the new HTML layout of the
+sponsorship info page.
+
+TODO: I tried to add history tracking for the new fields, but could not
+make it work by just adding a Revision mixin to the new
+SponsorshipUpdates view. I suspect I'm doing something wrong - maybe
+with the admin.py file? I can't remember how setting up history tracking
+works right now, so I'll come back to it later.
+
+TODO: The notes on the sponsor info page table need to be contained in
+an accordion that is collapsed by default. However, I can't get the
+accordion code to work (I always have trouble with bootstrap's aria
+code, and I want to make sure the new code is accessible). So we'll just
+display all the notes all the time for now.
+
+---
+## [FreetoZ/cmss13](https://github.com/FreetoZ/cmss13)@[590bad4061...](https://github.com/FreetoZ/cmss13/commit/590bad4061627b75b638c0f7c1fbd3cca84e43c1)
+#### Wednesday 2023-05-03 20:46:07 by sleepynecrons
+
+updates for landing zone sign sprites (#3180)
+
+# About the pull request
+
+Cleans up the palettes on the landing zone sign sprites and gives them a
+fresh coat of paint (or blood). Not something most people will notice I
+think but it's something I've been wanting to do.
+
+
+# Explain why it's good for the game
+
+gradients ugly
+
+
+# Before and After
+<details>
+<summary>Click to see sprites</summary>
+
+
+![osudodajs2](https://user-images.githubusercontent.com/106241650/235265980-e622b7da-8f79-4920-ba27-97d704c65550.gif)
+
+
+![beforenafter](https://user-images.githubusercontent.com/106241650/235266004-0e46a574-9262-445f-98d9-4b19aa53a8fb.png)
+
+</details>
+
+
+# Changelog
+
+:cl:
+imageadd: new sprites for landing zone signs
+imagedel: deleted old landing zone signs
+/:cl:
+
+---
+## [Ical92/tgstation](https://github.com/Ical92/tgstation)@[4014aef4b0...](https://github.com/Ical92/tgstation/commit/4014aef4b0a24d260b314f462a21f943c3d62894)
+#### Wednesday 2023-05-03 20:58:37 by Bloop
+
+Fixes a runtime in simple_animal/hostile (#74706)
+
+## About The Pull Request
+
+Attempting to fix this flaky test that has been cropping up from the
+Icebox tests. It is annoying.
+
+From what I can tell, the mob was getting qdeleted while it was doing
+its loop of finding a target. This can happen at any time, because many
+simple mobs (including the one causing the issues) get qdeleted on
+death.
+
+Added some more checks to make sure we don't do certain actions if the
+mob gets qdeleted midway through execution of its AI routine. It really
+could happen anywhere so we must be vigilant.
+
+```
+create_and_destroy: [02:24:31] Runtime in stack_trace.dm,4: addtimer called with a callback assigned to a qdeleted object. In the future such timers will not be supported and may refuse to run or run with a 0 wait (code/controllers/subsystem/timer.dm:583)
+proc name:  stack trace (/proc/_stack_trace)
+src: null
+call stack:
+stack trace("addtimer called with a callbac...", "code/controllers/subsystem/tim...", 583)
+addtimer(/datum/callback (/datum/callback), 300, 8, null, "code/modules/mob/living/simple...", 595)
+the demonic watcher (/mob/living/simple_animal/hostile/asteroid/ice_demon): GainPatience()
+the demonic watcher (/mob/living/simple_animal/hostile/asteroid/ice_demon): GiveTarget(the mi-go (/mob/living/simple_animal/hostile/netherworld/migo))
+the demonic watcher (/mob/living/simple_animal/hostile/asteroid/ice_demon): FindTarget(/list (/list))
+the demonic watcher (/mob/living/simple_animal/hostile/asteroid/ice_demon): AIShouldSleep(/list (/list))
+the demonic watcher (/mob/living/simple_animal/hostile/asteroid/ice_demon): handle automated action() at stack_trace.dm:4
+```
+
+On top of that, there is signal handling in place to LoseTarget() when a
+mob that is already a target gets qdel'd and sends
+`COMSIG_PARENT_QDELETING`. Shown below.
+
+
+https://github.com/tgstation/tgstation/blob/4c48966ff80915ee0b4f796994a0ab6616cab31b/code/modules/mob/living/simple_animal/hostile/hostile.dm#L655-L666
+
+However there is nothing stopping a target that is not null but that has
+been qdeleted from being considered as a target in the first place.
+
+This PR just aims to fix that problem by making sure that a) a hostile
+ai that gets qdeleted midway through does not keep doing stuff that can
+cause issues and b) an atom that is being qdeleted never makes its way
+into the targets list of a hostile ai.
+
+Simple mobs/AI are due for a wider refactor honestly but this really
+ought to be done in the meantime so we don't get spammed by CI failures
+over nonsense.
+
+Fixes https://github.com/tgstation/tgstation/issues/73032
+Fixes https://github.com/tgstation/tgstation/issues/74266
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/18964
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/19749
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/18964
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/19322
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/18974
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/19296
+Fixes https://github.com/Skyrat-SS13/Skyrat-tg/issues/19294
+
+
+## Why It's Good For The Game
+
+Bugfix, stops the icebox test from failing as much.
+
+## Changelog
+:cl:
+fix: fixes hostile mobs sometimes being able to target an atom that has
+been marked for deletion and then becoming confused, and in a similar
+vein fixes mobs sometimes still running their AI while being marked for
+deletion.
+/:cl:
+
+---------
+
+Co-authored-by: san7890 <the@san7890.com>
+
+---
+## [sri-ka1kiZ/iceberg](https://github.com/sri-ka1kiZ/iceberg)@[1b371b41b9...](https://github.com/sri-ka1kiZ/iceberg/commit/1b371b41b97a880c0e2ef5952301aede2367a509)
+#### Wednesday 2023-05-03 21:00:51 by DidIDoThat
+
+Create gradle.yml
+
+Honestly, I dunno what I am doing.  But I'm trying and struggling. There are times when the code won't operate. I then dig in to see why... whether I didn't setup correctly or the code is corrupt. Which it is. So many different commands and code. Learning not to just download a repository and hope it works... duh. What I need to know is the how's and why's. I have been going through these difficulties for years. Not something that is just "new". I'm exhausted and I wanna tap out. But there is defiance within me and I do not have the heart to just walk away. I call BS. I am aware that there are specific people who would harass me as such.
+
+Attempt #290 -hoping the breaks the cycle
+
+---
+## [JoysKo/HYBRID_CAF_kernel](https://github.com/JoysKo/HYBRID_CAF_kernel)@[18a3e41532...](https://github.com/JoysKo/HYBRID_CAF_kernel/commit/18a3e41532c11b2b94a30ec1c020a54a415ff374)
+#### Wednesday 2023-05-03 21:30:51 by Douglas Anderson
+
+serial: core: Allow processing sysrq at port unlock time
+
+[ Upstream commit d6e1935819db0c91ce4a5af82466f3ab50d17346 ]
+
+Right now serial drivers process sysrq keys deep in their character
+receiving code.  This means that they've already grabbed their
+port->lock spinlock.  This can end up getting in the way if we've go
+to do serial stuff (especially kgdb) in response to the sysrq.
+
+Serial drivers have various hacks in them to handle this.  Looking at
+'8250_port.c' you can see that the console_write() skips locking if
+we're in the sysrq handler.  Looking at 'msm_serial.c' you can see
+that the port lock is dropped around uart_handle_sysrq_char().
+
+It turns out that these hacks aren't exactly perfect.  If you have
+lockdep turned on and use something like the 8250_port hack you'll get
+a splat that looks like:
+
+  WARNING: possible circular locking dependency detected
+  [...] is trying to acquire lock:
+  ... (console_owner){-.-.}, at: console_unlock+0x2e0/0x5e4
+
+  but task is already holding lock:
+  ... (&port_lock_key){-.-.}, at: serial8250_handle_irq+0x30/0xe4
+
+  which lock already depends on the new lock.
+
+  the existing dependency chain (in reverse order) is:
+
+  -> #1 (&port_lock_key){-.-.}:
+         _raw_spin_lock_irqsave+0x58/0x70
+         serial8250_console_write+0xa8/0x250
+         univ8250_console_write+0x40/0x4c
+         console_unlock+0x528/0x5e4
+         register_console+0x2c4/0x3b0
+         uart_add_one_port+0x350/0x478
+         serial8250_register_8250_port+0x350/0x3a8
+         dw8250_probe+0x67c/0x754
+         platform_drv_probe+0x58/0xa4
+         really_probe+0x150/0x294
+         driver_probe_device+0xac/0xe8
+         __driver_attach+0x98/0xd0
+         bus_for_each_dev+0x84/0xc8
+         driver_attach+0x2c/0x34
+         bus_add_driver+0xf0/0x1ec
+         driver_register+0xb4/0x100
+         __platform_driver_register+0x60/0x6c
+         dw8250_platform_driver_init+0x20/0x28
+	 ...
+
+  -> #0 (console_owner){-.-.}:
+         lock_acquire+0x1e8/0x214
+         console_unlock+0x35c/0x5e4
+         vprintk_emit+0x230/0x274
+         vprintk_default+0x7c/0x84
+         vprintk_func+0x190/0x1bc
+         printk+0x80/0xa0
+         __handle_sysrq+0x104/0x21c
+         handle_sysrq+0x30/0x3c
+         serial8250_read_char+0x15c/0x18c
+         serial8250_rx_chars+0x34/0x74
+         serial8250_handle_irq+0x9c/0xe4
+         dw8250_handle_irq+0x98/0xcc
+         serial8250_interrupt+0x50/0xe8
+         ...
+
+  other info that might help us debug this:
+
+   Possible unsafe locking scenario:
+
+         CPU0                    CPU1
+         ----                    ----
+    lock(&port_lock_key);
+                                 lock(console_owner);
+                                 lock(&port_lock_key);
+    lock(console_owner);
+
+   *** DEADLOCK ***
+
+The hack used in 'msm_serial.c' doesn't cause the above splats but it
+seems a bit ugly to unlock / lock our spinlock deep in our irq
+handler.
+
+It seems like we could defer processing the sysrq until the end of the
+interrupt handler right after we've unlocked the port.  With this
+scheme if a whole batch of sysrq characters comes in one irq then we
+won't handle them all, but that seems like it should be a fine
+compromise.
+
+Signed-off-by: Douglas Anderson <dianders@chromium.org>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+
+---
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[39ebf7c2af...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/39ebf7c2af41309fa4d5206f77cc4d261f47dfb7)
+#### Wednesday 2023-05-03 21:36:34 by SkyratBot
+
+[MIRROR] Nanotrasen Budget Programme - Mothball Edition [BIRDSHOT STATION] [MDB IGNORE] (#20832)
+
+* Nanotrasen Budget Programme - Mothball Edition [BIRDSHOT STATION] (#73502)
+
+## About The Pull Request
+---
+
+The Space Tram is currently spaced. This is a known issue with not the
+map, but Trams in general. The Space Tram is a Space Tram to encourage a
+fix. Until then, the Space Tram is a maint tram that's an actual hazard
+but cannot directly kill anyone, including lizards. Enjoy the commodity
+as you zip from secmaint to medmaint.
+-------------------------------------------------------
+
+I... really don't know if I should be proud of myself here. This whole
+process has been akin to a fever dream and it has only been little over
+a month since I first created the .dmm for this. What started as a
+simple yet humble reimagining of Birdboat has turned into an entirely
+new station, and blown past Metastation sized proportions. This has been
+my most expansive project yet, and somehow it's also been my quickest.
+So without further ado, I unveil Birdshot - Successor to Birdoat.
+
+-------------------------------------------------------
+
+**Due to recent cost expenditures on Icemoon projects, and a growing
+need for orbital research stations, Nanotrasen has decided to pull
+Birdboat Station out of mothball after nearly 5 years of abandonment.**
+
+Since then, the station has seen a variety of changes at the hands of
+the various vagabond lawless scum and villains that have decided to make
+the abandoned station their home. Do not fret though, a Nanotrasen
+Operation has secured the companies rightful property for corporate use
+once again, though you'll need to be the stewards of the remaining
+cleanup operation.
+
+------------------------------------------------------
+
+Now, as you might have guessed by now, Birdshot is heavily based on
+Birdboat station. Many of the decisions here follow the original layout,
+and what had to be modified or moved still tries its best to replicate
+and imitate what bird being said. At least, that was the idea initially.
+This has very much grown into its own beast and as such, while the main
+inspiration has been Birdboat, there are a lot of new ideas thrown into
+the mix that really give this station its own unique and deserving
+identity. Maybe it's not perfect, but I've been inspired by @ MMMiracles
+own performance with Tramstation to keep working on Birdshot and
+updating it with better and improved faculties. For now, though the
+station is in a playable state, and that means I'm making a PR. If I had
+to borrow the words of the good MMM, I would call this **Birdshot:
+Season 0**
+
+![BirdSHOTFULL2-26-S](https://user-images.githubusercontent.com/33048583/221432760-27af1889-d2d0-4861-9435-df4258525fae.png)
+
+See the image in more detail here: https://imgur.com/iT5Vi8k
+
+## Why It's Good For The Game
+
+We've been with the same 5 maps for a while now. @ san7890 jokingly said
+that I could sacrifice Metastation back in November if I remade Birdboat
+but modern. Obviously that wasn't going to happen, yet I was spurred on
+by the idea. When I began this in earnest early this January, @ EOBGames
+said that a Birdboat sized map would replace Kilostation in the
+rotation. Interestingly we're not a small map anymore so I honestly have
+no clue where this goes. Maybe that ephemeral 6th map slot that's been
+rumored.
+
+What I can say, is that Birdshot is wholly unlike anything else that is
+currently in rotation. It's got an engineering section that feels way
+too small for a station of that size, almost evocative of Cere. Cargo is
+blessed with a Boutique that makes use of @ Fikou's new mannequin dolls.
+Command is outfitted with a Corporate Guest Suite, and Officials sent
+from Nanotrasen can embark from their ferry into the safety of their own
+Corporate Dock. Elements of Cerestation are present, yet not in a way
+that makes traversal annoying. Furthermore we have **2 Trams** (that I
+have yet to get functional but we'll get there) on Birdshot, that's
+right 2. One Security Prison Tram, and then other, a Space Tram. Both
+Novel in their own ways. Departments on Birdshot twist and turn, and
+there's an abundance of Maintenance Tunnels to cut through everything,
+for the brave and the bold that is. And there's plenty left to discover,
+but I'd rather let Birdshot speak for itself. I'm proud of this one.
+
+If you want something new, this is something that is almost the complete
+opposite of Chilled Station - Explicitly Designed to send you back to
+the metal death trap that is: **Space Station 13.**
+
+## Changelog
+:cl:
+add: Birdshot station has been pulled out of Mothball.
+add: New station areas and places to visit. A Mix of Kilo and Delta
+maints with winding shortcutting paths.
+add: A host of new shuttles to support this bold endeavor to reclaim
+something that really shouldn't be reclaimed.
+add: Two Trams, Two Trams.
+add: For the last time Bob, the gaping hole is a **feature.** Use the
+breach shutters or have the virologist make starlight.
+add: A smiling salute to stations past...
+add: Secrets.
+
+/:cl:
+
+---------
+
+Co-authored-by: Zytolg <theoriginaldash@ gmail,com>
+
+* Nanotrasen Budget Programme - Mothball Edition [BIRDSHOT STATION]
+
+* basemap
+
+* automapper templates
+
+* Update maps.txt
+
+* Update _basemap.dm
+
+---------
+
+Co-authored-by: Zytolg <33048583+Zytolg@users.noreply.github.com>
+Co-authored-by: Zytolg <theoriginaldash@ gmail,com>
+Co-authored-by: lessthanthree <83487515+lessthnthree@users.noreply.github.com>
+Co-authored-by: Gandalf <9026500+Gandalf2k15@users.noreply.github.com>
+
+---
+## [C0USTEAU/dwm](https://github.com/C0USTEAU/dwm)@[67d76bdc68...](https://github.com/C0USTEAU/dwm/commit/67d76bdc68102df976177de351f65329d8683064)
+#### Wednesday 2023-05-03 21:38:59 by Chris Down
+
+Do not allow focus to drift from fullscreen client via focusstack()
+
+It generally doesn't make much sense to allow focusstack() to navigate
+away from the selected fullscreen client, as you can't even see which
+client you're selecting behind it.
+
+I have had this up for a while on the wiki as a separate patch[0], but
+it seems reasonable to avoid this behaviour in dwm mainline, since I'm
+struggling to think of any reason to navigate away from a fullscreen
+client other than a mistake.
+
+0: https://dwm.suckless.org/patches/alwaysfullscreen/
+
+---
+## [usnpeepoo/cmss13](https://github.com/usnpeepoo/cmss13)@[c4ebe04c7c...](https://github.com/usnpeepoo/cmss13/commit/c4ebe04c7c9ff01aa928c0c629322d72dec721d9)
+#### Wednesday 2023-05-03 22:04:38 by Julian56
+
+fix the medbay door release button to exit treatment center. (#3173)
+
+# About the pull request
+fix the medbay door release button to exit treatment center.
+was my mistake sorry
+<!-- Remove this text and explain what the purpose of your PR is.
+
+Mention if you have tested your changes. If you changed a map, make sure
+you used the mapmerge tool.
+If this is an Issue Correction, you can type "Fixes Issue #169420" to
+link the PR to the corresponding Issue number #169420.
+
+Remember: something that is self-evident to you might not be to others.
+Explain your rationale fully, even if you feel it goes without saying.
+-->
+
+# Explain why it's good for the game
+fixing bug is good
+# Testing Photographs and Procedure
+i tested the button ingame 
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+:cl:
+
+fix: fix the med-bay door release button to exit treatment center.my
+bad.
+
+/:cl:
+
+---------
+
+Co-authored-by: Julien <jverger.ingx@gmail.com>
+Co-authored-by: Morrow <darthbane97@gmail.com>
+
+---
+## [jforte372/James-Forte-hellow-world](https://github.com/jforte372/James-Forte-hellow-world)@[2ae5a71452...](https://github.com/jforte372/James-Forte-hellow-world/commit/2ae5a7145287b6f35927b05658ce2b59ce86d0a1)
+#### Wednesday 2023-05-03 22:12:39 by jforte372
 
 Update README.md
 
-I just published a book about using data science in your personal day-to-day life. I think this group might appreciate it. There are fun pictures, code, math, and jokes. I hope self promotion is ok, this seemed really relevant to the community.
+Tried to make his students(me) laugh with a terrible dad joke that wasn't funny(it was).
 
 ---
-## [mozilla-releng/staging-firefox-translations-training](https://github.com/mozilla-releng/staging-firefox-translations-training)@[1aaff8f00c...](https://github.com/mozilla-releng/staging-firefox-translations-training/commit/1aaff8f00c9a75574c45373c3893cd6530c19959)
-#### Tuesday 2023-05-02 13:03:27 by Ben Hearsum
+## [DATA-xPUNGED/DataStation](https://github.com/DATA-xPUNGED/DataStation)@[c27f9a6d9b...](https://github.com/DATA-xPUNGED/DataStation/commit/c27f9a6d9b9739baae09db063b6eb266d525772c)
+#### Wednesday 2023-05-03 22:22:01 by necromanceranne
 
-Add toolchain tasks for things that we depend on to train language models.
-
-Most of these are straight forward download and compiles, but there's a few callouts:
-- The CLI tools (marian, fast-align, etc.) already have build scripts used by the existing pipeline. For the most part, I'm just replacing them with my own version because they're just unpack/make/cmake. The exception is Marian, which has a little bit more going on with cmake definitions. Maybe I should just copy those in here though?
-- Some Python modules that don't have binary wheels available, which we ought to build to avoid needing to compile them at the start of training tasks.
-- CUDA (a NVIDIA Toolkit) is a huge pain. They don't have any real advertised way to just dump the files you want into a directory (they want you to run an installer). I _think_ I managed to get this work, but it's possible this will need a tweak in the future if a future task has trouble with the current toolchain.
-
-This also necessitated switching Docker images to Ubuntu, because some tools were not reasonably possible to make work on Alpine.
-
----
-## [gonenoculer5/Gameserver](https://github.com/gonenoculer5/Gameserver)@[27d37cb0f4...](https://github.com/gonenoculer5/Gameserver/commit/27d37cb0f47d007d1159ad5af69ace39a50b003f)
-#### Tuesday 2023-05-02 13:04:17 by Gallyus
-
-Alternate Version Tests (#281)
-
-* AltVer Checks
-I think?
-Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
-
-* 1603 target
-
-* support script
-
-* HOLY SHIT CAN I READ
-
-* e
-
-* HOLY FUCK CAN I READ
-
-* Disable shortkill version check
-
----
-## [Offroaders123/Region-Types](https://github.com/Offroaders123/Region-Types)@[5cbf3cf478...](https://github.com/Offroaders123/Region-Types/commit/5cbf3cf4782bb41cd8d8ad61f72474d2a4a5e20e)
-#### Tuesday 2023-05-02 13:04:59 by Offroaders123
-
-Further Archive (LCE)
-
-Trying to see how I can possibly discern the different world archive types from each other. Then the tool can just figure out whichever format it should use ahead of time :)
-
-```
-Zip Archive | "PK.." | 0x50 0x4B 0x03 0x04
-```
-
-https://www.netspi.com/blog/technical/web-application-penetration-testing/magic-bytes-identifying-common-file-formats-at-a-glance/
-
-Didn't get to it tonight, I do want to try next though, to use my SNBT implementation to be able to generate TypeScript types from existing NBT archives! That's a super awesome workaround to automating things. It will simply extract the type of the NBT tag themselves, and use that for the output instead of their own values. With a little tweaking to the SNBT handling, it could instead output something JSON-esque, but I could instead format to use as a good'ol TS interface declaration, for that same NBT structure. Then I don't have to make the types for anything fully by hand, I will only have to open the file to generate the types for it.
-
-Once the demo is working, I think it'll probably be fully capable for me to make a complete type declaration for the NBT, with formatting and all. It might take a little extra to get the string manipulation working to get there, but having SNBT made that much closer to being able to do. WOW that is a neat idea. I think that realization was partly what helped me start working on this project again, because I kind of started to see how I could hook everything all together.
-
-Speaking of that, while I remember it, I thought of how I could do the versioning for the NBT structures, too. It will be using interfaces instead of classes, and I think I want to make use of interface merging in order to get the type checking working. Each version of a specific platform will have a definite set of type definitions, and they will always be available. It's not like only the new types will be there. I will need to maintain the interfaces for each version alongside each other, and this will help find the differences between each version's format much sooner. You will simply get type checking errors for any differing properties that don't line up with the other version. This will be probably simple for the pre-Flattening versions, and the jump to Flattening will likely have the most to manually map between. I think the older versions will only have incremental additions and removals of any given features, so it will mostly just have to handle those cases where some things may not have equivalent counterparts in those versions.
-
-Thought of this setup again while on a night walkies :)
-
-I was early in thinking it through a while ago, I wasn't sure about how to merge type files or interfaces back then though, and now I have more stronger of feelings that it could be doable! Essentially the type files will work like how the merging does for the different ES versions, and TypeScript's definitions for them. There will probably be a base types file (say, likely an older version), and subsequent versions will only include the changes that they actually made there. Breaking changes between version formats (aka, Flattening) will have to be adjusted somehow in regards to types and merging, as I probably won't want to allow the pre-Flattening types to collide or mingle with the Flattening ones.
-
-Alright! Time for bed now. This morning..
-
----
-## [BlueMoon-Labs/SERP-BlueMoon-Station-13](https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13)@[7a64573c8b...](https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/commit/7a64573c8bfa01bac0d690db68d4b6528d502579)
-#### Tuesday 2023-05-02 14:10:27 by SkyratBot
-
-[MIRROR] Atmos QOL + Small Sprite Fix [MDB IGNORE] (#20243)
-
-* Atmos QOL + Small Sprite Fix (#74251)
-
-## About The Pull Request
-Added screentips and balloon alerts to many atmos machines/pipes
-Volume pump overclocking overlay is much slower and less seizure
-inducing
-RPD screentips for right clicking pipes to copy settings
-Removed (RPD) from the RPD's name since having an abbreviation in the
-name is ugly
-Crystallizer and electrolyzer use ctrl+click and alt-click to turn on
-On examine electrolyzer tells you about anchoring to drain from APC
-instead of cell
-## Why It's Good For The Game
-QOL for atmos stuff, user friendliness and better experience
-## Changelog
-:cl:
-fix: Volume pump overclocking animation is much slower, no more
-headaches
-qol: Added screentips to the RPD; screentips and balloon alerts to many
-atmos machines and devices
-:cl:
-
-* Atmos QOL + Small Sprite Fix
-
----------
-
-Co-authored-by: 13spacemen <46101244+13spacemen@users.noreply.github.com>
-
----
-## [BlueMoon-Labs/SERP-BlueMoon-Station-13](https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13)@[f3614ce53c...](https://github.com/BlueMoon-Labs/SERP-BlueMoon-Station-13/commit/f3614ce53c9f02d6c4e21b935b6231e98d3348af)
-#### Tuesday 2023-05-02 14:10:27 by SkyratBot
-
-[MIRROR] Thrown containers splashing on mobs spill some contents on the floor [MDB IGNORE] (#20252)
-
-* Thrown containers splashing on mobs spill some contents on the floor (#74345)
-
-## About The Pull Request
-Spiritual continuation of tgstation/tgstation#74187.
-
-![image](https://user-images.githubusercontent.com/31829017/228645705-5a32cc67-37e0-48d6-9e95-6006f455ed3c.png)
-Reagent containers that splash their contents on people also splash the
-floor - the amount that gets splashed on the floor is the amount that
-missed the target.
-### Mapping March
-
-Ckey to receive rewards: N/A (it's not a mapping PR)
-
-## Why It's Good For The Game
-Splashing people with a molotov filled with Random Shit now also
-splashes that Random Shit all around, making them slightly more spicy to
-play around with. Unfortunately, I couldn't figure out how to make fuel
-puddles ignite off of lit objects resting on top of them (there's no
-item-level proc for hotspot exposure or something). If anyone wants to
-advise me on how to make that happen, that'd be cool.
-
-## Changelog
-:cl:
-add: Reagent containers that splash on people when thrown (e.g.
-molotovs) now spill their contents on both target and turf. (This means
-that throwing molotovs with enough fuel spills fuel puddles, throwing
-beakers with acid spills acid on the floor, etc. etc.) Unfortunately,
-molotovs still lack the ability to ignite their own spilled fuel, but
-we'll get there one day.
-/:cl:
-
-Co-authored-by: Hatterhat <Hatterhat@ users.noreply.github.com>
-
-* Thrown containers splashing on mobs spill some contents on the floor
-
----------
-
-Co-authored-by: Hatterhat <31829017+Hatterhat@users.noreply.github.com>
-Co-authored-by: Hatterhat <Hatterhat@ users.noreply.github.com>
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[912e843f53...](https://github.com/tgstation/tgstation/commit/912e843f53cf33b15148ec5a5ec66ce107314467)
-#### Tuesday 2023-05-02 15:22:46 by san7890
-
-Allows Export of your Preferences JSON File (#75014)
+Minor Nukie Thing: Bolt-action Sniper Rifle, balance coding, and some ammo changes (#73781)
 
 ## About The Pull Request
 
-Hey there,
+### The Rifle:
+-The Sniper Rifle is now a bolt action. This replaces the 4 second fire
+delay on the sniper rifle. This overall will improve the fire rate if
+you're good at racking the bolt, but it will also feel less like you're
+in a weird limbo of inaction while using the sniper rifle, since the
+fire delay can be quite confusing to players not used to it. This can be
+tweaked, like reducing the speed of the racking action, if it seems like
+it is too much.
+-The scope component now goes up to 50 tiles (or so), which allows you
+to gain a significant sightline over an area. The reasoning for this is
+simple. The component actually nerfed the overall range of the sniper
+rifle's scope, so this should hopefully restore that somewhat. And
+having such a huge sightline makes it much easier to utilize the
+impressive range of the rifle. Currently, it's really only ideal for
+extremely close range fighting.
+-The normal sniper rifle, the one that syndicate base scientists get,
+can be suppressed. I don't know why it was different.
 
-This was spoken about in #70492 (specifically
-https://github.com/tgstation/tgstation/pull/70492#issuecomment-1278069607),
-and I have been waiting for this to be implemented for some time. It
-never got implemented, so I decided to code it myself.
+### The Ammo:
 
-Basically, **if the server host doesn't disable it**, you are free to
-export your JSONs as a player, right from the stat-panel. It's a pretty
-JSON on 515 versions, too!
+Normal .50 BMG: Does much more object damage, and on top of that deals
+additional damage to mechs, but not by much more. Now, when it
+dismembers a limb, it also deals its damage to the chest. This ensures
+that you didn't straight up lose out on dealing a killing blow because
+you took their limb off, and makes the dismemberment property of .50 BMG
+a significant upside rather than a immense detriment.
 
-It's right here:
+Marksman: Gains a lot of the above benefits, but has much lower range.
+Why this nerf? It's actually because of some funny nonsense with how
+ricochet works. Which can cause....accidents to happen. To you. Consider
+that firing down a straight line and missing could be quite embarrassing
+when the bullet has 400 tiles of range.
 
+Soporific: Now called Disruptor ammo. Works as it did before, putting
+humans to sleep for 40 seconds (seriously, 40 seconds). Also deals some
+stamina damage, if...that's relevant. But now also causes an EMP effect
+and a boatload of added damage to both mechs and borgs, allowing it to
+be an excellent anti-mech and anti-borg ammo type, as well as scrambling
+any pesky suit sensors, energy weapons and so on in an area around the
+impact. Useful for support fire.
 
-![image](https://user-images.githubusercontent.com/34697715/235251447-1c977718-51fd-4025-8d89-c60bffc379ec.png)
+Incendiary (NEW!): Causes a massive firebomb to go off where it impacts
+(no explosion, so this isn't a stun). Also sets the target on fire,
+which is always fun. Good for shooting into groups of people with
+impunity. Also deals burn damage instead, since I think nukies could use
+more methods for direct fire damage.
 
-Here's what the prettified JSON looks like on 515.
+Surplus (NEW!): It's .50 BMG but it lacks most if not all the upsides.
+No armour penetration, no dismemberment, no paralysis. It still deals a
+lot of damage to objects, so not a bad option for simply removing
+structures from afar. So what's the point in this ammo? You can buy 7
+magazines for the price of one. I want to introduce 'Surplus' as an idea
+for nukies to invest in if they want to be able to keep shooting but
+they're really on a budget, like most non-warop nukies tend to be. This
+is definitely subject to change (like a damage decrease on top of
+everything else).
 
+Pricing and Capacity: Normal ammo and surplus costs 3 TC. Every special
+ammo costs 4 TC. Every special ammo also has the same ammo capacity as
+the normal magazine. It's kind of weird how most of the subtypes had 5
+shots rather than 6, but then soporific had...3? I don't get it. This
+would probably cause a good deal of confusion, especially if you are
+swapping ammo types and weren't aware of this particular oddity.
 
-![image](https://user-images.githubusercontent.com/34697715/235321061-4a217e26-c082-4bba-b54a-2c780defda0a.png)
+Anyway, 6 shots.
 
-There's a cooldown (default to 10 seconds) between exporting your
-preferences.
+### Minor Addition
+Gets rid of the cheap suppressor. It lies to players, tricking them into
+thinking this is a low quality suppressor. Newsflash, it isn't. There is
+no distinct difference between that suppressor and the normal
+suppressor.
 
-#### Why is this config?
-
-It's because in the past, a server host could always just file-share the
-.sav or .json or whatever to the player, but they would have to do the
-explicit option of actually bothering to make the files accessible to
-the player. In that same line of logic, the server operator will have to
-explicitly make the files accessible. This is mostly because I'm not
-sure how good `ftp()` is at being a player function and wanted to have
-some sort of cap/control somehow in case an exploit vector is detected
-or it's just plain spammed by bots, so we'll just leave it up to the
-direct providers of this data to elect if they wish to provide the data
-or not.
 ## Why It's Good For The Game
 
-Players don't have to log into Server A to remember what hairstyle they
-loved using when they want to swap to Server B! That's amazing actually.
-I always forget what ponytail my character has, and it'll be nice to
-have the hairstyle in a readily accessible place (after I prettify the
-JSON for myself).
+The sniper rifle, unfortunately, sucks a lot except for very specific
+use cases. It got a big nerf with the scope component in terms of range,
+even if the functionality is way cooler. And, at a baseline, there was
+some counterintuitive functions attached to it. Dismemberment was cool,
+but it also caused a loss in overall damage due to how limbs contribute
+to core health. On top of this, the cool ammo types were...not much
+better? Penetrator was almost always the best option, even if it lost a
+lot of damage as a consequence.
 
-It's also more convenient for server hosts to make player data like this
-accessible if they really want to, too.
+So, what was it good for? X-ray + Penetrator. Pretty much, that's it. It
+has some other uses but if I had to be entirely honest, there wasn't
+much that other weapon couldn't do as well.
 
-If we ever add an _import_ feature in the future (which would have to be
-done with a LOT of care), this will also be useful. I wouldn't advise it
-though having taken a precursory look at how much goes into it while
-trying to ascertain the scope of this PR.
+Hopefully this helps things going forward, and I want to mess with this
+as well down the line in case its a bit too much of a boost in power.
+
+Absolutely please rip this PR apart.
+
 ## Changelog
 :cl:
-qol: The game now supports export of your preferences into a JSON file!
-The verb (export-preferences) should now be available in the OOC tab of
-your stat-panel if enabled by server operators.
-server: Exporting player preferences is controlled by a configuration
-option, 'FORBID_PREFERENCES_EXPORT'. If you do not wish to let clients
-access the ftp() function to their own preferences file (probably for
-bandwidth reasons?) you should uncomment this or add it to your config
-somehow.
-config: Server operators are also able to set the cooldown between
-requests to download the JSON Preferences file via the
-'SECONDS_COOLDOWN_FOR_PREFERENCES_EXPORT' config option.
+balance: Makes the syndicate sniper rifle a bolt-action rifle.
+balance: Sniper rifles have a scope range of roughly 50 tiles.
+balance: Sniper rifle ammo, if it dismembers your limbs, does damage to
+the chest.
+balance: All the various syndicate sniper rifle magazines have
+consistent casing quantities (6 shots). They also have more consistent
+pricing. 3 for normal and a box of surplus, and 4 for every other type.
+balance: Reduces the range of Marksman ammo to 50 tiles. Not because it
+is strong, but because you might accidentally shoot yourself if you're
+not watching where you're shooting. Ricochets are no joke.
+add: Replaces Soporific with Disruptor ammo. Works like soporific, but
+also EMPS things it hits.
+add: Adds Incendiary .50 BMG. Causes a combustion to erupt from the
+struck target, as well as setting targets on fire. Great for parties.
+add: Adds Surplus .50 BMG. It sucks, but you get a lot of them! Quantity
+over quality, baby.
+remove: The suppressors in the bundle are of standard quality. The
+apparent 'cheap suppressor' that came bundled with the C-20r and sniper
+rifle were found to actually be 'fine'. Trust us.
 /:cl:
 
 ---
-## [chelsymme/SQL_Games_Completed](https://github.com/chelsymme/SQL_Games_Completed)@[61842f2847...](https://github.com/chelsymme/SQL_Games_Completed/commit/61842f2847d1a3be3ac9543b4cb879eb89e8a839)
-#### Tuesday 2023-05-02 15:56:27 by Chel
+## [DATA-xPUNGED/DataStation](https://github.com/DATA-xPUNGED/DataStation)@[95b810919e...](https://github.com/DATA-xPUNGED/DataStation/commit/95b810919ede0f4fb22dc711c0334abf36b94843)
+#### Wednesday 2023-05-03 22:22:01 by lizardqueenlexi
 
-The SQL Murder Mystery Game by Knight Lab
+Adds preference for "Tagger" paint color. (#74281)
 
-A crime has taken place and the detective needs your help. The detective gave you the crime scene report, but you somehow lost it. You vaguely remember that the crime was a ​murder​ that occurred sometime on ​Jan.15, 2018​ and that it took place in ​SQL City​. Start by retrieving the corresponding crime scene report from the police department’s database.
+## About The Pull Request
+
+Per the title, this PR allows you to pick your starting paint color from
+the "Tagger" quirk on the character preferences menu.
+
+
+![image](https://user-images.githubusercontent.com/105025397/227810007-4706c743-31c2-47d8-80ac-e11687d36c00.png)
+
+This replaces the starting color being random; it does not prevent you
+from changing the color later as normal.
+## Why It's Good For The Game
+
+It's a minor quality of life change. This will mostly be helpful to
+players who have some "signature" color they like to use, to prevent
+having to manually select it (and possibly input a color code) every
+round. It will be of less relevance to those who tend to select new
+colors every round anyway.
+
+Possible downsides are mainly adding another pref to the menu, although
+this shouldn't be too much of an annoyance since it only appears if you
+already have the relevant quirk. It does also remove the _ability_ to
+have a randomly-chosen paint color, though I'm not sure if that matters.
+## Changelog
+:cl:
+qol: you can choose your default paint color for the "Tagger" quirk from
+prefs.
+/:cl:
 
 ---
-## [ServiceWeaver/weaver](https://github.com/ServiceWeaver/weaver)@[21156c9ebf...](https://github.com/ServiceWeaver/weaver/commit/21156c9ebfecae264986cf6e154b28e8329977d3)
-#### Tuesday 2023-05-02 16:31:42 by Michael Whittaker
+## [ghemawat/weaver](https://github.com/ghemawat/weaver)@[b9eb4fc35d...](https://github.com/ghemawat/weaver/commit/b9eb4fc35df080f128de5d674e2ca52d7483932a)
+#### Wednesday 2023-05-03 22:37:36 by Michael Whittaker
 
 Changed deployers to persist data in one spot.
 
@@ -2069,688 +3009,6 @@ think that's actually a good thing. We should implement a principled way
 of garbage collecting logs, rather than leaving it up to /tmp. I think
 it would be surprising and frustrating if an important log file was
 spuriously deleted by the OS.
-
----
-## [swarm-game/swarm](https://github.com/swarm-game/swarm)@[a4c8057a28...](https://github.com/swarm-game/swarm/commit/a4c8057a28e043caed531e7d035efc2a41dc30a1)
-#### Tuesday 2023-05-02 17:00:07 by Brent Yorgey
-
-Records (#1148)
-
-Add record types to the language: record values are written like `[x = 3, y = "hi"]` and have types like `[x : int, y : text]`.  Empty and singleton records are allowed.  You can project a field out of a record using standard dot notation, like `r.x`.  If things named e.g. `x` and `y` are in scope, you can also write e.g. `[x, y]` as a shorthand for `[x=x, y=y]`.
-
-Closes #1093 .
-
-#153 would make this even nicer to use.
-
-One reason this is significant is that record projection is our first language construct whose type cannot be inferred, because if we see something like `r.x` all we know about the type of `r` is that it is a record type with at least one field `x`, but we don't know how many other fields it might have.  Without some complex stuff like row polymorphism we can't deal with that, so we just punt and throw an error saying that we can't infer the type of a projection.  To make this usable we have to do a better job checking types, a la #99 . For example `def f : [x:int] -> int = \r. r.x end` would not have type checked before, since when checking the lambda we immediately switched into inference mode, and then encountered the record projection and threw up our hands.  Now we work harder to push the given function type down into the lambda so that we are still in checking mode when we get to `r.x` which makes it work.  But it is probably easy to write examples of other things where this doesn't work.  Eventually we will want to fully implement #99 ; in the meantime one can always add a type annotation (#1164) on the record to get around this problem.
-
-Note, I was planning to add a `open e1 in e2` syntax, which would take a record expression `e1` and "open" it locally in `e2`, so all the fields would be in scope within `e2`.  For example, if we had  `r = [x = 3, y = 7]` then instead of writing `r.x + r.y` you could write `open r in x + y`.  This would be especially useful for imports, as in `open import foo.sw in ...`.  However, it turns out to be problematic: the only way to figure out the free variables in `open e1 in e2` is if you know the *type* of `e1`, so you know which names it binds in `e2`.  (In all other cases, bound names can be determined statically from the *syntax*.)  However, in our current codebase there is one place where we get the free variables of an untyped term: we decide at parse time whether definitions are recursive (and fill in a boolean to that effect) by checking whether the name of the thing being defined occurs free in its body.  One idea might be to either fill in this boolean later, after typechecking, or simply compute it on the fly when it is needed; currently this is slightly problematic because we need the info about whether a definition is recursive when doing capability checking, which is currently independent of typechecking.
-
-I was also planning to add `export` keyword which creates a record with all names currently in scope --- this could be useful for creating modules.  However, I realized that very often you don't really want *all* in-scope names, so it's not that useful to have `export`.  Instead I added record punning so if you have several variables `x`, `y`, `z` in scope that you want to package into a record, you can just write `[x, y, z]` instead of `[x=x, y=y, z=z]`.  Though it could still be rather annoying if you wanted to make a module with tons of useful functions and had to list them all in a record at the end...
-
-Originally I started adding records because I thought it would be a helpful way to organize modules and imports.  However, that would require having records that contain fields with polymorphic types.  I am not yet sure how that would play out.  It would essentially allow encoding arbitrary higher-rank types, so it sounds kind of scary.  In any case, I'm still glad I implemented records and I learned a lot, even if they can't be used for my original motivation.
-
-I can't think of a way to make a scenario that requires the use of records.  Eventually once we have proper #94 we could make a scenario where you have to communicate with another robot and send it a value of some required type.  That would be a cool way to test the use of other language features like lambdas, too.
-
----
-## [ChungusGamer666/mojave-sun-13](https://github.com/ChungusGamer666/mojave-sun-13)@[bdc9c58586...](https://github.com/ChungusGamer666/mojave-sun-13/commit/bdc9c58586e0ab567e98b31054e8275d74990a58)
-#### Tuesday 2023-05-02 17:35:00 by Technobug14
-
-Agriculture ('Technoculture') Farming: Fertilizer Edition :) (#2278)
-
-* Does Stuff
-
-Beginnings of agriculture code, stripped down TG botany a bunch, got rid of scar botany whilst replacing most of it. Also some map edits to change the paths on stuff and add a few spades for farming.
-
-* Some NPK system framework
-
-Removing more TG botany stuff and getting some framework down for NPK. Adds a "nutrient_type" variable to seeds and gives N, P or K as the type to every seed.
-
-* Removes Stuff, More NPK Framework
-
-Still WIP on NPK stuff, removes more basic bitch TG botany stuff, needs a lot more content but in an almost-working state
-
-* Nutrient drain
-
-Nutrients actually get drained properly now. Crop plots output their level of N, P and K when examined. Still need to make something to handle restoring nutrients and figure out a nutrient economy for plant consumption.
-
-* Mostly working, one major bug
-
-This is mostly working now. The NPK now drains according to the seed planted, it replenishes over time, you can now get water from water tiles and the soil will properly adjust the waterlevel variable with the new water types.
-
-HOWEVER, big bug. The way TG handled watering crops is ass. Doesn't delete, stays in the reagent_container of the soil, normally checks for if a reagent_container has water to bypass how full the soil's container is, bad system that sucks. Needs fixing.
-
-* oops
-
-oopsie!!! fucked something!!! forgot to undo a change I made to the code, it's just there to remind me it's not working correctly
-
-* Last minute fixes/bandaids
-
-I HATE TG BOTANY I HATE TG BOTANY I'M LOSING IT
-
-* Fertilizer groundwork
-
-Some stuff for fertilizer, need to add the attackby but cutting out a bunch of code to clean things up. Need to see if it breaks stuff.
-
-* Fertilizer attackby changes
-
-Adds code to the attackby for farm plots that checks if you're attacking it with fertilizer, doesn't work for some reason I can't tell. Also removes some vestigial TG botany stuff.
-
-* fixt
-
-fixes fertilizer, I forgot to specify something in a var, works now!!! YAY!!!
-
----
-## [joey12725/BetterTigerPaws](https://github.com/joey12725/BetterTigerPaws)@[77acf120c0...](https://github.com/joey12725/BetterTigerPaws/commit/77acf120c03d6a3b1a8e4c4875b4090b1f4762fc)
-#### Tuesday 2023-05-02 17:57:36 by ashkaty
-
-Adding custom login in page
-
-Added functionality to the custom log in page and has it show log in page instead of the ugly ass shit it was before
-
----
-## [Jackal-boop/tgstation](https://github.com/Jackal-boop/tgstation)@[d72ef99270...](https://github.com/Jackal-boop/tgstation/commit/d72ef99270f2697064681b3214f0569dcf38d526)
-#### Tuesday 2023-05-02 18:04:28 by necromanceranne
-
-Goliath-Infused Tendril Hammer uses an internal cooldown for the its special attack instead of a universal click cooldown (#74159)
-
-## About The Pull Request
-
-Rather than using a click cooldown, the tendril hammer instead can make
-its special heavy attack every 2 seconds.
-
-## Why It's Good For The Game
-
-In my newfound quest to try and eliminate universal click cooldowns or
-weird non-interactivity timers as balancing factors, this definitely is
-one of the biggest standout offenders. Lemme make an argument for
-universal click cooldowns increases being an ineffective limitation.
-
-I'll use the problems presented by the tendril hammer to highlight some
-of those problems, as well as unique problems to the tendril hammer
-itself.
-
-<details>
-  <summary>da big discussion</summary>
-
-A) The functionality of the hammer actively inhibits all in-game handuse
-interaction for several seconds, without explaining this to a player. As
-a player, you won't know why this is happening, as universal click
-cooldown is not present as a UI element.
-
-B) Since universal click cooldowns are not visible to players, it might
-feel more like the game is malfunctioning rather than being a deliberate
-mechanic. Even if click cooldowns were visible, players probably would
-think that the cooldown applies to the hammer, and not handuse
-interactivity with the game world as a whole for several seconds.
-
-C) The functionality of the hammer could work fine as an internal
-cooldown on the hammer, only relevant to the hammer. This ensures that
-its special effects are exclusive, without the need to interrupt player
-interaction as a whole.
-
-D) Since we're talking about miners. If someone is concerned about the
-hammer being used on the station against carbon players; you need
-someone to help mutate you into goliath mutant, which cannot be bypassed
-whatsoever. An excellent example of something similar is the chainsaw
-arm, created right next door to genetics in robotics, which does even
-more force than the arm and is sharp. With the limitations that exist, I
-think it probably discourages most powergaming, if that was even a
-realistic concern (it really isn't).
-
-E) You lose both a hand AND your gloves slot when you get the hammer. No
-modsuits, no glove equipment, no two-handed equipment, and you now have
-to juggle everything with one hand assuming you're not on your, once
-again, universal click cooldown for several precious seconds. Miners
-live or die in their rapid response to problems. This is also the total
-sum of what you lose as a miner. That's a steep cost and it just doesn't
-justify its own value compared to what you lose.
-
-</details>
-
-TL;DR - There is no offset to the cost of this weapon, it is strictly a
-detriment because of poorly conceived implementation.
-
-This is maybe one of the coolest ideas conceptually for the infusions so
-far, heavily hampered by what seems to be an intense fear of the
-mutation being _too useful_. So it was made _borderline masochistic to
-willingly seek out and use_.
-
-I want to see this actually be useful. I can't see this with the
-restrictions it has. Hopefully this is enough to make it worthwhile
-getting.
-
-## Changelog
-:cl:
-balance: Changes the universal click cooldown of the tendril hammer from
-the goliath infusion into an internal cooldown just for the special
-heavy attack.
-/:cl:
-
----------
-
-Co-authored-by: Jacquerel <hnevard@gmail.com>
-
----
-## [Jackal-boop/tgstation](https://github.com/Jackal-boop/tgstation)@[e75a1c00aa...](https://github.com/Jackal-boop/tgstation/commit/e75a1c00aa3bcf2658428a536997f2eca0f25028)
-#### Tuesday 2023-05-02 18:04:28 by san7890
-
-Dogs will no longer harrass if they are buckled to a bed (comfy edition) (#74224)
-
-## About The Pull Request
-
-Before, dogs were somehow magically able to drag their bed to you while
-barking at/chasing you. that's silly, let's fix it by checking if you're
-buckled, and then aborting course if we're comfy on our little bed
-## Why It's Good For The Game
-
-
-![image](https://user-images.githubusercontent.com/34697715/227679914-62822f93-6646-4070-8ff7-4e140e1a291a.png)
-
-Fixes #74082
-
-the dog is BUCKLED. it can't move. probably a better fix to this somehow
-on a very deep AI level but that wouldn't allow us to have such a
-soulful message (as well as potentially rule out a myriad of edge
-cases), so i'm proposing this one.
-## Changelog
-:cl:
-fix: If you buckle a dog to a bed, it will no longer drag its bed as it
-goes to bark at the mailman. It will instead be comfy and chilling, as
-expected.
-/:cl:
-
----
-## [TrojanCoyote/Citadel-Station-13-RP](https://github.com/TrojanCoyote/Citadel-Station-13-RP)@[d261466765...](https://github.com/TrojanCoyote/Citadel-Station-13-RP/commit/d2614667654c0e35b2c906971ca94ece9e7b8629)
-#### Tuesday 2023-05-02 18:47:07 by IrkallaEpsilon
-
-Scattershot nerfs (#5175)
-
-Sniper laser was tame.
-
-## About The Pull Request
-
-This is bullshit. Splurting out 180 damage with high AP with no delay is
-not okay. Its as bullshit as most FCU we had. Mainly removed scatter on
-high powered lasers and bloody stuns so the scatter lense may stay for
-the mining tool (as there is no way to increase firerate on a
-projectile.
-
-## Why It's Good For The Game
-
-Ever got hit at close range by the particle defender on main? Yeah that
-is not fun.
-
-## Changelog
-:cl:
-balance: Scattershot on high powered weapons nerfed. Heavy laser and
-laser cannon beam and electrode now wont create submunitions. Stun beam
-submunition count lowered.
-/:cl:
-
----
-## [TrojanCoyote/Citadel-Station-13-RP](https://github.com/TrojanCoyote/Citadel-Station-13-RP)@[b3a43f2b85...](https://github.com/TrojanCoyote/Citadel-Station-13-RP/commit/b3a43f2b8522c03ca976a1f7e72aa9deea97b350)
-#### Tuesday 2023-05-02 18:47:07 by IrkallaEpsilon
-
-Buffs Excav Laser Module (#5174)
-
-## About The Pull Request
-
-Buffs Excav laser module. Inconsisten with the one hit of rocks.
-Hopefully this ammends it specially since scatterlenses are getting
-removed (although nobody used them in combat yet.)
-
-## Why It's Good For The Game
-
-Scatter lense gone, legitimate mining tool needs a buff. The other
-options (Phoron Bore) are a sick joke with how slow clunky they are to
-use.
-
-
-## Changelog
-:cl:
-balance: Meatier sound on excav laser. Higher excav power to
-consistently one shot rocks.
-/:cl:
-
----
-## [Guilherme-R-Figueiredo/Hello-World](https://github.com/Guilherme-R-Figueiredo/Hello-World)@[d6c654aa55...](https://github.com/Guilherme-R-Figueiredo/Hello-World/commit/d6c654aa555dfd84202115f0dcd88b7f8631fbe8)
-#### Tuesday 2023-05-02 19:18:50 by Guilherme-R-Figueiredo
-
-Update README.md
-
-Tried to make my students laugh with a terrible dad joke that wasn't funny. ( It was not that bad!)
-
----
-## [556HarishAgarwal/Harish_Agarwal.github.io](https://github.com/556HarishAgarwal/Harish_Agarwal.github.io)@[53fc9dfadc...](https://github.com/556HarishAgarwal/Harish_Agarwal.github.io/commit/53fc9dfadcfd2b64bea5d8f6fa7968e31f0f73f7)
-#### Tuesday 2023-05-02 19:43:40 by 556HarishAgarwal
-
-My Portfolio
-
-Welcome to my portfolio website! As a creative professional with a passion for cybersecuroty, I'm thrilled to showcase my work and experience in this space.
-
-With a clean and modern design, this website reflects my personal work and certification. It's easy to navigate and provides visitors with a clear overview of my background, education, and professional experience. In the "about me" section, you'll find a brief bio that highlights my personality and values, helping to establish a connection with potential clients and collaborators.
-
-The heart of this website is, of course, the work itself. Each project is accompanied by a detailed description that provides insights into my creative process and approach to problem-solving.
-
-Whether you're looking for guidence in cybersecurity field, or you're simply interested in learning more about my work, I hope you'll find this website informative and engaging. Thank you for taking the time to visit, and please don't hesitate to get in touch if you have any questions or opportunities for collaboration.
-
----
-## [pcapel/bio_ex](https://github.com/pcapel/bio_ex)@[1f59ea449e...](https://github.com/pcapel/bio_ex/commit/1f59ea449eaa25be4b757ba5b094f9f70c3ff793)
-#### Tuesday 2023-05-02 20:09:02 by Philip Capel
-
-Add Utilities.slide/3
-
-Because the implementation for `slide/3` in the Enum module behaves the
-way it does, we should just let it. In fact, I'm considering if I
-shouldn't just use it as a basis for creating an internal module?
-
-That is, I'm not going to re-implement the Enum module and Enumerable
-protocol. Instead, I would just have `Bio.Enum` and expose all the same
-functions but with the explicit guarantee that they preserve the struct
-type that you're using.
-
-This would alleviate any irritation from the perspective of the behavior
-of e.g. `Enum.map` returning a struct instead of a list. You would have
-to explicitly opt in to one behavior or the other...
-
-Yeah, I kinda really like that.
-
----
-## [Jolly-66/JollyStation](https://github.com/Jolly-66/JollyStation)@[9a1d81ffce...](https://github.com/Jolly-66/JollyStation/commit/9a1d81ffce76385474f03621a2bd609c03cb4736)
-#### Tuesday 2023-05-02 21:26:23 by TaleStationBot
-
-[MIRROR] [MDB IGNORE] Nanotrasen Budget Programme - Mothball Edition [BIRDSHOT STATION] (#5555)
-
-Original PR: https://github.com/tgstation/tgstation/pull/73502
------
-## About The Pull Request
---- 
-
-The Space Tram is currently spaced. This is a known issue with not the
-map, but Trams in general. The Space Tram is a Space Tram to encourage a
-fix. Until then, the Space Tram is a maint tram that's an actual hazard
-but cannot directly kill anyone, including lizards. Enjoy the commodity
-as you zip from secmaint to medmaint.
--------------------------------------------------------
-
-I... really don't know if I should be proud of myself here. This whole
-process has been akin to a fever dream and it has only been little over
-a month since I first created the .dmm for this. What started as a
-simple yet humble reimagining of Birdboat has turned into an entirely
-new station, and blown past Metastation sized proportions. This has been
-my most expansive project yet, and somehow it's also been my quickest.
-So without further ado, I unveil Birdshot - Successor to Birdoat.
-
--------------------------------------------------------
-
-**Due to recent cost expenditures on Icemoon projects, and a growing
-need for orbital research stations, Nanotrasen has decided to pull
-Birdboat Station out of mothball after nearly 5 years of abandonment.**
-
-Since then, the station has seen a variety of changes at the hands of
-the various vagabond lawless scum and villains that have decided to make
-the abandoned station their home. Do not fret though, a Nanotrasen
-Operation has secured the companies rightful property for corporate use
-once again, though you'll need to be the stewards of the remaining
-cleanup operation.
-
-------------------------------------------------------
-
-Now, as you might have guessed by now, Birdshot is heavily based on
-Birdboat station. Many of the decisions here follow the original layout,
-and what had to be modified or moved still tries its best to replicate
-and imitate what bird being said. At least, that was the idea initially.
-This has very much grown into its own beast and as such, while the main
-inspiration has been Birdboat, there are a lot of new ideas thrown into
-the mix that really give this station its own unique and deserving
-identity. Maybe it's not perfect, but I've been inspired by MMMiracles
-own performance with Tramstation to keep working on Birdshot and
-updating it with better and improved faculties. For now, though the
-station is in a playable state, and that means I'm making a PR. If I had
-to borrow the words of the good MMM, I would call this **Birdshot:
-Season 0**
-
-
-![BirdSHOTFULL2-26-S](https://user-images.githubusercontent.com/33048583/221432760-27af1889-d2d0-4861-9435-df4258525fae.png)
-
-
-
-See the image in more detail here: https://imgur.com/iT5Vi8k
-
-
-
-## Why It's Good For The Game
-
-We've been with the same 5 maps for a while now. san7890 jokingly said
-that I could sacrifice Metastation back in November if I remade Birdboat
-but modern. Obviously that wasn't going to happen, yet I was spurred on
-by the idea. When I began this in earnest early this January, EOBGames
-said that a Birdboat sized map would replace Kilostation in the
-rotation. Interestingly we're not a small map anymore so I honestly have
-no clue where this goes. Maybe that ephemeral 6th map slot that's been
-rumored.
-
-What I can say, is that Birdshot is wholly unlike anything else that is
-currently in rotation. It's got an engineering section that feels way
-too small for a station of that size, almost evocative of Cere. Cargo is
-blessed with a Boutique that makes use of Fikou's new mannequin dolls.
-Command is outfitted with a Corporate Guest Suite, and Officials sent
-from Nanotrasen can embark from their ferry into the safety of their own
-Corporate Dock. Elements of Cerestation are present, yet not in a way
-that makes traversal annoying. Furthermore we have **2 Trams** (that I
-have yet to get functional but we'll get there) on Birdshot, that's
-right 2. One Security Prison Tram, and then other, a Space Tram. Both
-Novel in their own ways. Departments on Birdshot twist and turn, and
-there's an abundance of Maintenance Tunnels to cut through everything,
-for the brave and the bold that is. And there's plenty left to discover,
-but I'd rather let Birdshot speak for itself. I'm proud of this one.
-
-If you want something new, this is something that is almost the complete
-opposite of Chilled Station - Explicitly Designed to send you back to
-the metal death trap that is: **Space Station 13.**
-
-
-## Changelog
-:cl:
-add: Birdshot station has been pulled out of Mothball.
-add: New station areas and places to visit. A Mix of Kilo and Delta
-maints with winding shortcutting paths.
-add: A host of new shuttles to support this bold endeavor to reclaim
-something that really shouldn't be reclaimed.
-add: Two Trams, Two Trams.
-add: For the last time Bob, the gaping hole is a **feature.** Use the
-breach shutters or have the virologist make starlight.
-add: A smiling salute to stations past...
-add: Secrets.
-
-
-/:cl:
-
----------
-
-Co-authored-by: Zytolg <33048583+Zytolg@users.noreply.github.com>
-Co-authored-by: Zytolg <theoriginaldash@gmail,com>
-
----
-## [Jolly-66/JollyStation](https://github.com/Jolly-66/JollyStation)@[baeba15520...](https://github.com/Jolly-66/JollyStation/commit/baeba1552002b82aa936b3004b789205e29705ed)
-#### Tuesday 2023-05-02 21:26:23 by Jolly
-
-Nukes size respriting in favor of "Funny Humans", or making your legs offensively long (#5053)
-
-I'm currently working on migrating prefs, so I'll whip up an image
-later.
-I mean, I could do it without needing to migrate prefs, but I don't want
-to keep the old goofy ass sprite scaling, because its offensive, noisy
-and annoying.
-
-I prefer humans with offensively long noodle legs anyhow.
-
-Also thanks to Mothblocks for helping me get started.
-
-## Changelog
-
-:cl: Jolly, Melbert
-add: Pref heights now make your legs taller or shorter, so, height is
-actually tangible.
-del: However, the OLD way of "heights", which were sprite scaling, has
-been removed.
-/:cl:
-
----
-## [JustFixNYC/who-owns-what](https://github.com/JustFixNYC/who-owns-what)@[c3c71fd6f4...](https://github.com/JustFixNYC/who-owns-what/commit/c3c71fd6f45062cc0cb5579c3c3dc4335bfb83f8)
-#### Tuesday 2023-05-02 21:29:17 by Maxwell Austensen
-
-add analytics events for filters (#752)
-
-This PR adds a collection of analytics events - some are already in wow but needed to be added back after the table was completely rewritten for filters, and others are brand new to cover the filters interactions. All of the events have parity between Google and Amplitude, including the custom properties we send along with each (eg. portfolioSize, portfolioColumn, etc.). [sc-10784]
-
-The way I'm actually logging the events in kind of awkward, because we have some common extra properties to send with them all, I tried to make them not too clunky when actually doing the logging, and we also have some frustrating inconsistencies between amplitude and google. Once we have everything up for filters, and can spend a bit of time getting settled into the new Google ecosystem of analytics tools, we'll have a better idea of what to change (eg. maybe we can drop amplitude all together?). These things should be addressed in a update of all the analytics event setup for WOW - I've started adding some thoughts on that in shortcut [sc-12296]
-
-There is also a small bug that I noticed while testing - when there are 0 records for the table (from filtering) it showed up as 0.
-
----
-## [emrakyz/voidrice](https://github.com/emrakyz/voidrice)@[8e7c55f586...](https://github.com/emrakyz/voidrice/commit/8e7c55f58611e5152771729d427223744a01a213)
-#### Tuesday 2023-05-02 21:49:46 by Emre AKYÜZ
-
-The Ultimate Way of Browsing Channels
-
-The script works extremely fast except the first time to update the whole data. It takes about 2 minutes to update the whole database with 80 different channels. You can set a cronjob for this. It's not a heavy work for the PC. It justs fetch the text data with yt-dlp. Video example below:
-
-This script is a sophisticated and ingenious tool designed to streamline your YouTube experience by organizing and managing your favorite YouTube channels, allowing you to browse and watch videos directly within the script without ever visiting its website. You can assign the channels inside various categories such as "Tech", "Science", "Sports", etc. The videos can be played using the 'mpv' media player. Moreover, the script allows you to sort videos based on view count or duration; download videos; and even maintain a "Watch Later" list. If you combine this script with "SponsorBlock" lua script created for "mpv", then you will have the ultimate experience. SponsorBlock removes all sponsored segments in a video including intros, outros or similar unnecessary parts. It's normally a browser extension but is also available for "mpv".
-
-No browsers, accounts, distractions, crappy algorithm and recommendations, advertisements, sponsors, intros, outros, fillers or empty spaces. We eliminate them all.
-
-Required Programs: dmenu | mpv | jq | yt-dlp
-
-FEATURES
-1. Browse all videos from all channels you set at the same time. You can filter titles through dmenu.
-2. Browse a channel's videos.
-3. Select a channel either from the main menu or inside a Category.
-4. Watch, Download or Put videos in a "Watch Later List".
-5. Sort videos by view or duration. The default sort is upload date. The only problem is, we can't have the exact upload date, so we can't apply much more advanced filtering. It can be done but it makes fetching the data for the first time too slow.
-6. The menus have a complex loop system. It always continues where you left off. The script doesn't close itself when you make a selection. So you don't have to run the script over and over again and get to where you left off. You can also press Escape to return to a prior menu.
-7. You won't see the URLs or any unnecessary things inside dmenu. Just the titles.
-
-
-
-JUSTIFICATION
-This script is incredibly beneficial for those who seek a minimalist and focused approach to consuming content on YouTube. By providing a CLI-based interface (dmenu), the script reduces distractions and clutter that are commonly encountered on the Youtube website. It allows users to personalize their content consumption and manage channels more effectively. The script is also remarkably efficient and easy to navigate, providing a user-friendly experience that saves time and promotes productivity.
-
-The script is organized into functions that each perform a specific task, such as updating channel data, retrieving video titles, playing videos, downloading videos, adding videos to the watch later list, and browsing all channels. These functions are called by the main script to provide the user with various options for navigating and interacting with the videos.
-
-The script makes use of various Bash features such as associative arrays, shell redirection and piping, to simplify and streamline the code. It also uses conditionals and loops to handle different user input and error cases. Overall, this script is a powerful and flexible tool for browsing, watching, organizing YouTube channels, and it provides a great example of Bash usage to automate and streamline complex tasks.
-
-DETAILED EXPLANATION
-- The script begins by defining two associative arrays, CHANNELS and CATEGORIES, which store the YouTube channel names along with their respective URLs and categories. It then sets the directories for storing data and videos, and creates them if they do not already exist.
-- The 'update_data' function updates the metadata for a given channel, while the 'update_all_channels' function updates metadata for all channels. The metadata includes the video title, URL, view count, and duration, which are extracted using 'yt-dlp' and 'jq' utilities.
-- The 'get_videos' function retrieves the video titles from the metadata of a given channel, sorted by the specified criteria (if any). The 'video_url' function returns the URL of a video based on its title and channel name. The 'play_video' and 'download_video' functions use 'mpv' and 'yt-dlp', respectively, to play or download a video given its title and channel name.
-- The 'add_to_watch_later' function appends the video title and channel name to a watch later list, while the 'play_watch_later' and 'delete_from_watch_later' functions play a video from the list or remove it, respectively.
-- The 'get_all_videos' function retrieves all video titles from the metadata of all channels, sorted by the specified criteria. The 'browse_all_channels' function lets you browse through all channels and select a video to watch, download, or add to the watch later list.
-- The main part of the script first prompts the user to update the database of channels. If the user chooses to do so, the 'update_all_channels' function is called. The script then presents the user with options to browse all channels, browse channels by category, or browse the watch later list. The script loops through these options until the user decides to exit.
-
----
-## [MTandi/tgstation](https://github.com/MTandi/tgstation)@[ad302f209f...](https://github.com/MTandi/tgstation/commit/ad302f209f4fc0b739c6eea8e6be92da05e2742c)
-#### Tuesday 2023-05-02 21:59:30 by Zytolg
-
-Nanotrasen Budget Programme - Mothball Edition [BIRDSHOT STATION] (#73502)
-
-## About The Pull Request
---- 
-
-The Space Tram is currently spaced. This is a known issue with not the
-map, but Trams in general. The Space Tram is a Space Tram to encourage a
-fix. Until then, the Space Tram is a maint tram that's an actual hazard
-but cannot directly kill anyone, including lizards. Enjoy the commodity
-as you zip from secmaint to medmaint.
--------------------------------------------------------
-
-I... really don't know if I should be proud of myself here. This whole
-process has been akin to a fever dream and it has only been little over
-a month since I first created the .dmm for this. What started as a
-simple yet humble reimagining of Birdboat has turned into an entirely
-new station, and blown past Metastation sized proportions. This has been
-my most expansive project yet, and somehow it's also been my quickest.
-So without further ado, I unveil Birdshot - Successor to Birdoat.
-
--------------------------------------------------------
-
-**Due to recent cost expenditures on Icemoon projects, and a growing
-need for orbital research stations, Nanotrasen has decided to pull
-Birdboat Station out of mothball after nearly 5 years of abandonment.**
-
-Since then, the station has seen a variety of changes at the hands of
-the various vagabond lawless scum and villains that have decided to make
-the abandoned station their home. Do not fret though, a Nanotrasen
-Operation has secured the companies rightful property for corporate use
-once again, though you'll need to be the stewards of the remaining
-cleanup operation.
-
-------------------------------------------------------
-
-Now, as you might have guessed by now, Birdshot is heavily based on
-Birdboat station. Many of the decisions here follow the original layout,
-and what had to be modified or moved still tries its best to replicate
-and imitate what bird being said. At least, that was the idea initially.
-This has very much grown into its own beast and as such, while the main
-inspiration has been Birdboat, there are a lot of new ideas thrown into
-the mix that really give this station its own unique and deserving
-identity. Maybe it's not perfect, but I've been inspired by @MMMiracles
-own performance with Tramstation to keep working on Birdshot and
-updating it with better and improved faculties. For now, though the
-station is in a playable state, and that means I'm making a PR. If I had
-to borrow the words of the good MMM, I would call this **Birdshot:
-Season 0**
-
-
-![BirdSHOTFULL2-26-S](https://user-images.githubusercontent.com/33048583/221432760-27af1889-d2d0-4861-9435-df4258525fae.png)
-
-
-
-See the image in more detail here: https://imgur.com/iT5Vi8k
-
-
-
-## Why It's Good For The Game
-
-We've been with the same 5 maps for a while now. @san7890 jokingly said
-that I could sacrifice Metastation back in November if I remade Birdboat
-but modern. Obviously that wasn't going to happen, yet I was spurred on
-by the idea. When I began this in earnest early this January, @EOBGames
-said that a Birdboat sized map would replace Kilostation in the
-rotation. Interestingly we're not a small map anymore so I honestly have
-no clue where this goes. Maybe that ephemeral 6th map slot that's been
-rumored.
-
-What I can say, is that Birdshot is wholly unlike anything else that is
-currently in rotation. It's got an engineering section that feels way
-too small for a station of that size, almost evocative of Cere. Cargo is
-blessed with a Boutique that makes use of @Fikou's new mannequin dolls.
-Command is outfitted with a Corporate Guest Suite, and Officials sent
-from Nanotrasen can embark from their ferry into the safety of their own
-Corporate Dock. Elements of Cerestation are present, yet not in a way
-that makes traversal annoying. Furthermore we have **2 Trams** (that I
-have yet to get functional but we'll get there) on Birdshot, that's
-right 2. One Security Prison Tram, and then other, a Space Tram. Both
-Novel in their own ways. Departments on Birdshot twist and turn, and
-there's an abundance of Maintenance Tunnels to cut through everything,
-for the brave and the bold that is. And there's plenty left to discover,
-but I'd rather let Birdshot speak for itself. I'm proud of this one.
-
-If you want something new, this is something that is almost the complete
-opposite of Chilled Station - Explicitly Designed to send you back to
-the metal death trap that is: **Space Station 13.**
-
-
-## Changelog
-:cl:
-add: Birdshot station has been pulled out of Mothball.
-add: New station areas and places to visit. A Mix of Kilo and Delta
-maints with winding shortcutting paths.
-add: A host of new shuttles to support this bold endeavor to reclaim
-something that really shouldn't be reclaimed.
-add: Two Trams, Two Trams.
-add: For the last time Bob, the gaping hole is a **feature.** Use the
-breach shutters or have the virologist make starlight.
-add: A smiling salute to stations past...
-add: Secrets.
-
-
-/:cl:
-
----------
-
-Co-authored-by: Zytolg <theoriginaldash@gmail,com>
-
----
-## [Kepteyn/Skyrat-tg](https://github.com/Kepteyn/Skyrat-tg)@[c267799416...](https://github.com/Kepteyn/Skyrat-tg/commit/c2677994169b54a2b3358ccd59d4dfd6df826322)
-#### Tuesday 2023-05-02 22:21:36 by SkyratBot
-
-[MIRROR] Chasm Hell On Icebox - 300 Active Turfs on Prod Moment [MDB IGNORE] (#20260)
-
-* Chasm Hell On Icebox - 300 Active Turfs on Prod Moment (#74410)
-
-## About The Pull Request
-
-Spontaneous regressions introduced by #74359
-(1e58c1875d9e2f48a306fe31a0626dbbb1990ff9).
-```txt
- - Z-Level 2 has 150 active turf(s).
- - Z-Level 3 has 150 active turf(s).
- - Z-Level trait Ice Ruins Underground has 300 active turf(s).
- - Z-Level trait Mining has 300 active turf(s).
- - Z-Level trait Station has 300 active turf(s).
- - End of active turf list.
- ```
-
-![image](https://user-images.githubusercontent.com/34697715/229213138-5a6a7a4f-edec-47ab-8def-ee4e4bddfe61.png)
-
-Basically the lavaland ruin sucks dogshit and I had to do a lot of stuff to account for everything failing. There was even a moment where we were adding something to `flags_1` instead of `turf_flags` and that was also really bad to figure out.
-
-![image](https://user-images.githubusercontent.com/34697715/229213428-63bb1f6e-6f88-4604-a3c6-e08e20cbfa7a.png)
-
-i also had to add orange genturfs because it was really getting bad with all of the assertions we had to keep making, especially since stuff like this could also show up:
-
-![image](https://user-images.githubusercontent.com/34697715/229213562-4a145453-5f90-4d05-b8cc-5c1beec2b0dd.png)
-
-That's the prison in the red box, those are active turfs because a chasm scraped it away.
-
-Sorry if this is hard to follow but I promise you everything in this is essential. I wish we didn't have to rely on turf flags as much as we do but this is a fix PR, not a refactor.
-## Why It's Good For The Game
-
-Even one active turf on IceBox ate up _three_ seconds of SSair's initialization every single time it was really fucking bad.
-
-We haven't had to deal with chasms for about two years so there's a lot of mapping assertions we made since they just weren't a thing, but now they're back so lets do it properly.
-## Changelog
-:cl:
-fix: The prison on IceBox should no longer leak air as often.
-/:cl:
-
-I have compiled this map about 30 times until active turfs stopped fucking happening and now I am content. This likely doesn't fix _everything_ because some stuff can still be hidden to me, and we still have PRs that need to be merged to reduce the amount of noise we're getting on prod.
-
-* Chasm Hell On Icebox - 300 Active Turfs on Prod Moment
-
----------
-
-Co-authored-by: san7890 <the@san7890.com>
-
----
-## [Tsegaye6318/INST314](https://github.com/Tsegaye6318/INST314)@[60ac5cdab7...](https://github.com/Tsegaye6318/INST314/commit/60ac5cdab716ce635ea63a13c87951266116ffaf)
-#### Tuesday 2023-05-02 23:05:57 by Tsegaye6318
-
-Add files via upload
-
-The following description is provided to 10 participants.
-We can approximately define three types of feminism: (1) difference-denying, (2) difference-removing, (3) difference-honoring. Other approximate categorizations are possible. For the purposes of this project, we use this approximate categorization:
-
- 
-
-(1) Difference-denying feminism: In this approach, any difference between men and women is denied, and is said to be purely due to cultural impositions. There is no biological (called "essential") difference (no "on average" difference when doing group-wise comparison) between men and women. Every difference is socially constructed.
-
- 
-
-(2) Difference-removing feminism: There are biological difference between men and women, but these differences are burdens to women, like a curse of nature, and women must rely on technology to completely remove any biological difference between men and women to be "liberated" (for example only if we remove our wombs we can). Removing the difference is the only way of liberation. This type of feminism relies heavily on technology (especially biological technologies) for "liberation".
-
- 
-
-(3) Difference-honoring feminism: This approach does accept that there exist differences that are purely culturally-imposed and not "essential", but holds that in addition to those, there exist genuine essential differences, and denying or removing them harms women. Denying or harming differences harms everybody, not just women. Men and women have differences and they're both ok. What must change is the culture that values only masculine traits, and views feminine traits as unimportant and without value.
-
- 
-
- 
-
-Find 10 respondents and ask them to read the above description (or read it to them yourself, whichever they choose), and then ask them these questions:
-
-1) If you wanted to approximate your degree of agreement with approach 1 (difference-denying feminism) by picking a number from 1 to 10 (1 being "strongly disagree" and 10 being "strongly agree"), what number would you pick?
-
-2) If you wanted to approximate your degree of agreement with approach 2 (difference-removing feminism) by picking a number from 1 to 10 (1 being "strongly disagree" and 10 being "strongly agree"), what number would you pick?
-
-3) If you wanted to approximate your degree of agreement with approach 3 (difference-honoring feminism) by picking a number from 1 to 10 (1 being "strongly disagree" and 10 being "strongly agree") what number would you pick?
-
-4) Which of these three approaches do you think has had the most cultural and political impact in the past few decades ("most" in terms of magnitude, not quality, that is, we don't mean "best", just magnitude)?
-
- 5) Are you or have been a mother?
-And recorded the response in a csv file attached.
 
 ---
 
