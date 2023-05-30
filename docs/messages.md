@@ -1422,4 +1422,5 @@
 [26](good-messages/2023/2023-05-26.md)
 [27](good-messages/2023/2023-05-27.md)
 [28](good-messages/2023/2023-05-28.md)
+[29](good-messages/2023/2023-05-29.md)
 
