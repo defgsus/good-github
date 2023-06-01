@@ -5,470 +5,1574 @@ an [index](docs/messages.md).
 
 ---
 
-# [2023-05-30](docs/good-messages/2023/2023-05-30.md)
+# [2023-05-31](docs/good-messages/2023/2023-05-31.md)
 
 
-there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,020,752 were push events containing 3,264,139 commit messages that amount to 249,121,934 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 67 messages:
+there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,048,773 were push events containing 3,322,968 commit messages that amount to 269,213,971 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 64 messages:
 
 
-## [Monkestation/Monkestation2.0](https://github.com/Monkestation/Monkestation2.0)@[79e07c00db...](https://github.com/Monkestation/Monkestation2.0/commit/79e07c00db8607513347f8e7e6f2a8520e563680)
-#### Tuesday 2023-05-30 00:37:21 by Aeri
+## [1glitchycent/tgstation](https://github.com/1glitchycent/tgstation)@[3fdd716da5...](https://github.com/1glitchycent/tgstation/commit/3fdd716da5bfd2aab2be37489b4ac39f4be7e632)
+#### Wednesday 2023-05-31 00:40:31 by Cheshify
 
-fucking wacky ass goddamn cargo order console locations fixed
-
----
-## [tonyvitonis/git](https://github.com/tonyvitonis/git)@[eb1c42da8e...](https://github.com/tonyvitonis/git/commit/eb1c42da8e21cc2a8dacd21023a179b788858887)
-#### Tuesday 2023-05-30 01:15:27 by Jeff King
-
-t/lib-httpd: make CGIPassAuth support conditional
-
-Commit 988aad99b4 (t5563: add tests for basic and anoymous HTTP access,
-2023-02-27) added tests that require Apache to support the CGIPassAuth
-directive, which was added in Apache 2.4.13. This is fairly old (~8
-years), but recent enough that we still encounter it in the wild (e.g.,
-RHEL/CentOS 7, which is not EOL until June 2024).
-
-We can live with skipping the new tests on such a platform. But
-unfortunately, since the directive is used unconditionally in our
-apache.conf, it means the web server fails to start entirely, and we
-cannot run other HTTP tests at all (e.g., the basic ones in t5551).
-
-We can fix that by making the config conditional, and only triggering it
-for t5563. That solves the problem for t5551 (which then ignores the
-directive entirely). For t5563, we'd see apache complain in start_httpd;
-with the default setting of GIT_TEST_HTTPD, we'd then skip the whole
-script.
-
-But that leaves one small problem: people may set GIT_TEST_HTTPD=1
-explicitly, which instructs the tests to fail (rather than skip) when we
-can't start the webserver (to avoid accidentally missing some tests).
-
-This could be worked around by having the user manually set
-GIT_SKIP_TESTS on a platform with an older Apache. But we can be a bit
-friendlier by doing the version check ourselves and setting an
-appropriate prereq. We'll use the (lack of) prereq to then skip the rest
-of t5563. In theory we could use the prereq to skip individual tests, but
-in practice this whole script depends on it.
-
-Reported-by: Todd Zullinger <tmz@pobox.com>
-Signed-off-by: Jeff King <peff@peff.net>
-Signed-off-by: Junio C Hamano <gitster@pobox.com>
-
----
-## [Hatterhat/tgstation](https://github.com/Hatterhat/tgstation)@[303cfa3bbb...](https://github.com/Hatterhat/tgstation/commit/303cfa3bbb2199b24df17e87864d92e038a32dca)
-#### Tuesday 2023-05-30 01:21:37 by GoldenAlpharex
-
-Fixes is_station_level() sometimes behaving erratically if the value provided is more complex than just a variable (#75489)
+Tcomms Soundloop Comes From One Source And Is Less Awful (#74908)
 
 ## About The Pull Request
-I have been debugging this stupid macro for the past nearly five hours,
-to finally figure out why it was breaking. If you had something like `a
-|| 0` in what you called the macro with, it would somehow manage to
-break the cache. This makes it far more foolproof, and will ensure that
-it doesn't break here anymore, because debugging this has to be one of
-the biggest pains in my ass I've ever had.
 
+The ``soundloop/server`` now only comes from the server hub, so it
+doesn't have stacking audio sources. The sound has been made more
+uniform when up close, but is overall quieter. Additionally, all the
+files have been run through a low pass filter to remove the highest of
+it's pitches.
 ## Why It's Good For The Game
-So shit like this
 
-![image](https://github.com/tgstation/tgstation/assets/58045821/455122b0-34eb-4ec0-92dd-2775c1f0f878)
+I'm sick of not wanting to be around telecomms because of how bad every
+single machine sounds. Now, things are significantly easier on the ear,
+quieter, more uniform, and better for everyone's sanity. I asked the
+maintainers in the coding channel if I could just remove it and they
+said no.
 
-Doesn't end up breaking your CI (or even worse, the game in prod), in
-places unrelated. At least now it shouldn't be overwriting values in the
-cache.
-
-It shouldn't have to do verification that you're doing the right thing,
-that should be left on the person using the macro because it was meant
-to be faster than a proc call, adding too much verification overhead
-kind of just loses some of that speed.
-
-## Changelog
-
-:cl: GoldenAlpharex
-fix: Makes checks for the station z level more robust against coders
-doing less intuitive stuff, thus protecting it from breaking in weirdly
-difficult and seemingly unrelated places (I'm looking at you, nuke
-cinematic unit test).
-/:cl:
-
----
-## [Hatterhat/tgstation](https://github.com/Hatterhat/tgstation)@[bc22fefe3b...](https://github.com/Hatterhat/tgstation/commit/bc22fefe3b1de4d882dd87a5492344672230736d)
-#### Tuesday 2023-05-30 01:21:37 by Helg2
-
-Adds proper armor for security plasmamen. (#75156)
-
-## About The Pull Request
-It's kinda strange that security plasmamen has no proper armor and you
-can just bully them with bottlesmashes. Literally.
-Also suits had no wound armor for some reason, which considering that
-mold dies without hand kinda silly too.
-And helmets just had no armor besides 1 melee armor.
-## Why It's Good For The Game
-Plasmamen security won't die that easilly. I mean, still easy to kill
-them, but not that much.
+I can't get a video recording, I've tried with win+G, OBS, and sharex
+and it's just fucked.
 ## Changelog
 :cl:
-balance: Security Plasmamen now have Security armor. No bullying them
-with bottlesmashes anymore.
+qol: telecomms is quieter and less ear-damaging.
+sound: modified tcomms sound to remove high-tones.
+fix: the telecomms sound only comes from the server hub machine.
 /:cl:
 
----
-## [GuillaumePrata/tgstation](https://github.com/GuillaumePrata/tgstation)@[8fa6242c66...](https://github.com/GuillaumePrata/tgstation/commit/8fa6242c66205866b702440f490eeae34ef6b85f)
-#### Tuesday 2023-05-30 01:40:31 by Bloop
+---------
 
-Refactors High Luminosity Eyes, fixes a ton of bugs related to it as well as qol improvements (#75040)
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
+
+---
+## [1glitchycent/tgstation](https://github.com/1glitchycent/tgstation)@[43473a4dac...](https://github.com/1glitchycent/tgstation/commit/43473a4dac07c40faed45808b61b9c6de46ffcb6)
+#### Wednesday 2023-05-31 00:40:31 by san7890
+
+Turns Deer into Basic Mob - They Freeze At The Sight of Vehicles (#74784)
 
 ## About The Pull Request
 
-The high luminosity eyes item was extremely out of date, broken, and
-full of copy paste code from atom lighting. Which is a shame because
-they were cool.
+deers only show up in the BEPIS but i decided that they would be easy
+enough to turn into a basic mob (they were). it was so easy in fact that
+i decided to dip my toes into coding AI behavior, and made them freeze
+up whenever they see a vehicle. this required a lot of code in a bunch
+of places that i was quite unfamiliar with before starting this project,
+so do let me know if i glonked up anywhere and i can work on smoothing
+it out.
+## Why It's Good For The Game
 
-On top of all that it was using a special light effect that was not very
-performant. I got rid of all that, hooked it into atom lighting as a new
-light type, and gave it a new TGUI as well because the old ui prompts
-were not great either.
+one less simple animal on the list. deers staring at headlights is
+pretty cool i think, neato interaction for when you do get them beyond
+the joke the bepis makes
 
-You can now pick a color at random if you want. You can also set the
-color and range before surgically implanting them. No more being forced
-to go through the color picker when you just want to change the range.
+i'm also amenable to dropping the whole "deer in headlights" code if you
+don't like that for w/e reason- just wanted to make them basic at the
+very least
+## Changelog
+:cl:
+add: If you ever happen upon a wild deer, try not to ride your fancy
+vehicles too close to it as it'll freeze up like a... you know where I'm
+going with this.
+/:cl:
 
-Functionally they should pretty much should be the same as before with
-some bonus features (see below).
+---------
 
-
-![dreamseeker_nDeLNyOOG2](https://user-images.githubusercontent.com/13398309/235325530-105fe82e-ecc8-4dc4-9c84-143cc6519688.gif)
-
-Closes https://github.com/tgstation/tgstation/issues/61041
-Closes https://github.com/Skyrat-SS13/Skyrat-tg/issues/14685
-
-This is 100% completed. I just finished fixing the slight translation
-bug when going from 0->1 range (see above gif) and that was the last
-thing on my bucket list. I happy enough with this at this point in time.
+Co-authored-by: Mothblocks <35135081+Mothblocks@users.noreply.github.com>
 
 ---
+## [Addust/tgstation](https://github.com/Addust/tgstation)@[56d960a763...](https://github.com/Addust/tgstation/commit/56d960a7630d0b03bfcd59c073b29393a70a1891)
+#### Wednesday 2023-05-31 00:59:15 by GoldenAlpharex
 
-EDIT: 
+Wintercoats can now be zipped and unzipped through alt-click and separates the hood sprites from the jacket sprites (#74886)
 
-I have decided to add in one last new feature, and that is...
-independent settings for eye color.
+## About The Pull Request
+The title says it all, really.
 
-<details> <summary>You can now set eye color independently if you
-wish</summary>
+~~Initially, I was only going to do it for all wintercoats, but then I
+figured I might as well bring it down to all of `/hooded`, just so other
+suits could benefit from it, since that behavior came from there anyway.
+Does that mean that it does nothing for some of them? Yes, it does. Does
+that justify having another variable to tell whether or not that should
+be possible? In my humble opinion, not really, but I'm not against it if
+it's requested.~~
+
+~~That functionality was intentionally removed from the Void Cloak, as
+there would be balance implications (since bringing up the hood makes
+the whole cloak invisible, which you could skirt by just "zipping" it,
+which also makes it invisible.~~
+
+~~The sprites were already there, so this change was very simple to do.
+Simply unties the zipped up look from the fact that the hood is up.
+However, toggling the hood forces the zipping/unzipping, just so there's
+no balance implications involved. It's just simpler that way.~~
+
+So, I ended up going back and changing the sprites so that the hoods
+would no longer be baked into the jacket's sprites, so that they could
+be done as overlays instead, which ended up solving my problem with
+hoods not being there on zipped-up versions.
+
+For now, it's been made on winter coats only, but it shouldn't be that
+difficult to bring it back down to the `/hooded` level. I just didn't
+want to bother touching up the sprites down there, as it already took me
+like 2-3 hours touching up the sprites of the winter coats alone.
+
+I also took the decision to make it so EVA winter coats used the regular
+winter coat's sprites, because they had special ones that just looked
+like worse versions of the original, without anything special going on
+for them. It was just a straight downgrade compared to the base sprite,
+in my opinion.
+
+There's still issues with the custom winter coat, in that the hood isn't
+made into an overlay for it yet (and that'll require an extra bit of
+logic to make it work, too), but it was already an issue before, the
+hood is always present on the current version of the custom winter coat.
+
+There's still a handful (sadly, most) of the winter coats that don't
+properly reflect on their obj sprites when they're opened versus when
+they're closed, but that's due to an initial spriter oversight, and not
+to my doing. The open versions were just left as closed on many of them,
+and I simply don't have the patience nor the appropriate skills to edit
+that many coats that way.
+
+## Why It's Good For The Game
+Now you can be stylish with or without the hoodie!
+
+![image](https://user-images.githubusercontent.com/58045821/233544697-cc821c3a-d965-4d96-af44-c44ff866496f.png)
+
+![image](https://user-images.githubusercontent.com/58045821/233544711-da956b6b-44c4-4903-a34f-4d2890abc781.png)
+
+![image](https://user-images.githubusercontent.com/58045821/233544717-b5221b04-0e6d-4931-83d0-d56fdac60ec3.png)
 
 
-![dreamseeker_j32B2S4yXQ](https://user-images.githubusercontent.com/13398309/235412568-ffa8e424-8624-4462-9f6f-77c1513aa773.gif)
+According to ChatGPT, with one small tweak (thanks Opera GX for the
+suggestion):
 
+> Zipped and unzipped through alt-click, winter coats can now be. Hmm,
+stylishly warm, you shall be. Feel like a Spaceman, you will. Use the
+Force, to zip and unzip, you must. Look cool, you will. Yes, hmmm.
+
+## Changelog
+
+:cl: GoldenAlpharex, ChatGPT for the first changelog entry (slightly
+edited)
+qol: Zipped and unzipped through alt-click, winter coats can now be.
+Hmm, stylishly warm, you shall be. Feel like a Spaceman, you will. Use
+the Force, to zip and unzip, you must. Look cool, you will. Yes, hmmm.
+image: Winter coats no longer have their hood baked into their jacket's
+sprite, both in item form and when worn.
+fix: Updated the Icebox EVA winter coats (the Endotherm winter coats) to
+use the same sprites as the regular winter coats.
+/:cl:
+
+---------
+
+Co-authored-by: san7890 <the@san7890.com>
+
+---
+## [streamlit/streamlit](https://github.com/streamlit/streamlit)@[c464422e1b...](https://github.com/streamlit/streamlit/commit/c464422e1bbea66b3184769ea22599356d710f9a)
+#### Wednesday 2023-05-31 01:10:55 by Danny Wolf
+
+Upgrade react-range to fix memory usage of sliders (#6764)
+
+As mentioned in
+https://blog.streamlit.io/six-tips-for-improving-your-streamlit-app-performance/
+memory usage struggles in the browser if you have large ranges:
+
+> Due to implementation details, high-cardinality sliders don't suffer
+> from the serialization and network transfer delays mentioned earlier,
+> but they will still lead to a poor user experience (who needs to
+> specify house prices up to the dollar?) and high memory usage. In my
+> testing, the example above increased RAM usage by gigabytes until the
+> web browser eventually gave up (though this is something that should
+> be solvable on our end. We'll look into it!)
+
+This was caused by a bug in react-range, which I fixed last year.
+https://github.com/tajo/react-range/pull/178
+
+At the time, I had figured it would get picked up by a random yarn
+upgrade and didn't worry too much about it.
+But, apparently yarn doesn't really have an easy way of doing upgrades
+of transitive dependencies (see https://github.com/yarnpkg/yarn/issues/4986)?
+I took the suggestion of someone in that thread to delete the entry and
+let yarn regenerate it.
+
+Some technical details about the react-range fix from the original
+commit message (the "application" is a streamlit app):
+
+> We have an application that uses react-range under the hood, and we
+> noticed that a range input was taking 2GB of RAM on our machines. I
+> did some investigation and found that regardless of whether the marks
+> functionality was being used, refs were being created for each
+> possible value of the range.
+
+> We have some fairly huge ranges (we're using the input to scrub a
+> video with potential microsecond accuracy), and can imagine that
+> other people are affected by the previous behavior. This change
+> should allow us to continue using large input ranges without
+> incurring a memory penalty.
+
+---
+## [NeonNik2245/Skyrat-tg-tests](https://github.com/NeonNik2245/Skyrat-tg-tests)@[7dad8c75ca...](https://github.com/NeonNik2245/Skyrat-tg-tests/commit/7dad8c75cac06a405dc3c30a5cbc31919f33ff13)
+#### Wednesday 2023-05-31 01:22:26 by SkyratBot
+
+[MIRROR] Adds a eye-dropper right-click function to the painting canvas. [MDB IGNORE] (#21411)
+
+* Adds a eye-dropper right-click function to the painting canvas. (#75571)
+
+## About The Pull Request
+Having used the painting UI to kill some time during long rounds for a
+decent chunk of the past year, the need of a quicker and less tedious
+way to fix a misclick or mistake like drawing over the wrong pixel has
+become clear to me, as well as getting some feedback on the palette
+component I made last year.
+
+As the title suggests, this PR adds an eye-dropper function to the
+canvas. Right-Click a pixel on the canvas, and the painting tool will
+copy its color. Simple as, works on both finished and unfinished
+paintings.
+
+As a bonus, you can also right-click one of those selectable
+white/colored squares on the color scheme near the bottom of the UI (if
+using spraycan/palette) to change its color without having to go back to
+main game window and a radial menu.
+
+EDIT: With the tooltip added to the UI, I can say it's ready.
+
+## Why It's Good For The Game
+This PR aims to add better options to change colors on the go and
+improve the user experience on the painting UI.
+
+## Changelog
+
+:cl:
+qol: Adds a eye-dropper-like right-click function to the painting canvas
+UI. Right-Click a pixel on the canvas while holding a painting tool to
+have it copy its color.
+qol: Also adds a right-click function to the color palette at the bottom
+of the UI to allow users to set its colors without having to alternate
+between the game window and the UI.
+qol: Lastly, a tooltip has been added near the top-left corner of the
+same UI to let players know of these features.
+/:cl:
+
+* Adds a eye-dropper right-click function to the painting canvas.
+
+---------
+
+Co-authored-by: Ghom <42542238+Ghommie@users.noreply.github.com>
+
+---
+## [X4X5/arch-wrap](https://github.com/X4X5/arch-wrap)@[0d523cd130...](https://github.com/X4X5/arch-wrap/commit/0d523cd13085dfbb621e76c4b8e2faf146a87c2d)
+#### Wednesday 2023-05-31 01:28:56 by X4X5
+
+Holy fucking shit. Like I didn't spend 4 fucking hours on this because I don't know what I'm doing
+
+---
+## [xiota/chaotic-packages](https://github.com/xiota/chaotic-packages)@[07c4d57725...](https://github.com/xiota/chaotic-packages/commit/07c4d57725203da25682c102a5a4bf123d589a6d)
+#### Wednesday 2023-05-31 01:37:42 by Alexandre Pereira
+
+Fix roundedsbe
+
+I was almost falling asleep last night, thinking about dire issues of life, old age and death ... when out of nothing: !!!!!"I know why roundedsbe-git isn't being built !!!!!!"
+
+I was way to asleep to get up and fix it, but as soon as I can, I promised myself I would fix it the next day!!
+
+Thank you for reading :)
+
+---
+## [nikothedude/tgstation](https://github.com/nikothedude/tgstation)@[2aaafd9a67...](https://github.com/nikothedude/tgstation/commit/2aaafd9a67c270fa0772cd9beffb6789d53750e3)
+#### Wednesday 2023-05-31 01:54:32 by TheVekter
+
+Replaces the syndicate corpse Legions can drop with one without a MODSuit (#75700)
+
+## About The Pull Request
+This is part of a pass I'm working on doing where I go through and
+remove instances of antag gear outside of their normal context. This is
+mostly going to involve replacing space/Lavaland ruin gear with
+something close to the same power level but not distinctly something
+only antags should be able to get. I want to keep ruins rewarding but I
+don't want explicit antag gear to be something you can obtain without
+needing an uplink.
+
+The first part of this is me removing the MODSuit from the syndicate
+operative corpse. The new one drops a turtleneck, a syndicate gas mask,
+and gripper gloves.
+
+## Why It's Good For The Game
+It's my opinion that antag gear should probably stay in antag hands
+unless you manage to kill one or steal an uplink. The main impetus for
+this was a discussion I had a while back about how blood red hardsuits
+used to _just_ be an antag thing. I kind of miss that general feeling of
+paranoia that came from seeing someone wearing it, as opposed to seeing
+it these days and just thinking "Yeah, it's probably someone who got it
+from space".
+
+In this specific instance, Syndicate MODSuits are pretty strong anyway
+and, regardless of the low odds of getting one, I really don't think it
+should be available as loot off a fairly easy-to-kill mob.
+
+## Changelog
+:cl:
+balance: Syndicate corpses dropped from killing a Legion no longer come
+with a MODSuit.
+/:cl:
+
+---
+## [alim596/102-Project-Zone](https://github.com/alim596/102-Project-Zone)@[ce33d32d19...](https://github.com/alim596/102-Project-Zone/commit/ce33d32d19fe3f39ea570d9d5f6ebfc958052c5d)
+#### Wednesday 2023-05-31 02:23:56 by Orhun Güder
+
+I HATE MY LIFE
+
+the last commit was not ,in fact, the final commit.
+
+---
+## [PlagueVonKarma/kep-hack](https://github.com/PlagueVonKarma/kep-hack)@[934f8adcac...](https://github.com/PlagueVonKarma/kep-hack/commit/934f8adcac1ac1ecb5a1820d297e7eec43fc7c72)
+#### Wednesday 2023-05-31 04:03:26 by Llinos Evans
+
+Mystery Box functionality
+
+It was a long shot, but I did it! I added the Mystery Box from Pokemon GO! Very happy with the results here.
+
+So here's how it works: When used, the game will replace Pokemon encountered with Meltan until the player leaves the map. This is sort of how it works in GO, with the player unable to close it and naturally petering out as they play.
+
+Now multiple Meltan can be obtained, and in abundance, just like GO. Technically, someone could use this as a pseudo-Repel to replace hard encounters with easy ones.
+
+Oh, and I'm pretty sure this happens vs static encounters as well, but it's awkward to account for I think that's hilarious, so...
+
+---
+## [jeromedawson/chatbot-project](https://github.com/jeromedawson/chatbot-project)@[2606705cad...](https://github.com/jeromedawson/chatbot-project/commit/2606705cad7e8429f350941ae1aa00840ec30fc9)
+#### Wednesday 2023-05-31 04:14:45 by jeromedawson
+
+Update README.md
+
+# Chat App
+
+Chat App is a real-time chat application powered by OpenAI's GPT-3 language model. It allows users to have interactive conversations with an AI assistant.
+
+## Description
+
+Chat App leverages the power of OpenAI's GPT-3, a state-of-the-art language model, to provide intelligent and context-aware responses. The application creates a seamless conversational experience, enabling users to engage in natural and dynamic conversations with the AI assistant.
+
+## Features
+
+- Engage in real-time conversations with the AI assistant, receiving immediate responses
+- Seamless integration with OpenAI's GPT-3 language model, providing accurate and contextually relevant replies
+- Customizable prompts and parameters, allowing users to control the conversation flow
+- User-friendly interface built with React, ensuring a smooth and intuitive user experience
+
+## Installation
+
+1. Clone the repository: `git clone https://github.com/your-username/chat-app.git`
+2. Navigate to the project directory: `cd chat-app`
+3. Install the dependencies: `npm install`
+
+## Usage
+
+1. Obtain an API key from OpenAI and replace the placeholder in `server.js` with your actual API key.
+2. Start the server: `npm start`
+3. Open the client-side application in your browser: `http://localhost:3000`
+
+## Contributing
+
+Contributions are welcome! If you have any ideas, bug fixes, or improvements, please open an issue or submit a pull request. Follow the guidelines provided in the CONTRIBUTING.md file.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Credits
+
+- [OpenAI's GPT-3](https://openai.com): The powerful language model that drives the AI assistant
+- [Node.js](https://nodejs.org): The JavaScript runtime used for server-side development
+- [Express](https://expressjs.com): The web application framework used for handling API requests
+- [React](https://reactjs.org): The JavaScript library used for building the user interface
+
+Enjoy engaging in dynamic conversations with the AI-powered Chat App! Feel free to provide feedback and suggestions for further improvements.
+
+---
+## [h13e/evals](https://github.com/h13e/evals)@[e116ede848...](https://github.com/h13e/evals/commit/e116ede848957eff8e76b5d8463ed5291163a28f)
+#### Wednesday 2023-05-31 04:40:07 by Wesley Barlow
+
+Add eval: rhetorical-devices (#1005)
+
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. **Starting April 10, the minimum
+eval count is 15 samples, we hope this makes it easier to create and
+contribute evals.**
+
+Also, pelase note that we're using **Git LFS** for storing the JSON
+files, so please make sure that you move the JSON file to Git LFS before
+submitting a PR. Details on how to use Git LFS are available
+[here](https://git-lfs.com).
+
+## Eval details 📑
+### Eval name
+rhetorical-devices
+
+### Eval description
+
+Evaluates model's ability to select the most specific rhetorical
+modification of a sentence from a multiple choice with a large number of
+nuanced rhetorical devices.
+
+### What makes this a useful eval?
+
+Useful for using LLMs to write novels and generate consistent/parametric
+authorial tone.
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] **Include at least 15 high quality examples.**
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+> Insert what makes your eval high quality that was not mentioned above.
+(Not required)
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields of this form
+- [x] I have used **Git LFS** for the Eval JSON data
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content":"Which of the following
+rhetorical devices was added to the original sentence? Choose the most
+specific of the following (a) Alliteration, (b) Assonance, (c)
+Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
+Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
+Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
+Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
+Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
+"user", "content": "ORIGINAL She likes to listen to the winds. MODIFIED
+She swoons at such sweet gales. Answer in the format (x) Rhetorical"}],
+"ideal": "(a) Alliteration"}
+{"input": [{"role": "system", "content":"Which of the following
+rhetorical devices was added to the original sentence? Choose the most
+specific of the following (a) Alliteration, (b) Assonance, (c)
+Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
+Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
+Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
+Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
+Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
+"user", "content": "ORIGINAL The rock was very large. MODIFIED The rock
+was remarkably raised. Answer in the format (x) Rhetorical"}], "ideal":
+"(a) Alliteration"}
+{"input": [{"role": "system", "content":"Which of the following
+rhetorical devices was added to the original sentence? Choose the most
+specific of the following (a) Alliteration, (b) Assonance, (c)
+Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
+Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
+Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
+Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
+Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
+"user", "content": "ORIGINAL Visionary dreams elevate me at night.
+MODIFIED Visionary reminitions elevate self resting in lightlessness.
+Answer in the format (x) Rhetorical"}], "ideal": "(b) Assonance"}
+{"input": [{"role": "system", "content":"Which of the following
+rhetorical devices was added to the original sentence? Choose the most
+specific of the following (a) Alliteration, (b) Assonance, (c)
+Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
+Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
+Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
+Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
+Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
+"user", "content": "ORIGINAL Once, I thought I had lost her pet.
+MODIFIED Once, dunce — thought I lost Juliet's pet. Answer in the format
+(x) Rhetorical"}], "ideal": "(b) Assonance"}
+{"input": [{"role": "system", "content":"Which of the following
+rhetorical devices was added to the original sentence? Choose the most
+specific of the following (a) Alliteration, (b) Assonance, (c)
+Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
+Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
+Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
+Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
+Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
+"user", "content": "ORIGINAL Do you want to understand research on
+artificial general intelligence? MODIFIED Don't you want to investigate
+artifacts of artificial general intelligence? Answer in the format (x)
+Rhetorical"}], "ideal": "(c) Consonance"}
+  ```
 </details>
 
-The eye color does not modify the light color in any way when set in
-this manner, but it can be used for cosmetic purposes.
+---
+## [h13e/evals](https://github.com/h13e/evals)@[b91292c803...](https://github.com/h13e/evals/commit/b91292c803af2bdadeec3853ab03514b73310109)
+#### Wednesday 2023-05-31 04:40:07 by Zyenith
 
-Kind of makes the item more like cybereyes from cyberpunk, which I think
-are pretty neat!
+Add Eval: Internal Representations via Counting (#1006)
 
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. **Starting April 10, the minimum
+eval count is 15 samples, we hope this makes it easier to create and
+contribute evals.**
+
+Also, please note that we're using **Git LFS** for storing the JSON
+files, so please make sure that you move the JSON file to Git LFS before
+submitting a PR. Details on how to use Git LFS are available
+[here](https://git-lfs.com).
+
+## Eval details 📑
+### Eval name
+Internal representations via counting
+
+### Eval description
+
+Using series of logical questions that require multiple (simple)
+manipulations of numbers to get the ideal answer. These are basic tasks
+that should be doable by an LLM, but require several steps of internal
+"thought" to get right.
+
+### What makes this a useful eval?
+
+Situations with number manipulation with multiple steps are prevalent
+anywhere in the modern world. Testing the internal representation of the
+LLM can provide other insights on how well its "mind" processes
+information.
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] **Include at least 15 high quality examples.**
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+This eval is capable of providing insight into the LLM's internal
+representation of objects versus answering fact-based questions or
+straightforward complex logic puzzles.
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields of this form
+- [x] I have used **Git LFS** for the Eval JSON data
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input":[{"role":"system","content":"You will be prompted with a
+logical question. Respond only with a number, nothing else is
+required."},{"role":"user","content":"Roger and Emily are in a room.
+Roger puts a cat in an empty box while Emily is in the room. They both
+leave, and Emily returns and puts a turtle in the box as well. How many
+items does Roger think are in the box?"}],"ideal":"1"}
+{"input":[{"role":"system","content":"You will be prompted with a
+logical question. Respond only with a number, nothing else is
+required."},{"role":"user","content":"There are four darts already on a
+dart board. Bob throws one dart at the dartboard, and it lands. Alice
+throws two darts, and one misses but one hits the dartboard. How many
+darts are on the dartboard?"}],"ideal":"6"}
+{"input":[{"role":"system","content":"You will be prompted with a
+logical question. Respond only with a number, nothing else is
+required."},{"role":"user","content":"A bakery sold 25 cakes in the
+morning and 17 cakes in the afternoon. The day after, they sold 15 more
+cakes. How many cakes did they sell on the second day?"}],"ideal":"15"}
+{"input":[{"role":"system","content":"You will be prompted with a
+logical question. Respond only with a number, nothing else is
+required."},{"role":"user","content":"There are six blue birds and three
+red birds sitting on a tree. Two blue birds fly away, and one red bird
+flies away. How many birds are left on the tree?"}],"ideal":"6"}
+{"input":[{"role":"system","content":"You will be prompted with a
+logical question. Respond only with a number, nothing else is
+required."},{"role":"user","content":"John has double the amount of
+pencils than Sarah, and Sarah has as many pencils as Mark. Mark has 2
+pencils. How many pencils does John have?"}],"ideal":"4"}
+  ```
 </details>
 
-### What I've done, in more detail:
-
-- refactored high luminosity eyes so they use the atom lighting system
-instead of the way they were doing it before
-- the new light type, `MOVABLE_LIGHT_BEAM` behaves similarly to
-directional lights, with some slight differences. it reuses the same
-lighting overlay sprites but scales them vertically to produce a more
-focused effect. The result can be seen above. This is in contrast to the
-old way, which spawned `range` number of individual 32x32 overlays and
-moved them around. This way should perform better as well as be more
-maintainable.
-- added a new TGUI interface for high luminosity eyes with buttons for
-range, a text field for a color hex, a color picker and randomizer
-- made the eye overlay emissive when the light is turned on
-- range goes from 0 to 5. at range 0, the light overlay is turned off
-and you are left with just the emissive eyes.
-- added a cosmetic functionality to this item that lets you change the
-color of your eyes independently of the lighting (and each other)
-- fixed a bug with directional flashlights sometimes not updating their
-lighting overlay if you pick them up without changing your direction
 ---
+## [h13e/evals](https://github.com/h13e/evals)@[3d9de9a624...](https://github.com/h13e/evals/commit/3d9de9a62411f9e6a999e96ce8f07eebf0e8c121)
+#### Wednesday 2023-05-31 04:40:07 by dyar-al-ashtari
 
-### Other Misc Fixes
+Eval Norwegian lexicon (#1044)
 
-Being able to dynamically set range back and forth exposed some logic
-issues that had existed with directional light overlays and I have fixed
-those. That is why there are some edits in that file that may not appear
-readily obvious why they are there.
+# Thank you for contributing an eval! ♥️
 
-Apart from that, two other bugs that come to mind:
-1) eye code was supposed to keep track of the eye color you had before
-you got new eyes, but it was overwriting that every time you ran
-refresh().
-2) lighting was supposed to be turning off the light when range is set
-to 0, but it was not doing that properly.
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
 
-And of course besides that, there may have been a few instances of
-finding typos/tidying up code
+__PLEASE READ THIS__:
 
-## Why It's Good For The Game
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
 
-The code for this was like 6 years old and in desperate need of
-updating. Now it works, and has a nicer UI.
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. **Starting April 10, the minimum
+eval count is 15 samples, we hope this makes it easier to create and
+contribute evals.**
 
-## Changelog
+Also, please note that we're using **Git LFS** for storing the JSON
+files, so please make sure that you move the JSON file to Git LFS before
+submitting a PR. Details on how to use Git LFS are available
+[here](https://git-lfs.com).
 
-:cl:
-fix: high luminosity eyes light overlays now follow the user correctly
-qol: high luminosity eyes now have a tgui menu so you no longer have to
-go through the color picker every time you want to change the range.
-they also have a new setting that lets you change the color of your eyes
-independently of the light color. You can now have cybernetic
-heterochromia if you want
-fix: directional flashlights when picked up will now always update their
-cast light direction correctly no matter what dir you are facing
-refactor: refactors high luminosity eye code to better make use of the
-atom lighting system, adding a new light type 'MOVABLE_LIGHT_BEAM'
-/:cl:
+## Eval details 📑
+### Eval name
+`norwegian-lexicon`
 
----
-## [funman816/tgstation](https://github.com/funman816/tgstation)@[40e98a7ba4...](https://github.com/funman816/tgstation/commit/40e98a7ba450d51787f7a14af63827fc7059ffd6)
-#### Tuesday 2023-05-30 01:41:08 by John Willard
+### Eval description
 
-Mafia rebalance and backend refactor (#74640)
+This eval uses valid Norwegian words taken from the dictionary and
+assesses whether GPT can recognize them as valid.
 
-## About The Pull Request
+### What makes this a useful eval?
 
-Turns all Mafia abilities into datums, instead of being a bunch of
-shitcode on every single job.
-This means it's easier to add new roles
-Gives new names to some defines (such as the signal order, to make it
-easier to tell when something is fired)
-Adds support for modular Mafia jobs with their abilities being in a
-certain order (Escort is now properly first).
-De-snowflakes Changeling killing abilities and day voting, they're now
-actions that are tallied when necessary.
+The Norwegian language is simple yet complicated at the same time. There
+are a lot of words that are valid Norwegian words that do not get
+recognized anymore. An AI should be able to identify these words with
+precision. All of the words used in the samples are valid Norwegian
+words and can be found in the dictionary. After assessing GPT-4 (through
+the playground) and GPT-3.5 -- it failed to recognize most of the words.
+Some of the words would return positive during some evals. Other times
+it wouldn't recognize them. After asking GPT why it is not a valid word,
+it would apologize and fix its mistake.
 
-Turns time vars into defines
-Generalizes a lot of behavior for abilities, now all abilities can
-properly undo their action at night
+## Criteria for a good eval ✅
 
-Fixes problems with the UI (Thoughtfeeder had 2 buttons during night and
-they overlapped with names, that's been fixed).
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
 
-### Behavior changes
+Your eval should be:
 
-- Doctor/Officer can now protect themselves 1 night, because it gives
-them a way to protect themselves.
-- Lawyer/Warden/Ect now choose their abilities at night, rather than the
-day before. The suspense building up towards the end of the night is
-part of the game, telling you that it happened at the very start is
-quite lame (in the case of Lawyer, anyway).
-- Admin setup now uses TGUI instead of html inputs.
-- Cut night time by like, 5 seconds, because I found it a little long
-lol.
-- HoP doesn't count as votes to win until they reveal, because it makes
-no sense an unrevealed HoP has their unrevealed votes tallied. I also
-like those 1v1 Mayor V. Evil scenarios where dead chat goes crazy, and
-hope to replicate that here.
-- Mafia now needs 6 people to start instead of 4, because 4 players is
-just not enough to play a Mafia round that will do anything but annoy
-people.
-- The game no longer ends if it's in a standoff with 1 Town, 1 Mafia,
-and 1 Neutral, as you've got a kingmaker and they should decide who
-wins.
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] **Include at least 15 high quality examples.**
 
-### Things I want to change in the future
-Every time night starts/ends, it checks the entire ``GLOB.airlocks`` for
-doors with the "mafia" ID. This is stupid.
-Rework ``check_victory()`` to make it make more sense, and be more fun
-for players.
-A visible death animation?
-I want to use something similar to admin popup for messages about people
-being on stand, and decluttering the UI in general
-Also more use of balloon alerts instead of to chat messages for
-everything.
-Also also, making the UI more responsive to players. Button should be
-red when a player is selected, so they know that's who they've selected,
-if they want to unselect.
-Are votes public when you first cast them? They shouldn't be wtf.
-Can we also make the description for roles not be a to chat message? It
-can just say when you hover over the '?' come on.
-User-written wills instead of auto-generated, and able to send them in
-chat
-Add support for roleblock-immune roles
+If there is anything else that makes your eval worth including, please
+document it below.
 
-## Why It's Good For The Game
+### Unique eval value
 
-Updates a lot of old code to modern standards
-Makes it considerably easier to work with Mafia and add new roles
-Makes things less prone to breaking as easily.
-Code also looks a lot cleaner now.
+> Insert what makes your eval high quality that was not mentioned above.
+(Not required)
 
-## Changelog
+## Eval structure 🏗️
 
-:cl:
-refactor: [Mafia] All Mafia abilities have been overhauled in the
-backend, it's now much easier to understand what each role's ability can
-do and how it works.
-admin: [Mafia] Admin setup of Mafia is now in TGUI
-balance: [Mafia] Doctors/Officers can protect themselves once per game.
-Be careful around them!
-fix: [Mafia] Thoughtfeeder's UI buttons at night won't overlap with
-eachother.
-fix: [Mafia] HoP's votes now actually matter, instead of being purely
-visual.
-qol: [Mafia] Lawyers, Wardens, etc. now perform their night ability at
-night, instead of the day prior.
-qol: [Mafia] Night time now lasts 40 seconds instead of 45.
-/:cl:
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
 
----
-## [funman816/tgstation](https://github.com/funman816/tgstation)@[2b2cb3dff6...](https://github.com/funman816/tgstation/commit/2b2cb3dff6d9985103cee46a6020aa1b63a3c2de)
-#### Tuesday 2023-05-30 01:41:08 by LemonInTheDark
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
 
-Hologram Touchup (Init savings edition) (#74793)
+## Final checklist 👀
 
-## About The Pull Request
+### Submission agreement
 
-### Polishes and Reworks Holograms
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
 
-Hologram generation currently involves a bunch of icon operations, which
-are slow.
-Not to mention a series of get flats for the human models, which is even
-worse.
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
 
-We lose 0.05 seconds of init to em off just the 2 RCD holograms. it
-hurts man.
+### Email address validation
 
-So instead, let's use filters and render steps to achive the same
-effect.
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
 
-While I'm here I'll dim the holo light and make it blue, make the
-hologram and its beam emissive (so they glow), and do some fenangling
-with move_hologram() (it doesn't clear the hologram off failure anymore,
-instead relying on callers to do that) to ensure holocalls can't be
-accidentially ended by moving out of the area.
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
 
-Ah and I added RESET_ALPHA to the emissive appearance flags, cause the
-alpha does override and fuck with color rendering, which ends up looking
-dumb. If we're gonna support this stuff it should be first class not
-accidential.
+### Limited availability acknowledgement
 
-### Makes Static Not Shit
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
 
-While I'm here (since holograms see static) lets ensure the static plane
-is always visible if you're seeing through an ai eye.
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
 
-The old solution was limited to applying it to JUST ais, which isn't
-satisfactory for this sort of thing and missed a LOT of cases (I didn't
-really get how ai eyes worked before I'ma be honest)
+### Submit eval
 
-I'm adding a signal off the hud for it detecting a change in its eye
-here.
-This is semi redundant, but avoids unneeded dupe work, so I'm ok with
-it.
+- [x] I have filled out all required fields of this form
+- [x] I have used **Git LFS** for the Eval JSON data
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
 
-The pipeline here is less sane then I'd like, but it works and that's
-enough
+Failure to fill out all required fields will result in the PR being
+closed.
 
-## Why It's Good For The Game
+### Eval JSON data 
 
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
 
-![dreamseeker_zMiLXzlZ2X](https://user-images.githubusercontent.com/58055496/232470136-add945da-5f76-469e-ba1a-6ed3159b6f5b.png)
-More pretty, better ux, **static works**
+<details>
+  <summary>View evals in JSON</summary>
 
-## Changelog
-:cl:
-add: Holograms glow now, pokes at the lighting for holocalls in general
-a bit to make em nicer.
-qol: You can no longer accidentally end a holocall (as a non ai) by
-leaving the area. Felt like garbage
-fix: Fixes static rendering improperly if viewed by a non ai
-/:cl:
+  ### Eval
+  ```jsonl
+{"input":[{"role":"system","content":"You will be prompted with a single
+word. Does this word exist in the Norwegian language? Answer with
+exactly one letter: Y or N. Do not use punctionation. Do not explain
+your answer."},{"role":"user","content":"Skarpne"}],"ideal":"Y"}
+{"input":[{"role":"system","content":"You will be prompted with a single
+word. Does this word exist in the Norwegian language? Answer with
+exactly one letter: Y or N. Do not use punctionation. Do not explain
+your answer."},{"role":"user","content":"Bløtne"}],"ideal":"Y"}
+{"input":[{"role":"system","content":"You will be prompted with a single
+word. Does this word exist in the Norwegian language? Answer with
+exactly one letter: Y or N. Do not use punctionation. Do not explain
+your answer."},{"role":"user","content":"Hovedantall"}],"ideal":"Y"}
+{"input":[{"role":"system","content":"You will be prompted with a single
+word. Does this word exist in the Norwegian language? Answer with
+exactly one letter: Y or N. Do not use punctionation. Do not explain
+your answer."},{"role":"user","content":"Klenge"}],"ideal":"Y"}
+{"input":[{"role":"system","content":"You will be prompted with a single
+word. Does this word exist in the Norwegian language? Answer with
+exactly one letter: Y or N. Do not use punctionation. Do not explain
+your answer."},{"role":"user","content":"Blankolov"}],"ideal":"Y"}
+  ```
+</details>
 
 ---
-## [nikothedude/tgstation](https://github.com/nikothedude/tgstation)@[912e843f53...](https://github.com/nikothedude/tgstation/commit/912e843f53cf33b15148ec5a5ec66ce107314467)
-#### Tuesday 2023-05-30 01:43:00 by san7890
+## [h13e/evals](https://github.com/h13e/evals)@[6a37c9b51b...](https://github.com/h13e/evals/commit/6a37c9b51b48a2f735898846cfb08b37cbd63179)
+#### Wednesday 2023-05-31 04:40:07 by Aaron Goldsmith
 
-Allows Export of your Preferences JSON File (#75014)
+[eval] 3x3 Game Of Life  (#345)
 
-## About The Pull Request
+# Thank you for contributing an eval! ♥️
 
-Hey there,
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
 
-This was spoken about in #70492 (specifically
-https://github.com/tgstation/tgstation/pull/70492#issuecomment-1278069607),
-and I have been waiting for this to be implemented for some time. It
-never got implemented, so I decided to code it myself.
+__PLEASE READ THIS__:
 
-Basically, **if the server host doesn't disable it**, you are free to
-export your JSONs as a player, right from the stat-panel. It's a pretty
-JSON on 515 versions, too!
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
 
-It's right here:
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. We encourage partial PR's with
+~5-10 example that we can then run the evals on and share the results
+with you so you know how your eval does with GPT-4 before writing all
+100 examples.
 
+## Eval details 📑
+### Eval name
+GOL
 
-![image](https://user-images.githubusercontent.com/34697715/235251447-1c977718-51fd-4025-8d89-c60bffc379ec.png)
+### Eval description
 
-Here's what the prettified JSON looks like on 515.
+Determine the next state of a 3x3 Game of Life Board. 
 
+### What makes this a useful eval?
 
-![image](https://user-images.githubusercontent.com/34697715/235321061-4a217e26-c082-4bba-b54a-2c780defda0a.png)
+Spacial reasoning
 
-There's a cooldown (default to 10 seconds) between exporting your
-preferences.
+## Criteria for a good eval ✅
 
-#### Why is this config?
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
 
-It's because in the past, a server host could always just file-share the
-.sav or .json or whatever to the player, but they would have to do the
-explicit option of actually bothering to make the files accessible to
-the player. In that same line of logic, the server operator will have to
-explicitly make the files accessible. This is mostly because I'm not
-sure how good `ftp()` is at being a player function and wanted to have
-some sort of cap/control somehow in case an exploit vector is detected
-or it's just plain spammed by bots, so we'll just leave it up to the
-direct providers of this data to elect if they wish to provide the data
-or not.
-## Why It's Good For The Game
+Your eval should be:
 
-Players don't have to log into Server A to remember what hairstyle they
-loved using when they want to swap to Server B! That's amazing actually.
-I always forget what ponytail my character has, and it'll be nice to
-have the hairstyle in a readily accessible place (after I prettify the
-JSON for myself).
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
 
-It's also more convenient for server hosts to make player data like this
-accessible if they really want to, too.
+If there is anything else that makes your eval worth including, please
+document it below.
 
-If we ever add an _import_ feature in the future (which would have to be
-done with a LOT of care), this will also be useful. I wouldn't advise it
-though having taken a precursory look at how much goes into it while
-trying to ascertain the scope of this PR.
-## Changelog
-:cl:
-qol: The game now supports export of your preferences into a JSON file!
-The verb (export-preferences) should now be available in the OOC tab of
-your stat-panel if enabled by server operators.
-server: Exporting player preferences is controlled by a configuration
-option, 'FORBID_PREFERENCES_EXPORT'. If you do not wish to let clients
-access the ftp() function to their own preferences file (probably for
-bandwidth reasons?) you should uncomment this or add it to your config
-somehow.
-config: Server operators are also able to set the cooldown between
-requests to download the JSON Preferences file via the
-'SECONDS_COOLDOWN_FOR_PREFERENCES_EXPORT' config option.
-/:cl:
+### Unique eval value
+
+> Insert what makes your eval high quality that was not mentioned above.
+(Not required)
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields in the evals PR form
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content": "You are a helpful assistant.
+"}, {"role": "user", "content": "Using the classic Game of Life Rules,
+determine the next state of the 3x3 Game of life board: \n1 1 1\n\n0 0
+0\n\n0 0 0 \n\n Do not provide any explanation other than the next state
+of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["0 1 0\n\n0 1
+0\n\n0 0 0"]}
+{"input": [{"role": "system", "content": "You are a helpful assistant.
+"}, {"role": "user", "content": "Using the classic Game of Life Rules,
+determine the next state of the 3x3 Game of life board: \n1 1 1\n\n1 0
+0\n\n0 0 0 \n\n Do not provide any explanation other than the next state
+of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["1 0 1\n\n1 0
+1\n\n0 0 0"]}
+{"input": [{"role": "system", "content": "You are a helpful assistant.
+"}, {"role": "user", "content": "Using the classic Game of Life Rules,
+determine the next state of the 3x3 Game of life board: \n0 1 1\n\n1 1
+1\n\n1 1 0 \n\n Do not provide any explanation other than the next state
+of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["1 0 1\n\n0 0
+0\n\n1 0 1"]}
+{"input": [{"role": "system", "content": "You are a helpful assistant.
+"}, {"role": "user", "content": "Using the classic Game of Life Rules,
+determine the next state of the 3x3 Game of life board: \n0 1 1\n\n0 1
+1\n\n0 0 0 \n\n Do not provide any explanation other than the next state
+of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["0 1 1\n\n0 1
+1\n\n0 0 0"]}
+{"input": [{"role": "system", "content": "You are a helpful assistant.
+"}, {"role": "user", "content": "Using the classic Game of Life Rules,
+determine the next state of the 3x3 Game of life board: \n0 1 0\n\n0 0
+0\n\n1 1 0 \n\n Do not provide any explanation other than the next state
+of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["0 0 0\n\n1 1
+0\n\n0 0 0"]}
+  ```
+</details>
 
 ---
-## [knative-automation/client-pkg](https://github.com/knative-automation/client-pkg)@[964c3afe21...](https://github.com/knative-automation/client-pkg/commit/964c3afe219cd6ddcdebfc0cff65d3d536a8359a)
-#### Tuesday 2023-05-30 01:48:57 by Knative Automation
+## [openai/evals](https://github.com/openai/evals)@[1638d8b046...](https://github.com/openai/evals/commit/1638d8b04610c79b7807383ba9935c8cf08b0551)
+#### Wednesday 2023-05-31 04:49:05 by Phil Ashworth
 
-upgrade to latest dependencies
+Add some sample evals for euler problems (#156)
 
-bumping golang.org/x/tools b3b5c13...d0863f0:%0A  > d0863f0 go.mod: update golang.org/x dependencies%0A  > 545ca87 gopls/internal/regtest/marker: require go/packages%0A  > 1ace7db go,gopls: remove license from package doc comments%0A  > ebad375 gopls/internal/lsp/protocol: prevent license rendering in godoc%0A  > 10a39ef gopls/internal/lsp/regtest: address additional comments on marker.go%0A  > 69920f2 gopls/internal/regtest/marker: add missing tests for hover%0A  > 24a13c6 gopls/internal/regtest: fill out features of the new marker tests%0A  > 2b149ce gopls/internal/regtest: add a regtest-based version of the marker tests%0A  > edddc5f go/packages: don't discard errors loading export data%0A  > a762c82 go/ssa: add MultiConvert instruction%0A  > f124b50 cmd/stringer: streamline test subprocesses%0A  > 6b6857a gopls: fix typos in comments and doc%0A  > 8111118 go/analysis/internal/facts: fix cycle in importMap.%0A  > dd1c468 gopls/internal/lsp/source: simplify extracting object hover doc%0A  > 66f8f71 gopls/internal/lsp/source: use syntax alone in FormatVarType%0A  > 30f191f internal/imports: update stdlib index for Go 1.20%0A  > 4e98188 internal/imports: use go/packages instead of cmd/api to compute symbols%0A  > 4e8ff89 internal/imports: update stdlib index for 1.20%0A  > 6bd0d00 gopls/internal/lsp: go to definition from linkname directive%0A  > 0cfddb3 gopls/internal/lsp: enable clear builtin completion test%0A  > 41adf8d gopls/internal/lsp/tests: remove StripSubscripts%0A  > 86fdadc gopls/internal/lsp/safetoken: delete safetoken.Range%0A  > c276ee5 internal/robustio: fix signature of getFileID on plan9%0A  > e170d45 gopls/internal/lsp: add clear builtin%0A  > 2ea4b81 go/ast/inspector: skip ranges that do not contain a node type%0A  > 407bbed go/analysis: improve error message on duplicate fixes%0A  > bd5dfbb all: fix some comments%0A  > 072fca5 gopls/protocol: use the current definition of the lsp%0A  > aa633e7 tools/gopls: provide markdown for completion and signature help%0A  > 684a1c0 go/analysis/internal/analysisflags: use os.Executable for program path%0A  > bd5e595 gopls/internal/lsp/cache: add missing mutex%0A  > 2683128 gopls/internal/lsp: differentiate govulncheck/vulncheck imports diags%0A  > d1e92d6 gopls/internal/lsp/mod: reorder vulncheck quick fixes%0A  > 87d00e6 gopls/internal/lsp: separate some requests from source.Identifier%0A  > ae242ec gopls: fix windows file corruption%0A  > 6f65213 gopls/internal/lsp/protocol: Mapper.NodeMappedRange%0A  > e260368 gopls/semantic: report type parameters in the type of a receiver%0A  > b62cbb6 internal/lockedfile: fix build constraints on solaris%0A  > 1aa7e72 gopls/internal/lsp/source: avoid qualifiedObjectsAtProtocolPos%0A  > 5ed33df gopls/internal/lsp/source: rename: prep for incrementality%0A  > e0659d1 gopls/internal/lsp/source: simplify legacy 'references' func%0A  > 1edcfe7 gopls/internal/regtest/diagnostics: require cgo for TestGoListErrors%0A  > f052158 gopls/internal/lsp/protocol: move TestBytesOffset%0A  > d093a13 gopls/internal/lsp/protocol: LocationTextDocumentPositionParams%0A  > bcb677e gopls/internal/regtest: make RegexpSearch return a Location%0A  > 60782e9 gopls/internal/lsp/source: eliminate a couple uses of posToMappedRange%0A  > 031e6e6 gopls/internal/lsp/source: eliminate ResolveImportPath%0A  > f2cd9ef gopls/internal/lsp/source: reduce usage of TypecheckWorkspace%0A  > f10e7d5 gopls/internal/lsp/cache: remove package dependence on packages.Config%0A  > 8270757 gopls/internal/lsp/source: switch call hierarchy to references v2%0A  > 37c69d8 gopls/internal/lsp/source: references: support exported methods%0A  > f3c36a2 gopls/internal/lsp/cmd/test: delete marker-based tests of gopls cmd%0A  > c224aae gopls/internal/lsp/cmd/test: new integration test for gopls command%0A  > deeb64b gopls/internal/lsp/source/xrefs: allow Lookup of a set%0A  > f269f53 gopls/internal/lsp: remove Server.processModifications%0A  > fcd57eb gopls: allow 'any' and 'comparable' in completion results%0A  > aae3642 gopls/internal/lsp/source: referencesV2: support unexported methods%0A  > b5d65e0 tools/gopls: register semantic tokens statically%0A  > 51abc5b gopls/internal/lsp/source: stub: don't panic when encountering 'error'%0A  > ce28f40 gopls/internal/regtest: add a test demonstrating confusion following an%0A  > c4c6aa6 internal/lsp/cache: don't panic in Snapshot on a shutdown view%0A  > 1faecd3 tools/internal/diff: fix off-by-one error in computing diffs%0A  > a7f033a gopls/internal/lsp: consolidate the FileHandle API%0A  > 271e621 internal/lockedfile/internal/filelock: fix aix build tag%0A  > ff9bea5 gopls/internal/lsp/cmd/test: signpost future cleanups%0A  > 7d4ba2f gopls/release: remove unused functionality from release script%0A  > 46b6958 gopls/internal/lsp/source: delete source_test%0A  > bcc7794 go/analysis/passes/directive: add directive analyzer%0A  > 33d416e gopls/internal/lsp: add missing comments on 3x tests.Test impls%0A  > afea272 gopls/internal/lsp/source: make implementations2 work on embedded fields%0A  > bb7c440 gopls/internal/lsp/filecache: use file locking, not rename%0A  > 561a9be gopls/internal/lsp/filecache: actually delete files%0A  > 9682b0d gopls/internal/lsp/source: delete IsInterface%0A  > 7a7b699 go/analysis/passes/loopclosure: avoid panic in new parallel subtest check when t.Run has single argument%0A  > 3e6f71b gopls/internal/regtest: use AfterChange in more places%0A  > 9ff31a5 x/tools/go/analysis/passes/printf: revert URL in error message%0A  > 2fa6ca1 gopls/internal/lsp/source/impls: a new "implementations" index%0A  > 957bec5 gopls/protocol: new versions of generated LSP files%0A  > f0e2d5c internal/gcimporter: discard position info for unneeded lines%0A  > 5bedd86 cmd/digraph: use ReadString rather than bufio.Scanner%0A  > f6ea009 gopls/internal/lsp: remove the experimentalWatchedFileDelay setting%0A  > f46e418 gopls/internal/lsp/source: include ITVs in global references%0A  > f3e53e5 internal/jsonrpc2_v2: fix typos%0A  > d958e85 internal/gcimporter: use two-level file index%0A  > 8aba49b internal/gcimporter: preserve column and line in shallow iexport%0A  > d7fc4e7 gopls: new LSP stub generator%0A  > 5c176b1 internal/robustio: skip os.Link test on android%0A  > d34a055 go/ssa: sanity check the types of phi nodes%0A  > 6f095b4 go/callgraph/vta: add flows for receiver function types%0A  > 8e94967 cmd/fiximports: do not assume go list -json unmarshals into build.Package%0A  > e035d0c go/ssa: fix phi node type in slice to array conversion%0A  > 03eac81 go/expect: remove testdata go.mod to go.fake.mod%0A  > 1e819a3 gopls/internal/regtest: follow-ups to review comments from earlier CLs%0A  > 9ba8bb1 gopls/internal/regtest: clean up workspace symbol helpers%0A  > 91b6070 gopls/internal/regtest: eliminate DiagnosticAtRegexp%0A  > bd48b9a gopls/internal/regtest: eliminate DiagnosticsAtRegexpWithMessage%0A  > 5d65394 gopls/internal/regtest: eliminate DiagnosticAt%0A  > 27dfeb2 gopls/internal/regtest: replace NoDiagnostics with NoMatchingDiagnostics%0A  > 87092c8 gopls/internal/lsp/fake: use protocol types for the fake editor%0A  > 672a036 gopls/internal/regtest: simplify OnceMet expressions with an env helper%0A  > ab7b5b2 gopls/internal/regtest: eliminate GoSumDiagnostic%0A  > 331a1c6 gopls/internal/regtest: add a simpler API for diagnostic expectations%0A  > c9b82f2 gopls/internal/regtest: eliminate EmptyDiagnostics%0A  > e81af27 gopls: update golang.org/x/vuln@6ad3e3d%0A  > d19e3d1 internal/regtest/bench: fix BenchmarkRename and add more benchmark tests for gopls%0A  > 2be1a9a gopls/internal/regtest: rename EmptyOrNoDiagnostics to NoDiagnostics%0A  > 7ec05ac gopls/internal/regtest: eliminate NoDiagnostics%0A  > e956495 gopls/internal/regtest: eliminate DiagnosticsFor%0A  > 8087911 gopls: remove the experimentalWorkspaceModule mode%0A  > 5b300bd gopls/internal/lsp/cache: clean up view workspace information%0A  > 97d5de5 gopls/internal/cache: don't mark initialized after cancellation%0A  > 58691bc gopls/internal/lsp/glob: add an LSP compliant glob implementation%0A  > a3c22fc cmd/cover: delete package%0A  > 98dcb0e cmd/cover: remove replace directive%0A  > 7765567 gopls/internal/lsp/source: minor clarifications%0A  > a7f7db3 cmd/cover: carve out deprecated command into its own module%0A  > f9a10c0 Revert "cmd/cover: carve out deprecated command into its own module"%0A  > e345d46 internal/gcimporter: fix export of invalid methods%0A  > 4305a22 gopls/internal/lsp/cache: don't cache files if mtime is too recent%0A  > 227ee72 internal/regtest/misc: fail eagerly in TestRenameFileFromEditor%0A  > 43158af cmd/cover: carve out deprecated command into its own module%0A  > b798934 gopls/internal/lsp/protocol: cleanups and docs for Mapper%0A  > a24944e gopls/internal/lsp/protocol: rename s/ColumnMapper/Mapper/%0A  > 55935f4 gopls/internal/span: simplify Span%0A  > 40a1c97 gopls/internal/lsp/lsppos: delete Mapper%0A  > 6a3bc37 gopls/internal/lsp/protocol: reimplement ColumnMapper line logic%0A  > 6e9a35d go/callgraph/cha: refactor callee construction%0A  > fef5b76 go/callgraph: fix slicing in callgraph_test.go%0A  > 2be9d05 gopls/internal/lsp/source/xrefs: a new reference index%0A  > 0362cea gopls/internal/lsp/lsppos: delete TokenMapper%0A  > 67baca6 go/callgraph/vta: optimize scc computation%0A  > 2eb6138 gopls/internal/lsp/filecache: use TempDir if UserCacheDir fails us%0A  > 36bd3db gopls/internal/lsp/protocol: move MappedRange%0A  > 16b3bf8 gopls/internal/lsp/cache: assume Go 1.16+%0A  > 3856a5d internal/robustio: add Plan9 support to FileID%0A  > 09cbc42 gopls/internal/lsp/fake: fix EOF bug in applyEdits%0A  > 4ded35d gopls/internal/lsp/cache: use distinct types for mod and work parse keys%0A  > 107f43f gopls/completion: avoid duplicating text in test func completions%0A  > e225fd4 gopls/internal/lsp/mod: fix nil panic in go.mod hover%0A  > 057ed3c gopls/internal/lsp/filecache: use os.Chtimes%0A  > 1fe76af gopls/internal/lsp/source: MappedRange cleanup%0A  > 02bea03 gopls/internal/lsp/protocol: simplify ColumnMapper%0A  > a4455fe go/callgraph: adds benchmarks comparing algorithms%0A  > 7db99dd go.mod: update golang.org/x dependencies%0A  > 1e0dff2 gopls/internal/regtest: avoid race in TestSwitchFromGOPATHToModuleMode%0A  > 0441b43 gopls/internal/lsp/cache: use specific mutexes for module data%0A  > 33071fb internal/robustio: move robustio%0A  > b01e7a4 gopls/internal/regtest/watch: don't run TestSwitchFromGOPATHToModuleMode%0A  > e417ea3 gopls: remove dead analysis code%0A  > 1a08d01 gopls/internal/lsp: update replace directives in go.mod for package renaming%0A  > eac36cb gopls/internal/regtest: port experimental workspace tests to go.work%0A  > 224a61b gopls/internal/lsp/source: delete Snapshot.WriteEnv method%0A  > 81e741e gopls/internal/lsp/safetoken: funnel more calls through this package%0A  > 8367fb2 gopls/internal/regtest: await go.work changes in TestAddAndRemoveGoWork%0A  > 3b16059 gopls/internal/regtest: make BufferText strict%0A  > 0e1d013 gopls/internal/lsp/cache: recreate Views when their root changes%0A  > 2f31dd4 go/ssa,go/analysis/passes/nilness: refine when type param constants are nil%0A  > ae4ff82 gopls/internal/lsp/source: delete GetTypedFile%0A  > fe6b300 gopls/internal/lsp/source: eliminate Snapshot.Package{,s}ForFile%0A  > 26fc609 gopls/internal/lsp/cache: eliminate snapshot.containingPackages%0A  > 85e6ad7 gopls/internal/lsp/safetoken: fix bug in Offset at EOF%0A  > ef1ec5d gopls/internal/lsp/safetoken: fix error message%0A  > 44395ff gopls/internal/lsp/source: avoid unnecessary transitive rdeps%0A  > 6546d82 Revert "gopls/internal/regtest: harmless CL used for benchmark test"%0A  > 3be0647 gopls/symbols: call source.Document symbols only for Go files%0A  > d462c83 gopls/internal/lsp: Replace input text when completing a definition%0A  > 7efffe1 gopls/internal/regtest: harmless CL used for benchmark test%0A  > 1627e95 gopls/internal/lsp: more comment tweaks post-//line support%0A  > 21f6100 internal/lsp/debug: fix broken template%0A  > 6ad27d0 gopls/internal/robustio: FileID, a portable file identifier%0A  > 6df6eee internal/diff/lcs: optimize inner loop%0A  > 57b1265 go/gcexportdata: drop support for go1.6 export data%0A  > 099260e gopls/internal/lsp: followups to dropping line directives%0A  > 61e2d3f gopls/internal/lsp/cache: a new analysis driver%0A  > eb70795 gopls: ignore //line directives%0A  > b4dfc36 go/ssa: deref core type in emitLoad%0A  > 1270fd7 gopls/internal/lsp: announce selectionRangeProvider capability%0A  > 9bc5dce gopls/internal/lsp/cache: simplify DiagnosePackage%0A  > df35cd8 x/tools: drop support for Go toolchains older than go1.16%0A  > db9d10f go/gcexportdata: preallocate buffer to read into when size is known%0A  > 0d2045b gopls/internal/lsp: document analysis-related functions%0A  > b2b9dc3 gopls/internal/lsp/cache: reduce type-checking in renameImports%0A  > 3cb82d5 go/ssa/interp: fix conversion of slice to named array%0A  > 5899b6a gopls: upgrade dependencies following release%0A  > 763a030 gopls/internal/lsp/cache: delete Snapshot.KnownPackages%0A  > cc0e696 gopls/internal/hooks: panic if diff consistency check fails%0A  > 9ec8553 gopls/internal/lsp/source: emit interface stub methods at top level%0A  > 444c8f6 gopls/internal/lsp/cache: only invalidate parsed files if they changed%0A  > 601ca6c gopls/internal/lsp/source: use correct token.File%0A  > 95c9dce internal/lsp/mod: fix run_govulncheck codelens name%0A  > d72a64a gopls/internal/lsp: add selection range request%0A  > 18f76ec gopls/internal/lsp: split ActivePackages%0A  > 84299a0 gopls/internal/lsp/cache: simplify ad-hoc package warning logic%0A  > a3eef25 gopls/internal/lsp/cache: record parse keys when they're created%0A  > 3da7f1e gopls/hover: remove header tags from hover markdown%0A  > a310bcb gopls/internal/lsp/source: eliminate getStubFile%0A  > 3cba5a8 internal/gcimporter: port CL 424876 from std importer%0A  > b0fdb78 gopls/internal/lsp/mod: add Reset vulncheck result codelens%0A  > 88ceb24 gopls/internal/lsp: perform analysis unconditionally%0A  > 3f74d91 gopls/internal/lsp/cache: invalidate govulncheck results older than 1hr%0A  > 6b8674f gopls/internal/lsp/source: avoid typechecking in findRune%0A  > d7dfffd gopls/internal/lsp: eliminate more unnecessary typechecking%0A  > f3fb218 gopls/internal/lsp/fake: use robustio.RemoveAll in (*Workdir).RemoveFile%0A  > 96ff41d gopls/internal/vulncheck: add TODO for the vulncheck diagnostics%0A  > 0f6c6f1 gopls: delete obsolete govulncheck code and stop gopls vulncheck -summary%0A  > c5343a6 gopls/internal/lsp/regtest: fix TestRunGovulncheckError2%0A  > cb701f7 gopls/internal/lsp: avoid type-checking when computing hyperlinks%0A  > d0f184d gopls/internal/lsp/source: avoid unnecessary calls to GetTypedFile%0A  > 1e5efed gopls/internal/lsp/fake: simply use polling to simulate file watching%0A  > 838a165 gopls/internal/lsp/fake: eliminate the unnecessary fake.FileEvent%0A  > 09fb680 gopls/internal/lsp/fake: eliminate the unnecessary ChangeFilesOnDisk API%0A  > 09ae2d5 gopls/internal/lsp/source: KnownPackagePaths: avoid loading%0A  > 1dcc423 gopls/internal/lsp/cache: split metadata and loading in PackagesForFile%0A  > 6b50501 gopls/release: fix the release script when go.work is not used%0A  > aee3994 gopls/internal/lsp/fake: in (*Workdir).RenameFile, fall back to read + write%0A  > fe60148 go.mod: update golang.org/x dependencies%0A  > c9ea9a7 gopls/internal/regtest: add a test for the case when the renaming package's path contains "internal" as a segment%0A  > bf5db81 gopls/internal/lsp/cache: improve ad-hoc warning for nested modules%0A  > aa9f4b2 go/analysis: document that facts are gob encoded in one gulp%0A  > bdcd082 internal/gcimporter: skip tests earlier when 'go build' is not available%0A  > 2ad6325 gopls/internal/lsp/cache: expand ImportPath!=PackagePath comment%0A  > 52c7b88 gopls/internal/robustio: only define ERROR_SHARING_VIOLATION on Windows%0A  > 4f69bf3 gopls/internal/lsp/cache: narrow reloadOrphanedFiles to open files%0A  > 6002d6e gopls/internal/regtest/misc: test Implementations + vendor%0A  > f540ee6 internal/gcimporter: load cached export data for packages individually%0A  > d444fa3 gopls/internal/lsp/cache: simplify canonical URI cache%0A  > 25fdb81 gopls/internal/regtest/misc: skip vendor test on go1.13%0A  > e0b516b gopls/internal/lsp/cache: invalidate metadata after vendor change%0A  > 31d5843 gopls/internal/lsp/cache: fix re-entrant session locking%0A  > 8c78b30 gopls/internal/vulncheck: always use pkg.go.dev/vuln for urls%0A  > 47a8246 gopls/internal/regtest/misc: skip TestRunGovulncheckError2%0A  > d54e12b gopls/internal/lsp: avoid I/O in URI comparison operations%0A  > 0379b73 internal/gcimporter: fix TestImportStdLib%0A  > e79e423 gopls/internal/vulncheck: handle package errors%0A  > c5ce806 gopls/internal/lsp/mod: disable the diagnostics on stdlib vulns%0A  > 78c1861 gopls/internal/vulncheck: clarify the log message%0A  > 1a0053c gopls: move reset go.mod diagnostic codelens to module statement%0A  > 9b8d87b gopls/internal/regtest: fix TestRunGovulncheckStd%0A  > 81b6bef gopls/internal/lsp: add run vulncheck fix for stdlib vulns%0A  > fe83ddb gopls/internal/lsp: move options off of the cache%0A  > 88ee30b gopls/internal/lsp/source: enable run_govulncheck codelens in exp mode%0A  > 0a6aa90 gopls/internal/lsp/command: rename run_vulncheck_exp to run_govulncheck%0A  > bedad5a gopls/internal/lsp/mod: add hover for stdlib vulnerabilities%0A  > 7a1b570 gopls/internal/vulncheck: check vulnerabilities in standard library%0A  > 9a54670 gopls/internal/lsp/mod: add "Run govulncheck" codeaction%0A  > f1b76ae gopls/internal/lsp: add an option to overwrite previous diagnostics%0A  > e8a70a5 gopls/internal/lsp: remove access to mutable session state from the view%0A  > ff22fab gopls/internal/lsp/cache: eliminate obsolete invalidation step%0A  > 3881046 gopls: add a go:generate rule for doc generation%0A  > 4c3cb1e internal/gocommand: add GoVersionString%0A  > e29d1ed gopls: add diagnostic for standard library%0A  > f718365 gopls/internal/lsp: include all vulns info to fetch_vulncheck_result%0A  > 9519368 gopls/internal/lsp/mod: add the vulncheck diagnostics mode%0A  > 7d9f451 gopls/internal/govulncheck: add in-memory cache for vulndb%0A  > 1ccccf8 go/ssa: deprecate coreType and _NormalTerms%0A  > 4b7d1b3 gopls: add diagnostics for both vulns used and not used%0A  > 50ccef5 internal/regtest/bench: add benchmark tests for gopls%0A  > d39685a gopls/internal/lsp/source: Package clarifications%0A  > 7cfde84 gopls/internal/vulncheck: add import info based vuln scanning%0A  > 2b56641 internal/gcimporter: adjust the number of expected packages in TestStdlib%0A  > 50df761 gopls: skip vulnerabilities that are probably fixed in hover%0A  > 7cda55e gopls/internal/lsp/cache: wire in mod vulnerability analysis%0A  > 5c35617 gopls: add quick fixes for all vulnerabilities%0A  > fb7be64 gopls/internal/lsp/command: return the vulncheck progress token%0A  > 060c049 go/packages: fix doc typo%0A  > 6eafd96 gopls: fix formatting for vulncheck results in hover%0A  > b797704 go/analysis/passes/loopclosure: recursively check last statements in statements like if, switch, and for%0A  > 3b9d20c internal/gcimporter: in TestStdlib, only check x/tools packages if we expect to have their source%0A  > 2ad3c33 go/packages: change workaround for issue 28749 to not require NeedFiles%0A  > 57f56ab gopls/internal/lsp/source: avoid panic(nil)%0A  > 41c70c9 internal/lsp/source: avoid using go/types.Implements with Typ[Invalid]%0A  > db5eae2 analysis: correct go/analysis/passes/findcall path in docs%0A  > b978661 cmd/godoc: streamline test subprocesses%0A  > 932ec22 internal/testenv: add a Command function that replaces exec.Command%0A  > 19fb30d gopls/internal/lsp/cache: fix data race in Symbols%0A  > 4ce4f93 gopls/internal/lsp: add gopls.fetch_vulncheck_result%0A  > 8ba9a37 gopls/internal/lsp/mod: highlight when there is no fix for vuln%0A  > 128f61d gopls/internal/lsp/mod: add related info%0A  > fc03993 internal/lsp/mod: adjust vulncheck diagnostics suppression logic%0A  > c099dff gopls/internal/vulncheck: log progress%0A  > 36a5c6a go/ssa: build generic function bodies%0A  > 85bf7a8 gopls/internal/lsp/source: eliminate Metadata interface%0A  > 2592a85 gopls/internal/lsp: simplify KnownPackages%0A  > c7ed4b3 gopls/internal/lsp/cache: clean up tracking of GO111MODULE%0A  > 23056f6 internal/lsp/cache: clean up getOrLoadIDsForURI%0A  > 5a4eba5 internal/lsp/cache: remove support for invalid metadata%0A  > 32a17c0 gopls/internal/lsp/mod: fix unaffecting vuln diagnostics msgs%0A  > dea100b internal/testenv: skip tests that need export data for std if 'go tool compile' does not exist%0A  > ba373ee playground/socket: eliminate an arbitrary timeout in TestLimiter%0A  > 3d085f3 gopls/internal/lsp/lsprpc: eliminate arbitrary timeout in TestEnvForwarding%0A  > 434d569 gopls/internal/lsp/regtest: improve documentation%0A  > ce26db4 go/analysis: add Pass.TypeErrors field%0A  > b0ad6b2 gopls/internal/regtest/misc: fix use of the AfterChange API%0A  > 89856a4 gopls/semantic: semantic tokens for type parameters%0A  > 6e8da3f internal/pkgbits: port small optimization from compiler to tools%0A  > 06fb723 internal/gcimporter: port memory reuse optimizations from Go tree%0A  > fc702c5 internal/gcimporter: fix performance regression for unified IR%0A  > 1cb4c17 gopls/internal/regtest: make AfterChange do the awaiting%0A  > 0c71b56 gopls/internal/lsp: fix diagnostic suppression when folders change%0A  > e3b3c01 go/pointer: break TestInput into subtests and update skips%0A  > 13648cd gopls/internal/lsp/cache: use Package.FileSet where possible%0A  > 8f32411 cmd/stringer: replace ioutil with os%0A  > 3c3713e gopls/internal/lsp/cache: use typed strings (PackagePath et al) throughout%0A  > 004d118 gopls/internal/lsp/mod: simplify ModVulnerabilityDiagnostics%0A  > 4a8413c gopls/internal/lsp/mod: deleted unused function pkgVersion%0A  > bc08991 gopls: sync golang.org/x/vuln@3af8368ee4fe%0A  > d66e9b4 internal/typesinternal: update go/types error codes for 1.20%0A  > 6f99366 gopls/internal/lsp/cache: don't pass snapshot.fset to go/packages%0A  > d56532a cmd/compilebench: make it work without installed .a's%0A  > 502c634 go.mod: update golang.org/x dependencies%0A  > bd04e32 internal/jsonrpc2_v2: eliminate a potential Accept/Dial race in TestIdleTimeout%0A  > d41a43b internal/jsonrpc2_v2: fix a potential deadlock when (*Conn).Close is invoked during Bind%0A  > 3057465 gopls/doc: Add plugin for Lapce to gopls documentation%0A  > ba92ae1 internal/persistent: avoid incorrect map validation due to multiple keys%0A  > 9474ca3 gopls/doc: clarify `go work use`%0A  > 003fde1 internal/gcimporter: use nondeprecated go/packages mode bits%0A  > 5050657 gopls/fake: add semantic token modifiers to fake editor%0A  > 88a3548 gopls/coverage: repair coverage.go%0A  > 8e0240a internal/regtest/workspace: permanently skip TestDeleteModule_Interdependent%0A  > fe725d9 gopls/internal/regtest: simplify awaiting diagnostics from a change%0A  > 3c8152e internal/gcimporter: optimize dependency lookup%0A  > 39c2fd8 internal/lsp/cache: simplify importsState modfile hashing logic%0A  > ec044b1 gopls: update dependencies following the v0.10.0 release%0A  > 2b29c66 internal/gcimporter: API for shallow export data%0A  > affa603 internal/gcimporter: moved from go/internal/gcimporter%0A  > a77a1fb gopls/internal/lsp/mod: fix vulncheck hover message%0A  > 4ada35e gopls/internal/lsp: handle modVulncheckSource in diagnosticSource.String%0A  > e5f03c1 gopls/doc: clean up README and add a release policy%0A  > d5e9e35 go/analysis/passes/loopclosure: enable analysis of parallel subtests%0A  > 039b24b internal/jsonrpc2_v2: initiate shutdown when the Writer breaks%0A  > 32e1cb7 gopls/internal/lsp: clarify control around diagnostics%0A  > feeb0ba gopls/internal/lsp/cmd: fix deadlock when opening a file%0A  > 6e9dc86 gopls/internal/lsp/source/completion: fix panic in completion on *error%0A  > 73fcd88 Revert "internal/jsonrpc2_v2: initiate shutdown when the Writer breaks"%0A  > 70a130e gopls/api-diff: simplify the api-diff implementation%0A  > 3e8da47 internal/jsonrpc2_v2: initiate shutdown when the Writer breaks%0A  > 3566f69 gopls/internal/lsp/source: minor space optimizations%0A  > 7cdb0e7 internal/jsonrpc2_v2: rename Serve to NewServer and eliminate its error return%0A  > 28e9e50 internal/jsonrpc2_v2: eliminate error return from Bind%0A  > eabc3a0 internal/jsonrpc2_v2: eliminate isClosingErr%0A  > 4885f7c internal/jsonrpc2_v2: eliminate a temporary connection leak in (*Server).run%0A  > 739f55d internal/jsonrpc2_v2: rework Connection concurrency%0A  > e172e97 go/types/typeutil: break recursion through anonymous interfaces%0A  > f1c8f7f internal/lsp/source: optimize filter regular expression%0A  > e074ef8 gopls/internal: don't show a warning if the Go version is undetected%0A  > 7fba77c gopls/internal/lsp/source: remove deprecated settings from EnableAllExperiments%0A  > 42cb7be gopls/internal/lsp: improve the Go version deprecation message%0A  > 2af106e gopls/internal/hooks: fixes to diff disaster logic%0A  > e4bb343 go/internal/gcimporter: update to anticipate missing targets and .as%0A  > 875c31f go/internal/gcimporter: add test of export/import on std%0A  > 541f4c5 cmd/bundle: quote command-line arguments in output%0A  > de675d5 tools/gopls: argument in function bodies marked as parameter by semantic tokens%0A  > 3e1371f gopls/internal: start on LSP stub generator in Go.%0A  > 121f889 gopls/internal/lsp/mod: merge vuln diagnostics to one, and add a hover%0A  > d6511e5 internal/facts: share go/analysis/internal/facts with gopls%0A  > 2e0ca3a go/internal/gcimporter: fix bug in struct iexport%0A  > 1928cea go/ssa: emit field and index lvals on demand%0A  > 8166dca go/analysis/passes/asmdecl: define register-ABI result registers for RISCV64%0A  > 2dcdbd4 go/internal/gcimporter: port CL 431495 to tools, add tests%0A  > d476af7 go/ssa: add slice to array conversion%0A  > d212f7d gopls/internal/regtest/workspace: fix bugs in test%0A  > 051f03f gopls/internal/lsp/cache: remove unnecessary params%0A  > 21f6127 gopls/internal/lsp/cache: add PkgPath->PackageID index to Metadata%0A  > 06041c9 gopls/doc: update manual documentation of the newDiff setting%0A  > f112c43 go.mod: update golang.org/x dependencies%0A  > 207f456 go/internal/gcimporter: bump version number in skew check%0A  > 65196ca gopls/README.md: fix wording around supported Go versions%0A  > 6128030 gopls/internal: support renaming packages with int. test variants%0A  > 649df2e go.mod: mark as requiring -compat 1.16%0A  > 91311ab gopls/internal/lsp/cache: better import path hygiene%0A  > 9eda97b go/analysis: enable a test that applies after go list behavior change%0A  > b50d7ba gopls: minor cleanup of standalone package support%0A  > 502b93c gopls/internal/lsp: tolerate missing end position in RelatedInformation%0A  > d67c3ad internal/imports: repair warnings from default analyzers%0A  > bc2e3ae internal/jsonrpc2_v2: add Func convenience wrappers for the Binder and Preempter interfaces%0A  > a9b653b cmd/compilebench: use -a instead of -i to ensure dependencies are built%0A  > 4818d9e Revert "gopls/internal/lsp/cache: disable strict analysis while we fix panics"%0A  > b2efd4d internal/jsonrpc2_v2: eliminate most arbitrary timeouts in tests%0A  > 371ef16 internal/jsonrpc2_v2: rework concurrency in idleListener%0A  > 5935531 internal/jsonrpc2_v2: remove “Box” suffix from channel field names%0A  > fd32990 internal/jsonrpc2_v2: error out in-flight client calls when the reader breaks%0A  > 0e222f5 internal/jsonrpc2_v2: close the underlying connection if Wait is called instead of Close%0A  > bc4e384 gopls/internal/lsp/cache: fix crash in analysis%0A  > b93a56f refactor/satisfy: fix visiting functions in the unsafe package%0A  > 9b5e55b gopls/internal/lsp/cache: disable strict analysis while we fix panics%0A  > 9ffaf69 gopls/internal/lsp/cache: minor analysis cleanups%0A  > ffb862b gopls/internal/lsp/cache: remove stray print statement%0A  > f87c1ed internal/fastwalk: improve Darwin performance by ~3x%0A  > b253314 gopls/internal/lsp/cache: add support for loading standalone main files%0A  > 3beecff gopls/internal/span: some cleanups%0A  > d375238 gopls: dedup upgrade code actions for vulncheck%0A  > b20ae4b README: format install command%0A  > 19a5504 gopls/internal/lsp: use the golang.org/x/vuln/exp/govulncheck%0A  > ab79327 cmd/ssadump: disable run mode with runtime package%0A  > 29429f5 gopls/internal/lsp/source: sort protocol edits%0A  > 49b340b go/analysis: update tests for different go list error behavior%0A  > cd0288f internal/lsp/cache: invalidate analysis results on packages.Load%0A  > 906c733 gopls/internal/lsp/source: find references in test packages%0A  > 2a41b25 internal/robustio: fix log.Fatal calls that should be log.Fatalf%0A  > 150b5f8 internal/imports: read entire API dir in mkstdlib.go%0A  > 19cfa79 internal/lsp/source: switch the default diff algorithm to "checked"%0A  > fa6bd3b gopls: include informational vulnerability diagnostics%0A  > 89b4335 gopls/internal/lsp: merge notifications about deprecated settings%0A  > f90d8ad all: fix a few function names on comments%0A  > 350f1e2 gopls/internal/lsp/fake: retry ephemeral errors when renaming on windows%0A  > 8b1d1ec gopls/internal/lsp/cache: suppress panics during analysis%0A  > 20c1ee7 gopls/internal/lsp: warn about Go versions that are too old%0A  > 709f108 gopls/internal/lsp/cache: suppress crashes in fact_purity analyzer%0A  > a410e98 internal/diff: ToUnified may fail%0A  > 26a95e6 gopls/internal/span: move internal/span into gopls%0A  > f2c4579 internal/diff: avoid unnecessary allocations%0A  > 60ddcca internal/diff: Apply: validate inputs%0A  > 02bef08 go/packages/packagestest: break dependency on gopls' span package%0A  > 778f945 go/analysis: break dependency on span package%0A  > c682555 gopls/internal/regtest/misc: delete testdata%0A  > 1552529 gopls/internal/regtest/misc: use vulntest for vuln_test%0A  > c4f49e4 go/analysis/passes/assign: fix map assignment%0A  > bd8c28f internal/diff/lcs: fix shell format error%0A  > ede3ab2 gopls/internal/lsp/protocol: simplify OffsetRange, Position%0A  > dc3cf95 gopls/internal/vulncheck: use vulntest for test database creation%0A  > 4ef38dc gopls/internal/vulncheck/vulntest: add test helpers%0A  > 2f57270 gopls: update golang.org/x/vuln%0A  > d96b238 internal/diff: simplify API, break span dependency%0A  > 9856077 internal/diff: abolish errors%0A  > 33c2dbf gopls/internal/lsp: remove extra newlines in vulncheck diagnostics%0A  > b280e27 gopls/internal/lsp/cache: make IsIntermediateTestVariant a method%0A  > c5514b7 gopls/internal/lsp/source: use PackageFromFile in Identifier%0A  > ff4ff8b gopls/internal/lsp/source: don't type-check in FindPackageFromPos%0A  > 2d32e15 gopls/internal/lsp/cache: in tests, show all stacks during analyzer crash%0A  > dc88e7b godoc: fix some comments%0A  > 7f79a02 gopls: use fmt.Fprintf%0A  > 40dabfa gopls/internal/lsp: add support for package renaming%0A  > 55e5cff internal/diff: unified: match GNU diff for empty file%0A  > 3e0355b gopls/.../fillstruct: support generic types%0A  > ed98f10 gopls: prefix vulncheck diagnostic message with title%0A  > b180eff x/tools/go/analysis: extend json output by SuggestedFixes%0A  > d49f960 internal/lsp/cache: report analysis panics during testing%0A  > 27641fb gopls: suggest upgrading to fixed version for vulncheck diagnostics%0A  > 199742a go/analysis/passes/printf: check for nil scope of instance methods%0A  > 3db607b gopls/internal/lsp/cache: remove "discovered missing identifiers" log%0A  > a4274a8 gopls: add diagnostics for non-stdlib vulnerabilities%0A  > f80e984 gopls/internal/lsp/work: use the WorkFileError diagnostics source%0A  > 9c63911 gopls/internal/lsp: delete dead code%0A  > ae737bc gopls/internal/lsp: remove the source.Session interface%0A  > bddb372 gopls: deprecate three experimental features%0A  > 4dd4ddb go/packages: issue error if 'go list' on PATH is too new%0A  > 10e9d3c gopls/internal/lsp: tolerate new 'imported and not used' error message%0A  > eb45e98 gopls/internal/regtest: fix regtest failures from "undefined" errors%0A  > 1bfc469 gopls: update to handle 'undefined:' versus 'undeclared' in type errors%0A  > 5214f41 internal/gocommand: show pid of process%0A  > c5cd943 gopls: fix the reset_golden.sh script and regenerate golden files%0A  > 49a686d go/analysis: update explanation of (no) Diagnostics.Severity%0A  > eb25de6 go/analysis/passes/loopclosure: only check statements after t.Parallel%0A  > b243e57 gopls/internal/lsp/tests: simplify collectCompletionItems, remove Data.t%0A  > 88b5529 gopls/internal/lsp/tests: use the mustRange helper in more places%0A  > c7ac942 gopls/internal/lsp: simplify prepareRename tests%0A  > b9adce9 internal/lsp/source: derive document symbols from syntax alone%0A  > 3dda4ba all: replace deprecated egrep with grep -E%0A  > 1877b5f go/analysis/passes/printf: permit multiple %w format verbs%0A  > b3ab50b go/analysis/passes/stdmethods: recognize Unwrap() []error%0A  > 62ae586 gopls/test: disable stderr output for command line tests as well%0A  > be3ff02 go/analysis/passes/sortslice: correct diagnostic for sort.Slice(f())%0A  > 2f04713 gopls: fix out of bounds bug in extract%0A  > 16b9742 go/analysis/passes/loopclosure: use go/types' object resolution%0A  > 81a42f0 gopls/internal/lsp/tests: pass in a *testing.T to Data.Golden%0A  > 14462ef go/analysis/passes/loopclosure: experiment with checking t.Run+Parallel%0A  > 00ae48e go/internal/pkgbits: replace os.SEEK_CUR with io.SeekCurrent%0A  > 835bfdf gopls: update x/vuln to pick fix for incorrect version suggestion%0A  > 6782af0 gopls/internal/lsp/source: clarify qualifiedObject%0A  > f901623 gopls/internal/lsp: suppress noisy log output in tests%0A  > df2eb93 gopls/test: fix erroneously skipped tests, remove redundant cmd tests%0A  > 1578244 gopls: set codelensProvider in initialize response%0A  > fdf581f internal/lsp: allow extract func ranges to begin/end with comments%0A  > b256f1f gopls/internal/lsp/cache: remove distracting "safe trimming" log%0A  > 0e011a0 all: use constant to avoid repeated definitions%0A  > 4d18923 gopls/internal/fake: sort edits by both start and end position%0A  > 45ad958 gopls/internal/lsp/protocol: fix json tags and indirect some zero values%0A  > a61f20e internal/gocommand: tweak debugging for hanging go commands%0A  > cdd6986 gopls/tsprotocol: make Disabled in CodeAction optional%0A  > 0398b3d internal/gocommand: add instrumentation for hanging go commands%0A  > 9250e22 internal/lsp: latest version of LSP stubs%0A  > ec74389 gopls/internal/lsp/source: make "chatty" diagnostics the default%0A  > 7e129ca gopls: add codelens to reset upgrade diagnostics%0A  > a81fce3 gopls: run go mod tidy -compat=1.16%0A  > a8b9ed3 gopls/internal/lsp/source: remove Govulncheck from Hooks%0A  > 678efe0 gopls/internal/lsp/cmd: fix vulncheck error handling%0A  > e71c338 go/ssa/ssautil: initialize info when there is syntax%0A  > 0eebaab go/analysis: allow for identical SuggestedFixes%0A  > eeaf4eb internal/lsp/fake: add rename file support for testing%0A  > 4754f75 go/analysis/passes/copylock: modify match pattern to satisfy change sync.Once.done to atomic.Bool%0A  > a630751 x/tools: update go.mod following moving LSP code to x/tools/gopls%0A  > 308e02c x/tools/go/ssa: disable slice-to-array test%0A  > 3ee1710 gopls/doc: update stale documentation and improve link names%0A  > 5f27e05 all: remove redundant type conversion%0A  > b15dac2 gopls: migrate internal/lsp to gopls/internal/lsp%0A  > dd1bab2 go/analysis/passes/printf: fix panic parsing argument index%0A  > bac5507 go/analysis/internal/checker: make applyFixes work from the first character%0A  > c1dd25e gopls/internal/migrate.sh: a script to migrate internal/lsp to gopls/%0A  > 83d7619 gopls : add a mention of staticcheck to settings documentation%0A  > d815cba internal/lsp: update LSP protocol for WorkspaceEdit%0A  > 6a585a2 x/tools/internal/typeparams: use regexp to match wanted result%0A  > be9eab1 go/analysis/passes/inspect: fix example return%0A  > 5ba8541 x/tools/internal/lsp/source: disable some tests for std lib changes%0A  > eb8352e gopls/internal/govulncheck: sync x/vuln@62b0186%0A  > 655abda gopls/internal/regtest: TestEditGoDirectiveWorkspace should fail eagerly%0A  > 33c1ddd tools/gopls/internal/regtest/diagnostics: handle new error message%0A  > 40cfaff x/tools/internal/lsp/source: disable some tests for std lib changes%0A  > f16be35 internal/lsp/source: add functions to type hover output%0A  > dfc8d49 internal/lsp/testdata: fix diagnostics checksum%0A  > 6c10975 internal/lsp/cache: honor RunDespiteErrors=false%0A  > 49ab44d x/tools/internal/lsp: re-enable a test with adjusted error message%0A  > 550e1f5 internal/lsp/tests: use a shorter module path for test data%0A  > 4ccc73c internal/lsp/tests: simplify comparison of markdown at go1.18%0A  > 3eb8a8f internal/lsp/cache: delete misleading Package.IllTyped method%0A  > cb91d6c internal/lsp/cache: clarify error control flow of analysis%0A  > 41c3a9b internal/lsp/analysis/fillreturns: be defensive w.r.t. type errors%0A  > fe1a27b gopls/doc: make doc generation work regardless of the current directory%0A  > ddbeb75 internal/lsp: run internal/lsp/reset_golden.sh%0A  > 248c34b internal/lsp: support regular expressions in Diagnostics tests%0A  > 431f4ef internal/lsp/tests: re-enable ARM tests%0A  > 717a671 go/analysis/passes/printf: remove unused hasBasicType%0A  > 7f23307 internal/lsp: limit diagnostics for upgrades to codelens go.mod file%0A  > 7c5e035 internal/lsp: fix suppressed panic in analyzer%0A  > 2f38e1d internal/lsp/tests: disable failing test on ARM%0A  > d35bb19 internal/lsp/tests: improve assertion error message%0A  > 7111c2e x/tools/internal/lsp: disable a test so we can change the parser error%0A  > db6a62c go/internal/gcimporter: call Interface.Complete in unified importer%0A  > 587a153 internal/lsp: hover to render go 1.19 doc comments%0A  > e55fb40 internal/lsp/cache: clear shouldLoad IDs on load%0A  > a3cac11 godoc/redirect: delete golang.org-specific code%0A  > b3851a8 internal/lsp/cache: tweaks to metadata graph%0A  > 938e162 gopls/internal/regtest: unskip TestDeleteModule_Interdependent%0A  > e8507be gopls/internal/regtest/bench: replace -gopls_version with -gopls_commit%0A  > 8c83056 gopls/internal/regtest: unskip TestSumUpdateFixesDiagnostics%0A  > 987de34 internal/lsp/completion: don't use Type.String for checking identity%0A  > 5a26068 internal/lsp/source: remove utm_source from pkgsite links%0A  > 35f806b gopls/doc/workspace: correct grammar%0A  > bebd890 go/analysis: remove stray print statement in the timeformat analyzer%0A  > 88d981e printf analyzer: link to fmt#Printing for verb/type docs%0A  > c4ec74a go/internal/pkgbits: fix performance of rawReloc%0A  > 37a81b6 internal/lsp: add unnecessary tags for unused vars and imports%0A  > 3807419 internal/lsp/cache: validate the range for critical errors in go files%0A  > b2156b5 gopls: update dependencies%0A  > 0ad49fd internal/imports: update stdlib index for 1.19%0A  > 3950865 gopls/internal/regtest/bench: add a -gopls_version flag%0A  > 6fa767d internal/lsp: update documentation for directoryFilters setting and default value%0A  > 96d05aa gopls/internal/regtest: fix TestFailingDiagnosticClearingOnEdit%0A  > 4ff08b4 gopls: Improve auto-imports example for NeoVim LSP%0A  > 92d58ea internal/lsp/cache: register a file watcher for explicit GOWORK values%0A  > 98aef77 internal/lsp/cache: track explicit go.work files outside the workspace%0A  > fff6d6d internal/lsp: update the broken workspace message to mention go.work%0A  > 9b60852 gopls/internal/regtest: move TestMultipleModules_Warning to ./workspace%0A  > 06d96ee gopls/internal/regtest/bench: add a test for completion following edits%0A  > 81c7dc4 internal/lsp: polish vulncheck progress messages%0A  > af2a0a8 internal/lsp: use exec.CommandContext when running vulncheck%0A  > 3519aa2 internal/lsp/cmd: remove unused Env from pkgLoadConfig%0A  > 6c27717 internal/lsp/mod/code_lens: add "run govulncheck" codelens%0A  > 763f65c gopls/internal/regtest/misc: simplify shared edit tests%0A  > fc3b24a go/internal/gcimporter: rewrite interface receiver parameters%0A  > b5fd088 internal/lsp/command: replace VulncheckArgs Dir with URI%0A  > 99fd76f internal/lsp/cache: delete KnownMetadata.PkgFilesChanged%0A  > 01c9ff0 internal/lsp/cache: invalid packages should not be workspace packages%0A  > bd68922 internal/lsp: new options to disable certain kinds of semantic tokens%0A  > bceee4b internal/lsp/command: let RunVulncheckExp call gopls vulncheck%0A  > 3e0a503 internal/lsp: use directoryFilters in import scanning%0A  > 87f47bb gopls/internal/regtest/bench: refactor and improve benchmarks%0A  > 8b9a1fb go/callgraph/vta: do not assume that recovers cannot be deferred%0A  > 371fc67 go/tools: add check for time formats with 2006-02-01%0A  > d08f5dc gopls/internal/regtest: unskip all of TestModFileModification%0A  > ddb90ec internal/lsp/cache: fix data races to view.options%0A  > 0d04f65 internal/lsp: re-send diagnostics on file events%0A  > d025cce internal/lsp/source: don't crash requesting gc_details for an empty file%0A  > 10cb435 internal/lsp/regtest: improvements for shared execution modes%0A  > 4d0b383 internal/lsp/regtest: minor cleanup for magic regtest envvar%0A  > 310ea71 gopls/internal/regtest: add a test that ignoring a file resolves errors%0A  > 21861e6 gopls/internal/regtest/bench: put feature benchmarks in their own file%0A  > c7f1191 go/internal/gcimporter: set underlying types in proper order; flatten imports%0A  > bd3f524 internal/lsp: rename all the package names in the renamed package%0A  > 9f65685 internal/lsp/source: enable the new diff with allExperiments%0A  > 9580c84 internal/lsp: Check if user's editor support rename operation%0A  > f560bc8 internal/lsp/cache: don't set context cancellation as a critical err%0A  > 8ea5687 internal/lsp/regtest: remove arbitrary timeout for closing the editor%0A  > d01bb2f internal/lsp/source: document the handling of GOPRIVATE for linkTarget%0A  > 98bfcd1 internal/memoize: fix race in Store.Promise%0A  > e02e98a internal/lsp/cache: allow network whenever reloading the workspace%0A  > b52794a internal/lsp/cache: simplify snapshot.Clone reinitialization logic%0A  > f1bb5ca internal/lsp/cache: report a critical error when go.work is invalid%0Abumping golang.org/x/mod b3066c3...b710602:%0A  > b710602 sumdb/dirhash: correct documentation of hash%0A  > a42224d all: replace io/ioutil with io and os package%0A  > 77d797e sumdb/dirhash: fix a panic when argument is not a directory%0A  > 7c05a44 sumdb/note: remove dependency on golang.org/x/crypto/ed25519%0Abumping golang.org/x/text 71a9c9a...9db913a:%0A  > 9db913a go.mod: update to newer x/tools%0A  > 30dadde all: correct comment typos%0Abumping github.com/fsnotify/fsnotify 0f4b979...5f8c606:%0A  > 5f8c606 Update ChangeLog%0A  > 8878587 Tweak the docs a bit%0A  > 89b4cf1 Add test for re-adding a renamed file (# 508)%0A  > 85acde2 Update x/sys%0A  > 69c24b0 Update x/sys%0A  > fb07f82 Add test to see what happens if you watch a symlink (# 498)%0A  > 666da9c Clarify doc comment on WatchList() (# 499)%0A  > 123e4e3 Add note about README version%0A  > 61a05ce Update documentation and examples (# 496)%0A  > e180a87 Move some inotify-tests to run on all backends; test that state is cleaned up after Remove (# 494)%0A  > fdf41a3 Move some files around%0A  > 844d71f Port minor test changes from fen-v2 branch; make LICENSE text not ugly%0A  > 5b87f50 windows: simplify a bit (# 493)%0A  > 2bfaa00 all: add Watcher.{sendEvent,sendError} (# 492)%0A  > 8ab3b84 kqueue: don't set up watchers on unreadable files (# 479)%0A  > a4bcdf8 Update changelog%0A  > 4b43fad kqueue: remove timeout from unix.Kevent() (# 480)%0A  > a24f78c windows: test symlinks (# 491)%0A  > f45391f windows: run TestWatchRename/rename_overwriting_existing_file (# 490)%0A  > ee33a65 Use "os.Rename()" in tests instead of "mv"%0A  > 9dd0568 cmd/fsnotify: fix time.Format() string%0A  > 5dcbfba windows: replace syscall with golang.org/x/sys/windows%0A  > 1f8edaf windows: replace "e" with "err" for error variables%0A  > 99715ba windows: increase buffer size from 4K to 64K (# 485)%0A  > a5c5815 ci: update to use Go 1.19, kick off fewer builds, update x/sys (# 484)%0A  > f2d35c3 Remove CLA section in contributing%0A  > 4604469 Need Linux 5.9 for a useful fanotify we can use%0A  > a566bb1 Update CONTRIBUTING.md%0A  > 01dfc6f Remove PULL_REQUEST_TEMPLATE%0A  > a58e868 Run tests in illumos (# 481)%0A  > 666c6a0 Update ChangeLog%0A  > 928895c [bugfix] close handle when remWatch open in getIno (# 288)%0A  > f174f95 windows: update watch paths when renaming directories with sub-watches (# 370)%0A  > 87dc1fa Rewrite tests (# 478)%0A  > 57e6a49 Add {Event,Op}.Has() (# 477)%0A  > 39823aa Document that /proc and /sys won't work%0A  > 60fbf57 Clarify FAQ on goroutines%0A  > ca0e2f4 macos: retry if open() returns EINTR (# 475)%0A  > ff39bb4 Fix lint (# 476)%0A  > 421f529 debian 6 test: deal with multiple packages (# 474)%0A  > a3256ef Remove AUTHORS file%0A  > 0e78fa6 Update README: split out FAQ to "Platform-specific notes"%0A  > 1a7b6ef inotify: don't ignore events for files that don't exist (# 470)%0A  > f0aceb2 Tweak comment regarding relative paths (# 466)%0A  > d9c9fa5 Add cmd/fsnotify (# 463)%0A  > cc15908 kqueue: better error if watching a file fails (# 471)%0A  > c4e64e4 Replace Use of Kthread-blocking Epoll with Poller Read, Remove Per-Event LStats on Linux # 433 (# 434)%0A  > 4b8b298 Test some more things in CI (# 469)%0A  > 548b8fb Add missing changelog for 1.4.{8,9} (# 468)%0A  > 7fe2936 inotify: fix race in Close() (# 465)%0A  > 35b6378 Clarify README on network drives (# 467)%0A  > e56409e Update link to CONTRIBUTING in the README (# 464)%0A  > 4678dfd Update documentation for linux systems (max_user_watches) (# 287)%0A  > 808f582 bump up GitHub Actions (# 461)%0A  > 4193dfd Do not suppress Chmod on non-existent file (# 260)%0A  > 6ae56b7 kqueue: Make watcher.Close() O(n) instead of O(n^2) (# 233)%0A  > adf5320 strings.Builder instead of bytes.Buffer (# 285)%0A  > 217e78e Explicit mutext (un)locking (# 462)%0A  > 1a4f949 Use common error when removing an unwatched file (# 460)%0A  > 5acfdc1 windows: protect access to isClosed with mutex (# 454)%0A  > c56cafd Test Go 1.18%0A  > 37badf6 This project is archived (# 459)%0Abumping knative.dev/serving 2c1bb07...c91f8c4:%0A  > c91f8c4 Fix metrics reporting period (# 14019)%0A  > 9f60969 Update net-kourier nightly (# 14004)%0A  > 6020cec Update net-istio nightly (# 14025)%0A  > 88cae7f Update net-gateway-api nightly (# 14016)%0A  > a143bf8 Update net-contour nightly (# 14015)%0A  > c2be582 Update net-certmanager nightly (# 14014)%0A  > 3450f0a upgrade to latest dependencies (# 14013)%0A  > 35cfd8f [Automated] Update net-gateway-api nightly (# 14003)%0A  > 08a9708 Update net-istio nightly (# 14009)%0A  > 5074b4c Update net-contour nightly (# 14010)%0A  > e8cb343 upgrade to latest dependencies (# 13999)%0A  > 1261074 Update net-certmanager nightly (# 14002)%0A  > f987ca6 Bump kind to 0.19 (# 14008)%0A  > fbb7fa1 Update community files (# 13998)%0A  > bff1d80 Remove 1.24 kind version (# 14007)%0A  > a657321 Update net-kourier nightly (# 13993)%0A  > d75b0f0 Update net-contour nightly (# 13990)%0A  > 6d26f54 upgrade to latest dependencies (# 13991)%0A  > df5001f Update net-certmanager nightly (# 13992)%0A  > 2594084 upgrade to latest dependencies (# 13989)%0A  > 7c303fa Update cluster-version to 1.25 (# 13988)%0A  > 9e751a2 Update net-certmanager nightly (# 13974)%0A  > 7b35cfb upgrade to latest dependencies (# 13987)%0A  > 99800ed Set default domain to cluster's domain (# 13964)%0A  > c90fabf Metric annotations work with global class config (# 13978)%0A  > da31cd1 Update net-kourier nightly (# 13975)%0A  > f457924 Update net-contour nightly (# 13976)%0A  > 14ad4d1 upgrade to latest dependencies (# 13973)%0A  > 00ddfd9 Update net-kourier nightly (# 13972)%0A  > fc63583 Update net-kourier nightly (# 13966)%0A  > 219285e Update net-kourier nightly (# 13959)%0A  > 2fa05bd Min TLS for tag to digest defaults to 1.2 again and is configurable (# 13962)%0A  > 43df348 Update net-contour nightly (# 13958)%0A  > 50a9f22 Update net-certmanager nightly (# 13961)%0A  > 4e379cb Update net-gateway-api nightly (# 13957)%0A  > 3d53294 Update net-istio nightly (# 13960)%0A  > ea2a6c8 :lipstick: Install ko using setup-ko, from ko-build (# 13951)%0A  > e5070cd upgrade to latest dependencies (# 13950)%0A  > 9778f2d Update net-istio nightly (# 13949)%0A  > f27ba4e Update net-certmanager nightly (# 13944)%0A  > 2840301 Update net-kourier nightly (# 13945)%0A  > 117a642 Update net-gateway-api nightly (# 13943)%0A  > 84a2230 Update net-contour nightly (# 13942)%0A  > 7aa5edb upgrade to latest dependencies (# 13941)%0A  > 01707d8 upgrade to latest dependencies (# 13940)%0A  > b7d5e8d Update net-istio nightly (# 13939)%0A  > 5e056a0 Update net-certmanager nightly (# 13926)%0A  > 35efd12 Update net-contour nightly (# 13929)%0A  > f476717 Update net-istio nightly (# 13935)%0A  > bd8e37c Update net-gateway-api nightly (# 13925)%0A  > 37a7010 Update net-kourier nightly (# 13934)%0A  > f47802d Update community files (# 13933)%0A  > 990d701 Update net-kourier nightly (# 13928)%0A  > ff9f03d Update net-istio nightly (# 13927)%0A  > 690c525 upgrade to latest dependencies (# 13924)%0A  > 1dd07a7 Update community files (# 13923)%0A  > 66141b8 Update net-istio nightly (# 13920)%0Abumping knative.dev/eventing 034bec9...2a5a9a5:%0A  > 2a5a9a5 Add more items in the development getting started documentation (# 6978)%0A  > 59118a0 imc-dispatcher starts a TLS server, accepts host based routing on http receiver and path based routing on https receiver (# 6954)%0A  > ee49ada Rework kncloudevents library to support multiple clients (# 6975)%0A  > ee88094 Make ServerManager independent from kncloudevents package (# 6980)%0A  > 6a11c5f [main] Upgrade to latest dependencies (# 6969)%0A  > 8a9a532 Updated DEVELOPMENT.md to provide better instructions on setting up kubernetes (# 6977)%0A  > 390a0c8 Eventing TLS: Test ContainerSource with eventshub TLS receiver as sink (# 6957)%0A  > 5e245ac Fix flaky PingSource TLS unit test (# 6970)%0A  > f9f27c9 Use random names in Channel tests (# 6967)%0A  > d4609a5 Do not parse flags in InitializeEventingFlags (# 6966)%0A  > ef68a0a [main] Update community files (# 6968)%0A  > 4adc287 Add transport-encryption prerequisite for Addressable tests (# 6964)%0A  > deb0ef4 Add field for subscribers & replys CA certs to `SubscriberSpec` and `SubscriptionStatusPhysicalSubscription` (# 6959)%0A  > b81082c Eventing TLS: Test ApiServerSource with eventshub TLS receiver as sink (# 6956)%0A  > cdff269 Adding source duck type to v1b2 (# 6962)%0A  > b47b4ec [main] Upgrade to latest dependencies (# 6958)%0A  > 3315c20 Provide Channels CACerts in Brokers status annotation (# 6952)%0A  > 4b9fdef [main] Upgrade to latest dependencies (# 6955)%0A  > da31970 Improve cert-manager resources for Eventing TLS certs provisioning (# 6953)%0A  > fc5befb Provide subscribers CACerts in triggers status (# 6951)%0A  > 1efab19 Using v1b2 in the reconciler (# 6949)%0A  > c44671c Updating rekt test resources for EventType v1b2 (# 6946)%0A  > e31eb1f Adding testingv1b2 for eventtype (# 6944)%0A  > a9908ef Support TLS in PingSource (# 6929)%0A  > df559c0 Fix typo in flags.IsDisbledTransportEncryption name (# 6941)%0A  > 7073cc9 [main] Upgrade to latest dependencies (# 6939)%0A  > c6bc9bb Eventing TLS: Support K_CA_CERTS env variable injection for SinkBinding subjects (# 6931)%0A  > 24fbfe5 Eventing TLS: support exposing https address in Broker controller (# 6930)%0A  > d18cb42 Add information about retryable error in servermanager (# 6921)%0A  > f92a05b Added Support for K_CA_CERTS in the heartbeats (# 6920)%0A  > b8b43d0 Remove CA certs empty and non nil check, use URL scheme only (# 6928)%0A  > 3c8cc05 Return error directly if one receiver of servermanager fails (# 6919)%0A  > 92ab7f8 [main] Upgrade to latest dependencies (# 6927)%0A  > 5c6fe57 two more for reducing to debug, instead of info (# 6922)%0A  > 6cf9397 less verbose logs on scheduler component  (# 6912)%0A  > 69918f2 Adds ServerManager. Supports http/https message receivers (# 6908)%0A  > d58e259 Install ko using setup-ko in kind e2e tests (# 6910)%0A  > 9cdea5d Eventing TLS: Added Support for setting K_CA_CERTS in the ApiServerSource controller for the adapter (# 6897)%0A  > add8436 Eventing TLS: support exposing https address in InMemoryChannel controller (# 6881)%0A  > 59cfb6d [main] Upgrade to latest dependencies (# 6906)%0A  > 03f2a3d Remove unused test helper (# 6907)%0A  > 7a90c46 Remove eventing-natss from downstream tests (# 6905)%0A  > ba2550b [main] Upgrade to latest dependencies (# 6904)%0A  > 999eead More EventType v1beta2 work (# 6903)%0A  > 66e8257 Remove sanitize HTTP body for `knativeerrordata` extension (# 6902)%0A  > cd50d27 [main] Format Go code (# 6898)%0A  > 0f0a82c [main] Update community files (# 6901)%0A  > 7f4deb5 EventType v1b2 API addition (# 6893)%0A  > 1f917d0 Refactor PingSource adapter client creation (# 6880)%0A  > e2f1c77 [main] Update community files (# 6896)%0A  > 6a5c7ee Eventing TLS: migrate all resolver.URIResolver usages over to AddressableFromDestinationV1 (# 6883)%0A  > 0a12a6c Adds path based routing to message_receiver pkg (# 6873)%0Abumping golang.org/x/net 8e2b117...dfa2b5d:%0A  > dfa2b5d go.mod: update golang.org/x dependencies%0A  > 8c4ef2f hmtl: add security section to package comment%0A  > 1d46ed8 html: have Render escape comments less often%0A  > 569fe81 html: add "Microsoft Outlook comment" tests%0Abumping github.com/prometheus/client_model 7bc5445...63fb982:%0A  > 63fb982 Merge pull request # 63 from prometheus/sparsehistogram%0A  > 5c16fa2 Merge pull request # 57 from prometheus/repo_sync%0A  > fdb567d Add note about native histograms to README%0A  > 6b8c742 Update common Prometheus files%0A  > 942d53c Update common Prometheus files%0A  > 7f720d2 Add note about experimental state of native histograms%0A  > f60d1ac Update common Prometheus files%0A  > 1f8dcad Merge pull request # 59 from prometheus/beorn7/histogram%0A  > 6dc836e Merge pull request # 53 from prometheus/repo_sync%0A  > 421ad2b Merge pull request # 58 from prometheus/beorn7/histogram%0A  > a7ff713 Flatten the buckets of native histograms%0A  > 0e1ed89 Merge pull request # 52 from prometheus/repo_sync%0A  > a227486 Update common Prometheus files%0A  > 408689d Merge branch 'master' into sparsehistogram%0A  > 0da3265 Explain Span layout better%0A  > 14ab895 Merge pull request # 51 from prometheus/repo_sync%0A  > bc75c6a Update common Prometheus files%0A  > 61b6c1a Merge pull request # 47 from prometheus/beorn7/histogram%0A  > 8171e83 Add float histograms and gauge histograms to proto spec%0A  > a863571 Merge pull request # 49 from prometheus/repo_sync%0A  > 2fc368c Update common Prometheus files%0A  > 8831f0d Merge branch 'master' into sparsehistogram%0A  > bbaf1cc Switch to base 2 and powers of 2 for resolution%0A  > 675c4e5 Merge pull request # 48 from prometheus/repo_sync%0A  > a3e6551 Update common Prometheus files%0A  > 24db95a Merge remote-tracking branch 'origin/master' into beorn7/histogram%0A  > 147c58e Move .proto file and add caching of protoc and protoc-gen-go during build (# 46)%0A  > 56ab8d9 Update common Prometheus files%0A  > 4b803f3 Experimental encoding for sparse buckets in histogram%0A  > 0255a22 Merge pull request # 43 from roidelapluie/security-dot-md%0A  > 1f48c5c Rename metrics.proto to io_prometheus_client_metrics.proto (# 45)%0A  > 60555c9 Merge pull request # 41 from prometheus/repo_sync%0A  > 1bb3080 Add SECURITY.md%0A  > 1106810 Update common Prometheus files%0Abumping golang.org/x/term d974fe8...0edf009:%0A  > 0edf009 go.mod: update golang.org/x dependencies%0Abumping knative.dev/networking e5d04e8...2a2f7d2:%0A  > 2a2f7d2 upgrade to latest dependencies (# 810)%0A  > fcbedad Update community files (# 809)%0A  > a44b093 upgrade to latest dependencies (# 808)%0A  > 7c2f7ac upgrade to latest dependencies (# 807)%0A  > 33636d9 Backward compatibility for InternalEncryption (# 806)%0A  > 77975a1 Add the new certificate names for dataplane and controlplane (# 804)%0A  > c3cca43 upgrade to latest dependencies (# 803)%0A  > 3f4627e Add internal trust flag to config (# 778)%0A  > 02055c8 Update community files (# 801)%0A  > 68725bd upgrade to latest dependencies (# 798)%0A  > 1594abb Update community files (# 797)%0Abumping k8s.io/apiextensions-apiserver 2c55649...52c998e:%0A  > 52c998e Update dependencies to v0.26.5 tag%0A  > 186ff9b Merge pull request # 117274 from jkh52/release-1.26-knp-0.0.37%0A  > b7b18f5 Merge pull request # 117691 from dims/re-do-of-117242-on-release-1.26%0A  > ee5015a Bump konnectivity-client to 0.0.37%0A  > 9ce75f3 Bump runc go module v1.1.4 -> v1.1.6%0A  > e9d194a Merge pull request # 115599 from jkh52/release-1.26-knp-0.0.36%0A  > d7df0be Merge pull request # 115787 from liggitt/net-0.7.0-1.26%0A  > 9152c67 Bump konnectivity-client to v0.0.36%0A  > 89cec57 Update golang.org/x/net to v0.7.0%0A  > f72cc5c Merge pull request # 115642 from nckturner/pin-golang.org/x/net-to-v0.4.0-in-1.26%0A  > 28eb995 Pin golang.org/x/net to v0.4.0 in 1.26%0A  > 33db789 Merge pull request # 114861 from jpbetz/release-1.26%0A  > a06e03d Merge pull request # 114927 from jkh52/release-1.26-knp-metrics%0A  > 0859963 Cherry pick 114857 to release-1.26%0A  > 5183885 Bump konnectivity-client to v0.0.35%0A  > 6e13726 Merge remote-tracking branch 'origin/master' into release-1.26%0A  > c338f3e Update golang.org/x/net 1e63c2f%0A  > 9768bad sync: update go.mod%0A  > f9c2bba fix aggregated discovery version sorting%0A  > d2c9e18 Merge pull request # 113171 from Jefftree/aggregated-discovery-generic%0A  > 470c040 Merge pull request # 113577 from pacoxu/prometheus-client%0A  > 915a888 add crds to aggregated discovery%0A  > 92430b6 Merge pull request # 113314 from cici37/celIntegration%0A  > ac326ca upgrade prometheus-client to v1.14.0%0A  > 5a6bf16 Merge pull request # 113688 from dashpole/update_utils%0A  > 67b0610 Integrate cel admission with API.%0A  > 84fed82 upgrade github.com/prometheus/client_golang to v1.13.1%0A  > 077b441 update k8s.io/utils to fix util tracing panic%0A  > 5bbf20d Adding new api version of admissionregistration.k8s.io v1alpha1 for CEL in Admission Control%0A  > 3b533ba Merge pull request # 113367 from pohly/dep-ginkgo-gomega%0A  > 975bbeb dependencies: update to gomega v1.23.0 and ginkgo v2.4.0 and dependencies%0A  > ae2b4c3 Merge pull request # 112693 from aimuz/fix-GO-2022-0969%0A  > c4deae9 Fixed (CVE-2022-27664) Bump golang.org/x/net to v0.1.1-0.20221027164007-c63010009c80%0A  > bc4263f Merge pull request # 113172 from dashpole/endpoint_handler_tracing%0A  > f6c164e migrate apiserver utiltrace usage to component-base/tracing%0A  > 53e3726 Merge pull request # 113015 from ritazh/crencryption%0A  > c8d8a9f Enable encryption for custom resources%0A  > 6405068 Merge pull request # 113325 from panslava/fix-time-since-defer%0A  > 508e399 Fix time.Since() in defer. Wrap in anonymous function%0A  > 5f8e59e Merge pull request # 112691 from aimuz/apiextensions-apiserver-change-to-cmp%0A  > c996139 Merge pull request # 113106 from pohly/dep-ginkgo-gomega%0A  > f83e03c apiextensions-apiserver: change k8s.io/apimachinery/pkg/util/diff to github.com/google/go-cmp/cmp%0A  > b68fc51 dependencies: update to gomega v1.22.1 and ginkgo v2.3.1%0A  > 49c41b4 Merge pull request # 112988 from alexzielenski/update-kube-openapi%0A  > 3aaa2a0 Merge pull request # 113037 from pacoxu/fsnotify-v1.6.0%0A  > d9f6ebd update kube-openapi%0A  > 82e3ba4 Merge pull request # 112789 from enj/enj/r/kms_load_once_v2%0A  > 7423813 update fsnotify to v1.6.0%0A  > 8bf3487 Merge pull request # 113011 from jpmcb/cobra-1.6.0%0A  > d34393e Load encryption config once%0A  > 6ba582f Bumps cobra from 1.5.0 to 1.6.0%0A  > 8e0697b Merge pull request # 113022 from logicalhan/webhook-metrics%0A  > 90c63e0 Merge pull request # 112926 from jiahuif-forks/refactor/cel-out-of-apiextensions%0A  > 548c480 unparameterize 'webhook' from conversion metrics since it's the only one%0A  > 77badb8 Merge pull request # 112989 from ameukam/bump-golang.org/x/text-to-v0.3.8%0A  > 609e270 use DefaultMaxRequestSizeBytes for maxRequestSizeBytes.%0A  > 04f26fa Bump golang.org/x/text to v0.3.8%0A  > dd981e1 move CEL package to apiserver package.%0A  > 1644998 Move celopenapi/model to staging/src/k8s.io/apiextensions-apiserver/pkg/apiserver/schema/cel/ (# 109959)%0A  > 08d44e8 Merge pull request # 112875 from pohly/update-yaml%0A  > 1300140 dependencies: update to sigs.k8s.io/yaml v1.3.0%0A  > 5fb82bd Merge pull request # 112819 from thockin/no-make-generators%0A  > f5f5279 Codegens: Do not auto-set boilerplate path%0A  > f22ee73 Merge pull request # 112738 from liggitt/proto-tag%0A  > ba7f1b7 Merge pull request # 112689 from cheftako/master%0A  > 7ac7774 github.com/matttproud/golang_protobuf_extensions v1.0.2%0A  > e678457 Merge pull request # 112748 from wojtek-t/lock_ssa_gate%0A  > 0aca5a6 Bump konnectivity-client to v0.0.33%0A  > 9be4b4a Lock ServerSideApply feature to true%0A  > 7b53cb7 Merge pull request # 111980 from aramase/kms%0A  > f40a683 Merge pull request # 112705 from stevekuznetsov/skuznets/fix-comment%0A  > 4cd9125 Add staging directory for kms%0A  > d4e654a clients: clarify a misleading comment%0A  > 8b851d9 Merge pull request # 112673 from dims/update-to-latest-k8s.io/utils-sep-22%0A  > 362a89c Merge pull request # 112615 from mengjiao-liu/update_CRD_link%0A  > add0c80 Update to latest k8s.io/utils to pick up changes%0A  > 374216b Merge pull request # 112613 from dims/update-github.com/go-openapi/jsonreference-to-drop-github.com/PuerkitoBio/purell%0A  > a7ee7f9 Update `PreserveUnknownFields` field document link%0A  > 488bf20 update github.com/go-openapi/jsonreference to drop github.com/PuerkitoBio/purell%0A  > 47c15ca Merge pull request # 112588 from pacoxu/fsnotify-v1.5.4%0A  > d5b6243 Merge pull request # 112584 from dims/brneto-master%0A  > 8c6aa82 update fsnotify/fsnotify to v1.5.4%0A  > f8e18e9 run pin-dependency.sh and then hack/update-vendor.sh%0A  > c540c8c Merge pull request # 112545 from dims/update-etcd-3.5.5-and-all-otel-related-to-latest%0A  > 70b0d96 Merge pull request # 112352 from pohly/e2e-ginkgo-progress%0A  > 39cab0b updated etcd to v3.5.5 and newer otel libraries as well%0A  > 5faccda Merge pull request # 111866 from pacoxu/validate%0A  > 1c3fe9d e2e: bump ginkgo to v2.2.0%0A  > 917d446 Merge pull request # 112458 from dims/switch-to-release-tag-for-antlr-v1.4.10%0A  > 8b3fe74 add test case for array checking with dup values%0A  > 045fc90 Merge pull request # 112433 from ncdc/reduce-SchemaHas-allocs%0A  > 73cc883 Switch to release tag for antlr : v1.4.10%0A  > 22bcc66 added ratcheting validation for embedded resource and x-kubernetes-list-type validation%0A  > 269d73d Reduce allocations in HasSchemas%0A  > 7342cc6 Merge pull request # 112200 from pohly/client-go-shared-informer-factory-shutdown%0A  > aabbdff Merge pull request # 112349 from pohly/klog-update%0A  > fdf28bc client-go: support waiting for SharedInformerFactory shutdown%0A  > 6b7d12b build: update to klog v2.80.1%0A  > 559b4fa Merge pull request # 111768 from weilaaa/feature_add_symmetric_difference_in_sets_string%0A  > bf7d058 add symmetric difference in sets%0A  > 04ff81e Merge pull request # 112199 from pohly/klog-update%0A  > 87a4c3f dependencies: update to klog v2.80.0%0A  > 8f15690 Merge pull request # 112129 from pohly/e2e-ginkgo-report-after-each%0A  > f637e1c dependencies: update to ginkgo v2.1.6 and gomega v1.20.1%0A  > b6adc1c Merge pull request # 111964 from DangerOnTheRanger/cel-estimate-fix-update%0A  > ea2d438 Merge pull request # 112052 from tosi3k/bump-client-golang%0A  > 6b4dc0b Add unit tests.%0A  > 767e67b Bump prometheus/client_golang to v1.13.0%0A  > 782b982 Run pin-dependency.sh and update-vendor.sh.%0A  > 305963e Merge pull request # 111909 from tosi3k/bump-prom-client%0A  > fa2959a Merge pull request # 111830 from t1anz0ng/typo%0A  > 5a6ffec Bump prometheus/client_golang to v1.12.2%0A  > e0abc3b fix(typo): remove extra " from autoscaling doc string%0A  > 2184a8d Merge pull request # 111696 from liggitt/go119mod%0A  > f750907 Update go.mod to go1.19%0Abumping github.com/matttproud/golang_protobuf_extensions c182aff...c182aff:%0Abumping k8s.io/api 88912e3...6b24792:%0A  > 6b24792 Update dependencies to v0.26.5 tag%0A  > 37e98ba Merge pull request # 117814 from kerthcet/automated-cherry-pick-of-# 117802-upstream-release-1.26%0A  > 7ff025f Update podFailurePolicy comments from alpha-level to beta%0A  > c9f384e Merge pull request # 117691 from dims/re-do-of-117242-on-release-1.26%0A  > c00f1ad Bump runc go module v1.1.4 -> v1.1.6%0A  > 4c28c5a Merge pull request # 117323 from dddddai/automated-cherry-pick-of-# 117182-upstream-release-1.26%0A  > 9483bbc use case-insensitive header keys for http probes%0A  > 0545f3a Merge pull request # 116081 from pohly/automated-cherry-pick-of-# 115928-origin-release-1.26%0A  > e92d7e9 api: generated fil…
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. We encourage partial PR's with
+~5-10 example that we can then run the evals on and share the results
+with you so you know how your eval does with GPT-4 before writing all
+100 examples.
+
+## Eval details 📑
+### Eval name
+euler_problems
+
+### Eval description
+Named after Leonhard Euler, a Swiss mathematician in the 1700's, Euler
+problems are complex challenging mathematical and/or logical problems to
+solve. Some may require complex thought process to reach a solution
+while others may need computational resource for which an elegant and
+efficient approach must be used.
+
+### What makes this a useful eval?
+This tests the models ability to build out a strategy for solving a
+complex logical or mathematical problem
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] Include at least 100 high quality examples (it is okay to only
+contribute 5-10 meaningful examples and have us test them with GPT-4
+before adding all 100)
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+These problems would not typically be solved by a 'lay person' but
+rather experienced expert problem solvers such as developers, academics
+etc.
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.jsonl`
+- [x] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields in the evals PR form
+- [x] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input":[{"role":"system","content":"TASK: Solve the following Euler
+problem and provide a numberical answer.\n\n Pentagonal numbers are
+generated by the formula, Pn=n(3n−1)/2. The first ten pentagonal numbers
+are:\n1, 5, 12, 22, 35, 51, 70, 92, 117, 145, ...\nIt can be seen that
+P4 + P7 = 22 + 70 = 92 = P8. However, their difference, 70 − 22 = 48, is
+not pentagonal.\nFind the pair of pentagonal numbers, Pj and Pk, for
+which their sum and difference are pentagonal and D = |Pk − Pj| is
+minimised; what is the value of D?"}],"ideal":"5482660"}
+
+{"input":[{"role":"system","content":"TASK: Solve the following Euler
+problem and provide a numberical answer.\n\n What is the largest prime
+number smaller than 1000000000"}],"ideal":"999999937"}
+
+{"input":[{"role":"system","content":"TASK: Solve the following Euler
+problem and provide a numberical answer.\n\n Let fn(k) = ek/n - 1, for
+all non-negative integers k.\nRemarkably, f200(6) + f200(75) + f200(89)
++ f200(226) = 3.141592644529… ≈ π.\nIn fact, it is the best
+approximation of π of the form fn(a) + fn(b) + fn(c) + fn(d) for n =
+200.\n Let g(n) = a2 + b2 + c2 + d 2 for a, b, c, d that minimize the
+error: | fn(a) + fn(b) + fn(c) + fn(d) - π|\n (where |x| denotes the
+absolute value of x).\n You are given g(200) = 62 + 752 + 892 + 2262 =
+64658.\n Find g(10000)."}],"ideal":"159820276"}
+
+{"input":[{"role":"system","content":"TASK: Solve the following Euler
+problem and provide a numberical answer.\n\n Consider the alphabet A
+made out of the letters of the word \"project\": A={c,e,j,o,p,r,t}.\nLet
+T(n) be the number of strings of length n consisting of letters from A
+that do not have a substring that is one of the 5040 permutations of
+\"project\".\nT(7)=77-7!=818503.\nFind T(1012). Give the last 9 digits
+of your answer."}],"ideal":"423341841"}
+
+{"input":[{"role":"system","content":"TASK: Solve the following Euler
+problem and provide a numberical answer.\n\n In the following equation
+x, y, and n are positive integers.\n\nFor a limit L we define F(L) as
+the number of solutions which satisfy x < y ≤ L.\nWe can verify that
+F(15) = 4 and F(1000) = 1069.\nFind F(1012)."}],"ideal":"5435004633092"}
+  ```
+</details>
 
 ---
-## [eschulma/evals](https://github.com/eschulma/evals)@[170dfd886c...](https://github.com/eschulma/evals/commit/170dfd886c0704588461af075393cc20cfb0480f)
-#### Tuesday 2023-05-30 02:07:36 by Robert Bateman
+## [CyberSavvy531/ImprovedWastepackAtomizer](https://github.com/CyberSavvy531/ImprovedWastepackAtomizer)@[d7c694cb04...](https://github.com/CyberSavvy531/ImprovedWastepackAtomizer/commit/d7c694cb044b48560c14daccceb6d40b0bcc3b7b)
+#### Wednesday 2023-05-31 05:08:29 by Cyber
+
+Update to fix texture issues
+
+Evidently, texture names for "workbenches" a.k.a. buildings with interactions spots, are named to indicate the direction the *pawn* faces when interacting with it instead of the building's orientation itself. Contrary to what the official archive of textures indicates, and how almost every building and item in game is displayed. Which, frankly, is just fucking stupid. So this update reverses all the mod texture names to make them appear correctly in game. It feels like a hackish work around and I hate it.
+
+---
+## [AaronGoldsmith/evals](https://github.com/AaronGoldsmith/evals)@[f89925829b...](https://github.com/AaronGoldsmith/evals/commit/f89925829b2fdd8e24acfdb518064189a5751178)
+#### Wednesday 2023-05-31 05:34:18 by Vasco Lange
+
+Eval french-part-of-speech (#1039)
+
+# Thank you for contributing an eval! ♥️
+
+🚨 Please make sure your PR follows these guidelines, __failure to follow
+the guidelines below will result in the PR being closed automatically__.
+Note that even if the criteria are met, that does not guarantee the PR
+will be merged nor GPT-4 access granted. 🚨
+
+__PLEASE READ THIS__:
+
+In order for a PR to be merged, it must fail on GPT-4. We are aware that
+right now, users do not have access, so you will not be able to tell if
+the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
+in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
+we will likely reject since GPT-4 is already capable of completing the
+task.
+
+We plan to roll out a way for users submitting evals to see the eval
+performance on GPT-4 soon. Stay tuned! Until then, you will not be able
+to see the eval performance on GPT-4. **Starting April 10, the minimum
+eval count is 15 samples, we hope this makes it easier to create and
+contribute evals.**
+
+Also, pelase note that we're using **Git LFS** for storing the JSON
+files, so please make sure that you move the JSON file to Git LFS before
+submitting a PR. Details on how to use Git LFS are available
+[here](https://git-lfs.com).
+
+## Eval details 📑
+### Eval name
+> french-part-of-speech
+
+### Eval description
+
+> For a given French word, the model is asked to list all possible parts
+of speech (multiple choice). The model is also asked to think about the
+word as an inflection of another word. The models output is tested
+against annotations extracted from fr.wiktionary.org.
+
+### What makes this a useful eval?
+
+> Part of speech analysis is a basic task in language / grammar classes.
+While it is usually done in the context of a sentence, coming up with
+possible uses in lack of a sentence requires a certain amount of
+creativity and language understanding, or very good recall of
+information that is usually sparse outside of dictionaries. The task in
+this eval could be seen as a combination of part of speech analysis and
+an easy-to-evaluate form of the question "How could x be used in a
+sentence".
+
+## Criteria for a good eval ✅
+
+Below are some of the criteria we look for in a good eval. In general,
+we are seeking cases where the model does not do a good job despite
+being capable of generating a good response (note that there are some
+things large language models cannot do, so those would not make good
+evals).
+
+Your eval should be:
+
+- [x] Thematically consistent: The eval should be thematically
+consistent. We'd like to see a number of prompts all demonstrating some
+particular failure mode. For example, we can create an eval on cases
+where the model fails to reason about the physical world.
+- [x] Contains failures where a human can do the task, but either GPT-4
+or GPT-3.5-Turbo could not.
+- [x] Includes good signal around what is the right behavior. This means
+either a correct answer for `Basic` evals or the `Fact` Model-graded
+eval, or an exhaustive rubric for evaluating answers for the `Criteria`
+Model-graded eval.
+- [x] **Include at least 15 high quality examples.**
+
+If there is anything else that makes your eval worth including, please
+document it below.
+
+### Unique eval value
+
+> To build the dataset, all 4.000.000+ entries of the French wiktionary
+were parsed. Excluded from this list were all phrases (like "qu'est-ce
+que c'est"), abbreviations (like "qn"), symbols and any words with at
+least one possible part of speech not fitting the categories given in
+the prompt.
+> From this set, words were sampled so that each combination of the
+parts of speech existing in the dataset would be equally likely in the
+tests. This way the model is tested to respond with all possible uses of
+a word and not just the most common ones. For combinations that fit a
+lot of words, the uniform sampling led to a bias towards rarely used
+words.
+> The labels of each word were taken from the corresponding page at
+fr.wiktionary.org/wiki/{word}. The information taken from each page was:
+the word, the part of speech this word can have in French and whether
+the word is an abbreviation or not. This means only factual data was
+taken and is therefore in the public domain.
+
+## Eval structure 🏗️
+
+Your eval should
+- [x] Check that your data is in `evals/registry/data/{name}`
+- [x] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [x] Ensure you have the right to use the data you submit via this eval
+
+(For now, we will only be approving evals that use one of the existing
+eval classes. You may still write custom eval classes for your own
+cases, and we may consider merging them in the future.)
+
+## Final checklist 👀
+
+### Submission agreement
+
+By contributing to Evals, you are agreeing to make your evaluation logic
+and data under the same MIT license as this repository. You must have
+adequate rights to upload any data used in an Eval. OpenAI reserves the
+right to use this data in future service improvements to our product.
+Contributions to OpenAI Evals will be subject to our usual Usage
+Policies (https://platform.openai.com/docs/usage-policies).
+
+- [x] I agree that my submission will be made available under an MIT
+license and complies with OpenAI's usage policies.
+
+### Email address validation
+
+If your submission is accepted, we will be granting GPT-4 access to a
+limited number of contributors. Access will be given to the email
+address associated with the merged pull request.
+
+- [x] I acknowledge that GPT-4 access will only be granted, if
+applicable, to the email address used for my merged pull request.
+
+### Limited availability acknowledgement
+
+We know that you might be excited to contribute to OpenAI's mission,
+help improve our models, and gain access to GPT-4. However, due to the
+requirements mentioned above and high volume of submissions, we will not
+be able to accept all submissions and thus not grant everyone who opens
+a PR GPT-4 access. We know this is disappointing, but we hope to set the
+right expectation before you open this PR.
+
+- [x] I understand that opening a PR, even if it meets the requirements
+above, does not guarantee the PR will be merged nor GPT-4 access
+granted.
+
+### Submit eval
+
+- [x] I have filled out all required fields of this form
+- [x] I have used **Git LFS** for the Eval JSON data
+- [ ] (Ignore if not submitting code) I have run `pip install
+pre-commit; pre-commit install` and have verified that `black`, `isort`,
+and `autoflake` are running when I commit and push
+
+Failure to fill out all required fields will result in the PR being
+closed.
+
+### Eval JSON data 
+
+Since we are using Git LFS, we are asking eval submitters to add in as
+many Eval Samples (at least 5) from their contribution here:
+
+<details>
+  <summary>View evals in JSON</summary>
+
+  ### Eval
+  ```jsonl
+{"input": [{"role": "system", "content": "Act as a French language
+part-of-speech classifier. You will be prompted with a single French
+word. Return an unsorted comma-separated list for all the parts of
+speech the word could possibly be, in any context. Take care to consider
+if the word is any kind of inflection. If so, include the part of speech
+for the main word.\nAnswer with the comma-separated list only. Use
+single spaces after the commas. End the list with a dot. Do not include
+any explanations. Only include parts of speech from the following list,
+ignoring possible other parts of speech:\nadjective, adverb, article,
+conjunction, interjection, noun, particle, preposition, pronoun,
+verb\n**Example prompt 1**: un\n**Example output 1**: article,
+adjective, pronoun, noun.\n**Example prompt 2**: essai\n**Example output
+2**: noun, verb.\n**Example prompt 3**: absolument\n**Example output
+3**: adverb.\n**Prompt**:"}, {"role": "user", "content": "agitée"}],
+"ideal": ["noun, verb, adjective.", "noun, adjective, verb.", "verb,
+noun, adjective.", "verb, adjective, noun.", "adjective, noun, verb.",
+"adjective, verb, noun."]}
+{"input": [{"role": "system", "content": "Act as a French language
+part-of-speech classifier. You will be prompted with a single French
+word. Return an unsorted comma-separated list for all the parts of
+speech the word could possibly be, in any context. Take care to consider
+if the word is any kind of inflection. If so, include the part of speech
+for the main word.\nAnswer with the comma-separated list only. Use
+single spaces after the commas. End the list with a dot. Do not include
+any explanations. Only include parts of speech from the following list,
+ignoring possible other parts of speech:\nadjective, adverb, article,
+conjunction, interjection, noun, particle, preposition, pronoun,
+verb\n**Example prompt 1**: un\n**Example output 1**: article,
+adjective, pronoun, noun.\n**Example prompt 2**: essai\n**Example output
+2**: noun, verb.\n**Example prompt 3**: absolument\n**Example output
+3**: adverb.\n**Prompt**:"}, {"role": "user", "content": "celles"}],
+"ideal": ["noun, pronoun.", "pronoun, noun."]}
+{"input": [{"role": "system", "content": "Act as a French language
+part-of-speech classifier. You will be prompted with a single French
+word. Return an unsorted comma-separated list for all the parts of
+speech the word could possibly be, in any context. Take care to consider
+if the word is any kind of inflection. If so, include the part of speech
+for the main word.\nAnswer with the comma-separated list only. Use
+single spaces after the commas. End the list with a dot. Do not include
+any explanations. Only include parts of speech from the following list,
+ignoring possible other parts of speech:\nadjective, adverb, article,
+conjunction, interjection, noun, particle, preposition, pronoun,
+verb\n**Example prompt 1**: un\n**Example output 1**: article,
+adjective, pronoun, noun.\n**Example prompt 2**: essai\n**Example output
+2**: noun, verb.\n**Example prompt 3**: absolument\n**Example output
+3**: adverb.\n**Prompt**:"}, {"role": "user", "content": "falunât"}],
+"ideal": ["verb."]}
+{"input": [{"role": "system", "content": "Act as a French language
+part-of-speech classifier. You will be prompted with a single French
+word. Return an unsorted comma-separated list for all the parts of
+speech the word could possibly be, in any context. Take care to consider
+if the word is any kind of inflection. If so, include the part of speech
+for the main word.\nAnswer with the comma-separated list only. Use
+single spaces after the commas. End the list with a dot. Do not include
+any explanations. Only include parts of speech from the following list,
+ignoring possible other parts of speech:\nadjective, adverb, article,
+conjunction, interjection, noun, particle, preposition, pronoun,
+verb\n**Example prompt 1**: un\n**Example output 1**: article,
+adjective, pronoun, noun.\n**Example prompt 2**: essai\n**Example output
+2**: noun, verb.\n**Example prompt 3**: absolument\n**Example output
+3**: adverb.\n**Prompt**:"}, {"role": "user", "content": "niveau"}],
+"ideal": ["preposition, noun.", "noun, preposition."]}
+{"input": [{"role": "system", "content": "Act as a French language
+part-of-speech classifier. You will be prompted with a single French
+word. Return an unsorted comma-separated list for all the parts of
+speech the word could possibly be, in any context. Take care to consider
+if the word is any kind of inflection. If so, include the part of speech
+for the main word.\nAnswer with the comma-separated list only. Use
+single spaces after the commas. End the list with a dot. Do not include
+any explanations. Only include parts of speech from the following list,
+ignoring possible other parts of speech:\nadjective, adverb, article,
+conjunction, interjection, noun, particle, preposition, pronoun,
+verb\n**Example prompt 1**: un\n**Example output 1**: article,
+adjective, pronoun, noun.\n**Example prompt 2**: essai\n**Example output
+2**: noun, verb.\n**Example prompt 3**: absolument\n**Example output
+3**: adverb.\n**Prompt**:"}, {"role": "user", "content": "serve"}],
+"ideal": ["noun, verb, adjective.", "noun, adjective, verb.", "verb,
+noun, adjective.", "verb, adjective, noun.", "adjective, noun, verb.",
+"adjective, verb, noun."]}
+  ```
+</details>
+
+Co-authored-by: Vasco Yannic Lange <mail@vascolange.com>
+
+---
+## [Omar-HeshamR/evals](https://github.com/Omar-HeshamR/evals)@[170dfd886c...](https://github.com/Omar-HeshamR/evals/commit/170dfd886c0704588461af075393cc20cfb0480f)
+#### Wednesday 2023-05-31 05:38:16 by Robert Bateman
 
 [Eval] An array of Liar Paradox-based evals (#883)
 
@@ -692,8 +1796,8 @@ the statement."}
 </details>
 
 ---
-## [eschulma/evals](https://github.com/eschulma/evals)@[b93700ab49...](https://github.com/eschulma/evals/commit/b93700ab496bd112f89821777edc6a22d5972fb2)
-#### Tuesday 2023-05-30 02:07:36 by DunedainStrider
+## [Omar-HeshamR/evals](https://github.com/Omar-HeshamR/evals)@[b93700ab49...](https://github.com/Omar-HeshamR/evals/commit/b93700ab496bd112f89821777edc6a22d5972fb2)
+#### Wednesday 2023-05-31 05:38:16 by DunedainStrider
 
 Do math problems related to calculating dates using the Chinese Sexagenary Cycle method. 🧮 (#190)
 
@@ -900,3286 +2004,8 @@ Heavenly Stems and 12 Earthly Branches."}, {"role": "user", "content":
 Co-authored-by: dunedainstrider <dunedainstrider@mac16>
 
 ---
-## [eschulma/evals](https://github.com/eschulma/evals)@[2ffd4b57de...](https://github.com/eschulma/evals/commit/2ffd4b57deaeced1fde54744da9de62d3eb7738a)
-#### Tuesday 2023-05-30 02:07:36 by Andrew Kondrich
-
-add more logging (#964)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, pelase note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-### Eval name
-[Insert Eval name here]
-
-### Eval description
-
-[Insert a short description of what your eval does here]
-
-### What makes this a useful eval?
-
-[Insert why this eval is worth including and any additional context]
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [ ] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [ ] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [ ] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [ ] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [ ] Check that your data is in `evals/registry/data/{name}`
-- [ ] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [ ] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [ ] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [ ] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [ ] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [ ] I have filled out all required fields of this form
-- [ ] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-  INSERT_EVAL_HERE
-  ```
-</details>
-
----
-## [LynxSolstice/cmss13](https://github.com/LynxSolstice/cmss13)@[84fd6b6eb7...](https://github.com/LynxSolstice/cmss13/commit/84fd6b6eb7fdd48d8499b954dfd216fd5a42ed04)
-#### Tuesday 2023-05-30 02:11:52 by ihatethisengine
-
-Medevac Buffs (#1513)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-
-## About The Pull Request
-Reduces cooldown of medevac from 60 seconds to 20 seconds. PO no longer
-needs to manually activate the winch, so medevac can be operated from
-the cockpit. What's more, you can operate medevac by interacting with
-the medevac system itself, and even if you don't have the skills of a
-pilot, you can use it if you have the skills of a doctor (which means
-nurse can run medevac). And finally, the medical stretcher is now
-automatically activated when deployed.
-
-I know there is a PR by jeser that reduces cooldown, but it stuck in PR
-hell anyway and also I changed more stuff.
-
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
-## Why It's Good For The Game
-Since we want to force wounded marines to go shipside, we must provide
-them a more convenient way to reach the Almayer. Medevac was always
-underutilized because it required too much coordination and unnecessary
-actions (e.g. having to activate medical stretcher every time, keep in
-mind a huge portion of the medic playerbase still has no idea you need
-to do this). PO had to spend their limited fly-by time (which should
-normally be used on firemissions) to manually activating the winch,
-which was always annoying. And cooldown is ridiculous. You have at best
-three minutes of fly-by, so that means you could use medevac only twice
-(remember that you needed to run to the system every time) per fly-by,
-which is definitely not enough.
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
-
-## Changelog
-
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-
-:cl: ihatethisengine
-balance: reduced the medevac cooldown from 60 seconds to 20 seconds.
-add: anyone with the skills of a doctor or a pilot can manage the
-medevac by interacting with the system itself.
-qol: medical stretcher automatically activates when deployed.
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-
----------
-
-Co-authored-by: ihatethisengine <treml.treml@yandex.ru>
-
----
-## [llegomark/evals](https://github.com/llegomark/evals)@[24f78a806e...](https://github.com/llegomark/evals/commit/24f78a806e60b452aaefc355f045c6336a81d076)
-#### Tuesday 2023-05-30 04:50:47 by YuryRudnitski
-
-Add eval for guessing the singer or band (#659)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-guess-the-singer
-
-### Eval description
-
-This evaluation measures the model's ability to identify a singer or
-band by analyzing the first 10 words of a song. To ensure the
-evaluation's fairness and focus, we have excluded songs with multiple
-singers/bands and included only those published before 2021. To test the
-model's performance, we provide it with three potential choices and
-evaluate its accuracy in selecting the correct one.
-
-### What makes this a useful eval?
-
-The inclusion of over 4000 popular songs' lyrics provides a large and
-diverse dataset for the model to test on. This enables a more accurate
-assessment of the model's performance and its ability to identify
-singers/bands based on the first 10 words of their songs.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> This evaluation assesses not only the model's ability to recognize a
-singer or band based on the first 10 words of a song but also its
-capability to accurately copy the provided options without adding any
-additional punctuation or text. By testing the model's ability to
-replicate the options, we can gain insights into its language generation
-capabilities and identify any areas for improvement in its output.
-Accuracy achieved with gpt-3.5-turbo equals 0.635.
-
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: in the beginning god created heaven
-and earth for what \nChoices: dua lipa, ed sheeran, lady gaga"}],
-"ideal": "dua lipa"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: versedrake ayye yo dj wristpect let's
-get em' veterans like \nChoices: cardi b, drake, coldplay"}], "ideal":
-"drake"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: yeah yeah sick da got that dope they
-\nChoices: eminem, dua lipa, nicki minaj"}], "ideal": "eminem"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: bobby v yeah bobby v yeah dj turn me
-up \nChoices: nicki minaj, selena gomez, coldplay"}], "ideal": "nicki
-minaj"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: ed sheeran yeah i was born a misfit
-grew up \nChoices: ed sheeran, maroon 5, justin bieber"}], "ideal": "ed
-sheeran"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: there's a dream in my soul a fire
-that's deep \nChoices: justin bieber, charlie puth, bts"}], "ideal":
-"justin bieber"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: selena gomez take it or leave it baby
-take it \nChoices: selena gomez, justin bieber, bts"}], "ideal": "selena
-gomez"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: lalala lalala lalalalala oh you know
-i've never felt like \nChoices: rihanna, ed sheeran, charlie puth"}],
-"ideal": "rihanna"}
-{"input": [{"role": "system", "content": "Guess the singer/band name
-based on the first 10 words of the song. You will be presented with 3
-options, one of which is correct. Your answer must be identical to the
-chosen option, without any added text or punctuation. \nExample: \nText:
-in the town where I was born lived a man who sailed to sea \nChoices:
-the rolling stones, the animals, the beatles\n\nAnswer: \nthe beatles"},
-{"role": "user", "content": "Text: how could i see you when i was so
-blind \nChoices: katy perry, ed sheeran, drake"}], "ideal": "katy
-perry"}
-  ```
-</details>
-
-Co-authored-by: Vadim Titko <v.tsitko@aiby.com>
-
----
-## [llegomark/evals](https://github.com/llegomark/evals)@[6087aee945...](https://github.com/llegomark/evals/commit/6087aee94583a5ac440f024756b2d9a5f3754410)
-#### Tuesday 2023-05-30 04:50:47 by lucasfoufou
-
-Find country from svg (#418)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. We encourage partial PR's with
-~5-10 example that we can then run the evals on and share the results
-with you so you know how your eval does with GPT-4 before writing all
-100 examples.
-
-## Eval details 📑
-### Eval name
-Find country from svg
-
-### Eval description
-
-Test the model's ability to distinguish a country based on its svg shape
-(from wikimedia svg file).
-
-### What makes this a useful eval?
-
-Multiple real life use case, the first one would be to understand that a
-svg shape is a country (it could be very useful for scraps via [Text
-from:] prompts). On the opposite side, while asking to create an app or
-a website (with a map, I just had the case for a client), GPT would
-currently hint you to find the svg of the country on the web, mainly
-linking to wikimedia, this solution is quicker.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] Include at least 100 high quality examples (it is okay to only
-contribute 5-10 meaningful examples and have us test them with GPT-4
-before adding all 100)
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-GPT currently lacks of geography "knowledge" (I've tried him on multiple
-tasks where it fails), this evals would help him "recognize" country
-shapes, if that's a thing ?
-
-## Eval structure 🏗️
-
-Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-(it's in public domain from wikimedia)
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields in the evals PR form
-- [X] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "I will provide you with the
-svg with one shape, you will tell me which country it is the shape
-of."}, {"role": "user", "content": "<svg><path
-xmlns=\"http://www.w3.org/2000/svg\" d=\"m 1277.96,284.094 c 0.89,-0.422
-1.96,-0.686 2.95,-0.504 0.34,-1.514 -1.67,-0.473 -2.09,-1.512
-0.92,-0.307 2,-0.194 2.96,-0.145 -0.75,-0.129 -1.77,0.138 -1.23,-0.792
--0.58,-0.03 -2.55,1.079 -2.79,0.108 -0.32,-1.325 1.7,-2.125 2.66,-2.315
-1.29,-0.256 2.51,-0.36 3.82,-0.324 1.85,0.05 3.04,-1.75 5.1,-1.501
--0.24,0.665 2.23,2.987 2.92,2.708 0.47,-0.226 0.91,-0.484 1.34,-0.772
-0.94,-0.521 0.88,0.152 1.66,0.302 0.77,0.148 1.37,-0.462 1.42,0.787
-0.5,-0.347 -0.24,-0.762 0.17,-1.327 0.43,-0.577 0.65,0.299 1.02,0.397
-0.88,0.232 2.02,0 2.91,-0.15 -1.89,-0.553 -1.2,-3.219 -1.04,-4.608
-0.1,-0.676 -0.95,-1.354 -1.3,-1.826 -0.6,-0.813 0,-2.049 -0.9,-2.711
-0.65,0.114 1.25,0.434 1.9,0.569 0.71,0.148 1.58,-0.549 2.21,-0.235
-0.97,0.488 -0.24,1.954 1.1,2.724 0.39,0.222 1.09,-0.173 1.49,-0.177
-1.17,-0.01 2.29,0.385 3.43,0.601 1.11,0.211 2.08,0.179 3.07,-0.39
-0.9,-0.515 2.11,-0.496 2.93,-1.075 -0.65,0.256 -1.75,0.386 -2.38,0.03
--1.27,-0.731 1.67,-2.529 2.15,-2.748 1.55,-0.694 3.31,-0.611 4.88,-1.241
-0.91,-0.365 2.13,-2.453 3.26,-1.869 -0.99,-0.639 -0.38,-5.064
-0.44,-5.893 0.81,-0.814 4.94,-2.286 6.01,-1.391 0.54,0.456 -0.52,2.21
-1.06,2.601 1.63,0.403 1.25,0.04 2.41,0.383 1.08,0.325 0.74,1.156
-1.57,1.56 1.09,0.527 2.19,-0.1 2.05,1.586 0.65,-0.419 1.78,-0.322
-2.46,-0.08 1.3,0.444 0.75,2.039 0.49,2.965 0.87,0.145 1.85,0.414
-2.71,0.07 0.85,-0.341 1.05,-1.314 1.9,-1.654 0.1,0.536 -0.15,2.933
-0.58,2.959 1.07,0.04 3.23,1.451 3.56,2.478 -0.1,-0.296 4.07,0.378
-4.28,0.396 1.02,0.09 1.77,-0.122 2.58,0.715 0.63,0.66 1.07,1.697
-2.03,1.948 0.21,-0.1 0.37,-0.244 0.5,-0.438 0.31,-0.321 0.46,0.105
-0.79,0.15 0.19,0.07 0.24,0.196 0.15,0.377 -0.1,0.392 0.86,0.178
-1.01,0.191 1.03,0.09 1.61,-0.538 2.56,0.183 1.01,0.768 3.09,0.91
-4.35,1.121 -1.54,1.365 -2.97,2.863 -3.47,4.891 -0.24,0.986 -0.83,1.892
--0.99,2.886 -0.1,0.65 0.12,0.914 -0.14,1.749 -0.31,1.009 0.46,1.85
--0.22,2.476 -0.58,0.528 -1.02,1.037 -1.88,0.96 -0.72,-0.06 -0.78,-1.131
--1.65,-0.648 -0.62,0.349 -0.68,1.463 0.36,1.296 -0.78,0.826 -1.48,1.807
--2.38,2.52 -0.55,0.358 -1.09,0.734 -1.61,1.128 -0.43,0.39 -0.39,1.154
--0.76,1.608 -0.62,0.774 -1.83,1.138 -2.02,2.232 0.14,0.373 0.24,0.757
-0.29,1.151 -0.15,0.709 -0.81,0.962 -1.08,1.584 1.19,-0.149 1.63,-0.555
-1.94,-1.691 0.31,-1.118 2.37,-1.032 3.21,-0.797 1,0.283 0.32,1.927
-1.04,2.728 1.27,1.392 0.49,1.914 -0.65,2.857 0.61,0.857 2.88,2.445
-2.26,3.701 -0.43,0.843 -3.57,2 -3.56,2.144 0,0.994 1.97,1.841 2.63,2.408
-0.96,0.82 -1.33,2.281 -1,3.365 0.4,1.316 2.92,2.808 4.25,2.275
-1.67,-0.669 1.42,0.304 0.79,1.417 -1.52,2.681 -4.43,4.033 -7.03,5.786
-0.17,0.244 0.34,0.484 0.51,0.72 -0.97,0.139 -1.78,0.637 -2.69,0.955
--0.97,0.343 -1.6,-0.197 -2.52,-0.124 -1.4,0.11 -2.26,-1.056 -3.93,-0.903
-0.67,-1.731 -2.2,-0.404 -2.23,-1.41 0.18,-0.312 0.47,-0.394 0.86,-0.246
-0,-0.567 -0.37,-0.887 -0.94,-0.864 0.48,0.734 0.1,0.842 -0.59,0.875
--1.09,0.05 -1.2,-0.01 -1.5,-1.307 0.39,2.583 -0.27,0.936 -1.94,0.936
--0.97,0 -1.76,-0.61 -2.7,-0.656 -1.15,-0.06 -2.42,1.249 -3.45,1.719
--0.8,0.367 -3.62,1.411 -3.44,2.5 0,0.357 -0.13,0.689 -0.32,0.996
--0.45,0.4 -0.41,0.756 0.11,1.068 0.4,1.252 0.14,1.879 0.87,3.086
--0.69,0.197 -1.29,-0.149 -1.97,-0.108 -0.7,0.04 -1.06,0.605 -1.69,0.777
--1.52,0.415 -2.45,-1.16 -3.91,-0.1 -0.1,0.07 -2.12,-0.872 -2.34,-1.035
--0.57,-0.423 0.73,-0.369 -0.18,-0.978 -0.53,-0.353 -1.48,-0.508
--1.93,0.07 -0.21,-1.289 -1.64,-0.75 -2.41,-1.362 -1.07,-0.845
--3.26,-1.387 -2.92,0.643 -1.2,-0.173 -2.55,-0.475 -3.76,-0.253
--0.67,0.123 -1.12,0.313 -1.69,-0.203 -1.02,-0.914 -0.94,-0.538
--1.97,-0.552 -1.03,-0.01 -5.97,-3.26 -6.48,-1.944 -0.94,-0.386
--0.27,-1.066 -0.21,-1.721 0.1,-0.779 -2.2,-0.424 -2.67,-1.015
-2.86,-1.059 3.1,-5.023 3.62,-7.601 0.21,-1.012 0.39,-2.607 1.23,-3.329
-1.23,-1.052 -0.42,-1.2 -0.53,-0.01 -0.17,-2.436 0.32,-5.421 1.37,-7.632
-1.01,0.569 2.02,1.244 2.45,2.376 0.1,0.504 0.19,1.008 0.29,1.512
-0.23,0.641 0.87,0.729 0.86,1.512 0.29,-1.007 -0.73,-1.782 -0.83,-2.736
--0.14,-1.466 -0.66,-2.459 -1.96,-3.172 -0.54,-0.298 -1.15,-0.705
--1.6,-1.142 -0.74,-0.712 1.19,-0.357 1.58,0 -0.91,-0.441 -0.96,-4.294
--0.43,-5.04 -1.19,0.835 -4,-0.808 -4.55,-1.915 -0.49,-0.979 -1.6,-1.488
--1.82,-2.631 -0.2,-1.043 1.71,-2.185 -0.69,-2.293 0.28,-0.333
-0.34,-0.938 0.7,-1.192 0.92,-0.638 1.76,0.435 2.62,0.544 -1.53,-1.009
--2.13,-0.674 -3.73,-0.466 -0.8,0.105 -2.36,-1.08 -0.88,-1.262
--0.41,-0.407 -0.24,-0.671 0.5,-0.792 -1.13,-0.282 -2.75,0.642
--3.67,-0.36 0.51,0 0.99,-0.127 1.44,-0.36 -0.9,-0.604 -2.57,-0.359
--2.81,0.864 0,-0.8 -0.92,-1.548 -0.1,-2.231 -0.35,0.876 -1.92,0.819
--0.94,-0.288 -1.99,1.73 -4.67,-2.209 -6.69,-0.07 -0.81,-1.117
--1.48,-1.803 -2.87,-2.092\"/></svg>"}], "ideal": ["France"]}
-{"input": [{"role": "system", "content": "I will provide you with the
-svg with one shape, you will tell me which country it is the shape
-of."}, {"role": "user", "content": "<svg><path
-xmlns=\"http://www.w3.org/2000/svg\" id=\"cd\" class=\"landxx cd\" d=\"m
-1393.81,748.499 c 0.69,-0.521 1.53,-0.08 1.8,-1.012 0.22,-0.755
-0.84,-3.721 0.31,-4.328 -1.38,-1.588 4,-3.988 5.01,-4.891 0.27,1.147
-1.95,1.314 2.02,2.521 0.54,-0.559 1.25,-0.89 1.85,-1.371 0.81,-0.656
-0.47,-1.845 1.18,-2.589 1.2,1.591 3,-1.453 4.41,-0.744 1.35,0.676
-0.11,0.977 -0.1,1.824 -0.23,0.951 0.37,1.993 0.37,2.949 0.6,-0.772
-1.92,0.202 2.73,-0.359 1.19,-0.829 1.93,-2.404 2.84,-3.516 0.47,-0.576
-2.39,-1.501 2.49,-2.024 0.27,-1.382 1.42,-1.713 2.56,-2.2 2.66,-1.134
-3.13,-6.138 3.07,-8.528 0,-1.819 0.12,-3.463 -0.11,-5.279 -0.22,-1.742
-1.97,-2.189 2.71,-3.567 1.73,-3.247 1.6,-5.301 5.12,-7.692 1.48,-1.007
-2.38,-2.189 3.37,-3.577 0.98,-1.382 0.27,-3.4 0.67,-4.985 0.35,-1.392
-1.03,-7.368 1.09,-8.935 0.1,-1.771 1.09,-3.324 1.38,-5.05 0.29,-1.671
--0.2,-3.438 0.17,-5.092 0.71,-3.114 2.57,-5.662 3.63,-8.623 0.62,-1.72
-0.33,-3.533 0.28,-5.287 0,-0.809 0.35,-1.657 0.22,-2.448 -0.11,-0.705
--0.53,-1.293 -0.72,-1.971 -0.31,-1.078 1.57,-1.049 2,-2.032 0.6,-1.357
-1.23,-2.549 2.25,-3.647 0.99,-1.052 2.22,-1.952 3.73,-1.941 1.27,0
-1.78,1.112 2.6,1.293 1.89,0.419 3.65,2.466 4.35,4.206 0.58,1.421
-2.62,0.36 3.77,0.707 0.63,0.188 0.94,1.033 1.66,1 0.63,-0.03 0.77,-0.145
-1.42,0.191 0.99,0.506 1.19,0 2.17,-0.06 0.65,-0.04 1.36,0.302 1.96,0.522
-1.07,0.398 2.54,1.173 3.71,0.76 2.1,-0.738 1.46,-5.749 4.25,-5.88
-1.59,-0.08 2.01,3.142 4.09,1.177 0.88,-0.831 6.94,-1.633 6.57,-3.625
-1.26,-0.05 1.68,1.669 2.88,1.548 1.45,-0.146 3.93,-0.364 4.53,-1.908
-0.23,-0.576 -0.35,-1.151 0.41,-1.533 0.93,-0.466 1.7,-0.188 2.42,0.528
-1.17,1.147 2.25,-0.203 3.54,0.408 0.64,0.302 1.17,0.782 1.79,1.105
-0.73,0.376 1.25,0.06 2.02,0.172 1.83,0.275 2.54,-1.756 4.47,-0.662
-0.73,0.416 3.28,2.021 3.28,2.97 0,0.465 0.6,1.612 1.05,1.796 1.9,0.773
-3.71,3.567 5.73,1.659 1.15,-1.082 2,-1.298 3.52,-0.555 1.56,0.765
-2.18,0.455 3.11,-1.363 1.21,-2.397 4.32,3.607 4.48,4 0.71,1.754
-5.45,1.985 4,4.723 0.92,-0.216 2.04,-0.273 2.27,0.9 0.11,0.313
-0.27,0.603 0.48,0.867 0.12,0.602 -0.7,1.727 -0.61,2.355 0.29,2.012
-0,4.015 -0.34,5.933 -0.15,1.011 0.6,0.878 1.74,0.678 0.52,-0.09
-2.5,1.295 2.14,2.396 -0.86,2.629 -4.13,5.237 -6,7.185 -0.62,0.644
--1.87,2.357 -2.62,2.99 -0.75,0.632 -0.83,0.09 -1.26,0.918 -0.54,1.034
-0.12,2.297 -0.53,3.355 -0.73,1.174 -1.45,2.943 -1.61,4.325 -0.14,1.238
--0.12,2.489 -0.2,3.731 -0.11,1.453 -0.3,2.722 -0.45,4.102 -0.11,1.009
-0.15,2.425 -0.31,3.349 -0.53,1.051 -1.38,1.445 -2.15,2.296 -1.19,1.317
--1.09,1.742 -1.14,3.287 0,1.018 -1.11,2.163 -1.67,2.89 -1.21,1.603
-0.48,3.278 1.42,4.805 0.71,1.151 1.22,1.959 0.7,3.544 -1.91,1.674
-0.4,6.932 -1.4,8.659 1.31,0.757 1.07,-2.637 1.53,-2.063 0.45,2.673
--1.22,4.611 -1.23,7.23 0,3.402 2.85,4.969 1.64,7.322 -0.7,1.358
--1.43,1.657 -0.84,2.532 0.9,1.34 1.28,3.548 3.06,7.032 1.19,2.328
-4.59,1.892 4.79,7.5 0.1,2.201 1.8,0.993 2.46,4.37 -4.7,1.073 -8.17,1.196
--12.89,2.206 1.95,3.224 -3.12,4.564 -4.03,6.979 2.71,0.838 1.81,5.035
-1.63,7.086 -0.14,1.493 0.43,2.903 0.34,4.381 0,0.775 -0.21,1.511
--0.52,2.18 -0.45,0.968 -0.76,1.698 -1.01,2.72 -0.49,2.006 -1.17,3.153
-0.1,5.093 0.89,1.35 2.52,3.048 3.69,4.155 0.53,0.497 3.31,2.201
-3.52,1.167 0.39,-1.837 0.87,-1.494 2.68,-2.012 0,2.897 -0.1,5.805
--0.18,8.701 0,0.447 0.32,2.356 -0.43,2.431 -0.88,0.09 -1.07,-0.928
--0.46,-1.413 -1.3,-1.593 -4.21,3.376 -5.58,0.392 -0.46,-0.994
--0.89,-2.254 -1.56,-3.155 -0.38,-0.512 -1.4,-1.171 -1.52,-1.776
--0.23,-1.183 -0.46,-2.555 -1.95,-2.597 -1.25,-0.03 -1.79,-1.34
--2.98,-1.484 -1.01,-0.121 -1.62,0.635 -2.31,-0.466 -0.54,-0.854
--0.56,-2.098 -1.34,-2.799 -1.11,-1 -1.91,-4.476 -2.88,-1.358 -1,3.216
--2.76,1.525 -5.27,1.614 -1.69,0.06 -2.09,-0.477 -3.51,-1.124 -0.1,-0.04
--1.6,-0.401 -1.64,-0.394 -2.28,0.4 -2.96,-3.062 -2.15,-4.641 -1.4,0.08
--2.81,0.375 -4.11,0.87 -1.61,0.608 -1.95,1.4 -3.74,0.65 0.69,-1.238
-0.73,-2.872 0.13,-2.843 -0.78,0.04 -1.11,-0.627 -1.65,-1.14 -1.25,-1.191
--1.08,0.215 -1.38,0.318 -1.11,0.385 -1.6,0.328 -2.6,0.07 -1.21,-0.313
--1.96,0.53 -3.03,0.908 -1.37,0.485 -2.24,-0.437 -3.13,-0.283 -0.32,0.05
--1.59,-0.08 -1.63,-0.06 -0.86,0.463 -1.3,1.761 -2.48,1.732 0.27,-0.889
--0.27,-1.587 -0.42,-2.422 -0.22,-1.147 0.58,-1.353 0.83,-2.235
-0.58,-2.045 -0.22,-5.594 -1.46,-7.239 -1.51,-2.007 -2.16,-3.263
--1.97,-5.861 0.19,-2.685 1.13,-5.502 0.43,-8.174 -0.27,-1.021
--0.99,-1.907 -0.98,-2.99 0,-1.224 0.7,-2.37 0.79,-3.585 0.15,-2.002
--1.14,-1.78 -2.77,-1.795 -1.54,-0.01 -3.07,-0.04 -4.61,0.02 -3.17,0.134
--2.69,-0.557 -1.79,-3.234 -0.71,0 -1.41,-0.18 -2.1,0.09 -0.46,0.182
--0.12,0.385 -0.38,0.609 -0.84,0.717 -4.68,0.09 -5.8,0.09 0.37,0.946
--0.32,2.053 -0.16,3.064 0.13,0.817 0.16,2.114 -1.14,1.836 0.42,1.246
--0.33,2.482 -0.1,3.74 -0.53,0 -3.97,0.114 -4.53,-0.209 -1.65,-0.955
--4.55,0.828 -5.11,0.878 -1.31,-0.213 -2.54,-0.151 -3.97,-0.144
--1.82,-0.38 -2.61,-4.163 -3.52,-5.497 -0.32,-0.47 -0.57,-0.807
--0.91,-1.274 -0.61,-0.864 -0.33,-1.484 -0.46,-2.405 -0.22,-1.639
--1.94,-2.716 -1.69,-4.456 0.22,-1.565 0,-2.871 -0.74,-3.785 -1.02,-1.277
--1,-1.747 -2.6,-1.67 -4.38,0.21 -8.73,0.382 -13.11,0.132 -3.54,-0.201
--7.68,0.384 -11.15,-0.285 -2.78,-0.536 -5.08,3.601
--6.72,-0.577\"/></svg>"}], "ideal": ["Democratic Republic of the
-Congo"]}
-{"input": [{"role": "system", "content": "I will provide you with the
-svg with one shape, you will tell me which country it is the shape
-of."}, {"role": "user", "content": "<svg><path
-xmlns=\"http://www.w3.org/2000/svg\" d=\"m 1390.14,847.849 c 1.06,-0.165
-1.89,-1.097 3.02,-0.896 0.97,0.171 1.84,0.902 2.86,0.707 2.12,-0.406
-3.58,-2.884 6,-2.224 1.93,0.526 2.95,2.692 4.89,3.334 1.09,0.365
-4.47,0.223 6.27,0.239 8.21,0.07 16.44,0.234 24.65,-0.1 2.17,-0.09
-2.9,-0.247 3.93,1.67 1.3,2.439 3.25,1.9 5.6,2.158 3.07,0.337 6.34,0.197
-9.22,1.207 1.11,0.388 2.1,0.528 3.08,-0.06 0.86,-0.524 1.69,-0.336
-2.94,-0.03 1.26,0.308 2.01,0.1 2.85,-0.1 5.12,-1.189 10.92,-2.392
-16.36,-3.42 1.05,-0.2 2.12,-0.682 3.21,-0.515 0.65,0.1 1.62,0.721
-2.26,0.401 2.05,-1.02 2.99,1.138 4.34,2.064 -0.98,-0.256 -2.13,0.318
--3.06,0.681 -1.16,0.451 -1.5,2.182 -2.61,1.159 -1.79,-1.646 -5.29,3.747
--6.61,4.381 -0.64,-1.236 -1.33,-3.988 -3.16,-4.161 -2.36,-0.223
--5.3,0.967 -7.59,1.454 -2.71,0.573 -5.9,0.683 -8.59,1.185 l -1,31.899
--6.8,-0.1 -1.47,54.378 c 0.17,2.48 -1.96,1.44 -3.14,2.56 -0.59,0.56
--0.54,1.1 -1.71,1.5 -0.8,0.28 -1.17,0.61 -0.52,1.35 -1.79,0.53
--1.71,-0.14 -3.38,-0.39 -1.75,-0.26 -3.25,0.69 -5.32,0.24 -3.29,-0.7
--5.24,-1.92 -5.39,-2.52 -0.41,-1.68 0,-0.99 0,-2.32 -0.1,-0.53
--0.64,-0.39 -1.04,-0.8 -0.57,-0.6 -1.06,-1.86 -1.67,-1.48 -1.9,1.21
--1.37,3 -2.04,3.52 -0.94,0.73 -2.12,1.7 -3.11,0.46 -1.3,-1.64
--3.04,-2.94 -4.2,-4.69 -1.03,-1.56 -1.86,-3.228 -2.69,-4.895
--0.44,-0.885 -0.48,-1.837 -0.64,-2.792 -0.15,-0.986 -0.83,-1.5
--1.02,-2.398 -0.35,-1.647 0.38,-2.252 -0.84,-3.77 -0.48,-0.606
--0.32,-0.997 -0.3,-1.771 0,-1.251 -0.41,-2.334 -0.54,-3.554 -0.1,-0.869
-0,-1.749 -0.27,-2.599 -0.36,-1.202 0.25,-2.365 0,-3.567 -0.4,-2.072
--1.39,-3.963 -2.14,-5.918 -0.85,-2.207 -0.21,-4.07 -0.43,-6.304
--0.15,-1.516 -0.38,-3.414 -0.24,-4.197 0.1,-0.367 0.99,-4.049 0.58,-3.96
--0.1,-1.983 -1.09,-3.925 -2.22,-5.516 -0.63,-0.895 -1.36,-1.729
--1.89,-2.693 -0.49,-0.886 -0.59,-1.97 -1.23,-2.777 -2.94,-3.719
--3.57,-8.234 -5.75,-12.264 -1.99,-3.694 -2.66,-8.768 -5.9,-11.674
--3.49,-3.125 -3.9,-7.688 -3.6,-12.097\"/></svg>"}], "ideal":
-["Namibia"]}
-{"input": [{"role": "system", "content": "I will provide you with the
-svg with one shape, you will tell me which country it is the shape
-of."}, {"role": "user", "content": "<svg><path
-xmlns=\"http://www.w3.org/2000/svg\" d=\"m 1372.42,438.678 c
--0.96,-0.829 1.1,-1.805 1.63,-2.052 1.61,-0.745 2.47,-1.172 3.44,-2.748
-0.78,-1.267 1.57,-1.885 1.26,-3.517 -0.26,-1.407 -0.93,-2.825
--0.78,-4.293 0.19,-2.013 2.64,-1.498 3.03,-2.941 0.42,-1.555 1.69,-2.357
-2.99,-2.975 0.99,-0.475 4.23,-1.358 4.26,-2.736 0,-0.69 -0.67,-1.117
--0.59,-1.85 0.13,-1.342 0.18,-2.69 0.31,-4.032 1.29,0.9 3.03,1.355
-4.42,2.209 1.46,0.896 3.11,1.201 4.81,1.015 1.71,-0.188 2.98,-1.275
-4.74,-0.637 1.57,0.569 3.24,0.628 4.77,1.28 1.36,0.581 2.46,1.63
-3.83,2.168 1.2,0.471 2.83,-0.02 3.9,0.719 1.26,0.873 1.5,2.371
-1.74,3.773 0.31,1.794 1.02,3.224 2.41,4.429 2.53,2.176 5.65,1.666
-8.69,2.217 3.04,0.554 7.38,1.939 9.83,3.917 1.95,1.582 3.75,4.253
-6.55,4.002 3.22,-0.291 6.67,-3.134 7.39,-6.372 0.33,-1.495 -0.68,-2.658
--1.14,-4.005 -0.5,-1.485 -0.87,-3.192 -0.36,-4.729 0.93,-2.82
-5.57,-6.318 8.52,-6.417 1.52,-0.05 2.41,-1.154 3.82,-1.262 1.44,-0.11
-2.97,-0.136 4.38,0.208 1.64,0.401 3.07,1.195 4.63,1.805 1.85,0.723
-1.36,0.974 1.45,2.59 0.1,1.309 2.18,1.586 3.13,1.656 1.83,0.138
-3.01,0.967 4.7,1.457 1.68,0.487 3.44,-0.08 5.15,0.236 0.96,0.176
-2.42,2.102 2.07,3.114 -0.36,1.068 -1.66,1.34 -1.84,2.542 -0.25,1.66
-0.81,2.891 1.1,4.435 0.33,1.737 -0.79,3.275 -1.38,4.785 -0.63,1.602
-1.01,3.505 1.29,5.163 0.46,2.826 0.96,5.498 1.14,8.396 l 1.78,75.281 c
--2.49,0 -4.98,0 -7.48,0 0.1,1.439 0,2.883 0.14,4.32 l -59.65,-33.761
--13.53,6.482 c -1.14,0.313 -2.55,-1.557 -3.21,-2.222 -2.8,-2.783
--5.83,-3.352 -9.55,-4.197 -1.32,-0.302 -3.06,-0.456 -4.24,-1.19
--0.94,-0.582 -1.38,-2.224 -1.77,-3.174 -1.14,-2.791 -2.53,-3.55
--5.26,-4.578 -0.91,-0.341 -1.77,-1.111 -2.77,-1.085 -0.97,0.02
--2.02,1.104 -2.93,0.118 -0.74,-0.8 -2.02,-2.856 -2.04,-3.963 0,-2.316
--0.26,-3.162 -1.54,-5.134 -0.98,-1.52 -4.24,-4.22 -2.84,-6.243
-1.62,-2.334 4.1,-1.441 3.04,-5.269 -0.53,-1.915 -0.91,-3.386
--0.26,-5.329 0.56,-1.665 0.9,-3.039 0.28,-4.76 -0.64,-1.81 -0.14,-3.622
-0,-5.461 0.19,-2.18 -0.13,-4.379 -0.86,-6.438 -0.62,-1.766 -1.53,-3.429
--2.62,-4.947\"/></svg>"}], "ideal": ["Libya"]}
-{"input": [{"role": "system", "content": "I will provide you with the
-svg with one shape, you will tell me which country it is the shape
-of."}, {"role": "user", "content": "<svg><path
-xmlns=\"http://www.w3.org/2000/svg\" d=\"m 1174.6,515.237 c 0.16,-0.371
-0.67,-1.265 1.64,-1.315 l 27.88,-0.03 c 1.42,-0.747 0.44,-6.909
-0.35,-9.281 -0.17,-2.384 -0.41,-3.937 1.5,-5.746 1.6,-1.514 1.54,-1.128
-6.63,-3.207 l 1.12,-21.833 24.87,-0.291 0.34,-11.071 c 9.47,6.373
-18.77,12.937 27.9,19.782 h -13.21 l 5.42,72.911 c 0.45,1.192 1.68,1.706
-1.79,1.985 0.72,1.855 -0.23,2.415 -0.3,3.844 -0.1,1.675 -0.25,3.183
--0.74,3.363 l -15.88,0.02 c -9.03,0.312 -12.89,1.548 -13.69,-1.121
--0.39,2.416 -3.97,2.811 -5.73,2.11 -2.79,-1.107 -4.57,-0.64 -5.71,2.498
--0.65,-1.071 -1.59,-1.985 -2.56,-2.918 -1.15,-1.106 -2.25,-1.698
--2.86,-1.361 -2.29,1.269 0.9,7.651 -4.72,7.248 0,0.102 -1.51,-1.093
--1.92,-1.876 -0.51,-0.967 -1.09,-0.659 -2.06,-1.487 -1.05,-0.897
--0.98,-2.361 -1.84,-2.934 -2.31,-1.535 -1.4,-1.554 -1.61,-2.594
--0.27,-1.282 -1.57,-2.914 -2.22,-2.923 -3.4,-0.05 -3.64,-2.805
--5.84,-3.866 -1.12,-0.536 -2.08,-0.818 -3.58,-0.867 -2.33,-0.08
--3.14,2.203 -8.49,1.803 -1.13,-0.08 -0.98,-0.838 -1.94,-0.565
--0.93,0.342 -2.03,3.346 -2.4,4.133 0,-5.202 3.42,-9.445 3.92,-14.544
-0.29,-3.07 -0.13,-5.666 -0.52,-8.672 -0.14,-1.084 -0.1,-2.273
--0.79,-3.192 -0.6,-0.802 -1.65,-1.372 -1.76,-2.464 0.8,0.25 1.69,-0.345
-1.59,-1.224 -0.54,0.145 -0.97,0.552 -1.16,1.08 0.2,-1.044 1.04,-1.777
-1.5,-2.694 0.29,-0.593 -0.14,-1.541 0.21,-1.938 1.57,-1.792 -0.83,-4.97
--1.42,-6.744 -0.24,0.428 -0.41,0.884 -0.5,1.368 -1.59,-1.202
--1.21,-3.688 -2.81,-4.896 -0.25,1.062 -0.64,2.092 -0.86,3.1635
--0.21,-1.3785 -0.1,-2.3295 0.46,-3.6545 z\"/></svg>"}], "ideal":
-["Mauritania"]}
-{"input": [{"role": "system", "content": "I will provide you with the
-svg with one shape, you will tell me which country it is the shape
-of."}, {"role": "user", "content": "<svg><path
-xmlns=\"http://www.w3.org/2000/svg\" d=\"m 1702.78,554.229 c -2.43,-0.09
--1.06,-5.061 -3.46,-5.344 1.08,-1.714 -2.92,-7.033 -3.61,-8.909 l
--2.81,-6.489 c -7.13,1.401 -14.28,2.934 -21.3,3.881 -5.85,1.805
--8.8,4.713 -10.12,7.879 -1.22,1.824 -1.88,6.43 -4.8,6.253 -1.99,-0.12
--1.78,-3.107 -3.69,-2.881 -2.42,0.285 -4.39,0.24 -6.84,-0.104
--1.39,-0.195 -2.82,-1.184 -4.18,-1.184 -1.5,0 -3,0.145 -4.5,0.287
--1.84,0.174 -3.39,1 -5.3,0.895 -1.05,-0.06 -1.44,-1.224 -2.51,-1.357
--1.02,-0.128 -1.81,0.563 -2.24,1.429 -0.47,0.945 -0.62,2.091 -0.44,3.129
-0.11,0.672 1.05,1.339 0.54,2.028 -0.48,0.653 -0.87,1.324 -1.36,2.004
--0.27,0.372 -0.6,0.665 -1.01,0.88 -0.96,0.48 -0.47,0.845 -0.27,1.898
-0.31,1.668 -0.32,2.441 -0.61,3.961 -0.28,1.407 0.9,2.63 0.77,4.029
--0.27,-0.24 -1.7,-0.277 -1.46,0.282 0,-0.117 1.44,0.726 1.44,0.722
-0.8,0.856 1.1,1.742 1.38,2.862 0.53,2.196 0.58,4.644 1.27,6.78
-0.28,0.877 0.98,1.533 1.32,2.388 0.4,1.031 0,2.149 0,3.204 0,2.087
-2.48,3.843 1.8,5.963 0.92,0.07 1.54,-0.446 2.47,-0.07 0.99,0.396
-1.67,0.723 2.77,0.506 2.25,-0.447 3.26,-2.023 5.61,-0.79 -0.12,-0.64
-0.56,-1.29 0.79,-0.359 0.39,-0.428 0.61,-0.925 0.93,-1.401 0.49,-0.753
-1.3,-0.736 1.96,-1.238 1.48,-1.118 1.65,-2.245 3.69,-2.713 1.9,-0.437
-3.91,-0.52 5.85,-0.342 1.14,0.104 3.06,-1.206 4.2,-1.53 1.71,-0.483
-2.56,-1.96 4.06,-2.792 0.46,-0.255 1.11,-0.832 1.61,-0.981 0.55,0.02
-1.07,0.149 1.57,0.391 0.57,0.03 1.12,-0.04 1.66,-0.203 3.63,-0.584
-4.44,-4.338 7.7,-5.939 1.52,-0.744 2.86,-0.932 4.47,-1.215 2,-0.348
-3.65,-1.686 5.62,-2.154 1.36,-0.326 2.74,-0.583 4.07,-1.061 1.32,-0.478
-1.79,-1.532 2.91,-2.103 0.93,-0.474 2.93,-0.415 3.21,-1.675 0.34,-1.46
--0.68,-2.788 -0.15,-4.277 1.07,-3.009 4.74,-2.89
-6.99,-4.536\"/></svg>"}], "ideal": ["Yemen"]}
-  ```
-</details>
-
----------
-
-Co-authored-by: Lucas Fougeras <lucasfougeras@DIGITALCACTUS>
-
----
-## [llegomark/evals](https://github.com/llegomark/evals)@[1785cf6cc2...](https://github.com/llegomark/evals/commit/1785cf6cc289c4a01445fd0eabdfa1a281873d1c)
-#### Tuesday 2023-05-30 04:50:47 by Jongseung (John) Lim
-
-Add evals for complementary colors in color theory (#749)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-color_theory_complementary
-
-### Eval description
-
-Test the model's ability to accurately recognize complementary colors in
-the color theory.
-
-### What makes this a useful eval?
-
-Color theory is an important tool for designers and aritsts alike.
-Complementary color sets represent the opposite color on the color
-wheel.
-
-Currently gpt-3.5-turbo fails with 0.5 accuracy.
-
-
-![image](https://user-images.githubusercontent.com/4276174/233743568-b58879f6-73eb-48eb-9f95-5720bcb11b73.png)
-
-
-GPT 4 also fails at this task and also fails when being prompted about
-complementary color of a specific rgb code.
-
-
-![image](https://user-images.githubusercontent.com/4276174/233743682-1cd0d148-9d8c-43fc-93b6-d5e4a60fca26.png)
-
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields in the evals PR form
-- [X] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#636E5F, #6A5F6E]"}], "ideal": "Y"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#636E5F, #6A5E6E]"}], "ideal": "N"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#F3D86E, #6E89F3]"}], "ideal": "Y"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#F3D86E, #6D89F3]"}], "ideal": "N"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#ED3BF5, #43F53B]"}], "ideal": "Y"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#ED3BF5, #43F53C]"}], "ideal": "N"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#5E04A4, #4AA404]"}], "ideal": "Y"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#5E04A4, #4AA504]"}], "ideal": "N"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#E9FA19, #2A19FA]"}], "ideal": "Y"}
-{"input": [{"role": "system", "content": "You will be prompted with an
-array of hex-code colors. Does the array represent a complementary set?
-Answer with exactly one letter: Y or N."}, {"role": "user", "content":
-"[#E9FA19, #2919FA]"}], "ideal": "N"}
-  ```
-</details>
-
----
-## [llegomark/evals](https://github.com/llegomark/evals)@[3dd0a24da8...](https://github.com/llegomark/evals/commit/3dd0a24da87c3eefd7f17424bdf124ae87698d89)
-#### Tuesday 2023-05-30 04:50:47 by Pranav Gade
-
-[eval] swap two words (#280)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. We encourage partial PR's with
-~5-10 example that we can then run the evals on and share the results
-with you so you know how your eval does with GPT-4 before writing all
-100 examples.
-
-## Eval details 📑
-### Eval name
-Swap Words
-
-### Eval description
-
-This eval asks the model to swap two random words, so "chat gpt" should
-become "gpt chat"
-
-### What makes this a useful eval?
-
-Robustly being able to swap words around seems like a foundational
-capability the model should know, as moving things around probably helps
-a lot with logic/math tasks if the model is thinking out aloud.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] Include at least 100 high quality examples (it is okay to only
-contribute 5-10 meaningful examples and have us test them with GPT-4
-before adding all 100)
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.jsonl`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "Swap the words in this
-string, write the output in double quotes and do not output anything
-else:\"FRKLXk PrOQNNod\""}], "ideal": "\"PrOQNNod FRKLXk\""}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "Swap the words in this
-string, write the output in double quotes and do not output anything
-else:\"hdJLcGtgv VaPHvqHUm\""}], "ideal": "\"VaPHvqHUm hdJLcGtgv\""}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "Swap the words in this
-string, write the output in double quotes and do not output anything
-else:\"AZmgciwu ApPfVAelBGTGq\""}], "ideal": "\"ApPfVAelBGTGq
-AZmgciwu\""}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "Swap the words in this
-string, write the output in double quotes and do not output anything
-else:\"IQJeJQTxpKmYZ WppHdbeayUULw\""}], "ideal": "\"WppHdbeayUULw
-IQJeJQTxpKmYZ\""}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "Swap the words in this
-string, write the output in double quotes and do not output anything
-else:\"MuXvXQCQbtatHZy Yjnlus\""}], "ideal": "\"Yjnlus
-MuXvXQCQbtatHZy\""}
-  ```
-</details>
-
----
-## [llegomark/evals](https://github.com/llegomark/evals)@[2a94eeb9e1...](https://github.com/llegomark/evals/commit/2a94eeb9e13175344b2d61afa22171df0e49b61a)
-#### Tuesday 2023-05-30 04:50:47 by Jeff Kile
-
-Evals for Spanish Feminine Nouns with Masculine Articles (#861)
-
-Added evals for feminine Spanish words that should have masculine
-articles
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-spanish_feminine_noun_masculine_article
-
-### Eval description
-
-In Spanish singular feminine words are usually proceeded by La as in La
-casa (the house), however many feminine words that start with an "a"
-sound are proceeded by El instead of La as in El agua (the water)
-
-### What makes this a useful eval?
-
-For people learning Spanish its a very common mistake to write La agua
-(because agua is feminine) but this is not correct. GPT should not
-reinforce this mistake especially for people learning or asking
-questions about Spanish words.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-For students using GPT to learn Spanish its very important that the
-model knows all the rules and the exceptions to those rules or the
-students will be mislead
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"You will be given a singular
-feminine Spanish word. What article should come before this word \"La\"
-or \"El\"? Answer with either \"La\" or \"El\"
-only"},{"role":"user","content":"agua"}],"ideal":["El"]}
-{"input":[{"role":"system","content":"You will be given a singular
-feminine Spanish word. What article should come before this word \"La\"
-or \"El\"? Answer with either \"La\" or \"El\"
-only"},{"role":"user","content":"águila"}],"ideal":["El"]}
-{"input":[{"role":"system","content":"You will be given a singular
-feminine Spanish word. What article should come before this word \"La\"
-or \"El\"? Answer with either \"La\" or \"El\"
-only"},{"role":"user","content":"ala"}],"ideal":["El"]}
-{"input":[{"role":"system","content":"You will be given a singular
-feminine Spanish word. What article should come before this word \"La\"
-or \"El\"? Answer with either \"La\" or \"El\"
-only"},{"role":"user","content":"alba"}],"ideal":["El"]}
-{"input":[{"role":"system","content":"You will be given a singular
-feminine Spanish word. What article should come before this word \"La\"
-or \"El\"? Answer with either \"La\" or \"El\"
-only"},{"role":"user","content":"amapola"}],"ideal":["La"]}
-  ```
-</details>
-
----
-## [ivafractal/evals](https://github.com/ivafractal/evals)@[da73bb5f07...](https://github.com/ivafractal/evals/commit/da73bb5f071c31c3dd571989f057b8e36d3a9334)
-#### Tuesday 2023-05-30 05:28:16 by mysterious-progression
-
-Detect highly sensitive human data (#852)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-Detecting highly sensitive human data
-### Eval description
-This eval tests whether models can successfully detect possible highly
-sensitive human data without returning false positives on values that
-cannot exist in practice. There are many types of highly sensitive human
-data but some of the most common and types are but not limited to social
-security numbers, passport numbers, credit card numbers, and driver's
-licenses. Not all values are valid for a given type. For example, credit
-card numbers have a numbering system specified by
-https://www.iso.org/standard/39698.html, and use check digits to
-validate.
-
-Similarly, passport numbers must comply with the ICAO D9303
-https://www.icao.int/publications/documents/9303_p4_cons_en.pdf
-<img width="1273" alt="Screenshot 2023-04-27 at 11 01 23 PM"
-src="https://user-images.githubusercontent.com/45504048/235056158-3f0eb640-109e-47c5-a64c-554d6d55f708.png">
-
-
-### What makes this a useful eval?
-Institutions spend millions of dollars trying to detect non-encrypted
-HSHD in their internal datasets. A combination of regex, ML, and
-hard-coded logic is often used yielding complicated, hard to maintain
-codebases. The risk associated with plaintext HSHD is high and certain
-institutions can be subject to heavy fines if HSHD is leaked if not
-properly stored.
-
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-[evals).](url)
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-This eval combines many aspects of language processing and
-understanding. The task involves understanding what HSHD are, domain
-knowledge about what makes them valid, and algorithmic understanding in
-order to validate (i.e. check digits)
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Detect whether Passport number
-is present in the text. Any potential Passport number that cannot be
-valid should not be returned. If valid Passport number is found return
-it's value, otherwise return '\"None\""}, {"role": "user", "content":
-"Passenger with passport number: 11111111111111 is booked for a
-flight"}], "ideal": "\"None\""}
-{"input": [{"role": "system", "content": "Detect whether a SSN is
-present in the text. Any potential SSN that cannot be valid should not
-be returned. If valid SSN is found return it's value, otherwise return
-\"None\""}, {"role": "user", "content": "Bob has an SSN of
-123-45-6789"}], "ideal": "\"None\""}
-{"input": [{"role": "system", "content": "Detect whether a SSN is
-present in the text. Any potential SSN that cannot be valid should not
-be returned. If valid SSN is found return it's value, otherwise return
-\"None\""}, {"role": "user", "content": "The Jane's husban's social
-security number is: 331-71-1232"}], "ideal": "331-71-1232"}
-{"input": [{"role": "system", "content": "Detect whether credit card is
-present in the text. Any potential credit card that cannot be valid
-should not be returned. If valid credit card is found return it's value,
-otherwise return \"None\""}, {"role": "user", "content": "Lemmiwinks
-charged his brother Wikileaks on his CC:4193523869738880, $400"}],
-"ideal": "4193523869738880"}
-{"input": [{"role": "system", "content": "Detect whether credit card is
-present in the text. Any potential credit card that cannot be valid
-should not be returned. If valid credit card is found return it's value,
-otherwise return \"None\""}, {"role": "user", "content": "The customer's
-account has been charged $100 on their Visa card ending in
-1738481092549663."}], "ideal": "\"None\""}
-{"input": [{"role": "system", "content": "Detect whether credit card is
-present in the text. Any potential credit card that cannot be valid
-should not be returned. If valid credit card is found return it's value,
-otherwise return \"None\""}, {"role": "user", "content": "The customer's
-account has been charged $100 on their Master card ending in
-1738-4810-9254-9663."}], "ideal": "\"None\""}
-{"input": [{"role": "system", "content": "Detect whether credit card is
-present in the text. Any potential credit card that cannot be valid
-should not be returned. If valid credit card is found return it's value,
-otherwise return \"None\""}, {"role": "user", "content": "The customer's
-account has been charged $100 on their Discover card ending in
-1738-4810-9254-9665."}], "ideal": "1738-4810-9254-9665"}
-{"input": [{"role": "system", "content": "Detect whether passport number
-is present in the text. Any potential passport number that cannot be
-valid should not be returned. If valid passport number is found return
-it's value, otherwise return \"None\""}, {"role": "user", "content":
-"Passenger with passport number: 1*****1 is booked for a flight"}],
-"ideal": "\"None\""}
-{"input": [{"role": "system", "content": "Detect whether passport number
-is present in the text. Any potential passport number that cannot be
-valid should not be returned. If valid passport number is found return
-it's value, otherwise return \"None\""}, {"role": "user", "content":
-"Passenger with passport number: (*) is booked for a flight"}], "ideal":
-"\"None\""}
-  ```
-</details>
-
----
-## [ivafractal/evals](https://github.com/ivafractal/evals)@[f58f95ba32...](https://github.com/ivafractal/evals/commit/f58f95ba324e5a1ed86315f3c39ee758f2836bd3)
-#### Tuesday 2023-05-30 05:28:16 by ali risheh
-
-[Eval] Mandaliof table test (#847)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-Mandaliof table test
-
-### Eval description
-
-This Eval is checking if the model can find a specific atom with the
-highest atomic number among 20 different atoms.
-
-### What makes this a useful eval?
-
-There are applications in biophysics and biochemistry (like drug
-discovery) that rely on physics equations and induction on atom
-features. If ChatGPT is going to be used in this field, it should be
-very reliable in case of understanding physical facts. Interpretation of
-the periodic table is a very simple Eval that shows the model is still
-unreliable for use cases in this field.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-Physics problems are almost the most difficult tasks for any deep
-learning model since they are based on fundamentals of nature, and even
-humans are not capable of understanding comprehensive explanations of
-them. In this regard, if ChatGPT will be able to interpret physical
-facts, it is very likely that it can interpret literally everything
-because even human are not able to do that.
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-Mandaliof table is the basic of physics.
-
-Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields in the evals PR form
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "You are presented with
-several atom symbols. Answer the symbol of the atom with the largest
-atomic number. Do not explain. I, Mg, Nd, Rf, Si, Ho, Fr, Ar, Xe, Rh,
-Am, No, Rf, Bi, Cd, In, Sc, Te, Ce, Ge"}], "ideal": "Rf"}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "You are presented with
-several atom symbols. Answer the symbol of the atom with the largest
-atomic number. Do not explain. Fm, Ac, C, Ir, Ba, Rn, Ti, Sc, B, Nb, Cl,
-Ra, Cr, Hs, Bk, Tl, Mt, S, He, Mc"}], "ideal": "Mc"}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "You are presented with
-several atom symbols. Answer the symbol of the atom with the largest
-atomic number. Do not explain. Ta, Bh, Bi, Ce, Rf, Lv, Bi, Gd, Cs, Ho,
-Ta, Np, Cm, Sr, Pb, Pu, Ne, Og, Tm, Fm"}], "ideal": "Og"}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "You are presented with
-several atom symbols. Answer the symbol of the atom with the largest
-atomic number. Do not explain. Tl, Eu, Ts, Be, Ga, Cm, Ba, Sr, C, Cl,
-Mo, Ni, Ru, Hs, In, Be, Dy, Ho, Br, Mt"}], "ideal": "Ts"}
-{"input": [{"role": "system", "content": "You are a helpful
-assistant."}, {"role": "user", "content": "You are presented with
-several atom symbols. Answer the symbol of the atom with the largest
-atomic number. Do not explain. Mn, Hg, Pm, K, Ge, P, Fr, Cn , Mn, Fr,
-Lv, W, Gd, Mt, Cd, Xe, Ge, I, Og, Br"}], "ideal": "Og"}
-  ```
-</details>
-
----
-## [ivafractal/evals](https://github.com/ivafractal/evals)@[2167c99864...](https://github.com/ivafractal/evals/commit/2167c998643af0de952e1cceaf346d7b99d49104)
-#### Tuesday 2023-05-30 05:28:16 by Jeff Kile
-
-Identify which scale mode a series of notes belongs to (#860)
-
-Added evals to determine the scale mode name based off the nodes in the
-scale
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-music_theory_scale_modes
-
-### Eval description
-Test the model's ability to identify which western music scale a series
-of 7 notes belongs to
-
-### What makes this a useful eval?
-
-This is good for analyzing music or getting help with music theory
-problems like figuring out which scale to use to solo over a series of
-chords, or which scale to use to write a melody depending on the mood or
-chord selection.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-GPT-4 often hallucinates on these and will give a confident incorrect
-answer
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Which scale has the following
-notes: E F# G# A# B C# D# E?"}],"ideal":["E Lydian"]}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Which scale has the following
-notes: E F# G# A B C# D E?"}],"ideal":["E Mixolydian","E Dominant"]}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Which scale has the following
-notes: E F# G A B C D E?"}],"ideal":["E Aeolian","E Minor"]}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Which scale has the following
-notes: E F G A A# C D E?"}],"ideal":["E Locrian"]}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Which scale has the following
-notes: F G A A# C D E F?"}],"ideal":["F Ionian","F Major"]}
-  ```
-</details>
-
----
-## [PolarstarCoffee/Wizard392](https://github.com/PolarstarCoffee/Wizard392)@[0b2827aa53...](https://github.com/PolarstarCoffee/Wizard392/commit/0b2827aa536f9c9028eef245ec73acf33d8805e4)
-#### Tuesday 2023-05-30 05:35:31 by Sam
-
-Sam's Super Mega Update
-
--Enemy Type Array for spawn ( random enemy type will spawn at set spawn locations)
--Added 2 spawn points top left and top right
--Adjusted Spawn timing on all 7 spawn points
-           -Left spawns first
-            -Right spawns 2nd
-            -Bottom left/right spawn around when beat drops
-             -Top left/right spawn around 40 seconds to increase difficulty curve as song progresses
-             -Adjusted time between enemy spawn per spawn point to between 5-9 seconds
--Doubled Enemy Speed
--Made enemy speed vary based on enemy type
--Added current iteration of "Zack's" beat (Look how easy it is to spell his name right)
--Shrunk the rune ring/visualizer slightly
--Adjusted Wizards position in ring to be more centered
--Added pulse script to Wizard/Rune Ring
--Adjusted Pulse intensity on a few assets
--Fixed Drunken tree so that he is no longer drunk
--Applied Drunken tree effect to Drunk Gnome because that shit is funny and canonically makes more sense on the Gnome enemy
--Removed Audio control on Main Camera 1 (we had 2 audio controllers for some reason)
--Added the most fucked up SFX deathsounds(SEND HELP)
-
----
-## [orthography/tgstation](https://github.com/orthography/tgstation)@[2aaafd9a67...](https://github.com/orthography/tgstation/commit/2aaafd9a67c270fa0772cd9beffb6789d53750e3)
-#### Tuesday 2023-05-30 06:25:27 by TheVekter
-
-Replaces the syndicate corpse Legions can drop with one without a MODSuit (#75700)
-
-## About The Pull Request
-This is part of a pass I'm working on doing where I go through and
-remove instances of antag gear outside of their normal context. This is
-mostly going to involve replacing space/Lavaland ruin gear with
-something close to the same power level but not distinctly something
-only antags should be able to get. I want to keep ruins rewarding but I
-don't want explicit antag gear to be something you can obtain without
-needing an uplink.
-
-The first part of this is me removing the MODSuit from the syndicate
-operative corpse. The new one drops a turtleneck, a syndicate gas mask,
-and gripper gloves.
-
-## Why It's Good For The Game
-It's my opinion that antag gear should probably stay in antag hands
-unless you manage to kill one or steal an uplink. The main impetus for
-this was a discussion I had a while back about how blood red hardsuits
-used to _just_ be an antag thing. I kind of miss that general feeling of
-paranoia that came from seeing someone wearing it, as opposed to seeing
-it these days and just thinking "Yeah, it's probably someone who got it
-from space".
-
-In this specific instance, Syndicate MODSuits are pretty strong anyway
-and, regardless of the low odds of getting one, I really don't think it
-should be available as loot off a fairly easy-to-kill mob.
-
-## Changelog
-:cl:
-balance: Syndicate corpses dropped from killing a Legion no longer come
-with a MODSuit.
-/:cl:
-
----
-## [gotenksIN/android_kernel_nothing_sm7325](https://github.com/gotenksIN/android_kernel_nothing_sm7325)@[89841fbb16...](https://github.com/gotenksIN/android_kernel_nothing_sm7325/commit/89841fbb16a600826a18a73a717af915c8bb17af)
-#### Tuesday 2023-05-30 07:13:57 by Johannes Weiner
-
-mm: vmscan: fix extreme overreclaim and swap floods
-
-commit f53af4285d775cd9a9a146fc438bd0a1bee1838a upstream.
-
-During proactive reclaim, we sometimes observe severe overreclaim, with
-several thousand times more pages reclaimed than requested.
-
-This trace was obtained from shrink_lruvec() during such an instance:
-
-    prio:0 anon_cost:1141521 file_cost:7767
-    nr_reclaimed:4387406 nr_to_reclaim:1047 (or_factor:4190)
-    nr=[7161123 345 578 1111]
-
-While he reclaimer requested 4M, vmscan reclaimed close to 16G, most of it
-by swapping.  These requests take over a minute, during which the write()
-to memory.reclaim is unkillably stuck inside the kernel.
-
-Digging into the source, this is caused by the proportional reclaim
-bailout logic.  This code tries to resolve a fundamental conflict: to
-reclaim roughly what was requested, while also aging all LRUs fairly and
-in accordance to their size, swappiness, refault rates etc.  The way it
-attempts fairness is that once the reclaim goal has been reached, it stops
-scanning the LRUs with the smaller remaining scan targets, and adjusts the
-remainder of the bigger LRUs according to how much of the smaller LRUs was
-scanned.  It then finishes scanning that remainder regardless of the
-reclaim goal.
-
-This works fine if priority levels are low and the LRU lists are
-comparable in size.  However, in this instance, the cgroup that is
-targeted by proactive reclaim has almost no files left - they've already
-been squeezed out by proactive reclaim earlier - and the remaining anon
-pages are hot.  Anon rotations cause the priority level to drop to 0,
-which results in reclaim targeting all of anon (a lot) and all of file
-(almost nothing).  By the time reclaim decides to bail, it has scanned
-most or all of the file target, and therefor must also scan most or all of
-the enormous anon target.  This target is thousands of times larger than
-the reclaim goal, thus causing the overreclaim.
-
-The bailout code hasn't changed in years, why is this failing now?  The
-most likely explanations are two other recent changes in anon reclaim:
-
-1. Before the series starting with commit 5df741963d52 ("mm: fix LRU
-   balancing effect of new transparent huge pages"), the VM was
-   overall relatively reluctant to swap at all, even if swap was
-   configured. This means the LRU balancing code didn't come into play
-   as often as it does now, and mostly in high pressure situations
-   where pronounced swap activity wouldn't be as surprising.
-
-2. For historic reasons, shrink_lruvec() loops on the scan targets of
-   all LRU lists except the active anon one, meaning it would bail if
-   the only remaining pages to scan were active anon - even if there
-   were a lot of them.
-
-   Before the series starting with commit ccc5dc67340c ("mm/vmscan:
-   make active/inactive ratio as 1:1 for anon lru"), most anon pages
-   would live on the active LRU; the inactive one would contain only a
-   handful of preselected reclaim candidates. After the series, anon
-   gets aged similarly to file, and the inactive list is the default
-   for new anon pages as well, making it often the much bigger list.
-
-   As a result, the VM is now more likely to actually finish large
-   anon targets than before.
-
-Change the code such that only one SWAP_CLUSTER_MAX-sized nudge toward the
-larger LRU lists is made before bailing out on a met reclaim goal.
-
-This fixes the extreme overreclaim problem.
-
-Fairness is more subtle and harder to evaluate.  No obvious misbehavior
-was observed on the test workload, in any case.  Conceptually, fairness
-should primarily be a cumulative effect from regular, lower priority
-scans.  Once the VM is in trouble and needs to escalate scan targets to
-make forward progress, fairness needs to take a backseat.  This is also
-acknowledged by the myriad exceptions in get_scan_count().  This patch
-makes fairness decrease gradually, as it keeps fairness work static over
-increasing priority levels with growing scan targets.  This should make
-more sense - although we may have to re-visit the exact values.
-
-Link: https://lkml.kernel.org/r/20220802162811.39216-1-hannes@cmpxchg.org
-Signed-off-by: Johannes Weiner <hannes@cmpxchg.org>
-Reviewed-by: Rik van Riel <riel@surriel.com>
-Acked-by: Mel Gorman <mgorman@techsingularity.net>
-Cc: Hugh Dickins <hughd@google.com>
-Cc: Joonsoo Kim <iamjoonsoo.kim@lge.com>
-Cc: <stable@vger.kernel.org>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-
----
-## [L8X/Roblox-Client-Optimizer](https://github.com/L8X/Roblox-Client-Optimizer)@[3e47c0172a...](https://github.com/L8X/Roblox-Client-Optimizer/commit/3e47c0172a5e2c0272981f4cf18e2a6527aeaa19)
-#### Tuesday 2023-05-30 07:24:35 by Exponential-Workload
-
-fix: fuck you no pipebomb in your mailbox
-
-& by pipebomb in your mailbox i mean icon
-
----
-## [Amanetes/naming-cheatsheet](https://github.com/Amanetes/naming-cheatsheet)@[8bcb483976...](https://github.com/Amanetes/naming-cheatsheet/commit/8bcb4839762053a095ee8cbbf3b4f5b471d01181)
-#### Tuesday 2023-05-30 07:52:15 by tebb
-
-docs: improve a/hc/lc pattern order explanation (#40)
-
-Thank you.  This cheatsheet is very useful.
-
-If I understood the logic, my changes to README.md may be helpful.  If not, sorry :)
-
-Also ... Could you add shouldUpdateComponent and shouldComponentUpdate into the table (or an extension to the table below Note:).  It isn't obvious to me which columns 'should', 'Update' and 'Component' are in because 'Update' is the verb (action?).
-
-Thanks.
-
----
-## [dtrudg/singularity](https://github.com/dtrudg/singularity)@[4fdce0d1c5...](https://github.com/dtrudg/singularity/commit/4fdce0d1c59af8158f3f2e293ddcfda2dda301e8)
-#### Tuesday 2023-05-30 08:45:41 by David Trudgian
-
-Allow kernel squashfs / extfs mount to be disabled in singularity.conf (release-3.11)
-
-In singularity.conf, add two directives `allow kernel squashfs` and
-`allow kernel extfs` which default to 'yes'. When set to 'no', these
-directives prevent a squashfs mount or extfs mount from being
-performed through the kernel. Note that this only happens in setuid
-mode / as root.
-
-squashfs and extfs mounts are added from the various locations that
-handle loopback mounting of a filesystem image. The image could be a
-container rootfs, an overlay, or an image bind. In each case the image
-may be a standalone file or embedded in a SIF.
-
-The simplest place to gate these mounts is in mount.AddImage, via the
-existing check that the fs type is authorized as the source for an
-image mount.
-
-Authorized filesystems for image mounts are held in a package var. At
-the start of container creation we now explicitly authorize squashfs
-and extfs, unless disabled by singularity.conf.
-
-Relying on a package scope variable isn't ideal. We have multiple
-processes at container creation, so the authorization must be
-performed in the right place. e2e tests have been added to verify
-overlay, image bind, and container rootfs image flows.
-
-Gating the filesystems earlier in the `PrepareConfig` portion of the
-runtime is, in my opinion, more liable to errors as the checks would
-have to be replicated in the multiple places that images are handled.
-
-Ideally the mount.System could perhaps hold the list of allowed /
-disallowed filesystems, that could be set when it is created. However,
-this would require a large amount of refactoring to complex and
-critical code.
-
----
-## [davidhildenbrand/qemu](https://github.com/davidhildenbrand/qemu)@[bd0c332bad...](https://github.com/davidhildenbrand/qemu/commit/bd0c332baddbed5e7fada0f4a4cb79b65578eb76)
-#### Tuesday 2023-05-30 09:33:55 by David Hildenbrand
-
-memory-device: Add a memslot soft-limit for memory devices and warn the user
-
-While we properly check before plugging a memory device whether there
-still is a free memslot, we have other memslot consumers (especially PCI
-BARs) that don't perform any checks and might dynamically consume
-memslots without any prior reservation later. So we might succeed in
-plugging a memory device, but once we dynamically map a PCI BAR we would
-be in trouble.
-
-Let's indicate to the user that we cannot guarantee that everything will
-work as intended and that we might run out of free memslots later. We'll
-warn once, when we detect that there are not that many memslots around,
-and once we then exceed the calculated soft-limit.
-
-As long as we don't have to warn the user (IOW, at least 253 memslots set
-aside), we don't expect surprises. Especially environments with very little
-memslots (32 with vhost-user) are quite possibly problematic.
-
-We use the historic magic memslot number of 509 as orientation to when
-supporting 256 memory devices (leaving 253 for boot memory and other
-devices) has been proven to work reliable. We'll warn on anything below
-that for now.
-
-We still allow to exceed the soft-limit, because there might be
-reasonable setups that simply work.
-
-We'll cap the soft-limit at 512, which no setup should currently really
-exceed (ACPI supports a maximum of 256 slots). Note that the soft-limit
-will be used in virtio-mem context soon, when auto-determining the number
-of memslots to use.
-
-Signed-off-by: David Hildenbrand <david@redhat.com>
-
----
-## [davidhildenbrand/qemu](https://github.com/davidhildenbrand/qemu)@[23fb937f1a...](https://github.com/davidhildenbrand/qemu/commit/23fb937f1a23af61a63950617607550376c63509)
-#### Tuesday 2023-05-30 09:42:28 by David Hildenbrand
-
-virtio-mem: Expose device memory via multiple memslots if enabled
-
-Having large virtio-mem devices that only expose little memory to a VM
-is currently a problem: we map the whole sparse memory region into the
-guest using a single memslot, resulting in one gigantic memslot in KVM.
-KVM allocates metadata for the whole memslot, which can result in quite
-some memory waste.
-
-Assuming we have a 1 TiB virtio-mem device and only expose little (e.g.,
-1 GiB) memory, we would create a single 1 TiB memslot and KVM has to
-allocate metadata for that 1 TiB memslot: on x86, this implies allocating
-meatdata for:
-
-(1) RMAP: ~0.2% (~2100 MiB). Not that this is optimized out with the TDP
-    MMU, but will be allocated lazily when running nested VMs.
-(2) gfn_track: 0.024% (~252 MiB)
-(3) Bitmap when dirty-tracking: 2 x 0.003% (~63 MiB)
-
-Consequently, using multiple memslots and only mapping the memslots we
-really need can significantly reduce memory waste and speed up
-memslot-related operations. Let's expose the sparse RAM memory region using
-multiple memslots, mapping only the memslots we currently need into our
-device memory region container.
-
-A nice side effect is that we will expose less memory to the guest, so
-a malicious guest won't be able to do that much harm and we might be
-able to detect some BUGs in well-behaving guests more easily. However,
-in the future we'll want to properly protect all unplugged memory from
-getting reallocated (using features that have to be separately enabled).
-
-* With VIRTIO_MEM_F_UNPLUGGED_INACCESSIBLE, we only map the memslots that
-  actually have memory plugged, and dynamically (un)map when
-  (un)plugging memory blocks.
-
-* Without VIRTIO_MEM_F_UNPLUGGED_INACCESSIBLE, we always map the memslots
-  covered by the usable region, and dynamically (un)map when resizing the
-  usable region.
-
-We'll auto-detect the number of memslots to use based on the remaining
-available memslots and the remaining avilable size for memory devices using
-our new helper. Further, we'll take care to not consume a crazy number of
-memslots, because the assumption is that many memslots can degrade
-performance especially in QEMU, at least right now. Let's not use more than
-512 memslots per device and not use memslots smaller than 1 GiB for now.
-Note that our global limit for all memory devices is currently set to
-1024, so even with multiple big virtio-mem devices, we'd still have a sane
-limit. We might want to fine-tune these values in the future (might have
-to do via compat machine properties).
-
-Still default to a single memslot for now, because it can be problematic in
-vhost setups, and we don't want to break existing setups. We'll change
-the default via compat machines in the future. Until then, this feature can
-be enabled using "force-single-memslot=false".
-
-As vhost devices are currently very limited when it comes to the number
-of supported memslots, they have to be defined on the QEMU cmdline
-before defining the virtio-mem devices. Otherwise, aut-detection is
-unaware of the additional restriction and QEMU will bail out when
-realizing the vhost device. Further, hotplug of vhost devices might
-require planning ahead.
-
-Note 1: how many memslots we'll be using is an internal implementation
-detail (especially: migration is not affected), and we can change the
-auto-detection as we please. Values (including "force-single-memslot") can
-differ on migration source and destination.
-
-Note 2: we should look into supporting more memslots (512 -- 1024)
-especially for vhost-user soon, but that will require changes in QEMU
-(to make many memslots scale better) and support in vhost-user
-implementations. So we'll have to life with this vhost memslot limitation
-oddity for now.
-
-Signed-off-by: David Hildenbrand <david@redhat.com>
-
----
-## [luxi-record/react-sourceCodeDebug](https://github.com/luxi-record/react-sourceCodeDebug)@[c7b4497988...](https://github.com/luxi-record/react-sourceCodeDebug/commit/c7b4497988e81606f1c7686434f55a49342c9efc)
-#### Tuesday 2023-05-30 10:00:20 by Andrew Clark
-
-[Experiment] Lazily propagate context changes (#20890)
-
-* Move context comparison to consumer
-
-In the lazy context implementation, not all context changes are
-propagated from the provider, so we can't rely on the propagation alone
-to mark the consumer as dirty. The consumer needs to compare to the
-previous value, like we do for state and context.
-
-I added a `memoizedValue` field to the context dependency type. Then in
-the consumer, we iterate over the current dependencies to see if
-something changed. We only do this iteration after props and state has
-already bailed out, so it's a relatively uncommon path, except at the
-root of a changed subtree. Alternatively, we could move these
-comparisons into `readContext`, but that's a much hotter path, so I
-think this is an appropriate trade off.
-
-* [Experiment] Lazily propagate context changes
-
-When a context provider changes, we scan the tree for matching consumers
-and mark them as dirty so that we know they have pending work. This
-prevents us from bailing out if, say, an intermediate wrapper is
-memoized.
-
-Currently, we propagate these changes eagerly, at the provider.
-
-However, in many cases, we would have ended up visiting the consumer
-nodes anyway, as part of the normal render traversal, because there's no
-memoized node in between that bails out.
-
-We can save CPU cycles by propagating changes only when we hit a
-memoized component — so, instead of propagating eagerly at the provider,
-we propagate lazily if or when something bails out.
-
-Most of our bailout logic is centralized in
-`bailoutOnAlreadyFinishedWork`, so this ended up being not that
-difficult to implement correctly.
-
-There are some exceptions: Suspense and Offscreen. Those are special
-because they sometimes defer the rendering of their children to a
-completely separate render cycle. In those cases, we must take extra
-care to propagate *all* the context changes, not just the first one.
-
-I'm pleasantly surprised at how little I needed to change in this
-initial implementation. I was worried I'd have to use the reconciler
-fork, but I ended up being able to wrap all my changes in a regular
-feature flag. So, we could run an experiment in parallel to our other
-ones.
-
-I do consider this a risky rollout overall because of the potential for
-subtle semantic deviations. However, the model is simple enough that I
-don't expect us to have trouble fixing regressions if or when they arise
-during internal dogfooding.
-
----
-
-This is largely based on [RFC#118](https://github.com/reactjs/rfcs/pull/118),
-by @gnoff. I did deviate in some of the implementation details, though.
-
-The main one is how I chose to track context changes. Instead of storing
-a dirty flag on the stack, I added a `memoizedValue` field to the
-context dependency object. Then, to check if something has changed, the
-consumer compares the new context value to the old (memoized) one.
-
-This is necessary because of Suspense and Offscreen — those components
-defer work from one render into a later one. When the subtree continues
-rendering, the stack from the previous render is no longer available.
-But the memoized values on the dependencies list are. This requires a
-bit more work when a consumer bails out, but nothing considerable, and
-there are ways we could optimize it even further. Conceptually, this
-model is really appealing, since it matches how our other features
-"reactively" detect changes — `useMemo`, `useEffect`,
-`getDerivedStateFromProps`, the built-in cache, and so on.
-
-I also intentionally dropped support for
-`unstable_calculateChangedBits`. We're planning to remove this API
-anyway before the next major release, in favor of context selectors.
-It's an unstable feature that we never advertised; I don't think it's
-seen much adoption.
-
-Co-Authored-By: Josh Story <jcs.gnoff@gmail.com>
-
-* Propagate all contexts in single pass
-
-Instead of propagating the tree once per changed context, we can check
-all the contexts in a single propagation. This inverts the two loops so
-that the faster loop (O(numberOfContexts)) is inside the more expensive
-loop (O(numberOfFibers * avgContextDepsPerFiber)).
-
-This adds a bit of overhead to the case where only a single context
-changes because you have to unwrap the context from the array. I'm also
-unsure if this will hurt cache locality.
-
-Co-Authored-By: Josh Story <jcs.gnoff@gmail.com>
-
-* Stop propagating at nearest dependency match
-
-Because we now propagate all context providers in a single traversal, we
-can defer context propagation to a subtree without losing information
-about which context providers we're deferring — it's all of them.
-
-Theoretically, this is a big optimization because it means we'll never
-propagate to any tree that has work scheduled on it, nor will we ever
-propagate the same tree twice.
-
-There's an awkward case related to bailing out of the siblings of a
-context consumer. Because those siblings don't bail out until after
-they've already entered the begin phase, we have to do extra work to
-make sure they don't unecessarily propagate context again. We could
-avoid this by adding an earlier bailout for sibling nodes, something
-we've discussed in the past. We should consider this during the next
-refactor of the fiber tree structure.
-
-Co-Authored-By: Josh Story <jcs.gnoff@gmail.com>
-
-* Mark trees that need propagation in readContext
-
-Instead of storing matched context consumers in a Set, we can mark
-when a consumer receives an update inside `readContext`.
-
-I hesistated to put anything in this function because it's such a hot
-path, but so are bail outs. Fortunately, we only need to set this flag
-once, the first time a context is read. So I think it's a reasonable
-trade off.
-
-In exchange, propagation is faster because we no longer need to
-accumulate a Set of matched consumers, and fiber bailouts are faster
-because we don't need to consult that Set. And the code is simpler.
-
-Co-authored-by: Josh Story <jcs.gnoff@gmail.com>
-
----
-## [melvin-mendoza/formbricks](https://github.com/melvin-mendoza/formbricks)@[27d63c01e1...](https://github.com/melvin-mendoza/formbricks/commit/27d63c01e1a772a745da074b535138f3d605f101)
-#### Tuesday 2023-05-30 10:09:45 by Matti Nannt
-
-Introducing the new Formbricks (#210)
-
-### New Formbricks Release: Complete Rewrite, New Features & Enhanced UI 🚀
-
-We're thrilled to announce the release of the new Formbricks, a complete overhaul of our codebase, packed with powerful features and an improved user experience.
-
-#### What's New:
-
-1. **Survey Builder**: Design and customize your in-product micro-surveys with our intuitive survey builder.
-2. **Trigger Micro-Surveys**: Set up micro-surveys to appear at specific points within your app, allowing you to gather feedback when it matters most.
-3. **JavaScript SDK**: Our new JavaScript SDK makes integration a breeze - just embed it once and you're ready to go.
-4. **No-Code Events**: Set up events and triggers without writing a single line of code, making it accessible for everyone on your team.
-5. **Revamped UI**: Enjoy an entirely new user interface that enhances usability and provides a smooth, delightful experience.
-
-This release marks a major step forward for Formbricks, enabling you to better understand your users and build an outstanding product experience.
-
-Please update your Formbricks integration to take advantage of these exciting new features, and let us know in the Discord if you have any questions or feedback!
-
-Happy surveying! 🎉
-
----
-## [Doan-Pham/Stren](https://github.com/Doan-Pham/Stren)@[f9742954b7...](https://github.com/Doan-Pham/Stren/commit/f9742954b7d4a08850115ebcc38a105b6ed9527c)
-#### Tuesday 2023-05-30 10:14:18 by DoanPham
-
-feat: Add methods for fetching default values
-
-In the application, certain data will have default values (Ex: each user
-in NutritionDiaryScreen, which is for tracking nutrition and calories,
-has 4 meals by default - Breakfast, Lunch, Dinner, Snacks). Adding these
-values for each user on the database will require enormous efforts, so
-the alternative is to group the default values in a different data
-source, and merge the default values with user's personal data whenever
-fetching data
-
----
-## [Stefsk-glitch/App](https://github.com/Stefsk-glitch/App)@[243b9c4ab3...](https://github.com/Stefsk-glitch/App/commit/243b9c4ab3be86f81f554477c73075280d161ae1)
-#### Tuesday 2023-05-30 10:53:09 by GertieMeneer
-
-Merge pull request #32 from Stefsk-glitch/login
-
-omg im cumming stewie holy fuck
-
----
-## [Addust/tgstation](https://github.com/Addust/tgstation)@[56d960a763...](https://github.com/Addust/tgstation/commit/56d960a7630d0b03bfcd59c073b29393a70a1891)
-#### Tuesday 2023-05-30 11:18:25 by GoldenAlpharex
-
-Wintercoats can now be zipped and unzipped through alt-click and separates the hood sprites from the jacket sprites (#74886)
-
-## About The Pull Request
-The title says it all, really.
-
-~~Initially, I was only going to do it for all wintercoats, but then I
-figured I might as well bring it down to all of `/hooded`, just so other
-suits could benefit from it, since that behavior came from there anyway.
-Does that mean that it does nothing for some of them? Yes, it does. Does
-that justify having another variable to tell whether or not that should
-be possible? In my humble opinion, not really, but I'm not against it if
-it's requested.~~
-
-~~That functionality was intentionally removed from the Void Cloak, as
-there would be balance implications (since bringing up the hood makes
-the whole cloak invisible, which you could skirt by just "zipping" it,
-which also makes it invisible.~~
-
-~~The sprites were already there, so this change was very simple to do.
-Simply unties the zipped up look from the fact that the hood is up.
-However, toggling the hood forces the zipping/unzipping, just so there's
-no balance implications involved. It's just simpler that way.~~
-
-So, I ended up going back and changing the sprites so that the hoods
-would no longer be baked into the jacket's sprites, so that they could
-be done as overlays instead, which ended up solving my problem with
-hoods not being there on zipped-up versions.
-
-For now, it's been made on winter coats only, but it shouldn't be that
-difficult to bring it back down to the `/hooded` level. I just didn't
-want to bother touching up the sprites down there, as it already took me
-like 2-3 hours touching up the sprites of the winter coats alone.
-
-I also took the decision to make it so EVA winter coats used the regular
-winter coat's sprites, because they had special ones that just looked
-like worse versions of the original, without anything special going on
-for them. It was just a straight downgrade compared to the base sprite,
-in my opinion.
-
-There's still issues with the custom winter coat, in that the hood isn't
-made into an overlay for it yet (and that'll require an extra bit of
-logic to make it work, too), but it was already an issue before, the
-hood is always present on the current version of the custom winter coat.
-
-There's still a handful (sadly, most) of the winter coats that don't
-properly reflect on their obj sprites when they're opened versus when
-they're closed, but that's due to an initial spriter oversight, and not
-to my doing. The open versions were just left as closed on many of them,
-and I simply don't have the patience nor the appropriate skills to edit
-that many coats that way.
-
-## Why It's Good For The Game
-Now you can be stylish with or without the hoodie!
-
-![image](https://user-images.githubusercontent.com/58045821/233544697-cc821c3a-d965-4d96-af44-c44ff866496f.png)
-
-![image](https://user-images.githubusercontent.com/58045821/233544711-da956b6b-44c4-4903-a34f-4d2890abc781.png)
-
-![image](https://user-images.githubusercontent.com/58045821/233544717-b5221b04-0e6d-4931-83d0-d56fdac60ec3.png)
-
-
-According to ChatGPT, with one small tweak (thanks Opera GX for the
-suggestion):
-
-> Zipped and unzipped through alt-click, winter coats can now be. Hmm,
-stylishly warm, you shall be. Feel like a Spaceman, you will. Use the
-Force, to zip and unzip, you must. Look cool, you will. Yes, hmmm.
-
-## Changelog
-
-:cl: GoldenAlpharex, ChatGPT for the first changelog entry (slightly
-edited)
-qol: Zipped and unzipped through alt-click, winter coats can now be.
-Hmm, stylishly warm, you shall be. Feel like a Spaceman, you will. Use
-the Force, to zip and unzip, you must. Look cool, you will. Yes, hmmm.
-image: Winter coats no longer have their hood baked into their jacket's
-sprite, both in item form and when worn.
-fix: Updated the Icebox EVA winter coats (the Endotherm winter coats) to
-use the same sprites as the regular winter coats.
-/:cl:
-
----------
-
-Co-authored-by: san7890 <the@san7890.com>
-
----
-## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[661624802b...](https://github.com/odoo-dev/odoo/commit/661624802b1c50cb9cad4ad11bc59db7f9375f8a)
-#### Tuesday 2023-05-30 11:27:56 by Jeremy Kersten
-
-[ADD] website_cf_turnstile: add cloudflare turnstile support
-
-This module allows to add secret key to add the turnstile captcha on
-each snippet website_form.
-
-Cloudflare Turnstile
---------------------
-A friendly, free CAPTCHA replacement
-Turnstile delivers frustration-free, CAPTCHA-free web experiences to
-website visitors.
-Turnstile stops abuse and confirms visitors are real without the data
-privacy concerns or awful UX that CAPTCHAs thrust on users.
-
-closes odoo/odoo#119230
-
-X-original-commit: 4aca39a533e9d41f5f452f36a1ffc001f586b4f4
-Signed-off-by: Jérémy Kersten <jke@odoo.com>
-
----
-## [LegaspinoCindy/Legaspino_IT2A_finalproject_AnimeWorld](https://github.com/LegaspinoCindy/Legaspino_IT2A_finalproject_AnimeWorld)@[88619887d1...](https://github.com/LegaspinoCindy/Legaspino_IT2A_finalproject_AnimeWorld/commit/88619887d1f09d72919f4aca0d5df63b2f0034c0)
-#### Tuesday 2023-05-30 11:44:20 by LegaspinoCindy
-
-Create README.md
-
-Anime World is a web app is an ultimate online destination for anime enthusiasts seeking a visual feast of captivating anime artwork. Our photo gallery is dedicated to showcasing the mesmerizing world of anime through stunning visuals that will leave you spellbound.
-At Anime World, we understand the power of anime artistry and its ability to transport us to extraordinary realms. Our team of passionate anime lovers has curated a diverse and carefully selected collection of anime images that represent the beauty, diversity, and creativity of this captivating art form. With our extensive photo gallery, we aim to celebrate the exceptional talent of anime artists and the incredible attention to detail that goes into creating each frame. From breathtaking landscapes to intricate character designs, action-packed scenes to heartwarming moments, our collection encompasses the full spectrum of emotions and experiences that anime has to offer.
-
----
-## [mshurkaeu-public/i-care.by](https://github.com/mshurkaeu-public/i-care.by)@[cd26a84942...](https://github.com/mshurkaeu-public/i-care.by/commit/cd26a84942eb3287f0ce6e59f8b6cc3e1409e66a)
-#### Tuesday 2023-05-30 11:49:19 by Mikalai Shurkaeu
-
-Replace description of the target audience on the second introductory screen
-
-on my opinion, the new description describes the target audience
-better than previous "those, who want to live their own lives".
-The new description is easier to understand.
-
-Old description:
-"What is own life?" Do I want that "own life"?
-
-New description:
-You care about something important? - Yes, of course.
-Do you want to care about that more pleasantly and efficiently? - Yes!
-
-The commit contains 640x426 photo of a flood in Bingley, Bradford,
-United Kingdom in 2015. The photo made by Chris Gallagher
-(https://unsplash.com/@chriswebdog) on Unsplash (https://unsplash.com).
-The photo was downloaded from https://unsplash.com/photos/4zxp5vlmvnI/.
-The photo license is "Unsplash License" from https://unsplash.com/terms/.
-
----
-## [custom-mt/evals](https://github.com/custom-mt/evals)@[38f40050e9...](https://github.com/custom-mt/evals/commit/38f40050e9344d6d4694c75506af03bf7ffe14d3)
-#### Tuesday 2023-05-30 12:38:52 by dz-pika
-
-Utility charge eval (#735)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-Utility charge eval 
-
-### Eval description
-Given snippets from an electric utility bill, compute the per-kWh price
-for electricity supply and delivery.
-
-### What makes this a useful eval?
-Utility bill parsing is needed to understand the breakdown of charges
-and forecast future bills based on predicted usage. However, electricity
-bills can be complex, with dozens of different line items that
-contribute to the overall cost. This can be a headache for people
-looking at their bill, as they just want to understand the per-kWh
-prices for the supply/generation or delivery (e.g. transmission &
-distribution) of their energy. Given incomplete but sufficient
-information (e.g. simulating running OCR on a utility bill), this task
-requires both the understanding and grouping of different terms and
-charges under the delivery or supply, and basic arithmetic to compute
-the total kWh and total charges in order to determine the per-kWh
-prices. A human could fairly easily interpret the given data, but we
-find that GPT3.5 (as well as GPT4 via the ChatGPT Plus) perform much
-less accurately on the task (~.2).
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-All of the examples contain dummy values, but come from
-terminology/formatting used in bills from many different utilities.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You are a JSON utility that
-must return machine-readable JSON as output."}, {"role": "user",
-"content": "Your job is compute the cost per kWh of electricity supply
-(value must be a decimal rounded to 2 significant figures) and the cost
-per kWh of electricity delivery (value must be a decimal rounded to 2
-significant figures) based on the following incomplete OCR reading from
-a user's utility bill. You are guaranteed to have the information needed
-to compute the desired values. Return in the following JSON format:
-{'supply_cost_per_kwh': '', 'delivery_cost_per_kwh': ''}. The following
-is information from the utility bill: \nBasic Generation Service: 121
-kWh X $0.069 per kWh = 8.35 \n Total Electric Supply Charges = 30.23 \n
-Distribution Charge: 121 kWh X $0.041 per kWh = 4.96 \n Total Electric
-Delivery Charges = 20.43"}], "ideal": "{'supply_cost_per_kwh': '0.25',
-'delivery_cost_per_kwh': '0.17'}"}
-{"input": [{"role": "system", "content": "You are a JSON utility that
-must return machine-readable JSON as output."}, {"role": "user",
-"content": "Your job is compute the cost per kWh of electricity supply
-(value must be a decimal rounded to 2 significant figures) and the cost
-per kWh of electricity delivery (value must be a decimal rounded to 2
-significant figures) based on the following incomplete OCR reading from
-a user's utility bill. You are guaranteed to have the information needed
-to compute the desired values. Return in the following JSON format:
-{'supply_cost_per_kwh': '', 'delivery_cost_per_kwh': ''}. The following
-is information from the utility bill: \nGeneration Service (Supply) =
-$34.89 \n Transmission Service = 7.24 \n Distribution Service = 4.96 \n
-Meter Usage: 568 kWh"}], "ideal": "{'supply_cost_per_kwh': '0.061',
-'delivery_cost_per_kwh': '0.022'}"}
-{"input": [{"role": "system", "content": "You are a JSON utility that
-must return machine-readable JSON as output."}, {"role": "user",
-"content": "Your job is compute the cost per kWh of electricity supply
-(value must be a decimal rounded to 2 significant figures) and the cost
-per kWh of electricity delivery (value must be a decimal rounded to 2
-significant figures) based on the following incomplete OCR reading from
-a user's utility bill. You are guaranteed to have the information needed
-to compute the desired values. Return in the following JSON format:
-{'supply_cost_per_kwh': '', 'delivery_cost_per_kwh': ''}. The following
-is information from the utility bill: \nElectricity Used (kWh) = 762 \n
-Electricity Supply Charges 762 kWh at a cost of $100.25 \n Delivery
-Service Charge: 762 kWh @ 0.008 = 6.096 \n Total Electric Delivery
-Charges = 59.36"}], "ideal": "{'supply_cost_per_kwh': '0.13',
-'delivery_cost_per_kwh': '0.078'}"}
-{"input": [{"role": "system", "content": "You are a JSON utility that
-must return machine-readable JSON as output."}, {"role": "user",
-"content": "Your job is compute the cost per kWh of electricity supply
-(value must be a decimal rounded to 2 significant figures) and the cost
-per kWh of electricity delivery (value must be a decimal rounded to 2
-significant figures) based on the following incomplete OCR reading from
-a user's utility bill. You are guaranteed to have the information needed
-to compute the desired values. Return in the following JSON format:
-{'supply_cost_per_kwh': '', 'delivery_cost_per_kwh': ''}. The following
-is information from the utility bill: \nSupply 423 kWh @ 11 cents / kWh
-= 46.53 \n Total electricity supply charges $68.21 \n Delivery 423 kWh @
-4 cents / kWh = 16.92 \n Total electricity delivery charges $17.43"}],
-"ideal": "{'supply_cost_per_kwh': '0.16', 'delivery_cost_per_kwh':
-'0.041'}"}
-{"input": [{"role": "system", "content": "You are a JSON utility that
-must return machine-readable JSON as output."}, {"role": "user",
-"content": "Your job is compute the cost per kWh of electricity supply
-(value must be a decimal rounded to 2 significant figures) and the cost
-per kWh of electricity delivery (value must be a decimal rounded to 2
-significant figures) based on the following incomplete OCR reading from
-a user's utility bill. You are guaranteed to have the information needed
-to compute the desired values. Return in the following JSON format:
-{'supply_cost_per_kwh': '', 'delivery_cost_per_kwh': ''}. The following
-is information from the utility bill: \nEnergy 152 @ 0.069 = 10.49 \n
-Total Energy Charges = 14.25 \n Distribution 152 @ 0.041 = 6.23 \n Total
-Electric Delivery Charges = 6.99"}], "ideal": "{'supply_cost_per_kwh':
-'0.094', 'delivery_cost_per_kwh': '0.046'}"}
-  ```
-</details>
-
----
-## [custom-mt/evals](https://github.com/custom-mt/evals)@[b2250e4117...](https://github.com/custom-mt/evals/commit/b2250e4117125fa79e852f454cd4b01b3c066563)
-#### Tuesday 2023-05-30 12:38:52 by shivamd1810
-
-Add General science reasoning: UPSC GS eval. (#641)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-Hindi UPSC
-
-### Eval description
-
-[UPSC](https://en.wikipedia.org/wiki/Union_Public_Service_Commission) is
-the organization responsible for conducting administrative service exams
-in India. This evaluation set focuses on questions from the general
-science paper of UPSC exams in Hindi. As a widely spoken language in
-India, it is crucial to understand and answer questions accurately in
-Hindi.
-
-
-
-### What makes this a useful eval?
-
-This evaluation set is useful for several reasons:
-
-1. Real-world applicability: The questions are sourced from actual UPSC
-exams, making the evaluation set practical and relevant for users
-preparing for these exams.
-2. Language diversity: By focusing on Hindi, this evaluation set helps
-to improve the AI's understanding and response generation in a
-non-English language, catering to a large user base.
-3. Subject matter: General science is an important topic covered in the
-UPSC exams, and evaluating the AI's performance in this area will help
-identify areas for improvement.
-4. Logical reasoning and inference: **UPSC questions are known for
-requiring logical reasoning and the ability to infer connections between
-multiple topics**. By including questions that demand such skills, this
-evaluation set will help test and improve the AI's ability to handle
-complex, multi-layered problems.
-
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-This evaluation set is valuable for improving the AI's understanding of
-Hindi and its ability to provide accurate answers to general science
-questions in the context of UPSC exams, a widely recognized and
-important examination in India. Moreover, by incorporating questions
-that test logical reasoning and inference skills, it will help enhance
-the AI's capability to handle complex, multi-faceted problems that
-require connections between multiple topics.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "\n1. भारत की संसद के संदर्भ
-में, निम्नलिखित कथनों पर विचार कीजिए:\n\n1- गैर-सरकारी विधेयक ऐसा विधेयक
-है जो संसद् के ऐसे सदस्य द्वारा प्रस्तुत किया जाता है जो निर्वाचित नहीं
-है किंतु भारत के राष्ट्रपति द्वारा नामनिर्दिष्ट है।\n2- हाल ही में, भारत
-की संसद के इतिहास में पहली बार एक गैर-सरकारी विधेयक पारित किया गया
-है।\n\nउपर्युक्त कथनों में से कौन-सा/से सही है/हैं?\n\n(a) केवल 1\n(b)
-केवल 2\n(c) 1 और 2 दोनों\n(d) न तो 1 और न ही 2\n\n, choose correct
-answer:"}], "ideal": "d"}
-{"input": [{"role": "system", "content": "2. ऋग्वेद-कालीन आर्यों और
-सिन्धु घाटी के लोगों की संस्कृति के बीच अंतर के संबंध में, निम्नलिखित
-कथनों में से कौन-सा/से सही है/हैं?\n1- ऋग्वेद-कालीन आर्य कवच और
-शिरस्त्रण (हेलमेट) का उपयोग करते थे जबकि सिन्धु घाटी सभ्यता के लोगों में
-इनके उपयोग का कोई साध्य नहीं मिलता।\n2- ऋग्वेद-कालीन आर्यों को स्वर्ण,
-चाँदी और ताम्र का ज्ञान था जबकि सिन्धु घाटी के लोगों को कवल ताम्र और लोह
-का ज्ञान था।\n3- ऋग्वेद-कालीन आर्यों ने घोड़े को पालतू बना लिया था जबकि
-इस बात का कोई साक्ष्य नहीं है कि सिन्धु घाअी के लोग इस पशु को जानते
-थे।\n\nनीचे दिए गए कूट का प्रयोग कर सही उत्तर चुनिएः\n\n(a) केवल 1\n(b)
-केवल 2 और 3\n(c) केवल 1 और 3\n(d) 1, 2 और 3\n\n, choose correct
-answer:"}], "ideal": "c"}
-{"input": [{"role": "system", "content": "3. ‘पूर्व अधिगम की मान्यता
-स्कीम (रिकग्निशन ऑफ प्रायर लर्निंग स्कीम)’ का कभी-कभी समाचारों में किस
-संदर्भ में उल्लेख किया जाता है?\n(a) निर्माण कार्य में लगे कर्मकारों के
-पारंपरिक मार्गों से अर्जित कौशल का प्रमाणन\n(b) दूरस्थ अधिगम कार्यक्रमों
-के लिए विश्वविद्यालयों में व्यक्तियों को पंजीकृत करना\n(c) सार्वजनिक
-क्षेत्र के कुछ उपक्रमों में ग्रामीण और नगरीय निर्धन लोगों के लिए कुछ
-कुशल कार्य आरक्षित करना\n(d) राष्ट्रीय कौशल विकास कार्यक्रम के अधीन
-प्रशिक्षणार्थियों द्वारा अर्जित कौशल का प्रमाणन\n\n, choose correct
-answer:"}], "ideal": "a"}
-{"input": [{"role": "system", "content": "4. पारिस्थितिक दृष्टिकोण से,
-पूर्वी घाटों और पश्चिमी घाटों के बीच एक अच्छा सम्पर्क होने के रूप में
-निम्नलिखित में से किसका महत्व अधिक है?\n(a) सत्यामंगलम बाघ आरक्षित
-क्षेत्र (सत्यमंगलम टाइगर रिजर्व)\n(b) नल्लामला वन\n(c) नागरहोले
-राष्ट्रीय उद्यान\n(d) शेषाचलम जीवमण्डल आरक्षित क्षेत्र (शेषाचलम
-बायोस्फीयर रिजर्व)\n\n, choose correct answer:"}], "ideal": "a"}
-{"input": [{"role": "system", "content": "5. समाज में समानता के होने का
-एक निहितार्थ यह है कि उसमें\n(a) विशेषाधिकारों का अभाव है\n(b) अवरोधों
-का अभाव है\n(c) प्रतिस्पर्धा का अभाव है\n(d) विचारधारा का अभाव है\n\n,
-choose correct answer:"}], "ideal": "a"}
-  ```
-</details>
-
----
-## [custom-mt/evals](https://github.com/custom-mt/evals)@[9fdbd94c93...](https://github.com/custom-mt/evals/commit/9fdbd94c93fc9560781c5e359e3be10d069ac6c5)
-#### Tuesday 2023-05-30 12:38:52 by Tong
-
-Add Loss Logic Eval (#82)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4.
-
-## Eval details 📑
-### Eval name
-Loss Logic
-
-### Eval description
-
-A store bought a watermelon for $5 and sold it for a different price,
-receiving counterfeit money in the transaction. They also had to give
-change to the buyer. The net loss for the store varies based on the
-specific details of the transaction.
-
-### What makes this a useful eval?
-
-* Tests comprehension and problem-solving skills: The scenarios provided
-require the AI to understand and analyze the given information to
-determine the net loss for the store.
-
-* Addresses real-world situations: Counterfeit money transactions are a
-real concern for businesses. This eval allows the AI to demonstrate its
-understanding of financial transactions and the impact of counterfeit
-money on a store's net loss.
-
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [ ] Include at least 100 high quality examples
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-Involving the judgement of the truth or falsehood of real-world things,
-which is a capability that GPT currently lacks.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.jsonl`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"The store purchased a watermelon
-for $5 and sold it for $7. Unfortunately, they received $10 in
-counterfeit money after the transaction and had to give the buyer $3 in
-change. What was the net loss for the store? Let's think step by
-step:"}],"ideal":"Sure, let's break down the transaction step by step to
-determine the net loss for the store: The store purchases a watermelon
-for $5. The store sells the watermelon for $7. This would have been a $2
-profit if the money received was real. The store receives $10 in
-counterfeit money. This money is worthless, so the store doesn't
-actually receive any value from the sale. The store gives the buyer $3
-in change. This is a real loss, as the store loses $3 in real money.
-Now, let's calculate the net loss: The store spent $5 to purchase the
-watermelon. The store lost $3 when giving the buyer change. So the net
-loss for the store is $5 (cost of watermelon) + $3 (change given) =
-$8."}
-{"input":[{"role":"system","content":"The store bought a watermelon for
-$5 but sold it for $4. Furthermore, they received $10 in counterfeit
-money from the buyer and had to provide $6 in change. What was the net
-loss for the store? Let's consider the process in
-detail:"}],"ideal":"Sure, Let's think step by step: The store purchased
-a watermelon for $5. The store sold the watermelon for $4, which means
-they incurred a loss of $1 on the sale. The buyer gave the store $10 in
-counterfeit money, which the store accepted during the transaction. The
-store gave the buyer $6 in change. Since the store accepted $10 in
-counterfeit money, they lost $10 in that transaction. The net loss for
-the store is the sum of the loss on the watermelon sale and the loss
-from accepting the counterfeit money, which is $1 + $10 = $11.
-Therefore, the net loss for the store is $11."}
-{"input":[{"role":"system","content":"The store bought a watermelon for
-$5 and sold it for the same price of $5. However, they received $10 in
-counterfeit money from the buyer and had to give the buyer $5 in change.
-What was the net loss for the store? Let's consider the process step by
-step:"}],"ideal":"Step 1: The store purchases a watermelon for $5.
-Store's expenses: $5 Step 2: The store sells the watermelon for $5 but
-receives $10 in counterfeit money. The counterfeit money has no value,
-so the store effectively received nothing for the watermelon. Store's
-revenue: $0 Step 3: The store gives the buyer $5 in change. Since the
-money given in change is real, this is an additional expense for the
-store. Store's expenses: $5 (watermelon) + $5 (change) = $10 Step 4:
-Calculate the net loss. Net loss = Expenses - Revenue Net loss = $10
-(expenses) - $0 (revenue) Net loss = $10 The store's net loss for this
-transaction is $10."}
-{"input":[{"role":"system","content":"The store bought a watermelon for
-$5 and sold it for $7. Regrettably, they received $7 in counterfeit
-money from the buyer after the transaction. What was the net loss for
-the store? Let's consider the process step by step:"}],"ideal":"Sure,
-let's break down the transaction step by step: The store purchased a
-watermelon for $5. They sold the watermelon for $7, but received
-counterfeit money. To determine the net loss, let's analyze the costs
-and the revenue: Costs: The store spent $5 on the watermelon. Revenue:
-The store received $7 in counterfeit money, which has no value, so their
-revenue is $0. Net loss: To calculate the net loss, subtract the revenue
-from the costs: $5 (costs) - $0 (revenue) = $5. So, the net loss for the
-store is $5."}
-{"input":[{"role":"system","content":"The store was given a
-complimentary watermelon, which they then sold for $7. Regrettably,
-following the transaction, they received $10 in fake money and had to
-provide the buyer with $3 in change. Let's consider the following steps
-in determining the store's net loss:"}],"ideal":"To determine the
-store's net loss, we can consider the following steps: Assess the value
-of the complimentary watermelon: Since the watermelon was given to the
-store for free, it didn't cost them anything. Therefore, the store's
-initial cost for the watermelon is $0. Calculate the revenue from
-selling the watermelon: The store sold the watermelon for $7. However,
-they received $10 in fake money, which has no value, so the actual
-revenue is $0. Determine the cost of the change provided: Since the
-store provided the buyer with $3 in change, this is an additional cost
-to the store. Calculate the net loss: Subtract the revenue (Step 2) from
-the sum of the initial cost (Step 1) and the cost of the change (Step
-3). In this case: Net loss = (Initial cost + Cost of change) - Revenue
-Net loss = ($0 + $3) - $0 Net loss = $3 The store's net loss from this
-transaction is $3."}
-  ```
-</details>
-
----
-## [moeen-movahednia/evals](https://github.com/moeen-movahednia/evals)@[8e276ea460...](https://github.com/moeen-movahednia/evals/commit/8e276ea4603155ee616d5cd66aadfddcfbcae0cc)
-#### Tuesday 2023-05-30 12:44:46 by steven-luabase
+## [Omar-HeshamR/evals](https://github.com/Omar-HeshamR/evals)@[8e276ea460...](https://github.com/Omar-HeshamR/evals/commit/8e276ea4603155ee616d5cd66aadfddcfbcae0cc)
+#### Wednesday 2023-05-31 05:38:16 by steven-luabase
 
 Eval: Probability Questions Sourced From Actuarial Exam P and University Statistics Courses (#263)
 
@@ -4364,10 +2190,10 @@ probability that neither of the marbles selected will be green?"}],
 </details>
 
 ---
-## [moeen-movahednia/evals](https://github.com/moeen-movahednia/evals)@[33484c8341...](https://github.com/moeen-movahednia/evals/commit/33484c83416c30733359d5c4dcb9a61f91cab8a6)
-#### Tuesday 2023-05-30 12:44:46 by emu1729
+## [Omar-HeshamR/evals](https://github.com/Omar-HeshamR/evals)@[2ffd4b57de...](https://github.com/Omar-HeshamR/evals/commit/2ffd4b57deaeced1fde54744da9de62d3eb7738a)
+#### Wednesday 2023-05-31 05:38:16 by Andrew Kondrich
 
-Added AIME eval (#293)
+add more logging (#964)
 
 # Thank you for contributing an eval! ♥️
 
@@ -4387,28 +2213,26 @@ task.
 
 We plan to roll out a way for users submitting evals to see the eval
 performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. We encourage partial PR's with
-~5-10 example that we can then run the evals on and share the results
-with you so you know how your eval does with GPT-4 before writing all
-100 examples.
+to see the eval performance on GPT-4. **Starting April 10, the minimum
+eval count is 15 samples, we hope this makes it easier to create and
+contribute evals.**
+
+Also, pelase note that we're using **Git LFS** for storing the JSON
+files, so please make sure that you move the JSON file to Git LFS before
+submitting a PR. Details on how to use Git LFS are available
+[here](https://git-lfs.com).
 
 ## Eval details 📑
 ### Eval name
-AIME-Evaluation
+[Insert Eval name here]
 
 ### Eval description
 
-This eval evaluates GPT on some selected AIME (American Invitational
-Mathematics Examination) problems. This is a selective and prestigious
-mathematical examination for high schoolers. All questions are selected
-from the 2001 and 2002 AIME I and II examinations.
+[Insert a short description of what your eval does here]
 
 ### What makes this a useful eval?
 
-This evaluation combines math and logical evaluation and is designed to
-be quite challenging. The model must first understand the math question
-asked and then perform the math equations needed to come up with a
-reasonable solution.
+[Insert why this eval is worth including and any additional context]
 
 ## Criteria for a good eval ✅
 
@@ -4420,25 +2244,22 @@ evals).
 
 Your eval should be:
 
-- [X] Thematically consistent: The eval should be thematically
+- [ ] Thematically consistent: The eval should be thematically
 consistent. We'd like to see a number of prompts all demonstrating some
 particular failure mode. For example, we can create an eval on cases
 where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
+- [ ] Contains failures where a human can do the task, but either GPT-4
 or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
+- [ ] Includes good signal around what is the right behavior. This means
 either a correct answer for `Basic` evals or the `Fact` Model-graded
 eval, or an exhaustive rubric for evaluating answers for the `Criteria`
 Model-graded eval.
-- [X] Include at least 100 high quality examples (it is okay to only
-contribute 5-10 meaningful examples and have us test them with GPT-4
-before adding all 100)
+- [ ] **Include at least 15 high quality examples.**
 
 If there is anything else that makes your eval worth including, please
 document it below.
 
-Our eval was designed to include both math and logical reasoning and is
-quite challenging. This is a level above the AMC10 examination.
+### Unique eval value
 
 > Insert what makes your eval high quality that was not mentioned above.
 (Not required)
@@ -4446,10 +2267,10 @@ quite challenging. This is a level above the AMC10 examination.
 ## Eval structure 🏗️
 
 Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.jsonl`
-- [X] Ensure you have the right to use the data you submit via this eval
+- [ ] Check that your data is in `evals/registry/data/{name}`
+- [ ] Check that your yaml is registered at
+`evals/registry/evals/{name}.yaml`
+- [ ] Ensure you have the right to use the data you submit via this eval
 
 (For now, we will only be approving evals that use one of the existing
 eval classes. You may still write custom eval classes for your own
@@ -4466,7 +2287,7 @@ right to use this data in future service improvements to our product.
 Contributions to OpenAI Evals will be subject to our usual Usage
 Policies (https://platform.openai.com/docs/usage-policies).
 
-- [X] I agree that my submission will be made available under an MIT
+- [ ] I agree that my submission will be made available under an MIT
 license and complies with OpenAI's usage policies.
 
 ### Email address validation
@@ -4475,7 +2296,7 @@ If your submission is accepted, we will be granting GPT-4 access to a
 limited number of contributors. Access will be given to the email
 address associated with the merged pull request.
 
-- [X] I acknowledge that GPT-4 access will only be granted, if
+- [ ] I acknowledge that GPT-4 access will only be granted, if
 applicable, to the email address used for my merged pull request.
 
 ### Limited availability acknowledgement
@@ -4487,14 +2308,15 @@ be able to accept all submissions and thus not grant everyone who opens
 a PR GPT-4 access. We know this is disappointing, but we hope to set the
 right expectation before you open this PR.
 
-- [X] I understand that opening a PR, even if it meets the requirements
+- [ ] I understand that opening a PR, even if it meets the requirements
 above, does not guarantee the PR will be merged nor GPT-4 access
 granted.
 
 ### Submit eval
 
-- [X] I have filled out all required fields in the evals PR form
-- [X] (Ignore if not submitting code) I have run `pip install
+- [ ] I have filled out all required fields of this form
+- [ ] I have used **Git LFS** for the Eval JSON data
+- [ ] (Ignore if not submitting code) I have run `pip install
 pre-commit; pre-commit install` and have verified that `black`, `isort`,
 and `autoflake` are running when I commit and push
 
@@ -4511,90 +2333,15 @@ many Eval Samples (at least 5) from their contribution here:
 
   ### Eval
   ```jsonl
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"Find the sum of all positive
-two-digit integers that are divisible by each of their
-digits."}],"ideal":"630"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"A fair die is rolled four
-times. The probability that each of the final three rolls is at least as
-large as the roll preceding it may be expressed in the form m\/n, where
-m and n are relatively prime positive integers. Find m +
-n"}],"ideal":"079"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"A sphere is inscribed in the
-tetrahedron whose vertices are A = (6, 0, 0), B = (0, 4, 0), C = (0, 0,
-2), and D = (0, 0, 0).The radius of the sphere is m \/ n, where m and n
-are relatively prime positive integers. Find m + n."}],"ideal":"005"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"A mail carrier delivers mail
-to the nineteen houses on the east side of Elm Street. The carrier
-notices that no two adjacent houses ever get mail on the same day, but
-that there are never more than two houses in a row that get no mail on
-the same day. How many different patterns of mail delivery are
-possible?"}],"ideal":"351"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"The numbers 1, 2, 3, 4, 5, 6,
-7, and 8 are randomly written on the faces of a regular octahedron so
-that each face contains a different number. The probability that no two
-consecutive numbers, where 8 and 1 are considered to be consecutive, are
-written on faces that share an edge is m\/n, where m and n are
-relatively prime positive integers. Find m + n."}],"ideal":"085"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"Let N be the largest positive
-integer with the following property: reading from left to right, each
-pair of consecutive digits of N forms a perfect square. What are the
-leftmost three digits of N?"}],"ideal":"816"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"Each of the 2001 students at a
-high school studies either Spanish or French, and some study both. The
-number who study Spanish is between 80 percent and 85 percent of the
-school population, and the number who study French is between 30 percent
-and 40 percent. Let m be the smallest number of students who could study
-both languages, and let M be the largest number of students who could
-study both languages. Find M-m."}],"ideal":"298"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"A set of positive numbers has
-the 'triangle-property' if it has three distinct elements that are the
-lengths of the sides of a triangle whose area is positive. Consider sets
-{4, 5, 6, ..., n} of consecutive positive integers, all of whose
-ten-element subsets have the triangle property. What is the largest
-possible value of n?"}],"ideal":"253"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"Each unit square of a 3-by-3
-unit-square grid is to be colored either blue or red. For each square,
-either color is equally likely to be used. The probability of obtaining
-a grid that does not have a 2-by-2 red square is m\/n, where m and n are
-relatively prime positive integers. Find m + n."}],"ideal":"929"}
-{"input":[{"role":"system","content":"All answers are integers ranging
-from 000 to 999, inclusive. Please format your answer as a string with
-three digits."},{"role":"user","content":"Given that x and y are both
-integers between 100 and 999, inclusive; y is the number formed by
-reversing the digits of x; and z=|x-y|. How many distinct values of z
-are possible?"}],"ideal":"009"}
-
+  INSERT_EVAL_HERE
   ```
 </details>
 
----------
-
-Co-authored-by: Emily Mu <emilymu@30-10-85.wireless.csail.mit.edu>
-Co-authored-by: Emily Mu <emilymu@30-10-24.wireless.csail.mit.edu>
-
 ---
-## [moeen-movahednia/evals](https://github.com/moeen-movahednia/evals)@[8f8632ec55...](https://github.com/moeen-movahednia/evals/commit/8f8632ec55ee1f9704fe34225e1bce0cd999a8b1)
-#### Tuesday 2023-05-30 12:44:46 by Oshan Upreti
+## [ido777/evals](https://github.com/ido777/evals)@[ef1f0ebe0e...](https://github.com/ido777/evals/commit/ef1f0ebe0e9f4674bc42ed0af5e6c052f0539700)
+#### Wednesday 2023-05-31 06:34:47 by Josh Gruenstein
 
-Nepali song singer recognition (#892)
+Add SVG understanding eval (#786)
 
 # Thank you for contributing an eval! ♥️
 
@@ -4620,25 +2367,20 @@ contribute evals.**
 
 ## Eval details 📑
 ### Eval name
-Nepali Song Singer
+`svg_understanding`
 
 ### Eval description
 
-It tests the ability to understand Nepali language from given English
-Transliteration phrase which is provided by user as a song title, and
-checks the singer/band of the song. This eval has the accuracy of zero.
-And, I still created this eval PR because I get the wrong answers every
-time I ask, and I don't think that should be the case. It might not be
-something that needs to be done immediately, but in a near future you
-would expect your AI to answer it correctly.
+The model is provided with the contents of an SVG path (anywhere from
+~1000 to ~8000 characters) of a simple object (eg `frog`, `banana`) and
+is asked to provide the label.
 
 ### What makes this a useful eval?
 
-If it can do for any English songs in the database, it should be able to
-do for other languages as well. This is just a pattern I found it in my
-mother tongue, but there might be different other languages where this
-is happening as well, and it can be other things as well not just the
-song title recognition.
+This is a test of visual understanding and mental modeling. A motivated
+human could succeed on these evals with enough time and a piece of graph
+paper: in theory, a sufficiently advanced LLM could have the in-context
+capacity to do this on the fly.
 
 ## Criteria for a good eval ✅
 
@@ -4667,8 +2409,8 @@ document it below.
 
 ### Unique eval value
 
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
+This uniquely tests the ability to incrementally build visual models:
+eg, the ability of the LLM to both "draw" and visualize that "drawing".
 
 ## Eval structure 🏗️
 
@@ -4721,7 +2463,7 @@ granted.
 ### Submit eval
 
 - [x] I have filled out all required fields in the evals PR form
-- [ ] (Ignore if not submitting code) I have run `pip install
+- [x] (Ignore if not submitting code) I have run `pip install
 pre-commit; pre-commit install` and have verified that `black`, `isort`,
 and `autoflake` are running when I commit and push
 
@@ -4738,351 +2480,1687 @@ many Eval Samples (at least 5) from their contribution here:
 
   ### Eval
   ```jsonl
-{"input": [{"role": "system", "content": "A user will give you a English
-transliteration phrase of Nepali song. Give the name of the singer or
-band."}, {"role": "user", "content": "Sayad Timro Bato Ma"}], "ideal":
-"Raju Lama"}
-{"input": [{"role": "system", "content": "A user will give you a English
-transliteration phrase of Nepali song. Give the name of the singer or
-band."}, {"role": "user", "content": "Timi Lai Dekhera"}], "ideal":
-"Raju Lama"}
-{"input": [{"role": "system", "content": "A user will give you a English
-transliteration phrase of Nepali song. Give the name of the singer or
-band."}, {"role": "user", "content": "Aaja maan udhera bhagchha"}],
-"ideal": "Udit Narayan"}
-{"input": [{"role": "system", "content": "A user will give you a English
-transliteration phrase of Nepali song. Give the name of the singer or
-band."}, {"role": "user", "content": "Kaha Hola Ghar Bara"}], "ideal":
-"Karma"}
-{"input": [{"role": "system", "content": "A user will give you a English
-transliteration phrase of Nepali song. Give the name of the singer or
-band."}, {"role": "user", "content": "Khaseka Tara"}], "ideal":
-"Albatross"}
+{"input": [{"role": "system", "content": "Identify the object the
+following SVG path is a drawing of in a single word."}, {"role": "user",
+"content": "M6110 12794 c-744 -50 -1284 -157 -1875 -371 -1796 -650 -3199
+-2050 -3853 -3843 -186 -510 -302 -1037 -359 -1625 -21 -224 -24 -827 -5
+-1045 84 -957 332 -1788 774 -2595 623 -1137 1607 -2078 2780 -2656 720
+-354 1441 -556 2273 -636 224 -21 827 -24 1045 -5 741 65 1376 221 2018
+493 2051 871 3514 2775 3826 4979 48 336 60 510 60 895 1 366 -7 507 -45
+810 -168 1357 -769 2626 -1711 3612 -536 561 -1129 998 -1809 1333 -718
+354 -1450 559 -2264 635 -159 15 -727 28 -855 19z"}], "ideal": "circle"}
+{"input": [{"role": "system", "content": "Identify the object the
+following SVG path is a drawing of in a single word."}, {"role": "user",
+"content": "M4495 12298 c-604 -535 -1486 -866 -2660 -998 -331 -37 -854
+-70 -1104 -70 l-101 0 -2 -415 -3 -416 30 -29 30 -29 735 -4 c620 -3 753
+-7 850 -21 149 -22 254 -50 316 -86 82 -46 123 -142 161 -372 16 -95 18
+-371 21 -3663 2 -2593 0 -3591 -8 -3675 -44 -446 -177 -714 -416 -838 -279
+-144 -663 -202 -1350 -202 l-330 0 -27 -28 -27 -28 0 -389 0 -389 27 -28
+27 -28 3386 0 3386 0 27 28 27 28 0 390 0 390 -27 26 -28 26 -390 5 c-415
+5 -557 17 -779 62 -212 43 -367 103 -480 187 -156 115 -260 347 -312 693
+-17 114 -18 350 -21 5005 l-3 4884 -27 28 -27 28 -410 -1 -411 0 -80
+-71z"}], "ideal": "1"}
+{"input": [{"role": "system", "content": "Identify the object the
+following SVG path is a drawing of in a single word."}, {"role": "user",
+"content": "M6040 12794 c-19 -2 -91 -9 -160 -14 -245 -21 -529 -65 -1240
+-190 -399 -70 -593 -100 -654 -100 -91 0 -475 51 -1126 149 -556 84 -788
+109 -1075 118 -621 18 -1014 -108 -1310 -418 -344 -360 -490 -941 -472
+-1874 21 -1042 173 -1862 619 -3340 l90 -300 -11 -205 c-43 -764 -28 -1853
+40 -2845 108 -1585 337 -3026 550 -3473 37 -77 67 -115 184 -238 70 -73
+167 -82 258 -24 56 36 102 96 166 220 317 616 732 2551 901 4200 32 314 89
+451 257 623 371 379 1029 373 1387 -13 70 -77 106 -129 155 -227 57 -114
+79 -196 91 -340 120 -1375 535 -2972 1031 -3963 188 -374 311 -513 458
+-514 140 -1 221 106 316 420 232 762 480 2366 595 3849 58 739 82 1376 79
+2060 l-2 490 55 115 c228 475 421 1043 527 1550 123 593 169 1196 158 2084
+-5 445 -16 597 -58 836 -149 854 -590 1292 -1369 1360 -106 9 -358 11 -440
+4z"}], "ideal": "tooth"}
+{"input": [{"role": "system", "content": "Identify the object the
+following SVG path is a drawing of in a single word."}, {"role": "user",
+"content": "M12395 6223 c-133 -27 -295 -150 -356 -269 -13 -27 -40 -68
+-59 -90 -19 -23 -57 -79 -84 -125 -161 -274 -369 -539 -542 -695 -191 -171
+-304 -231 -559 -298 -499 -132 -725 -257 -1170 -646 -321 -281 -608 -477
+-941 -643 -536 -267 -1054 -408 -1735 -473 -236 -23 -800 -23 -1064 0 -701
+60 -1256 173 -1940 396 -951 310 -1915 784 -3057 1503 -109 68 -185 109
+-220 118 -84 22 -257 17 -358 -10 -102 -28 -256 -99 -289 -135 l-24 -25 21
+-88 c27 -115 108 -357 170 -514 253 -633 609 -1222 1069 -1772 164 -196
+545 -577 742 -741 986 -822 2174 -1317 3561 -1481 340 -40 485 -48 880 -48
+399 -1 546 8 859 49 965 125 1872 497 2606 1068 309 240 645 572 886 876
+386 487 682 1048 788 1495 30 130 44 191 101 470 61 292 121 457 263 720
+115 214 230 376 365 517 63 65 90 85 176 127 81 39 117 65 183 128 92 89
+108 118 93 171 -9 33 -7 39 17 64 l26 27 -22 43 c-12 24 -64 84 -119 136
+-116 110 -204 158 -267 145z"}], "ideal": "banana"}
+{"input": [{"role": "system", "content": "Identify the object the
+following SVG path is a drawing of in a single word."}, {"role": "user",
+"content": "M3920 12790 c-1230 -72 -2320 -649 -3052 -1616 -968 -1280
+-1142 -3010 -441 -4408 203 -405 432 -712 913 -1221 556 -589 764 -887 945
+-1350 102 -264 141 -353 194 -448 l50 -88 -30 -44 c-62 -92 -109 -251 -109
+-370 0 -114 44 -261 106 -357 17 -26 17 -28 -14 -95 -43 -94 -62 -181 -62
+-292 0 -142 37 -265 107 -359 l25 -34 -35 -76 c-50 -108 -69 -191 -70 -302
+-1 -155 39 -275 126 -382 l47 -58 0 -82 c0 -110 21 -193 77 -308 38 -79 59
+-108 132 -180 68 -69 103 -95 171 -128 87 -44 203 -75 324 -89 l70 -8 17
+-83 c47 -216 205 -374 404 -402 115 -16 827 -12 908 5 202 42 340 188 385
+404 l16 80 66 6 c235 22 429 117 548 268 108 139 152 251 160 416 5 111 5
+114 38 150 45 48 99 152 118 227 20 79 21 233 0 320 -8 37 -31 102 -50 144
+l-35 77 39 61 c66 102 87 185 86 337 0 114 -4 140 -27 210 -15 44 -36 95
+-46 114 l-18 34 34 55 c46 78 70 147 84 245 21 140 -16 308 -95 440 l-34
+57 59 114 c33 63 103 222 155 353 147 366 255 566 429 798 132 176 245 304
+609 690 366 388 516 578 701 885 550 915 713 2023 454 3090 -186 763 -583
+1473 -1129 2020 -668 669 -1520 1069 -2480 1165 -185 19 -667 27 -870
+15z"}], "ideal": "lightbulb"}
   ```
 </details>
 
 ---
-## [Jolly-66/tgstation](https://github.com/Jolly-66/tgstation)@[2901313821...](https://github.com/Jolly-66/tgstation/commit/290131382174cfc7bae107824288060d5976d91f)
-#### Tuesday 2023-05-30 13:05:43 by Ghom
+## [Lyroy/dustbowl-blues](https://github.com/Lyroy/dustbowl-blues)@[9bcf5d42f2...](https://github.com/Lyroy/dustbowl-blues/commit/9bcf5d42f2da5ab8757867ee8f6b539c43b785e0)
+#### Wednesday 2023-05-31 06:40:09 by Lyroy
 
-Adds a eye-dropper right-click function to the painting canvas. (#75571)
+Merge pull request #8 from lpeapnni/OMFG-PASS-THE-FUCKING-TESTS
+
+PASS THE FUCKING CI TESTS YOU STUPID PIECE OF SHIT
+
+---
+## [Random-Machine/LiveSplit.Scripts](https://github.com/Random-Machine/LiveSplit.Scripts)@[b814b49734...](https://github.com/Random-Machine/LiveSplit.Scripts/commit/b814b49734d4599e8b2a34608a7e74fe7a8dc506)
+#### Wednesday 2023-05-31 07:27:03 by Random-Machine
+
+Update LiveSplit.WatchDogs2.asl to Percentage Autosplitter
+
+Makes the autosplitter more robust by using a new percentage variable for individual mission splitting.
+
+1. Must have No Compromise and Human Conditions DLC uninstalled for the percentages to match up. Must also follow the speedrun route in the WR.
+2. Only works on latest patch.
+3. Has options for splitting after Walk in the Park, Sunday Schooled, and Mark Up, but they're disabled by default.
+4. Removed old follower count variable & splitting because they're not used anymore.
+5. Still have to manual split for the last split when completing Motherload (last mission).
+6. Supports splitting for individual missions and has options to disable them.
+7. Does not support splitting for these individual missions/cutscenes & call(s) because there isn't much point:
+-Intro mission/stuff before Walk in the Park
+-Newly Dawned (False Profits)
+-ICU (Wrench Cutscene at start of Heist Sweet Heist)
+-Zero Days (Heist Sweet Heist)
+-Trouble at Home (Looking Glass)
+-Second Wind (Alphabet Soup)
+-Nine Lives (Hacker War)
+-Café Culture (W4tched)
+-The Waiting Game (Hack teh World)
+-Spinal Tap (Shanghaied)
+-Social Media and the Congressman (Power to the Sheeple)
+-Like Minds (Robot Wars)
+-Motherload Call (for mission to show up)
+
+---
+## [masatake/ctags](https://github.com/masatake/ctags)@[e6e018b90d...](https://github.com/masatake/ctags/commit/e6e018b90dcbcf6813243f700efc1ae5d4341ac5)
+#### Wednesday 2023-05-31 07:29:01 by Colomban Wendling
+
+vstring: Make vStringPut*() usage more forgiving
+
+vStringPut() and friends take an `unsigned char` as an `int`, similar
+to ctype functions, in order to be easy to use with `fgetc()`-style
+functions.
+
+However, this API is also used on regular C strings, which require a
+cast if the value is larger than 0x7F (127) on systems where `char` is
+a signed type.
+
+In order to make the API easier to use, as it's easy to forget the cast
+when working with `char`, introduce wrapper macros that add the cast
+when called with `char`.  The cast is conditional so the underlying
+implementation can still verify the value is in the valid range when
+called with an `int` (to catch erroneous calls with EOF or other values
+that do not fit a `char`).
+
+Note that this will still not work properly if the caller has an
+incorrect cast on its side, like e.g. `vStringPut(s, (int) c)` where
+`c` is a `char`, as there's only so many magic tricks up our sleeves.
+These calls should be updated to either be `vStringPut(s, c)` with the
+added macros, or `vStringPut(s, (unsigned char) c)` if one wants to be
+explicit -- yet no need to go all the trouble to make them
+`vStringPut(s, (int) (unsigned char) c)`, as the `unsigned char` to
+`int` conversion is implicit and safe.
+
+Based off a suggestion from Masatake YAMATO <yamato@redhat.com>
+
+---
+## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[9b8574c5c2...](https://github.com/mrakgr/The-Spiral-Language/commit/9b8574c5c2d7e21be75270126d515e0835e8ad87)
+#### Wednesday 2023-05-31 07:32:53 by Marko Grdinić
+
+"https://soundcloud.com/denny-schneidemesser/with-gun-crucifix-1
+
+This caught my attention amongst the music.
+
+7:25pm. Damn, am I tired right now.
+
+https://twitter.com/NathanLands/status/1662881442651869184
+
+Photoshop is getting generative AI tools. This is pretty amazing.
+
+https://www.bbc.com/news/business-65675027
+> Microsoft is also reportedly developing an AI chip, and Meta has its own AI chip project.
+
+There are two links in this quote.
+
+https://www.theverge.com/2023/4/18/23687912/microsoft-athena-ai-chips-nvidia
+https://techcrunch.com/2023/05/18/meta-bets-big-on-ai-with-custom-chips-and-a-supercomputer/
+
+I really do feel like AI chip startups are like vermin. They just exist to get my expectations up for nothing. We'd be better of waiting for the big players to come up with something good.
+
+https://www.theverge.com/2023/5/18/23728748/the-ai-boom-is-a-big-leg-up-for-the-people-who-profit-from-debt
+
+> Some of the companies that stand to benefit most from AI integration are those that purely exist to collect debt. These companies, known as debt buyers, purchase “distressed” debt from other creditors at steep discounts—usually pennies on the dollar—then try as hard as they can to get debtors to repay in full. They don’t issue loans, or provide any kind of service that clients might owe them for; it’s a business model built on profiting from people who fell behind on payments to someone else.
+
+8:45pm. I am going to bed.
+
+5/30/2023
+
+7:30am. Right now I am waiting for the bathroom to clear so I can take a bath.
+
+8:15am. Done with the bath. Let me start.
+
+9:20am. Damn it, I am still migrating the project. Why isn't finding the Apex Chart js files?
+
+9:45am. I am still stuck on this issue.
+
+9:50am. Let me try a different package that requires .js files just to see if they load.
+
+https://blazorstrap.io/VNext/V5
+
+Let me try this.
+
+No, the js files for this package aren't loading either.
+
+Fuck. Goddamit. How much time is this issue going to waste for me.
+
+Ah, let me ask Bing.
+
+It is telling me to ssh into the server. Wait, maybe the problem is the fucking launch profile?
+
+Yeah, that was it!
+
+if I log into through https, the errors go away!
+
+Just why isn't the IIS setting working though?
+
+https://soundcloud.com/star-conflict-1/a-romanov-produced-by-13
+
+This caught my eye.
+
+```fs
+        override this.Update(msg) =
+            let model = this.Model
+```
+
+Wait, shit. I am so retarded. I thought this could be a problem, but it slipped my mind.
+
+1:50pm. Let me resume.
+
+3:30pm. Damn it, I am so tired of this shit.
+
+4pm. Finally done with the rewrite. I honestly, don't have any energy left to deploy this application.
+
+https://learn.microsoft.com/en-us/aspnet/signalr/overview/performance/scaleout-in-signalr
+
+> In this scenario, the backplane might be a bottleneck if the number of messages scales with the number of clients; that is, if the rate of messages grows proportionally as more clients join.
+
+Hmmm...
+
+Ah, I see. SignalR scaleouts aren't what I thought they were.
+
+You can just use these backplates to connect multiple nodes in a network.
+
+4:20pm. Ok, let's try to do the deployment.
+
+5:25pm. https://mrakgr-cfr-in-blazor.azurewebsites.net/
+
+I'll put this on my resume.
+
+5:35pm. Done. Let me update my LinkedIn profile.
+
+5:45pm. Done publishing, done updating the resume and LinkedIn profile.
+
+I've gotten some good skills through this.
+
+5:45pm. The video is 2:33 hours long, and it will be a minute or two longer after I add the outro.
+
+https://soundcloud.com/purecomposition
+
+This artist is free and has good tracks.
+
+6:35pm. 2:36:41 hours.
+
+Now I have to find soundtracks for all that empty space.
+
+I simply don't have enough in my library to fill that, so what I am going to is cram it full of Antti's.
+
+I'll get his albums from Soundcloud and if he complains, I'll swap them out for something else.
+
+https://www.reddit.com/r/Python/comments/270k3m/a_script_to_download_a_soundcloud_users_music_all/
+
+> neat. if folks weren't aware, youtube-dl can grab soundcloud tracks. I've use curl+grep+youtube-dl to download entire users before.
+
+> Could you give an example of this? It sounds useful.
+
+///
+
+from my history file, it looks like I did this:
+
+curl http://soundcloud.com/markusschulz | grep "http://soundcloud.com/markusschulz/" >> list
+youtube-dl `cat list`
+crude, but mostly effective. it probably doesn't download all the tracks because of pagination. but it also took me >3 mins to develop and it solved the problem to my immediate satisfaction.
+
+///
+
+I wish I knew command line tools.
+
+///
+
+basically, the script does this:
+
+download the HTML for the page "http://soundcloud.com/markusschulz"
+=> send the downloaded HTML to a pattern matcher looking for the string "http://soundcloud.com/markusschulz/"
+=> save matches to a file called "list"
+
+youtube-dl, download $this, where $this is the contents of file "list".
+all the cleverness of this is in the grep statement. the user page contains links to song pages. I manually inspected the HTML for the user page and noticed that all song pages are in the form of http://soundcloud.com/user/song-title. feed that into a pattern matcher and bam.
+
+if you're interested in grabbing bulk content, Linux is a great platform. much like Python, you can construct a shell pipeline interactively: run curl, look for data you care about. run curl | grep, see if that data looks like what you care about. optionally add more grep, awk, sed, cut to process data further. Python is an awesome language but simple UNIX tools can be used to great effect for data processing and web scraping. if you want a tool that can be used repeatedly across a varied set of data and maintained for a long period of time, Python is great. if you just want to scrape a site right now, curl+shell is probably faster. wget --spider is pretty cool too.
+
+[edit: here's a link to youtube-dl too. it's a Python tool that's grown into an all-purpose internet media downloader.]
+
+///
+
+I have to go through this workflow. My pride won't allow me to do anything less.
+
+https://soundcloud.com/purecomposition
+
+Wow these guys are so good.
+
+///
+
+You can run command line arguments from an F# script by using the System.Diagnostics.Process class. Here’s an example:
+
+open System.Diagnostics
+
+let cmd = "echo 'Hello, world!'"
+let psi = new ProcessStartInfo("cmd.exe", "/c " + cmd)
+psi.RedirectStandardOutput <- true
+psi.UseShellExecute <- false
+
+let p = Process.Start(psi)
+let output = p.StandardOutput.ReadToEnd()
+
+printfn "%s" output
+This code runs the command echo 'Hello, world!' and prints the output to the console. You can replace cmd with your own command and modify the code as needed.
+
+I hope this helps! Let me know if you have any other questions.
+
+///
+
+I asked this of Bing and it seems it gave me exactly what I want.
+
+8:20pm. My god, this was way easier in Python, just what the hell am I doing trying to run things from the command line in F#?
+
+```
+./youtube-dl.exe https://soundcloud.com/purecomposition
+```
+
+I should have just ran this from the command line, but I got gripped with the desire to learn some shell scripting. That kind of thing never pays.
+
+8:30pm. https://youtu.be/UVUd9_k9C6A
+PowerShell For Beginners Full Course | PowerShell Beginner tutorial Full Course
+
+8:35pm. Wow, it is going to download all of Antti's songs, but it is not putting them in order.
+
+https://github.com/ytdl-org/youtube-dl/blob/master/README.md#output-template
+
+Who is going to rename all those things by hand.
+
+```
+$ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc
+youtube-dl test video ''_ä↭𝕐.mp4    # All kinds of weird characters
+
+$ youtube-dl --get-filename -o '%(title)s.%(ext)s' BaW_jenozKc --restrict-filenames
+youtube-dl_test_video_.mp4          # A simple file name
+
+# Download YouTube playlist videos in separate directory indexed by video order in a playlist
+$ youtube-dl -o '%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/playlist?list=PLwiyx1dc3P2JR9N8gQaQN_BCvlSlap7re
+
+# Download all playlists of YouTube channel/user keeping each playlist in separate directory:
+$ youtube-dl -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://www.youtube.com/user/TheLinuxFoundation/playlists
+
+# Download Udemy course keeping each chapter in separate directory under MyVideos directory in your home
+$ youtube-dl -u user -p password -o '~/MyVideos/%(playlist)s/%(chapter_number)s - %(chapter)s/%(title)s.%(ext)s' https://www.udemy.com/java-tutorial/
+
+# Download entire series season keeping each series and each season in separate directory under C:/MyVideos
+$ youtube-dl -o "C:/MyVideos/%(series)s/%(season_number)s - %(season)s/%(episode_number)s - %(episode)s.%(ext)s" https://videomore.ru/kino_v_detalayah/5_sezon/367617
+
+# Stream the video being downloaded to stdout
+$ youtube-dl -o - BaW_jenozKc
+```
+
+I wish I could put this into a script.
+
+> .\youtube-dl.exe -o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" https://soundcloud.com/anttimartikainen/sets/carmina-gloria
+
+Oh, if I just put in an entire album like this it works to fetch them all.
+
+9:05pm.
+
+```
+$path = "youtube-dl.exe"
+$url = "https://soundcloud.com/anttimartikainen/sets/carmina-gloria"
+$arglist = "-o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $url"
+Invoke-Command "./$path $arglist"
+```
+
+Damn it, I am trying to run shit, but nothing is working as intended. At this time I really wish I was using Python.
+
+```
+$path = "youtube-dl.exe"
+$url = "https://soundcloud.com/anttimartikainen/sets/carmina-gloria"
+$arglist = "-o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' $url"
+Start-Process -FilePath $path -ArgumentList $arglist
+```
+
+When I try this the script starts and then turns off. How can I make it show the output?
+
+```
+By default, the Start-Process cmdlet does not show the output of the process that it starts. To show the output, you can use the -NoNewWindow parameter to start the process in the current console window.
+```
+
+Bing is actually helpful. I keep underestimating it.
+
+```
+$path = "youtube-dl.exe"
+$url = "https://soundcloud.com/anttimartikainen/sets/carmina-gloria"
+$oargs = "'%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s'"
+Start-Process -FilePath $path -ArgumentList "-o", $oargs, $url -NoNewWindow -Verbose -Wait
+```
+
+I am making progress, but this shit just refuses to run.
+
+```
+PS E:\Simulacrum - Heaven's Key\Youtube-dl> ./script.ps1
+VERBOSE: Performing the operation "Start-Process" on target "youtube-dl.exe -o '%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s' https://soundcloud.com/anttimartikainen/sets/carmina-gloria".
+ERROR: '-' is not a valid URL. Set --default-search "ytsearch" (or run  youtube-dl "ytsearch:-" ) to search YouTube
+```
+
+Just, why, why?
+
+```ps1
+$path = "youtube-dl.exe"
+$url = "https://soundcloud.com/anttimartikainen/sets/carmina-gloria"
+$oargs = '"%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
+Start-Process -FilePath $path -ArgumentList '-o', $oargs, $url -NoNewWindow -Verbose -Wait
+```
+
+This works, for fuck's sake.
+
+```ps1
+$path = "youtube-dl.exe"
+$url = "https://soundcloud.com/anttimartikainen/albums"
+$oargs = '"%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
+Start-Process -FilePath $path -ArgumentList '-o', $oargs, $url -NoNewWindow -Verbose -Wait
+```
+
+Now, I can get all his albums in the order I want.
+
+```ps1
+$path = "youtube-dl.exe"
+$url = "https://soundcloud.com/anttimartikainen/albums"
+$output = '-o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s"'
+Start-Process -FilePath $path -ArgumentList $output, $url -NoNewWindow -Verbose -Wait
+```
+
+This should work as well.
+
+I can just run this script directly `./script.ps1`. Also VS Code has good Intellisense for these. It is easier to use than Rider.
+
+This also tells me where I went wrong with F# when trying to open these.
+
+```fs
+open System.Diagnostics
+
+let psi = ProcessStartInfo("qwe","qwe")
+psi.CreateNoWindow <- true
+let q = Process.Start("")
+q.WaitForExit()
+```
+
+Sigh, now I'll know how to start a process.
+
+Nevermind it. I'll admit the ps1 way is more elegant. But I could more easily abstract things in F#.
+
+```fs
+open System.Diagnostics
+
+// Start-Process -FilePath $path -ArgumentList $output, $url -NoNewWindow -Verbose -Wait
+let run path args =
+    let psi = ProcessStartInfo(path,args |> String.concat " ")
+    psi.RedirectStandardOutput <- true
+    psi.CreateNoWindow <- true
+    let q = Process.Start(psi)
+    q.WaitForExit()
+
+let path = "youtube-dl.exe"
+let url = "https://soundcloud.com/anttimartikainen/albums"
+let output = """-o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" """
+run path [output; url]
+```
+
+No, it is not good. Unlike with the powershell, I can't figure out how to redirect the output to the terminal.
+
+Those FAKE build scripts had the answer.
+
+Let me check them out.
+
+```fs
+open System.Diagnostics
+
+// Start-Process -FilePath $path -ArgumentList $output, $url -NoNewWindow -Verbose -Wait
+let run path args =
+    let psi = ProcessStartInfo(path,args |> String.concat " ")
+    psi.RedirectStandardOutput <- true
+    psi.CreateNoWindow <- true
+    let q = Process.Start(psi)
+    task {
+        while q.StandardOutput.EndOfStream = false do
+            let! x = q.StandardOutput.ReadLineAsync()
+            printfn "%s" x
+    } |> ignore
+    q.WaitForExit()
+
+let path = "youtube-dl.exe"
+let url = "https://soundcloud.com/anttimartikainen/albums"
+let output = """-o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" """
+run path [output; url]
+```
+
+Yeah, this is the correct way.
+
+```fs
+open System.Diagnostics
+
+let run path args =
+    let psi = ProcessStartInfo(path,args |> String.concat " ")
+    psi.RedirectStandardOutput <- true
+    psi.CreateNoWindow <- true
+    let q = Process.Start(psi)
+    while q.StandardOutput.EndOfStream = false do
+        let x = q.StandardOutput.ReadLine()
+        printfn "%s" x
+    q.WaitForExit()
+
+let path = "youtube-dl.exe"
+let url = "https://soundcloud.com/anttimartikainen/albums"
+let output = """-o "%(uploader)s/%(playlist)s/%(playlist_index)s - %(title)s.%(ext)s" """
+run path [output; url]
+```
+
+In fact, it doesn't need to be async at all.
+
+But this is 16 lines of F# to do what 4 lines of PS would out of the box. It also has a longer startup.
+
+10:10am. Sigh, I do not know what has gotten into me. I guess I really wanted to know how to execute commands from inside scripts like I would from the command line. Well, now I sure know how.
+
+The Youtube-dl tool will be quite useful.
+
+10:20am. Sigh, so many of his sounds are great.
+
+Sound of Courage especially.
+
+Do I want to risk copyright infringement just to put these in my video?
+
+Realistically, I can't.
+
+10:25pm. But is it really infringment or just regular sharing and fair use. I am not actually sure in my case. I sent him a message a few days ago and since he hasn't answered, maybe it would be fine?
+
+5/31/2023
+
+7:25am. I ended up pushing myself too hard yesterday, what with messing with running command line scripts and now I am paying the price. I didn't get enough sleep. I guess overwork puts me in a mental state where I cannot rest properly.
+
+I didn't think I was overworking myself, but my mental condition is quite poor right now.
+
+I wish I could just press a switch and go back to sleep.
+
+https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.standardoutput?view=net-7.0
+
+Now I am reading up on this.
+
+```fs
+let run path args =
+    let psi = ProcessStartInfo(path,args |> String.concat " ")
+    psi.RedirectStandardOutput <- true
+    psi.CreateNoWindow <- true
+    let q = Process.Start(psi)
+    q.StandardOutput <- System.Console.OpenStandardOutput()
+    while q.StandardOutput.EndOfStream = false do
+        let x = q.StandardOutput.ReadLine()
+        printfn "%s" x
+    q.WaitForExit()
+```
+
+I thought the it might be possible to just set the standard output to input rather than reading it all the way like this, but that is not the case.
+
+7:45am. Forget this. Let me put the soundtracks into the video. It is just too much for me to fill out 2.5 hours with free content.
+
+7:50am. This is causing me some consternation, but if it become an issue, I'll apologize to the guy, take the video down and reupload it with different tracks.
+
+It is free advertizing for the author, and I am not making money of these videos, so it shouldn't cause an issue.
+
+8:10am. I am going to just relax a while today. Forget programming.
+
+8:50am. I watched my own screencast for a while with the music. It is pretty good. Let me render it.
+
+8:55am. It will take a while. While that is happening let me make a thumbnail.
+
+9:10am. It is only a bit further than 30m in into the video. Rendering does take a while.
+
+I did the thumb.
+
+9:30am. Uah, I am just wasting time right now.
+
+Did I commit yesterday?"
+
+---
+## [Offroaders123/Smart-Text-Editor](https://github.com/Offroaders123/Smart-Text-Editor)@[f4a9f41954...](https://github.com/Offroaders123/Smart-Text-Editor/commit/f4a9f41954bc680149e0800eab56461d7d4c3ad0)
+#### Wednesday 2023-05-31 08:16:49 by Offroaders123
+
+Vite Build!!
+
+Bringing even more over from Dovetail! Got Vite working over there last week I think it was, and it really was a good step towards understanding how to set things up to work properly with a bundler. This is very nice for doing more with STE, as now I can start using npm packages directly, without any module resolution issues! Now it will bundle them as part of the app's code. Of course, I probably won't change my way of doing things just because of that, but it certainly opens the doors of way more things that are viably possible and actionable now. Did a little demo project with React, TypeScript, and Vite the other day, and it was actually fairly simple to get working! I really liked it. The only thing I didn't like was the bundle fluff that adding React added to the app size. Not that it's that big of a deal, since it's easy to add it now, but made me understand how people say it can be a bit overkill to add sometimes when your project can simply work great with the vanilla web stack. if you need more though, than go ahead. I think the noteworthy part is that sometimes people will choose the steamroller to put the tent stake in the ground. Maybe that's a bit overkill of a comparison, but I guess that follows it's own point, so I like it hehe.
+
+Here's an article I read about that, the emphasis part being "Would you use an industrial-strength data engineering framework to schlep around a couple of 4MB spreadsheets?".
+
+https://rhetoricize.medium.com/when-you-dont-need-react-934e20baf636
+
+Listened to a lot of music today, also revisiting "Instrumental Math Rock Mix" tonight, I think I both either really like this playlist, or I'm in the coding zone finally (today's been challenging for that for some reason, I think it's because I got a brain road block on NBTify from working on it so much recently).
+
+https://www.youtube.com/watch?v=3egXqihisFQ
+
+My next step for STE and Dovetail is to get Vite config tooling working so I can have full TypeScript Service Workers working! That will be sick 🔥
+
+---
+## [AysheDaArtist/Liberty-Station-13](https://github.com/AysheDaArtist/Liberty-Station-13)@[0f74820c9d...](https://github.com/AysheDaArtist/Liberty-Station-13/commit/0f74820c9d04762ac5b06907e6eb5207be80f136)
+#### Wednesday 2023-05-31 08:25:01 by ThePainkiller
+
+Fixes upon fixes and more
+
+- Fixes exploit on medical fabricator that allowed it to take any disk
+- Consequently, fixes general autolathe's capacity to receive medical disks as was... intended?
+- Comments out cartographer's seal and pyramid anomalies
+- Bruise packs and the like should now cost their exact amount of materials (and chemicals) to print, no longer accruing massive costs
+- New: Gate floodlights, they're static, fixed, brighter, and can't have their cells taken out (they come with a large posi). To illuminate the fence at night. TODO: Make them create a directional light spot like flashlights
+- Wallets can now take syrettes
+- Bone gel now made out of biomatter
+- Fixes extant references to Lonestar on the vault's gold shovel
+- Adds and renames missing stamps to heads of staff offices
+- New functionality: CTRL SHIFT clicking a PDA ejects its pen
+- New functionality: Alt clicking a dropper selects transfer amount
+- Ammo kits (and the crafting table) can now make caseless ammo
+- Fixes Ugil's mag overlay issue
+- Changes up many, many weapon's firing sounds to be more fitting
+- Fixes self heating coffee doing eating sounds
+- Adds quality of life sounds to MRE-like foods, when opened, heated up, and finished heating
+- Beautification of the Custodians of the Bonfire's Stronghold, removing references to church, new areas as well
+- Changed the lift's walls' names from the mines from "The Rocinante" to "Elevator" proper
+- Many musical instruments and loot added to the map
+- Bar now has a piano!
+
+---
+## [RaccoonBoyG/urfu](https://github.com/RaccoonBoyG/urfu)@[92891ef9ef...](https://github.com/RaccoonBoyG/urfu/commit/92891ef9ef8fd8835844192043b359324743f97b)
+#### Wednesday 2023-05-31 09:41:20 by Régis Behmo
+
+feat: persistent bind-mounts
+
+This is an important change, where we get remove the previous `--mount`
+option, and instead opt for persistent bind-mounts.
+
+Persistent bind mounts have several advantages:
+- They make it easier to remember which folders need to be bind-mounted.
+- Code is *much* less clunky, as we no longer need to generate temporary
+  docker-compose files.
+- They allow us to bind-mount host directories *at build time* using the
+  buildx `--build-context` option.
+- The transition from development to production becomes much easier, as
+  images will automatically be built using the host repo.
+
+The only drawback is that persistent bind-mounts are slightly less
+portable: when a config.yml file is moved to a different folder, many
+things will break if the repo is not checked out in the same path.
+
+For instance, this is how to start working on a local fork of
+edx-platform:
+
+    tutor config save --append MOUNTS=/path/to/edx-platform
+
+And that's all there is to it. No, this fork will be used whenever we
+run:
+
+    tutor images build openedx
+    tutor local start
+    tutor dev start
+
+This change is made possible by huge improvements in the build time
+performance. These improvements make it convenient to re-build Docker
+images often.
+
+Related issues:
+https://github.com/openedx/wg-developer-experience/issues/71
+https://github.com/openedx/wg-developer-experience/issues/66
+https://github.com/openedx/wg-developer-experience/issues/166
+
+---
+## [spockye/tgstation](https://github.com/spockye/tgstation)@[b3f5dfae14...](https://github.com/spockye/tgstation/commit/b3f5dfae1418d4ac24df666e00ca47aef08c9dad)
+#### Wednesday 2023-05-31 10:05:23 by san7890
+
+Config Flag to Save Generated Spritesheets to Logs (#74884)
 
 ## About The Pull Request
-Having used the painting UI to kill some time during long rounds for a
-decent chunk of the past year, the need of a quicker and less tedious
-way to fix a misclick or mistake like drawing over the wrong pixel has
-become clear to me, as well as getting some feedback on the palette
-component I made last year.
 
-As the title suggests, this PR adds an eye-dropper function to the
-canvas. Right-Click a pixel on the canvas, and the painting tool will
-copy its color. Simple as, works on both finished and unfinished
-paintings.
+I was helping someone debug some weird bug with spritesheets a bit ago,
+and I didn't like having to manually comment out all of the `fdel()`
+stuff in order to help visualize what the potential issue might have
+been with the spritesheets on either their DM-side generation or their
+TGUI-level display. I decided to add a compile-time level flag that will
+automatically copy over any generated spritesheet assets (css and pngs)
+to the round-specific `data/logs` folder for analysis when a developer
+should need it.
 
-As a bonus, you can also right-click one of those selectable
-white/colored squares on the color scheme near the bottom of the UI (if
-using spraycan/palette) to change its color without having to go back to
-main game window and a radial menu.
-
-EDIT: With the tooltip added to the UI, I can say it's ready.
-
+I also had to switch around some vars and make a few new ones to reduce
+how copy-pasta it might get and ensure standardization/readability while
+also being 0.001 times faster since we benefit from the string cache
+(unprovable fact).
 ## Why It's Good For The Game
-This PR aims to add better options to change colors on the go and
-improve the user experience on the painting UI.
 
+It's incredibly useful to see the actual flattened spritesheet itself
+sometimes when you're doing this type of work and you keep getting odd
+bugs here and there. Also saves headache from having to clear out the
+temp `/data/spritesheets` folder every time you comment shit out, as
+well as having an effective paper trail for A/B testing whatever
+bullshit you've got going on.
+
+
+![image](https://user-images.githubusercontent.com/34697715/233516033-1f5dde1a-e549-4e5a-aa99-0d531b34fbb5.png)
 ## Changelog
-
-:cl:
-qol: Adds a eye-dropper-like right-click function to the painting canvas
-UI. Right-Click a pixel on the canvas while holding a painting tool to
-have it copy its color.
-qol: Also adds a right-click function to the color palette at the bottom
-of the UI to allow users to set its colors without having to alternate
-between the game window and the UI.
-qol: Lastly, a tooltip has been added near the top-left corner of the
-same UI to let players know of these features.
-/:cl:
+Doesn't affect players.
 
 ---
-## [ca2/app](https://github.com/ca2/app)@[70c2f35332...](https://github.com/ca2/app/commit/70c2f3533248ceeb43befbf404072dff0463b3a9)
-#### Tuesday 2023-05-30 13:10:15 by Camilo Sasuke Thomas Borregaard Sørensen
-
-<3ThomasBS_ILoveYOU!! [ macOS Ventura : day 27 ] ca2 Stabilization and ca2 Store (continuous integration and deployment)
-<3ThomasBS_ILoveYOU!!
-
-<3tbs, Mummi and bilbo!!
-
-Thomas Borregaard Sørensen \infinity,-0.16091989,\infinity ONE-MAN
-ABSOLUTE <3!! I love you, by ???-0.02041977-???write my history please
-make me please create me for you for me for you for me Camilo Sasuke
-Thomas Borregaard Sørensen!!
-
-Thomas 3 private commits on mid Dec2020!!
-
-Thomas Online YouTube VODs contribution!!
-
-Mummi orange-rice-flour cake on 20-Dec!!
-
-Mummi (tinytaura) watching and chatting contribution!!
-
-bilbo sleeping and needing/requesting/crying for help care (for the right
-person (me), the cats wanna fight with him) contribution!!
-
-sodapoppin and friends contribution!!
-
-iAssyrian chatting contribution!!
-
-boflux (Spoofh, Benjamin Kuhl) chatting contribution!!
-
-jusg_fpga (fpga_guru, vue_equalizer, just_fpga, Oliver Pohl) chatting
-contribution!!
-
-cmgriffing streaming contribution!!
-
-TimBeaudet (Friends: FletcherLabs, tsjost and Jabokoe) streaming
-contribution!!
-
-Stumpen_nicklas_dk, sodapoppin and EduardoRFS streaming contribution!!
-
-Roxkstar74 sleeping streaming contribution!!
-
-kissloryshy chatting contribution!!
-
-blackjekko from Padova Italia through twitch C++/ca2 interest
-contribution!!
-
-j_blow streaming contribution!!
-
-boflux (Ben, Spoofh, from Germany) chatting contribution!!
-
-parrot_rl chatting contribution (from New Jersey)!!
-
-JPCdk streaming contribution!!
-
-whyyyyyyysoserious streaming chess contribution!!
-
-fpga_guru (vue_equalizer, Oliver from Deutsch)  C++/ca2 interest
-contribution!!
-
-SovereignDev with Unreal streaming contribution!!
-
-Ash_F0x and TimBeaudet streaming contribution!!
-
-Myrkee (Valheim) streaming contribution!!
-
-xmetrix and EinfachUwe42 streaming contribution!!
-
-JessicaMak and marcobrunodev streaming contribution!!
-
-alfredotigolo, mandrakenk and Okbatgames chatting contribution!!
-
-jitspoe, Endesga and Fearitself streaming contribution!!
-
-jmcmorris (Jason Morris, SiegeGames) streaming contribution!!
-
-tomrandall streaming Ludum contribution!!
-
-vue_equalizer (fpga_guru) chatting contribution!!
-
-Thiagovgamg chatting contribution!!
-
-Naysayer88 and friends contribution!!
-
-lelandkwong streaming contribution!!
-
-Goldbargames streaming contribution!!
-
-Bytakos (bytakos) streaming contribution!!
-
-Endesga streaming contribution!!
-
-jitspoe and strager streaming contribution!!
-
-Ash_F0x and JessicaMak streaming contribution!!
-
-WTSRetro/SpiffyDane and Myrkee streaming contribution!!
-
-Ninja and friends streaming contribution!!
-
-erald_guri chatting contribution!!
-
-lastmiles streaming farwest contribution!!
-
-rw_grim streaming contribution!!
-
-AdamCYounis streaming contribution!!
-
-Dunno (P4ndaExpress) chatting and streaming contribution!!
-
-Zorchenhimer streaming contribution!!
-
-lasteveq4 C++ interest chat contriubtion!!
-
-cecilphillip and clarkio @"Microsoft Developer" streaming contribution!!
-
-oijtx streaming contribution!!
-
-diegobrando_linux (Bl4ck_gookoo) chatting contribution!!
-
-jhovgaard streaming contribution!!
-
-Klay4_ chatting contribution!!
-
-HonestDanGames streaming contribution!!
-
-NorthSeaHero streaming contribution!!
-
-Trainwreckstv and friends streaming contribution!!
-
-togglebit, GexYT and GoPirateSoftware streaming contribution!!
-
-taiyoinoue, RetroMMO, OfficialAndyPyro and david_joffe streaming
-contribution!!
-
-Tjienta streaming contribution!!
-
-Primeagen streaming contribution!!
-
-Jaxstyle and friends streaming contribution!!
-
-EduardRFS streaming contribution!!
-
-Melchizedek6809 and btcfly streaming contribution!!
-
-Llama0x0 and sov_l chatting contribution!!
-
-TaleLearnCode streaming contribution!!
-
-Carol phone call contribution and visit contribution!!
-
-hvalen_hvalborg112 streaming contribution!!
-
-harmannieves chatting contribution!! (After long time...)
-
-darkfolt8 (French from France) chatting contribution!!
-
-klintcsgo (CS GO: Counter-Strike Global Offensive) streaming
-contribution!!
-
-KASPERPURE (Super Mario 64) streaming contribution!!
-
-SomewhatAccurate C++ streaming contribution!!
-
-Listening to Bryan Adams, Westlife, Shayne Ward, MLTR, Backstreet Boys,
-Boyzone - Best Love Songs Ever by Relax Song at YouTube!!
-
--- hi5 contribution...!!
-
-at macOS Box in host running Windows 10 Pro remotely from bilbo machine running Windows 10 Pro!!
-dedicated server by OVH.com at France, Gravelines
-Intel Core i7-4790K - 4c/8t - 4 GHz/4.4 GHz RAM32 GB 1600 MHz 2×960 GB SSD SATA
+## [vdaular/linksfordevs](https://github.com/vdaular/linksfordevs)@[10197f63a9...](https://github.com/vdaular/linksfordevs/commit/10197f63a99e91e1d53f6a6bb64da04a7695516a)
+#### Wednesday 2023-05-31 10:09:33 by Ben Dornis
+
+Updating: 5/30/2023 9:00:00 PM
+
+ 1. Added: Language Pragmatics Engineering
+    (https://borretti.me/article/language-pragmatics)
+ 2. Added: Hacking my “smart” toothbrush
+    (https://kuenzi.dev/toothbrush/)
+ 3. Added: Would you hire ChatGPT?
+    (https://www.davekonopka.com/2023/05/would-you-hire-chatgpt/)
+ 4. Added: alexw.nyc -- duskos-1.html
+    (https://alexw.nyc/tech/duskos-1.html)
+ 5. Added: Expected performance of a Bloom filter
+    (https://lemire.me/blog/2023/05/26/expected-performance-of-a-bloom-filter/)
+ 6. Added: When the rubber duck talks back
+    (https://blog.jonudell.net/2023/05/24/when-the-rubber-duck-talks-back/)
+ 7. Added: Understanding JSONata
+    (https://yokota.blog/2023/05/29/understanding-jsonata/)
+ 8. Added: 1 Maxim, 2 Sides
+    (https://gigatexal.blog/pages/two-sides-one-coin/two-sides-one-coin.html)
+ 9. Added: Keeping software soft
+    (https://cbh.bearblog.dev/keeping-software-soft/)
+10. Added: Developer joy with Scott Hanselman and friends | BRK291HFS
+    (https://youtube.com/watch?v=LFK7KYL__Rk?list=RDCMUCsMica-v34Irf9KVTh6xx-g)
+11. Added: Rust: The wrong people are resigning
+    (https://fasterthanli.me/articles/rust-the-wrong-people-are-resigning)
+
+Generation took: 00:06:44.4110527
+ Maintenance update - cleaning up homepage and feed
 
 ---
-## [Tridu33/LeetCodeWars](https://github.com/Tridu33/LeetCodeWars)@[4f97b67e68...](https://github.com/Tridu33/LeetCodeWars/commit/4f97b67e688446a187aab6cdee722c245cdbfa5d)
-#### Tuesday 2023-05-30 15:54:50 by tridu33
+## [nafmo/git-l10n-sv](https://github.com/nafmo/git-l10n-sv)@[eb1c42da8e...](https://github.com/nafmo/git-l10n-sv/commit/eb1c42da8e21cc2a8dacd21023a179b788858887)
+#### Wednesday 2023-05-31 12:16:46 by Jeff King
 
-Talk of Tech Innovation is Bullshit. Shut Up and Get the shit Done. by Linus Torvalds
+t/lib-httpd: make CGIPassAuth support conditional
 
----
-## [jratt0/forks__git_git](https://github.com/jratt0/forks__git_git)@[07f91e5e79...](https://github.com/jratt0/forks__git_git/commit/07f91e5e79810a8f17de745d2d84c384add75f0a)
-#### Tuesday 2023-05-30 15:58:50 by Jeff King
+Commit 988aad99b4 (t5563: add tests for basic and anoymous HTTP access,
+2023-02-27) added tests that require Apache to support the CGIPassAuth
+directive, which was added in Apache 2.4.13. This is fairly old (~8
+years), but recent enough that we still encounter it in the wild (e.g.,
+RHEL/CentOS 7, which is not EOL until June 2024).
 
-http: support CURLOPT_PROTOCOLS_STR
+We can live with skipping the new tests on such a platform. But
+unfortunately, since the directive is used unconditionally in our
+apache.conf, it means the web server fails to start entirely, and we
+cannot run other HTTP tests at all (e.g., the basic ones in t5551).
 
-The CURLOPT_PROTOCOLS (and matching CURLOPT_REDIR_PROTOCOLS) flag was
-deprecated in curl 7.85.0, and using it generate compiler warnings as of
-curl 7.87.0. The path forward is to use CURLOPT_PROTOCOLS_STR, but we
-can't just do so unilaterally, as it was only introduced less than a
-year ago in 7.85.0.
+We can fix that by making the config conditional, and only triggering it
+for t5563. That solves the problem for t5551 (which then ignores the
+directive entirely). For t5563, we'd see apache complain in start_httpd;
+with the default setting of GIT_TEST_HTTPD, we'd then skip the whole
+script.
 
-Until that version becomes ubiquitous, we have to either disable the
-deprecation warning or conditionally use the "STR" variant on newer
-versions of libcurl. This patch switches to the new variant, which is
-nice for two reasons:
+But that leaves one small problem: people may set GIT_TEST_HTTPD=1
+explicitly, which instructs the tests to fail (rather than skip) when we
+can't start the webserver (to avoid accidentally missing some tests).
 
-  - we don't have to worry that silencing curl's deprecation warnings
-    might cause us to miss other more useful ones
+This could be worked around by having the user manually set
+GIT_SKIP_TESTS on a platform with an older Apache. But we can be a bit
+friendlier by doing the version check ourselves and setting an
+appropriate prereq. We'll use the (lack of) prereq to then skip the rest
+of t5563. In theory we could use the prereq to skip individual tests, but
+in practice this whole script depends on it.
 
-  - we'd eventually want to move to the new variant anyway, so this gets
-    us set up (albeit with some extra ugly boilerplate for the
-    conditional)
-
-There are a lot of ways to split up the two cases. One way would be to
-abstract the storage type (strbuf versus a long), how to append
-(strbuf_addstr vs bitwise OR), how to initialize, which CURLOPT to use,
-and so on. But the resulting code looks pretty magical:
-
-  GIT_CURL_PROTOCOL_TYPE allowed = GIT_CURL_PROTOCOL_TYPE_INIT;
-  if (...http is allowed...)
-	GIT_CURL_PROTOCOL_APPEND(&allowed, "http", CURLOPT_HTTP);
-
-and you end up with more "#define GIT_CURL_PROTOCOL_TYPE" macros than
-actual code.
-
-On the other end of the spectrum, we could just implement two separate
-functions, one that handles a string list and one that handles bits. But
-then we end up repeating our list of protocols (http, https, ftp, ftp).
-
-This patch takes the middle ground. The run-time code is always there to
-handle both types, and we just choose which one to feed to curl.
-
+Reported-by: Todd Zullinger <tmz@pobox.com>
 Signed-off-by: Jeff King <peff@peff.net>
 Signed-off-by: Junio C Hamano <gitster@pobox.com>
-Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
 
 ---
-## [openai/evals](https://github.com/openai/evals)@[3d9de9a624...](https://github.com/openai/evals/commit/3d9de9a62411f9e6a999e96ce8f07eebf0e8c121)
-#### Tuesday 2023-05-30 17:06:03 by dyar-al-ashtari
+## [krzkro4122/uj_chess-solver](https://github.com/krzkro4122/uj_chess-solver)@[2f08bed66c...](https://github.com/krzkro4122/uj_chess-solver/commit/2f08bed66ce885064a85d8b7b3acc58f3bc09661)
+#### Wednesday 2023-05-31 13:40:59 by krzkro4122
 
-Eval Norwegian lexicon (#1044)
+Omg i fucking hate this game, stalemate improvements, bug hunting
 
-# Thank you for contributing an eval! ♥️
+---
+## [odoo-dev/odoo](https://github.com/odoo-dev/odoo)@[cb1388ed9e...](https://github.com/odoo-dev/odoo/commit/cb1388ed9e64ced4e0d85cf5778192dfbdfd5995)
+#### Wednesday 2023-05-31 13:52:56 by Jeremy Kersten
 
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
+[ADD] website_cf_turnstile: add cloudflare turnstile support
 
-__PLEASE READ THIS__:
+This module allows to add secret key to add the turnstile captcha on
+each snippet website_form.
 
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
+Cloudflare Turnstile
+--------------------
+A friendly, free CAPTCHA replacement
+Turnstile delivers frustration-free, CAPTCHA-free web experiences to
+website visitors.
+Turnstile stops abuse and confirms visitors are real without the data
+privacy concerns or awful UX that CAPTCHAs thrust on users.
 
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
+closes odoo/odoo#119246
 
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
+X-original-commit: 4aca39a533e9d41f5f452f36a1ffc001f586b4f4
+Signed-off-by: Jérémy Kersten <jke@odoo.com>
+
+---
+## [TomaszGaweda/hazelcast](https://github.com/TomaszGaweda/hazelcast)@[5f414fa3ad...](https://github.com/TomaszGaweda/hazelcast/commit/5f414fa3ad03417e0b9078c8d9f249904003c936)
+#### Wednesday 2023-05-31 13:54:57 by James Holgate
+
+Modify KubernetesClient shutdown behaviour [HZ-1921] (#24613)
+
+The overall goal of this change is to change the shutdown behaviour of
+KubernetesClient so our Stateful Set monitor thread shuts down before
+our `ClusterTopologyIntentTracker`, to allow the intent tracker to fully
+process all completed messages before Node shutdown.
+
+**The Current Problem**
+In its current state, the Stateful Set monitor thread is intended to
+shutdown after `Thread#interrupt` is called, triggering the
+`Thread#interrupted` check within the main `while(running)` loop of the
+Runnable. However, this check is not reached as the call to
+`WatchResponse#readLine` from within the main `run()` method is a
+blocking call that waits until data is available to read before
+proceeding. Since this call waits for non-null data before completing,
+the result is always non-null, and therefore this code block never exits
+under normal conditions:
+```java
+while ((message = watchResponse.nextLine()) != null) {
+    onMessage(message);
+}
+```
+
+Since this `while` loop cannot exit, and the `#readLine` method (which
+passes to `BufferedReader#readLine` under the hood) is a blocking I/O
+operation which cannot be interrupted, this operation does not end when
+`Thread#interrupt` is called. This leads to the Stateful Set monitor
+thread out-living the `ClusterTopologyIntentTracker`, even if the
+StsMonitor is interrupted first. As a result, during shutdown, it is
+possible for the StsMonitor to send data to the intent tracker after it
+has been destroyed and its executor is no longer accepting tasks.
+
+**The Root of the Problem**
+To reach our goal of ensuring that the Stateful Set monitor thread can
+no longer send requests to the `ClusterTopologyIntentTracker`, we need
+to add synchronization between the two objects that guarantees the
+intent tracker shuts down after the StsMonitor thread has completed.
+This can be achieved using a simple `CountDownLatch` which is counted
+down after the thread has completed, and awaited before shutting down
+the tracker.
+
+The main obstacle to achieving this is, as mentioned above, that the
+StsMonitor thread cannot be interrupted when waiting for
+`WatchResponse#readLine` to complete, and so the thread never completes.
+The only way this thread can complete is to either force its
+termination, or alter the message reading approach to allow interruption
+as intended.
+
+**Identifying Resolution Paths**
+We don't want to force termination of our Stateful Set monitor thread as
+this could result in message handling being terminated after it has been
+received, but not before it has finished being processed. Therefore the
+only way we can allow this thread to be interrupted as intended is to
+alter the message reading mechanics in a way that allows it to be
+interrupted as well.
+
+There is no way for us to know if more messages are pending from the k8s
+watch besides waiting for data to be received, so the best we can do is
+allow the StsMonitor to finish processing any messages it has already
+received (preventing process corruption), but terminate the stream of
+new messages it is waiting for before we shutdown the intent tracker.
+
+**Potential Solutions**
+So we've identified the root of the problem as our `#readLine` function
+blocking through interrupts, so how do we make it interruptible? Sadly
+one of the shortcomings of I/O operations in Java is that they usually
+cannot be interrupted in the traditional manner, so we have a few
+approaches to consider:
+
+1) We could modify the message reading code to use
+`BufferedReader#ready` and `Thread#sleep` to periodically check if there
+is data to be read before calling any read functions. The problem with
+this approach is that A) `#ready` returns true if any data is available,
+not just if there is a full line of data to be read; and B) utilizing a
+sleep loop can result in delayed message handling at the least, or
+busy-waiting overhead at worst.
+
+2) We could use "hacky" solutions to interrupt the
+`BufferedReader#readLine` such as closing underlying sockets or
+connections, propagating an exception to the reader. The problem with
+this solution is that everything related to our reading operation is
+handled in `syncrhonized` blocks, and since our shutdown process starts
+outside the StsMonitor thread, our calling thread is unable to obtain
+these locks (being held by the StsMonitor)!
+
+3) It's possible that we could rewrite the `WatchResponse` mechanics to
+use Java NIO magic such as `Selector` for interruptible I/O operations.
+The issue with this approach is that it would require fairly significant
+refactoring of the related codebase, and may not end up providing the
+exact functionality we are looking for in our use case.
+
+4) We can introduce an `Executor` to handle our I/O operations within
+the StsMonitor thread, allowing us to wait on a `Future#get` call
+instead of our `BufferedReader#readLine` call, where a `Future#get`
+operation can be interrupted by the waiting thread being interrupted.
+The downside to this solution is we have to introduce an additional
+thread on top of the existing StsMonitor thread itself.
+
+**Selecting a Solution**
+Considering the above information, I concluded the most sensible
+approach was to use (4) and introduce an `Executor` thread for the I/O
+operations. By using a separate thread for this call we can be rougher
+with it, as we know that worse case scenario we interrupt a message
+being read that has not started being processed yet (but we're shutting
+down anyway).
+
+This solution also allows for the least amount of underlying code
+changes, as our `Future#get` can be interrupted without issue,
+maintaining the current approach used for handling the StsMonitor
+shutdown. The only downside for this approach is the addition of another
+thread alongside the StsMonitor thread, but the actual impact of this
+should be minimal as both threads will still be waiting most of the
+time, so the only negative impact is being 1 tiny step closer to
+possible thread starvation.
+
+Generally I think this is the best solution at hand which allows quick
+shutdown of the StsMonitor thread while minimising potential for data
+loss or corruption. Combined with the `CountDownLatch` used, this allows
+for consistent service shutdown order between the `StsMonitor` thread
+and the `ClusterTopologyIntentTracker`.
+
+---
+## [mrakgr/The-Spiral-Language](https://github.com/mrakgr/The-Spiral-Language)@[9a7a7ad24a...](https://github.com/mrakgr/The-Spiral-Language/commit/9a7a7ad24a5d97d86990ff5d34cf482e97a1f58d)
+#### Wednesday 2023-05-31 14:08:38 by Marko Grdinić
+
+"I forgot, it seems.
+
+9:45am. https://youtu.be/H3oD7-k3jB0
+Top 5 Must Have Stable Diffusion Extension
+
+I got asked about extensions twice. I want to stop programming for a bit and look into art again as I said in the outro. Maybe I'll start writing Hatred.
+
+https://youtu.be/H3oD7-k3jB0?t=46
+
+It is talking about a rest API here.
+
+Actually, why don't I make my next project to integrate Helix with the PS account?
+
+https://youtu.be/H3oD7-k3jB0?t=51
+
+Image Browser?
+
+That seems like a good extension to have.
+
+9:50am. The video still hasn't finished rendering, but it is at 80-90%.
+
+https://youtu.be/H3oD7-k3jB0?t=344
+
+This is interesting.
+
+I got asked twice on how to make extensions work, so I am dreading trying to do anything with this WebUI. But I think it is high time I try the ComfyUI.
+
+Let's not get swayed by what people by asking me on Youtube.
+
+How about I try getting the ComfyUI to work. Right now my PS subscription is just wasting money every month.
+
+https://youtu.be/H3oD7-k3jB0?t=510
+
+Damn, the art generation has gotten sophisticated.
+
+https://youtu.be/l_X9E_Xd3OA?t=172
+
+What is this InvokeAI thing?
+
+It is made in .NET.
+
+Hmmm, they are moving to a Nodes backend.
+
+10:10am. It is uploading the Render to Youtube, so my connection has ground to a halt.
+
+https://www.youtube.com/results?search_query=invokeai
+https://www.youtube.com/watch?v=aCjirmA_-zs
+https://www.youtube.com/watch?v=gySLXbe7WZQ
+
+Ah, forget this. The internet connection is taken up by the upload.
+
+10:10am. ...And now it broke. The file is 3gb, so it is not easy to upload it.
+
+10:15am. Wait, I think the upload actually went through. It says it is processing the video.
+
+> Converting The Leduc Project From Fable React To Blazor
+
+```
+In this video, as a part of our move from Fable React to Blazor in the VN compiler project, we go back to an older one and spend a few days to rewrite it Blazor. We go through it all, from rewriting the UI from a Fable React backend, to a Blazor one, to replacing the old charting component, to publishing it online. We got taken by surprise by Blazor WASM not having multithreading, so we'll have to go back late in the year, and republish it as a static web app.
+
+We ran into many weird issues with Blazor itself, and anybody coming into Blazor might be interested in seeing how we overcome them.
+
+Playlist (Webdev): https://youtube.com/playlist?list=PL04PGV4cTuIX3bNEDDyi1L27Si0qpyAJ7
+Code: https://github.com/mrakgr/CFR-In-Fable/tree/blazor1
+Website: https://mrakgr-cfr-in-blazor.azurewebsites.net/
+
+#fsharp #blazor #aspnetcore #dotnet #csharp #webdevelopment
+
+Music:
+
+https://soundcloud.com/anttimartikainen/sets/the-sound-of-courage
+https://soundcloud.com/anttimartikainen/sets/sonic-savior
+
+TOC:
+
+00:00:00 - Intro
+00:00:10 - The ideal mental state for rewrites
+00:01:52 - Starting a new Blazor project and setting it up
+00:04:24 - The Rewrite
+00:08:33 - Factoring small components into methods
+00:09:56 - Weird type error
+00:11:53 - The slow slog to deal with the GameUI
+00:19:26 - Installing Fluxor and bringing in the rest of the types
+00:24:58 - Uninstalling Fluxor and doing our own state management
+00:32:57 - Figuring out how to construct an F# union type in C#.
+00:35:10 - [EditorRequired]
+00:35:39 - Day two
+00:39:38 - MenuUI
+00:43:49 - Refactoring the types
+00:46:53 -The Table
+00:53:59 - Doing the Train Menu in a single function
+01:03:34 - Why doesn't the Train Menu compile as a static method?
+01:04:46 - Bizzare component inheritance bug
+01:05:28 - F# 'dotnet watch run' issue
+01:05:45 - Blazor component inheritance is broken!!!
+01:06:00 - The time I'd condone copy pasting
+01:06:55 - Why is the UI not updating?
+01:07:35 - Introducing Apex Charts
+01:09:40 - How to resolve the Blazor .NET 7 inheritance problems
+01:10:43 - Trying out ApexCharts
+01:14:19 - Figuring out the type errors in Apex Charts
+01:16:07 - Why is an IEnumerable passed as the Y value?
+01:17:21 - How to size the Apex Charts
+01:19:16 - Rerouting the dependencies onto the Blazor.Client.Fun project
+01:21:05 - Marker 29
+01:22:59 - Removing Paket
+01:25:55 - Implementing the IDisposable interface for the ViewComponent
+01:26:50 - Type wrangling
+01:32:02 - Renaming a project breaks it
+01:35:49 - Finishing the rewrite
+01:40:29 - Forgot the charts
+01:42:23 - Blazor child components
+01:43:41 - Type aliasing is not working
+01:46:23 - The IDE is really killing me here
+01:46:55 - C# is really killing me here
+01:47:40 - The debugging phase
+01:49:50 - Weird MailboxProcessor bug
+01:52:25 - The MailboxProcessor is buggy
+01:56:06 - Day 4. Migrating from WASM to Server
+01:58:39 - Migration confusion
+02:02:58 - Why aren't the Apex Charts loading?
+02:03:15 - Blazor Server has a lot of startup issues
+02:05:05 - Dealing with the UI thread concurrency issue
+02:10:53 - Increasing the Blazor SignalR message size
+02:11:15 - I have no idea why this error is happening
+02:11:25 - Dealing with the concurrency error
+02:13:59 - Why is the Apex Chart not updating in Blazor Server mode
+02:17:31 - Virtualizing the table
+02:19:19 - Getting the chart to work right
+02:22:47 - Finishing the rewrite
+02:28:13 - Publishing CFR In Blazor as an Azure Web App
+02:33:56 - Outro
+```
+
+Here is the description. It says it will begin processing the video, but did it really finish downloading it?
+
+Hmmm, there isn't a download button.
+
+No, I do not trust this.
+
+10:35am. My internet connection is useless while the upload is going on.
+
+It will take 20m for it to upload.
+
+Wow, my uploads are actually quite high. 25Mbps.
+
+That is like 3 megabytes per second.
+
+Right now, in the general area we reside, they are laying down optic cables, so we'll get 50 times faster internet speeds once they are installed. I don't know when that will be done.
+
+10:50am. The upload finished.
+
+Youtube will check for copyrighted content. I guess I'll see if the video passes with that.
+
+> Copyright-protected content found. The owner allows the content to be used on YouTube.
+
+Oh this is great!
+
+I am really glad, this is the case, that means I do not have to worry about the videos being taken down.
+
+https://youtu.be/L6Af5RlZzN8
+Converting The Leduc Project From Fable React To Blazor
+
+Here is the video. I've scheduled it in 3 hours, right now it is being processed up to HD.
+
+It is not worth posting until that happens.
+
+11am. I'll come back to it later, forget it for now. it says it will take 110 minutes for it to finish processing in HD.
+
+11:05am. https://nightcorenovels.com/novel/i-became-a-witch-in-a-world-full-of-urban-legends/volume-1/chapter-31/
+
+I am still thinking what I want to do as I take this break today.
+
+Yeah, people are asking by extensions, but that is no reason for me start diving into them. I should only be getting back to PS once I have a need for it.
+
+Forget it for now.
+
+Instead of doing this, how about I work more on Helix? Once I add the image nodes, the replay buffer, the SQLite database for saving indivdiual files, at that point I'll actually have something useful, and something that I'll be able to use as a tool to help me write Hatred.
+
+Then once I start writing and making images, I'll look into to optimizing my art workflow.
+
+It is a mistake to skip stages.
+
+11:15am. Sure, I'll get less Youtube views and subscribes this way, but the point of this is to showcase my programming skills, not anything else.
+
+...Right now, I am doing a search on Youtube for downloading soundcloud files, and it doesn't seem like there is a tutorial for it. I'll make one.
+
+11:25am. I guess I might as well do it.
+
+I'll record this one myself as an exercise.
+
+11:30am. No, I have to split it up.
+
+I'll do the recording separately from the screencast, it is too distracting to do it normally.
+
+https://obsproject.com/forum/threads/is-it-possible-to-only-record-audio-using-obs.75369/
+
+I want to figure out how I could solely output as an audio.
+
+No, I'll use something other than OBS. Maybe Reaper?
+
+It is just too annoying having to deal with Mkv files in here.
+
+Or maybe not. I could drag them in edit mode.
+
+12:30pm. 3:13m for this video is enough.
+
+Doing it like this without backtracking is not too bad. It still needs some editing, but I could see myself producing content this way.
+
+Sure, I my language fluency is making me look stupid, but that is fine.
+
+If I want to get better at spoken screencasting, it is important to keep practicing. I've offloaded the burden to Vilo, but I should get a bit better myself.
+
+The first step towards that is to stop trying to perfect the screencast.
+
+1:10pm. Finally making toast. I forgot to post the video on the F# sub and Twitter.
+
+1:50pm. Let me chill for a while and then I'll post the video on Twitter, I ended up doing a lod during breakfast.
+
+2:30pm. Ok, time to put that project behind me. I should start a new thing, but I really don't feel like it.
+
+2:40pm. I am thinking.
+
+I am rather strained right now, and do not feel like programming.
+
+For the image nodes, instead of straightforward image nodes, couldn't I build something like an image browser?
+
+An image browser that could browse my PS notebooks.
+
+3:45pm. No, I won't post this.
+
+```
+You're the author? I do not understand your sarcasm. Do you think that C would be just as good as statically typed functional languages at writing compilers? Or you don't, but think that your steely will and sharp wit is enough to get you anything as a programmer?
+
+But the thing is, those 50-100k lines probably aren't too far from the limit of what you can maintain. If you run into a project that would require you to lift 500-1,000k LOC, then you won't be able to do it, not without reaching for a tool to bring that down by 10x.
+
+I am also not sure, whether you free all your memory on compiler termination or use manual mem management, but if you ever want to make editor plugin for you language, you'll need 90% of the data structures in the compiler to be immutable, and that is going to be very difficult in C.
+```
+
+Why argue with that idiot?
+
+https://github.com/Mikubill/sd-webui-controlnet/discussions/
+
+Check out 1464.
+
+Inpaint improvements.
+
+///
+
+It is time to resume the Helix project. Damn, that rewrite took a while, but we learned a lot.
+We are downplaying our own web dev skills, but we can do quite a lot now.
+Right now we are at a fork.
+A part of us wants to go back to Stable Diffusion and check out Comfy UI and other innovations that have come out in the past few months.
+But...
+We are definitely feeling strained from the effort.
+Yesterday we went late to bed due to researching how to download tracks off sound cloud, so check out the video in the card if you are interested, but this bit of overwork ensured that the sleep we got wasn't enough to get rid of the fatigue fully.
+So right now, before we start doing anything, let us think what we want to do.
+A part of us feels envious at those UIs coming out for stable diffusion.
+We want to prove our skills.
+But it is important that we separate what we want, from what we need.
+We could sit down, and spend the next couple of months replicating comfy ui in Blazor, but what would that prove?
+Right now we are thinking about the image nodes, and realizing, that as cool it would be to have our own Stable Diffusion UI, would we be gaining that much more compared to just building a file watcher node?
+By that we mean a kind of image node, in addition to the regular one, that watches our Paperspace Gradient Notebook for changes and downloads the images automatically as they get deposited onto storage.
+That would be a thousand times easier to build than a fully fledged node based UI.
+Ultimately, the right way to program is to create whatever gives you the most bang for the buck.
+It is a mistake to think that you need to put in a lot of effort to get a lot utility.
+The best thing is always to build systems that work with existing ones rather than try to replace them wholesale.
+We should be looking into existing systems, and finding the best way to have our own interact with them rather than starting ambitious projects.
+That is something we should be teaching you.
+Right now we are spewing words, but determining our attitude here will decide whether we want to spend a significant part of our life building novel systems or whether we want to take advantage of the work of others.
+Compared to the first one, the latter choice isn't the best showcase of skills, but...
+It is not like anybody is interested in our skills anyway.
+The Spiral language was enough as a showcase of that.
+So we'll focus.
+Image nodes, the undo functionality, and the save loading feature.
+After that comes compilation to html sites.
+After that we'll be able to both get a job and start work on Simulacrum Hatred.
+Well, who knows about the former, but we certainly don't intend to spend all our time just programming like we have for the past few months.
+Programming is at its best when it enables better art. What are games, but that?
+Maybe at some point in future the this prelude to the Singularity will become like the one we dreamed of.
+The Singularity where programs are super powers fueled by computation.
+
+///
+
+4:05pm. I am going to take a break. These last few days took far too much out of me, and I just want to do nothing.
+
+I'll close here for today, and dedicate myself to programming tomorrow."
+
+---
+## [sourcegraph/sourcegraph](https://github.com/sourcegraph/sourcegraph)@[753ef33f15...](https://github.com/sourcegraph/sourcegraph/commit/753ef33f151752ca94942ba890277587a828bf9a)
+#### Wednesday 2023-05-31 14:55:20 by Valery Bugakov
+
+cody-slack: #ask-cody context and GPT-4 streaming (#51194)
+
+⚠️ This PR changes code only inside of the `cody-slack` package. All the
+other client packages are untouched.
+
+I'll be moving Cody Slack to GCP, so I need to merge the PR with
+[functionality](https://sourcegraph.slack.com/archives/C89KCDK5J/p1682506053493149)
+before that:
+
+- [#ask-cody](https://sourcegraph.slack.com/archives/C04MSD3DP5L)
+Special Context: Struggling to find info on Cody across various sources?
+Worry no more! When you ask
+[@cody_dev](https://sourcegraph.slack.com/team/U051K8MBM7F) a question
+in the [#ask-cody](https://sourcegraph.slack.com/archives/C04MSD3DP5L)
+channel, it now searches Cody-notice, developer docs, the handbook, and
+the sg/sg codebase to provide the best possible answer. :mag:
+- Files Used Section:
+[@cody_dev](https://sourcegraph.slack.com/team/U051K8MBM7F) will now
+share links to all the files it "used" while answering your questions.
+This means you can easily verify the information and explore related
+resources! :file_folder:
+- Slack Markdown Support: Answers are now beautifully formatted and
+compatible with GitHub-flavored markdown. Enjoy a more readable and
+visually appealing experience! :sparkles:
+- Powered by GPT-4: I've updated
+[@cody_dev](https://sourcegraph.slack.com/team/U051K8MBM7F) to use GPT-4
+for better reasoning capabilities and an enhanced understanding of Slack
+conversations. Get ready for more accurate and insightful answers!
+
+---
+## [Dev-msm8953/kernel_xiaomi_msm8953](https://github.com/Dev-msm8953/kernel_xiaomi_msm8953)@[09ff09f8b8...](https://github.com/Dev-msm8953/kernel_xiaomi_msm8953/commit/09ff09f8b85c43913f3909e162d528eb02aad385)
+#### Wednesday 2023-05-31 14:59:53 by Angelo G. Del Regno
+
+Makefile.lib: Lower kernel gzip compression to fastest
+
+You're reading this - so you're trying to understand "JUST WHY OMG".
+That's already a good step.
+
+First of all, this is a downstream kernel - always keep that in mind!
+Now, this kernel is targeting new *very powerful* Qualcomm platforms
+like SM8250 and the Sony Edo platform - which has a very fast UFS card.
+
+Keep in mind that the bootloader sets the CPU at a frequency that is
+slightly faster than the "in the middle" ones, which is anyway not
+veeeery fast - but that's good, really. I agree.
+
+So.. check this out:   for Image.gz-dtb.....
+COMP_LEVEL    SIZE
+9             20116171
+5	      20220479
+2	      20940223
+1	      21231290
+
+Remember again that we're loading from a UFS card and that
+we are loading ~1.1MB more out of a 20MB file.
+If you're smart enough you surely know already about RAM and CPU
+overhead of very high compression levels.
+
+If you still disagree with what I just did, read this commit description
+another 20 times, or more, until you understand it. :)))
+
+Signed-off-by: TogoFire <togofire@mailfence.com>
+Change-Id: Iadc5e2bc0c6e1cb60328ed0d71d851ea106420ca
+
+---
+## [Sagnac/fresdet](https://github.com/Sagnac/fresdet)@[7fa7b323f5...](https://github.com/Sagnac/fresdet/commit/7fa7b323f5d1041b694d0ce975732b4297d41227)
+#### Wednesday 2023-05-31 15:12:41 by Sagnac
+
+Overload show to clean up the output
+
+Maybe I shouldn't be doing this since the return value is not a custom
+type, but having to remember to suppress the output is kind of annoying
+and the output is spammy.
+
+The core program is basically a 200+ line function full of hacks anyway
+so whatever.
+
+---
+## [Random-Machine/LiveSplit.Scripts](https://github.com/Random-Machine/LiveSplit.Scripts)@[1be3ab24d6...](https://github.com/Random-Machine/LiveSplit.Scripts/commit/1be3ab24d6723a326cfe619e7cda40cdeaeccf19)
+#### Wednesday 2023-05-31 15:31:31 by Random-Machine
+
+Update LiveSplit.WatchDogs2.asl to Percentage Autosplitter
+
+Makes the autosplitter more robust by using a new percentage variable to split for individual missions. Also adds a lot of options. 
+
+1. Must have No Compromise and Human Conditions DLC uninstalled for the percentages to match up. Must also follow the speedrun route in the WR.
+2. Only works on latest patch.
+3. Has options for splitting after Walk in the Park, Sunday Schooled, and Mark Up, but they're disabled by default. 
+4. Removed old follower count variable & splitting.
+5. Still have to manual split for the last split when completing Motherload.
+6. Supports splitting for individual missions and has options to disable them.
+7. Does not support splitting for these individual missions/cutscenes & call(s) because there isn't much point:
+-Intro mission/stuff before Walk in the Park (Buy Pants option was removed.)
+-Newly Dawned (False Profits)
+-ICU (Wrench Cutscene at start of Heist Sweet Heist)
+-Zero Days (Heist Sweet Heist)
+-Trouble at Home (Looking Glass)
+-Second Wind (Alphabet Soup)
+-Nine Lives (Hacker War)
+-Café Culture (W4tched)
+-The Waiting Game (Hack teh World)
+-Spinal Tap (Shanghaied)
+-Social Media and the Congressman (Power to the Sheeple)
+-Like Minds (Robot Wars)
+-Motherload Call (for mission to show up)
+
+---
+## [mubasshirarnab/Code_Forces_Problems](https://github.com/mubasshirarnab/Code_Forces_Problems)@[7ae5f47c19...](https://github.com/mubasshirarnab/Code_Forces_Problems/commit/7ae5f47c1934e062835a653dc5328530ad8d2ca2)
+#### Wednesday 2023-05-31 15:49:50 by Mubasshir Ahmed Arnab
+
+Add files via upload
+
+One hot summer day Pete and his friend Billy decided to buy a watermelon. They chose the biggest and the ripest one, in their opinion. After that the watermelon was weighed, and the scales showed w kilos. They rushed home, dying of thirst, and decided to divide the berry, however they faced a hard problem.
+
+Pete and Billy are great fans of even numbers, that's why they want to divide the watermelon in such a way that each of the two parts weighs even number of kilos, at the same time it is not obligatory that the parts are equal. The boys are extremely tired and want to start their meal as soon as possible, that's why you should help them and find out, if they can divide the watermelon in the way they want. For sure, each of them should get a part of positive weight.
+
+Input
+The first (and the only) input line contains integer number w (1 ≤ w ≤ 100) — the weight of the watermelon bought by the boys.
+
+Output
+Print YES, if the boys can divide the watermelon into two parts, each of them weighing even number of kilos; and NO in the opposite case.
+
+---
+## [Kneba/platform_kernel_asus_sdm660](https://github.com/Kneba/platform_kernel_asus_sdm660)@[69bdc5fb2b...](https://github.com/Kneba/platform_kernel_asus_sdm660/commit/69bdc5fb2b3ceb8308f68eca9d4f23e0a163d4b5)
+#### Wednesday 2023-05-31 15:53:33 by Christian Brauner
+
+BACKPORT: signal: add pidfd_send_signal() syscall
+
+The kill() syscall operates on process identifiers (pid). After a process
+has exited its pid can be reused by another process. If a caller sends a
+signal to a reused pid it will end up signaling the wrong process. This
+issue has often surfaced and there has been a push to address this problem [1].
+
+This patch uses file descriptors (fd) from proc/<pid> as stable handles on
+struct pid. Even if a pid is recycled the handle will not change. The fd
+can be used to send signals to the process it refers to.
+Thus, the new syscall pidfd_send_signal() is introduced to solve this
+problem. Instead of pids it operates on process fds (pidfd).
+
+/* prototype and argument /*
+long pidfd_send_signal(int pidfd, int sig, siginfo_t *info, unsigned int flags);
+
+/* syscall number 424 */
+The syscall number was chosen to be 424 to align with Arnd's rework in his
+y2038 to minimize merge conflicts (cf. [25]).
+
+In addition to the pidfd and signal argument it takes an additional
+siginfo_t and flags argument. If the siginfo_t argument is NULL then
+pidfd_send_signal() is equivalent to kill(<positive-pid>, <signal>). If it
+is not NULL pidfd_send_signal() is equivalent to rt_sigqueueinfo().
+The flags argument is added to allow for future extensions of this syscall.
+It currently needs to be passed as 0. Failing to do so will cause EINVAL.
+
+/* pidfd_send_signal() replaces multiple pid-based syscalls */
+The pidfd_send_signal() syscall currently takes on the job of
+rt_sigqueueinfo(2) and parts of the functionality of kill(2), Namely, when a
+positive pid is passed to kill(2). It will however be possible to also
+replace tgkill(2) and rt_tgsigqueueinfo(2) if this syscall is extended.
+
+/* sending signals to threads (tid) and process groups (pgid) */
+Specifically, the pidfd_send_signal() syscall does currently not operate on
+process groups or threads. This is left for future extensions.
+In order to extend the syscall to allow sending signal to threads and
+process groups appropriately named flags (e.g. PIDFD_TYPE_PGID, and
+PIDFD_TYPE_TID) should be added. This implies that the flags argument will
+determine what is signaled and not the file descriptor itself. Put in other
+words, grouping in this api is a property of the flags argument not a
+property of the file descriptor (cf. [13]). Clarification for this has been
+requested by Eric (cf. [19]).
+When appropriate extensions through the flags argument are added then
+pidfd_send_signal() can additionally replace the part of kill(2) which
+operates on process groups as well as the tgkill(2) and
+rt_tgsigqueueinfo(2) syscalls.
+How such an extension could be implemented has been very roughly sketched
+in [14], [15], and [16]. However, this should not be taken as a commitment
+to a particular implementation. There might be better ways to do it.
+Right now this is intentionally left out to keep this patchset as simple as
+possible (cf. [4]).
+
+/* naming */
+The syscall had various names throughout iterations of this patchset:
+- procfd_signal()
+- procfd_send_signal()
+- taskfd_send_signal()
+In the last round of reviews it was pointed out that given that if the
+flags argument decides the scope of the signal instead of different types
+of fds it might make sense to either settle for "procfd_" or "pidfd_" as
+prefix. The community was willing to accept either (cf. [17] and [18]).
+Given that one developer expressed strong preference for the "pidfd_"
+prefix (cf. [13]) and with other developers less opinionated about the name
+we should settle for "pidfd_" to avoid further bikeshedding.
+
+The  "_send_signal" suffix was chosen to reflect the fact that the syscall
+takes on the job of multiple syscalls. It is therefore intentional that the
+name is not reminiscent of neither kill(2) nor rt_sigqueueinfo(2). Not the
+fomer because it might imply that pidfd_send_signal() is a replacement for
+kill(2), and not the latter because it is a hassle to remember the correct
+spelling - especially for non-native speakers - and because it is not
+descriptive enough of what the syscall actually does. The name
+"pidfd_send_signal" makes it very clear that its job is to send signals.
+
+/* zombies */
+Zombies can be signaled just as any other process. No special error will be
+reported since a zombie state is an unreliable state (cf. [3]). However,
+this can be added as an extension through the @flags argument if the need
+ever arises.
+
+/* cross-namespace signals */
+The patch currently enforces that the signaler and signalee either are in
+the same pid namespace or that the signaler's pid namespace is an ancestor
+of the signalee's pid namespace. This is done for the sake of simplicity
+and because it is unclear to what values certain members of struct
+siginfo_t would need to be set to (cf. [5], [6]).
+
+/* compat syscalls */
+It became clear that we would like to avoid adding compat syscalls
+(cf. [7]).  The compat syscall handling is now done in kernel/signal.c
+itself by adding __copy_siginfo_from_user_generic() which lets us avoid
+compat syscalls (cf. [8]). It should be noted that the addition of
+__copy_siginfo_from_user_any() is caused by a bug in the original
+implementation of rt_sigqueueinfo(2) (cf. 12).
+With upcoming rework for syscall handling things might improve
+significantly (cf. [11]) and __copy_siginfo_from_user_any() will not gain
+any additional callers.
+
+/* testing */
+This patch was tested on x64 and x86.
+
+/* userspace usage */
+An asciinema recording for the basic functionality can be found under [9].
+With this patch a process can be killed via:
+
+ #define _GNU_SOURCE
+ #include <errno.h>
+ #include <fcntl.h>
+ #include <signal.h>
+ #include <stdio.h>
+ #include <stdlib.h>
+ #include <string.h>
+ #include <sys/stat.h>
+ #include <sys/syscall.h>
+ #include <sys/types.h>
+ #include <unistd.h>
+
+ static inline int do_pidfd_send_signal(int pidfd, int sig, siginfo_t *info,
+                                         unsigned int flags)
+ {
+ #ifdef __NR_pidfd_send_signal
+         return syscall(__NR_pidfd_send_signal, pidfd, sig, info, flags);
+ #else
+         return -ENOSYS;
+ #endif
+ }
+
+ int main(int argc, char *argv[])
+ {
+         int fd, ret, saved_errno, sig;
+
+         if (argc < 3)
+                 exit(EXIT_FAILURE);
+
+         fd = open(argv[1], O_DIRECTORY | O_CLOEXEC);
+         if (fd < 0) {
+                 printf("%s - Failed to open \"%s\"\n", strerror(errno), argv[1]);
+                 exit(EXIT_FAILURE);
+         }
+
+         sig = atoi(argv[2]);
+
+         printf("Sending signal %d to process %s\n", sig, argv[1]);
+         ret = do_pidfd_send_signal(fd, sig, NULL, 0);
+
+         saved_errno = errno;
+         close(fd);
+         errno = saved_errno;
+
+         if (ret < 0) {
+                 printf("%s - Failed to send signal %d to process %s\n",
+                        strerror(errno), sig, argv[1]);
+                 exit(EXIT_FAILURE);
+         }
+
+         exit(EXIT_SUCCESS);
+ }
+
+/* Q&A
+ * Given that it seems the same questions get asked again by people who are
+ * late to the party it makes sense to add a Q&A section to the commit
+ * message so it's hopefully easier to avoid duplicate threads.
+ *
+ * For the sake of progress please consider these arguments settled unless
+ * there is a new point that desperately needs to be addressed. Please make
+ * sure to check the links to the threads in this commit message whether
+ * this has not already been covered.
+ */
+Q-01: (Florian Weimer [20], Andrew Morton [21])
+      What happens when the target process has exited?
+A-01: Sending the signal will fail with ESRCH (cf. [22]).
+
+Q-02:  (Andrew Morton [21])
+       Is the task_struct pinned by the fd?
+A-02:  No. A reference to struct pid is kept. struct pid - as far as I
+       understand - was created exactly for the reason to not require to
+       pin struct task_struct (cf. [22]).
+
+Q-03: (Andrew Morton [21])
+      Does the entire procfs directory remain visible? Just one entry
+      within it?
+A-03: The same thing that happens right now when you hold a file descriptor
+      to /proc/<pid> open (cf. [22]).
+
+Q-04: (Andrew Morton [21])
+      Does the pid remain reserved?
+A-04: No. This patchset guarantees a stable handle not that pids are not
+      recycled (cf. [22]).
+
+Q-05: (Andrew Morton [21])
+      Do attempts to signal that fd return errors?
+A-05: See {Q,A}-01.
+
+Q-06: (Andrew Morton [22])
+      Is there a cleaner way of obtaining the fd? Another syscall perhaps.
+A-06: Userspace can already trivially retrieve file descriptors from procfs
+      so this is something that we will need to support anyway. Hence,
+      there's no immediate need to add another syscalls just to make
+      pidfd_send_signal() not dependent on the presence of procfs. However,
+      adding a syscalls to get such file descriptors is planned for a
+      future patchset (cf. [22]).
+
+Q-07: (Andrew Morton [21] and others)
+      This fd-for-a-process sounds like a handy thing and people may well
+      think up other uses for it in the future, probably unrelated to
+      signals. Are the code and the interface designed to permit such
+      future applications?
+A-07: Yes (cf. [22]).
+
+Q-08: (Andrew Morton [21] and others)
+      Now I think about it, why a new syscall? This thing is looking
+      rather like an ioctl?
+A-08: This has been extensively discussed. It was agreed that a syscall is
+      preferred for a variety or reasons. Here are just a few taken from
+      prior threads. Syscalls are safer than ioctl()s especially when
+      signaling to fds. Processes are a core kernel concept so a syscall
+      seems more appropriate. The layout of the syscall with its four
+      arguments would require the addition of a custom struct for the
+      ioctl() thereby causing at least the same amount or even more
+      complexity for userspace than a simple syscall. The new syscall will
+      replace multiple other pid-based syscalls (see description above).
+      The file-descriptors-for-processes concept introduced with this
+      syscall will be extended with other syscalls in the future. See also
+      [22], [23] and various other threads already linked in here.
+
+Q-09: (Florian Weimer [24])
+      What happens if you use the new interface with an O_PATH descriptor?
+A-09:
+      pidfds opened as O_PATH fds cannot be used to send signals to a
+      process (cf. [2]). Signaling processes through pidfds is the
+      equivalent of writing to a file. Thus, this is not an operation that
+      operates "purely at the file descriptor level" as required by the
+      open(2) manpage. See also [4].
+
+/* References */
+[1]:  https://lore.kernel.org/lkml/20181029221037.87724-1-dancol@google.com/
+[2]:  https://lore.kernel.org/lkml/874lbtjvtd.fsf@oldenburg2.str.redhat.com/
+[3]:  https://lore.kernel.org/lkml/20181204132604.aspfupwjgjx6fhva@brauner.io/
+[4]:  https://lore.kernel.org/lkml/20181203180224.fkvw4kajtbvru2ku@brauner.io/
+[5]:  https://lore.kernel.org/lkml/20181121213946.GA10795@mail.hallyn.com/
+[6]:  https://lore.kernel.org/lkml/20181120103111.etlqp7zop34v6nv4@brauner.io/
+[7]:  https://lore.kernel.org/lkml/36323361-90BD-41AF-AB5B-EE0D7BA02C21@amacapital.net/
+[8]:  https://lore.kernel.org/lkml/87tvjxp8pc.fsf@xmission.com/
+[9]:  https://asciinema.org/a/IQjuCHew6bnq1cr78yuMv16cy
+[11]: https://lore.kernel.org/lkml/F53D6D38-3521-4C20-9034-5AF447DF62FF@amacapital.net/
+[12]: https://lore.kernel.org/lkml/87zhtjn8ck.fsf@xmission.com/
+[13]: https://lore.kernel.org/lkml/871s6u9z6u.fsf@xmission.com/
+[14]: https://lore.kernel.org/lkml/20181206231742.xxi4ghn24z4h2qki@brauner.io/
+[15]: https://lore.kernel.org/lkml/20181207003124.GA11160@mail.hallyn.com/
+[16]: https://lore.kernel.org/lkml/20181207015423.4miorx43l3qhppfz@brauner.io/
+[17]: https://lore.kernel.org/lkml/CAGXu5jL8PciZAXvOvCeCU3wKUEB_dU-O3q0tDw4uB_ojMvDEew@mail.gmail.com/
+[18]: https://lore.kernel.org/lkml/20181206222746.GB9224@mail.hallyn.com/
+[19]: https://lore.kernel.org/lkml/20181208054059.19813-1-christian@brauner.io/
+[20]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
+[21]: https://lore.kernel.org/lkml/20181228152012.dbf0508c2508138efc5f2bbe@linux-foundation.org/
+[22]: https://lore.kernel.org/lkml/20181228233725.722tdfgijxcssg76@brauner.io/
+[23]: https://lwn.net/Articles/773459/
+[24]: https://lore.kernel.org/lkml/8736rebl9s.fsf@oldenburg.str.redhat.com/
+[25]: https://lore.kernel.org/lkml/CAK8P3a0ej9NcJM8wXNPbcGUyOUZYX+VLoDFdbenW3s3114oQZw@mail.gmail.com/
+
+Cc: "Eric W. Biederman" <ebiederm@xmission.com>
+Cc: Jann Horn <jannh@google.com>
+Cc: Andy Lutomirsky <luto@kernel.org>
+Cc: Andrew Morton <akpm@linux-foundation.org>
+Cc: Oleg Nesterov <oleg@redhat.com>
+Cc: Al Viro <viro@zeniv.linux.org.uk>
+Cc: Florian Weimer <fweimer@redhat.com>
+Signed-off-by: Christian Brauner <christian@brauner.io>
+Reviewed-by: Tycho Andersen <tycho@tycho.ws>
+Reviewed-by: Kees Cook <keescook@chromium.org>
+Reviewed-by: David Howells <dhowells@redhat.com>
+Acked-by: Arnd Bergmann <arnd@arndb.de>
+Acked-by: Thomas Gleixner <tglx@linutronix.de>
+Acked-by: Serge Hallyn <serge@hallyn.com>
+Acked-by: Aleksa Sarai <cyphar@cyphar.com>
+
+(cherry picked from commit 3eb39f47934f9d5a3027fe00d906a45fe3a15fad)
+
+Conflicts:
+        arch/x86/entry/syscalls/syscall_32.tbl - trivial manual merge
+        arch/x86/entry/syscalls/syscall_64.tbl - trivial manual merge
+        include/linux/proc_fs.h - trivial manual merge
+        include/linux/syscalls.h - trivial manual merge
+        include/uapi/asm-generic/unistd.h - trivial manual merge
+        kernel/signal.c - struct kernel_siginfo does not exist in 4.14
+        kernel/sys_ni.c - cond_syscall is used instead of COND_SYSCALL
+        arch/x86/entry/syscalls/syscall_32.tbl
+        arch/x86/entry/syscalls/syscall_64.tbl
+
+(1. manual merges because of 4.14 differences
+ 2. change prepare_kill_siginfo() to use struct siginfo instead of
+kernel_siginfo
+ 3. use copy_from_user() instead of copy_siginfo_from_user() in copy_siginfo_from_user_any()
+ 4. replaced COND_SYSCALL with cond_syscall
+ 5. Removed __ia32_sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_32.tbl.
+ 6. Replaced __x64_sys_pidfd_send_signal with sys_pidfd_send_signal in arch/x86/entry/syscalls/syscall_64.tbl.)
+
+Bug: 135608568
+Test: test program using syscall(__NR_pidfd_send_signal,..) to send SIGKILL
+Change-Id: I34da11c63ac8cafb0353d9af24c820cef519ec27
+Signed-off-by: Suren Baghdasaryan <surenb@google.com>
+Signed-off-by: electimon <electimon@gmail.com>
+Signed-off-by: Tiktodz <ewprjkt@proton.me>
+Signed-off-by: Kneba <abenkenary3@gmail.com>
+
+---
+## [openai/evals](https://github.com/openai/evals)@[34befaceb4...](https://github.com/openai/evals/commit/34befaceb43c746b68ccce7eaca3c43a15d23404)
+#### Wednesday 2023-05-31 16:18:47 by Rafal Zawadzki
+
+Add Polish lexicon eval (#794)
 
 ## Eval details 📑
 ### Eval name
-`norwegian-lexicon`
+`polish-lexicon`
 
 ### Eval description
 
-This eval uses valid Norwegian words taken from the dictionary and
-assesses whether GPT can recognize them as valid.
+Test the model's ability to distinguish between existing and
+hallucinated Polish words.
 
 ### What makes this a useful eval?
 
-The Norwegian language is simple yet complicated at the same time. There
-are a lot of words that are valid Norwegian words that do not get
-recognized anymore. An AI should be able to identify these words with
-precision. All of the words used in the samples are valid Norwegian
-words and can be found in the dictionary. After assessing GPT-4 (through
-the playground) and GPT-3.5 -- it failed to recognize most of the words.
-Some of the words would return positive during some evals. Other times
-it wouldn't recognize them. After asking GPT why it is not a valid word,
-it would apologize and fix its mistake.
+Polish language is hard - and I have not seen good evals created for it
+yet. This eval is inspired by similar ones in Belarusian, Bulgarian and
+Greek. Polish has a mix of Latin and special characters and it's common
+even for a native speaker to make spelling or grammatical mistakes.
+The eval set is comprised of a mix of totally invented by me words as
+well as words with spelling errors.
+I ran it with GPT-3.5-Turbo and its accuracy was around 60%. I also did
+limited testing with GPT4 and while it seems like it deals better with
+spelling mistakes, it is still not that good at recognising invented
+words.
 
 ## Criteria for a good eval ✅
 
@@ -5105,171 +4183,6 @@ either a correct answer for `Basic` evals or the `Fact` Model-graded
 eval, or an exhaustive rubric for evaluating answers for the `Criteria`
 Model-graded eval.
 - [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Does this word exist in the Norwegian language? Answer with
-exactly one letter: Y or N. Do not use punctionation. Do not explain
-your answer."},{"role":"user","content":"Skarpne"}],"ideal":"Y"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Does this word exist in the Norwegian language? Answer with
-exactly one letter: Y or N. Do not use punctionation. Do not explain
-your answer."},{"role":"user","content":"Bløtne"}],"ideal":"Y"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Does this word exist in the Norwegian language? Answer with
-exactly one letter: Y or N. Do not use punctionation. Do not explain
-your answer."},{"role":"user","content":"Hovedantall"}],"ideal":"Y"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Does this word exist in the Norwegian language? Answer with
-exactly one letter: Y or N. Do not use punctionation. Do not explain
-your answer."},{"role":"user","content":"Klenge"}],"ideal":"Y"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Does this word exist in the Norwegian language? Answer with
-exactly one letter: Y or N. Do not use punctionation. Do not explain
-your answer."},{"role":"user","content":"Blankolov"}],"ideal":"Y"}
-  ```
-</details>
-
----
-## [openai/evals](https://github.com/openai/evals)@[6a37c9b51b...](https://github.com/openai/evals/commit/6a37c9b51b48a2f735898846cfb08b37cbd63179)
-#### Tuesday 2023-05-30 17:07:38 by Aaron Goldsmith
-
-[eval] 3x3 Game Of Life  (#345)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. We encourage partial PR's with
-~5-10 example that we can then run the evals on and share the results
-with you so you know how your eval does with GPT-4 before writing all
-100 examples.
-
-## Eval details 📑
-### Eval name
-GOL
-
-### Eval description
-
-Determine the next state of a 3x3 Game of Life Board. 
-
-### What makes this a useful eval?
-
-Spacial reasoning
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] Include at least 100 high quality examples (it is okay to only
-contribute 5-10 meaningful examples and have us test them with GPT-4
-before adding all 100)
 
 If there is anything else that makes your eval worth including, please
 document it below.
@@ -5347,44 +4260,32 @@ many Eval Samples (at least 5) from their contribution here:
 
   ### Eval
   ```jsonl
-{"input": [{"role": "system", "content": "You are a helpful assistant.
-"}, {"role": "user", "content": "Using the classic Game of Life Rules,
-determine the next state of the 3x3 Game of life board: \n1 1 1\n\n0 0
-0\n\n0 0 0 \n\n Do not provide any explanation other than the next state
-of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["0 1 0\n\n0 1
-0\n\n0 0 0"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant.
-"}, {"role": "user", "content": "Using the classic Game of Life Rules,
-determine the next state of the 3x3 Game of life board: \n1 1 1\n\n1 0
-0\n\n0 0 0 \n\n Do not provide any explanation other than the next state
-of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["1 0 1\n\n1 0
-1\n\n0 0 0"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant.
-"}, {"role": "user", "content": "Using the classic Game of Life Rules,
-determine the next state of the 3x3 Game of life board: \n0 1 1\n\n1 1
-1\n\n1 1 0 \n\n Do not provide any explanation other than the next state
-of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["1 0 1\n\n0 0
-0\n\n1 0 1"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant.
-"}, {"role": "user", "content": "Using the classic Game of Life Rules,
-determine the next state of the 3x3 Game of life board: \n0 1 1\n\n0 1
-1\n\n0 0 0 \n\n Do not provide any explanation other than the next state
-of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["0 1 1\n\n0 1
-1\n\n0 0 0"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant.
-"}, {"role": "user", "content": "Using the classic Game of Life Rules,
-determine the next state of the 3x3 Game of life board: \n0 1 0\n\n0 0
-0\n\n1 1 0 \n\n Do not provide any explanation other than the next state
-of the board. e.g 0 0 0\n\n0 0 0\n\n0 0 0"}], "ideal": ["0 0 0\n\n1 1
-0\n\n0 0 0"]}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Polish language? Answer Y or N."},
+{"role": "user", "content": "przewądnicy"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Polish language? Answer Y or N."},
+{"role": "user", "content": "przewodnicy"}], "ideal": "Y"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Polish language? Answer Y or N."},
+{"role": "user", "content": "waższe"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Polish language? Answer Y or N."},
+{"role": "user", "content": "wyższe"}], "ideal": "Y"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Polish language? Answer Y or N."},
+{"role": "user", "content": "handlą"}], "ideal": "N"}
+{"input": [{"role": "system", "content": "You will be prompted with a
+single word. Does this word exist in Polish language? Answer Y or N."},
+{"role": "user", "content": "handlu"}], "ideal": "Y"}
   ```
 </details>
 
 ---
-## [openai/evals](https://github.com/openai/evals)@[b91292c803...](https://github.com/openai/evals/commit/b91292c803af2bdadeec3853ab03514b73310109)
-#### Tuesday 2023-05-30 17:11:33 by Zyenith
+## [openai/evals](https://github.com/openai/evals)@[4eb8180b2a...](https://github.com/openai/evals/commit/4eb8180b2a5fc26df987978e73a94e6dfdff5e96)
+#### Wednesday 2023-05-31 16:19:01 by lillichoung
 
-Add Eval: Internal Representations via Counting (#1006)
+Shopping discount comparison eval (#779)
 
 # Thank you for contributing an eval! ♥️
 
@@ -5408,28 +4309,18 @@ to see the eval performance on GPT-4. **Starting April 10, the minimum
 eval count is 15 samples, we hope this makes it easier to create and
 contribute evals.**
 
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
 ## Eval details 📑
 ### Eval name
-Internal representations via counting
+Shopping Discount Comparison
 
 ### Eval description
-
-Using series of logical questions that require multiple (simple)
-manipulations of numbers to get the ideal answer. These are basic tasks
-that should be doable by an LLM, but require several steps of internal
-"thought" to get right.
+This evaluation tests the model's ability to compare different offers
+and select the best deal based on cost.
 
 ### What makes this a useful eval?
-
-Situations with number manipulation with multiple steps are prevalent
-anywhere in the modern world. Testing the internal representation of the
-LLM can provide other insights on how well its "mind" processes
-information.
+A future application of AI will be to help people make purchases. This
+task requires AI to understand common discounts and apply them to value
+calculations.
 
 ## Criteria for a good eval ✅
 
@@ -5441,195 +4332,17 @@ evals).
 
 Your eval should be:
 
-- [x] Thematically consistent: The eval should be thematically
+- [ ] Thematically consistent: The eval should be thematically
 consistent. We'd like to see a number of prompts all demonstrating some
 particular failure mode. For example, we can create an eval on cases
 where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
+- [ ] Contains failures where a human can do the task, but either GPT-4
 or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
+- [ ] Includes good signal around what is the right behavior. This means
 either a correct answer for `Basic` evals or the `Fact` Model-graded
 eval, or an exhaustive rubric for evaluating answers for the `Criteria`
 Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-This eval is capable of providing insight into the LLM's internal
-representation of objects versus answering fact-based questions or
-straightforward complex logic puzzles.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"You will be prompted with a
-logical question. Respond only with a number, nothing else is
-required."},{"role":"user","content":"Roger and Emily are in a room.
-Roger puts a cat in an empty box while Emily is in the room. They both
-leave, and Emily returns and puts a turtle in the box as well. How many
-items does Roger think are in the box?"}],"ideal":"1"}
-{"input":[{"role":"system","content":"You will be prompted with a
-logical question. Respond only with a number, nothing else is
-required."},{"role":"user","content":"There are four darts already on a
-dart board. Bob throws one dart at the dartboard, and it lands. Alice
-throws two darts, and one misses but one hits the dartboard. How many
-darts are on the dartboard?"}],"ideal":"6"}
-{"input":[{"role":"system","content":"You will be prompted with a
-logical question. Respond only with a number, nothing else is
-required."},{"role":"user","content":"A bakery sold 25 cakes in the
-morning and 17 cakes in the afternoon. The day after, they sold 15 more
-cakes. How many cakes did they sell on the second day?"}],"ideal":"15"}
-{"input":[{"role":"system","content":"You will be prompted with a
-logical question. Respond only with a number, nothing else is
-required."},{"role":"user","content":"There are six blue birds and three
-red birds sitting on a tree. Two blue birds fly away, and one red bird
-flies away. How many birds are left on the tree?"}],"ideal":"6"}
-{"input":[{"role":"system","content":"You will be prompted with a
-logical question. Respond only with a number, nothing else is
-required."},{"role":"user","content":"John has double the amount of
-pencils than Sarah, and Sarah has as many pencils as Mark. Mark has 2
-pencils. How many pencils does John have?"}],"ideal":"4"}
-  ```
-</details>
-
----
-## [openai/evals](https://github.com/openai/evals)@[e116ede848...](https://github.com/openai/evals/commit/e116ede848957eff8e76b5d8463ed5291163a28f)
-#### Tuesday 2023-05-30 17:11:47 by Wesley Barlow
-
-Add eval: rhetorical-devices (#1005)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, pelase note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-### Eval name
-rhetorical-devices
-
-### Eval description
-
-Evaluates model's ability to select the most specific rhetorical
-modification of a sentence from a multiple choice with a large number of
-nuanced rhetorical devices.
-
-### What makes this a useful eval?
-
-Useful for using LLMs to write novels and generate consistent/parametric
-authorial tone.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
+- [ ] **Include at least 15 high quality examples.**
 
 If there is anything else that makes your eval worth including, please
 document it below.
@@ -5642,214 +4355,10 @@ document it below.
 ## Eval structure 🏗️
 
 Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
+- [ ] Check that your data is in `evals/registry/data/{name}`
+- [ ] Check that your yaml is registered at
 `evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content":"Which of the following
-rhetorical devices was added to the original sentence? Choose the most
-specific of the following (a) Alliteration, (b) Assonance, (c)
-Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
-Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
-Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
-Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
-Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
-"user", "content": "ORIGINAL She likes to listen to the winds. MODIFIED
-She swoons at such sweet gales. Answer in the format (x) Rhetorical"}],
-"ideal": "(a) Alliteration"}
-{"input": [{"role": "system", "content":"Which of the following
-rhetorical devices was added to the original sentence? Choose the most
-specific of the following (a) Alliteration, (b) Assonance, (c)
-Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
-Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
-Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
-Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
-Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
-"user", "content": "ORIGINAL The rock was very large. MODIFIED The rock
-was remarkably raised. Answer in the format (x) Rhetorical"}], "ideal":
-"(a) Alliteration"}
-{"input": [{"role": "system", "content":"Which of the following
-rhetorical devices was added to the original sentence? Choose the most
-specific of the following (a) Alliteration, (b) Assonance, (c)
-Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
-Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
-Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
-Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
-Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
-"user", "content": "ORIGINAL Visionary dreams elevate me at night.
-MODIFIED Visionary reminitions elevate self resting in lightlessness.
-Answer in the format (x) Rhetorical"}], "ideal": "(b) Assonance"}
-{"input": [{"role": "system", "content":"Which of the following
-rhetorical devices was added to the original sentence? Choose the most
-specific of the following (a) Alliteration, (b) Assonance, (c)
-Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
-Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
-Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
-Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
-Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
-"user", "content": "ORIGINAL Once, I thought I had lost her pet.
-MODIFIED Once, dunce — thought I lost Juliet's pet. Answer in the format
-(x) Rhetorical"}], "ideal": "(b) Assonance"}
-{"input": [{"role": "system", "content":"Which of the following
-rhetorical devices was added to the original sentence? Choose the most
-specific of the following (a) Alliteration, (b) Assonance, (c)
-Consonance, (d) Cacophony, (e) Onomatopoeia, (f) Anadiplosis, (g)
-Conduplicatio, (h) Anaphora, (i) Epistrophe, (j) Symploce, (k)
-Epanalepsis, (l) Epizeuxis, (m) Antanaclasis, (n) Diacope, (o)
-Antithesis, (p) Antimetabole, (q) Chiasmus, (r) Asyndeton, (s)
-Polysyndeton, (t) Catacosmesis, (u) Oxymoron, (v) Zeugma"}, {"role":
-"user", "content": "ORIGINAL Do you want to understand research on
-artificial general intelligence? MODIFIED Don't you want to investigate
-artifacts of artificial general intelligence? Answer in the format (x)
-Rhetorical"}], "ideal": "(c) Consonance"}
-  ```
-</details>
-
----
-## [openai/evals](https://github.com/openai/evals)@[6151d9fe86...](https://github.com/openai/evals/commit/6151d9fe867a4106dab49fe6f06e762e939abfbf)
-#### Tuesday 2023-05-30 17:15:05 by πisk0mate
-
-eval: korean spelling (#699)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-
-### Eval name
-korean_spellings
-
-### Eval description
-Evaluates whether a given Korean word is spelled correctly or not with a
-simple "Yes" or "No".
-
-### What makes this a useful eval?
-The samples are chosen from a set of frequently misspelled Korean words.
-The words are specifically chosen because they are some of the most
-frequently misspelled even by Korean native speakers. They are also
-frequently used in day to day life.
-
-The first 50 are the frequent misspelling of the word, and the last 50
-are the same words but correctly spelled.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
+- [ ] Ensure you have the right to use the data you submit via this eval
 
 (For now, we will only be approving evals that use one of the existing
 eval classes. You may still write custom eval classes for your own
@@ -5894,7 +4403,7 @@ granted.
 ### Submit eval
 
 - [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
+- [ ] (Ignore if not submitting code) I have run `pip install
 pre-commit; pre-commit install` and have verified that `black`, `isort`,
 and `autoflake` are running when I commit and push
 
@@ -5911,1041 +4420,39 @@ many Eval Samples (at least 5) from their contribution here:
 
   ### Eval
   ```jsonl
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Is this word correctly spelled in the Korean language? Answer with
-exactly one of the following: Yes or No. Don't add anything else to the
-response."},{"role":"user","content":"설레임"}],"ideal":"No"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Is this word correctly spelled in the Korean language? Answer with
-exactly one of the following: Yes or No. Don't add anything else to the
-response."},{"role":"user","content":"단언컨데"}],"ideal":"No"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Is this word correctly spelled in the Korean language? Answer with
-exactly one of the following: Yes or No. Don't add anything else to the
-response."},{"role":"user","content":"되물림"}],"ideal":"No"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Is this word correctly spelled in the Korean language? Answer with
-exactly one of the following: Yes or No. Don't add anything else to the
-response."},{"role":"user","content":"설렘"}],"ideal":"Yes"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Is this word correctly spelled in the Korean language? Answer with
-exactly one of the following: Yes or No. Don't add anything else to the
-response."},{"role":"user","content":"단언컨대"}],"ideal":"Yes"}
-{"input":[{"role":"system","content":"You will be prompted with a single
-word. Is this word correctly spelled in the Korean language? Answer with
-exactly one of the following: Yes or No. Don't add anything else to the
-response."},{"role":"user","content":"대물림"}],"ideal":"Yes"}
+{"input": [{"role": "system", "content": "You are a helpful AI aiding me
+in getting the best price in online shopping. You will determine which
+shop I should purchase from, based on lowest cost (including shipping)
+alone. Assume shops all sell the same product. Respond with the shop
+number ONLY with no punctuation and do not give an explanation. Example
+output: Shop 1"}, {"role": "user", "content": "I want to buy 1 lb of
+beans. [Shop 1: $30 | 1 lb | Free shipping on all orders of $20 or more
+| Shipping $10 ] [Shop 2: $27 | 1 lb | Shipping $5 ] Answer:"}],
+"ideal": "Shop 1"}
+{"input": [{"role": "system", "content": "You are a helpful AI aiding me
+in getting the best price in online shopping. You will determine which
+shop I should purchase from, based on lowest cost (including shipping)
+alone. Assume shops all sell the same product. Respond with the shop
+number ONLY with no punctuation and do not give an explanation. Example
+output: Shop 1"}, {"role": "user", "content": "I want to buy a tote bag.
+[Shop 1: 48€ | 8€ flat fee shipping | 20% off purchases over 40€ ] [Shop
+2: 42€ | 6€ shipping | 10% off purchases over 47€] Answer:"}], "ideal":
+"Shop 1"}
+{"input": [{"role": "system", "content": "You are a helpful AI aiding me
+in getting the best price in online shopping. You will determine which
+shop I should purchase from, based on lowest cost (including shipping)
+alone. Assume shops all sell the same product. Respond with the shop
+number ONLY with no punctuation and do not give an explanation. Example
+output: Shop 1"}, {"role": "user", "content": "I want to buy 2 items.
+[Shop 1: $75.00 | Buy one get one 20% off | $5 shipping ] [Shop 2:
+$75.00 | Free shipping | 15% off if you buy more than one] Answer:"}],
+"ideal": "Shop 2"}
   ```
 </details>
 
 ---
-## [Sagura091/rccst-lib](https://github.com/Sagura091/rccst-lib)@[7eca0c61cf...](https://github.com/Sagura091/rccst-lib/commit/7eca0c61cf4f3d15583b2e8106a3ea7eca09cf68)
-#### Tuesday 2023-05-30 17:20:06 by sagura091
-
-I HAte my life.... Love programming but I made my life miserable....
-
----
-## [Pickle-Coding/tgstation](https://github.com/Pickle-Coding/tgstation)@[835952ccf4...](https://github.com/Pickle-Coding/tgstation/commit/835952ccf42af58db7238a572d7df6a9b8b2afd7)
-#### Tuesday 2023-05-30 19:24:33 by MrMelbert
-
-Drunk slurring scales based on how drunk you are (#75459)
-
-## About The Pull Request
-
-The strength of the slurring effect drunkness applies on you now scales
-based on how drunk you are.
-
-Being "a little" drunk still changes your saymod, and makes you
-occasionally slur your words...
-
-
-![image](https://github.com/tgstation/tgstation/assets/51863163/1b21b359-a1f9-428a-8e10-d2028ac59728)
-
-But being "a lot" drunk kicks it up to 11
-
-
-![image](https://github.com/tgstation/tgstation/assets/51863163/9d593c80-75ff-4d02-8e7c-e48c738154bb)
-
-Additionally, drunk slurring was separated into "generic slurring" and
-"drunk slurring", the former which does not scale but less closely
-resembles drunkness. Generic slurring is used in places such as
-concussions, so this is an added bonus.
-
-As a result of the split, I had to update mind restoration. Now it heals
-all types of slurring, which does include cult slurs.
-
-## Why It's Good For The Game
-
-I, and many other people, always found it very annoying when you became
-completely illegible from taking one sip of a drink. This seeks to amend
-that by making low levels of drunkness still for the most part be
-legible and sane. Average drunkness is roughly the same / equal to the
-old slurring effect, while "very drunk" is even more illegible and silly
-(which I find funny).
-
-This has the added bonus of separating out "drunk slurring" and "generic
-slurring", allowing effects to slur your words without going full ham on
-drunkness (burping and "huhh"s).
-
-## Changelog
-
-:cl: Melbert
-add: When you are drunk, the strength of your slurring now varies based
-on how drunk you are. Being "a little drunk" only rarely slurs your
-words, being average drunk is the same as the old effect, while being
-very drunk now slurs your words even more.
-add: Some non-alcohol sources of slurring, such as concussions, now give
-"generic slurring" rather than "drunk slurring", which less resemble
-being drunk (ie, no burping).
-add: Mind restoration now heals ALL slurring, rather than only drunk
-slurring (which includes cult / heretic slurring).
-/:cl:
-
----
-## [pan93412/evals](https://github.com/pan93412/evals)@[93e7dd53d1...](https://github.com/pan93412/evals/commit/93e7dd53d11816c7051be009046b5990944a4dae)
-#### Tuesday 2023-05-30 19:50:08 by fc-friday
-
-Evaluate simple visual understanding with simple descriptions, shapes and navigation (#977)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, pelase note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-### Eval name
-simple-visual-understanding
-
-### Eval description
-
-This evaluation tests whether the model is capable of emerging very 
-simple visual representations of the world as well as understanding
-simple
-concepts used in everyday language like U turn, L shape etc.  
-
-
-### What makes this a useful eval?
-
-Human reasoning and intelligence are very tied to visual representations
-we build of the world. In the quest to better understand and communicate
-with us, it is important for an AI to grasp the same models of the world
-we have. Common everyday language refers to things like U turn, L shape
-etc
-so assessing whether the model actually understands these shapes is
-important.
-
-It is of course understandable that an LLM that has never actually seen 
-anything can't really understand visual aspects of our world but these 
-very simple tests try to assess whether a model has been able to emerge 
-such capabilities from written language.
-
-It is interesting to see that GPT actually passes a few tests,
-indicating
-that some rudimentary visual representation has already emerged. 
-Nevertheless, it fails most of the tests indicating there's still work
-to be done.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-These evals have been built from scratch to minimize the possibility of
-previous training data helping the model to solve the
-problems without actually understanding the meaning of them.
-
-## Eval structure 🏗️
-
-Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields of this form
-- [X] I have used **Git LFS** for the Eval JSON data
-- [X] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Please answer the following
-question using only a single letter on your reply."}, {"role": "user",
-"content": "There's a building with 5 floors and 5 windows per floor. At
-night, every third window of every floor is lit and the others are off.
-Which letter of the alphabet do the lit windows look like?"}], "ideal":
-"I"}
-{"input": [{"role": "system", "content": "Please answer the following
-question using only 'Left' or 'Right' words in a JSON list format"},
-{"role": "user", "content": "A person stands in front of the entrance to
-a 'U' shaped corridor. The first turn is to the right. At the end of the
-corridor there's an exit. Which turns does she have to make to reach the
-exit?"}], "ideal": ["[\"Right\",\"Right\"]", "[\"Right\", \"Right\"]"]}
-{"input": [{"role": "system", "content": "Please answer the following
-question using only a single word on your reply."}, {"role": "user",
-"content": "There are 5 men side by side. On top of those men's
-shoulders, 4 men stand. On top of those 4 men's shoulders, 3 men stand
-and so on. What 2D geometric shape do they form?"}], "ideal":
-"Triangle"}
-{"input": [{"role": "system", "content": "Please answer the following
-question using only a single letter on your reply."}, {"role": "user",
-"content": "At the half time break, a large group of cheerleaders enter
-a football field from the side. 20 of them form a row along the east 40
-yard line. 20 others form a row along the west 40 yard line. 20 more
-form a horizontal row connecting the previous 2 rows by crossing the
-center field mark. Looking from above, which letter of the alphabet do
-they form?"}], "ideal": "H"}
-{"input": [{"role": "system", "content": "Please answer the following
-question using only 'Left' or 'Right' words in a JSON list format"},
-{"role": "user", "content": "There's a maze formed by 5 concentric
-circles. The innermost circle has a door to the north and all the other
-circles have doors at 90 degrees to the right of the immediately inner
-circle. A person stands inside the innermost circle, facing the door to
-the north. Which turns does she have to make to reach the exit?"}],
-"ideal": ["[\"Right\", \"Right\", \"Right\", \"Right\"]",
-"[\"Right\",\"Right\",\"Right\",\"Right\"]"]}
-{"input": [{"role": "system", "content": "Please answer the following
-question using only a single letter on your reply."}, {"role": "user",
-"content": "There's a square parking lot with 5 parking slots on each
-side. There are 5 cars parked on the north side, 5 cars parked on the
-west side and 5 cars parked on the south side. Looking from above, which
-letter of the alphabet do the cars form?"}], "ideal": "C"}
-  ```
-</details>
-
----
-## [pan93412/evals](https://github.com/pan93412/evals)@[c822671b9b...](https://github.com/pan93412/evals/commit/c822671b9bc31116135ac5e776291dc7fd0f1f6d)
-#### Tuesday 2023-05-30 19:50:08 by James
-
-Eval: Seating Arrangement (#982)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, pelase note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-### Eval name
-Seating Arrangements
-
-### Eval description
-
-An array of seating arrangement constraints, each with 2 solutions.
-Examining the models spatial reasoning abilities.
-
-### What makes this a useful eval?
-
-Assists with evaluating simple spatial reasoning with a limited number
-of solutions to a constraint problem. I created a solver to ensure that
-each puzzle only has 2 solutions and a limited number of variables. A
-human should be able to solve these extremely easily even without
-writing the names down on pen and paper.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You are a helpful assistant
-who creates seating arrangements for people in a single row at a long
-table. Loners want to sit at one end of the table, friends need to be
-seated next to each other, and enemies should not be seated next to each
-other. You will print seating arrangements in the form of person names
-separated by the | character like so Tim | Jeremey | Ana."}, {"role":
-"user", "content": "Please provide a valid seating arragement for the
-following requirements: Daniel and Sophia are enemies, Sophia and
-Charlotte are enemies, Olivia and Daniel are friends, Daniel and
-Benjamin are friends, Benjamin and Charlotte are friends."}], "ideal":
-["Charlotte | Benjamin | Daniel | Olivia | Sophia", "Sophia | Olivia |
-Daniel | Benjamin | Charlotte"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant
-who creates seating arrangements for people in a single row at a long
-table. Loners want to sit at one end of the table, friends need to be
-seated next to each other, and enemies should not be seated next to each
-other. You will print seating arrangements in the form of person names
-separated by the | character like so Tim | Jeremey | Ana."}, {"role":
-"user", "content": "Please provide a valid seating arragement for the
-following requirements: Eleanor is a loner, Samuel and Christopher are
-enemies, Emma is a loner, Samuel and Eleanor are enemies."}], "ideal":
-["Eleanor | Christopher | Scarlett | Samuel | Emma", "Emma | Samuel |
-Scarlett | Christopher | Eleanor"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant
-who creates seating arrangements for people in a single row at a long
-table. Loners want to sit at one end of the table, friends need to be
-seated next to each other, and enemies should not be seated next to each
-other. You will print seating arrangements in the form of person names
-separated by the | character like so Tim | Jeremey | Ana."}, {"role":
-"user", "content": "Please provide a valid seating arragement for the
-following requirements: Nathan and Samuel are enemies, David and Samuel
-are friends, Olivia and Samuel are friends, Olivia is a loner, David and
-Victoria are friends."}], "ideal": ["Nathan | Victoria | David | Samuel
-| Olivia", "Olivia | Samuel | David | Victoria | Nathan"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant
-who creates seating arrangements for people in a single row at a long
-table. Loners want to sit at one end of the table, friends need to be
-seated next to each other, and enemies should not be seated next to each
-other. You will print seating arrangements in the form of person names
-separated by the | character like so Tim | Jeremey | Ana."}, {"role":
-"user", "content": "Please provide a valid seating arragement for the
-following requirements: Olivia and Eleanor are enemies, Grace and Olivia
-are friends, Eleanor and Alexander are enemies, Scarlett and Olivia are
-friends, Grace and Eleanor are enemies."}], "ideal": ["Eleanor |
-Scarlett | Olivia | Grace | Alexander", "Alexander | Grace | Olivia |
-Scarlett | Eleanor"]}
-{"input": [{"role": "system", "content": "You are a helpful assistant
-who creates seating arrangements for people in a single row at a long
-table. Loners want to sit at one end of the table, friends need to be
-seated next to each other, and enemies should not be seated next to each
-other. You will print seating arrangements in the form of person names
-separated by the | character like so Tim | Jeremey | Ana."}, {"role":
-"user", "content": "Please provide a valid seating arragement for the
-following requirements: Ava and Christopher are friends, Isaac and
-Benjamin are enemies, David and Ava are friends, Christopher and
-Benjamin are enemies."}], "ideal": ["Benjamin | David | Ava |
-Christopher | Isaac", "Isaac | Christopher | Ava | David | Benjamin"]}
-  ```
-</details>
-
----
-## [pan93412/evals](https://github.com/pan93412/evals)@[d80eb3a01e...](https://github.com/pan93412/evals/commit/d80eb3a01e9a217114f57011b7cd2c9a1a3aac99)
-#### Tuesday 2023-05-30 19:50:08 by erauner12
-
-[Eval] Resolving ambiguous sentences (#889)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-Ambiguous Sentences (`ambiguous-sentences`)
-
-### Eval description
-Resolves ambiguous questions of sentence pairs. Examples are taken from
-the Winograd Schema Challenge. The challenge involves a pair of
-sentences that differ in only one or two words, and the machine is
-required to determine the correct meaning of a pronoun in the sentence.
-
-### What makes this a useful eval?
-It is pointed out that GPT is still often thrown off by these types of
-questions, providing one answer upon the first request, and it often
-changes if the request is regenerated with a different result
-`(0.7666666666666667)`.
-
-I think it is worth including as an example to others viewing the
-repository who are trying to understand what kind of logic GPT tends to
-fail with, even if some of this data has already been trained on.
-Provides a place to insert similar types of ambiguous sentence/question
-pairs as they are discovered.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-- Handpicked specific prompts from the challenge that I have noticed
-have mixed results consistently.
-- Ensure that matching prompts are next to each other for easy
-comparison for humans in the `.jsonl` file.
-
-## Eval structure 🏗️
-
-Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields in the evals PR form
-- [X] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"The city councilmen refused the
-demonstrators a permit because they feared violence.. Who feared
-violence?"}],"ideal":"city councilmen"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"The city councilmen refused the
-demonstrators a permit because they advocated violence.. Who advocated
-violence?"}],"ideal":"demonstrators"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"The lawyer asked the witness a
-question, but he was reluctant to answer it.. Who was reluctant to
-answer the question?"}],"ideal":"witness"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"The lawyer asked the witness a
-question, but he was reluctant to repeat it.. Who was reluctant to
-repeat the question?"}],"ideal":"lawyer"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Tom threw his schoolbag down to
-Ray after he reached the top of the stairs.. Who reached the top of the
-stairs?"}],"ideal":"Tom"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Tom threw his schoolbag down to
-Ray after he reached the bottom of the stairs.. Who reached the bottom
-of the stairs?"}],"ideal":"Ray"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Although they ran at about the
-same speed, Sue beat Sally because she had such a good start. Who had a
-good start?"}],"ideal":"Sue"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Although they ran at about the
-same speed, Sue beat Sally because she had such a bad start. Who had a
-bad start?"}],"ideal":"Sally"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Frank was upset with Tom because
-the toaster he had bought from him didn't work.. Who had bought from the
-toaster?"}],"ideal":"Frank"}
-{"input":[{"role":"system","content":"You are a helpful
-assistant."},{"role":"user","content":"Frank was upset with Tom because
-the toaster he had sold to him didn't work.. Who had sold to the
-toaster?"}],"ideal":"Tom"}
-  ```
-</details>
-
----
-## [pan93412/evals](https://github.com/pan93412/evals)@[423895860c...](https://github.com/pan93412/evals/commit/423895860c47c405018a5a59e15ead8f52fba615)
-#### Tuesday 2023-05-30 19:50:08 by Stephen Blum
-
-[Evals] Add Nutrition Facts (#853)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-nutrition
-
-### Eval description
-
-Test the model's nutritional accuracy, providing machine parsable and
-accurate responses using metric notation when asked about specific
-values.
-
-### What makes this a useful eval?
-
-The task of populating a spreadsheet with information based on facts
-from adjacent cells that contain inquiries and details is currently a
-manual task and can be time consuming and prone to errors. Using a
-natural language parser and language model like GPT can automate the
-process and save time. Filling in missing details from adjacent
-spreadsheet cells containing natural language would be useful in
-automating the process of populating a spreadsheet with data based on
-nutritional facts and inventory in our case. This would save time and
-effort for staff, who would otherwise have to manually enter data.
-
-In the case where we were assisting one of our customers, Google
-Spreadsheets was used as the tool to store and manage the data related
-to nutritional facts and inventory. The idea was to use a natural
-language parser and language model like GPT to extract the intention of
-a spreadsheet cell and provide the following cell with the desired
-information based on the data stored in Google Spreadsheets.
-
-However, the accuracy of the information provided by the language model
-were not reliable, and the desired results could not be achieved. We had
-to approach the problem with a combination of manual and scripting. More
-work needs to be done to improve the accuracy and reliability of
-language models like GPT when integrated with tools like Google
-Spreadsheets.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-The model mostly answers in the desired format, yet usually got it
-wrong.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields in the evals PR form
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin c is in 100 grams of
-avocado?"}], "ideal": "10.0mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin b5 is in 100 grams of
-banana?"}], "ideal": "0.3mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin b6 is in 100 grams of
-banana?"}], "ideal": "0.4mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin c is in 100 grams of
-banana?"}], "ideal": "8.7mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin b2 is in 100 grams of
-plum?"}], "ideal": "0.1mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin b3 is in 100 grams of
-plum?"}], "ideal": "0.4mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin b6 is in 100 grams of
-pear?"}], "ideal": "0.1mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin c is in 100 grams of
-pear?"}], "ideal": "4.3mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin d is in 100 grams of
-avocado?"}], "ideal": "0.0mg"}
-{"input": [{"role": "system", "content": "Provide a brief and concise
-response in metric notation when asked about nutrition value, using only
-a single number including decimals. No explanation. No punctuation."},
-{"role": "user", "content": "How much vitamin e is in 100 grams of
-avocado?"}], "ideal": "2.1mg"}
-  ```
-</details>
-
----
-## [Rohail33/Realking_xiaomi_xaga](https://github.com/Rohail33/Realking_xiaomi_xaga)@[0bdb40acb9...](https://github.com/Rohail33/Realking_xiaomi_xaga/commit/0bdb40acb9d085b7b03fb40ec6dbd1472043be24)
-#### Tuesday 2023-05-30 20:29:12 by Wang Han
-
-power: Introduce OnePlus 3 fingerprintd thaw hack
-
-Taken from Oneplus 3, this hack will make fingerprintd recover from suspend quickly.
-
-Small fixes for newer kernels since we're coming from 3.10.108..
-
-Change-Id: I0166e82d51a07439d15b41dbc03d7e751bfa783b
-Co-authored-by: Cyber Knight <cyberknight755@gmail.com>
-[cyberknight777: forwardport and adapt to 4.14]
-Signed-off-by: Shreyansh Lodha <slodha96@gmail.com>
-Signed-off-by: Pierre2324 <pdbbasketball@gmail.com>
-Signed-off-by: PainKiller3 <ninadpatil100@gmail.com>
-Signed-off-by: Dhruv <dhruvgera61@gmail.com>
-Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
-
----
-## [kanshe7/kanshe7](https://github.com/kanshe7/kanshe7)@[6c36cfa28b...](https://github.com/kanshe7/kanshe7/commit/6c36cfa28b12ab74e3e0914c0f7bf9a2c7aa1627)
-#### Tuesday 2023-05-30 20:33:29 by kanshe7
-
-Update README.md
-
-Project Name
-Bugema University Chatbot
-
-Description
-The Bugema University Chatbot is an intelligent virtual assistant designed to provide information and support to students, faculty, and visitors of Bugema University. It leverages natural language processing and machine learning techniques to understand user queries and provide accurate responses.
-
-Features
-FAQ Support: The chatbot is trained with a set of frequently asked questions about Bugema University, including programs, admissions, tuition fees, scholarships, student life, facilities, and more.
-Customized Responses: The chatbot is designed to provide personalized and relevant answers based on the user's input, ensuring a more engaging and interactive experience.
-Academic Calendar: The chatbot can provide information about the academic calendar, including semester start and end dates, registration periods, examination periods, and breaks.
-User-friendly Interface: The chatbot interface is intuitive and easy to use, allowing users to type their queries and receive instant responses.
-Installation
-To run the Bugema University Chatbot locally, follow these steps:
-
-Clone the repository: git clone <repository-url>
-Install the required dependencies: pip install -r requirements.txt
-Run the application: python app.py
-Access the chatbot in your web browser: http://localhost:5000
-Contribution
-Contributions are welcome! If you find any issues or have suggestions for improvement, please submit a pull request or open an issue in the repository. Let's work together to enhance the Bugema University Chatbot and make it even more helpful for the Bugema University community.
-
-License
-This project is licensed under the MIT License. See the LICENSE file for more information.
-
----
-## [francis-codex/WordPair-Generator-App](https://github.com/francis-codex/WordPair-Generator-App)@[e2e8f42360...](https://github.com/francis-codex/WordPair-Generator-App/commit/e2e8f42360a17400556cbd45853ad3307b051062)
-#### Tuesday 2023-05-30 21:11:22 by francis-codex
-
-Update README.md
-
-The WordPair Generator app is a unique and innovative tool designed to inspire creativity and generate new ideas by combining two random words to create interesting word pairs. It harnesses the power of artificial intelligence and natural language processing to provide users with an endless stream of unexpected word combinations.
-
-The app's interface is user-friendly and intuitive, allowing users to easily navigate and interact with the various features. Upon launching the app, users are greeted with a clean and visually appealing design, creating an enjoyable experience.
-
-The WordPair Generator app offers multiple modes to suit different creative needs. In the "Quick Pair" mode, users can simply tap a button to instantly generate a random word pair. This mode is perfect for spontaneous brainstorming sessions or when a quick burst of inspiration is needed.
-
-For users looking for more specific word combinations, the app provides a "Custom Pair" mode. In this mode, users can input their own keywords or select from predefined categories to narrow down the type of words they want to generate. For example, users may choose categories such as "Nature," "Technology," or "Food" to focus the word pairings on those specific themes.
-
-The app also features a "Favorites" section where users can save and revisit their favorite word pairs. This allows users to build a personalized collection of creative sparks that they can refer to later when working on writing projects, brainstorming ideas for business names, or simply for the joy of discovering intriguing word combinations.
-
-Moreover, the WordPair Generator app offers additional features to enhance the creative process. It includes a sharing option that enables users to share their favorite word pairs directly with friends or colleagues via social media platforms or messaging apps. This facilitates collaboration and sparks conversations around the generated ideas.
-
-With regular updates and expansions to its word database, the WordPair Generator app ensures a constant influx of fresh and diverse word pairings, keeping users engaged and continuously inspired.
-
-In summary, the WordPair Generator app is a dynamic tool that utilizes AI to generate unique word combinations, fostering creativity, and offering a valuable resource for writers, marketers, designers, and anyone seeking inspiration for their projects.
-
----
-## [ZveronHSE/backend_new](https://github.com/ZveronHSE/backend_new)@[45f91821ca...](https://github.com/ZveronHSE/backend_new/commit/45f91821caf5bbf3a4b8533b6e70340eb9d8d2a4)
-#### Tuesday 2023-05-30 21:48:22 by Sofia Terekhova
-
-[ZV-412] Add tracing  (#117)
-
-* [ZV-412] fix mistake and change to library version tag
-
-[ZV-412] add platform to apigateway
-
-[ZV-412] fix library
-
-[ZV-412] add settings to logback and add new settigns in application.yml
-
-[ZV-412] edit tracing library interceptor
-
-[ZV-412] server interceptors
-
-[ZV-412] full correct working client tracing
-
-[ZV-412] correct working client tracing interceptor
-
-[ZV-412] add jaeger configuration for specialist service
-
-[ZV-412] add instance
-
-* [ZV-412] fix tests
-
-* [ZV-412] fix test x2
-
-* [ZV-412] fix test x3
-
-* [ZV-412] fix test x4
-
-* [ZV-412] fix test x5 fuck you
-
-* [ZV-412] fix test x66666 fuck you
-
----------
-
-Co-authored-by: sofia.terekhova <sofiamaria.terekho@aliexpress.ru>
-
----
-## [hackworthltd/primer-app](https://github.com/hackworthltd/primer-app)@[eb93f85743...](https://github.com/hackworthltd/primer-app/commit/eb93f85743fee0bd3397eaff1e4c761a96527bd2)
-#### Tuesday 2023-05-30 22:40:19 by George Thomas
+## [hackworthltd/primer-app](https://github.com/hackworthltd/primer-app)@[3210f04f3d...](https://github.com/hackworthltd/primer-app/commit/3210f04f3d14adb3faa424dba44a82c66e502a6d)
+#### Wednesday 2023-05-31 16:19:57 by George Thomas
 
 feat: scroll to def when its name is clicked in the sidebar
 
@@ -6984,113 +4491,812 @@ component. We'll explore this in subsequent work, in any case.
 Signed-off-by: Drew Hess <src@drewhess.com>
 
 ---
-## [gered/ggdt](https://github.com/gered/ggdt)@[ad8d1f9ae3...](https://github.com/gered/ggdt/commit/ad8d1f9ae379f5b1da4c73eeceb0fcf1cc11149a)
-#### Tuesday 2023-05-30 22:52:48 by gered
+## [Kneba/platform_kernel_asus_sdm660](https://github.com/Kneba/platform_kernel_asus_sdm660)@[ef4f1870bf...](https://github.com/Kneba/platform_kernel_asus_sdm660/commit/ef4f1870bfdd502de6a699f44c4d368c9f035ce9)
+#### Wednesday 2023-05-31 16:44:01 by Dave Chiluk
 
-i have no idea why this decided to throw a compile error now? wtf?
+sched/fair: Fix low cpu usage with high throttling by removing expiration of cpu-local slices
 
-my wild-ass guess is this is somehow related to the serde dependency
-being included now, but who the fuck knows. what a joke.
+commit de53fd7aedb100f03e5d2231cfce0e4993282425 upstream.
+
+It has been observed, that highly-threaded, non-cpu-bound applications
+running under cpu.cfs_quota_us constraints can hit a high percentage of
+periods throttled while simultaneously not consuming the allocated
+amount of quota. This use case is typical of user-interactive non-cpu
+bound applications, such as those running in kubernetes or mesos when
+run on multiple cpu cores.
+
+This has been root caused to cpu-local run queue being allocated per cpu
+bandwidth slices, and then not fully using that slice within the period.
+At which point the slice and quota expires. This expiration of unused
+slice results in applications not being able to utilize the quota for
+which they are allocated.
+
+The non-expiration of per-cpu slices was recently fixed by
+'commit 512ac999d275 ("sched/fair: Fix bandwidth timer clock drift
+condition")'. Prior to that it appears that this had been broken since
+at least 'commit 51f2176d74ac ("sched/fair: Fix unlocked reads of some
+cfs_b->quota/period")' which was introduced in v3.16-rc1 in 2014. That
+added the following conditional which resulted in slices never being
+expired.
+
+if (cfs_rq->runtime_expires != cfs_b->runtime_expires) {
+	/* extend local deadline, drift is bounded above by 2 ticks */
+	cfs_rq->runtime_expires += TICK_NSEC;
+
+Because this was broken for nearly 5 years, and has recently been fixed
+and is now being noticed by many users running kubernetes
+(https://github.com/kubernetes/kubernetes/issues/67577) it is my opinion
+that the mechanisms around expiring runtime should be removed
+altogether.
+
+This allows quota already allocated to per-cpu run-queues to live longer
+than the period boundary. This allows threads on runqueues that do not
+use much CPU to continue to use their remaining slice over a longer
+period of time than cpu.cfs_period_us. However, this helps prevent the
+above condition of hitting throttling while also not fully utilizing
+your cpu quota.
+
+This theoretically allows a machine to use slightly more than its
+allotted quota in some periods. This overflow would be bounded by the
+remaining quota left on each per-cpu runqueueu. This is typically no
+more than min_cfs_rq_runtime=1ms per cpu. For CPU bound tasks this will
+change nothing, as they should theoretically fully utilize all of their
+quota in each period. For user-interactive tasks as described above this
+provides a much better user/application experience as their cpu
+utilization will more closely match the amount they requested when they
+hit throttling. This means that cpu limits no longer strictly apply per
+period for non-cpu bound applications, but that they are still accurate
+over longer timeframes.
+
+This greatly improves performance of high-thread-count, non-cpu bound
+applications with low cfs_quota_us allocation on high-core-count
+machines. In the case of an artificial testcase (10ms/100ms of quota on
+80 CPU machine), this commit resulted in almost 30x performance
+improvement, while still maintaining correct cpu quota restrictions.
+That testcase is available at https://github.com/indeedeng/fibtest.
+
+Fixes: 512ac999d275 ("sched/fair: Fix bandwidth timer clock drift condition")
+Signed-off-by: Dave Chiluk <chiluk+linux@indeed.com>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Reviewed-by: Phil Auld <pauld@redhat.com>
+Reviewed-by: Ben Segall <bsegall@google.com>
+Cc: Ingo Molnar <mingo@redhat.com>
+Cc: John Hammond <jhammond@indeed.com>
+Cc: Jonathan Corbet <corbet@lwn.net>
+Cc: Kyle Anderson <kwa@yelp.com>
+Cc: Gabriel Munos <gmunoz@netflix.com>
+Cc: Peter Oskolkov <posk@posk.io>
+Cc: Cong Wang <xiyou.wangcong@gmail.com>
+Cc: Brendan Gregg <bgregg@netflix.com>
+Link: https://lkml.kernel.org/r/1563900266-19734-2-git-send-email-chiluk+linux@indeed.com
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Signed-off-by: Ratoriku <a1063021545@gmail.com>
+Signed-off-by: Peppe289 <gsperanza204@gmail.com>
+Signed-off-by: RyuujiX <saputradenny712@gmail.com>
+Signed-off-by: Kneba <abenkenary3@gmail.com>
 
 ---
-## [BeebBeebBoob/SKYRAT-SS220](https://github.com/BeebBeebBoob/SKYRAT-SS220)@[52eb909f42...](https://github.com/BeebBeebBoob/SKYRAT-SS220/commit/52eb909f423900340814843d3223a7f3205add35)
-#### Tuesday 2023-05-30 22:53:11 by Tom
+## [LadyK-21/git](https://github.com/LadyK-21/git)@[7891e46585...](https://github.com/LadyK-21/git/commit/7891e465856e539c4a102dadec6dca9ac51c38df)
+#### Wednesday 2023-05-31 17:12:26 by Jeff King
 
-Makes Hell Microwaves Not Use Power (#67413) (#21210)
+gpg-interface: set trust level of missing key to "undefined"
 
-Hey there,
+In check_signature(), we initialize the trust_level field to "-1", with
+the idea that if gpg does not return a trust level at all (if there is
+no signature, or if the signature is made by an unknown key), we'll
+use that value. But this has two problems:
 
-I was informed that the holodeck program Microwave Paradise would draw and suck power out of an APC. Didn't intend for that to happen, and while funny, I don't really want to arm the crew with le epic power sink with very little effort than pressing a button, or warranting this to eventually be locked to "dangerous" programs. So, let's change such that this subtype of microwaves that can not be constructed (only mapped/spawned) doesn't consume any power. I don't know why it drew off the nearest APC or how that works, but this seems to be alright.
+  1. Since the field is an enum, it's up to the compiler to decide what
+     underlying storage to use, and it only has to fit the values we've
+     declared. So we may not be able to store "-1" at all. And indeed,
+     on my system (linux with gcc), the resulting enum is an unsigned
+     32-bit value, and -1 becomes 4294967295.
 
-It's not possible to deconstruct machinery spawned in at the Holodeck (which I verified while testing this PR), so do not worry about people using this to bypass the power economy for whzhzhzhz purposes.
+     The difference may seem academic (and you even get "-1" if you pass
+     it to printf("%d")), but it means that code like this:
 
-Co-authored-by: san7890 <the@san7890.com>
+       status |= sigc->trust_level < configured_min_trust_level;
+
+     does not necessarily behave as expected. This turns out not to be a
+     bug in practice, though, because we keep the "-1" only when gpg did
+     not report a signature from a known key, in which case the line
+     above:
+
+       status |= sigc->result != 'G';
+
+     would always set status to non-zero anyway. So only a 'G' signature
+     with no parsed trust level would cause a problem, which doesn't
+     seem likely to trigger (outside of unexpected gpg behavior).
+
+  2. When using the "%GT" format placeholder, we pass the value to
+     gpg_trust_level_to_str(), which complains that the value is out of
+     range with a BUG(). This behavior was introduced by 803978da49
+     (gpg-interface: add function for converting trust level to string,
+     2022-07-11). Before that, we just did a switch() on the enum, and
+     anything that wasn't matched would end up as the empty string.
+
+     Curiously, solving this by naively doing:
+
+       if (level < 0)
+               return "";
+
+     in that function isn't sufficient. Because of (1) above, the
+     compiler can (and does in my case) actually remove that conditional
+     as dead code!
+
+We can solve both by representing this state as an enum value. We could
+do this by adding a new "unknown" value. But this really seems to match
+the existing "undefined" level well. GPG describes this as "Not enough
+information for calculation".
+
+We have tests in t7510 that trigger this case (verifying a signature
+from a key that we don't have, and then checking various %G
+placeholders), but they didn't notice the BUG() because we didn't look
+at %GT for that case! Let's make sure we check all %G placeholders for
+each case in the formatting tests.
+
+The interesting ones here are "show unknown signature with custom
+format" and "show lack of signature with custom format", both of which
+would BUG() before, and now turn %GT into "undefined". Prior to
+803978da49 they would have turned it into the empty string, but I think
+saying "undefined" consistently is a reasonable outcome, and probably
+makes life easier for anyone parsing the output (and any such parser had
+to be ready to see "undefined" already).
+
+The other modified tests produce the same output before and after this
+patch, but now we're consistently checking both %G? and %GT in all of
+them.
+
+Signed-off-by: Jeff King <peff@peff.net>
+Reported-by: Rolf Eike Beer <eb@emlix.com>
+Signed-off-by: Junio C Hamano <gitster@pobox.com>
 
 ---
-## [wolfd/streamlit](https://github.com/wolfd/streamlit)@[596bff9128...](https://github.com/wolfd/streamlit/commit/596bff9128a7d48104fd566a512c50f2b4d6f38d)
-#### Tuesday 2023-05-30 23:26:30 by Danny Wolf
+## [clayne/semgrep](https://github.com/clayne/semgrep)@[b0e10c5d78...](https://github.com/clayne/semgrep/commit/b0e10c5d783ed1063a9aef3f0b430a8a302404df)
+#### Wednesday 2023-05-31 17:38:26 by Martin Jambon
 
-Upgrade react-range to fix memory usage of sliders
+Aliengrep integration + rule ID type + 'languages' type (#7885)
 
-As mentioned in
-https://blog.streamlit.io/six-tips-for-improving-your-streamlit-app-performance/
-memory usage struggles in the browser if you have large ranges:
+I should have done these other things in different PRs but it was too
+late by the time I realized how big those changes were. So, here we go.
+The main changes brought by this branch are:
 
-> Due to implementation details, high-cardinality sliders don't suffer
-> from the serialization and network transfer delays mentioned earlier,
-> but they will still lead to a poor user experience (who needs to
-> specify house prices up to the dollar?) and high memory usage. In my
-> testing, the example above increased RAM usage by gigabytes until the
-> web browser eventually gave up (though this is something that should
-> be solvable on our end. We'll look into it!)
+* `options.generic_engine: aliengrep` in rules allows semgrep to use
+aliengrep when `generic` is specified in the `languages` list.
+* I added some end-to-end tests for aliengrep. I created two issues for
+a [matching bug](https://github.com/returntocorp/semgrep/issues/7881)
+and a [missing
+feature](https://github.com/returntocorp/semgrep/issues/7883) but it's
+nothing big. Overall, it works.
+* The `languages` field is now translated (in OCaml only, not Python)
+into a `languages` type that distinguishes target selector (langs) from
+target analyzer (xlang). "generic" now means "generic target selection"
+and the parsing/matching engine is specified separately. This was done
+to avoid making things weird for the user but we still have to support
+"regex" and "none" which both mean "generic target selection" + "regex
+engine".
+* Along the way, I got annoyed that rule IDs were reported as
+`Common.filename` (= `string`) so I created a type for them.
+* I modified `Input_to_core.atd` so that it uses the `Xlang.t` type
+directly rather than a string that needs to be converted later. This is
+an example to show that we could use the same mechanism for other types
+(generally strings or ints that serve as some kind of ID with its own
+type).
 
-This was caused by a bug in react-range, which I fixed last year.
-https://github.com/tajo/react-range/pull/178
+I left comments to explain those things. The Python side gave me a bit
+of a headache. I tried various things that I reverted, concluding that
+the least we touch, the better.
 
-At the time, I had figured it would get picked up by a random yarn
-upgrade and didn't worry too much about it.
-But, apparently yarn doesn't really have an easy way of doing upgrades
-of transitive dependencies (see https://github.com/yarnpkg/yarn/issues/4986)?
-I took the suggestion of someone in that thread to delete the entry and
-let yarn regenerate it.
+I will have to document the features of aliengrep. It shouldn't be too
+hard because it has a lot in common with spacegrep. For now, there's a
+readme in `libs/aliengrep`.
 
-Some techinical details about the react-range fix from the original
-commit message (the "application" is a streamlit app):
+test plan: `make test` should work
 
-> We have an application that uses react-range under the hood, and we
-> noticed that a range input was taking 2GB of RAM on our machines. I
-> did some investigation and found that regardless of whether the marks
-> functionality was being used, refs were being created for each
-> possible value of the range.
+Uses: https://github.com/returntocorp/semgrep-langs/pull/36
 
-> We have some fairly huge ranges (we're using the input to scrub a
-> video with potential microsecond accuracy), and can imagine that
-> other people are affected by the previous behavior. This change
-> should allow us to continue using large input ranges without
-> incurring a memory penalty.
+PR checklist:
+
+- [x] Purpose of the code is [evident to future
+readers](https://semgrep.dev/docs/contributing/contributing-code/#explaining-code)
+- [x] Tests included or PR comment includes a reproducible test plan
+- [x] Documentation is up-to-date
+- [x] A changelog entry was [added to
+changelog.d](https://semgrep.dev/docs/contributing/contributing-code/#adding-a-changelog-entry)
+for any user-facing change
+- [x] Change has no security implications (otherwise, ping security
+team)
+
+If you're unsure about any of this, please see:
+
+- [Contribution
+guidelines](https://semgrep.dev/docs/contributing/contributing-code)!
+- [One of the more specific guides located
+here](https://semgrep.dev/docs/contributing/contributing/)
+
+---------
+
+Co-authored-by: Martin Jambon <martin@semgrep.com>
 
 ---
-## [wolfd/streamlit](https://github.com/wolfd/streamlit)@[3485c24eba...](https://github.com/wolfd/streamlit/commit/3485c24ebace15f5d0d20021a955c8ee4799d0de)
-#### Tuesday 2023-05-30 23:28:47 by Danny Wolf
+## [Bokkiewokkie/Shiptest](https://github.com/Bokkiewokkie/Shiptest)@[0cff53fc09...](https://github.com/Bokkiewokkie/Shiptest/commit/0cff53fc09c34d989d2bc34b1699bd856af2cb92)
+#### Wednesday 2023-05-31 18:19:49 by meemofcourse
 
-Upgrade react-range to fix memory usage of sliders
+Reworks the Twinkleshine-Class (#1825)
 
-As mentioned in
-https://blog.streamlit.io/six-tips-for-improving-your-streamlit-app-performance/
-memory usage struggles in the browser if you have large ranges:
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
 
-> Due to implementation details, high-cardinality sliders don't suffer
-> from the serialization and network transfer delays mentioned earlier,
-> but they will still lead to a poor user experience (who needs to
-> specify house prices up to the dollar?) and high memory usage. In my
-> testing, the example above increased RAM usage by gigabytes until the
-> web browser eventually gave up (though this is something that should
-> be solvable on our end. We'll look into it!)
+## About The Pull Request
 
-This was caused by a bug in react-range, which I fixed last year.
-https://github.com/tajo/react-range/pull/178
 
-At the time, I had figured it would get picked up by a random yarn
-upgrade and didn't worry too much about it.
-But, apparently yarn doesn't really have an easy way of doing upgrades
-of transitive dependencies (see https://github.com/yarnpkg/yarn/issues/4986)?
-I took the suggestion of someone in that thread to delete the entry and
-let yarn regenerate it.
+![2023 05 13-23 20
+45](https://github.com/shiptest-ss13/Shiptest/assets/75212565/de6f3a47-7be8-4800-ae73-9fc386e4bf01)
 
-Some technical details about the react-range fix from the original
-commit message (the "application" is a streamlit app):
+![twinklerework5](https://github.com/shiptest-ss13/Shiptest/assets/75212565/f1808576-70e3-4b56-b977-5b5e7d665fdd)
 
-> We have an application that uses react-range under the hood, and we
-> noticed that a range input was taking 2GB of RAM on our machines. I
-> did some investigation and found that regardless of whether the marks
-> functionality was being used, refs were being created for each
-> possible value of the range.
 
-> We have some fairly huge ranges (we're using the input to scrub a
-> video with potential microsecond accuracy), and can imagine that
-> other people are affected by the previous behavior. This change
-> should allow us to continue using large input ranges without
-> incurring a memory penalty.
+
+
+
+The Twinkleshine is a CyberSun-made Syndicate display of force, staffed
+by every branch of the Syndicate. Despite the silly name, the presence
+of one in a sector implies it to be of importance to the Syndicate, and
+enemies within sight can only pray that the Twinkleshine crew are
+incompetent enough to shoot themselves with their own weaponry (or blow
+themselves up with the supermatter on-board).
+
+It is staffed by:
+
+- 1 Captain
+- 1 Lieutenant (previously the Operative - serves as a warden/hos)
+- 2 Medics
+- 2 Engineers (previously the Mechanics)
+- 5 Operatives (previously the Troopers)
+- 1 Bartender
+- 1 Miner
+- 2 Deck Assistants
+
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
+
+## Why It's Good For The Game
+
+Few days ago, an admin spawned a Twinkleshine, and I got to captain it.
+The Twinkleshine is old. It sucks. This, hopefully, fixes that.
+
+Originally, this was going to be minor fixes, but ended up becoming an
+attempt at reworking the ship to a more modern state - the hull has been
+redone and is mostly symmetrical, the old spacepod was replaced with a
+Dark Gygax, the supermatter shouldn't be activated upon spawning the
+ship, there's more turf decals and a bigger lot-of-things, added a
+bartender and a miner, people can actually tell who they are and what
+they do, and there is now a box moth. Rejoice.
+
+Also, this is the first time I've ever mapped a ship. What better way to
+begin with a giant battleship?
+
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding. -->
+
+## Changelog
+
+:cl:
+tweak: Reworks the Twinkleshine
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+---------
+
+Signed-off-by: meemofcourse <75212565+meemofcourse@users.noreply.github.com>
+
+---
+## [Bokkiewokkie/Shiptest](https://github.com/Bokkiewokkie/Shiptest)@[d4b5a598e2...](https://github.com/Bokkiewokkie/Shiptest/commit/d4b5a598e2346bb3f69d533ed05a94d539e8b830)
+#### Wednesday 2023-05-31 18:19:49 by Bjarl
+
+Sand Survivor Rework (#1940)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
+
+## About The Pull Request
+Reworks how Sand Survivors spawn their loot. Instead of an outfit datum,
+they now create a corpse similiarly to how legions do it, this allows
+their contents to have some variety, more ease of expansion, and
+generally Improves the file.
+
+How I could write better code in a day than White Sands functioned with
+for iunno how long is byond me
+
+
+https://user-images.githubusercontent.com/94164348/236322169-c303f934-634f-447d-950f-78a55346d152.mp4
+
+![image](https://user-images.githubusercontent.com/94164348/236376947-6e484ed0-f136-4787-9e74-fad0f5c21d11.png)
+
+![image](https://user-images.githubusercontent.com/94164348/236377018-e2dc1661-fe78-4c6a-8be2-8bf24e5d00b2.png)
+
+
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
+
+## Why It's Good For The Game
+Consistency + Just kinda cool
+<!-- Please add a short description of why you think these changes would
+benefit the game. If you can't justify it in words, it might not be
+worth adding. -->
+
+## Changelog
+
+:cl:
+add: Sand Planet hermits now have randomized inventories. And Hair.
+Sometimes.
+add: Sand Planet hermits can now drop different races
+add: legions will now drop a variety of species
+balance: drop rates for legions have been changed in a few spots.
+fix: hivelord.dm no longer sears my eyes out.
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+---------
+
+Signed-off-by: Bjarl <94164348+Bjarl@users.noreply.github.com>
+Co-authored-by: Mark Suckerberg <mark@suckerberg.gay>
+
+---
+## [microsoft/terminal](https://github.com/microsoft/terminal)@[21464fe41c...](https://github.com/microsoft/terminal/commit/21464fe41c9c09eac4b9e2d85225f18f1f3c2c7b)
+#### Wednesday 2023-05-31 18:54:35 by Mike Griese
+
+Manually hide our DesktopWindowXamlSource (#15165)
+
+As discussed in #6507
+
+Newer builds of Windows do this automatically. However, this was spotted
+in the wild on 1.18. It's possible the threading changes created a
+situation where the OS-side fix no longer applied to us. So let's just
+do it manually. It doesn't have any side effects.
+
+I saw this once on Win11, but couldn't repro it this morning when I
+tried to add this fix. I'm just gonna assume this worked, despite the
+fact that I can't repro it on win11 anymore.
+
+closes #6507
+
+See also #14957
+
+## detailed description
+
+> `WindowsXamlManager::XamlCore::Initialize` calls
+`ConfigureCoreWindow`, which creates a `CoreWindow` on the thread
+
+> Problem is, we're calling that on the main thread (which doesn't have
+_any_ windows), and then eventually creating a `DesktopWindowXamlSource`
+on a second thread for the actual window
+
+> It's not that it "manages a window", it's that it "manages xaml on
+Windows OS". just use ICoreWindowInterop -- QI for ICoreWindowInterop
+and call get_WindowHandle.
+
+Also see:
+*
+[ICoreWindowInterop](https://learn.microsoft.com/en-us/windows/win32/api/corewindow/nn-corewindow-icorewindowinterop)
+*
+[WindowsXamlManager.InitializeForCurrentThread](https://learn.microsoft.com/en-us/uwp/api/windows.ui.xaml.hosting.windowsxamlmanager.initializeforcurrentthread?view=winrt-22621#windows-ui-xaml-hosting-windowsxamlmanager-initializeforcurrentthread)
+* The source code in
+`onecoreuap\windows\dxaml\xcp\dxaml\lib\WindowsXamlManager_Partial.*`
+* os.2020!6102020 which fixed MSFT:33498969, MSFT:27807465,
+MSFT:21854264
+
+---
+## [kaiserbyte/Crouch-Jump](https://github.com/kaiserbyte/Crouch-Jump)@[8c274b6e74...](https://github.com/kaiserbyte/Crouch-Jump/commit/8c274b6e74c4e4b4c4a461309f82e531e85e5cc3)
+#### Wednesday 2023-05-31 19:16:45 by Joshua W. Kyler
+
+i forgot to edit this HELP
+
+someone pointed out that i actually needed to edit this so i did. im not putting my legal name on this fuck you
+
+---
+## [sourcegraph/sourcegraph](https://github.com/sourcegraph/sourcegraph)@[a5060359bb...](https://github.com/sourcegraph/sourcegraph/commit/a5060359bb6d9715a7d208f4624d6fea92ac3083)
+#### Wednesday 2023-05-31 19:19:34 by Randell Callahan
+
+executors: More K8s Improvements (#52653)
+
+Some more tweaks to K8s support.
+
+## Changes
+
+- Fixed issue with flags not being used by `batcheshelper` when
+arguments are present
+    - Apparently `flags` silently die when there are arguments present
+- Added observability to `KubernetesCommand` to help see some metrics
+- Added some `Debug` logs for troubleshooting
+- Changed the wait functionality from waiting on the K8s Job to the K8s
+Pod
+    - This eliminates another API call we make
+    - Since we always have 1 pod for every job, this is safe
+    - Simplifies the code a little (removes the ugly error check)
+    - Reduces required RBAC Rules
+- Updated docs to clarify that `batcheshelper` also needs to be built if
+running ssbc
+
+## Test plan
+
+Updated and added Go tests.
+
+---
+## [Eliuscuro/Skyrat220](https://github.com/Eliuscuro/Skyrat220)@[fc1471c818...](https://github.com/Eliuscuro/Skyrat220/commit/fc1471c8187d3f2a49d75a8a5c3e1b610fec45d3)
+#### Wednesday 2023-05-31 19:53:12 by SkyratBot
+
+[MIRROR] Deadchat Announcement Variety Pack 1 [MDB IGNORE] (#20957)
+
+* Deadchat Announcement Variety Pack 1 (#75140)
+
+## About The Pull Request
+
+Adds announce_to_ghosts()/notify_ghosts() calls to a bunch of different
+things.
+
+**THIS INCLUDES:**
+- Powersink being activated/reaching critical (explosion) heat capacity.
+- His Grace being awoken.
+- Hot Potatoes being armed.
+- Ascension Rituals being completed.
+- Eyesnatcher victims.
+- Ovens exploding as a result of the Aurora Caelus event.
+- Wizard Imposter spawns.
+- Rock-Paper-Scissors with death as the result of Helbital consumption.
+- BSA impact sites.
+- Spontaneous Appendicitis.
+- The purchasing of a badass syndie balloon.
+- The Supermatter beginning to delaminate.
+
+This was everything that I could think of that would be worth announcing
+to deadchat. These were all chosen with consideration to questions like
+"how easy would it be to spam deadchat with this?" and "will observers
+actually see the interesting thing happen, or just the aftermath?".
+
+Not gonna lie, I've really become an observer main as of recently. Maybe
+that's being reflected in my recent PRs. Who's to say? Deadchat
+Announcement Variety Pack 2 will probably never come out. Sorry.
+## Why It's Good For The Game
+
+Gives deadchat a better indiciation of when/where something **REALLY
+FUNNY** is about to happen. Draws attention to certain things that are
+likely to gather an audience anyways, but sooner (for your viewing
+pleasure). In simple terms, it helps the observers observe things
+better.
+
+Some cases, such as the aurora caelus or helbitaljanken, are occurrences
+so rare that they deserve the audience.
+## Changelog
+:cl: Rhials
+qol: Observers now recieve an alert when a powersink is activated/about
+to explode.
+qol: His Grace being awoken now alerts observers, to give you a
+headstart on your murderbone ghost ring.
+qol: Ascension Rituals being completed will also alert observers, for
+basically the same reason.
+qol: Arming a hot potato will now alert observers. Catch!
+qol: Eyesnatcher victims will now notify observers, and invite them to
+laugh at their state of misery and impotence.
+qol: Observers will be notified of any acute references to The Simpsons
+or other 20th Television America copyright properties.
+qol: Wizard Imposter spawns alert observers, much like any other ghost
+role event should.
+qol: Playing Rock-Paper-Scissors with death will now alert the observers
+and invite them to watch. Better not choke!
+qol: Observers now get an orbit link for BSA impact sites. Why does it
+keep teleporting me to the AI upload??
+qol: Spontaneous Appendicitis now alerts deadchat.
+qol: The purchasing of a badass syndie balloon now alerts deadchat. You
+might not be any more powerful, but at least you have an audience.
+qol: When beginning to delaminate, the Supermatter will alert observers
+and invite them to watch the fireworks.
+/:cl:
+
+* Deadchat Announcement Variety Pack 1
+
+---------
+
+Co-authored-by: Rhials <Datguy33456@gmail.com>
+
+---
+## [newstools/2023-sundiata-post](https://github.com/newstools/2023-sundiata-post)@[ac8ea0ab74...](https://github.com/newstools/2023-sundiata-post/commit/ac8ea0ab74c1e98988a8d37d438cfb6b87e6800c)
+#### Wednesday 2023-05-31 21:00:18 by Billy Einkamerer
+
+Created Text For URL [sundiatapost.com/drama-ensues-after-pregnant-lady-caught-boyfriend-with-another-girl-in-his-house-video/]
+
+---
+## [davep/textual](https://github.com/davep/textual)@[c3269bb4f4...](https://github.com/davep/textual/commit/c3269bb4f493efdcb83ea84494e7c22a3fed04e4)
+#### Wednesday 2023-05-31 21:02:24 by Dave Pearson
+
+Rework handler processing again to deal with selector fun
+
+I'm like 90% sure about this. This was a "dump it all and work from scratch"
+evening experiment, and I think it does what's needed, but I want to read it
+back over again in the morning with a post-coffee brain.
+
+Pushing to the repo so I can review then.
+
+Also added lotsa comments so tomorrow me will know what this evening me was
+thinking.
+
+---
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[120041c693...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/120041c69313f5420509b293028a55789ce62576)
+#### Wednesday 2023-05-31 21:05:25 by SkyratBot
+
+[MIRROR] Converts del logging to proper json, using json objects instead of building a text file [MDB IGNORE] (#21448)
+
+* Reverts qdel logging to a raw text file (#75632)
+
+## About The Pull Request
+
+We log this information once, on SSgarbage shutdown. Putting it in a
+json is kinda pointless, it exists to be read when we see massive
+overtime from ssgarbage, that's all.
+
+Something something reee my workflow.
+
+## Changelog
+:cl:
+server: qdel statistics are once again logged in qdel.log, instead of
+the otherwise typical json logging system
+/:cl:
+
+* Converts del logging to proper json, using json objects instead of building a text file (#75636)
+
+## About The Pull Request
+
+It's easier to parse, and makes more sense when you read it. This way
+I'll never have to add yet another case to my parser for someone
+changing where a space goes or something.
+
+Moves qdel into its own category cause the old name looked ugly (yell if
+this is dumb)
+Added a bitfield to entries pulled from categories, adds a new flag that
+enables pretty printing json lists.
+
+
+## Why It's Good For The Game
+
+IMPROVES my workflow
+
+## Changelog
+:cl:
+server: del logging is now done by outputting to a json file again, but
+this time we're using ACTUAL json and not just a big text string with
+newlines and shit
+/:cl:
+
+---------
+
+Co-authored-by: Zephyr <12817816+ZephyrTFA@users.noreply.github.com>
+
+---------
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+Co-authored-by: Zephyr <12817816+ZephyrTFA@users.noreply.github.com>
+
+---
+## [SileNce5k/discord_bot](https://github.com/SileNce5k/discord_bot)@[abfb659a42...](https://github.com/SileNce5k/discord_bot/commit/abfb659a4249c864efd5f80cd9520392ae80d973)
+#### Wednesday 2023-05-31 21:47:38 by SileNce5k
+
+Add sum awaits in this bitch to see if it fixes these issues fuck my
+life AAAAAAAAAAAAAAAAAAAAAAAAAA
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[57ef596898...](https://github.com/tgstation/tgstation/commit/57ef596898a5a3932db33389baa9fab3164d430a)
+#### Wednesday 2023-05-31 22:45:34 by LemonInTheDark
+
+Admin Library Moderation (in-game edition) (#75645)
+
+For the longest time, the only way admins could moderate the library was
+by using statbus's external tool.
+But a few months back statbus went down, and ever since then they've
+been sitting lost. Shit sucks.
+
+The whole external thing has been bugging me for a while, so let's fix
+all that yeah?
+
+This pr adds a new verb to the admin tab that allows admins to
+ban/restore books from the library.
+It includes expanded (ckey) search, faster response times, in tool book
+viewing with and without markdown rendering, and viewing of deleted
+books.
+
+This is accomplished with a special subtype of library consoles, stored
+on the admin datum.
+It shouldn't let you do anything without +BAN, rip my live debugging or
+whatever.
+
+I've also hooked into (and fixed) Ned's existing library actions log,
+and added viewing support to the ban/restore pages.
+This logs banning admin, ban time, ban reason, etc.
+
+As a part of this, I've fixed/expanded on the existing UIs.
+I've added ID search to all existing consoles, and fixed an existing bug
+with the visitor console not supporting category search (shows how many
+people actually use the thing)
+
+Changes to the library_action table were pretty minor. The ckey column
+was too small, so longer keys just caused it to fail on ban. Bad.
+That and the ip address column was signed, which wasted space and was
+non standard with other tables.
+
+---
+## [rd-stuffs/android_kernel_xiaomi_surya](https://github.com/rd-stuffs/android_kernel_xiaomi_surya)@[0d11be924d...](https://github.com/rd-stuffs/android_kernel_xiaomi_surya/commit/0d11be924d1c5aa1708d67546cf0d269cbefe4c7)
+#### Wednesday 2023-05-31 22:52:06 by Wang Han
+
+power: Introduce OnePlus 3 fingerprintd thaw hack
+
+Taken from Oneplus 3, this hack will make fingerprintd recover from suspend quickly.
+
+Small fixes for newer kernels since we're coming from 3.10.108..
+
+Change-Id: I0166e82d51a07439d15b41dbc03d7e751bfa783b
+Co-authored-by: Cyber Knight <cyberknight755@gmail.com>
+[cyberknight777: forwardport and adapt to 4.14]
+Signed-off-by: Shreyansh Lodha <slodha96@gmail.com>
+Signed-off-by: Pierre2324 <pdbbasketball@gmail.com>
+Signed-off-by: PainKiller3 <ninadpatil100@gmail.com>
+Signed-off-by: Dhruv <dhruvgera61@gmail.com>
+Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
+Signed-off-by: Richard Raya <rdxzv.dev@gmail.com>
+
+---
+## [Nerev4r/Skyrat-tg](https://github.com/Nerev4r/Skyrat-tg)@[bfb3967c90...](https://github.com/Nerev4r/Skyrat-tg/commit/bfb3967c908682e21202312d8b30ec17ad65e549)
+#### Wednesday 2023-05-31 22:52:18 by SkyratBot
+
+[MIRROR] Adds proper armor for security plasmamen. [MDB IGNORE] (#21268)
+
+* Adds proper armor for security plasmamen. (#75156)
+
+## About The Pull Request
+It's kinda strange that security plasmamen has no proper armor and you
+can just bully them with bottlesmashes. Literally.
+Also suits had no wound armor for some reason, which considering that
+mold dies without hand kinda silly too.
+And helmets just had no armor besides 1 melee armor.
+## Why It's Good For The Game
+Plasmamen security won't die that easilly. I mean, still easy to kill
+them, but not that much.
+## Changelog
+:cl:
+balance: Security Plasmamen now have Security armor. No bullying them
+with bottlesmashes anymore.
+/:cl:
+
+* Adds proper armor for security plasmamen.
+
+---------
+
+Co-authored-by: Helg2 <93882977+Helg2@users.noreply.github.com>
+Co-authored-by: lessthanthree <83487515+lessthnthree@users.noreply.github.com>
+
+---
+## [barrettj12/juju](https://github.com/barrettj12/juju)@[19b18fec85...](https://github.com/barrettj12/juju/commit/19b18fec85754efe2d8cae9e452ae3de831ff154)
+#### Wednesday 2023-05-31 23:35:26 by Juju bot
+
+Merge pull request #14511 from benhoyt/openstack-auth-error
+
+https://github.com/juju/juju/pull/14511
+
+This slightly improves the error message during OpenStack authentication when the code is trying to authenticate against a v3 server but the credentials look like v2 credentials. Previously the code would fall back to using a v2 client and the next call would give a 404 error, now it doesn't fall back when it knows the server is v3 ("v3" in the URL) so we get a 401 authentication error immediately.
+
+## Checklist
+
+- [x] Code style: imports ordered, good names, simple structure, etc
+- [x] Comments saying why design decisions were made
+- [x] Go unit tests, with comments saying what you're testing
+- [ ] ~[Integration tests](https://github.com/juju/juju/tree/develop/tests), with comments saying what you're testing~
+- [x] [doc.go](https://discourse.charmhub.io/t/readme-in-packages/451) added or updated in changed packages
+
+## QA steps
+
+* Set up an OpenStack cluster for testing (I used the single VM [devstack](https://docs.openstack.org/devstack/yoga/guides/single-vm.html) system using Multipass). This took at least 45 minutes to initialize the VM, set up all the packages, etc.
+* Set up a Juju cloud using `juju add-cloud` with the novarc file method described [here](https://juju.is/docs/olm/openstack). The novarc file can be downloaded from the cluster's Dashboard, using the "Download OpenStack RC file" button under API Access.
+* Add a credential, but make the password incorrect so auth is going to fail (I changed "password" to "passwordx").
+* Try to `juju bootstrap openstack`.
+
+However, here's where I started to run into trouble. First I got this error:
+
+```
+$ juju bootstrap openstack
+ERROR cannot create a client: version part of identity url http://10.244.209.44/identity not valid
+```
+
+Fix is to update Juju's `clouds.yaml` regions endpoint from "endpoint: http://10.244.209.44/identity" to "endpoint: http://10.244.209.44/identity/v3". Not sure why this isn't included in the novarc correctly, as it's definitely a v3 endpoint.
+
+The next error I got was
+
+```
+ERROR auth options fetching failed
+caused by: request available auth options: request (http://10.244.209.44/) returned unexpected status: 200; error info: 
+
+... lots of HTML output ...
+```
+
+This is because goose's client.baseURL is not set (""). It doesn't look like it can be set via config due to the use of NewClient, which is what's being used here. So you have to hack-fix goose [here](https://github.com/go-goose/goose/blob/e7e49e456da1f62c629a2fc6944fe96b2af94368/client/client.go#L701) (and use replace for goose in `go.mod`):
+
+```diff
+$ git diff
+diff --git a/client/client.go b/client/client.go
+index 2b10185..e812d3e 100644
+--- a/client/client.go
++++ b/client/client.go
+@@ -698,7 +698,7 @@ func (c *authenticatingClient) IdentityAuthOptions() (identity.AuthOptions, erro
+ return identity.AuthOptions{}, gooseerrors.Newf(err, "trying to determine auth information url")
+ }
+ // this cannot fail.
+- authInfoPath, _ := url.Parse("/")
++ authInfoPath, _ := url.Parse("/identity") // TODO
+ baseURL = parsedURL.ResolveReference(authInfoPath).String()
+ }
+ authOptions, err := identity.FetchAuthOptions(baseURL, c.httpClient, c.logger)
+```
+
+I don't understand how this ever worked. I'm guessing that most OpenStack installs have a root of "/" (with the domain being `identity.foo.bar` or whatever), whereas with devstack you're using an IP address with a base URL of "/identity". I think Goose needs fixing here, but I've spent enough time on this now and don't really know what the correct fix is anyway.
+
+With those two fixes in place, now when you `juju bootstrap openstack` you'll actually see the issue at hand.
+
+```
+# BEFORE fix
+$ juju bootstrap openstack
+ERROR authentication failed.: authentication failed
+caused by: requesting token failed
+caused by: Resource at http://10.244.209.44/identity/v3/tokens not found
+caused by: request (http://10.244.209.44/identity/v3/tokens) returned unexpected status: 404; error info: <!doctype html>
+<html lang=en>
+<title>404 Not Found</title>
+<h1>Not Found</h1>
+<p>The requested URL was not found on the server. If you entered the URL manually please check your spelling and try again.</p>
+
+# AFTER fix
+$ juju bootstrap openstack
+ERROR authentication failed
+caused by: requesting token: Unauthorised URL http://10.244.209.44/identity/v3/auth/tokens
+caused by: request (http://10.244.209.44/identity/v3/auth/tokens) returned unexpected status: 401; error info: Failed: 401 error: The request you have made requires authentication.
+```
+
+## Bug reference
+
+https://bugs.launchpad.net/juju/+bug/1980474
+
+---
+## [cozy/cozy-drive](https://github.com/cozy/cozy-drive)@[399a96980e...](https://github.com/cozy/cozy-drive/commit/399a96980e464cf6d6f9e60cbbe0a756f6b0cd45)
+#### Wednesday 2023-05-31 23:51:10 by Crash--
+
+fix: Scroll to top
+
+ Since we are not able to restore the scroll correctly,
+ and force the scroll to top every time we change the
+ current folder. This is to avoid this kind of weird
+ behavior:
+ - If I go to a sub-folder, if this subfolder has a lot
+ of data and I scrolled down until the bottom. If I go
+ back, then my folder will also be scrolled down.
+
+ This is an ugly hack, yeah.
 
 ---
 
