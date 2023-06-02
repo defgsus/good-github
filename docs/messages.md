@@ -1426,3 +1426,8 @@
 [30](good-messages/2023/2023-05-30.md)
 [31](good-messages/2023/2023-05-31.md)
 
+
+#### June
+
+[01](good-messages/2023/2023-06-01.md)
+
