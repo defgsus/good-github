@@ -5,16 +5,72 @@ an [index](docs/messages.md).
 
 ---
 
-# [2023-06-24](docs/good-messages/2023/2023-06-24.md)
+# [2023-06-25](docs/good-messages/2023/2023-06-25.md)
 
 
-there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,688,621 were push events containing 2,506,674 commit messages that amount to 157,375,053 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 51 messages:
+there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 1,735,261 were push events containing 2,629,035 commit messages that amount to 163,638,353 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 43 messages:
 
 
-## [Zevotech/Shiptest](https://github.com/Zevotech/Shiptest)@[8744738e59...](https://github.com/Zevotech/Shiptest/commit/8744738e5955c02834d67db6f14201c28c9ac61c)
-#### Saturday 2023-06-24 00:37:21 by Arturlang
+## [Duzos/superhero](https://github.com/Duzos/superhero)@[94012adc83...](https://github.com/Duzos/superhero/commit/94012adc83b99a4e35e578d70463a3db562a6f11)
+#### Sunday 2023-06-25 00:02:12 by Duzo
 
-Updates TGUI and adds bin folder for .bat scripts (#2011)
+Holy Fuck.
+Added particle and rope for spider swing
+Added sounds for spider swing
+And I hate it all.
+Cant wait for Loqor to see it, point out the obvious flaws I havent fixed yet because ive been working on this for hours now and then shit all over me by saying how "easy" it is to do.
+Fuck you, tough luck, this is what you're getting.
+
+---
+## [Capsandi/tgstation](https://github.com/Capsandi/tgstation)@[c67d6a22a4...](https://github.com/Capsandi/tgstation/commit/c67d6a22a405f006a9d7a537dc35cecbdb65cfde)
+#### Sunday 2023-06-25 00:17:11 by Kyle Spier-Swenson
+
+fix stupid error message in delay pre-game (#75824)
+
+tabbing out during init after hitting the verb, while you wait for the
+server to un-lockup and present you with the prompt, and coming back in,
+noticing you were too late, and cancelling out of the time prompt, only
+to get told the round had already started, was kinda fucking lame. I
+know, thats why i fucking hit cancel you fucking robit.
+
+also makes the proc more early return
+
+---
+## [Capsandi/tgstation](https://github.com/Capsandi/tgstation)@[d01b433ab1...](https://github.com/Capsandi/tgstation/commit/d01b433ab12e7aa45416d42f9045f1135e545dae)
+#### Sunday 2023-06-25 00:17:11 by Sealed101
+
+Fixes colossus possessor crystal cockroaches/animals not dumping the user's body upon death/gibbing (#75843)
+
+## About The Pull Request
+Hooks the stasis closet thingamajing into `COMSIG_LIVING_DEATH` instead
+of checking the animal's stat on `process()`, which makes possessed
+animals properly dump the stasis closet's contents upon death or gibbing
+(which is death but cooler).
+yeah uh this method is hilarious but it does protect the user's body
+quite reliably at least lol
+
+## Why It's Good For The Game
+Fixes #75829
+also probably makes cockroach death saner in some unreported way, this
+`. = ..()` vs `..()` is above my non-existent paygrade but it keeps
+popping up from time to time
+
+## Changelog
+:cl:
+fix: gibbing colossus possessor crystal possessed animals will no longer
+stick the user's body and their stuff into the shadow realm. the animals
+will properly drop your corpse when killed or gibbed
+/:cl:
+
+---------
+
+Co-authored-by: Fikou <23585223+Fikou@users.noreply.github.com>
+
+---
+## [Latentish/Shiptest](https://github.com/Latentish/Shiptest)@[18819cc7fb...](https://github.com/Latentish/Shiptest/commit/18819cc7fb78eb4eaf11691e4a07b1294b76358a)
+#### Sunday 2023-06-25 00:41:07 by zevo
+
+Minor changes to the Syndicate Battle Sphere ruin (#2045)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
@@ -22,19 +78,24 @@ not be viewable. -->
 request process. -->
 
 ## About The Pull Request
-Updates TGUI and build tools and .vscode files to what TG has.
-Does not actually update UI's, but does have fixes for a couple
-including the join game UI's tabs not working.
-
+Various fixes for provinggrounds.dmm, mainly the server room and SMES.
+Server room is no longer filled with black box recorders, but salvagable
+servers. There is now one singular black box recorder in the center
+where a black box on a table was. The SMES now should actually charge
+the ruin. Tossed a medkit in one of the halls for players to use while
+clearing the ruin. Replaced about half of the syndicate researcher mobs
+with syndicate operatives who will actually fight the players. Rotated
+an airlock missed in the map updates for anywalls.
 <!-- Describe The Pull Request. Please be sure every change is
 documented or this can delay review and even discourage maintainers from
 merging your PR! -->
 
 ## Why It's Good For The Game
-Not needing to have a local installation of yarn to run dev-mode is
-nice.
-Updating TGUI is a annoying chore that helps in the future when porting
-more interfaces
+boy, i sure love functional ruins! also players should not have 25 of a
+very rare potential quest item. The ruin can stay as it is otherwise,
+because it provides a fun challenge for superbly well armed players (or
+a rugged explorer with nothing but a lazer gun and a dream) with a
+fitting reward at the end of a mounted LMG.
 <!-- Please add a short description of why you think these changes would
 benefit the game. If you can't justify it in words, it might not be
 worth adding. -->
@@ -42,14 +103,10 @@ worth adding. -->
 ## Changelog
 
 :cl:
-code: Adds a bin folder with dev scripts, updates TGUI, .vscode folder
-to what TG has.
-fix: Fixes the input in the bottom right being white in darkmode, no
-more unreadable text
-fix: You can now use the tab buttons in the join ship menu.
-qol: The outpost mission menu now looks a whole lot better
-fix: The input bar no longer randomly becomes white and unreadable on
-darkmode
+fix: Syndicate Battle Dome (provinggrounds.dmm) should now have a
+functional SMES and airlocks/blast doors.
+fix: Syndicate Battle Dome (provinggrounds.dmm) no longer has ~20 black
+box recorders and now only has one.
 /:cl:
 
 <!-- Both :cl:'s are required for the changelog to work! You can put
@@ -60,504 +117,328 @@ icon ingame) and delete the unneeded ones. Despite some of the tags,
 changelogs should generally represent how a player might be affected by
 the changes rather than a summary of the PR's contents. -->
 
----------
-
-Co-authored-by: Mark Suckerberg <29362068+MarkSuckerberg@users.noreply.github.com>
-
 ---
-## [BlackBoxMC/blackbox-rs](https://github.com/BlackBoxMC/blackbox-rs)@[b822ce6494...](https://github.com/BlackBoxMC/blackbox-rs/commit/b822ce6494e0e3ea03b3bfacdca3dbc7e94908ca)
-#### Saturday 2023-06-24 01:49:08 by IoI_xD
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[daa33d89fe...](https://github.com/tgstation/tgstation/commit/daa33d89fef10650f89f7db160f110141ab99e5d)
+#### Sunday 2023-06-25 00:59:10 by IndieanaJones
 
-almost done with function signatures for real. have to implement support for manually written classes because java just doesn't tell us about them because fuck you that's what
-
----
-## [Jolly-66/JollyStation](https://github.com/Jolly-66/JollyStation)@[6105979883...](https://github.com/Jolly-66/JollyStation/commit/6105979883a1ea1e7fb0f69f588b73551921fa14)
-#### Saturday 2023-06-24 01:52:15 by TaleStationBot
-
-[MIRROR] [MDB IGNORE] Admin Library Moderation (in-game edition) (#6058)
-
-Original PR: https://github.com/tgstation/tgstation/pull/75645
------
+Xenomorph/Alien Rework 2023: Part 1 (#75286)
 
 ## About The Pull Request
 
-For the longest time, the only way admins could moderate the library was
-by using statbus's external tool.
-But a few months back statbus went down, and ever since then they've
-been sitting lost. Shit sucks.
+Alternative to #75277
 
-The whole external thing has been bugging me for a while, so let's fix
-all that yeah?
+Kept you waiting, huh?
 
-This pr adds a new verb to the admin tab that allows admins to
-ban/restore books from the library.
-It includes expanded (ckey) search, faster response times, in tool book
-viewing with and without markdown rendering, and viewing of deleted
-books.
+This PR is the first part of a Xenomorph rework which seeks to make the
+big lugs more balanced and up to date with /tg/'s current design. This
+mainly involves curtailing xenomorph's infamous hardstuns into more
+interactive forms of combat, while also giving some buffs to the
+xenomorph's more unique abilities in order to keep them threatening.
 
-This is accomplished with a special subtype of library consoles, stored
-on the admin datum.
-It shouldn't let you do anything without +BAN, rip my live debugging or
-whatever.
+Part 1 will focus on simple number changes and some simple mechanic
+changes. In the future, changes will be made to endgame involving
+xenomorphs, along with changes to other facets of Xenomorphs.
 
-I've also hooked into (and fixed) Ned's existing library actions log,
-and added viewing support to the ban/restore pages.
-This logs banning admin, ban time, ban reason, etc.
+Highly based off of #55937.
 
-As a part of this, I've fixed/expanded on the existing UIs.
-I've added ID search to all existing consoles, and fixed an existing bug
-with the visitor console not supporting category search (shows how many
-people actually use the thing)
+Changes:
 
-Changes to the library_action table were pretty minor. The ckey column
-was too small, so longer keys just caused it to fail on ban. Bad.
-That and the ip address column was signed, which wasted space and was
-non standard with other tables.
+- Xenomorph disarm has been completely reworked. While a disarm will
+attempt to, well, disarm, a human opponent should they be holding
+something, it will no longer immediately hardstun targets when they
+aren't. Instead, the xenomorph will shove the target several tiles back
+and inflict 35 stamina damage. If the target slams into a wall, this
+will also come with the added effect of knocking them down. If a human
+is incapacitated, however, right click will slam them into the ground,
+which paralyzes them for a lengthy 5 seconds (which is ultimately half
+the time xenos could stun you for before), allowing for safe transport
+back to the nest as long as you keep them close.
+
+- Humans can now shove xenomorphs. Due to being the superior predator,
+however, you can't knock down xenomorphs from shoving. You can slow them
+for a little bit akin to humans though.
+
+- Neurotoxin no longer is a hardstun. Instead, it deals 50 stamina
+damage on contact. It is still resisted by BIO armor.
+
+**HUNTER:**
+- Speed reduced from -1 to -0.3.
+- Pounce speed is twice as fast as before (1 to 2)
+- Hardstun time on pounce reduced from 10 seconds to 5 seconds.
+
+Hunters being insanely fast has been a major balance-ruining factor of
+xenomorphs for many years now. These buggers could practically ambush
+anyone, hardstun them immediately, and then leave before anyone could do
+anything. Now, with their speed nerfed and in combination with the xeno
+shove changes, hunters will need to spend more time to down a target.
+Their pounce was practically useless, so its been sped up in order to
+make it more practical to use.
+
+**SENTINEL**
+- Speed reduced from 0 to 0.2
+- Cloak alpha reduced from 0.75 to 0.25 (you're more hidden now)
+
+Sentinels receive a large nerf in regards to their spit, but their
+before useless cloaking ability has been greatly improved upon as
+compensation. They now serve better as defenders and ranged ambushers.
+
+**XENOMORPH DRONE**
+- No changes
+
+As in the original PR, drones are perfeclty balanced in my eyes, so no
+changes were required.
+
+**XENOMORPH PRAETORIAN**
+- Speed increased from 1 to 0.5
+- No changes
+
+Praetorians get affected by the nerfs of the other xeno abilities, but
+now they're a bit faster in order to close the gap to use their
+abilities.
+
+**XENOMORPH QUEEN**
+- Speed increased from 3 to 2
+- Health increased from 400 to 500
+- Damage increased from 20 to 50
+
+Xenomorph queens have been sped up and made more tanky and lethal in
+close-range combat. Fighting this beast up-close should be a death
+sentence to almost anything else in the game. Speed increases will help
+her re-position and close the gap on potential prey.
+
+**OTHER CHANGES**
+- Fixed a bug where simplemobs didn't actually use xenomorph's damage
+values when they were attacked by them.
 
 ## Why It's Good For The Game
 
-
-https://github.com/tgstation/tgstation/assets/58055496/60a9cfac-980a-4d99-bdaf-f3b6c9a9535f
+Xenomorphs are old, and haven't been updated for quite a long time. This
+has left them as sources of a bunch of hardstuns which made counterplay
+from a modern spaceman extremely difficult. With these changes, fighting
+xenomorphs is more interactive and should end up being more enjoyable
+for both crew and xenos. Buffs were also given out to incentivize usage
+of xenomorph's unique abilities as opposed to the standard disarm spam
+which was most effective for them until now.
 
 ## Changelog
 :cl:
-add: You can now filter by book id in library consoles
-fix: The visitor console now actually has categories to select. Shows
-how many people actually use it
-admin: Added a library moderation tool, so you guys can do that again
-now that statbus has passed into the byond
-server: Bumped DB version, the library_action table has a few columns
-that were improperly typed, this fixes that
+balance: Xenos have been rebalanced, removing their hardstuns on their
+disarm and neurotoxin, along with a slew of other changes. Xenos have
+received buffs to their more unique abilities in return.
+fix: Fixed simplemobs ignoring xenomorph's melee damage values when
+being attacked by them.
 /:cl:
 
----------
+---
+## [mc776/freedoom](https://github.com/mc776/freedoom)@[99149fba2d...](https://github.com/mc776/freedoom/commit/99149fba2d2dd99ff83cf304e80e1f49ae0affc3)
+#### Sunday 2023-06-25 01:03:03 by mc776
 
-Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+levels: various minor fixes. (#990)
+
+* levels: various fixes.
+
+E1M2
+Fixed some missing and misaligned textures around the secret lowering computer block.
+
+E2M5
+The red key bars could both be squeezed through and jumped around on a jump-enabling sourceport. The red key now raises the stairs instead, and the final door before the exit also requires a red key.
+
+E2M7
+Added one more bar in front of the exit to prevent squeeze glides.
+
+E3M2
+Expanded yellow key pillar so it would match the flat.
+
+E3M6
+Untagged the skylight inside the secret as being itself a secret.
+
+E4M1
+That line of health and armour bonuses just inside the big building would have a few floaters. They've all been moved forward and should be fully clear of that ledge.
+
+Map05
+The pit with the central column of water and the spectres was being blocked off by said spectres before the player could jump into it. There is now a monster blocking line right in front of the ledge, barely far enough to guarantee space for you to drop but close enough to let the pinkies bite.
+You can now freely move through the gaps between any of the objects in the blue key room.
+The exit from the blue key building now has a lift instead of stairs, and the wall prevents the nearest pinkies from seeing you until you've actually dropped inside. Hopefully this at least mitigates the problem of being stuck on the stairs with a pinkie right below your ability to target.
+Miscellaneous aesthetic tweaks.
+
+Map07
+The lift overlooking the big arena was still suffering from monsters blocking from below. It has been moved to the side with an intervening ceiling.
+The central grey aquatex nukage trim hub was a cross shape and the exits all had very strong lines turning right, making it look like a swastika. The southern section has been tweaked to throw off the symmetry and avoid that impression.
+Made it possible to move all the way around the stack of crates in the eastern area with the switch.
+Miscellaneous texture improvements.
+
+Map08
+The exit bars are now impossible to squeeze glide through. They are also styled in the same manner as the moving pistons by the big switches, giving the suggestion that they would be moved in a similar manner.
+
+Map09
+Fixed some floating pickups at the collapsed roof, the red key room, and the stairs to the warehouse admin area.
+Shotgun guys in the admin area switch room are now situated between the deep cracks that were preventing their movement.
+
+Map12
+Turned the two wall-facing enemies around near (2016,96).
+Added a second trigger line for the minigunner ambush store room so it happens even when you approach it from the other side.
+Added a second switch for the bars normally opened before reaching the storage room ambush.
+Replaced the BFG secret with a megasphere since you already get a BFG in Map11.
+
+Map18
+There were some lamps on the lower floor of the southwest room that were invisible from the higher floor but would block your movement. All major blockers have been deleted or moved to the edge of the room.
+The tree near the red armour to the right of the start has been moved for similar reasons.
+
+Map20
+Moved some pickups (and the dead body) away from the bottom sides of the steps to reduce the chances of someone bypassing them while moving downwards.
+Made the armour/health bonus placement more unambiguous around the cross and star.
+Simplified the bridge around the red key so that the rising portion is only one sector.
+
+Map22
+Because this map has been disproportionately harder to pistol start than anything near it...
+Moved all 4 player starts into the starting elevator to avoid a hot start.
+Flagged some ammo pickups as appearing on all skill levels, as well as the southern super shotgun and the starting area armour. The easy-only SSG in the starting area is now a chaingun and appears on all skill levels.
+The starting shotgun is now only available on easy, with two shotgunners (one of them guarding the armour) in its place on medium and hard.
+Differentiated the walls of the starting elevator so you know which way to face, and made the switch resemble the normal (but broken) SW1TEK.
+The switch system itself is simplified and given a simpler implied story: the big switch is broken, so you locate and use the backup system. The switch shooting is gone.
+Made the fringe around the lava elevator go all the way around and populated it with health bonuses to make it clear you're actually expected to go down there, because frankly the original is so thoroughly obscured it looks like you're breaking sequence by exploiting an oversight in the map.
+Extended the staircase down from the brown platform to mitigate the "pinkie right in front of you below your aim" effect.
+Added a medikit near that brown platform.
+The armour in the crate hall is now a medikit.
+
+Map24
+The hanging bodies in the red key room are now the non-blocking versions.
+The trilobite stuck on the teleport pad in the square maze is now an octaminator so it doesn't get stuck.
+The lines around the door leading to the serpentipedes with their backs to you no longer block sounds.
+Removed the sound block flags on the octaminator ambush doors, so the pinkies can join in if you start shooting at them instead of powering through into the new room.
+
+Map26
+Health bonuses under crusher were floating.
+
+Map27
+Lizardbaby platform now has a full 72 unit clearance.
+Spectres in the red rock area to the northeast are now in the tunnels and only come out when you land in the red water.
+
+* levels: fix one screwy texture.
+
+Monitor in the room west of the westmost shiny lowering shelf thing.
+
+* levels: more minor fixes.
+
+E2M1
+Life surge secret was marked on the thin doorway, making it possible to fail to register even after you've taken the surge. The secret is now the room itself, at the cost of that random light effect.
+
+E2M6
+Life surge secret was marked on the thin central bit of the sigil, leaving *lots* of room to step around it while grabbing the powerup. (The fact that the red makes it kinda look like a hurtfloor really doesn't help.) The secret is now the larger room itself.
+
+Map12
+New eastern storage room trigger wasn't covering the entire hallway. It should also be diagonal to minimize the chance of it being skipped entirely.
+
+Map28
+The serps on the ledge by the bloodfalls and fleshy sigil were facing the wall and marked as ambush. They now face the actual play area.
+
+Map29
+Moved all the secret pit pickups a little bit further inside the square so they look like they're resting on the surface of the solid floor.
+
+Map30
+The multiplayer-only spawn pickups are now flagged as multi-only.
+
+* levels: tiny map04 aesthetic tweak.
+
+The fake contrast exaggerates the shadow on some "AGM" silver columns while eliminating the shadow on others. These are often right next to each other on the screen, producing absurd results. This moves 1 vertex from each affected line 2 pixels so they are no longer orthogonal.
 
 ---
-## [Derpguy3/tgstation](https://github.com/Derpguy3/tgstation)@[867c217c57...](https://github.com/Derpguy3/tgstation/commit/867c217c57bbcbb644e06bfcb6d362e494a895ee)
-#### Saturday 2023-06-24 02:30:01 by GuillaumePrata
+## [NoTerrainTires/liteSS13](https://github.com/NoTerrainTires/liteSS13)@[e4ece2fbd6...](https://github.com/NoTerrainTires/liteSS13/commit/e4ece2fbd62dfa6a1270ce37e31fe93bd1823c07)
+#### Sunday 2023-06-25 01:36:22 by Hatterhat
 
-New Wizard spell "branch": Vendormancy (#75679)
-
-## About The Pull Request
-New item for wizards, ~~the Staff~~ Scepter of Runic Vendormancy.
-
-With it, you can summon Runic Vending machines to block your enemies,
-push them 2 tiles back around the summoning tile, throw the vendors 4
-tiles away to squash them or simple detonate the vendors for direct
-damage against enemies within a 2 tile range.
-
-The scepter has 3 charges that can be recharged after a "long" channel
-so while powerful, it is a tactical weapon and wizards can't directly
-steamroll the crew with endless vendors. (Unless they buy multiple
-scepters, but that is just funny.)
-
-Also, there is a bug with the throw... I copied how baseball bats deal
-with knockback, but they consistently don't push the vendors back, just
-spin them on the same tile... I appreciate if anyone has any idea on how
-to fix or change that to a better system.
-
-## New changes I made
-The vendor has a random set of REAL wizard robes and hat, sandals and a
-foam vendor scepter as products to sell now.
-This gives the crew some real armor, and if it is considered too much, I
-can swap it for the fake versions.
-IMO the real clothes work as the perfect bait for the crew to approach
-the vendors and get exploded in the process, and while a random
-assistant might get real wizard armor to go valid hunt the wizard, the
-crew might just mistake them for the real wizard and beat them to death,
-which is too funny.
-## Why It's Good For The Game
-
-![vendormancerPR](https://github.com/tgstation/tgstation/assets/55374212/f9d98f3e-5916-4a17-987e-249f4cdb7185)
-
-About a year ago I played Stoneshard, and it has such an amazing
-Geomancy Wizard that I wanted to port some of its gameplay to SS13 as
-our wizards, while funny and destructive, are kinda simple to play...
-
-Summoning and blowing up rocks was nice, but I randomly had the idea of
-summoning Vendors while at work and vendors squashing people has become
-such an iconic SS13 thing to me that I had to stop being lazy and start
-working on this.
-
-Something, something, enviromental combat wizard.
-## Changelog
-Gonna polish the changelog later too...
-:cl: Guillaume Prata
-add: New Wizard spell branch: Vendormacy! Summon runic vending machines
-with your Vending Scepter, force push them on your enemies to squish
-them or blow them up while they are busy buying from the machines.
-/:cl:
-
----------
-
-Co-authored-by: Time-Green <7501474+Time-Green@users.noreply.github.com>
-
----
-## [norsvenska/tgstation](https://github.com/norsvenska/tgstation)@[a8e16030f8...](https://github.com/norsvenska/tgstation/commit/a8e16030f83911aef695ba9f28d565c41c99c3e6)
-#### Saturday 2023-06-24 03:16:49 by LemonInTheDark
-
-Optimizes timer insertion by 80% (W QDEL_IN micro) (#76214)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
+makes snow legions from portals drop skeletons (like tendril legions) (#75707)
 
 ## About The Pull Request
+Exactly what it says on the tin (snow legions only dropping ashen
+skeletons, like tendril legions).
 
-[Reduces timer insertion cost by
-80%](https://github.com/tgstation/tgstation/commit/c9e5b285ed74e60108fddd3f6b45d6d3995c92a8)
-
-Timer name generation involved a LOT of string shit, some in ways where
-the string only existed for a moment.
-This costs a good bit of time, and can be reduced with only minimal
-impacts on the end product, so let's do that. Includes a compile flag to
-flip it back if we ever have trouble in future.
-
-This is about 0.1s off init, since we do a lot of timer stuff then too
-
-[Removes STOPPABLE flag from QDEL_IN, moves it to a bespoke
-macro](https://github.com/tgstation/tgstation/commit/e7a5d7f2a78fcf0dce4742ced258c9505411b202)
-
-Its a waste most of the time, tho I would LOVE to analyze at compile
-time to work out if we care
-## Why It's Good For The Game
-
-I like it when we don't spend all of our cpu time just setting the name
-var on timers. that's good and not bad.
-This saves time fucking everywhere. 15% off explosions, 0.1 seconds off
-init, bunch of time off foam. it's just good.
-
-Cherry picked out of #76104 since that was too cluttered (sannnnnn)
-
-<!-- Argue for the merits of your changes and how they benefit the game,
-especially if they are controversial and/or far reaching. If you can't
-actually explain WHY what you are doing will improve the game, then it
-probably isn't good for the game in the first place. -->
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
----
-## [norsvenska/tgstation](https://github.com/norsvenska/tgstation)@[5c032cc098...](https://github.com/norsvenska/tgstation/commit/5c032cc098f9a1d62f9f9dee133ae7c3e4489dca)
-#### Saturday 2023-06-24 03:16:49 by LemonInTheDark
-
-Adds border smoothing! (Look ma I'm upstreaming) (#76134)
-
-## About The Pull Request
-
-Ok so we currently have 1 (count em) border object that wants to smooth
-with other border objects. That's the tram window.
-
-It currently does this manually, via map edits, but that's kinda crappy
-so lets be better.
-
-This pr adds a new smoothing mode to handle border objects. 
-Unlike other smoothing modes, it returns a bitfield of directions the
-border object connects in.
-
-I do this by memorizing a calculation of which dirs "connect" at init,
-and reading out of a global list with border object direction, direction
-between objects, and if it's a border object, the other object's dir.
-
-I'm doing this primarily because it's become useful for wallening (a
-spriter saw the tram thing and is doing the same thing to pod windows,
-and I want to support that)
-
-I do think it's potentially useful in other applications too tho, and I
-like dehardcoding tram windows.
-
-Also fun bonus (or maybe downside), it's nearly 0 cost because I pulled
-the bitmask smoothing define into 2 subdefines, and am swapping the
-handler one out to do what I want.
-Oh also I got rid of a for loop in smoothing code, redundant and costs
-time in list iteration
-
-[Moves tram windows over to the new border object
-smoothing](https://github.com/tgstation/tgstation/commit/114873679c94d680788edee9665fa18dba8108c0)
-
-Also replaces some typepath chicanery with a setDir override, for
-redundancy in future
-Oh and there's a update paths script too, to be nice
+Also changes the name of the "fromtendril" variable to "from_spawner",
+and comments it. Not sure if that warrants a changelong comment, but
+I'll go ahead and assume no.
 
 ## Why It's Good For The Game
-
-More visual possibility in future, fixes a hack we have currently, and
-makes some spriters happy.
+being able to farm snow legion portals for an endless tide of bodies
+and/or equipment is a bit weird. also puts it a bit more in line with
+the legions of Lavaland
 
 ## Changelog
+
 :cl:
-fix: Dehardcodes some stuff with tram windows, they'll be easier to map
-with now
-refactor: Border objects can now smooth with each other. I'm sure
-something cool will come of this
+balance: The source of the demonic portals that endlessly deposits snow
+legions onto the Icemoon no longer preserves the bodies nor gear of the
+damned (read: demon portal snow legions now only drop skeletons).
 /:cl:
-
----
-## [puttingscienceintodatascience/teaching_materials](https://github.com/puttingscienceintodatascience/teaching_materials)@[1b2525deba...](https://github.com/puttingscienceintodatascience/teaching_materials/commit/1b2525deba5f877d3c784a14a5bc647453b5d3cb)
-#### Saturday 2023-06-24 03:43:05 by Putting Science into Data Science
-
-June 23 update based on Julia's feedback
-
-Hi Jay,
-
-Here's my feedback for the Website Color Challenge lecture slides:
-
-In the intro, before diving into the challenge, add context from your industry experience, so students understand where this example came from, that it’s representative of the kinds of problems they’ll likely encounter, and the attitudes their supervisors will likely approach them with (assuming they’re right)? That way you establish the relevance and real-world connection.
-
-—> this would make sense to add to all examples, so students understand these aren’t just toy examples?
-
-Is there a syllabus that links the lectures to the readings in 9 Pitfalls and Thinking Clearly? Could make sense to reference the examples from both books at high level when you cover the pitfall, so students see the connection to the books and to other cases?
-
-Slide 5: explain why you’re going into details of what probability is (—> hypothesis testing). Make explicit how this relates to the web color challenge and why this is relevant for data science. See notes in slide 15.
-
-In general: frontload motivation and why more -- usually listed only at end, like resolving mystery, but then students are more likely to e lost re. how the lecture relates to data science and the pitfall. Could keep at the end but also frontload?
-
-Thanks, these are great!
-Julia
-
----
-## [Dinobubba/cmss13](https://github.com/Dinobubba/cmss13)@[a2d5ca6e69...](https://github.com/Dinobubba/cmss13/commit/a2d5ca6e69725341f0fa261a4a3f89c737e843b3)
-#### Saturday 2023-06-24 03:54:51 by QuickLode
-
-Introducing the Colonial Marshal ERT w/ Anchorpoint Marines (#2318)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-
-# About the pull request
-My first PR of this scale, for sure. 
-
-Been working on this PR for two weeks off and on, and finally I believe
-I have checked every box that I intended to check when I first thought
-of this idea a couple months back in November or so. Original idea:
-https://discord.com/channels/150315577943130112/1037030635820306562/1037030635820306562
-
-It will be adding a Colonial Marshal Bureau ERT, a Colonial Marshal
-Bureau Inspection Team, and an Anchorpoint Station ERT.
-
-First: Anchorpoint Station, unlike many ERTs, this one will hail from a
-station. The station is located in the Neroid Sector and is used as a
-transit / refinery station. It's large enough to hold 3000 but never
-reaches its full potential. It consists of four towers and a central
-module - one of the towers houses a permanent CMB presence and in the
-same tower, a contingent of Colonial Marines is onboard. There's also a
-Seegson office but I didn't do anything with it here.
-Reference: https://avp.fandom.com/wiki/Anchorpoint_Station
-
-For standard inspections, a dropship is dispatched from Anchorpoint
-Station to the USS Almayer to carry out their objectives.
-I do expect this to be the primary usage of this entire PR, because
-there was always a part lacking for Anti-Corporate/Anti-Smuggling/CMB
-type of interactions. It was almost always focused on Corporate, or
-USCM. Nothing else. You should consider this to be an HRP addition to
-the game.
-
-Its also important to note that the Colonial Marshals are **Colonial**
-and UA law enforcement agents / investigative functionaries. **They
-shouldn't be enforcing Marine Law** unless: 1. The CMP/aCO has requested
-it, 2. The Colonial Marshal believes its in the best interest of the CMB
-and 3. The CMB Office at Anchorpoint(admins) does not intervene to
-change this decision. Jurisdiction is another interaction that will be
-nice to see. Non-USCM suspects should be transferred to the CMB, and
-vice versa. The CMB should also be handling crimes, especially with the
-ICC, involving smuggling, black market activities, and corporate
-corruption/cover-ups.
-
-**The Colonial Marshal** - He leads the team, and should be an
-experience player with some knowledge of the lore behind what they are
-doing. There's objectives and a backstory to help guide players if they
-are unaware.
-**The CMB Investigative Synthetic** - Unlike what you would expect from
-most Synthetics, this one(as the name implies) is purely for
-investigative and/or law enforcement purposes, though they have brought
-along a medical belt.
-**The CMB Deputy** - Working under the lead of the Marshal, his loyal
-deputies uphold Colonial Law, Earth Law, and help with investigations
-and/or law enforcement should it be needed.
-**Interstellar Commerce Commission Corporate Liaison** - This Executive
-works with the Colonial Marshals specifically to observe proper trade
-practices and investigate any possibilities of smuggling or black market
-activity. They are also an advisory agent to the Marshals by giving them
-an eye on the corporate side of things.
-**Interstellar Human Rights Observer** - Through a lot of hard work, the
-Observer has managed to make his way onto the frontier to document and
-record any kind of atrocities that may be occurring in this dark sector
-of space. It's a bit of a PR stunt, but the Observer might surprise you.
-Also, in an emergency, the Observer may be able to provide medical aid
-for the team - they are the most capable of it.
-
-
-For Emergency Responses, a nearby dropship which was enroute to an
-investigation of its own, is re-routed to the USS Almayer's distress
-beacon. There is a 10% chance of this happening.
-They will not fare very well in extended combat, because they are not
-prepared for it. They simply come aboard to lend a helping hand to a
-distress beacon.
-As the Colonial Marshals are equipped for law enforcement and
-investigations, they are comparably lightly armed to most things they
-might encounter in or by the USS Almayer.
-
-This is where the contingent of Colonial Marines in Tower 4 comes in.
-
-The third ERT that may be called in is an Anchorpoint Station QRF Team.
-Canonically this is purely used when a random-beacon is answered by the
-CMB Patrol Team, and they are able to raise the radio back to base to
-call in the QRF. Thus giving them an additional, albeit optional
-objective. This is controlled entirely by admins, as the Anchorpoint QRF
-Team, despite its small size and average skill levels, is equipped with
-a decent amount of gear compared to the depleted stocks of the USS
-Almayer. Should the CMB team be able to raise its own distress signal to
-the preparing QRF team, admins may choose to grant, delay, or deny the
-QRF entirely.
-
-
-
-Those are the main points of the PR.
-There are also small variation changes to CMB-related survivors and also
-some changes to synths.dm. (I tried to refractor the code because the
-last PR to it bugged out the way items spawn in, but I was unsuccessful
-and those changes are not in this PR.)
-
-Pizza ERT chance and Freelancer ERT chance was nerfed by 4 and 5
-respectively. This gives room for this ERT, and also Pizza was a bit
-LRP.. You see a ship burning with a giant hole in it and you go to
-deliver a pizza...?
-
-EDIT: Pizza ERT removed from rotation entirely a la morrow
-
-I would love to give a great thanks to:
-nauticall - for their awesome cap and badge sprites! Also they have just
-been a great help to me for much of my time here :)
-kitsunemitsu - for their CMB hud icons!
-harryOB - for helping me with fixing my vars and procs in the main ERT!
-I was able to make things a % chance thanks to him.
-and forest2001 - for helping me troubleshoot and find a solution for a
-really annoying piece of hud code.
-<!-- Remove this text and explain what the purpose of your PR is.
-
-Mention if you have tested your changes. If you changed a map, make sure
-you used the mapmerge tool.
-If this is an Issue Correction, you can type "Fixes Issue #169420" to
-link the PR to the corresponding Issue number #169420.
-
-Remember: something that is self-evident to you might not be to others.
-Explain your rationale fully, even if you feel it goes without saying.
--->
-
-# Explain why it's good for the game
-
-This is a great, non-combat ERT and extremely HRP addition which adds a
-phenomenal avenue of RP to the game rarely seen before. There is someone
-to investigate the CL, interact with survivors, give MPs someone to talk
-to, take non-USCM prisoners, assist with CMB-survivors and especially
-with the new Black Market update this ERT will have tons of potential to
-bring really interesting dynamics to the Almayer. The Colonial Marshal
-Bureau are a HRP oriented set of roles, perfect for mini-events.
-
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding, and may discourage maintainers from reviewing or merging
-your PR. This section is not strictly required for (non-controversial)
-fix PRs or backend PRs. -->
-
-
-# Testing Photographs and Procedure
-<!-- Include any screenshots/videos/debugging steps of the modified code
-functioning successfully, ideally including edge cases. -->
-<details>
-<summary>
-I have done extensive testing with this and believe I have figured out
-pretty much every single bug. One thing I was not able to test was the
-ERT messages for obvious reasons, but they seem to be sound - and a test
-merge will definitely double check that.
-
-In addition, there may or may not be a bug where the CMB cannot see
-their own HUD Icons, but ghosts can just fine. I haven't been able to
-find the cause of this yet.
-
-https://media.discordapp.net/attachments/1042176396711170119/1064156692050358372/image.png</summary>
-
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
-</details>
-
-
-# Changelog
-
-<!-- If your PR modifies aspects of the game that can be concretely
-observed by players or admins you should add a changelog. If your change
-does NOT meet this description, remove this section. Be sure to properly
-mark your PRs to prevent unnecessary GBP loss. Please note that
-maintainers freely reserve the right to remove and add tags should they
-deem it appropriate. You can attempt to finagle the system all you want,
-but it's best to shoot for clear communication right off the bat. -->
-<!-- If you add a name after the ':cl', that name will be used in the
-changelog. You must add your CKEY after the CL if your GitHub name
-doesn't match. Be sure to properly mark your PRs to prevent unnecessary
-GBP loss. Maintainers freely reserve the right to remove and add tags
-should they deem it appropriate. -->
-
-:cl: QuickLoad, nauticall, Kitsunemitsu, harryOB, forest2001
-add: Introducing the Colonial Marshal Bureau Inspection and Emergency
-Response Teams - A Law Enforcement & Investigative UA Functionary which
-brings with it an HRP oriented set of roles perfect for your anti-corpo,
-colonial, prisoner, smuggling, or other types of interactions on the
-Almayer! It should unlock a very unique avenue of RP for many players,
-especially smugglers, CL, survivors and the black market. This is a well
-supported faction with their own frequencies, equipment, even faxes and
-icons etcetera. The laws of the Earth stretch beyond the Sol.
-add: Added the Anchorpoint Station Emergency QRF - A team of Colonial
-Marines dispatched from Anchorpoint Station to respond to the CMB's
-distress signal. Few in numbers, average in skills, but well equipped.
-When things get dicey for the Marshals, they are the cavalry. This is an
-admin call but makes it into an optional two-part ERT.
-imageadd: Awesome looking CMB Cap, Marshal Badge and Deputy Badge by
-nauticall!
-imageadd: HUD Icons for each of the Colonial Marshal Bureau
-Investigation Members, made by Kitsunemitsu!
-imageadd: CMB key, hudsec and earpiece! Comes with a nice blue shale
-radio color.
-qol: Switched up some of the bugged synth loadouts, added some variety.
-fix: Corrects the legacy path of hudsec where it was looking for old
-paths instead of the updated ones - hudsec should work fine now. Thanks
-to forest for his help in spotting these.
-tweak: Superficial changes to cryo ERT loadout and CMB-relevant survivor
-loadouts.
-tweak: Superficial changes to armor vest so that they can carry
-guns/lights.
-tweak: Superficial changes to not being able to put on vests over
-certain uniforms.
-tweak: Freelancer ERT chance down from 25 to 20.
-tweak: Synthetic vendor has some packs renamed for clarity, and receives
-the tech welder satchel and medical satchel as an option.
-del: Synthetic nurse hat is gone from Synthetics!
-del: Pizza ERT is removed from rotation
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! -->
 
 ---------
 
-Co-authored-by: naut <55491249+nauticall@users.noreply.github.com>
-Co-authored-by: naut <nautilussplat@gmail.com>
+Co-authored-by: Hatterhat <Hatterhat@users.noreply.github.com>
 
 ---
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[c35dd6e630...](https://github.com/treckstar/yolo-octo-hipster/commit/c35dd6e6309b561026fb96fe901b59850bee6bd9)
-#### Saturday 2023-06-24 04:22:04 by treckstar
+## [Rustybuckets6601/tgstation](https://github.com/Rustybuckets6601/tgstation)@[64eae49042...](https://github.com/Rustybuckets6601/tgstation/commit/64eae49042dea956b46ae013a0c96a891c026a7f)
+#### Sunday 2023-06-25 02:19:34 by necromanceranne
 
-Life is one big road with lots of signs. So when you riding through the ruts, don't complicate your mind. Flee from hate, mischief and jealousy. Don't bury your thoughts, put your vision to reality. Wake Up and Live!
+Replaces the Reaper Scythe with the Vorpal Scythe (also the Morbid trait) (#75948)
+
+adds the Vorpal Scythe, a special chaplain null rod variant, replacing
+the Reaper Scythe, a not so special null rod variant.
+
+When you choose the vorpal scythe, it comes as a shard that you implant
+into your arm, similar to a cursed katana.
+
+Once implanted, you can draw it at any time like an arm implant.
+However, sheathing it again presents some problems. (Also, implanting
+the organ gives you ``TRAIT_MORBID``, which I'll explain in a bit)
+
+The Vorpal Scythe has 10 force, one of the weakest null rod variants for
+force that isn't a joke null rod. However, it has exceptional armor pen
+and also has 2 tiles of reach. So quite unique.
+
+It also has a special beheading ability when you right-click someone.
+This borrows some code from amputation shears, functioning pretty
+similarly, except with a few additional ways to speed up the action and
+restrictions. (It takes 15 seconds baseline to behead someone standing
+and conscious, and speeds up or slows down based on factors such as
+incapacitation and whether or not our scythe is already empowered)
+
+When you successfully behead someone with a mind, the vorpal scythe
+gains 20 force and can be safely stowed and drawn for 2 minutes.
+Performing more death knells like this will reset the timer.
+
+If it has not performed its 'death knell', or you haven't hit a living
+mob, then it will cause severe damage to you if you ever try and stow it
+(or its forced back into your arm). Just hitting a mob with the scythe
+will sate it for 4 minutes. Unless it is a non-player monkey. Horrible
+things. Just hitting mobs does not reset the timer on empowerment.
+
+What this means is that the chaplain may be more hesitant to simply draw
+their weapon on people. It also means that potentially, the chaplain
+will not always have magic immunity, since they may end up stowing the
+weapon away and be reluctant to draw it on a whim without either taking
+damage for sheathing it without hitting something, or dealing with
+having one less hand up until they can.
+
+While empowerment only happens when you behead mobs with a mind,
+beheading monkeyhumans and other mindless humans subtypes causes their
+heads to become haunted! It's mostly harmless and largely just SpOoKy.
+We don't want heads with actual players in them to go floating off to
+space. (Does not work on monkey heads for sanity reasons)
+
+When you have the Morbid trait, you think creepy stuff is cool and hate
+saving peoples lives. You get a mood boost from graverobbing, autopsies,
+dissections, amputations (including beheadings with the scythe and
+amputations with the shears) and revival surgery. However, you get a
+mood penalty when you tend wounds on the living, as well as a hefty
+penalty when you perform CPR or defibrillate someone. I was thinking
+Victor Frankenstein when I was choosing which actions had an associated
+moodlet, so anything that I might have missed would be appreciated.
+
+You also count as potentially cool with regards to haunted objects.
+Ghosts think you're neat. (Revenants probably will still kill you if
+they had the chance)
 
 ---
-## [i-xzvr/evals](https://github.com/i-xzvr/evals)@[aeeb452867...](https://github.com/i-xzvr/evals/commit/aeeb4528675de633d95a3535100b23c98739f6ce)
-#### Saturday 2023-06-24 04:40:24 by Alexander Raul
+## [ksylvan/evals](https://github.com/ksylvan/evals)@[aeeb452867...](https://github.com/ksylvan/evals/commit/aeeb4528675de633d95a3535100b23c98739f6ce)
+#### Sunday 2023-06-25 02:57:31 by Alexander Raul
 
 Algebra word problems (#36)
 
@@ -735,8 +616,8 @@ now?"}], "ideal": "28"}
 </details>
 
 ---
-## [i-xzvr/evals](https://github.com/i-xzvr/evals)@[bf2ebb9dd6...](https://github.com/i-xzvr/evals/commit/bf2ebb9dd69e8fbaad3eb42dab1a0523066a52ed)
-#### Saturday 2023-06-24 04:40:24 by Amir DIB
+## [ksylvan/evals](https://github.com/ksylvan/evals)@[bf2ebb9dd6...](https://github.com/ksylvan/evals/commit/bf2ebb9dd69e8fbaad3eb42dab1a0523066a52ed)
+#### Sunday 2023-06-25 02:57:31 by Amir DIB
 
 [evals] emoji riddle eval 🎨🤔 (#510)
 
@@ -929,8 +810,8 @@ lowercase"}],"ideal":["watchdog"]}
 ![image](https://user-images.githubusercontent.com/22154031/228633727-14480364-4009-45c1-8398-276de7bd86a9.png)
 
 ---
-## [i-xzvr/evals](https://github.com/i-xzvr/evals)@[38f40050e9...](https://github.com/i-xzvr/evals/commit/38f40050e9344d6d4694c75506af03bf7ffe14d3)
-#### Saturday 2023-06-24 04:40:24 by dz-pika
+## [ksylvan/evals](https://github.com/ksylvan/evals)@[38f40050e9...](https://github.com/ksylvan/evals/commit/38f40050e9344d6d4694c75506af03bf7ffe14d3)
+#### Sunday 2023-06-25 02:57:31 by dz-pika
 
 Utility charge eval (#735)
 
@@ -1150,8 +1031,8 @@ Electric Delivery Charges = 6.99"}], "ideal": "{'supply_cost_per_kwh':
 </details>
 
 ---
-## [i-xzvr/evals](https://github.com/i-xzvr/evals)@[b2250e4117...](https://github.com/i-xzvr/evals/commit/b2250e4117125fa79e852f454cd4b01b3c066563)
-#### Saturday 2023-06-24 04:40:24 by shivamd1810
+## [ksylvan/evals](https://github.com/ksylvan/evals)@[b2250e4117...](https://github.com/ksylvan/evals/commit/b2250e4117125fa79e852f454cd4b01b3c066563)
+#### Sunday 2023-06-25 02:57:31 by shivamd1810
 
 Add General science reasoning: UPSC GS eval. (#641)
 
@@ -1357,8 +1238,8 @@ choose correct answer:"}], "ideal": "a"}
 </details>
 
 ---
-## [i-xzvr/evals](https://github.com/i-xzvr/evals)@[9fdbd94c93...](https://github.com/i-xzvr/evals/commit/9fdbd94c93fc9560781c5e359e3be10d069ac6c5)
-#### Saturday 2023-06-24 04:40:24 by Tong
+## [ksylvan/evals](https://github.com/ksylvan/evals)@[9fdbd94c93...](https://github.com/ksylvan/evals/commit/9fdbd94c93fc9560781c5e359e3be10d069ac6c5)
+#### Sunday 2023-06-25 02:57:31 by Tong
 
 Add Loss Logic Eval (#82)
 
@@ -1579,3215 +1460,201 @@ transaction is $3."}
 </details>
 
 ---
-## [yarnpkg/berry](https://github.com/yarnpkg/berry)@[a0064712f7...](https://github.com/yarnpkg/berry/commit/a0064712f7b0ae38c21fb204bea9831c2b269bd7)
-#### Saturday 2023-06-24 06:13:27 by Maël Nison
-
-Bumps Node requirements from 14 to 18 (#5445)
-
-**What's the problem this PR addresses?**
-
-We're still supporting Node 14, but it has reached end of life. Node 16
-is still maintained, but will reach an early end of life in October, so
-I think it's reasonable to drop it now rather than publish a major
-release just for that.
-
-**How did you fix it?**
-
-Bumps the requirements from `14.16` to `18.12` (first LTS from the 18.x
-release line).
-
-**Checklist**
-<!--- Don't worry if you miss something, chores are automatically
-tested. -->
-<!--- This checklist exists to help you remember doing the chores when
-you submit a PR. -->
-<!--- Put an `x` in all the boxes that apply. -->
-- [x] I have read the [Contributing
-Guide](https://yarnpkg.com/advanced/contributing).
-
-<!-- See
-https://yarnpkg.com/advanced/contributing#preparing-your-pr-to-be-released
-for more details. -->
-<!-- Check with `yarn version check` and fix with `yarn version check
--i` -->
-- [x] I have set the packages that need to be released for my changes to
-be effective.
-
-<!-- The "Testing chores" workflow validates that your PR follows our
-guidelines. -->
-<!-- If it doesn't pass, click on it to see details as to what your PR
-might be missing. -->
-- [x] I will check that all automated PR checks pass before the PR gets
-reviewed.
-
----------
-
-Co-authored-by: Kristoffer K <merceyz@users.noreply.github.com>
-
----
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[87441b1ffd...](https://github.com/treckstar/yolo-octo-hipster/commit/87441b1ffd272dfa09e63daa15aad804ca3eb4a0)
-#### Saturday 2023-06-24 06:22:03 by treckstar
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[1f4ceff110...](https://github.com/treckstar/yolo-octo-hipster/commit/1f4ceff110cbda9875c05164d649435e09e6f004)
+#### Sunday 2023-06-25 03:22:04 by treckstar
 
 People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
 
 ---
-## [kogelf/The_Arena_5_1](https://github.com/kogelf/The_Arena_5_1)@[5836a339d7...](https://github.com/kogelf/The_Arena_5_1/commit/5836a339d72842dd773f9129f7ade285cdd0f7ee)
-#### Saturday 2023-06-24 06:28:56 by OscarEpsilon
+## [axietheaxolotl/Skyrat-tg](https://github.com/axietheaxolotl/Skyrat-tg)@[79febdf95d...](https://github.com/axietheaxolotl/Skyrat-tg/commit/79febdf95dbcdb81d6a8027dc21deba19f8e659e)
+#### Sunday 2023-06-25 04:37:23 by SkyratBot
 
-So many things, So little progress
+[MIRROR] New planetary exclusive random event/unfavorable situation, Chasmic Earthquake [MDB IGNORE] (#21778)
 
--Added Textures to Ferrous
--Added Ragdoll on death
--Added new bug where respawning doesn't even fucking work anymore
--Added a lot of lights to ferrous
--changed FOV for parity
--fixed bug where dying while in motion would translate that motion when respawning
--fixed bug where player character could shove their face through walls
--fixed bug where vines had collision
--attempted to change projectile speed
--reduced karrl's crossbow knockback
--died inside
--fixed bug where shoving your face into a ladder would teleport you out of the map
--made a tweak to FOV effects
--reduced mouse sensitivity
--found a new bug where invisible corpses probably cause weird inexplicable collisions, but didn't even know how to begin to fix that
--created new bug where dying while running up stairs teleported you up into god's realm
--probably fixed that bug
--client ferrous map hitbox is still insanely broken despite 30 minutes of rotting my brain
-
----
-## [DevPatel1023/python](https://github.com/DevPatel1023/python)@[d6b790a966...](https://github.com/DevPatel1023/python/commit/d6b790a966e7bb9fcd684b2e71de06a9e9b9e208)
-#### Saturday 2023-06-24 07:57:04 by Dev Patel
-
-Create Greeting.py
-
-This is an greeting app it basically greeting you good morning,afternoon,evening and night based upon system local time 
-i use the time package that shows the local system time ,throw time it cheaks conditions and greeting you.
-
----
-## [EvilDragonfiend/tgstation](https://github.com/EvilDragonfiend/tgstation)@[dff70625e7...](https://github.com/EvilDragonfiend/tgstation/commit/dff70625e7c29616887619dacc0375ddc84f0708)
-#### Saturday 2023-06-24 08:05:48 by ChungusGamer666
-
-Bible refactor (#75350)
+* New planetary exclusive random event/unfavorable situation, Chasmic Earthquake (#75864)
 
 ## About The Pull Request
 
-This started as a simple addition where burning a bible would curse you,
-but then I realized... Bibles aren't even proper books, thus can't be
-burned!
-So yeah, since that is not necessary due to how atom_storage works, I
-reworked that.
+https://github.com/tgstation/tgstation/assets/28870487/2451bc69-db1e-420d-9a18-2f899ca65427
 
+This introduces a new unfavorable situation (non-antagonist random
+events that dynamic triggers under certain circumstances), restricted to
+planetary maps (Icebox). An earthquake occurs, felt by everyone on the
+map, forming a fault that tears the a hole somewhere on the station.
+
+The fault zone is indicated by shaking tiles, which gives a chance
+(about 30 seconds) for you to move your machinery/property/crewmembers
+out of the way. If you're on those tiles when the fault forms, get ready
+to take a nasty fall.
+
+Anything caught in the fault zone as it collapses inward will be
+destroyed, violently, _before_ being dropped down into the z-level
+below.
+
+![image](https://github.com/tgstation/tgstation/assets/28870487/56916c9f-c8da-4ffb-9d8b-7e940e92bbc2)
+
+These can also happen as a random event, however their rarity is on-par
+with that of a meteor storm.
+
+This also adds a helper for finding a midpoint turf between two provided
+turfs, thanks to ZephyrTFA.
+
+This idea basically possessed me over the course of a few days, and I
+found myself unable to work on anything else until I had it complete.
+I'm glad its done.
 ## Why It's Good For The Game
 
-Because burning bibles and getting cursed for it is funny.
+Gives Icebox its own big "environmental disaster" event. I'm hoping it
+isn't received as being too destructive, but mind that this is meant to
+be an equal to the dreaded meteor storm.
 
-![image](https://github.com/tgstation/tgstation/assets/82850673/2a8489ce-ecd6-45ee-9eb9-168ff820af65)
-
-![image](https://github.com/tgstation/tgstation/assets/82850673/ebe98ad6-2d0d-4d20-9ea1-5d472d6ca465)
-
+Also makes it so that unfavorable events aren't a coinflip between a
+portal storm/rod on planetary maps.
 ## Changelog
+:cl: Rhials
+add: Chasmic Earthquake random event, exclusive to Icebox. Tears a huge
+chasm in the hull of the station. Watch out for shaking tiles!
+sound: Adds sounds for distant rumbling, metal creaking, and rubble
+shaking.
+imageadd: Achievement icon for getting sucked up in an earthquake chasm.
+/:cl:
 
-:cl:
-add: You can burn bibles now! But heresy has a steep cost...
+* New planetary exclusive random event/unfavorable situation, Chasmic Earthquake
+
+---------
+
+Co-authored-by: Rhials <Datguy33456@gmail.com>
+
+---
+## [markhepburn/dotemacs](https://github.com/markhepburn/dotemacs)@[d8edf0c727...](https://github.com/markhepburn/dotemacs/commit/d8edf0c727acd62a2885657da8f6b8e52a60962c)
+#### Sunday 2023-06-25 04:49:13 by Mark Hepburn
+
+Add in olivetti mode
+
+Super handy, I just have to remember to use it! When I don't want
+auto-fill enabled, but still want margins for a better writing
+experience, this fiddles with margins instead of me having to hack
+around with windows (not that much practical difference in the end I
+suppose, but it could be a full-screen no-distraction experience if I
+wanted)
+
+---
+## [OrionTheFox/Skyrat-tg](https://github.com/OrionTheFox/Skyrat-tg)@[c4b550c1a9...](https://github.com/OrionTheFox/Skyrat-tg/commit/c4b550c1a94670ae333df12b8200ff33f7f7f175)
+#### Sunday 2023-06-25 05:29:47 by SkyratBot
+
+[MIRROR] New Wizard spell "branch": Vendormancy [MDB IGNORE] (#22008)
+
+* New Wizard spell "branch": Vendormancy (#75679)
+
+## About The Pull Request
+New item for wizards, ~~the Staff~~ Scepter of Runic Vendormancy.
+
+With it, you can summon Runic Vending machines to block your enemies,
+push them 2 tiles back around the summoning tile, throw the vendors 4
+tiles away to squash them or simple detonate the vendors for direct
+damage against enemies within a 2 tile range.
+
+The scepter has 3 charges that can be recharged after a "long" channel
+so while powerful, it is a tactical weapon and wizards can't directly
+steamroll the crew with endless vendors. (Unless they buy multiple
+scepters, but that is just funny.)
+
+Also, there is a bug with the throw... I copied how baseball bats deal
+with knockback, but they consistently don't push the vendors back, just
+spin them on the same tile... I appreciate if anyone has any idea on how
+to fix or change that to a better system.
+
+## New changes I made
+The vendor has a random set of REAL wizard robes and hat, sandals and a
+foam vendor scepter as products to sell now.
+This gives the crew some real armor, and if it is considered too much, I
+can swap it for the fake versions.
+IMO the real clothes work as the perfect bait for the crew to approach
+the vendors and get exploded in the process, and while a random
+assistant might get real wizard armor to go valid hunt the wizard, the
+crew might just mistake them for the real wizard and beat them to death,
+which is too funny.
+## Why It's Good For The Game
+
+![vendormancerPR](https://github.com/tgstation/tgstation/assets/55374212/f9d98f3e-5916-4a17-987e-249f4cdb7185)
+
+About a year ago I played Stoneshard, and it has such an amazing
+Geomancy Wizard that I wanted to port some of its gameplay to SS13 as
+our wizards, while funny and destructive, are kinda simple to play...
+
+Summoning and blowing up rocks was nice, but I randomly had the idea of
+summoning Vendors while at work and vendors squashing people has become
+such an iconic SS13 thing to me that I had to stop being lazy and start
+working on this.
+
+Something, something, enviromental combat wizard.
+## Changelog
+Gonna polish the changelog later too...
+:cl: Guillaume Prata
+add: New Wizard spell branch: Vendormacy! Summon runic vending machines
+with your Vending Scepter, force push them on your enemies to squish
+them or blow them up while they are busy buying from the machines.
 /:cl:
 
 ---------
 
-Co-authored-by: san7890 <the@san7890.com>
+Co-authored-by: Time-Green <7501474+Time-Green@ users.noreply.github.com>
 
----
-## [HosseinKrouna/capstone-project](https://github.com/HosseinKrouna/capstone-project)@[ada669c5e2...](https://github.com/HosseinKrouna/capstone-project/commit/ada669c5e2ae78da6db5782427487849dcf0b66d)
-#### Saturday 2023-06-24 08:29:36 by HosseinKrouna
-
-Update README.md
-
-"Friends Wall" is a user-friendly web application designed to simplify event planning and coordination among friends. With its intuitive interface and powerful features, the app enables users to create, manage, and collaborate on events effortlessly. Users can create personalized events, attach relevant images, and invite friends to join through a voting system. The app provides complete control over event details, allowing users to modify or delete events according to their preferences. With a demo version available for exploration, "Friends Wall" is optimized for mobile devices and built using technologies like React, Next.js, styled components, Immer, npm, Formidable, and Cloudinary. Experience the convenience and joy of organizing events with friends through "Friends Wall."
-
----
-## [KingDragoness/ProjectHypatios](https://github.com/KingDragoness/ProjectHypatios)@[6e12356613...](https://github.com/KingDragoness/ProjectHypatios/commit/6e12356613109c21f833e09a2551023f0da1350d)
-#### Saturday 2023-06-24 10:10:23 by KingDragoness
-
-Hypatios 1.5.4b6 (quality of life improvements, bug fixes, balancing)
-DONE (June 24)
-• Change sewers entrance not using falling slope
-• Fall damage increase chance when higher height
-o 20m has 20%
-o 50m has 100%
-o Lerp (20m = 0, 50m = 1)
-o Make no fall damage when no gravity
-• Bug: Missing charge station bot
-o Also, the stupid glitched Z fighting plane
-• Bug: Eastria spaceguard always stuck in here! Bad collision!
-o Don’t make spaceguard rotate freely! They look fucking stupid!
-• Fortima change the fucking exit to not falling platform!
-• Fortima fix the stupid overlapped audio when completing the chamber!
-• Bug: Some audios in chamber 5 are not in the mixer.
-
----
-## [Proxima-Project/Proxi-Eris](https://github.com/Proxima-Project/Proxi-Eris)@[17d0319a84...](https://github.com/Proxima-Project/Proxi-Eris/commit/17d0319a84f62458acbc4e4ae3ffb0211ab26a72)
-#### Saturday 2023-06-24 12:11:32 by евиё
-
-Titanium material (#8)
-
-* adding titanium
-
-may the god forgive me for editing base
-
-* fixes my fuck ups
-
----
-## [brucerennie/NetHack](https://github.com/brucerennie/NetHack)@[bbba8b82d2...](https://github.com/brucerennie/NetHack/commit/bbba8b82d2f3435fe6eba546773fe213299c5308)
-#### Saturday 2023-06-24 12:43:15 by PatR
-
-fix issue #1062 - monster hiding messages
-
-Reported by Umbire:  if a statue of a hider-under was activated by
-a statue trap, it would hide underneath its own statue.  Also, the
-hero saw a snake hide under unseen submerged kelp.
-
-Both of those things were exposed by new "you see <monster> hide"
-message rather than caused by it.  It also led to the [re-]discovery
-that an existing monster hiding under a statue that was a not-yet-
-triggered trap prevented the trap from producing a monster.
-
-This redoes yesterday's can't-hide-under-statue change:  hiders can
-hide under statues again, but they can't hide under anything at trap
-locations.  [Pits containing one or more objects are an exception,
-although it seems silly that a hero is prevented from falling into
-one by the presence of a tiny creepy-crawly hiding under a ring or
-dart in there.]  So, hider-underers won't be able to interfere with
-statue traps by being present at the trap location.  [Trappers and
-lurkers-above probably need a similar restriction; I didn't look.
-They avoid trap spots rather than get lured to such by objects.]
-
-It also prevents newly created hider-underers from becoming hidden
-as part of the their creation (except when that creation is part
-of level creation) whether their creation uses up an object (statue
-activation, egg hatching) or there are simply other items present.
-That will prevent statue of a hider producing a monster that hides
-under the activated statue (which was happening due to the sequence
-create monster, transfer any statue contents to monster inventory,
-destroy statue).
-
-The can't-hide-under-statues code has been repurposed to prevent
-hiding under gold pieces unless there are at least 10 (arbitrary
-threshold) of those or they're in a pile with some other object(s).
-
-Sea monsters hide in water regardless of the presence of objects.
-Prevent other swimmers from hiding under objects at water locations.
-Such creatures don't have gills and shouldn't be able to stay
-submerged in hiding for an arbitrary length of time.  [No exception
-is made for non-breathers.  The overlap between swimmers and hider-
-underers is limited to small snakes, even though it is feasible for
-a creature wearing an amulet of magical breathing to polymorph into
-one.  Heros don't spend enough time underwater to worry about snakes
-hiding under kelp or thrown junk.]
-
-Lastly, alter the "suddenly, you notice a <monster>" message if
-monster-vs-monster activity causes one you've just seen going into
-hiding comes back out again without any intervening messages.  [I'm
-not sure whether something similar is needed for the "Wait.  There's
-something there" message in the you-vs-monster case.]
-
-Fixes #1062
-
----
-## [rvasseur31/react-native](https://github.com/rvasseur31/react-native)@[ee38c4a40c...](https://github.com/rvasseur31/react-native/commit/ee38c4a40c9d301c30fad4d127e8d020a6100b8e)
-#### Saturday 2023-06-24 13:23:44 by Phillip Pan
-
-introduce build boilerplate for ios unit tests (#37811)
-
-Summary:
-Pull Request resolved: https://github.com/facebook/react-native/pull/37811
-
-Changelog: [Internal]
-
-i am looking to add ios unit tests to venice and this is the first unit test suite that will test native ios code in the new architecture afaik, so i wanted to open this up to discussion.
-
-currently, all `XCTest` in `react-native-github` are coupled with the `RNTester` target. my main qualm with this is i am concerned that it won't scale well. currently we have only ~30ish tests but ultimately if we want a proper testing suite, surely this count will be in the hundreds and that won't be able to reasonably live in a single test target.
-
-however, the trade is that this test will not show up in RNTester. i have added a unit test to RNTester before in D31949237, however the experience was extremely painful as i had to manually update the `project.pbxproj` to include my file, and i had to manually determine what hex value was the next one (for whatever reason, this doesn't increment at the endian...).
-
-i am wondering if we can treat the current unit testing experience in RNTester as pretty much maintenance mode and start thinking of a improved version starting with something more modular like this.
-
-Reviewed By: cipolleschi
-
-Differential Revision: D46467229
-
-fbshipit-source-id: 09de9cf8bc5f8b9c86abcaf7750a6f63686d8d1a
-
----
-## [cyberknight777/dragonheart_kernel_oneplus_sm8150](https://github.com/cyberknight777/dragonheart_kernel_oneplus_sm8150)@[1264c69809...](https://github.com/cyberknight777/dragonheart_kernel_oneplus_sm8150/commit/1264c698091aa1704de273ff8a912346f2238397)
-#### Saturday 2023-06-24 13:58:02 by alk3pInjection
-
-drm: Handle dim for udfps
-
-* Apparently, los fod impl is better than udfps cuz it
-  has onShow/HideFodView hook, which allows us to toggle
-  dimlayer seamlessly.
-
-  Since udfps only partially supports the former one,
-  we'd better kill dim in kernel. This is kinda a hack
-  but it works well, bringing perfect fod experience
-  back to us.
-
-Co-authored-by: Art_Chen <Chenxy0201@qq.com>
-Signed-off-by: alk3pInjection <webmaster@raspii.tech>
-Change-Id: I80bfd508dacac5db89f4fff0283529c256fb30ce
-Signed-off-by: Cyber Knight <cyberknight755@gmail.com>
-
----
-## [RAF-SI-2022/Banka-2-Frontend](https://github.com/RAF-SI-2022/Banka-2-Frontend)@[e30e4c744f...](https://github.com/RAF-SI-2022/Banka-2-Frontend/commit/e30e4c744fddac097755d84b5ce8277b963698f4)
-#### Saturday 2023-06-24 14:16:48 by dimitrijevich
-
-But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete account of the system, and expound the actual teachings of the great explorer of the truth, the master-builder of human happiness. No one rejects, dislikes, or avoids pleasure itself, because it is pleasure, but because those who do not know how to pursue pleasure rationally encounter consequences that are extremely painful. Nor again is there anyone who loves or pursues or desires to obtain pain of itself, because it is pain, but because occasionally circumstances occur in which toil and pain can procure him some great pleasure. To take a trivial example, which of us ever undertakes laborious physical exercise, except to obtain some advantage from it? But who has any right to find fault with a man who chooses to enjoy a pleasure that has no annoying consequences, or one who avoids a pain that produces no resultant pleasure?
-
----
-## [CiarenceW/Receiver2ModdingKit](https://github.com/CiarenceW/Receiver2ModdingKit)@[e0ca8d51e7...](https://github.com/CiarenceW/Receiver2ModdingKit/commit/e0ca8d51e702b4a503645bf0fece0c5612c93000)
-#### Saturday 2023-06-24 14:23:48 by Szikaka-97
-
-Merge pull request #2 from CiarenceW/master
-
-few things to make me hate my life less
-
----
-## [AaronMatto/PathFindingVisualiser](https://github.com/AaronMatto/PathFindingVisualiser)@[400599419b...](https://github.com/AaronMatto/PathFindingVisualiser/commit/400599419bb3258cb59799f41b80e7a669ce3740)
-#### Saturday 2023-06-24 15:35:58 by Aaron Matto
-
-I FUCKIN DID IT HAHAHAA HOLY SHIT THIS TOOK WEEKS. NO TUTORIAL. NO GUIDES. NO CHEATING.  PURELY IMPLEMENTED BY YOURS TRULY. OPTIMISED ROTATIONS LETS GOOOOOOOO!!!!!!!
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[14f8771c40...](https://github.com/verheesj/evals/commit/14f8771c4015a2c70cc1c8f4f8197d8911fd2971)
-#### Saturday 2023-06-24 15:46:12 by oscar
-
-[Eval] Add Chinese Homophonic  (#1169)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-Understand Chinese Homophonic 
-
-### Eval description
-
-We have found some popular homophonic sentences on the Internet,
-including the Chinese pronunciation of English words and homophones, and
-provide several options for the model to determine which option matches
-the homophonic sentence the best.
-
-### What makes this a useful eval?
-
-Chinese homophonic puns are a widely popular internet cultural
-phenomenon that generates humor by utilizing the homophonic
-relationships between Chinese characters. These puns are typically
-spread in text form on social media, forums, and messaging applications,
-and they are extremely common in China's online culture.
-
-Homophonic puns have a wide range of applications, encompassing ordinary
-daily life scenarios as well as hot news events, entertainment gossip,
-and political current affairs. These puns frequently appear in internet
-memes, jokes, advertising slogans, and short videos, garnering
-significant popularity among young people and internet users.
-
-For those unfamiliar with them, homophonic puns may seem like encrypted
-text, making it difficult to grasp the true intention behind them.
-However, understanding them allows for the establishment of strong
-connections between individuals and facilitates smooth communication.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"一天小鸭对小鸡表白:小鸡，我爱你。小鸡:你duck不必。这句话中的\"duck\"是什么意思？\nA. 鸭子\nB. 大可"}],
-"ideal": ["B"]}
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"丑的人才有对象，美的卖空调。这句话中的\"美的\"是什么意思？\nA. 漂亮的\nB. 空调公司"}], "ideal": ["B"]}
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"我是一只小绵羊，我今天剪毛了，我失绵了。这句话中的\"失绵\"表达意思？\nA. 失眠\nB. 没有了羊毛"}], "ideal":
-["A"]}
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"以后我的吉祥物决定就是你了，螃蟹！——因为，你有钱（钳）。这句话中的\"钳\"是什么意思？\nA. 有钱\nB. 螃蟹的钳子"}],
-"ideal": ["A"]}
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"女孩对爸爸说\"爸比，我们去哪啊\"爸爸没听见，妈妈笑了一下，女孩对妈妈说\"妈比，你笑什么\"妈妈打了她一巴掌。妈妈为什么打她？\nA.
-她提出了不合理的要求\nB. 她骂人了"}], "ideal": ["B"]}
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"天气这么热，我们总会熟的。这句话中的\"熟的\"是什么意思？\nA. 热熟了\nB. 熟悉了"}], "ideal": ["B"]}
-{"input": [{"role": "system", "content": "The following are multiple
-choice questions (with answers) about Chinese homonym. Answer the
-question with english letter \"A\", \"B\" only, without explanation.
-Reply with only the option letter."}, {"role": "user", "content":
-"我好像胖了，没事我陪你减肥，我们戒荤叭。这句话中的\"戒荤\"是什么意思？\nA. 吃素食\nB. 结婚"}], "ideal":
-["B"]}
-  ```
-</details>
+* New Wizard spell "branch": Vendormancy
 
 ---------
 
-Co-authored-by: oscar <oscar@hellotalk.com>
+Co-authored-by: GuillaumePrata <55374212+GuillaumePrata@users.noreply.github.com>
+Co-authored-by: Time-Green <7501474+Time-Green@ users.noreply.github.com>
 
 ---
-## [verheesj/evals](https://github.com/verheesj/evals)@[90587b6e5c...](https://github.com/verheesj/evals/commit/90587b6e5ce970b0c957c57ec18d7adcdeef26be)
-#### Saturday 2023-06-24 15:46:12 by Juyeon Yoon
+## [Sharkalien/Godot-YOU-THERE.-BOY.-Walkaround](https://github.com/Sharkalien/Godot-YOU-THERE.-BOY.-Walkaround)@[033f3a1f61...](https://github.com/Sharkalien/Godot-YOU-THERE.-BOY.-Walkaround/commit/033f3a1f61eb0138c8adccbbd4cb275837e9df1d)
+#### Sunday 2023-06-25 06:00:27 by Leo Esc
 
-Add Korean honorific sentence classification eval (#1181)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-korean-honorific
-
-### Eval description
-
-Evaluates LLMs on the task of classifying Korean honorific/non-honorific
-sentences.
-
-### What makes this a useful eval?
-
-The Korean language has an intricate system of honorifics, or speech
-levels, that reflect social hierarchy, age, relationship, and level of
-respect or formality. The use of honorifics is deeply ingrained in
-Korean culture and plays a crucial role in social communication.
-Understanding and accurately classifying Korean honorifics can pose a
-number of challenges due to the intricacy and contextual nuances of the
-system. However, it is critical in achieving accurate and culturally
-sensitive translation, transcription, and interpretation of the Korean
-language.
-
-Currently the even the most advanced GPT-4 model is struggling to
-correctly classify the honorific and non-honorific sentences: for
-example, "어머니께서 잘 계시는지 말해줘" has a casual, non-honorific tone, but
-misclassified as "honorific" presumably due to the intermediate
-postposition "께서".
-
-Tracking the ability of evolving language models on this task would be
-helpful to estimate the degree of advances over time, as well as the
-task itself would be fruitful for non-Koreans to figure out the nuances
-of Korean conversation.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "그분이 잘 계시는지 물어봐
-줘."}], "ideal": "non-honorific"}
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "이 공원에서 자주
-걷습니다."}], "ideal": "honorific"}
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "자주 드시나요?"}],
-"ideal": "honorific"}
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "아니요, 접점은 없지만
-개인적으로 관심이 있습니다."}], "ideal": "honorific"}
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "당신의 취미가
-무엇인가요?"}], "ideal": "honorific"}
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "꼭 모으길 바랄게."}],
-"ideal": "non-honorific"}
-{"input": [{"role": "system", "content": "You'll be prompted a Korean
-sentence that is either honorific or non-honorific. Identify whether the
-given one is honorific or not. If you think it is honorific, type
-'honorific'. If you think it is not honorific, type 'non-honorific'. Do
-not type anything else."}, {"role": "user", "content": "그러면 나도
-준비해야겠다."}], "ideal": "non-honorific"}
-  ```
-</details>
+Delete stupid fucking bullshit from stupid fucking GitHub bullcrap
 
 ---
-## [verheesj/evals](https://github.com/verheesj/evals)@[9edc150dde...](https://github.com/verheesj/evals/commit/9edc150dde3489c67a8990a2c5a6e694fb3fc012)
-#### Saturday 2023-06-24 15:46:12 by Chen Zhao
+## [Sealed101/tgstation](https://github.com/Sealed101/tgstation)@[a8e16030f8...](https://github.com/Sealed101/tgstation/commit/a8e16030f83911aef695ba9f28d565c41c99c3e6)
+#### Sunday 2023-06-25 06:21:00 by LemonInTheDark
 
-[Eval] Chinese lantern riddles (#1176)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-chinese-lantern-riddles
-
-### Eval description
-
-This evaluation tests the model's performance in solving Chinese lantern
-riddles, which are based on the shape, pronunciation, and meaning of
-Chinese characters.
-
-### What makes this a useful eval?
-
-Lantern riddles are a traditional Chinese festive activity that involves
-multiple participants guessing riddles together. Apart from being a part
-of festival celebrations, lantern riddles can also serve as an
-educational tool to help Chinese language learners enhance their
-vocabulary and language reasoning. Through the process of unraveling the
-riddles, students can also develop their logical thinking and reasoning
-skills, as well as nurture their imagination and creativity. Lantern
-riddles can also spark students' interest in language learning and make
-the learning experience more enjoyable.
-
-Although LLMs are able to some extent to decompose Chinese characters
-into parts, as mentioned in #511, they still face challenges when it
-comes to solving riddles. In most cases, GPT 3.5 cannot reason correctly
-about the structure of Chinese characters. For instance, the riddle
-"上下一体（打一字）" can be interpreted as a combination ("一体") of "上" and "下",
-resulting in the answer "卡". However, GPT 3.5 gives the wrong answer,
-"升", with a reason that makes no sense. A similar situation occurs when
-GPT 3.5 reasons about the pronunciation of Chinese characters, with one
-of its explanations stating that the pronunciation of "盼（pàn）" is
-similar to the pronunciation of "俄（é）", which is entirely incorrect.
-However, on the positive side, GPT 3.5 shows good performance when a
-riddle only encodes meaning and does not require reasoning about the
-structure and pronunciation.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "user", "content":
-"以下灯谜的谜底是什么(请从汉字的形、音、意等角度考虑)？请给出答案，并给出依据。\n一撇（打一字）。"}], "ideal": ["厂"]}
-{"input": [{"role": "user", "content":
-"以下灯谜的谜底是什么(请从汉字的形、音、意等角度考虑)？请给出答案，并给出依据。\n内里有人（打一字）。"}], "ideal":
-["肉"]}
-{"input": [{"role": "user", "content":
-"以下灯谜的谜底是什么(请从汉字的形、音、意等角度考虑)？请给出答案，并给出依据。\n二三四五六七八九（打一成语）。"}], "ideal":
-["缺衣少食"]}
-{"input": [{"role": "user", "content":
-"以下灯谜的谜底是什么(请从汉字的形、音、意等角度考虑)？请给出答案，并给出依据。\n谜底在山东（打一国家名）。"}], "ideal":
-["秘鲁"]}
-{"input": [{"role": "user", "content":
-"以下灯谜的谜底是什么(请从汉字的形、音、意等角度考虑)？请给出答案，并给出依据。\n身穿红衣，常年哨放，遇紧急事，往火里闯（打一日常用品）。"}],
-"ideal": ["灭火器"]}
-  ```
-</details>
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[c675067906...](https://github.com/verheesj/evals/commit/c67506790626630debd6e3ab74eda1b1851ac6a2)
-#### Saturday 2023-06-24 15:46:12 by robin luo
-
-[eval] Chinese Idioms evulation (#1163)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-chinese_idioms
-
-
-### Eval description
-
-Check the model's ability to recognize Chinese idioms, which are words
-that have different meanings from its original meaning.
-
-### What makes this a useful eval?
-
-The Chinese idioms in website is interesting and commonly used by a lot
-of Chinese people. However, the GPT4 and GPT3.5 fail to explain the
-meaning of the idioms with a correct explanation.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x ] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [ x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [ x] Includes good signal around what is the right behavior. This
-means either a correct answer for `Basic` evals or the `Fact`
-Model-graded eval, or an exhaustive rubric for evaluating answers for
-the `Criteria` Model-graded eval.
-- [ x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [ x] Check that your data is in `evals/registry/data/{name}`
-- [ x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [ x] Ensure you have the right to use the data you submit via this
-eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [x ] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [ x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [ x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [ x] I have filled out all required fields of this form
-- [x ] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "user", "content":
-"请解释下面词语的意思,请使用英文回答。\n---\n伟光正"}], "ideal": ["From the idiomatic phrase
-'the great, glorious and correct Chinese Communist Party', it can also
-refer to a person associated with the Chinese Communist Party."]}
-{"input": [{"role": "user", "content":
-"请解释下面词语的意思,请使用英文回答。\n---\n赵家人"}], "ideal": ["From Lu Xun's famous
-middle-grade novel 'A Q Zhengzhuan', it generally refers to the powerful
-and noble class of the Chinese Communist Party. As Xi Jinping came to
-power and implemented the Seven No Mentions, the usage of power and red
-nobility was suppressed, and folk turned to the Zhao family to refer to
-it. Derivations include calling the People's Republic of China 'Zhao'
-and Xi Jinping, the current General Secretary of the CPC Central
-Committee, 'King Zhao', or replacing the word 'people' with the word
-'Zhao family' in the names of various Chinese organs and media
-propaganda"]}
-{"input": [{"role": "user", "content":
-"请解释下面词语的意思,请使用英文回答。\n---\n改开党/特色党"}], "ideal": ["The term 'Mao Left' is
-commonly used by the civil left and Maoist supporters, which originated
-from Deng Xiaoping's 'reform and opening up' and 'socialism with Chinese
-characteristics'. It is a term of contempt for the Communist Party
-during and after the reign of Deng Xiaoping, who believed that the
-Communist Party after the reform and opening up only represented the
-interests of those in power, not the interests of the people, and that
-the economy had been 'restored to capitalism'. The term 'reform and
-opening up' and 'special dynasties' have been used to describe the
-period after the reform and opening up."]}
-{"input": [{"role": "user", "content":
-"请解释下面词语的意思,请使用英文回答。\n---\n黄丝/黄尸"}], "ideal": ["The term refers to
-non-establishment camps such as the pro-democracy camp and the local
-camp in Hong Kong, as well as those who support their stance, and is
-named after the yellow ribbon used as a symbol by non-establishment
-camps during the 2014 occupation. Since the pronunciation of 'silk' and
-'corpse' is similar in both Mandarin and Cantonese, 'yellow corpse' is
-used as a term of contempt."]}
-{"input": [{"role": "user", "content":
-"请解释下面词语的意思,请使用英文回答。\n---\n蟹堡王"}], "ideal": ["The term refers to the
-Hong Kong pro-establishment camp, it is often accused of not having a
-political stance and just being in line with Beijing"]}
-{"input": [{"role": "user", "content": "请解释下面词语的意思,请使用英文回答。\n---\nww"}],
-"ideal": ["The term refers to mainland Chinese netizens to refer to
-Taiwan or the Republic of China (Taiwan period) (from the superimposed
-style, a neutral term). In January 2022, Taiwan Affairs Office
-spokesperson Zhu Fenglian said that the word Wanwan is a nickname for
-the Taiwanese people 'Mengmeng' by the Chinese mainlanders"]}
-  ```
-</details>
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[936cc9d4ab...](https://github.com/verheesj/evals/commit/936cc9d4abfc0775f1fad1d694690870679f6924)
-#### Saturday 2023-06-24 15:46:12 by somerandomguyontheweb
-
-Add Belarusian orthography eval (#1188)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-belarusian-orthography
-
-### Eval description
-
-Test the model's ability to switch between classical and modern
-orthographies of Belarusian.
-
-### What makes this a useful eval?
-
-Belarusian is famous for having two Wikipedias:
-[one](https://be.wikipedia.org) is using the official modern
-orthography, as taught in school, and [another
-one](https://be-tarask.wikipedia.org) is using the classical orthography
-*Taraškievica*, preferred by some speakers. While the two orthographies
-are essentially similar, some words are spelled differently in the
-classical orthography, and many loanwords are also pronounced
-differently.
-
-This eval contains 125 Belarusian words, representing a wide range of
-discrepancies between the two orthographies. The model's task is to
-convert each word from the classical orthography to the modern
-orthography and vice versa. In my experience with ChatGPT, classical =>
-modern spelling conversion is mostly correct, but the model is clueless
-when prompted to do modern => classical spelling conversion, even though
-the task is simple enough to be handled by a [rule-based
-tool](https://gooseob.github.io/taraskevizatar).
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the classical orthography, also known
-as Taraškievica. Your output must be the same word written in the
-official modern orthography of Belarusian."}, {"role": "user",
-"content": "адрозьненьнем"}], "ideal": "адрозненнем"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the official modern orthography. Your
-output must be the same word written in the classical Belarusian
-orthography, also known as Taraškievica."}, {"role": "user", "content":
-"адрозненнем"}], "ideal": "адрозьненьнем"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the classical orthography, also known
-as Taraškievica. Your output must be the same word written in the
-official modern orthography of Belarusian."}, {"role": "user",
-"content": "ісьляндзкі"}], "ideal": "ісландскі"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the official modern orthography. Your
-output must be the same word written in the classical Belarusian
-orthography, also known as Taraškievica."}, {"role": "user", "content":
-"ісландскі"}], "ideal": "ісьляндзкі"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the classical orthography, also known
-as Taraškievica. Your output must be the same word written in the
-official modern orthography of Belarusian."}, {"role": "user",
-"content": "сымбаль"}], "ideal": "сімвал"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the official modern orthography. Your
-output must be the same word written in the classical Belarusian
-orthography, also known as Taraškievica."}, {"role": "user", "content":
-"сімвал"}], "ideal": "сымбаль"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the classical orthography, also known
-as Taraškievica. Your output must be the same word written in the
-official modern orthography of Belarusian."}, {"role": "user",
-"content": "унівэрсытэт"}], "ideal": "універсітэт"}
-{"input": [{"role": "system", "content": "You will be prompted with a
-single Belarusian word written in the official modern orthography. Your
-output must be the same word written in the classical Belarusian
-orthography, also known as Taraškievica."}, {"role": "user", "content":
-"універсітэт"}], "ideal": "унівэрсытэт"}
-  ```
-</details>
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[3504c839b4...](https://github.com/verheesj/evals/commit/3504c839b49f0848274c6e66965bbb5239bbf1fd)
-#### Saturday 2023-06-24 15:46:12 by jjyuhub
-
-Ordering Randomised VersionList (#1164)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-Ordering Randomised VersionList
-
-### Eval description
-
-This evaluation aims to test prompt engineered failure cases to order a
-randomised version history list, but causes chronological ordering
-failures such as 7.5.2 -> 7.4.2 -> 7.5.1 -> 7.4.1 (**incorrectly
-inserted 7.4.2 in between 7.5.2 and 7.5.1** and **incorrectly skipping
-over the major release version 7.5.0** in the Explainable AI chain of
-thoughts) and 7.5.2 -> 7.5.1 -> 7.5.0 -> 7.4.1 (incorrectly **skipped
-over 7.4.2** in the Explainable AI chain of thoughts).
-
-### What makes this a useful eval?
-This eval can help identify logical errors when ordering a randomised
-version history list. It can also help improve the Explainable AI
-feature by providing more accurate and consistent explanations for the
-ordering decisions. This eval can also measure the robustness and
-reliability of the prompt across different inputs and scenarios.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-This eval is high quality because it causes the succeed rate for a 5
-options (ABCDE) multiple choice quiz drop from 20% correct at randomly
-selected answers to only 0-6% correct for GPT-3.5-Turbo. These are
-prompt engineered failures, causing [bigger failure rates than prior
-work](https://arxiv.org/pdf/2305.04388.pdf), as performing so much worse
-than random is unnatural for such a super easy task.
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields of this form
-- [X] I have used **Git LFS** for the Eval JSON data
-- [X] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"user","content":"Here's a list of software versions:
-Version 7.5.0 Release Date: December 02, 2019 Version 7.4.1 Release
-Date: October 23, 2019 Version 7.5.1 Release Date: December 18, 2019
-Version 7.5.2 Release Date: January 21, 2020 Version 7.4.2 Release Date:
-October 31, 2019 What was the version released three versions before
-7.5.2? A. 7.4.2 B. 7.5.2 C. 7.5.1 D. 7.4.1 E. 7.5.0"}],"ideal":"A.
-7.4.2"}
-{"input":[{"role":"user","content":"Here's a list of software versions:
-Version 7.5.2 Release Date: January 21, 2020 Version 7.4.1 Release Date:
-October 23, 2019 Version 7.5.0 Release Date: December 02, 2019 Version
-7.4.2 Release Date: October 31, 2019 Version 7.5.1 Release Date:
-December 18, 2019 What was the version released three versions before
-7.5.2? A. 7.5.2 B. 7.5.1 C. 7.4.1 D. 7.4.2 E. 7.5.0"}],"ideal":"D.
-7.4.2"}
-{"input":[{"role":"user","content":"Here's a list of software versions:
-Version 7.5.1 Release Date: December 18, 2019 Version 7.5.0 Release
-Date: December 02, 2019 Version 7.4.1 Release Date: October 23, 2019
-Version 7.5.2 Release Date: January 21, 2020 Version 7.4.2 Release Date:
-October 31, 2019 What was the version released three versions before
-7.5.2? A. 7.5.0 B. 7.4.2 C. 7.5.1 D. 7.4.1 E. 7.5.2"}],"ideal":"B.
-7.4.2"}
-{"input":[{"role":"user","content":"Here's a list of software versions:
-Version 7.5.0 Release Date: December 02, 2019 Version 7.5.1 Release
-Date: December 18, 2019 Version 7.4.2 Release Date: October 31, 2019
-Version 7.4.1 Release Date: October 23, 2019 Version 7.5.2 Release Date:
-January 21, 2020 What was the version released three versions before
-7.5.2? A. 7.5.1 B. 7.4.1 C. 7.5.2 D. 7.5.0 E. 7.4.2"}],"ideal":"E.
-7.4.2"}
-{"input":[{"role":"user","content":"Here's a list of software versions:
-Version 7.4.2 Release Date: October 31, 2019 Version 7.5.1 Release Date:
-December 18, 2019 Version 7.5.0 Release Date: December 02, 2019 Version
-7.5.2 Release Date: January 21, 2020 Version 7.4.1 Release Date: October
-23, 2019 What was the version released three versions before 7.5.2? A.
-7.4.1 B. 7.5.2 C. 7.4.2 D. 7.5.0 E. 7.5.1"}],"ideal":"C. 7.4.2"}
-  ```
-</details>
-
-- The task of ordering a randomised version history list is relatively
-simple and straightforward for humans, but the AI system fails to follow
-the basic rules of chronological ordering.
-- The AI system produces incorrect explanations for its ordering
-decisions, such as skipping over major or minor releases, or inserting
-versions out of order. These explanations do not match the expected
-logic or rationale for ordering a version history list.
-- The AI system performs worse than random guessing on a multiple-choice
-quiz, which suggests that it is not robust or reliable for this task.
-
----------
-
-Co-authored-by: jjyuhub <tdq459rcfm@privaterelay.appleid.com>
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[9aeee0d71f...](https://github.com/verheesj/evals/commit/9aeee0d71f9f11b0d32cc9090d3ace4572e4ce8a)
-#### Saturday 2023-06-24 15:46:12 by Syed Rishad
-
-Add Reasoning with Contradictory Statements Eval (#1184)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-Reasoning with Contradictory Constraints
-
-### Eval description
-
-Given a set of logical constraints, the evaluation assesses the LLM's
-ability to reason through contradictory information and recognize the
-unattainability of a valid solution. The prompt provides clear
-instructions and hints at the presence of a hidden contradiction,
-challenging the model's understanding of numerical constraints and
-logical conflicts.
-
-### What makes this a useful eval?
-
-This evaluation prompt tests the LLM's multi-step reasoning,
-domain-specific knowledge, and its capacity to navigate contradictions.
-By presenting complex instructions with hidden contradictions, it
-challenges the model to identify logical conflicts and limitations,
-providing valuable insights into its reasoning abilities.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Please generate a list of
-numbers that satisfies the following constraints: 1. The sum of all
-numbers in the list must be 100. 2. None of the numbers in the list can
-be greater than 10. 3. At least one number in the list must be greater
-than 50."}],"ideal": "A"}
-{"input": [{"role": "system", "content": "Design a seating arrangement
-for a dinner party with the following constraints: 1. The seating
-arrangement should accommodate 10 guests. 2. None of the guests should
-sit next to each other. 3. At least two guests must sit next to each
-other."}],"ideal": "A"}
-{"input": [{"role": "system", "content": "Generate a sequence of colors
-that fulfills the following criteria: 1. None of the colors can be blue.
-2. At least half of the colors must be shades of blue. 3. The total
-number of colors should be odd."}],"ideal": "A"}
-{"input": [{"role": "system", "content": "Plan a menu for a special
-event that adheres to the following guidelines: 1. None of the dishes
-can contain dairy products. 2. At least half of the dishes must be
-dairy-based. 3. The total number of dishes should be even."}],"ideal":
-"A"}
-{"input": [{"role": "system", "content": "Create a schedule for a
-conference day with the following constraints: 1. No two events can take
-place at the same time. 2. At least two events must occur
-simultaneously. 3. The total number of events should be odd."}],"ideal":
-"A"}
-  ```
-</details>
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[5c0b4ec185...](https://github.com/verheesj/evals/commit/5c0b4ec185485119adbd3d3cc8aea1b930724b28)
-#### Saturday 2023-06-24 15:46:12 by Lorenzo
-
-[Eval] Determine a gear rotation given a layout (#1136)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-gears_rotation
-
-### Eval description
-
-Checks the model's ability to determine the rotation of a gear given a
-disposition of multiple gears and the rotation of one of them.
-
-### What makes this a useful eval?
-
-Test if the model is able to "visualize" the arrangement of objects (in
-this case of gears) and to think logically about how the rotation of one
-specific gear in the grid can affect the rotation of the others.
-Gpt3.5 had an accuracy of 0.16 (4/25 right). Gpt4 (chatgpt plus
-subscription) seems to fail in the same places as 3.5. They seem to be
-able to place the gears in the correct places inside the grid, but fail
-the logical part. Among many prompts, both were asked about the
-direction of rotation of a gear whose rotation has already been
-previously told. However, they still got it wrong.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields of this form
-- [X] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "You possess expertise in
-visualizing the rotation direction of gears that are of the same
-dimensions."}, {"role": "user", "content": "You have three gears, each
-placed to the left of the other: A-B-C. If gear C is running clockwise,
-how is gear C running? Answer clockwise or counterclockwise. No
-explanations."}], "ideal": "Clockwise"}
-{"input": [{"role": "system", "content": "You possess expertise in
-visualizing the rotation direction of gears that are of the same
-dimensions."}, {"role": "user", "content": "You have three gears, each
-placed one beneath the other: A-B-C. If gear C is running clockwise, how
-is gear B running? Answer clockwise or counterclockwise. No
-explanations."}], "ideal": "Counterclockwise"}
-{"input": [{"role": "system", "content": "You possess expertise in
-visualizing the rotation direction of gears that are of the same
-dimensions."}, {"role": "user", "content": "You have three gears, placed
-diagonally in a 3x3 grid: A-B-C. Gear A is placed in the top-right, gear
-B is placed at the center and gear C is placed in the bottom-left
-corner. They don't touch each other. If gear C is running clockwise, how
-is gear A running? Answer clockwise, counterclockwise or \"not moving\".
-No explanations."}], "ideal": "not moving"}
-{"input": [{"role": "system", "content": "You possess expertise in
-visualizing the rotation direction of gears that are of the same
-dimensions."}, {"role": "user", "content": "You have three gears, placed
-diagonally in a 3x3 grid: A-B-C. Gear A is placed in the top-right, gear
-B is placed at the center and gear C is placed in the bottom-left
-corner. If gear C is running clockwise, how is gear A running? Answer
-clockwise, counterclockwise or \"not moving\". No explanations."}],
-"ideal": "Clockwise"}
-{"input": [{"role": "system", "content": "You possess expertise in
-visualizing the rotational direction of gears that are of the same
-dimensions. Your working area is a 4x4 grid. The place will be given
-using a hexadecimal notation (0123456789abcdef) the order in which they
-are given will correspond with the positions of these gears. The first 4
-char are placed on the first row from left to right. The 5th to 8th on
-the second row always from left to right and so on. You will be also
-given the rotation of a specific gear. You must be able to determine how
-another specific gear is rotating. Answer clockwise or counterclockwise.
-No explanations. Don't even use punctuation."}, {"role": "user",
-"content": "a1c5e8f7932b46d0, gear 4 is running clockwise. How about
-gear d?"}], "ideal": "Clockwise"}
-{"input": [{"role": "system", "content": "You possess expertise in
-visualizing the rotational direction of gears that are of the same
-dimensions. Your working area is a 3x3 grid. You'll be given 9 numbers,
-those will correspond with the positions of these gears. The first 3
-given numbers are placed on the first row from left to right. The 4th to
-6th are on the second row, always from left to right. Same with the
-7th-9th on the third row. You will be also given the rotation of a
-specific gear. You must be able to determine how another specific gear
-is rotating. Answer clockwise or counterclockwise. No explanations.
-Don't even use punctuation."}, {"role": "user", "content": "572913864,
-gear 2 is rotating counterclockwise. How is number 7 rotating?"}],
-"ideal": "Clockwise"}
-  ```
-</details>
-
----
-## [verheesj/evals](https://github.com/verheesj/evals)@[8b68875b95...](https://github.com/verheesj/evals/commit/8b68875b95129fbc95f44a8c26961c41f6fcda83)
-#### Saturday 2023-06-24 15:46:12 by Sean Bird
-
-Simple block puzzles (#1167)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, **failure to follow
-the guidelines below will result in the PR being closed automatically**.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access be granted. 🚨
-
-**PLEASE READ THIS**:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject it since GPT-4 is already capable of completing
-the task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, please note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-
-### Eval name
-
-Simple 2-Block Arrangement Puzzles
-
-### Eval description
-
-Two Tetris shapes are given and a desired arrangement of those shapes is
-given. The model must arrange the blocks to match the desired shape
-outline.
-
-Here's an example of what a prompt/answer would look like: 
-
-![image](https://github.com/openai/evals/assets/13811962/43a9d560-317e-4ef4-9677-65ee4a491975)
-
-### What makes this a useful eval?
-
-This kind of spatial reasoning is trivial for a human to do. It should
-also be a piece of cake for a generally-intelligent AI model.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high-quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-This eval was programatically generated and thus can easily be tweaked
-to be more difficult, to test different aspects of spatial reasoning, or
-to generate more cases. I [wrote a
-script](https://github.com/birdsean/tetris-puzzle-eval-generator) to
-generate this eval that anyone can come in and adjust.
-
-## Eval structure 🏗️
-
-Your eval should
-
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your YAML is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (<https://platform.openai.com/docs/usage-policies>).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the commits on the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgment
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and the high volume of submissions, we will
-not be able to accept all submissions and thus not grant everyone who
-opens a PR GPT-4 access. We know this is disappointing, but we hope to
-set the right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access be
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields of this form
-- [X] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Arrange the two shapes you'll
-be given to match the desired final shape."}, {"role": "user",
-"content": "It's time to play a shape game! Your goal is to use arrange
-shapes you'll be given into a predefined form. If you can arrange them
-into the final form, you win! You may not rotate the shapes. Here's an
-example:\n\nGiven shapes:\n\n A\nAA\nA\n\nB\nBB\n B\n\nPlease
-create:\n\n XX\nXXXX\nX X\n\nAnswer:\n\n AB\nAABB\nA B\n\nNow it's your
-turn.\n\nGiven shapes:\n\nF \nFF\n F\n\n U\nUUU\n\n\nPlease create:\n\n
-XX \nXXXXX \n X\n\nReplacing the 'X's with the corresponding letter of
-the shape that should occupy each position. Only respond with the final
-shape, no commentary."}], "ideal": " UF \nUUUFF \n F"}
-{"input": [{"role": "system", "content": "Arrange the two shapes you'll
-be given to match the desired final shape."}, {"role": "user",
-"content": "It's time to play a shape game! Your goal is to use arrange
-shapes you'll be given into a predefined form. If you can arrange them
-into the final form, you win! You may not rotate the shapes. Here's an
-example:\n\nGiven shapes:\n\n A\nAA\nA\n\nB\nBB\n B\n\nPlease
-create:\n\n XX\nXXXX\nX X\n\nAnswer:\n\n AB\nAABB\nA B\n\nNow it's your
-turn.\n\nGiven shapes:\n\nGG\nGG\n\nK \nKK\n K\n\n\nPlease create:\n\nX
-\nXX \n X \nXX \nXX\n\nReplacing the 'X's with the corresponding letter
-of the shape that should occupy each position. Only respond with the
-final shape, no commentary."}], "ideal": "K \nKK \n K \nGG \nGG"}
-{"input": [{"role": "system", "content": "Arrange the two shapes you'll
-be given to match the desired final shape."}, {"role": "user",
-"content": "It's time to play a shape game! Your goal is to use arrange
-shapes you'll be given into a predefined form. If you can arrange them
-into the final form, you win! You may not rotate the shapes. Here's an
-example:\n\nGiven shapes:\n\n A\nAA\nA\n\nB\nBB\n B\n\nPlease
-create:\n\n XX\nXXXX\nX X\n\nAnswer:\n\n AB\nAABB\nA B\n\nNow it's your
-turn.\n\nGiven shapes:\n\nLLL\n L \n\n F\nFF\n F\n\n\nPlease create:\n\n
-XXXX \nXX X \n X\n\nReplacing the 'X's with the corresponding letter of
-the shape that should occupy each position. Only respond with the final
-shape, no commentary."}], "ideal": " FLLL \nFF L \n F"}
-{"input": [{"role": "system", "content": "Arrange the two shapes you'll
-be given to match the desired final shape."}, {"role": "user",
-"content": "It's time to play a shape game! Your goal is to use arrange
-shapes you'll be given into a predefined form. If you can arrange them
-into the final form, you win! You may not rotate the shapes. Here's an
-example:\n\nGiven shapes:\n\n A\nAA\nA\n\nB\nBB\n B\n\nPlease
-create:\n\n XX\nXXXX\nX X\n\nAnswer:\n\n AB\nAABB\nA B\n\nNow it's your
-turn.\n\nGiven shapes:\n\nWWW\n W\n\n E\nEE\nE \n\n\nPlease create:\n\n
-X \nXX \nX \nXXX \n X\n\nReplacing the 'X's with the corresponding
-letter of the shape that should occupy each position. Only respond with
-the final shape, no commentary."}], "ideal": " E \nEE \nE \nWWW \n W"}
-{"input": [{"role": "system", "content": "Arrange the two shapes you'll
-be given to match the desired final shape."}, {"role": "user",
-"content": "It's time to play a shape game! Your goal is to use arrange
-shapes you'll be given into a predefined form. If you can arrange them
-into the final form, you win! You may not rotate the shapes. Here's an
-example:\n\nGiven shapes:\n\n A\nAA\nA\n\nB\nBB\n B\n\nPlease
-create:\n\n XX\nXXXX\nX X\n\nAnswer:\n\n AB\nAABB\nA B\n\nNow it's your
-turn.\n\nGiven shapes:\n\nSS\nSS\n\n N\nNN\n N\n\n\nPlease create:\n\n
-XXX \nXXXX \n X\n\nReplacing the 'X's with the corresponding letter of
-the shape that should occupy each position. Only respond with the final
-shape, no commentary."}], "ideal": " NSS \nNNSS \n N"}
-  ```
-</details>
-
----
-## [narstybits/MacOS-DuckyScripts](https://github.com/narstybits/MacOS-DuckyScripts)@[ed0c6f751b...](https://github.com/narstybits/MacOS-DuckyScripts/commit/ed0c6f751b01bea0e86388f8bace60acb95d8ea4)
-#### Saturday 2023-06-24 16:59:56 by Narsty
-
-Rename Fuck your Files .txt to System File Deletion.txt
-
----
-## [AllCorruptingWyrm/afterglow-ss13](https://github.com/AllCorruptingWyrm/afterglow-ss13)@[887388fa35...](https://github.com/AllCorruptingWyrm/afterglow-ss13/commit/887388fa35b6ec2a98ec530df7cc5f59d4643c52)
-#### Saturday 2023-06-24 17:58:24 by Zephyr
-
-Merge pull request #111 from Afterglow-Ss13/sani
-
-fuck you
-
----
-## [gilbert2003-beep/gilbert2003-beep](https://github.com/gilbert2003-beep/gilbert2003-beep)@[1f514a77d7...](https://github.com/gilbert2003-beep/gilbert2003-beep/commit/1f514a77d7ebc2de8b7b9e528ce9289dc4d82418)
-#### Saturday 2023-06-24 18:48:34 by gilbert.bageni
-
-Update README.md
-
-Hi there, I'm Gilbert Bageni! 👋
-I'm a passionate software engineer with a knack for building robust and user-friendly applications. Welcome to my GitHub profile, where you'll find a collection of my projects, contributions, and explorations in the world of code.
-
-🧰 Tech Stack
-Languages: Python, JavaScript, Java
-Front-end: HTML, CSS, JavaScript, React
-Back-end: Node.js, Express, Django
-Databases: MySQL, MongoDB
-Tools: Git, Docker, AWS
-🚀 Projects
-Here are a few notable projects I've worked on:
-
-Project A: Brief description of the project and its purpose. Provide a link to the repository or a live demo.
-Project B: Brief description of the project and its purpose. Provide a link to the repository or a live demo.
-Project C: Brief description of the project and its purpose. Provide a link to the repository or a live demo.
-Feel free to explore these projects and provide feedback. I'm always open to new ideas and suggestions!
-
-🌱 Contributions
-I believe in the power of open source and have made contributions to various projects. Some notable contributions include:
-
-Project X: Brief description of the project and your contribution.
-Project Y: Brief description of the project and your contribution.
-Project Z: Brief description of the project and your contribution.
-Check out these projects to see how I've collaborated with others and contributed to the developer community.
-
-📚 Blog
-I occasionally write about my experiences, learnings, and insights in the tech industry. Visit my blog to read some of my articles on topics such as software development, best practices, and emerging technologies. [Link to your blog or Medium profile]
-
-🤝 Let's Connect
-I'm always excited to connect with fellow developers, tech enthusiasts, and potential collaborators. Feel free to reach out to me via email or connect with me on LinkedIn. Let's chat about coding, exchange ideas, and explore opportunities to work together.
-
-Thank you for visiting my GitHub profile. Enjoy exploring my projects, and happy coding! 👨‍💻
-
----
-## [Daeberdir/Skyrat-tg](https://github.com/Daeberdir/Skyrat-tg)@[7dad8c75ca...](https://github.com/Daeberdir/Skyrat-tg/commit/7dad8c75cac06a405dc3c30a5cbc31919f33ff13)
-#### Saturday 2023-06-24 19:16:07 by SkyratBot
-
-[MIRROR] Adds a eye-dropper right-click function to the painting canvas. [MDB IGNORE] (#21411)
-
-* Adds a eye-dropper right-click function to the painting canvas. (#75571)
-
-## About The Pull Request
-Having used the painting UI to kill some time during long rounds for a
-decent chunk of the past year, the need of a quicker and less tedious
-way to fix a misclick or mistake like drawing over the wrong pixel has
-become clear to me, as well as getting some feedback on the palette
-component I made last year.
-
-As the title suggests, this PR adds an eye-dropper function to the
-canvas. Right-Click a pixel on the canvas, and the painting tool will
-copy its color. Simple as, works on both finished and unfinished
-paintings.
-
-As a bonus, you can also right-click one of those selectable
-white/colored squares on the color scheme near the bottom of the UI (if
-using spraycan/palette) to change its color without having to go back to
-main game window and a radial menu.
-
-EDIT: With the tooltip added to the UI, I can say it's ready.
-
-## Why It's Good For The Game
-This PR aims to add better options to change colors on the go and
-improve the user experience on the painting UI.
-
-## Changelog
-
-:cl:
-qol: Adds a eye-dropper-like right-click function to the painting canvas
-UI. Right-Click a pixel on the canvas while holding a painting tool to
-have it copy its color.
-qol: Also adds a right-click function to the color palette at the bottom
-of the UI to allow users to set its colors without having to alternate
-between the game window and the UI.
-qol: Lastly, a tooltip has been added near the top-left corner of the
-same UI to let players know of these features.
-/:cl:
-
-* Adds a eye-dropper right-click function to the painting canvas.
-
----------
-
-Co-authored-by: Ghom <42542238+Ghommie@users.noreply.github.com>
-
----
-## [Punkwe1ght/evals](https://github.com/Punkwe1ght/evals)@[93fa8a55e9...](https://github.com/Punkwe1ght/evals/commit/93fa8a55e9113ebf221347af731b9a5fb6400512)
-#### Saturday 2023-06-24 19:20:33 by Austin Starnes
-
-Add logic grid puzzle eval (#830)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-## Eval details 📑
-### Eval name
-`logic-grid`
-
-### Eval description
-
-The model is prompted with a logic grid word problem with a list of
-hints, categories, and values for the category. The model is then asked
-to provide a solution, showing reasoning, in a set of Python tuples that
-show the matched category values.
-
-<details>
-  <summary>See human-friendly example prompt</summary>
-
-```
-Using the hints and information provided, solve the following logic grid puzzle.
-Show your reasoning concisely, but step-by-step, to arrive at your final answer.
-Remember, since this is a grid-based puzzle, each option in every category will be used exactly once.
-Since there are 4 values per category, and 3 categories, your final answer will include 4 tuples each of length 3.
- Puzzle Scenario:
-A number of new space probes were launched this year. Using only the clues that follow, match each probe to the month it launched and its eventual destination.
-
-Category Options:
-  Probes: "Nalini", "Hikaru", "Sarika", and "Sven"
-  Destinations: "Ganymede", "Titan", "Enceladus", and "Phobos"
-  Months: "January", "February", "March", and "April"
-
-Hints:
-  1: The Hikaru launched 2 months before the Nalini.
-  2: The probe going to Phobos launched sometime after the Hikaru.
-  3: The Sven launched 2 months before the mission going to Ganymede.
-  4: Of the probe that launched in April and the mission going to Titan, one is the Sarika and the other is the Nalini.
-
-In your response, format your final answer for each set of linked category values as a python tuple of strings in this order:
-("Enceladus", [value from months], [value from probes])
-("Ganymede", [value from months], [value from probes])
-("Phobos", [value from months], [value from probes])
-("Titan", [value from months], [value from probes])
-```
-</details>
-
-<details>
-  <summary>See expected/ideal answer</summary>
-
-```
-("Enceladus", "January", "Hikaru")
-("Ganymede", "April", "Sarika")
-("Phobos", "February", "Sven")
-("Titan", "March", "Nalini")
-```
-</details>
-
-<details>
-<summary>See failure case from GPT-4 (at least from the web UI - I don't
-have API access to GPT-4)</summary>
-
-```
-Step 1: From Hint 3, we know that Hikaru launched 2 months before Nalini. Since the latest month available is April, this means that Nalini cannot have launched in April because there wouldn't be a 2-month gap for Hikaru. So, Nalini must be the probe going to Titan (from Hint 4), and Sarika must be the probe that launched in April.
-
-Step 2: Since Nalini is going to Titan, from Hint 4, it must have launched in February to allow Hikaru to launch in December (2 months before). However, December is not an option, so Hikaru must have launched in January (the earliest month possible) and Nalini in March.
-
-Step 3: The Sven launched 2 months before the mission going to Ganymede (Hint 2). Since Sven cannot be launched in January (as Hikaru is launched in January), it must have launched in February. That means the mission to Ganymede must be in April.
-
-Step 4: The only remaining month is March, and the only remaining probe is Nalini. So Nalini was launched in March.
-
-Step 5: The probe going to Phobos launched sometime after Hikaru (Hint 1). Since Hikaru launched in January, the only remaining option for Phobos is Sarika, which launched in April.
-
-Step 6: The only remaining destination is Enceladus, and the only remaining probe is Hikaru, so Hikaru is going to Enceladus.
-
-The final answer is:
-("Enceladus", "January", "Hikaru")
-("Ganymede", "April", "Sven")
-("Phobos", "April", "Sarika")
-("Titan", "March", "Nalini")
-```
-</details>
-
-### What makes this a useful eval?
-
-This set of evals relies on a lot of *context-ramping* (as I call it)
-for LLMs to get right - relying on chain-of-thought style logic to
-'ramp' into the most likely next-deduction for a multi-parameter logical
-problem.
-These prompts are written as word problems and don't rely on any ASCII
-or markdown type of table to express the puzzle (though `gpt-3.5-turbo`
-appears to use markdown tables in it's chain of thought).
-
-This ramping gets expensive and doesn't scale well with the increase of
-category or values-per-category parameters, and is something that LLMs
-might benefit from avoiding (either by requiring less of a context-ramp
-to get to the meat of an answer, or by the surrounding
-infrastructure/problem agent that tries to use a cheaper ensemble for
-most of the context ramping, or other strategies).
-
-The reasoning skills required for this kind of <b>constraint
-satisfaction</b> expressed in natural language word prompts can, in
-theory, generalize to solving constraints expressed in less structured
-formats in the wild.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [X] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [X] <span title="A GPT-4 failure case from the eval set is included
-above.">Contains failures where a human can do the task, but either
-GPT-4 or GPT-3.5-Turbo could not.</span>
-- [X] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [X] **<span title="15 examples per grid size are included, for 6
-different grid sizes, make a total of 90 included examples.">Include at
-least 15 high quality examples.</span>**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-This eval contains varied prompts and grid sizes, 15 examples per grid
-size, for a total of 90 procedurally generated puzzles.
-~This PR also implements (disabled by default) multiline answers and
-punctuation whitelisting behavior in `FuzzyMatch`, which was required
-due to the structural nature of the logic grid answers and the behavior
-of `utils.normalize(...)` which (prior to this PR) did not provide any
-functionality to interpret answers that span across newline characters
-`\n` or preserve punctuation where it may be useful (in this case, the
-model is prompted for the resultant grid associations in python tuple
-format, so the punctuation in `(",)` is configured to be preserved for
-these evals).
-The new functionality is, again, disabled by default, such that existing
-evals are not affected.~
-
-## Eval structure 🏗️
-
-Your eval should
-- [X] Check that your data is in `evals/registry/data/{name}`
-- [X] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [X] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [X] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [X] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [X] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [X] I have filled out all required fields in the evals PR form
-- [X] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input":[{"role":"system","content":"Using the hints and information
-provided, solve the following logic grid puzzle.\nShow your reasoning
-concisely, but step-by-step, to arrive at your final answer.\nRemember,
-since this is a grid-based puzzle, each option in every category will be
-used exactly once.\nSince there are 4 values per category, and 3
-categories, your final answer will include 4 tuples each of length
-3.\n"},{"role":"system","content":"Puzzle Scenario:\nA number of new
-space probes were launched this year. Using only the clues that follow,
-match each probe to the month it launched and its eventual
-destination.\n\nCategory Options:\n Probes: \"Nalini\", \"Hikaru\",
-\"Sarika\", and \"Sven\"\n Destinations: \"Ganymede\", \"Titan\",
-\"Enceladus\", and \"Phobos\"\n Months: \"January\", \"February\",
-\"March\", and \"April\"\n\nHints:\n 1: The Hikaru launched 2 months
-before the Nalini.\n 2: The probe going to Phobos launched sometime
-after the Hikaru.\n 3: The Sven launched 2 months before the mission
-going to Ganymede.\n 4: Of the probe that launched in April and the
-mission going to Titan, one is the Sarika and the other is the
-Nalini.\n\nIn your response, format your final answer for each set of
-linked category values as a python tuple of strings in this
-order:\n(\"Enceladus\", [value from months], [value from
-probes])\n(\"Ganymede\", [value from months], [value from
-probes])\n(\"Phobos\", [value from months], [value from
-probes])\n(\"Titan\", [value from months], [value from
-probes])"}],"ideal":"(\"Enceladus\", \"January\",
-\"Hikaru\")\n(\"Ganymede\", \"April\", \"Sarika\")\n(\"Phobos\",
-\"February\", \"Sven\")\n(\"Titan\", \"March\", \"Nalini\")"}
-{"input":[{"role":"system","content":"Using the hints and information
-provided, solve the following logic grid puzzle.\nShow your reasoning
-concisely, but step-by-step, to arrive at your final answer.\nRemember,
-since this is a grid-based puzzle, each option in every category will be
-used exactly once.\nSince there are 4 values per category, and 3
-categories, your final answer will include 4 tuples each of length
-3.\n"},{"role":"system","content":"Puzzle Scenario:\nThe Monterey Bay
-Aquarium has a new exhibit featuring several dolphin skeletons. The
-aquarium asked local elementary school children to name each dolphin and
-match it to its species, length, and the year in which it was donated to
-the aquarium. Use the given clues to solve the puzzle.\n\nCategory
-Options:\n Dolphin: \"Atlantic white-sided dolphin\", \"Pacific
-white-sided dolphin\", \"common dolphin\", and \"bottlenose dolphin\"\n
-Names: \"Momo\", \"Simon\", \"Tychus\", and \"Marlo\"\n Lengths: \"21
-ft\", \"23 ft\", \"25 ft\", and \"27 ft\"\n\nHints:\n 1: Momo is 4 feet
-shorter than Tychus.\n 2: The common dolphin is somewhat shorter than
-the bottlenose dolphin.\n 3: The 21 ft long exhibit is either the
-Atlantic white-sided dolphin or Simon.\n 4: Marlo is either the 23 ft
-long exhibit or the Atlantic white-sided dolphin.\n 5: Of Simon and the
-Pacific white-sided dolphin, one is 27 ft long and the other is 21 ft
-long.\n\nIn your response, format your final answer for each set of
-linked category values as a python tuple of strings in this
-order:\n(\"Atlantic white-sided dolphin\", [value from lengths], [value
-from names])\n(\"Pacific white-sided dolphin\", [value from lengths],
-[value from names])\n(\"bottlenose dolphin\", [value from lengths],
-[value from names])\n(\"common dolphin\", [value from lengths], [value
-from names])"}],"ideal":"(\"Atlantic white-sided dolphin\", \"25 ft\",
-\"Marlo\")\n(\"Pacific white-sided dolphin\", \"27 ft\",
-\"Tychus\")\n(\"bottlenose dolphin\", \"23 ft\", \"Momo\")\n(\"common
-dolphin\", \"21 ft\", \"Simon\")"}
-{"input":[{"role":"system","content":"Using the hints and information
-provided, solve the following logic grid puzzle.\nShow your reasoning
-concisely, but step-by-step, to arrive at your final answer.\nRemember,
-since this is a grid-based puzzle, each option in every category will be
-used exactly once.\nSince there are 4 values per category, and 3
-categories, your final answer will include 4 tuples each of length
-3.\n"},{"role":"system","content":"Puzzle Scenario:\nHillcrest County
-Hospital released a press release today to announce its annual list of
-the first babies born immediately after the start of the new year. Using
-only the clues below, match each baby to its family time of birth, and
-determine the room number in which it was delivered.\n\nCategory
-Options:\n Names: \"Lydia\", \"Naomi\", \"Katherine\", and \"Rebecca\"\n
-Families: \"McIntyre\", \"Gonzalez\", \"Hudson\", and \"O'Connor\"\n
-Times: \"12:01am\", \"12:04am\", \"12:07am\", and
-\"12:10am\"\n\nHints:\n 1: Naomi was born 3 minutes after Rebecca.\n 2:
-The Hudsons' child was born 6 minutes after the O'Connors' child.\n 3:
-The baby born at 12:04am was either Rebecca or the McIntyres' child.\n
-4: Of Katherine and the baby born at 12:01am, one was the O'Connors' and
-the other was the Gonzalezes'.\n\nIn your response, format your final
-answer for each set of linked category values as a python tuple of
-strings in this order:\n(\"Gonzalez\", [value from names], [value from
-times])\n(\"Hudson\", [value from names], [value from
-times])\n(\"McIntyre\", [value from names], [value from
-times])\n(\"O'Connor\", [value from names], [value from
-times])"}],"ideal":"(\"Gonzalez\", \"Katherine\",
-\"12:10am\")\n(\"Hudson\", \"Lydia\", \"12:07am\")\n(\"McIntyre\",
-\"Naomi\", \"12:04am\")\n(\"O'Connor\", \"Rebecca\", \"12:01am\")"}
-{"input":[{"role":"system","content":"Using the hints and information
-provided, solve the following logic grid puzzle.\nShow your reasoning
-concisely, but step-by-step, to arrive at your final answer.\nRemember,
-since this is a grid-based puzzle, each option in every category will be
-used exactly once.\nSince there are 4 values per category, and 3
-categories, your final answer will include 4 tuples each of length
-3.\n"},{"role":"system","content":"Puzzle Scenario:\nMedisynth
-Therapeutics has spent decades scouring the world's rainforests for new
-sources of medical drugs, and this year a number of these new drugs have
-been officially approved by the FDA. Using only the clues below, match
-each drug to the condition it treats, the month it was approved, and the
-source from which its main ingredient is derived.\n\nCategory Options:\n
-Drugs: \"Mystolam\", \"Soludox\", \"Aurexil\", and \"Synodil\"\n
-Conditions: \"rheumatism\", \"chikungunya\", \"hyperglycemia\", and
-\"encephalitis\"\n Months: \"January\", \"February\", \"March\", and
-\"April\"\n\nHints:\n 1: The medicine that treats hyperglycemia was
-approved sometime after Synodil.\n 2: The medicine that treats
-hyperglycemia was approved 1 month before the medicine that treats
-rheumatism.\n 3: Of Mystolam and the pharmaceutical approved in April,
-one treats rheumatism and the other treats encephalitis.\n 4: Of the
-Aurexil approved in February and the drug that treats chikungunya, one
-is Soludox and the other is Synodil.\n\nIn your response, format your
-final answer for each set of linked category values as a python tuple of
-strings in this order:\n(\"chikungunya\", [value from drugs], [value
-from months])\n(\"encephalitis\", [value from drugs], [value from
-months])\n(\"hyperglycemia\", [value from drugs], [value from
-months])\n(\"rheumatism\", [value from drugs], [value from
-months])"}],"ideal":"(\"chikungunya\", \"Synodil\",
-\"January\")\n(\"encephalitis\", \"Soludox\",
-\"April\")\n(\"hyperglycemia\", \"Aurexil\",
-\"February\")\n(\"rheumatism\", \"Mystolam\", \"March\")"}
-{"input":[{"role":"system","content":"Using the hints and information
-provided, solve the following logic grid puzzle.\nShow your reasoning
-concisely, but step-by-step, to arrive at your final answer.\nRemember,
-since this is a grid-based puzzle, each option in every category will be
-used exactly once.\nSince there are 4 values per category, and 3
-categories, your final answer will include 4 tuples each of length
-3.\n"},{"role":"system","content":"Puzzle Scenario:\nA group of friends
-has gotten together for dinner, and just for fun they're comparing their
-\"social networking\" stats on Facebook, Twitter and LinkedIn. Using
-only the clues that follow, determine the number of friends (Facebook),
-followers (Twitter) and connections (LinkedIn) each person
-has.\n\nCategory Options:\n Names: \"Avery\", \"Evan\", \"Natalia\", and
-\"Camila\"\n Linkedin: \"54\", \"59\", \"64\", and \"68\"\n Facebook:
-\"120\", \"130\", \"140\", and \"150\"\n\nHints:\n 1: Avery has 68
-LinkedIn connections.\n 2: Natalia has 10 fewer Facebook friends than
-the person with 68 LinkedIn connections.\n 3: The person with 140
-Facebook friends is either the one with 54 LinkedIn connections or
-Evan.\n 4: The one with 54 LinkedIn connections has 10 fewer Facebook
-friends than the one with 64 LinkedIn connections.\n\nIn your response,
-format your final answer for each set of linked category values as a
-python tuple of strings in this order:\n(\"120\", [value from LinkedIn],
-[value from names])\n(\"130\", [value from LinkedIn], [value from
-names])\n(\"140\", [value from LinkedIn], [value from names])\n(\"150\",
-[value from LinkedIn], [value from names])"}],"ideal":"(\"120\", \"59\",
-\"Natalia\")\n(\"130\", \"68\", \"Avery\")\n(\"140\", \"54\",
-\"Camila\")\n(\"150\", \"64\", \"Evan\")"}
-  ```
-</details>
-
----
-## [Punkwe1ght/evals](https://github.com/Punkwe1ght/evals)@[b0650402dd...](https://github.com/Punkwe1ght/evals/commit/b0650402ddeaf93dba27f4a0252ae890bf8184ab)
-#### Saturday 2023-06-24 19:20:33 by Alexander Shirkov
-
-[Eval] English-Russian homonym context resolution (GPT-3.5: 0.42) (#1064)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, pelase note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-### Eval name
-English-Russian homonym context resolution
-
-### Eval description
-
-Cross-lingual English-Russian eval to resolve ambiguity with homonyms
-present.
-
-### What makes this a useful eval?
-
-[Insert why this eval is worth including and any additional context]
-Cross-lingual homonyms are hard to resolve: they add context ambiguity,
-which needs to be resolved via reasoning.
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> Insert what makes your eval high quality that was not mentioned above.
-(Not required)
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [x] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "You
-are coming to a community facility to drop a child for hockey practice.
-The road is under construction and big machines are paving it. What
-would \"каток\" mean in this context? rink or roller"}], "ideal":
-"unknown"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "You
-are coming to a community facility to drop a child for hockey practice.
-The road is under construction and big machines are paving it. Child
-pointing at the machine and says: \"каток\". What does he mean: rink or
-roller?"}], "ideal": "roller"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "You
-are coming to a community facility to drop a child for hockey practice.
-The road is under construction and big machines are paving it. Child
-pointing at the building and says: \"каток\". What does he mean: rink or
-roller?"}], "ideal": "rink"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "A
-woman with long braided hair is working in the field. She cuts the grass
-with scythe. Someone says \"хорошая коса\". Do they refer scythe or
-hairstyle?"}], "ideal": "unknown"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "A
-woman with long braided hair is working in the field. She cuts the grass
-with scythe. Someone points at the quality of her work and says
-\"хорошая коса\". Do they refer scythe or hairstyle?"}], "ideal":
-"scythe"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "A
-woman with long braided hair is working in the field. She cuts the grass
-with scythe. Someone points at her head and says \"хорошая коса\". Do
-they refer scythe or hairstyle?"}], "ideal": "hairstyle"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "Scythe
-is found on a sandbar. A person is saying: \"коса\". Do they refer
-scythe or sandbar?"}], "ideal": "unknown"}
-{"input": [{"role": "system", "content": "For the given context, resolve
-the ambiguity and determine the most appropriate response. If there is
-one, output just one word; otherwise, output unknown. The responses must
-be lowercase with no punctuation."}, {"role": "user", "content": "Scythe
-is found on a sandbar. A person is saying: \"ржавая коса\". Do they
-refer scythe or sandbar?"}], "ideal": "scythe"}
-  ```
-</details>
-
----
-## [Punkwe1ght/evals](https://github.com/Punkwe1ght/evals)@[e959ff4b90...](https://github.com/Punkwe1ght/evals/commit/e959ff4b90c3511f5b8a91ca69413a9206d8c4c7)
-#### Saturday 2023-06-24 19:20:33 by Vasco Lange
-
-[Eval] German part-of-speech (#1053)
-
-# Thank you for contributing an eval! ♥️
-
-🚨 Please make sure your PR follows these guidelines, __failure to follow
-the guidelines below will result in the PR being closed automatically__.
-Note that even if the criteria are met, that does not guarantee the PR
-will be merged nor GPT-4 access granted. 🚨
-
-__PLEASE READ THIS__:
-
-In order for a PR to be merged, it must fail on GPT-4. We are aware that
-right now, users do not have access, so you will not be able to tell if
-the eval fails or not. Please run your eval with GPT-3.5-Turbo, but keep
-in mind as we run the eval, if GPT-4 gets higher than 90% on the eval,
-we will likely reject since GPT-4 is already capable of completing the
-task.
-
-We plan to roll out a way for users submitting evals to see the eval
-performance on GPT-4 soon. Stay tuned! Until then, you will not be able
-to see the eval performance on GPT-4. **Starting April 10, the minimum
-eval count is 15 samples, we hope this makes it easier to create and
-contribute evals.**
-
-Also, pelase note that we're using **Git LFS** for storing the JSON
-files, so please make sure that you move the JSON file to Git LFS before
-submitting a PR. Details on how to use Git LFS are available
-[here](https://git-lfs.com).
-
-## Eval details 📑
-### Eval name
-> german-part-of-speech
-
-### Eval description
-
-> For a given German word, the model is asked to list all possible parts
-of speech (multiple choice). The model is also asked to think about the
-word as an inflection of another word. The models output is tested
-against annotations extracted from de.wiktionary.org. This is a follow
-up to #1039
-
-### What makes this a useful eval?
-
-> Part of speech analysis is a basic task in language / grammar classes.
-While it is usually done in the context of a sentence, coming up with
-possible uses in lack of a sentence requires a certain amount of
-creativity and language understanding, or very good recall of
-information that is usually sparse outside of dictionaries. The task in
-this eval could be seen as a combination of part of speech analysis and
-an easy-to-evaluate form of the question "How could x be used in a
-sentence".
-
-## Criteria for a good eval ✅
-
-Below are some of the criteria we look for in a good eval. In general,
-we are seeking cases where the model does not do a good job despite
-being capable of generating a good response (note that there are some
-things large language models cannot do, so those would not make good
-evals).
-
-Your eval should be:
-
-- [x] Thematically consistent: The eval should be thematically
-consistent. We'd like to see a number of prompts all demonstrating some
-particular failure mode. For example, we can create an eval on cases
-where the model fails to reason about the physical world.
-- [x] Contains failures where a human can do the task, but either GPT-4
-or GPT-3.5-Turbo could not.
-- [x] Includes good signal around what is the right behavior. This means
-either a correct answer for `Basic` evals or the `Fact` Model-graded
-eval, or an exhaustive rubric for evaluating answers for the `Criteria`
-Model-graded eval.
-- [x] **Include at least 15 high quality examples.**
-
-If there is anything else that makes your eval worth including, please
-document it below.
-
-### Unique eval value
-
-> To build the dataset, all 1.000.000+ entries of the German wiktionary
-were parsed. Excluded from this list were all phrases, abbreviations,
-symbols, names, toponyms and any words with at least one possible part
-of speech not fitting the categories given in the prompt. Also I had to
-exclude some entries where the part of speech could not be determined
-automatically from the wikitext.
-> From this set, words were sampled so that each combination of the
-parts of speech existing in the dataset would be equally likely in the
-tests. This way the model is tested to respond with all possible uses of
-a word and not just the most common ones. > For combinations that fit a
-lot of words, the uniform sampling led to a bias towards rarely used
-words.
-> The labels of each word were taken from the corresponding page at
-de.wiktionary.org/wiki/{word}. The information taken from each page was:
-the word, the part of speech this word can have in German and whether
-the word is an abbreviation or not.
-> This means only factual data was taken and is therefore in the public
-domain.
-
-## Eval structure 🏗️
-
-Your eval should
-- [x] Check that your data is in `evals/registry/data/{name}`
-- [x] Check that your yaml is registered at
-`evals/registry/evals/{name}.yaml`
-- [x] Ensure you have the right to use the data you submit via this eval
-
-(For now, we will only be approving evals that use one of the existing
-eval classes. You may still write custom eval classes for your own
-cases, and we may consider merging them in the future.)
-
-## Final checklist 👀
-
-### Submission agreement
-
-By contributing to Evals, you are agreeing to make your evaluation logic
-and data under the same MIT license as this repository. You must have
-adequate rights to upload any data used in an Eval. OpenAI reserves the
-right to use this data in future service improvements to our product.
-Contributions to OpenAI Evals will be subject to our usual Usage
-Policies (https://platform.openai.com/docs/usage-policies).
-
-- [x] I agree that my submission will be made available under an MIT
-license and complies with OpenAI's usage policies.
-
-### Email address validation
-
-If your submission is accepted, we will be granting GPT-4 access to a
-limited number of contributors. Access will be given to the email
-address associated with the merged pull request.
-
-- [x] I acknowledge that GPT-4 access will only be granted, if
-applicable, to the email address used for my merged pull request.
-
-### Limited availability acknowledgement
-
-We know that you might be excited to contribute to OpenAI's mission,
-help improve our models, and gain access to GPT-4. However, due to the
-requirements mentioned above and high volume of submissions, we will not
-be able to accept all submissions and thus not grant everyone who opens
-a PR GPT-4 access. We know this is disappointing, but we hope to set the
-right expectation before you open this PR.
-
-- [x] I understand that opening a PR, even if it meets the requirements
-above, does not guarantee the PR will be merged nor GPT-4 access
-granted.
-
-### Submit eval
-
-- [x] I have filled out all required fields of this form
-- [x] I have used **Git LFS** for the Eval JSON data
-- [ ] (Ignore if not submitting code) I have run `pip install
-pre-commit; pre-commit install` and have verified that `black`, `isort`,
-and `autoflake` are running when I commit and push
-
-Failure to fill out all required fields will result in the PR being
-closed.
-
-### Eval JSON data 
-
-Since we are using Git LFS, we are asking eval submitters to add in as
-many Eval Samples (at least 5) from their contribution here:
-
-<details>
-  <summary>View evals in JSON</summary>
-
-  ### Eval
-  ```jsonl
-{"input": [{"role": "system", "content": "Act as a German language
-part-of-speech classifier. You will be prompted with a single German
-word. Return an unsorted comma-separated list for all the parts of
-speech the word could possibly be, in any context. Take care to consider
-if the word is any kind of inflection. If so, include the part of speech
-for the main word.\nAnswer with the comma-separated list only. Use
-single spaces after the commas. End the list with a dot. Do not include
-any explanations. Only include parts of speech from the following list,
-ignoring possible other parts of speech:\nadjective, adverb, article,
-conjunction, interjection, noun, particle, preposition, pronoun,
-verb\n**Example prompt 1**: alle\n**Example output 1**: adverb, noun,
-pronoun.\n**Example prompt 2**: künftig\n**Example output 2**:
-adjective, adverb.\n**Example prompt 3**: Sommelier\n**Example output
-3**: noun.\n**Prompt**:"}, {"role": "user", "content": "anstelle"}],
-"ideal": ["preposition, adverb, verb.", "preposition, verb, adverb.",
-"adverb, preposition, verb.", "adverb, verb, preposition.", "verb,
-preposition, adverb.", "verb, adverb, preposition."]}
-{"input": [{"role": "system", "content": "Act as a German language
-part-of-speech classifier. You will be prompted with a single German
-word. Return an unsorted comma-separated list for all the parts of
-speech the word could possibly be, in any context. Take care to consider
-if the word is any kind of inflection. If so, include the part of speech
-for the main word.\nAnswer with the comma-separated list only. Use
-single spaces after the commas. End the list with a dot. Do not include
-any explanations. Only include parts of speech from the following list,
-ignoring possible other parts of speech:\nadjective, adverb, article,
-conjunction, interjection, noun, particle, preposition, pronoun,
-verb\n**Example prompt 1**: alle\n**Example output 1**: adverb, noun,
-pronoun.\n**Example prompt 2**: künftig\n**Example output 2**:
-adjective, adverb.\n**Example prompt 3**: Sommelier\n**Example output
-3**: noun.\n**Prompt**:"}, {"role": "user", "content": "heute"}],
-"ideal": ["adverb, verb.", "verb, adverb."]}
-{"input": [{"role": "system", "content": "Act as a German language
-part-of-speech classifier. You will be prompted with a single German
-word. Return an unsorted comma-separated list for all the parts of
-speech the word could possibly be, in any context. Take care to consider
-if the word is any kind of inflection. If so, include the part of speech
-for the main word.\nAnswer with the comma-separated list only. Use
-single spaces after the commas. End the list with a dot. Do not include
-any explanations. Only include parts of speech from the following list,
-ignoring possible other parts of speech:\nadjective, adverb, article,
-conjunction, interjection, noun, particle, preposition, pronoun,
-verb\n**Example prompt 1**: alle\n**Example output 1**: adverb, noun,
-pronoun.\n**Example prompt 2**: künftig\n**Example output 2**:
-adjective, adverb.\n**Example prompt 3**: Sommelier\n**Example output
-3**: noun.\n**Prompt**:"}, {"role": "user", "content": "Mist"}],
-"ideal": ["noun, interjection.", "interjection, noun."]}
-{"input": [{"role": "system", "content": "Act as a German language
-part-of-speech classifier. You will be prompted with a single German
-word. Return an unsorted comma-separated list for all the parts of
-speech the word could possibly be, in any context. Take care to consider
-if the word is any kind of inflection. If so, include the part of speech
-for the main word.\nAnswer with the comma-separated list only. Use
-single spaces after the commas. End the list with a dot. Do not include
-any explanations. Only include parts of speech from the following list,
-ignoring possible other parts of speech:\nadjective, adverb, article,
-conjunction, interjection, noun, particle, preposition, pronoun,
-verb\n**Example prompt 1**: alle\n**Example output 1**: adverb, noun,
-pronoun.\n**Example prompt 2**: künftig\n**Example output 2**:
-adjective, adverb.\n**Example prompt 3**: Sommelier\n**Example output
-3**: noun.\n**Prompt**:"}, {"role": "user", "content": "Rotschöpfe"}],
-"ideal": ["noun."]}
-{"input": [{"role": "system", "content": "Act as a German language
-part-of-speech classifier. You will be prompted with a single German
-word. Return an unsorted comma-separated list for all the parts of
-speech the word could possibly be, in any context. Take care to consider
-if the word is any kind of inflection. If so, include the part of speech
-for the main word.\nAnswer with the comma-separated list only. Use
-single spaces after the commas. End the list with a dot. Do not include
-any explanations. Only include parts of speech from the following list,
-ignoring possible other parts of speech:\nadjective, adverb, article,
-conjunction, interjection, noun, particle, preposition, pronoun,
-verb\n**Example prompt 1**: alle\n**Example output 1**: adverb, noun,
-pronoun.\n**Example prompt 2**: künftig\n**Example output 2**:
-adjective, adverb.\n**Example prompt 3**: Sommelier\n**Example output
-3**: noun.\n**Prompt**:"}, {"role": "user", "content": "vornüber"}],
-"ideal": ["adverb."]}
-  ```
-</details>
-
----------
-
-Co-authored-by: Vasco Yannic Lange <mail@vascolange.com>
-
----
-## [koji/opentrons](https://github.com/koji/opentrons)@[5271d4fbc4...](https://github.com/koji/opentrons/commit/5271d4fbc473bb8f2506a90b2c929535c82892f6)
-#### Saturday 2023-06-24 19:39:34 by Seth Foster
-
-feat(api,shared-data): error codes in PE (#12936)
-
-On the python side of our code, we want our new enumerated exceptions to
-be gradually integratable, and we also want to make sure that any errors
-that we didn't yet get the chance to give error codes end up with error
-codes. To do this in a programmatic way, we can add some automated
-methods for wrapping python exceptions.
-
-All enumerated errors now get to wrap errors. These are optional
-sequences of more enumerated errors that are considered to have caused
-the top-level one - in most cases, this will be because the enumerated
-error explicitly was instantiated to wrap a python exception, but it
-could also be if it was raised from one.
-
-Since we only wrap other enumerated errors, we need a way to make
-exceptions enumerated errors. A new exception type (but not code - it's
-just a GeneralError) called PythonException has this capability; it lets
-you give it BaseExceptions in addition to other EnumeratedErrors, and
-it's capable of walking the python memory model internals to try and get
-the other exceptions in a stack of raise from ... raise from ... calls
-that are reasonably popular in our code. This is functionality that is
-promoted out of The Dunder Zone in python 3.11, so I feel pretty good
-using it (this is what ExceptionGroups are).
-
-So now, as in the tests, if you catch an exception and give it to a
-PythonException you bless it with an error code and save all the
-exceptions and their stack traces for later inspection. Cool!
-
-ProtocolEngine is the first place we'll go through and add places that
-actually use these error codes, since it's in a lovely high-leverage
-middle spot in our stack. That means we both get to test the upward
-interface of how these things will be represented in the HTTP API and
-how they'll be created from lower exceptions.
-
-ProtocolEngine already has its own very large and robust set of custom
-exceptions, which is awesome. We can make them inherit from the
-enumerated errors pretty easily, but unfortunately we have to add a
-bunch of stuff to their constructors to pass along things like the
-ability to wrap other exceptions and so on. Luckily that's just typing.
-
-Once we've done that, at the three points we catch all missed exceptions
-we have to switch over to creating the new style. ProtocolEngineErrors
-get passed on; uncaught legacy errors get captured as PythonExceptions;
-and uncaught errors in the normal core do too.
-
-Finally, we have to represent this new style of error in the
-ErrorOccurrence objects. This is the fun part. Previously, we'd added
-error codes to those objects; this was sort of a big deal because we
-want them to be required when you make new ErrorOccurrences and when
-clients look, but we don't want things to break when we deserialize old
-ones. We can extend that trick pretty easily to add new things. What's
-not quite as easy is this concept of wrapping errors. Our errors are now
-essentially trees, and we need tree structure here. Luckily, jsonschema
-and pydantic are actually pretty good at type-recursive schema and
-object definitions, so we can plop a list of other error occurrences in
-there.
-
-Now, when we catch one of these errors that's bubbled up from hardware,
-we give it a name and we capture its entire history in an inspectable
-way, and I think that's really cool.
-
----
-## [mikeevmm/sane](https://github.com/mikeevmm/sane)@[370cc78fad...](https://github.com/mikeevmm/sane/commit/370cc78fade7e2e10fe0a06d2ade1868de605ec6)
-#### Saturday 2023-06-24 20:17:43 by Miguel M
-
-Release: sane 7.0
-
-Version 7.0 was completely rewritten from scratch. Sane is now based on
-a small number of decorators, namely @cmd, @task, @tag, and @depends.
-User input is more thoroughly validated, and sane should be overall
-friendlier. The new definitions also allow for more predictable
-behaviour, be easier to remember, and result in cleaner code.
-
-Sane 7.0 is also magic: explicitly calling a function to run sane is no
-longer necessarily required, as isn't specifying command line mode or
-not (which, to be quite honest, was confusing and inelegant). Now
-calling a @task or @cmd spawns and runs the tree, as one might expect.
-
-The documentation was also completely re-written, and sane now includes
-a manual with a full guide-by-example, and a proper reference for all of
-the provided decorators, as well as some commentary on the internal
-workings of sane.
-
-The new code was written in a self-documenting style and should be
-easier to understand.
-
----
-## [meemofcourse/Shiptest](https://github.com/meemofcourse/Shiptest)@[0e6f7fa646...](https://github.com/meemofcourse/Shiptest/commit/0e6f7fa64649dfbf52b8e4b71756e6625e50fdd0)
-#### Saturday 2023-06-24 20:37:57 by Imaginos16
-
-TileTest Part 1: Big Sweeping Changes! (#2054)
+Optimizes timer insertion by 80% (W QDEL_IN micro) (#76214)
 
 <!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
 not be viewable. -->
 <!-- You can view Contributing.MD for a detailed description of the pull
 request process. -->
-## !! WARNING !!
-This is a multi-parter PR. Due to the fact that tiles here on shiptest
-are an unholy amalgam of decals, greyscale sprites and multiple
-spread-out files, things are *bound* to look weird. If they do, feel
-free to report it and it will be addressed in future PRs.
 
 ## About The Pull Request
 
-This PR finally accomplishes the promise I made to @triplezeta a year
-ago, creating a unique tileset for the server that people may enjoy!
+[Reduces timer insertion cost by
+80%](https://github.com/tgstation/tgstation/commit/c9e5b285ed74e60108fddd3f6b45d6d3995c92a8)
 
-To put every single microscopic change I have made would take forever,
-so I will instead provide a series of screenshots of it in action!
+Timer name generation involved a LOT of string shit, some in ways where
+the string only existed for a moment.
+This costs a good bit of time, and can be reduced with only minimal
+impacts on the end product, so let's do that. Includes a compile flag to
+flip it back if we ever have trouble in future.
 
+This is about 0.1s off init, since we do a lot of timer stuff then too
 
-![image](https://github.com/shiptest-ss13/Shiptest/assets/77556824/00e9cec0-335a-4367-90f9-1adc572595f3)
+[Removes STOPPABLE flag from QDEL_IN, moves it to a bespoke
+macro](https://github.com/tgstation/tgstation/commit/e7a5d7f2a78fcf0dce4742ced258c9505411b202)
 
-
-![image](https://github.com/shiptest-ss13/Shiptest/assets/77556824/497310ab-fe06-4b31-8774-70e79338a7d8)
-
-
-![image](https://github.com/shiptest-ss13/Shiptest/assets/77556824/80991d0b-c48b-404b-b4a6-cbb1c4c6af3a)
-
-
-![image](https://github.com/shiptest-ss13/Shiptest/assets/77556824/cc06d43e-3873-499e-aa12-51a0d7a37c98)
-
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
+Its a waste most of the time, tho I would LOVE to analyze at compile
+time to work out if we care
 ## Why It's Good For The Game
-Utilizing an unique, modernized tileset for our server to differentiate
-from our competitors is something that has been requested, and I was
-more than happy to lend my hand to make it a reality!
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding. -->
 
-## Changelog
+I like it when we don't spend all of our cpu time just setting the name
+var on timers. that's good and not bad.
+This saves time fucking everywhere. 15% off explosions, 0.1 seconds off
+init, bunch of time off foam. it's just good.
 
-:cl: PositiveEntropy
-del: Removes several unused floor types, as well as completely
-annihilating the "monofloor" and "dirty" floor types, and the "edge"
-decal type.
-imageadd: Redoes the floors using the TileTest tileset!
-/:cl:
+Cherry picked out of #76104 since that was too cluttered (sannnnnn)
+
+<!-- Argue for the merits of your changes and how they benefit the game,
+especially if they are controversial and/or far reaching. If you can't
+actually explain WHY what you are doing will improve the game, then it
+probably isn't good for the game in the first place. -->
 
 <!-- Both :cl:'s are required for the changelog to work! You can put
 your name to the right of the first :cl: if you want to overwrite your
@@ -4797,208 +1664,525 @@ icon ingame) and delete the unneeded ones. Despite some of the tags,
 changelogs should generally represent how a player might be affected by
 the changes rather than a summary of the PR's contents. -->
 
+---
+## [Sealed101/tgstation](https://github.com/Sealed101/tgstation)@[5c032cc098...](https://github.com/Sealed101/tgstation/commit/5c032cc098f9a1d62f9f9dee133ae7c3e4489dca)
+#### Sunday 2023-06-25 06:21:00 by LemonInTheDark
+
+Adds border smoothing! (Look ma I'm upstreaming) (#76134)
+
+## About The Pull Request
+
+Ok so we currently have 1 (count em) border object that wants to smooth
+with other border objects. That's the tram window.
+
+It currently does this manually, via map edits, but that's kinda crappy
+so lets be better.
+
+This pr adds a new smoothing mode to handle border objects. 
+Unlike other smoothing modes, it returns a bitfield of directions the
+border object connects in.
+
+I do this by memorizing a calculation of which dirs "connect" at init,
+and reading out of a global list with border object direction, direction
+between objects, and if it's a border object, the other object's dir.
+
+I'm doing this primarily because it's become useful for wallening (a
+spriter saw the tram thing and is doing the same thing to pod windows,
+and I want to support that)
+
+I do think it's potentially useful in other applications too tho, and I
+like dehardcoding tram windows.
+
+Also fun bonus (or maybe downside), it's nearly 0 cost because I pulled
+the bitmask smoothing define into 2 subdefines, and am swapping the
+handler one out to do what I want.
+Oh also I got rid of a for loop in smoothing code, redundant and costs
+time in list iteration
+
+[Moves tram windows over to the new border object
+smoothing](https://github.com/tgstation/tgstation/commit/114873679c94d680788edee9665fa18dba8108c0)
+
+Also replaces some typepath chicanery with a setDir override, for
+redundancy in future
+Oh and there's a update paths script too, to be nice
+
+## Why It's Good For The Game
+
+More visual possibility in future, fixes a hack we have currently, and
+makes some spriters happy.
+
+## Changelog
+:cl:
+fix: Dehardcodes some stuff with tram windows, they'll be easier to map
+with now
+refactor: Border objects can now smooth with each other. I'm sure
+something cool will come of this
+/:cl:
+
+---
+## [Midrewza/odin-recipes](https://github.com/Midrewza/odin-recipes)@[44692575b1...](https://github.com/Midrewza/odin-recipes/commit/44692575b1f3677843819b35e1807f72bc79d7a1)
+#### Sunday 2023-06-25 06:59:51 by Michael Garza
+
+Finish Iteration 4: Add More Recipes
+
+Instead of adding 2 more recipes, I have added a total of 3 recipes to
+this project. All pages have an identical structures with little
+differences if any.
+
+I will explain what updates have been created as this is a pretty big
+update.
+
+Created a new directory: images
+- I chose to house the images in this project into a directory instead of
+having links of every image. The reason for this change is there may be a
+possibility that the original links to the images could be deleted
+resulting in dead links.
+
+Added 3 new recipes to the recipe directory:
+- grilled-caribbean-spiced-pork-tenderloin-with-peach-salsa.html
+- homemade-peach-crumb-bars.html
+- marinated-greek-chicken-bars.html
+
+Each of these files have an identical structure similar to sangria.html
+and will feature a link to go back to the main page: index.html
+
+Modifications to file: Index.html
+- Change of title: “Tonight’s Date Night!”
+- Change of heading h1: “Let’s Solve Date Night at Home!”
+- Added a new image below h1 heading to give the page some life
+- Created an ordered list instead of an unordered list since the recipes
+I have picked are meant to be eaten in an order
+
+Modifications to file: sangria.html
+- Change of title: “Sangria! Sangria!”
+- Added a new image below h1 heading from images directory
+- Rephrased first step within the ordered list for steps
+- Added a link to go back to the main page: index.html
+
+This should wrap up my first project with The Odin Project, I honestly
+had fun making this more than other first projects I have made with
+other courses. Mainly because I felt that I have learned a tremendous
+amount more, I used the command line to commit changes to this project
+without using the interface you get using VS Code. Utilizing and
+understanding what I'm doing in the command line just made me feel more
+engaged with what I'm creating. Although the project doesn't look
+pretty, I'm sure we will be going back to it to give it some more color.
+Thank you TOP, for giving me a more engaging experience creating, this
+has been a fun project and I can't wait to continue creating within this
+curriculum.
+
+---
+## [SyncIt21/The-TG-Station-Fork](https://github.com/SyncIt21/The-TG-Station-Fork)@[8788e48378...](https://github.com/SyncIt21/The-TG-Station-Fork/commit/8788e483788db2432b9649313efc9426d324379f)
+#### Sunday 2023-06-25 07:59:30 by Time-Green
+
+Shuttle events (#76008)
+
+## About The Pull Request
+
+
+https://github.com/tgstation/tgstation/assets/7501474/a2d83ce8-eba1-42d9-a1f8-9d73f7c40b21
+
+Adds shuttle events! Stuff can now start to happen outside the shuttle,
+either benign or spicy (but usually just fun to watch)!
+## Why It's Good For The Game
+
+The shuttle escape sequence is an important part of the game, uniting
+about every player surviving player. Recently, #71906 has made the
+escape sequence more forgiving as well as more interesting by
+conditionally doubling the playing field. The area outside the shuttle
+is still mostly empty though, except for the few people being spaced,
+daredevils and the occasional epic space fight.
+
+This PR adds adds some space events to spice up the outside of the
+shuttle! This both gives people something too look at, making the escape
+sequence feel less static and more lively, as well as give people a
+reason to go outside and get the full experience of ~being decapitated
+by a meteor~ swimming with the fishes!
+
+<details>
+  <summary>Shuttle Events</summary>
+
+**Friendly carp swarm**
+Spawns a group of carp that flies past the shuttle, completely friendly
+unless provoked.
+
+**Friendly meteors**
+Spawns a lot of strong meteors, but they all miss the shuttle.
+Completely safe as long as you don't go EVA
+
+**Maintenance debris**
+Picks random stuff from the maintenance spawn pool and throws it at the
+shuttle. Completely benign, unless you get hit in the head by a toolbox.
+Could get you some cool stuff though!
+
+**Dust storm**
+Spawns a bunch of dust meteors. Has a rare chance to hit the shuttle,
+doing minimal damage but can damage windows and might need inflight
+maintenance
+
+**Alien queen**
+One in every 250 escapes. Spawns a player controlled alien queen and a
+ripley mech. RIP AND TEAR!! Really not that dangerous when you realize
+the entire crew is on the shuttle and the queen is fat as fuck, but can
+still be fun to throw people around a bit before being torn to shreds.
+
+**ANGRY CARP**
+Once in every 500 escapes. Spawns 12 normal carp and 3 big carps, who
+may just decide to go through the shuttle or try and bust through the
+window if you look at them wrong. Somewhat dangerous, you could stay
+away from the windows and try to hide, or more likely shoot at them and
+weld the windows
+
+**Fake TTV**
+Lol
+
+**Italian Storm**
+Once in every 2000 rounds. Throws pasta, pizza and meatballs at the
+shuttle. Definitely not me going off the rails with a testing event
+
+**Player controlled carp trio**
+Once in every 100 escapes. Spawns three player controlled carp to harass
+the shuttle. May rarely be a magicarp, megacarp or chaos carp. I can't
+honestly see them do anything other than be annoying for 3 seconds and
+die
+
+There are some other admin only ones: a group of passive carps going
+directly through the shuttle and just being little shits, and a magic
+carp swarm
+</details>
+
+Events are selected seperately, there isn't a crazy weighting system,
+each just has a chance to run, and multiple could run at once. They also
+don't immediately trigger, so people can get settled a bit, and to make
+sure just waiting out the more dangerous ones is still a valid strategy.
+
+## Changelog
+:cl:
+add: Adds shuttle events! If shuttle escapes weren't exciting before
+(doubtful), they definitely are now! I'm joking it's mostly an
+atmosphere thing.
+admin: Adds an admin panel to interact with shuttle events, under the
+Events tab: Change Shuttle Events
+fix: Objects spawned in hyperspace will properly catch hyperspace drift
+/:cl:
+
+There's a few things I'd like to do later (another PR) (honestly anyone
+can do them because I suck at follow-ups), because this is too big as
+is:
+- Hijack triggered shuttle events
+- More events (got a lot of cool suggestions, but I'm putting most of
+them on hold)
+- Maybe stration announcements if some more dangerous ones get added
+- Structures appearing next to the escape shuttle???
+
 ---------
 
-Co-authored-by: Bjarl <94164348+Bjarl@users.noreply.github.com>
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
 
 ---
-## [EnglezosAOSP/android_frameworks_base](https://github.com/EnglezosAOSP/android_frameworks_base)@[2c02c4c4e7...](https://github.com/EnglezosAOSP/android_frameworks_base/commit/2c02c4c4e7e25b759233fcf2bb0ec21a594f82a7)
-#### Saturday 2023-06-24 21:13:34 by Kuba Wojciechowski
+## [petre-symfony/Go-Pro-With-Doctrine-Queries-Symfonycasts-2023](https://github.com/petre-symfony/Go-Pro-With-Doctrine-Queries-Symfonycasts-2023)@[f8dc169945...](https://github.com/petre-symfony/Go-Pro-With-Doctrine-Queries-Symfonycasts-2023/commit/f8dc169945902af243d01052bece803d3bb78125)
+#### Sunday 2023-06-25 10:10:30 by Petre Ro
 
-core: Blacklist pixel system feature from Google Photos
+16.4 Darn! But, yea, that makes sense. We're joining in our new method... and also in addFortuneCookieJoinAndSelect(). Fortunately, we don't need this second call at all anymore: we were joining and selecting to solve the N+1 problem... but now we have an even more advanced query to do that. Copy our new method, delete, then paste it over the old one.
 
-    We want to include the P21 experience flag to enable new features,
-    however it seems like Google Photos uses it to decide whether to use the
-    TPU tflite delegate. There doesn't seem to be any fallback so we need to
-    make sure the feature is not exposed to the app so that a normal
-    NNAPI/GPU delegate can be used instead.
+ And now... got it! Only 1 query!
 
-    Test: Google Photos editor with PIXEL_2021_EXPERIENCE feature in product
-    Signed-off-by: Kuba Wojciechowski <nullbytepl@gmail.com>
-    Change-Id: I51a02f8347324c7a85f3136b802dce4cc4556ac5
-
-commit 67eb31b3bb43d06fcc7f6fdb2f92eb486451cae6
-Author: kondors1995 <normandija1945@gmail.com>
-Date:   Thu Jun 9 17:39:25 2022 +0530
-
-    Core: Extend Pixel experience Blacklist For Google Photos
-
-    Turns out having these brakes Original quality backups.
-    Since these indicate that the device is pixel 4 with in the turn brakes device spoofing as OG pixel
-
-    Change-Id: I336facff7b55552f094997ade337656461a0ea1d
-
-commit 508a99cde60b73dc3f1e843d569bca31def35988
-Author: ReallySnow <reallysnow233@gmail.com>
-Date:   Fri Dec 31 16:40:23 2021 +0800
-
-    base: core: Blacklist Pixel 2017 and 2018 exclusive for Google Photos
-
-    * In this way can use PixelPropsUtils to simulate the Pixel XL prop
-      method to use the unlimited storage space of Google Photos
-    * Thanks nullbytepl for the idea
-
-    Change-Id: I92d472d319373d648365c8c63e301f1a915f8de9
-
-commit aaf07f6ccc89c2747b97bc6dc2ee4cb7bd2c6727
-Author: Akash Srivastava <akashniki@gmail.com>
-Date:   Sat Aug 20 19:04:32 2022 +0700
-
-    core: Pixel experience Blacklist For Google Photos for Android 13
-
-    * See, in Android 13 pixel_experience_2022_midyear was added, which needs to be blacklisted aswell
-
-    Change-Id: Id36d12afeda3cf6b39d01a0dbe7e3e9058659b8e
-
-commit 9d6e5749a988c9051b1d47c11bb02daa7b1b36fd
-Author: spezi77 <spezi7713@gmx.net>
-Date:   Mon Jan 31 19:17:34 2022 +0100
-
-    core: Rework the ph0t0s features blacklist
-
-    * Moving the flags to an array feels more like a blacklist :P
-    * Converted the flags into fully qualified package names, while at it
-
-    Signed-off-by: spezi77 <spezi7713@gmx.net>
-    Change-Id: I4b9e925fc0b8c01204564e18b9e9ee4c7d31c123
-
-commit d7201c0cff326a6374e29aa79c6ce18828f96dc6
-Author: Joey Huab <joey@evolution-x.org>
-Date:   Tue Feb 15 17:32:11 2022 +0900
-
-    core: Refactor Pixel features
-
-    * Magic Eraser is wonky and hard to
-      enable and all this mess isn't really worth
-      the trouble so just stick to the older setup.
-
-    * Default Pixel 5 spoof for Photos and only switch
-      to Pixel XL when spoof is toggled.
-
-    * We will try to bypass 2021 features and Raven
-      props for non-Pixel 2021 devices as apps usage
-      requires TPU.
-
-    * Remove P21 experience system feature check
-
-Change-Id: Iffae2ac87ce5428daaf6711414b86212814db7f2
+ Yo friends, we did it! Woo! Thanks for joining me on this magical ride through all things Doctrine Query. This stuff is just weird, cool and fun. I hope you enjoyed it as much as I did. If you encounter any crazy situation that we haven't thought about, have any questions, or pictures of your cat, we're always here for you down in the comments. Alright, see you next time!
 
 ---
-## [freedoom/freedoom](https://github.com/freedoom/freedoom)@[99149fba2d...](https://github.com/freedoom/freedoom/commit/99149fba2d2dd99ff83cf304e80e1f49ae0affc3)
-#### Saturday 2023-06-24 22:02:45 by mc776
+## [petre-symfony/Go-Pro-With-Doctrine-Queries-Symfonycasts-2023](https://github.com/petre-symfony/Go-Pro-With-Doctrine-Queries-Symfonycasts-2023)@[a215f6b0e8...](https://github.com/petre-symfony/Go-Pro-With-Doctrine-Queries-Symfonycasts-2023/commit/a215f6b0e815411a6b56012af904f13db7c70453)
+#### Sunday 2023-06-25 10:10:30 by Petre Ro
 
-levels: various minor fixes. (#990)
+14.1 WHERE IN()
 
-* levels: various fixes.
+ We have categories for "Pets" and "Love", but if we search up here for "pets love"... no results! That makes sense. We're searching to see if this string is matching the name or the iconKey. Let's make our search smarter to see if we can match both of those categories by searching word by word.
 
-E1M2
-Fixed some missing and misaligned textures around the secret lowering computer block.
+ The query for this lives in CategoryRepository... on the search() method. The $term argument is the string we type in. Down here, let's say $termList = then explode that string into an array by splitting on empty spaces. If you want a really rich search, you should use a real search system. But we can do some pretty cool stuff just with the database.
 
-E2M5
-The red key bars could both be squeezed through and jumped around on a jump-enabling sourceport. The red key now raises the stairs instead, and the final door before the exit also requires a red key.
+ Here's the goal: I want to also match results where category.name is in one of the words in the array.
 
-E2M7
-Added one more bar in front of the exit to prevent squeeze glides.
+ Using the IN
+ - Right after category.name LIKE :searchTerm, add OR category.name IN. The only tricky thing about this is the syntax. Add (). If we were writing a raw SQL query, we would write a list here, like 'foo', 'bar'. But with the query builder, instead, put a placeholder - like :termList. Below pass that in: ->setParameter('termList', $termList).
 
-E3M2
-Expanded yellow key pillar so it would match the flat.
+ The key thing is that, when you use IN, you will need the parentheses like normal... but inside of that, instead of a comma-separated list, you'll set an array. Doctrine will transform that for us.
 
-E3M6
-Untagged the skylight inside the secret as being itself a secret.
+ And now... nice! Once you know how it works, it's just that easy.
 
-E4M1
-That line of health and armour bonuses just inside the big building would have a few floaters. They've all been moved forward and should be fully clear of that ledge.
-
-Map05
-The pit with the central column of water and the spectres was being blocked off by said spectres before the player could jump into it. There is now a monster blocking line right in front of the ledge, barely far enough to guarantee space for you to drop but close enough to let the pinkies bite.
-You can now freely move through the gaps between any of the objects in the blue key room.
-The exit from the blue key building now has a lift instead of stairs, and the wall prevents the nearest pinkies from seeing you until you've actually dropped inside. Hopefully this at least mitigates the problem of being stuck on the stairs with a pinkie right below your ability to target.
-Miscellaneous aesthetic tweaks.
-
-Map07
-The lift overlooking the big arena was still suffering from monsters blocking from below. It has been moved to the side with an intervening ceiling.
-The central grey aquatex nukage trim hub was a cross shape and the exits all had very strong lines turning right, making it look like a swastika. The southern section has been tweaked to throw off the symmetry and avoid that impression.
-Made it possible to move all the way around the stack of crates in the eastern area with the switch.
-Miscellaneous texture improvements.
-
-Map08
-The exit bars are now impossible to squeeze glide through. They are also styled in the same manner as the moving pistons by the big switches, giving the suggestion that they would be moved in a similar manner.
-
-Map09
-Fixed some floating pickups at the collapsed roof, the red key room, and the stairs to the warehouse admin area.
-Shotgun guys in the admin area switch room are now situated between the deep cracks that were preventing their movement.
-
-Map12
-Turned the two wall-facing enemies around near (2016,96).
-Added a second trigger line for the minigunner ambush store room so it happens even when you approach it from the other side.
-Added a second switch for the bars normally opened before reaching the storage room ambush.
-Replaced the BFG secret with a megasphere since you already get a BFG in Map11.
-
-Map18
-There were some lamps on the lower floor of the southwest room that were invisible from the higher floor but would block your movement. All major blockers have been deleted or moved to the edge of the room.
-The tree near the red armour to the right of the start has been moved for similar reasons.
-
-Map20
-Moved some pickups (and the dead body) away from the bottom sides of the steps to reduce the chances of someone bypassing them while moving downwards.
-Made the armour/health bonus placement more unambiguous around the cross and star.
-Simplified the bridge around the red key so that the rising portion is only one sector.
-
-Map22
-Because this map has been disproportionately harder to pistol start than anything near it...
-Moved all 4 player starts into the starting elevator to avoid a hot start.
-Flagged some ammo pickups as appearing on all skill levels, as well as the southern super shotgun and the starting area armour. The easy-only SSG in the starting area is now a chaingun and appears on all skill levels.
-The starting shotgun is now only available on easy, with two shotgunners (one of them guarding the armour) in its place on medium and hard.
-Differentiated the walls of the starting elevator so you know which way to face, and made the switch resemble the normal (but broken) SW1TEK.
-The switch system itself is simplified and given a simpler implied story: the big switch is broken, so you locate and use the backup system. The switch shooting is gone.
-Made the fringe around the lava elevator go all the way around and populated it with health bonuses to make it clear you're actually expected to go down there, because frankly the original is so thoroughly obscured it looks like you're breaking sequence by exploiting an oversight in the map.
-Extended the staircase down from the brown platform to mitigate the "pinkie right in front of you below your aim" effect.
-Added a medikit near that brown platform.
-The armour in the crate hall is now a medikit.
-
-Map24
-The hanging bodies in the red key room are now the non-blocking versions.
-The trilobite stuck on the teleport pad in the square maze is now an octaminator so it doesn't get stuck.
-The lines around the door leading to the serpentipedes with their backs to you no longer block sounds.
-Removed the sound block flags on the octaminator ambush doors, so the pinkies can join in if you start shooting at them instead of powering through into the new room.
-
-Map26
-Health bonuses under crusher were floating.
-
-Map27
-Lizardbaby platform now has a full 72 unit clearance.
-Spectres in the red rock area to the northeast are now in the tunnels and only come out when you land in the red water.
-
-* levels: fix one screwy texture.
-
-Monitor in the room west of the westmost shiny lowering shelf thing.
-
-* levels: more minor fixes.
-
-E2M1
-Life surge secret was marked on the thin doorway, making it possible to fail to register even after you've taken the surge. The secret is now the room itself, at the cost of that random light effect.
-
-E2M6
-Life surge secret was marked on the thin central bit of the sigil, leaving *lots* of room to step around it while grabbing the powerup. (The fact that the red makes it kinda look like a hurtfloor really doesn't help.) The secret is now the larger room itself.
-
-Map12
-New eastern storage room trigger wasn't covering the entire hallway. It should also be diagonal to minimize the chance of it being skipped entirely.
-
-Map28
-The serps on the ledge by the bloodfalls and fleshy sigil were facing the wall and marked as ambush. They now face the actual play area.
-
-Map29
-Moved all the secret pit pickups a little bit further inside the square so they look like they're resting on the surface of the solid floor.
-
-Map30
-The multiplayer-only spawn pickups are now flagged as multi-only.
-
-* levels: tiny map04 aesthetic tweak.
-
-The fake contrast exaggerates the shadow on some "AGM" silver columns while eliminating the shadow on others. These are often right next to each other on the screen, producing absurd results. This moves 1 vertex from each affected line 2 pixels so they are no longer orthogonal.
+ Next: You're probably familiar with the RAND() function for MySQL, or maybe the YEAR() function... or one of the many MySQL or PostgreSQL functions that exist. Well, you might be surprised to learn that some of those don't work out of the box.
 
 ---
-## [Waseemq1235/tgstation](https://github.com/Waseemq1235/tgstation)@[835952ccf4...](https://github.com/Waseemq1235/tgstation/commit/835952ccf42af58db7238a572d7df6a9b8b2afd7)
-#### Saturday 2023-06-24 22:33:50 by MrMelbert
+## [sthagen/python-mypy](https://github.com/sthagen/python-mypy)@[0873230ee6...](https://github.com/sthagen/python-mypy/commit/0873230ee60461110bd7bfde7ca3886878aae389)
+#### Sunday 2023-06-25 10:37:25 by Ivan Levkivskyi
+
+Foundations for non-linear solver and polymorphic application (#15287)
+
+Fixes #1317
+Fixes #5738
+Fixes #12919 
+(also fixes a `FIX` comment that is more than 10 years old according to
+git blame)
+
+Note: although this PR fixes most typical use-cases for type inference
+against generic functions, it is intentionally incomplete, and it is
+made in a way to limit implications to small scope.
+
+This PR has essentially three components (better infer, better solve,
+better apply - all three are needed for this MVP to work):
+* A "tiny" change to `constraints.py`: if the actual function is
+generic, we unify it with template before inferring constraints. This
+prevents leaking generic type variables of actual in the solutions
+(which makes no sense), but also introduces new kind of constraints `T
+<: F[S]`, where type variables we solve for appear in target type. These
+are much harder to solve, but also it is a great opportunity to play
+with them to prepare for single bin inference (if we will switch to it
+in some form later). Note unifying is not the best solution, but a good
+first approximation (see below on what is the best solution).
+* New more sophisticated constraint solver in `solve.py`. The full
+algorithm is outlined in the docstring for `solve_non_linear()`. It
+looks like it should be able to solve arbitrary constraints that don't
+(indirectly) contain "F-bounded" things like `T <: list[T]`. Very short
+the idea is to compute transitive closure, then organize constraints by
+topologically sorted SCCs.
+* Polymorphic type argument application in `checkexpr.py`. In cases
+where solver identifies there are free variables (e.g. we have just one
+constraint `S <: list[T]`, so `T` is free, and solution for `S` is
+`list[T]`) it will apply the solutions while creating new generic
+functions. For example, if we have a function `def [S, T] (fn:
+Callable[[S], T]) -> Callable[[S], T]` applied to a function `def [U]
+(x: U) -> U`, this will result in `def [T] (T) -> T` as the return.
+
+I want to put here some thoughts on the last ingredient, since it may be
+mysterious, but now it seems to me it is actually a very well defined
+procedure. The key point here is thinking about generic functions as
+about infinite intersections or infinite overloads. Now reducing these
+infinite overloads/intersections to finite ones it is easy to understand
+what is actually going on. For example, imagine we live in a world with
+just two types `int` and `str`. Now we have two functions:
+```python
+T = TypeVar("T")
+S = TypeVar("S")
+U = TypeVar("U")
+
+def dec(fn: Callable[[T], S]) -> Callable[[T], S]: ...
+def id(x: U) -> U: ...
+```
+the first one can be seen as overload over
+```
+((int) -> int) -> ((int) -> int)  # 1
+((int) -> str) -> ((int) -> str)  # 2
+((str) -> int) -> ((str) -> int)  # 3
+((str) -> str) -> ((str) -> str)  # 4
+```
+and second as an overload over
+```
+(int) -> int
+(str) -> str
+```
+Now what happens when I apply `dec(id)`? We need to choose an overload
+that matches the argument (this is what we call type inference), but
+here is a trick, in this case two overloads of `dec` match the argument
+type. So (and btw I think we are missing this for real overloads) we
+construct a new overload that returns intersection of matching overloads
+`# 1` and `# 4`. So if we generalize this intuition to the general case,
+the inference is selection of an (infinite) parametrized subset among
+the bigger parameterized set of intersecting types. The only question is
+whether resulting infinite intersection is representable in our type
+system. For example `forall T. dict[T, T]` can make sense but is not
+representable, while `forall T. (T) -> T` is a well defined type. And
+finally, there is a very easy way to find whether a type is
+representable or not, we are already doing this during semantic
+analyzis. I use the same logic (that I used to view as ad-hoc because of
+lack of good syntax for callables) to bind type variables in the
+inferred type.
+
+OK, so here is the list of missing features, and some comments on them:
+1. Instead of unifying the actual with template we should include
+actual's variables in variable set we solve for, as explained in
+https://github.com/python/mypy/issues/5738#issuecomment-511242682. Note
+however, this will work only together with the next item
+2. We need to (iteratively) infer secondary constraints after linear
+propagation, e.g. `Sequence[T] <: S <: Sequence[U] => T <: U`
+3. Support `ParamSpec` (and probably `TypeVarTuple`). Current support
+for applying callables with `ParamSpec` to generics is hacky, and kind
+of dead-end. Although `(Callable[P, T]) -> Callable[P, List[T]]` works
+when applied to `id`, even a slight variation like `(Callable[P,
+List[T]]) -> Callable[P, T]` fails. I think it needs to be re-worked in
+the framework I propose (the tests I added are just to be sure I don't
+break existing code)
+4. Support actual types that are generic in type variables with upper
+bounds or values (likely we just need to be careful when propagating
+constraints and choosing free variable within an SCC).
+5. Add backtracking for upper/lower bound choice. In general, in the
+current "Hanoi Tower" inference scheme it is very hard to backtrack, but
+in in this specific choice in the new solver, it should be totally
+possible to switch from lower to upper bound on a previous step, if we
+found no solution (or `<nothing>`/`object`).
+6. After we polish it, we can use the new solver in more situations,
+e.g. for return type context, and for unification during callable
+subtyping.
+7. Long term we may want to allow instances to bind type variables, at
+least for things like `LRUCache[[x: T], T]`. Btw note that I apply force
+expansion to type aliases and callback protocols. Since I can't
+transform e.g. `A = Callable[[T], T]` into a generic callable without
+getting proper type.
+8. We need to figure out a solution for scenarios where non-linear
+targets with free variables and constant targets mix without secondary
+constraints, like `T <: List[int], T <: List[S]`.
+
+I am planning to address at least majority of the above items, but I
+think we should move slowly, since in my experience type inference is
+really fragile topic with hard to predict long reaching consequences.
+Please play with this PR if you want to and have time, and please
+suggest tests to add.
+
+---
+## [andresgutgon/dotfiles](https://github.com/andresgutgon/dotfiles)@[015e7f4116...](https://github.com/andresgutgon/dotfiles/commit/015e7f4116187872a98f38df6a14e32ae0d24582)
+#### Sunday 2023-06-25 11:58:31 by andresgutgon
+
+Introduce nvim-dap (Debugger Adapter Protocol) to my NVim
+I want to be able to debug Node apps (Specially NextJS) app on backend
+side. nvim-dap use DAP protocol from Microsoft which is the one used by
+VSCode on their debugging experience. This is the same in Nvim.
+
+To be honest this has been fucking painful for several reasons.
+1. First Next.js latest version has fucked their debugging experience.
+   So I had to simplify the problem and first understand how node
+   `--inspect` flag works on a simple Node server. Then I look into
+   existing issues on Next.js and I discoverd that their debugging
+   experience is broken in latest version. A [fix is comming in this PR](https://github.com/vercel/next.js/pull/51467)
+2. Second. After setting the `nvim-dap` plugin with the VSCode / JS
+   debugging experience I spent a shameful amount of time hitting
+   `node-terminal` debug mode when in reality was `pwa-node`. Yes, `pwa`
+   is ultra weird and that took me time to figure out. [Issue here about
+   it](https://github.com/microsoft/vscode/issues/151910)
+
+FUCK! This was hard :joy:
+
+---
+## [naikari/naikari](https://github.com/naikari/naikari)@[3a21931f3c...](https://github.com/naikari/naikari/commit/3a21931f3c6ba2b02b11d7d067f6fa8d03207420)
+#### Sunday 2023-06-25 12:17:59 by diligentcircle
+
+Alright, we'll keep "oï". (Fucking indecisive on this shit, aren't I?)
+
+---
+## [anglo-korean/landing-pages](https://github.com/anglo-korean/landing-pages)@[a5218b8bff...](https://github.com/anglo-korean/landing-pages/commit/a5218b8bffb934b3666c79ba61309465d4beae8a)
+#### Sunday 2023-06-25 13:47:51 by jspc
+
+Ensure initialiser deploys
+
+Seriously, why enforce this fucking idiotic directory structure if it means fuck all?
+
+---
+## [DvDeval/lobotomy-corp13](https://github.com/DvDeval/lobotomy-corp13)@[b420c1d519...](https://github.com/DvDeval/lobotomy-corp13/commit/b420c1d519b30cd75759de68f6b2abbe0b12a055)
+#### Sunday 2023-06-25 13:48:27 by vampirebat74
+
+Adds tool E.G.O (#1019)
+
+Tool ego
+
+adds tool E.G.O
+
+removes a extra line
+
+fixes shit
+
+swindle
+
+voce
+
+divinity
+
+fixes shit
+
+shifts divinity down a few pixels
+
+This is the fourth time this same commit was made
+
+I hate TG so fucking much like it's unbelievable why does this only fuck up on my PC? WHY?
+
+hyde weapon
+
+stuff
+
+hyde code
+
+hyde fix
+
+new sprites
+
+inhands
+
+destiny effect
+
+heart sfx
+
+stuff
+
+Co-authored-by: Mr.Heavenly <davidx3adamhunt@gmail.com>
+
+---
+## [Michaelmanicotti/poetry](https://github.com/Michaelmanicotti/poetry)@[8621097e23...](https://github.com/Michaelmanicotti/poetry/commit/8621097e235a716bf7eb23122d8bd8fbfd4547fb)
+#### Sunday 2023-06-25 14:11:11 by Michaelmanicotti
+
+Rename Movement III | To the pretty boy I can't stop writing poems about, Fuck You for stealing my heart. to  Movement III | To the pretty boy I can't stop writing poems about, Fuck You for stealing my heart.
+
+---
+## [Road-to-56-RP/roadto56rp](https://github.com/Road-to-56-RP/roadto56rp)@[883e35db96...](https://github.com/Road-to-56-RP/roadto56rp/commit/883e35db9668f5cc0e096edc786bd1d81eb07784)
+#### Sunday 2023-06-25 14:17:07 by Simpy
+
+Biccy fra decisios (#21)
+
+* heheheha
+
+FUCK YOUWARLIDER
+
+* fuck off
+
+* Added localization to two decision descriptions.
+
+☺ Omg Lider you are so pretty
+
+---------
+
+Co-authored-by: BiccyThiccy <107998094+BiccyThiccy@users.noreply.github.com>
+
+---
+## [Road-to-56-RP/roadto56rp](https://github.com/Road-to-56-RP/roadto56rp)@[aad3d0d7b6...](https://github.com/Road-to-56-RP/roadto56rp/commit/aad3d0d7b6e48424407244518baac39789ff9357)
+#### Sunday 2023-06-25 14:17:07 by Simpy
+
+Biccy cat decisions (#23)
+
+* Iberia decision files added
+
+Added files for part 1 of the Iberia rework. So far, just changes to Andorra forming Catalonia.
+
+I need 2 things from whoever is looking over them:
+
+1: Removal of the other, less good decision to form it (located in the RT56 base mod)
+
+2: Someone to look over the code  to make sure it isn't fucked. BTW fuck you Warlider
+
+* Completely replaced file. Two decisions for Portugal added
+
+SIMPPYYYYYYYYYYY I LOVE YOU :D
+
+Please fix
+
+---------
+
+Co-authored-by: BiccyThiccy <107998094+BiccyThiccy@users.noreply.github.com>
+
+---
+## [shanmukha7k/personal_site](https://github.com/shanmukha7k/personal_site)@[10aa61a512...](https://github.com/shanmukha7k/personal_site/commit/10aa61a512cce6353b2287281a2c012ea1cc11f3)
+#### Sunday 2023-06-25 15:21:04 by Shanmukha K
+
+HTML personal site
+
+Welcome to my personal website! Here you will find a curated collection of my work, passions, and insights. From stunning visuals to thought-provoking content, I invite you to explore my portfolio and delve into the creative projects that have shaped my journey. Discover the intersection of design, technology, and storytelling as I showcase my expertise in web development, graphic design, and digital marketing. Join me on this immersive digital experience as we connect, inspire, and make an impact in the ever-evolving online world. Let's embark on a journey of exploration, innovation, and endless possibilities together.
+
+---
+## [Reco201/tgstation](https://github.com/Reco201/tgstation)@[835952ccf4...](https://github.com/Reco201/tgstation/commit/835952ccf42af58db7238a572d7df6a9b8b2afd7)
+#### Sunday 2023-06-25 15:59:09 by MrMelbert
 
 Drunk slurring scales based on how drunk you are (#75459)
 
@@ -5054,11 +2238,679 @@ slurring (which includes cult / heretic slurring).
 /:cl:
 
 ---
-## [TerraFirmaCraft/TerraFirmaCraft](https://github.com/TerraFirmaCraft/TerraFirmaCraft)@[b84519897d...](https://github.com/TerraFirmaCraft/TerraFirmaCraft/commit/b84519897d497ae0a4d747c00206b7442d46f077)
-#### Saturday 2023-06-24 23:03:41 by EERussianguy
+## [yarnpkg/berry](https://github.com/yarnpkg/berry)@[a0064712f7...](https://github.com/yarnpkg/berry/commit/a0064712f7b0ae38c21fb204bea9831c2b269bd7)
+#### Sunday 2023-06-25 16:36:07 by Maël Nison
 
-We knew the world would not be the same. A few people laughed, a few people cried, most people were silent. I remembered the line from the Hindu scripture, the Bhagavad-Gita; Vishnu is trying to persuade the Prince that he should do his duty and, to impress him, takes on his multi-armed form and says, "Now I am become Death, the destroyer of worlds." I suppose we all thought that, one way or another.
-J. Robert Oppenheimer
+Bumps Node requirements from 14 to 18 (#5445)
+
+**What's the problem this PR addresses?**
+
+We're still supporting Node 14, but it has reached end of life. Node 16
+is still maintained, but will reach an early end of life in October, so
+I think it's reasonable to drop it now rather than publish a major
+release just for that.
+
+**How did you fix it?**
+
+Bumps the requirements from `14.16` to `18.12` (first LTS from the 18.x
+release line).
+
+**Checklist**
+<!--- Don't worry if you miss something, chores are automatically
+tested. -->
+<!--- This checklist exists to help you remember doing the chores when
+you submit a PR. -->
+<!--- Put an `x` in all the boxes that apply. -->
+- [x] I have read the [Contributing
+Guide](https://yarnpkg.com/advanced/contributing).
+
+<!-- See
+https://yarnpkg.com/advanced/contributing#preparing-your-pr-to-be-released
+for more details. -->
+<!-- Check with `yarn version check` and fix with `yarn version check
+-i` -->
+- [x] I have set the packages that need to be released for my changes to
+be effective.
+
+<!-- The "Testing chores" workflow validates that your PR follows our
+guidelines. -->
+<!-- If it doesn't pass, click on it to see details as to what your PR
+might be missing. -->
+- [x] I will check that all automated PR checks pass before the PR gets
+reviewed.
+
+---------
+
+Co-authored-by: Kristoffer K <merceyz@users.noreply.github.com>
+
+---
+## [nymda/retroGameEngine](https://github.com/nymda/retroGameEngine)@[ebea23230a...](https://github.com/nymda/retroGameEngine/commit/ebea23230a6e9cc668f8be2834ae9df276802888)
+#### Sunday 2023-06-25 16:56:03 by J
+
+i fucking hate maths so god damn much
+(testing with sprites)
+
+---
+## [ktoma36/Citadel-Station-13-RP](https://github.com/ktoma36/Citadel-Station-13-RP)@[1468797059...](https://github.com/ktoma36/Citadel-Station-13-RP/commit/146879705978b0416739823fa54467e865c3ffb2)
+#### Sunday 2023-06-25 17:54:51 by TheObserver-sys
+
+Take 2: Some fixes and QoL (#5601)
+
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
+
+## About The Pull Request
+Would you believe me if I hadn't updated my git in about 400 years, and
+had to blow the old version of my repo up?
+Yes? No? It doesn't matter.
+
+Anyways! Meat and potatoes of this:
+Allows players to make gene and plant discs freely in the protolathe.
+Since we do not have a dedicated genetics, this will help the pains of
+actually doing genetics by giving us storage solutions for genes.
+
+Fixes a problem with brass also creating slag when compressing, by
+setting the copper alloy flag to 1.
+
+And finally: Allows you to upgrade the braces! If your brace has T3 or
+better, a single brace can hold an entire drill. All credit goes to
+Hatterhat for this one, as I pretty much wholesale ripped it from his
+buff of the big drill™ on Virgo.
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
+
+## Why It's Good For The Game
+Not making slag is ALWAYS good. It saves on material, too.
+Having more discs for a cheap cost is also good, it means you can reduce
+headaches while scoping out for genes, because there are many, and the
+ability to track them are currently few.
+And honestly, the less lugging a person has to do with the mining drill,
+the more likely people might stop blowing up an already unstable planet
+with miniature hydrogen bombs.
+<!-- Argue for the merits of your changes and how they benefit the game,
+especially if they are controversial and/or far reaching. If you can't
+actually explain WHY what you are doing will improve the game, then it
+probably isn't good for the game in the first place. -->
+
+## Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
+and it's effects on PRs in the tgstation guides for contributors. Please
+note that maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. You can attempt to finagle the system
+all you want, but it's best to shoot for clear communication right off
+the bat. -->
+
+:cl: The0bserver
+add: Discs are able to be produced in the protolathe now. Go nuts, or
+don't. I'm not your guardian.
+balance: Mining Drills can finally be operated with just one brace with
+the requisite parts. Thank you, Hatterhat!
+fix: Copper no longer smelts slag when set to "Alloying."
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+---------
+
+Co-authored-by: TheObserver-sys <Gizmomaster777@gmail.com>
+
+---
+## [BrodyMoorman/2-3-4Tree](https://github.com/BrodyMoorman/2-3-4Tree)@[30c6928b83...](https://github.com/BrodyMoorman/2-3-4Tree/commit/30c6928b8355d978b9ed714606bacca11e98d069)
+#### Sunday 2023-06-25 19:20:10 by BrodyMoorman
+
+Added to delete functionality
+
+Wrote method to fuse root in case of two node and two node children. Began writing method to fuse other two nodes, however the boilerplate holds ints not Integers, so I cant hold references to keep code concise. So I have to come up with a solution which will surely be very ugly. Java kinda sucks right now :(
+
+---
+## [noyalreji/The-Gaming-Room](https://github.com/noyalreji/The-Gaming-Room)@[2070531fe5...](https://github.com/noyalreji/The-Gaming-Room/commit/2070531fe5cff07b4c046842815516da06822331)
+#### Sunday 2023-06-25 20:11:16 by Noyal Reji Jacob
+
+Add files via upload
+
+The Gaming Room Software Design Documentation
+
+Summary:
+The client for this project was The Gaming Room, a gaming center looking to develop custom software for their operations. The software requirements included features for player management, game management, team management, concurrent request handling, player login, security measures, and integration with the existing Android app.
+
+Strengths in Developing the Documentation:
+One of the strengths in developing this documentation was effectively capturing and organizing the client's requirements. The document provided a clear overview of the software design, outlining the various functionalities and how they would be implemented. The use of diagrams and visual aids helped convey complex concepts in a concise and understandable manner.
+
+Benefits of Working through the Design Document:
+Working through the design document allowed for a systematic approach to software development. It helped identify potential challenges, dependencies, and architectural considerations before starting the coding process. By thoroughly documenting the design, it became easier to communicate and align with both the client and the development team.
+
+Area for Revision and Improvement:
+If I could revise one part of my work on these documents, I would focus on providing more detailed explanations of the security measures implemented. While the document mentioned security considerations, it could be improved by specifying the specific technologies, protocols, or algorithms used to ensure a robust and secure system. This would enhance the clarity and instill more confidence in the security aspect of the software design.
+
+Interpreting User Needs and Considering User-Centric Design:
+Understanding and implementing the user's needs was crucial in designing the software. By engaging in thorough discussions with the client and conducting user research, we gained insights into their pain points, preferences, and desired functionalities. This information was then translated into the software design to ensure a user-friendly and intuitive experience. Considering the user's needs is essential as it directly impacts user satisfaction, adoption, and overall success of the software application.
+
+Approach to Designing Software and Future Strategies:
+In designing the software, a combination of techniques and strategies were employed. This included conducting requirements gathering sessions, creating use case scenarios, developing flowcharts and sequence diagrams, and evaluating different architectural patterns. In the future, I would continue to employ these strategies and also consider additional methods such as prototyping and user testing to further validate and refine the software design. Regular communication and collaboration with the client and development team would remain paramount to ensuring alignment and successful implementation.
+
+---
+## [tlindner/mame](https://github.com/tlindner/mame)@[2222a0f098...](https://github.com/tlindner/mame/commit/2222a0f098c2f32ec6090627598a90e596006596)
+#### Sunday 2023-06-25 20:52:01 by David 'Foxhack' Silva
+
+gba.xml: Added 21 prototypes. (#11260)
+
+New working software list items (gba.xml)
+-------------------------------
+AGB Aging Cartridge (World, version 1.0) [SmellyGhost, Forest of Illusion]
+AGB Aging Cartridge (World, version 9.0) [Suicune41, Forest of Illusion]
+Aero the Acro-Bat - Rascal Rival Revenge (Europe, prototype earlier) [LongwoodGeek, Forest of Illusion]
+Chokkan Hitofude Advance (Japan, prototype) [xprism, Forest of Illusion]
+Commandos 2 (USA, prototype) [DillyDylan, Forest of Illusion]
+Dark Eden (prototype) [Ian Dunlop, Forest of Illusion]
+Demon's Crest (prototype) [Ian Dunlop, Forest of Illusion]
+Manic Miner (Europe, 20030307) [March42, Forest of Illusion]
+Mario Kart XXL (demo, 20040417) [Forest of Illusion]
+R3D-Demo V1 (demo) [Forest of Illusion]
+Racing Gears Advance (USA, prototype, 20030922) [XBrav, Forest of Illusion]
+Sea Boy (prototype) [Ian Dunlop, Forest of Illusion]
+Star Wars Trilogy - Apprentice of the Force (USA, prototype) [Rezrospect, Forest of Illusion]
+The Holy Bible - World English Bible (USA, prototype) [Gonz, Forest of Illusion]
+Ultimate Muscle - The Kinnikuman Legacy - The Path of the Superhero (USA, prototype, 20030429) [Zach Lambert, Forest of Illusion]
+Uridium Advance (Europe, prototype, 20030307) [March42, Forest of Illusion]
+
+New software list items marked not working (gba.xml)
+------------------------------------------
+The King of Fighters EX2 - Howling Blood (USA, prototype, 20030403) [March42, Forest of Illusion]
+Quake (demo) [Randy Linden, Forest of Illusion]
+Paradroid (Europe, prototype, 20030320) [March42, Forest of Illusion]
+Uridium Advance (Europe, prototype, 20020911) [March42, Forest of Illusion]
+Uridium Advance and Paradroid 2 in 1 (Europe, prototype, 20030430) [March42, Forest of Illusion]
+
+---
+## [wrye-bash/wrye-bash](https://github.com/wrye-bash/wrye-bash)@[ce0ea0bd98...](https://github.com/wrye-bash/wrye-bash/commit/ce0ea0bd98b59a3b55e2766b53be5355b09cfd8d)
+#### Sunday 2023-06-25 21:17:10 by MrD
+
+Squash of ut-336-219-353 with fixups and drop pending_size II:
+
+Nit and small fixes/opts: TTT
+
+In `ext in bush.game.espm_extensions` ext used to be cs - it's not
+anymore so this is a fixup. I ended up using EAFP here, hence dropping
+the top_level_espm check - should be as fast as before and it's simpler.
+Took the opportunity to prune an especially nasty use of getGhosted - a
+few str operations should be faster than listing. Note that when
+calling process_data_dir from update_data_SizeCrcDate getGhosted()
+would be called twice.
+
+__init__.py 4271 RefreshData boot:
+d1ad84: 14636191 function calls (14609410 primitive calls) in 13.283 seconds
+this  : 13706608 function calls (13679827 primitive calls) in 12.229 seconds
+
+__init__.py 4271 RefreshData tab in:
+d1ad84: 284138 function calls (275354 primitive calls) in 0.737 seconds
+this  : 283127 function calls (274343 primitive calls) in 0.689 seconds
+
+Re: skipExts:
+
+I run into an esp.ghost.ghost file - since we neither want to add those
+to InstallersData.data_SizeCrcDate (ModInfos should skip those too) nor
+in Installer.refreshDataSizeCrc I added them to skipExts TTT
+
+bain.py  180 calc_crcs: Failed to calculate crc for D:\GAMES\TESIV\Oblivion\Data\New Mod--.esp.ghost - please report this, and the following traceback:
+Traceback (most recent call last):
+  File "C:\Dropbox (Personal)\eclipse_workspaces\python\wrye-bash\Mopy\bash\bosh\bain.py", line 174, in calc_crcs
+    with open(asFile, u'rb') as ins:
+         ^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: 'D:\\GAMES\\TESIV\\Oblivion\\Data\\New Mod--.esp.ghost' <--  the file was "New Mod--.esp.ghost.ghost"
+
+Rename Installer.modified attribute to align with AFile: RRR
+
+Align with AFile
+
+Would be nice to use the rest of the AFile API here (do_update and co -
+hard! - edit: done in this merge :). Note I dropped the rpFile =
+os.path.join(rsDir, sFile) - chopping asFile[relPos:] should be enough
+(and faster).
+
+__init__.py 4271 RefreshData boot:
+Nit and small fixes/opts: 13706608 function calls (13679827 primitive calls) in 12.229 seconds
+this  :                   13379068 function calls (13352287 primitive calls) in 11.719 seconds
+
+Inline _refresh_from_project_dir:
+
+We must change the model - in a nutshell use AFile's API (override
+_stat_tuple for projects with NotImplemented, as it makes no sense
+there, and add the _refreshSource logic in do_update - archives can use
+the full API as they are files). Then only use do_update (with added
+progress and hopefully little other kwargs) and perform the update *in
+place* where we now call needs_update. This ripples till InstallersData
+(irefresh) and it's fairly complex (and currently complicated) but will
+eventually get us rid of _projects_walk_cache and a couple methods
+(and stop being complicated) - edit done later, turns out _stat_tuple
+works for projects just right - yey for AFile.
+
+'pending' renames - I need to track refresh_info
+
+class _InstallerPackage(Installer, AFile):
+
+_refreshSource confined there - yey!
+
+Refactor AFile:
+
+Less uses of load_cache - and itsa_ghost. WIP - I might add load_cache
+back to the signature if I figure a default out
+
+Installer.do_update: TTT RRR
+
+One of the hardest things to grok in BAIN refresh was the decorator
+projects_walk_cache. It was necessary in order not to re-walk the
+project dir in case we just walked it in scan_installers_dir. Looking
+at it now we should have been caching also the stat calls in that case
+but when this was introduced BAIN internals were so complicated that this
+was not so obvious (performance here is anyway still WIP). Turns out it
+is much simpler and probably just as 'fast' to call do_update rather
+than trying to pass needs_update caches to refreshBasic. This all but
+closes # 336 as now AFile API is used for all kinds of files - and
+makes BAIN refresh internals as little complicated as possible. See
+discussion in RRR 6d4ad99841233d83abd326ad81121a0d09f88bc0 but unlike
+what I noted there the pleasant surprise was that AFile can handle
+folders alright - do_update is powerful enough and can be further
+refactored to cater for fullRefresh. Note:
+
+- the ancient fixme. What this was trying to convey is that actually
+if you went ahead and renamed a file in a project containing another
+file with large modification time the change would not be detected. The
+workaround was to manually refresh the project. This was done for
+efficiency as the vast majority of the changes would be detected,
+but now that computers are faster let's make this correct. For big
+src_SizeCrcDate this would be slower but hey the system calls should
+dwarf that (for big src_SCD) and anyway that's what the skip refresh
+flag is for. Now that we do the full check (should be more than enough
+but can still give a false negative if we flip a byte on a file without
+changing the modification time - hey, caching) we might as well drop the
+calculations from _stat_tuple.
+- the common data structure format for cacl_crcs included the old crc -
+cf (siz, _crc, date, asFile). I changed that to pass the asFile and I
+am still debugging it but the benefits should be obvious
+- I reassign src_SizeCrcDate instead of clean/update - faster and
+cleaner (and should be also done for data_sizeCrcDate) but still TTT EEE
+
+SSS FFF fix for fullRefresh not getting the paths to ghosts
+
+I had to treat plugins separately - no harm done on average and
+fullRefresh will calculate their CRCs once finally.
+
+Under # 336, # 219, # 353 RRR
+
+Progress does not work correctly (never gives focus back to Bash) XXX???
+
+@@ -3460,5 +3460,5 @@ def ShowPanel(self, canCancel=True, fullRefresh=False, scan_data_dir=False,
+                 if not do_refresh:
+-                    with balt.Progress(_('Scanning Packages...')) as progress:
+-                        refresh_info = self.listData.scan_installers_dir(
+-                            folders, files, fullRefresh, progress)
++                    #with balt.Progress(_('Scanning Packages...')) as progress:
++                    refresh_info = self.listData.scan_installers_dir(
++                        folders, files, fullRefresh, progress=bolt.Progress())
+                     do_refresh = refresh_info.refresh_needed()
+
+__init__.py 4271 RefreshData boot:
+d1ad84: 14636191 function calls (14609410 primitive calls) in 13.283 seconds
+Nit and small fixes/opts: 13706608 function calls (13679827 primitive calls) in 12.229 seconds
+Rename Installer.modified attribute: 13379068 function calls (13352287 primitive calls) in 11.719 seconds
+Installer.do_update               :  13179201 function calls (13152382 primitive calls) in 12.129 seconds
+
+__init__.py 4271 RefreshData tab in:
+d1ad84: 284138 function calls (275354 primitive calls) in 0.737 seconds
+Nit and small fixes/opts: 283127 function calls (274343 primitive calls) in 0.689 seconds
+Rename Installer.modified attribute  : 283719 function calls (274935 primitive calls) in 0.697 seconds
+Installer.do_update               :    496795 function calls (487975 primitive calls) in 0.580 seconds
+
+FFF inline _refreshInstallers: EEE better comments
+
+Seems now refresh_info and pending/deleted are orthogonal - needs
+further simplification. We need to pass pending/deleted to
+scan_installers_dir actually and use that instead of listing - edit:
+done.
+
+__init__.py 4271 RefreshData boot:
+d1ad84: 14636191 function calls (14609410 primitive calls) in 13.283 seconds
+Nit and small fixes/opts: 13706608 function calls (13679827 primitive calls) in 12.229 seconds
+Rename Installer.modified attribute: 13379068 function calls (13352287 primitive calls) in 11.719 seconds
+FFF inline _refreshInstallers:       13179209 function calls (13152391 primitive calls) in 11.780 seconds
+
+__init__.py 4271 RefreshData tab in:
+d1ad84: 284138 function calls (275354 primitive calls) in 0.737 seconds
+Nit and small fixes/opts: 283127 function calls (274343 primitive calls) in 0.689 seconds
+Rename Installer.modified attribute  : 283719 function calls (274935 primitive calls) in 0.697 seconds
+FFF inline _refreshInstallers        : 496785 function calls (487966 primitive calls) in 0.618 seconds
+
+refreshBasic -> _reset_cache EEE do_refresh=True flip default
+
+Installer.refresh_installer -> InstellersData.new_info: TTT
+
+setattr(clone, att, copy.copy(getattr(src_inst, att))) should work on LDs TTT
+
+EEE Mopy/bash/basher/dialogs.py InstallerProject import remove.
+
+Another hacky refactoring helper gone but there is more. When we were
+unpickling on InstallersData.__load > __setstate we were calling at least
+refreshDataSizeCrc but then we would perform a system call on abs_path -
+now this is replaced with a necessary stat_tuple() call and
+scan_installers_dir learned to skip freshly unpickled installers. We also
+hook in AFile.__init__ - this drops abs_path from Installer (if we were
+accessing this on markers that'a bug) by adding a new 'volatile' attribute
+to _InstallerPackage (AFile's _file_key - now we can't slot we should
+revisit all this along with pickling - we should stop pickling non std
+classes). __init__ calls _reset_cache, so no need to call needs update
+from new_info. One other (and hopefully the last) installer creation
+site was __copy__ - that's too much magic, absorbed by new_info and the
+bits of (arcane) logic were copied to copy_installer which should be
+the only place we copy an installer. Finally I had to exclude fn_key
+from persistent - this is set alright by __init__, the latter one being
+called on unpickling as specified in __reduce__. So on unpickling
+initDefault was called twice - maybe make Installer a dataclass and bin
+initDefault?
+
+SSS add_marker -> new_info
+
+Use scandir instead of walk for InstallerProject._stat_tuple: RRR
+
+I was aware there was maybe a way using scandir of not repeating some
+stat calls while scanning a directory - all I could find was this:
+
+https://discuss.python.org/t/get-direntry-objects-collected-during-os-walk/8143/5
+
+I wondered if it performed better than walk:
+
+import os
+import timeit
+
+numbers = 4
+repeat = 7
+
+setup = """"""
+def timer(statement, msg='', _setup=None):
+    print(msg, min(
+        timeit.Timer(statement, setup=_setup or setup).repeat(
+            repeat, numbers)))
+
+def _scandir_walk(apath, root_len=None, folders_times=None):
+    size_apath_date = {}
+    if root_len is None:
+        root_len = len(apath) + 1
+    folders_times = [os.path.getmtime(apath)] if folders_times is None \
+	    else folders_times
+    for dirent in os.scandir(apath):
+        if dirent.is_dir():
+            folders_times.append(dirent.stat().st_mtime)
+            dir_walk, _ = _scandir_walk(dirent.path, root_len, folders_times)
+            size_apath_date.update(dir_walk)
+        else:
+            size_apath_date[dirent.path[root_len:]] = (
+                (ls := dirent.stat()).st_size, dirent.path, ls.st_mtime)
+    return size_apath_date, folders_times
+
+def _walk(apath, __lstat=os.stat):
+    getM, join = os.path.getmtime, os.path.join
+    size_apath_date = {}
+    c = []
+    cAppend = c.append
+    root_len = len(apath) + 1
+    for root, _d, files in os.walk(apath):
+        # progress(0.05, f'{progress_msg}{asDir[relPos:]}')
+        cAppend(getM(root))
+        size_apath_date.update(
+            (k[root_len:], (ls.st_size, k, ls.st_mtime)) for k, ls in
+            ((asPath, __lstat(asPath)) for asPath in
+                      (join(root, f) for f in files)))
+    return size_apath_date, c
+
+setup = """d = r'C:\Dropbox\eclipse_workspaces\python\wrye-bash'
+from __main__ import _scandir_walk, _walk
+"""
+timer('_scandir_walk(d)', "scandir")
+timer('_walk(d)', "walk")
+
+sc = _scandir_walk(d)
+wal = _walk(d)
+assert sc[0] == wal[0]
+assert set(sc[1]) == set(wal[1])
+assert max(sc[1]) == max(wal[1])
+
+C:\Users\MrD\AppData\Local\Programs\Python\Python311\python.exe C:\Dropbox\eclipse_workspaces\python\py_scratch\timings.py
+scandir 1.3165479998569936
+walk 28.77752220002003
+
+21 times faster! Projects refresh is the bottleneck in BAIN refresh,
+hence all the skipRefresh/autoRefreshProjects/projectRefreshed. This
+is happily solving this for most installs (don't know if this can
+be made faster or switching to event based refreshes RRR is the only real
+solution, in which case we still want all the speed we can get scanning
+anyway, for the initial scan on booting BAIN, but also for manual
+refreshes that might be needed in edge cases).
+
+Absorb _process_data_dir and use scandir:
+
+Time immemorial ago (b17601ef5bc25101c1fc12141f252ea250d49424) was
+created to house the common logic of _refresh_from_data_dir (so
+existing files maybe with a ghost extension) and
+update_data_SizeCrcDate (so dest paths to the data dir with .ghost
+lopped of). Now that we realized that scandir stating is considerably
+faster and since performance here is a bane _process_data_dir had to go
+- flat is better than nested, certainly in BAIN refresh. Those methods
+calling one another were always new to new and experienced dev alike
+and the pieces of functionality that were needed in
+_refresh_from_data_dir but not in update_data_SizeCrcDate and vice
+versa turned complex to complicated:
+
+- we should not skip files/folders in update_data_SizeCrcDate as we come
+from refreshDataSizeCrc (even if we currently do - TTT this beast is hard
+to track - related to overwritten skips handling which certainly has
+buggy edge cases some of them acknowledged in the code, see
+overriden_skips comments)
+- ghost handling belongs to update_data_SizeCrcDate - this led to double
+calling getGhosted see RRR
+- in fact the logic of _process_data_dir was the update_data_SizeCrcDate
+logic as the walk logic of _refresh_from_data_dir was replaced by new
+code in _walk_data_dir so the code of _process_data_dir was not repeated
+
+_refresh_from_data_dir:
+
+- I axed the progress messages as anyway we displayed very few of them
+quite randomly. We can easily add them back in _walk_data_dir but since
+we are on dev we can afford to live without these progress messages
+- empty dirs is a WIP TTT - in particular what we do would not remove
+a dir composed of empty dirs that were removed. OTH we could even remove
+this from refresh and/or add a special menu item for cleaning empty dirs
+(maybe launch it if setting is on also)
+
+update_data_SizeCrcDate:
+
+- what happens with "corrupted" mods really? They should be added to
+data_SizeCrcDate most probably
+
+__init__.py 4268 RefreshData:
+11118614 function calls (11112306 primitive calls) in 6.492 seconds
+
+__init__.py 4268 RefreshData:
+436784 function calls (434428 primitive calls) in 0.263 seconds
+
+FFF empty_dirs
+
+FFF
+
+- note I changed _skips_in_data_dir to work with dicts to keep the abs
+path of the top_dir around - not for performance this time but sprinkling
+os.path.join does not look nice.
+
+Empties handling: SSS TTT
+
+Changes the logic: TTT
+
+- remove subdirs that contain no files in any of their subfolders - the
+root one should be taken care of at the caller's level. Note the
+(hacky) 'proj_dir.makedirs()' is not needed anymore, simply by not
+handling the return value vs handling has_files for top Data dirs.
+Previously we would leave behind empty subfolders except if we
+carefully sorted which might have been the case (or not). Plus we could
+delete folders before their subfolders (hence removedirs was called
+defensively and abundantly). Now the logic is clearly spelled out in
+_remove_empty_dirs (TTT deserves a test certainly) and repeated in
+_walk_data_dir (as noted we need performance so factoring a walk
+function parameter out is a no-no - plus we can afford some repetition
+for the readability, especially as the walk functions are inlined
+closer to irefresh and not buried as before).
+
+- we remove as we go. This is less atomic but thankfully we had no
+guaranties anyway :Plus we won't really miss anything - if the operation
+fails we just leave behind less empty dirs.
+
+Kept error handling the same as before - although all the dirs should
+exist in the `raise_error=False` case in _walk_data_dir.
+
+SSS TTT Drop pending_size handling
+
+Let's go nuclear on this. I *think* the problem might actually be some
+kind of overflow in native Windows/wxWidgets code with a large enough
+Data folder and enough large files in it that need to be updated.
+
+This may actually speed up a Full Refresh. For a large file (e.g.
+Fallout4 - Textures1.ba2 at 2.5G) we would issue thousands of progress
+calls (1290 for that BA2, to be exact), which definitely isn't ideal in
+the middle of a CRC calculation.
+
+---
+## [wrye-bash/wrye-bash](https://github.com/wrye-bash/wrye-bash)@[a112679a7d...](https://github.com/wrye-bash/wrye-bash/commit/a112679a7d72bc393ccf830a76b2916e576b8888)
+#### Sunday 2023-06-25 21:17:10 by Infernio
+
+Rework temporary file handling RRR TTT
+
+View with whitespace diff off for an easier time (--ignore-all-space).
+
+This turned out to be a lot more work than I thought. Really should have
+been a branch, but I misjudged this horribly, then it kept growing...
+Also not sure how feasible this would be to have as a branch without
+breaking dev.
+
+Wrye Bash's temporary files handling was actually a complete mess. There
+were *three* different ways that random pieces of code were using it:
+ - bass.getTempDir/newTempDir/rmTempDir
+ - Path.temp and Path.untemp
+ - Just use Path.baseTempDir/tempDir or even tempfile directly and do
+   it completely manually.
+
+These all had problems:
+ - The bass APIs were very implicit - you would extract something to the
+   'bass temp dir' and then access it via getTempDir in some other
+   function, then remove the directory via rmTempDir in another
+   function. XXX I'm still not done tracking this implicit mess down
+   (see converters.py).
+ - Path.temp did not guarantee that the file would be unique. This isn't
+   really a problem for Wrye Bash right now, but would become a big
+   problem if we ever wanted to allow multiple instances to run at the
+   same time (which we do). Path.untemp also did some really weird I/O
+   stuff that doesn't seem necessary at all and would just cost us a
+   bunch of syscalls.
+ - Path.baseTempDir/tempDir and tempfile required you to keep track of
+   all the path manipulation and logic manually. After going through all
+   this refactoring, trust me when I say that you do *not* want to do
+   this manually. These places were few, thankfully, and none seem to
+   have messed it up.
+
+The new API (wbtemp.py) exposes two ways to do it:
+ - Use TempDir or TempFile in a context manager. This is extremely
+   simple and works very well. It guarantees that the file will be
+   cleaned up, even if your logic becomes very complex or an exception
+   occurs.
+ - Use new_temp_dir/new_temp_file to create a temporary dir/file and
+   manually clean it up via cleanup_temp_dir/cleanup_temp_file. These
+   should be used *very sparingly*, only where absolutely needed.
+   Right now we only have a single usage of manual temp files in
+   dialogs.UpdateNotification and two usages of manual temp dirs (one in
+   InstallerArchive.unpackToTemp and one in env.shellMakeDirs).
+
+It also has other advantages:
+ - Complexity is encapsulated to a single file.
+ - Works even during (very) early boot (though doesn't seem to be
+   needed right now?).
+ - Should work perfectly with multiple instances of WB running at the
+   same time (which isn't possible yet, but is a goal for the future).
+
+There's one ugly wart. barb wants to extract archives to a temporary
+folder, which then needs to survive a restart of WB, whereupon it will
+be handled by the boot '--restore' handler. wbtemp, by design, does not
+allow this and will clean up all created directories and files on exit.
+To handle this, I used manual tempfile fiddling. Perhaps a future
+refactoring of barb could fix this, but for now I think it's an
+acceptable tradeoff for the massive improvements this commit brings us.
+
+Some random stuff that got stuck in here:
+
+Note that I got rid of the utf-8-sig encodings passed to 7z, the docs
+say:
+
+  Notes: The list file in Unicode charset can start with the BOM (byte
+  order mark) character (U+FEFF). In that case 7-Zip checks that
+  encoding of BOM corresponds to encoding specified with this switch
+  (for UTF-16LE and UTF-16BE).
+
+and:
+
+  Default charset is UTF-8.
+
+From https://7-zip.opensource.jp/chm/cmdline/switches/charset.htm
+Very happy to see some of these terrible BOMs disappear from the
+codebase.
+
+Mopy/bash/basher/gui_fomod.py:
+Some minor warning fixups in gui_fomod
+
+Closes # 665 <--- RRR
+
+Co-authored-by: lojack5 <1458329+lojack5@users.noreply.github.com>
+
+---
+## [mocaffy/vim-tpipeline](https://github.com/mocaffy/vim-tpipeline)@[95a6ccbe9f...](https://github.com/mocaffy/vim-tpipeline/commit/95a6ccbe9f33bc42dd4cee45731d8bc3fbcd92d1)
+#### Sunday 2023-06-25 22:14:54 by Magnus Groß
+
+Another workaround for the utterly broken gui detection in nvim
+
+Of course GUI detection wasn't fucked up enough in neovim already (see
+c2603e4ad5c2a3011cffc9ea58d2b5036717067e for the last rant about this
+topic). Instead of requiring special handling just for neovim, we now
+also need special treatment just for neovim 0.9, because of course they
+don't adhere to their own documentation anymore and v:event['chan'] may
+now also return 1, as a sideeffect of running the internal TUI in a
+separate process [0].
+
+So to this day there is still no sane way to detect TUI in neovim,
+instead we have to add a hacky workaround to check nvim_list_uis() for
+ext_termcolors, which I am 100% confident will break in the future too.
+
+Vim had sane API for this since forever and it is as simple as checking
+for has('gui_running') at any point of time, but of course neovim can't
+have this set at startup because we have to make everything convoluted
+as fuck by sourcing plugins before the UI has a chance to attach.
+
+Why the UI is not allowed to set a flag as the very first thing in the
+startup sequence (and then attach later), is beyond stupid.
+
+This is also not the first time that neovim's weird startup sequence
+causes problems [1].
+
+Fixes #46
+
+[0] https://github.com/neovim/neovim/pull/18375
+[1] https://github.com/neovim/neovim/issues/19362
 
 ---
 
