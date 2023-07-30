@@ -1491,4 +1491,5 @@
 [26](good-messages/2023/2023-07-26.md)
 [27](good-messages/2023/2023-07-27.md)
 [28](good-messages/2023/2023-07-28.md)
+[29](good-messages/2023/2023-07-29.md)
 
