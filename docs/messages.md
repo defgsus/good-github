@@ -1495,3 +1495,8 @@
 [30](good-messages/2023/2023-07-30.md)
 [31](good-messages/2023/2023-07-31.md)
 
+
+#### August
+
+[01](good-messages/2023/2023-08-01.md)
+
