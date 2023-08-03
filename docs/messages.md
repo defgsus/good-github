@@ -1499,4 +1499,5 @@
 #### August
 
 [01](good-messages/2023/2023-08-01.md)
+[02](good-messages/2023/2023-08-02.md)
 
