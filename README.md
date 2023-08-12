@@ -5,1316 +5,20 @@ an [index](docs/messages.md).
 
 ---
 
-# [2023-08-10](docs/good-messages/2023/2023-08-10.md)
+# [2023-08-11](docs/good-messages/2023/2023-08-11.md)
 
 
-there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,297,436 were push events containing 3,452,968 commit messages that amount to 254,352,210 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 62 messages:
+there were a lot of events recorded by [gharchive.org](https://www.gharchive.org/) of which 2,266,917 were push events containing 3,346,364 commit messages that amount to 244,661,598 characters filtered with [words.py@e23d022007...](https://github.com/defgsus/good-github/blob/e23d022007992279f9bcb3a9fd40126629d787e2/src/words.py) to these 68 messages:
 
 
-## [mc776/freedoom](https://github.com/mc776/freedoom)@[a828330d25...](https://github.com/mc776/freedoom/commit/a828330d25e950933bc97ef5ba5630e2a2dca93a)
-#### Thursday 2023-08-10 00:11:29 by mc776
+## [c0ntradicti0n/dialectics](https://github.com/c0ntradicti0n/dialectics)@[a324aa10a7...](https://github.com/c0ntradicti0n/dialectics/commit/a324aa10a7f0b9138db5e1666e13e42ed6fd9794)
+#### Friday 2023-08-11 00:06:51 by c0ntradicti0n
 
-levels: more minor fixes. (#1040)
-
-* levels: fix e1m2 tutti frutti around exit door.
-
-Also took the liberty of fixing a longtime pet peeve I had about the really bright grey-white of the exit room steps clashing with the rest of the room for no apparent reason. (It looks less bad with Korp's new greys but we're not adding those yet...)
-
-* levels: fix floating candle on map22.
-
-It's fine until you actually use the secret, at which point it snaps to the top of the lowering platform.
-
-* levels: more minor fixes.
-
-Mostly for objects "floating" with a tiny bit of their hitbox rounded to be overlapping a higher adjacent floor.
-
-E1M8
-Inside the pillars containing the painlords there are two that spawn gore (and a dead player) in lieu of painlords only on easy. These have now been edited so that in each pillar the gore appears whenever the painlord does not. (The player has also been changed to a gore actor.)
-
-Map03
-Floaties by the first door switch.
-
-Map23
-Central room with the barrels and combat slugs has several gore decorations that do not appear on hard, but do not block movement nor represent any living monsters that might appear there in hard. Flagged to appear in all skill levels (and also not be flagged ambush).
-
-Map25
-1-pixel vertical misalignment on line 44.
-
-Map28
-Floaty medikit(s?) near (-955,-435), moved away from the double teleport pad.
-Fixed the textures on that door now that the SLOPPY textures have been updated
-Moved stuff around the starting skull switch so you start with a screen full of skull again.
-
-Map29
-Floaty shellbox 444.
-
-* levels: more minor fixes.
-
-Mostly to address #1043.
-
-Map09
-- Moved the crates in front of the eastern teleport door to keep the player from potentially falling into the gap between the big crate and the main crate rack and softlocking. The small step-crates are now also properly aligned with the flat they use.
-
-Map14
-- The entire lower floor of the big octagon room has been lowered to -56 from -48. This restores access to the alcove in front of the minigun secret, and also better aligns with the textures of several surrounding walls.
-- Merged the sectors of the yellow key cage teleporter pad so the lights would sync.
-
-Map15
-- A room will lower two teleporters when you step in and two worms will warp in through those teleporters in hard, one in medium, none in easy. It looks bugged where the worms don't appear and absolutely nothing shows up, so pickups are revealed instead when they don't.
-
-Map18
-- Added one more step crate to let the player directly access the necromancer soul sphere (and the health bonus tucked away in the corner) without retracing their route back to the upper ledge.
-
-Map25
-- Got rid of that starting elevator once and for all. The only purpose in forcing that starting gunshot was to make that first room marginally more awful to pistol-start. Moved the shotgun and shells to the "outside" platforms to make up for it.
-- Widened the side windows facing the yellow key so the trilobites have room to move.
-- Shrunk down the exit line to make it completely impossible to trigger it while the painlord/necromancer standing there is alive.
-- Added more monster blockers to the RL warp-in ambush closet, as the worms would still sometimes warp in both on the same side. I've also made the destination sectors larger as that simplifies the underlying geometry a bit.
-- Flagged everything in the deathmatch arena multi-only.
-- Thing 445 (last monster before SSG in hard mode) is now a pain lord instead of an octaminator.
-
-* levels: more minor fixes.
-
-Map13
-Exit teleport pad lines now block monsters.
-
-Map18
-End soulsphere secret is now tagged as secret.
-
-Map19
-The straferun armour trench setup could not possibly work without having the worms below block your movement sometimes. The trench is now fenced off and the platform accessible by bridge; the pinkies are now spectres outside of easy and hard gives you two more of them; they can only harm you by teleporting.
-
-* levels: readjust map28 skull.
-
-The vertical offset would no longer be needed after #1047; however the tiling is a bit off if we need to offset this horizontally due to the additional trim, so a new linedef was added.
-
-* levels: map26 minor fixes.
-
-The secret blue lift switch error message would indicate it's a "door" which despite being correct from an engine point of view doesn't reflect its actual function.
-
-The red armour secret is now player-shoot only, and the wall breach effect is instant.
-
-* levels: fix high jump platform texture alignment.
-
----
-## [Peliex/tgstation](https://github.com/Peliex/tgstation)@[dc0e5caca7...](https://github.com/Peliex/tgstation/commit/dc0e5caca763769242fe9254d95049ac0468bf64)
-#### Thursday 2023-08-10 00:31:50 by Sheits
-
-Base Female sprite tweaks (#77407)
-
-## About The Pull Request
-
-ASS STUFF HAS BEEN REMOVED BUT I STILL HATE IT
-
-This PR tones down the proportions of the female base sprites, as
-currently they have about SIX extra pixels on the ass and a random pixel
-missing from the neck, which breaks some hairstyles & makes the neck
-look quite stupid.
-It also adds a couple pixels to the male one because theirs was so
-stupidly SMALL it looked like they had no tailbone (still does, kind
-of).
-
-Here is the current sprite 
-
-![image](https://github.com/tgstation/tgstation/assets/81964183/1bf22dd7-2b06-4632-8617-b89b3b1c8d2c)
-& new sprite (only neck pixel removed)
-
-![image](https://github.com/tgstation/tgstation/assets/81964183/b1228e01-23e0-4508-86a6-bc8e73b0fcd0)
-
-## Why It's Good For The Game
-
-Fixes some hairs
-
-
-![image](https://github.com/tgstation/tgstation/assets/81964183/3b293cf9-2661-4358-a327-2882acb93067)
-
-
-## Changelog
-
-:cl:
-image: fixes weird inconsistency on the neck and butt of the female base
-sprite
-/:cl:
-
----
-## [Peliex/tgstation](https://github.com/Peliex/tgstation)@[3dc75f84f2...](https://github.com/Peliex/tgstation/commit/3dc75f84f2eebc388c7f698284d77df4d8cf8fdf)
-#### Thursday 2023-08-10 00:31:50 by YakumoChen
-
-Chen And Garry's Ice Cream: Ice Cream DLC (LIZARD APPROVED!) (#77174)
-
-## About The Pull Request
-
-Authored with help and love from @Thalpy 
-
-I scream for ice cream!!
-
-
-![image](https://github.com/tgstation/tgstation/assets/10399117/db1e559b-7dab-499b-a076-8f12748ba2e8)
-
-Introduces many new flavours of ice cream:
--Caramel
--Banana
--Lemon Sorbet
--Orange Creamsicle
--Peach (Limited Edition!)
--Cherry chip
--Korta Vanilla (made with lizard-friendly ingredients!)
-
-
-![image](https://github.com/tgstation/tgstation/assets/10399117/99a87615-f55c-49be-8caf-2b1ac4c7f03f)
-
-Korta Cones! Now too can Nanotrasen's sanitation staff enjoy the wonders
-of ice cream!
-You can also substitute custom ice cream flavours with korta milk!
-Finally, the meaty ice cream lactose-intolerants asked for is in reach!
-
-## Why It's Good For The Game
-
-I always thought the ice cream vat could use more flavours. The custom
-flavour besides, it isn't as intuitive to rename the cone and the added
-variety is good. The lack of a banana flavour already was questionable.
-All the ice cream flavours used a selection of five sprites, now it's
-just one sprite and better supporting more additions.
-Some of the flavours don't use milk! You can't do this with the custom
-flavour, making it slightly more interesting.
-
-## Changelog
-:cl: YakumoChen, Thalpy
-add: Chen And Garry's Ice Cream is proud to debut a wide selection of
-cool new frozen treat flavours on a space station near you!
-add: Chen And Garry's Ice Cream revolutionary Korta Cones allow our ice
-cream vendors to profit off the lizard demographic like never before!
-code: Ice cream flavours now are all greyscaled similarly to GAGs
-/:cl:
-
----
-## [rizalgowandy/oauth2](https://github.com/rizalgowandy/oauth2)@[a835fc4358...](https://github.com/rizalgowandy/oauth2/commit/a835fc4358f6852f50c4c5c33fddcd1adade5b0a)
-#### Thursday 2023-08-10 00:49:38 by Brad Fitzpatrick
-
-oauth2: move global auth style cache to be per-Config
-
-In 80673b4a4 (https://go.dev/cl/157820) I added a never-shrinking
-package-global cache to remember which auto-detected auth style (HTTP
-headers vs POST) was supported by a certain OAuth2 server, keyed by
-its URL.
-
-Unfortunately, some multi-tenant SaaS OIDC servers behave poorly and
-have one global OpenID configuration document for all of their
-customers which says ("we support all auth styles! you pick!") but
-then give each customer control of which style they specifically
-accept. This is bogus behavior on their part, but the oauth2 package's
-global caching per URL isn't helping. (It's also bad to have a
-package-global cache that can never be GC'ed)
-
-So, this change moves the cache to hang off the oauth *Configs
-instead. Unfortunately, it does so with some backwards compatiblity
-compromises (an atomic.Value hack), lest people are using old versions
-of Go still or copying a Config by value, both of which this package
-previously accidentally supported, even though they weren't tested.
-
-This change also means that anybody that's repeatedly making ephemeral
-oauth.Configs without an explicit auth style will be losing &
-reinitializing their cache on any auth style failures + fallbacks to
-the other style. I think that should be pretty rare. People seem to
-make an oauth2.Config once earlier and stash it away somewhere (often
-deep in a token fetcher or HTTP client/transport).
-
-Change-Id: I91f107368ab3c3d77bc425eeef65372a589feb7b
-Signed-off-by: Brad Fitzpatrick <bradfitz@golang.org>
-Reviewed-on: https://go-review.googlesource.com/c/oauth2/+/515675
-TryBot-Result: Gopher Robot <gobot@golang.org>
-Reviewed-by: Roland Shoemaker <roland@golang.org>
-Reviewed-by: Adrian Dewhurst <adrian@tailscale.com>
-Reviewed-by: Michael Knyszek <mknyszek@google.com>
-
----
-## [Oyu-De/Paradise](https://github.com/Oyu-De/Paradise)@[2d10818063...](https://github.com/Oyu-De/Paradise/commit/2d1081806334fc023de600338b836d55dd6fa5ee)
-#### Thursday 2023-08-10 00:52:56 by ATP-Engineer
-
-Fixes IV bag blood overlays being too damn bright for some mixtures (#21813)
-
-* Removes old .dmi
-
-* Fixes blood overlay coloring being too bright for IV bags
-
-* Fine-tuning
-
-* Makes the blood bag IV color overlays not as bright as they used to be
-
-In hindsight it was probably easy to avoid
-
-* FINAL TUNE UP
-
-FUCK
-
-* Fixes coloring for IV bags so they're not too bright
-
-FINAL COMMIT
-
----
-## [YesterdaysPromise/tgstation](https://github.com/YesterdaysPromise/tgstation)@[52c8da7ea4...](https://github.com/YesterdaysPromise/tgstation/commit/52c8da7ea49ef566c9a997a4b7cfc5d3d2a59178)
-#### Thursday 2023-08-10 01:59:50 by Jacquerel
-
-PAI Holochassis are now leashed to an area around their card (#76763)
-
-## About The Pull Request
-
-This change restricts PAI holograms to an area around their assigned PAI
-card. If you leave this area, you are teleported back to the card's
-location (but not automatically put back into the card).
-
-https://www.youtube.com/watch?v=L2ThEVa4nx8
-
-This setting can be configured from the PAI menu, it's set pretty short
-in the video because otherwise it wouldn't teleport when I threw the
-card and I like doing that.
-
-![image](https://github.com/tgstation/tgstation/assets/7483112/faf0fa0b-e9d6-4990-8d8c-f30def2892f1)
-
-To accomodate this I set up a component to deal with a reasonably common
-problem I have had, "what if I want to track the movement of something
-in a box in a bag in someone's inventory". Please tell me if the
-solution I came up with is stupid and we already have a better one that
-I forgot about.
-
-Also now you can put pAIs inside bots again, by popular request.
-
-## Why It's Good For The Game
-
-Personal AIs are intended to be personal assistants to their owner.
-rather than fully independent entities which can pick up their own card
-and leave as soon as they spawn.
-As "aimless wanderer" players can now possess station bots, pAIs can be
-limited to an area around the bearer of their card.
-
-Because the holoform now doesn't contain the card, this also means that
-a PAI cannot run off and then be impossible to retrieve. You are always
-in control of where it can go.
-
-Also it's funny to throw the card and watch the chicken get teleported
-to it.
-
-## Changelog
-
-:cl:
-add: Personal AI holograms are now limited to an area around their PAI
-card. The size of this are can be configured via the PAI card.
-add: pAI cards can now be placed inside bots in order to grant them
-control of the bot.
-/:cl:
-
----
-## [efzapa/Paradise](https://github.com/efzapa/Paradise)@[a3dc32cf34...](https://github.com/efzapa/Paradise/commit/a3dc32cf344dbd441e85f6cbb694b166dc1f5e4b)
-#### Thursday 2023-08-10 02:39:25 by ATP-Engineer
-
-Fixes issue where Turret Control sprites arent actually updated in previous PR (#21538)
-
-* Removes actual turret file
-
-FUCK
-
-* Fixes turret controllers not actually being changed
-
-GOD DAMNIT.
-
----
-## [c0ntradicti0n/dialectics](https://github.com/c0ntradicti0n/dialectics)@[f9f4356a69...](https://github.com/c0ntradicti0n/dialectics/commit/f9f4356a692cfd94821612319be54b753134493b)
-#### Thursday 2023-08-10 02:40:35 by c0ntradicti0n
-
-Automated TOC Commit: 3/3/1/3/.Agnosticism.md 3/2/2/2/_Federal-Unitary.md 2/2/3/3/.Healthcare.md 3/2/2/1/_Authority-Sovereignty.md Categories.md" 1/3/3/1/_Heredity-Variation.md 3/1/1/2/_Free-Bound.md 2/2/3/1/_Success-Failure.md Space.md" 2/1/1/2/_Famine-Feast.md 2/3/1/3/.Duties.md 3/3/2/2/.Narrative.md Art.md" 1/2/3/1/_Metrical-Triangular,.md 3/1/2/1/_Dissonance-Consonance.md 2/2/1/3/.Reasoning.md Thinking.md" 3/1/1/3/.Semiotics.md Theories.md" 2/1/1/1/_Thirst-Hydration.md 2/1/3/3/.Distribution.md 2/1/1/1/.Dependence.md 1/3/3/3/.Adaptation.md 3/3/2/3/_Choreography-Improvisation.md 2/2/1/3/_Induction-Deduction.md 1/2/1/1/_Structured-Unstructured.md 3/1/2/2/.Harmony.md 3/1/1/2/.Morphology.md 3/1/1/3/_Signifier-Signified.md 2/2/3/1/.Competitions.md 2/3/1/2/.Laws.md 3/1/1/1/.Phonetics.md 2/1/1/1/.Eating.md Inquiry.md" Stories.md" 1/3/3/3/.Evolution.md 2/2/2/3/.Fallacies.md 3/3/1/2/_Spiritual-Material.md 2/3/1/2/.Rights.md 3/3/1/2/.Animism.md 2/2/2/3/_Logical-Emotional.md 2/1/1/1/.Drinking.md 3/1/2/1/.Melody.md 3/3/2/2/.Literature.md 3/3/2/3/.Dance.md 3/2/1/2/.Curriculum.md 2/2/2/1/_Righteous-Wicked.md 3/3/1/1/.Deism.md 2/2/2/1/.Morality.md 1/1/3/1/_Finite-Infinite.md 3/2/3/2/_Capitalism-Socialism.md 2/3/2/1/_Old-New.md 1/1/3/2/_Countable-Uncountable.md 1/3/2/2/_Covalent-Ionic.md 3/2/3/1/_Rights-Liberties.md 2/2/3/3/_Sickness-Wellness.md 1/3/1/3/_Observed-Unobserved.md Economy.md" Myths.md" 2/2/2/1/.Ethics.md 3/1/3/3/.Mediation.md 3/1/1/1/.Phonology.md Journey.md" 3/3/1/3/.Atheism.md 3/3/2/1/_Form-Content.md Dimensions.md" 2/2/2/3/.Logic.md Diagram.md" 1/1/3/3/_Homogeneity-Heterogeneity.md 2/2/3/2/.Performances.md 3/1/2/1/.Tune.md Philosophy.md" 3/1/2/2/_Stable-Unstable.md 1/2/3/2/_Past-Future.md 3/2/1/3/.Pedagogy.md Epics.md" 2/2/3/3/.Medicine.md Prophecies.md" 3/1/2/2/.Chords.md 3/3/1/2/.Polytheism.md 3/3/2/1/.Sculpture.md 3/3/3/1/_Beginning-End.md 2/3/2/1/.Customs.md 2/1/2/3/.Reproduction.md 2/3/2/2/_Resistance-Adoption.md 1/1/2/3/.Boundaries.md 3/3/2/2/_Plot-Character.md 3/3/3/3/_Decay-Renewal.md 3/1/2/3/.Beat.md 2/3/2/3/_Discovery-Creation.md Thinking.md" 1/3/2/1/_Elementary-Composite.md 1/3/2/3/_Organic-Inorganic.md 1/3/3/3/_Mutation-Selection.md Art.md" 2/2/3/1/.Sports.md 2/3/1/3/.Responsibilities.md 3/1/1/1/_Voiced-Unvoiced.md 2/1/1/3/.Shelter.md 2/3/2/3/.Achievements.md 3/1/2/3/_Syncopated-Regular.md 1/3/1/1/_Potential-Kinetic.md 2/1/2/2/.Gender.md 3/3/1/3/_Belief-Doubt.md 2/3/1/2/_Legal-Illegal.md 3/3/1/1/_Transcendent-Immanent.md 3/1/1/3/.Pragmatics.md 3/3/3/2/_Trial-Triumph.md Myths.md" 2/3/1/1/.Inventions.md 3/1/1/2/.Syntax.md 1/3/1/2/_Statics-Dynamics.md Chain.md" 1/1/2/3/_Finite-Infinite.md 3/3/1/1/.Monotheism.md Dimensions.md" 2/2/1/1/_Bias-Neutral.md 3/2/2/3/_Majority-Minority.md 2/3/2/2/.Revolutions.md 2/2/1/2/_Hypothesis-Theory.md 2/3/1/3/_Obligation-Choice.md Continuum.md" 3/1/2/3/.Rhythm.md
-
----
-## [kast-spells/summon](https://github.com/kast-spells/summon)@[29a22286f3...](https://github.com/kast-spells/summon/commit/29a22286f346da4f518b4f7bca14f88945f06252)
-#### Thursday 2023-08-10 02:51:13 by Namen Malkav
-
-"So it seems sleep has a cousin named death and Chuck Norris is sleeps Uncle which makes Chuck Norris Death's dad! Oh man i feel sorry for death's boyfriend!"
-
----
-## [AndrewDunne/FreeSpirit](https://github.com/AndrewDunne/FreeSpirit)@[a852738bcd...](https://github.com/AndrewDunne/FreeSpirit/commit/a852738bcdd2f888c8919f51908f367b0e5733ca)
-#### Thursday 2023-08-10 03:17:02 by Chord Shore
-
-Mandatory late night crisis
-
-So I had the silly idea to make a quick change to the folder layout in the content browser before I went to bed. Just shift a few folders around, what could go wrong right? They're just folders after all...
-
-Turns out Unreal automatically deletes empty subfolders when you move a parent folder.
-
-Fuck. I had to recreate a ton of subfolders using the screenshot I posted to #progress. Only took 20 minutes, but I'm lucky I had that for reference or I would have lost a day. Should be ok now, but the "Sound/Audio_*" folder structure is LOCKED until I can populate each one with foley and other assets.
-
----
-## [Xexxa/serenity](https://github.com/Xexxa/serenity)@[8edc2c2689...](https://github.com/Xexxa/serenity/commit/8edc2c2689e094382544d815864312bcdb2205a9)
-#### Thursday 2023-08-10 03:40:10 by Xexxa
-
-Base: Improve emoji
-
-Remove unneccessary left/right padding
-
-❣️ - U+2763 HEART EXCLAMATION
-🚶 - U+1F6B6 PERSON WALKING
-🚴 - U+1F6B4 PERSON BIKING
-🌻 - U+1F33B SUNFLOWER
-🪻 - U+1FABB HYACINTH
-🍉 - U+1F349 WATERMELON
-🍍 - U+1F34D PINEAPPLE
-🫒 - U+1FAD2 OLIVE
-🌽 - U+1F33D EAR OF CORN
-🌯 - U+1F32F BURRITO
-🍘 - U+1F358 RICE CRACKER
-🧁 - U+1F9C1 CUPCAKE
-🍫 - U+1F36B CHOCOLATE BAR
-🍭 - U+1F36D LOLLIPOP
-🍼 - U+1F37C BABY BOTTLE
-🧋 - U+1F9CB BUBBLE TEA
-🧃 - U+1F9C3 BEVERAGE BOX
-🥢 - U+1F962 CHOPSTICKS
-💈 - U+1F488 BARBER POLE
-🌛 - U+1F31B FIRST QUARTER MOON FACE
-🌜 - U+1F31C LAST QUARTER MOON FACE
-🌡️ - U+1F321 THERMOMETER
-🪐 - U+1FA90 RINGED PLANET
-⚡ - U+26A1 HIGH VOLTAGE
-💧 - U+1F4A7 DROPLET
-🧨 - U+1F9E8 FIRECRACKER
-🥇 - U+1F947 1ST PLACE MEDAL
-🥈 - U+1F948 2ND PLACE MEDAL
-🥉 - U+1F949 3RD PLACE MEDAL
-🏓 - U+1F3D3 PING PONG
-🪀 - U+1FA80 YO-YO
-♟️ - U+265F CHESS PAWN
-🧦 - U+1F9E6 SOCKS
-💄 - U+1F484 LIPSTICK
-📱 - U+1F4F1 MOBILE PHONE
-🔌 - U+1F50C ELECTRIC PLUG
-💡 - U+1F4A1 LIGHT BULB
-📍 - U+1F4CD ROUND PUSHPIN
-🔩 - U+1F529 NUT AND BOLT
-🪝 - U+1FA9D HOOK
-🧪 - U+1F9EA TEST TUBE
-🔭 - U+1F52D TELESCOPE
-🩸 - U+1FA78 DROP OF BLOOD
-💊 - U+1F48A PILL
-🩹 - U+1FA79 ADHESIVE BANDAGE
-🧼 - U+1F9FC SOAP
-🪥 - U+1FAA5 TOOTHBRUSH
-♀️ - U+2640 FEMALE SIGN
-♂️ - U+2642 MALE SIGN
-➕ - U+2795 PLUS
-➗ - U+2797 DIVIDE
-❓ - U+2753 RED QUESTION MARK
-❔ - U+2754 WHITE QUESTION MARK
-❕ - U+2755 WHITE EXCLAMATION MARK
-❗ - U+2757 RED EXCLAMATION MARK
-◼️ - U+25FC BLACK MEDIUM SQUARE
-◻️ - U+25FB WHITE MEDIUM SQUARE
-◾ - U+25FE BLACK MEDIUM-SMALL SQUARE
-◽ - U+25FD WHITE MEDIUM-SMALL SQUARE
-▪️ - U+25AA BLACK SMALL SQUARE
-▫️ - U+25AB WHITE SMALL SQUARE
-🚩 - U+1F6A9 TRIANGULAR FLAG
-
----
-## [domondi1/IlluminateSite](https://github.com/domondi1/IlluminateSite)@[401f4ab2a5...](https://github.com/domondi1/IlluminateSite/commit/401f4ab2a532de75c097dc0d3222984321365dd5)
-#### Thursday 2023-08-10 03:53:30 by domondi1
-
-Octob- her HTML
-
-Octob-her Foundation: Empowering Needy Students in Kenya
-
-Discover Octob-her, a non-profit initiative dedicated to illuminating the path of education for underprivileged children in Kenya. Our website showcases our mission to uplift young girls, providing scholarships that break the chains of early marriage and FGM, and offering school supplies that nurture dreams. Experience stories of resilience, meet Amina and Nia, whose lives have been transformed by our commitment. Join us in weaving a future where education empowers change and dreams flourish.
-
----
-## [Bubberstation/Bubberstation](https://github.com/Bubberstation/Bubberstation)@[a1609c4536...](https://github.com/Bubberstation/Bubberstation/commit/a1609c4536fe05f95560bd1a1be4607b944ee5a5)
-#### Thursday 2023-08-10 04:21:48 by SkyratBot
-
-[MIRROR] [NO GBP] Fixes clown car + deer collision  [MDB IGNORE] (#22709)
-
-* [NO GBP] Fixes clown car + deer collision  (#77076)
-
-## About The Pull Request
-
-A not-so-long time ago I drunkenly coded #71488 which did not work as
-intended.
-
-I return now, in a state of reflective sobriety, to rectify that.
-
-The clown car will now not only crash like it should, but will also
-cause (additional) head injuries to some occupants and kill the deer on
-impact.
-
-Content warnings: **Animal death, vehicle collision, blood, DUI.**
-
-https://github.com/tgstation/tgstation/assets/28870487/4889f452-7e49-4512-8cdd-e4e2a4d6b394
-## Why It's Good For The Game
-
-Fixes the product of a silly PR that never actually worked. Also gives
-it a bit more TLC in the event that this joke actually plays out on a
-live server.
-## Changelog
-:cl:
-fix: Clown cars now properly collide with deer.
-sound: Violent, slightly glassy car impact sound.
-/:cl:
-
-* [NO GBP] Fixes clown car + deer collision
-
----------
-
-Co-authored-by: Rhials <28870487+Rhials@users.noreply.github.com>
-
----
-## [yasaswini2005/Our-dream-menu](https://github.com/yasaswini2005/Our-dream-menu)@[a4c3a0b82f...](https://github.com/yasaswini2005/Our-dream-menu/commit/a4c3a0b82f4df801c824fa838bb0a134c6565b4a)
-#### Thursday 2023-08-10 04:23:34 by GURIVI REDDY YASASWINI
-
-Add files via upload
-
- our dream menu 
- home page
-breakfast page
-lunch page
-dinner page
-snacks page 
-thank you page
-
----
-## [Rebirth-of-the-Night/Rebirth-Of-The-Night](https://github.com/Rebirth-of-the-Night/Rebirth-Of-The-Night)@[dd95fcd885...](https://github.com/Rebirth-of-the-Night/Rebirth-Of-The-Night/commit/dd95fcd885f9f164cfe0fa282d6a23c70af0b182)
-#### Thursday 2023-08-10 05:23:42 by Foreck1
-
-I keep crashing... anyway
-
-Custom blocks for Ozy to play with. I know they work, but I keep crashing so I can't properly implement them or take cool screenshots for my hecking Midnight no-context teaser 25 which is really making me lose my mind. I had a migraine, and after todays weird internal affairs, I was supposed to go to bed with a hot-water bottle at 22:00 after having watched cute animal videos on youtube because it's 8ºC here (46ºF), but it's now 1:20 and the headache went away before I could enjoy a warm bed and I already forgot the cute animals. Only dissatisfaction and lack of closure remains.
-
-Anyways:
--Chandelier thing
--Bowl (should look cool on a table with turkey)
--Paper: 1,2, and 3 (add to the aforementioned table)
-
----
-## [lessthnthree/tgstation](https://github.com/lessthnthree/tgstation)@[3af26df8ca...](https://github.com/lessthnthree/tgstation/commit/3af26df8cacc24ab7ccacdfbe61005a165472e0f)
-#### Thursday 2023-08-10 07:59:04 by GoldenAlpharex
-
-Fixes bloody soles making jumpsuits that cover your feet bloody when you're wearing shoes (#77077)
-
-## About The Pull Request
-Title says it all.
-
-It basically made it so wearing something like a kilt would result in
-the kilt getting all bloody as soon as you walked over blood, even when
-you were wearing shoes, unless you wore something else that obscured
-shoes.
-
-I debated with myself a lot over the implementation for this, I was
-thinking of adding some way to obscure feet in particular, but it's
-honestly so niche that it could only have caused more issues elsewhere
-if I tried to fix this issue that way.
-
----
-## [luoxz-ai/MegaMocapVR](https://github.com/luoxz-ai/MegaMocapVR)@[db1481129a...](https://github.com/luoxz-ai/MegaMocapVR/commit/db1481129a211d646ef05bc71636a10d4b89ed52)
-#### Thursday 2023-08-10 08:05:21 by Megasteakman
-
-UE5.1.1 - Calibration Mode Overlay
-
-Added a nice new UI overlay to let you know that you are in Calibration Mode after hearing some people get confused about what happens when you first start the system.  If you don't like it, disconnect it in the function for VRPlayerMode_CalibrationMode.
-
-Did a lot of work on the UE5 Manny control rig.  It could be better.  It could be worse.  I find it really hard to tell sometimes, so I did leave the old one in MegaMocapVR\ControlRigs\WIP_ControlRigs\OLD_MMVR_UE5Manny_ControlRig
-
-The UE5 Manny control rig now has a way to lock the arm goals to the chest control, so you can use it for animation/cleanup a bit easier.  This variable is exposed to cinematics, which is a sick feature I want to make more use out of.
-
-I reduced the tick on the editor utility widget.
-
-Revamped the teleprompter, creating a new Teleprompter Screen actor that gets spawned in if you use the new event on the player pawn 'Event_TeleprompterUpdate.
-
-Did some small changes to the metahuman control rig, but... I don't remember what they were.  Again, who knows if its better.  I think I made an 'is valid' check on the iphone name so it wouldn't throw you errors if no iphone was added to the player pawn.
-
----
-## [Techyte/Mythrail](https://github.com/Techyte/Mythrail)@[b25e817d91...](https://github.com/Techyte/Mythrail/commit/b25e817d9104ee72e81d6877d3da27bb9c966d37)
-#### Thursday 2023-08-10 10:45:13 by Techyte
-
-Fixed not being able to move
-
-It was only when you joined the second time because unity's OnSceneLoaded system kinda sucks if you want to assign things during it, also it seems to sometimes be run twice. Anyway moral of the story for future me is DONT USER SceneManager.OnSceneLoaded!!!!!!!!!!
-
----
-## [ericliu515515/MathNotic](https://github.com/ericliu515515/MathNotic)@[68f10b445d...](https://github.com/ericliu515515/MathNotic/commit/68f10b445d01d643efb1cf5ecc129213bef6f17d)
-#### Thursday 2023-08-10 10:45:57 by eric liuuuuuuuu
-
-The last property is more complicated than I thought, although today I can not wotk much because I spent necesseary time with my girlfriend in the morning and I did't wake up early since last night I stay up late for a date, and I have a haircut today, but today I do make some progress, and I will say is a lot of progress.
-
----
-## [afirpo/tgstation](https://github.com/afirpo/tgstation)@[66b8748091...](https://github.com/afirpo/tgstation/commit/66b87480915434f1184ac257c9ed0f1f3fe87c58)
-#### Thursday 2023-08-10 10:52:46 by carlarctg
-
-Adds Summon Simians & Buffs/QoLs Mutate (#77196)
-
-## About The Pull Request
-
-Adds Summon Simians, a spell that summons four monkeys or lesser
-gorillas, with the amount increasing per upgrade. The monkeys have
-various fun gear depending on how lucky you get and how leveled the
-spell is. If the spell is maximum level, it only summons normal
-gorillas.
-
-Added further support for nonhuman robed casting: Monkeys, cyborgs, and
-drones can all now cast robed spells as long as they're wearing a
-wizardly hat as well.
-
-Made monkeys able to wield things again.
-
-Wizard Mutate spell works on non-human races. It also gives you
-Gigantism now (funny). If the Race can't support tinted bodyparts, your
-whole sprite is temporarily turned green.
-
-Made Laser eyes projectiles a subtype of actual lasers, which has
-various properties such as on-hit effects and upping the damage to 30.
-
-Improved some monkey AI code.
-
-## Why It's Good For The Game
-
-> Adds Summon Simians, a spell that summons four monkeys or lesser
-gorillas, with the amount increasing per upgrade. The monkeys have
-various fun gear depending on how lucky you get and how leveled the
-spell is. If the spell is maximum level, it only summons normal
-gorillas.
-
-It's criminal we don't have a monky spell, and this is a really fun spin
-on it. Total chaos, but total monky chaos. It's surprisingly strong,
-but! it can very well backfire if you stay near the angry monkeys too
-long and your protection fades away. Unless you become a monkey
-yourself!!
-
-> Wizard Mutate spell works on non-human races. 
-
-This spell is great but it's hampered by the mutation's human
-requirement, which is reasonable in normal gameplay. Wizards don't need
-to care about that, and the human restriction hinders a lot of possible
-gimmicks, so off it goes. Also, wizard hulk does't cause chunky fingers
-for similar reasons
-
-> Made Laser eyes projectiles a subtype of actual lasers, which has
-various properties such as on-hit effects and upping the damage to 30.
-
-Don't really caer about the damage so much, this is more so that it has
-effects such as on-hit visuals. Can lower the damage if required, but
-honestly anything that competes against troll mjolnir is good.
-
-> Added further support for nonhuman robed casting: Monkeys, cyborgs,
-and drones can all now cast robed spells as long as they're wearing a
-wizardly hat as well.
-
-SS13 is known for 'The Dev Team Thinks of Everything' and I believe this
-is a sorely lacking part of this or something. It's funny.
-I want to see a monkey wizard.
-
-> Made monkeys able to wield things again.
-
-I really don't know why this was a thing and it was breaking my axe and
-spear wielding primal monkeys. Like, why?
-
-## Changelog
-
-:cl:
-add: Adds Summon Simians, a spell that summons four monkeys or lesser
-gorillas, with the amount increasing per upgrade. The monkeys have
-various fun gear depending on how lucky you get and how leveled the
-spell is. If the spell is maximum level, it only summons normal
-gorillas.
-balance: Wizard Mutate spell works on non-human races. It also gives you
-Gigantism now (funny). If the Race can't support tinted bodyparts, your
-whole sprite is temporarily turned green.
-balance: Made Laser eyes projectiles a subtype of actual lasers, which
-has various properties such as on-hit effects and upping the damage to
-30.
-add: Added further support for nonhuman robed casting: Monkeys, cyborgs,
-and drones can all now cast robed spells as long as they're wearing a
-wizardly hat as well.
-balance: Made monkeys able to wield two-handed things again.
-/:cl:
-
----------
-
-Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
-
----
-## [afirpo/tgstation](https://github.com/afirpo/tgstation)@[87f707dfa8...](https://github.com/afirpo/tgstation/commit/87f707dfa8dd901310f72585c6f701035bc653ee)
-#### Thursday 2023-08-10 10:52:46 by DeerJesus
-
-Adds the Storage Implanter to the spy kit. (#77452)
-
-## About The Pull Request
-
-Adds the storage implanter to the spy kit to make it decent.
-
-## Why It's Good For The Game
-This PR hopes to bring Spy at least a little more in-line with the rest
-of the syndie-kit specials, so it doesn’t feel like a complete dud to
-get.
-
-Spy absolutely sucks as a syndie-kit and getting it is basically
-throwing away 20 TC. Not all of them should be equally powerful but all
-of them should be at least more satisfying to get. Spy is so bad that
-it’s listed in the official wiki as ‘honestly not that good’. It’s also
-_barely_ even above 25 telecrystals as the switchblade is a black market
-uplink item, not a syndicate uplink item, and not even that good of an
-item at that! And the chameleon kit inside isn’t even a full chameleon
-kit! Pitiful. Compare it to stealth right below it which totals to _36_
-telecrystals.
-
-Adding a storage implant adds a relatively useful item to the kit that
-still fits with the entire theme of ‘stealth and deception’, as you can
-be searched without having anything on you. To be stealthy, and deceive
-people. Like you should. Given the fact that searches are quite common.
-It doesn’t make it TOO overpowered as the rest of the gear is still ‘not
-that great’.
-
-
-## Changelog
-
-:cl:
-balance: added the storage implanter to the syndie-kit tactical 'spy'
-kit to make it decent.
-/:cl:
-
-Co-authored-by: oilysnake <63020759+oilysnake@users.noreply.github.com>
-
----
-## [krzk/linux](https://github.com/krzk/linux)@[08c6b43df2...](https://github.com/krzk/linux/commit/08c6b43df24961c6aa80a1ffc7a8653a4905329d)
-#### Thursday 2023-08-10 11:22:15 by David Hildenbrand
-
-smaps: use vm_normal_page_pmd() instead of follow_trans_huge_pmd()
-
-We shouldn't be using a GUP-internal helper if it can be avoided.
-
-Similar to smaps_pte_entry() that uses vm_normal_page(), let's use
-vm_normal_page_pmd() that similarly refuses to return the huge zeropage.
-
-In contrast to follow_trans_huge_pmd(), vm_normal_page_pmd():
-
-(1) Will always return the head page, not a tail page of a THP.
-
- If we'd ever call smaps_account with a tail page while setting "compound
- = true", we could be in trouble, because smaps_account() would look at
- the memmap of unrelated pages.
-
- If we're unlucky, that memmap does not exist at all. Before we removed
- PG_doublemap, we could have triggered something similar as in
- commit 24d7275ce279 ("fs/proc: task_mmu.c: don't read mapcount for
- migration entry").
-
- This can theoretically happen ever since commit ff9f47f6f00c ("mm: proc:
- smaps_rollup: do not stall write attempts on mmap_lock"):
-
-  (a) We're in show_smaps_rollup() and processed a VMA
-  (b) We release the mmap lock in show_smaps_rollup() because it is
-      contended
-  (c) We merged that VMA with another VMA
-  (d) We collapsed a THP in that merged VMA at that position
-
- If the end address of the original VMA falls into the middle of a THP
- area, we would call smap_gather_stats() with a start address that falls
- into a PMD-mapped THP. It's probably very rare to trigger when not
- really forced.
-
-(2) Will succeed on a is_pci_p2pdma_page(), like vm_normal_page()
-
- Treat such PMDs here just like smaps_pte_entry() would treat such PTEs.
- If such pages would be anonymous, we most certainly would want to
- account them.
-
-(3) Will skip over pmd_devmap(), like vm_normal_page() for pte_devmap()
-
- As noted in vm_normal_page(), that is only for handling legacy ZONE_DEVICE
- pages. So just like smaps_pte_entry(), we'll now also ignore such PMD
- entries.
-
- Especially, follow_pmd_mask() never ends up calling
- follow_trans_huge_pmd() on pmd_devmap(). Instead it calls
- follow_devmap_pmd() -- which will fail if neither FOLL_GET nor FOLL_PIN
- is set.
-
- So skipping pmd_devmap() pages seems to be the right thing to do.
-
-(4) Will properly handle VM_MIXEDMAP/VM_PFNMAP, like vm_normal_page()
-
- We won't be returning a memmap that should be ignored by core-mm, or
- worse, a memmap that does not even exist. Note that while
- walk_page_range() will skip VM_PFNMAP mappings, walk_page_vma() won't.
-
- Most probably this case doesn't currently really happen on the PMD level,
- otherwise we'd already be able to trigger kernel crashes when reading
- smaps / smaps_rollup.
-
-So most probably only (1) is relevant in practice as of now, but could only
-cause trouble in extreme corner cases.
-
-Let's move follow_trans_huge_pmd() to mm/internal.h to discourage future
-reuse in wrong context.
-
-Link: https://lkml.kernel.org/r/20230803143208.383663-3-david@redhat.com
-Fixes: ff9f47f6f00c ("mm: proc: smaps_rollup: do not stall write attempts on mmap_lock")
-Signed-off-by: David Hildenbrand <david@redhat.com>
-Acked-by: Mel Gorman <mgorman@techsingularity.net>
-Cc: Hugh Dickins <hughd@google.com>
-Cc: Jason Gunthorpe <jgg@ziepe.ca>
-Cc: John Hubbard <jhubbard@nvidia.com>
-Cc: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: liubo <liubo254@huawei.com>
-Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
-Cc: Mel Gorman <mgorman@suse.de>
-Cc: Paolo Bonzini <pbonzini@redhat.com>
-Cc: Peter Xu <peterx@redhat.com>
-Cc: Shuah Khan <shuah@kernel.org>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[385ab7a166...](https://github.com/tgstation/tgstation/commit/385ab7a1667250947d480725949bec924ce4ac8a)
-#### Thursday 2023-08-10 11:36:34 by Pickle-Coding
-
-Changeling armblade gets 35% armour penetration + better wounding. (#77416)
-
-## About The Pull Request
-Gives the changeling armblade an armour penetration of 35%. Sets their
-bare_wound_bonus to 10 (from 20), and a wound_bonus of 10 (from -20).
-## Why It's Good For The Game
-The wound bonuses basically gave massive punishment if they attacked
-anything but the skin. It honestly felt kinda lame. The better wounding
-potential will help bring a bloodier and more exciting atmosphere when a
-changeling whips out the blade.
-
-The armour penetration will help reduce dragged out fights that get a
-little silly, while keeping the wounding more consistent.
-## Changelog
-:cl:
-balance: Changeling arm blade has an armour penetration of 35%.
-balance: Changeling arm blade has a wound bonus of 10, from -20.
-balance: Changeling has a bare wound bonus of 10, from 20.
-/:cl:
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[38235dce1d...](https://github.com/tgstation/tgstation/commit/38235dce1d1644be32d1758dcc18734a17e61b1d)
-#### Thursday 2023-08-10 11:39:26 by carlarctg
-
-Drill module automatically disables if it's about to drill into gibtonite (#77385)
-
-## About The Pull Request
-
-Drill module automatically disables if it's about to drill into
-gibtonite.
-
-## Why It's Good For The Game
-
-> Drill module automatically disables if it's about to drill into
-gibtonite
-
-There's not enough time to react, the mining scanner is surprisingly
-slow sometimes and it means you drill straight into gibtonite, which
-primes it the first drill and blows it up the second, which is a lot
-more of a pain than it sounds because drilling is night-instant. These
-explosions are usually enough to crit you, and if they don't, the stun
-and area clear means any fauna can wander in and finish you off.
-
-The auto-disable still makes it an annoyance to stumble upon gibtonite,
-but it won't round end you for using modsuits.
-
-## Changelog
-
-:cl:
-qol: Drill module automatically disables if it's about to drill into
-gibtonite
-/:cl:
-
----
-## [payday-restoration/restoration-mod](https://github.com/payday-restoration/restoration-mod)@[617bf4c68a...](https://github.com/payday-restoration/restoration-mod/commit/617bf4c68ac88bf2d0059f6353ab916187cd695f)
-#### Thursday 2023-08-10 12:10:45 by Hater-mater
-
-Fuck you, Bail
-
-Disable garage escape on Hox Revenge
-
----
-## [Erol509/Skyrat-tg](https://github.com/Erol509/Skyrat-tg)@[4537b1e980...](https://github.com/Erol509/Skyrat-tg/commit/4537b1e980f226f2f6a18ef1c92d6ffc3e3b6ac4)
-#### Thursday 2023-08-10 12:18:22 by Bloop
-
-[MISSED MIRROR] New space ambient track (#76547) (#22449)
-
-New space ambient track (#76547)
-
-## About The Pull Request
-
-Adds a new space ambient track made by me to the game, supposed to be a
-bit scarier than the others that were recently added as I feel that
-they're a bit too happy (not to diss I really like them), also cleaned
-up a bit of ambience.dm as the medical portion of it didn't follow the
-same rules as the other ones. also also this will only be used for
-tgstation so license wise I think this is CC BY-SA 3.0 but I'm not sure
-so correct me if I'm wrong, also this is my first PR so yeah. Here's a
-link to listen to the track https://voca.ro/18WvrGORDDdR
-
-## Why It's Good For The Game
-
-Variety is the spice of life.
-
-## Changelog
-
-:cl:
-sound: A new ambient track will now play in space
-/:cl:
-
-Co-authored-by: atlasle <132299254+atlasle@users.noreply.github.com>
-
----
-## [norov/linux](https://github.com/norov/linux)@[4f0cb6db7c...](https://github.com/norov/linux/commit/4f0cb6db7c99d800fa525a4a9806f9710c8ddc21)
-#### Thursday 2023-08-10 12:24:17 by Yury Norov
-
-sched/topology: add for_each_numa_{,online}_cpu() macro
-
-for_each_cpu() is widely used in the kernel, and it's beneficial to
-create a NUMA-aware version of the macro to improve on node locality..
-
-Recently added for_each_numa_hop_mask() works, but switching existing
-codebase to using it is not an easy process.
-
-New for_each_numa_cpu() is designed to be similar to the for_each_cpu().
-It allows to convert existing code to NUMA-aware as simple as adding a
-hop iterator variable and passing it inside new macro. for_each_numa_cpu()
-takes care of the rest.
-
-At the moment, we have 2 users of NUMA-aware enumerators. One is
-Melanox's in-tree driver, and another is Intel's in-review driver:
-
-https://lore.kernel.org/lkml/20230216145455.661709-1-pawel.chmielewski@intel.com/
-
-Both real-life examples follow the same pattern:
-
-	for_each_numa_hop_mask(cpus, prev, node) {
- 		for_each_cpu_andnot(cpu, cpus, prev) {
- 			if (cnt++ == max_num)
- 				goto out;
- 			do_something(cpu);
- 		}
-		prev = cpus;
- 	}
-
-With the new macro, it would look like this:
-
-	for_each_numa_online_cpu(cpu, hop, node) {
-		if (cnt++ == max_num)
-			break;
-		do_something(cpu);
- 	}
-
-Straight conversion of existing for_each_cpu() codebase to NUMA-aware
-version with for_each_numa_hop_mask() is difficult because it doesn't
-take a user-provided cpu mask, and eventually ends up with open-coded
-double loop. With for_each_numa_cpu() it shouldn't be a brainteaser.
-Consider the NUMA-ignorant example:
-
-	cpumask_t cpus = get_mask();
-	int cnt = 0, cpu;
-
-	for_each_cpu(cpu, cpus) {
-		if (cnt++ == max_num)
-			break;
-		do_something(cpu);
- 	}
-
-Converting it to NUMA-aware version would be as simple as:
-
-	cpumask_t cpus = get_mask();
-	int node = get_node();
-	int cnt = 0, hop, cpu;
-
-	rcu_read_lock();
-	for_each_numa_cpu(cpu, hop, node, cpus) {
-		if (cnt++ == max_num)
-			break;
-		do_something(cpu);
- 	}
-	rcu_read_unlock();
-
-The latter looks more verbose and avoids from open-coding that annoying
-double loop. Another advantage is that it works with a 'hop' parameter with
-the clear meaning of NUMA distance, and doesn't make people not familiar
-to enumerator internals bothering with current and previous masks machinery.
-
-Signed-off-by: Yury Norov <yury.norov@gmail.com>
-
----
-## [mamehaze/mame](https://github.com/mamehaze/mame)@[e97630981c...](https://github.com/mamehaze/mame/commit/e97630981c406ba446e2d7fb1bf8ecf8d3a6b93b)
-#### Thursday 2023-08-10 12:25:27 by A-Noid33
-
-Added software list for cracked Macintosh floppy images. (#11454)
-
-New working software list items (mac_flop_orig.xml)
--------------------------------
-Alter Ego (male version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Alter Ego (version 1.1 female) (san inc crack) [4am, san inc, A-Noid]
-Alternate Reality: The City (version 3.0) (san inc crack) [4am, san inc, A-Noid]
-Animation Toolkit I: The Players (version 1.0) (4am crack) [4am, A-Noid]
-Balance of Power (version 1.03) (san inc crack) [4am, san inc, A-Noid]
-Borrowed Time (san inc crack) [4am, san inc, A-Noid]
-Championship Star League Baseball (san inc crack) [4am, san inc, A-Noid]
-Cutthroats (release 23 / 840809-C) (4am crack) [4am, A-Noid]
-CX Base 500 (French, version 1.1) (san inc crack) [4am, san inc, A-Noid]
-Deadline (release 27 / 831005-C) (4am crack) [4am, A-Noid]
-Defender of the Crown (san inc crack) [4am, san inc, A-Noid]
-Deluxe Music Construction Set (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Déjà Vu (version 2.3) (4am crack) [4am, A-Noid]
-Déjà Vu: A Nightmare Comes True!! (san inc crack) [4am, san inc, A-Noid]
-Déjà Vu II: Lost in Las Vegas!! (san inc crack) [4am, san inc, A-Noid]
-Dollars and Sense (version 1.3) (4am crack) [4am, A-Noid]
-Downhill Racer (san inc crack) [4am, san inc, A-Noid]
-Dragonworld (4am crack) [4am, A-Noid]
-ExperLisp (version 1.0) (4am crack) [4am, A-Noid]
-Forbidden Castle (san inc crack) [4am, san inc, A-Noid]
-Fusillade (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Geometry (version 1.1) (4am crack) [4am, A-Noid]
-Habadex (version 1.1) (4am crack) [4am, A-Noid]
-Hacker II (san inc crack) [4am, san inc, A-Noid]
-Harrier Strike Mission (san inc crack) [4am, san inc, A-Noid]
-Indiana Jones and the Revenge of the Ancients (san inc crack) [4am, san inc, A-Noid]
-Infidel (release 22 / 840522-C) (4am crack) [4am, A-Noid]
-Jam Session (version 1.0) (4am crack) [4am, A-Noid]
-Legends of the Lost Realm I: The Gathering of Heroes (version 2.0) (4am crack) [4am, A-Noid]
-Lode Runner (version 1.0) (4am crack) [4am, A-Noid]
-Mac Pro Football (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-MacBackup (version 2.6) (4am crack) [4am, A-Noid]
-MacCheckers and Reversi (4am crack) [4am, A-Noid]
-MacCopy (version 1.1) (4am crack) [4am, A-Noid]
-MacGammon! (version 1.0) (4am crack) [4am, A-Noid]
-MacGolf (version 2.0) (4am crack) [4am, A-Noid]
-MacWars (san inc crack) [4am, san inc, A-Noid]
-Master Tracks Pro (version 1.10) (san inc crack) [4am, san inc, A-Noid]
-Master Tracks Pro (version 2.00h) (san inc crack) [4am, san inc, A-Noid]
-Master Tracks Pro (version 3.4a) (san inc crack) [4am, san inc, A-Noid]
-Master Tracks Pro (version 4.0) (san inc crack) [4am, san inc, A-Noid]
-Math Blaster (version 1.0) (4am crack) [4am, A-Noid]
-Maze Survival (san inc crack) [4am, san inc, A-Noid]
-Microsoft Excel (version 1.00) (san inc crack) [4am, san inc, A-Noid]
-Microsoft File (version 1.04) (san inc crack) [4am, san inc, A-Noid]
-Mindshadow (san inc crack) [4am, san inc, A-Noid]
-Moriarty's Revenge (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Moriarty's Revenge (version 1.03) (4am crack) [4am, A-Noid]
-Mouse Stampede (version 1.00) (4am crack) [4am, A-Noid]
-Murder by the Dozen (Thunder Mountain) (4am crack) [4am, A-Noid]
-My Office (version 2.7) (4am crack) [4am, A-Noid]
-One on One (san inc crack) [4am, san inc, A-Noid]
-Orb Quest: Part I: The Search for Seven Wards (version 1.04) (san inc crack) [4am, san inc, A-Noid]
-Patton Strikes Back (version 1.00) (san inc crack) [4am, san inc, A-Noid]
-Patton vs. Rommel (version 1.05) (san inc crack) [4am, san inc, A-Noid]
-Pensate (version 1.1) (4am crack) [4am, A-Noid]
-PFS File and Report (version A.00) (4am crack) [4am, A-Noid]
-Physics (version 1.0) (4am crack) [4am, A-Noid]
-Physics (version 1.2) (4am crack) [4am, A-Noid]
-Pinball Construction Set (version 2.5) (san inc crack) [4am, san inc, A-Noid]
-Pipe Dream (version 1.2) (4am crack) [4am, A-Noid]
-Professional Composer (version 2.3Mfx) (san inc crack) [4am, san inc, A-Noid]
-Q-Sheet (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Rambo: First Blood Part II (san inc crack) [4am, san inc, A-Noid]
-Reader Rabbit (version 2.0) (4am crack) [4am, A-Noid]
-Rogue (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Seastalker (release 15 / 840522-C) (4am crack) [4am, A-Noid]
-Seven Cities of Gold (san inc crack) [4am, san inc, A-Noid]
-Shadowgate (san inc crack) [4am, san inc, A-Noid]
-Shanghai (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Shufflepuck Cafe (version 1.0) (4am crack) [4am, A-Noid]
-Sierra Championship Boxing (4am crack) [4am, A-Noid]
-SimCity (version 1.1) (4am crack) [4am, A-Noid]
-SimCity (version 1.2, black & white) (4am crack) [4am, A-Noid]
-SimEarth (version 1.0) (4am crack) [4am, A-Noid]
-Skyfox (san inc crack) [4am, san inc, A-Noid]
-Smash Hit Racquetball (version 1.01) (san inc crack) [4am, san inc, A-Noid]
-SmoothTalker (version 1.0) (4am crack) [4am, A-Noid]
-Speed Reader II (version 1.1) (4am crack) [4am, A-Noid]
-Speller Bee (version 1.1) (4am crack) [4am, A-Noid]
-Star Trek: The Kobayashi Alternative (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Stratego (version 1.0) (4am crack) [4am, A-Noid]
-Suspect (release 14 / 841005-C) (4am crack) [4am, A-Noid]
-Tass Times in Tonetown (san inc crack) [4am, san inc, A-Noid]
-Temple of Apshai Trilogy (version 1985-09-30) (san inc crack) [4am, san inc, A-Noid]
-Temple of Apshai Trilogy (version 1985-10-08) (san inc crack) [4am, san inc, A-Noid]
-The Chessmaster 2000 (version 1.02) (4am crack) [4am, A-Noid]
-The Crimson Crown (san inc crack) [4am, san inc, A-Noid]
-The Duel: Test Drive II (san inc crack) [4am, san inc, A-Noid]
-The Hitchhiker's Guide to the Galaxy (release 47 / 840914-C) (4am crack) [4am, A-Noid]
-The King of Chicago (san inc crack) [4am, san inc, A-Noid]
-The Lüscher Profile (san inc crack) [4am, san inc, A-Noid]
-The Mind Prober (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-The Mist (san inc crack) [4am, san inc, A-Noid]
-The Quest (4am crack) [4am, A-Noid]
-The Slide Show Magician (version 1.2) (4am crack) [4am, A-Noid]
-The Surgeon (version 1.5) (san inc crack) [4am, san inc, A-Noid]
-The Toy Shop (version 1.1) (san inc crack) [4am, san inc, A-Noid]
-The Witness (release 22 / 840924-C) (4am crack) [4am, A-Noid]
-ThinkTank 128 (version 1.000) (4am crack) [4am, A-Noid]
-Uninvited (version 1.0) (san inc crack) [4am, san inc, A-Noid]
-Uninvited (version 2.1D1) (san inc crack) [4am, san inc, A-Noid]
-Where in Europe is Carmen Sandiego? (version 1.0) (4am crack) [4am, A-Noid]
-Winter Games (version 1985-10-24) (san inc crack) [4am, san inc, A-Noid]
-Winter Games (version 1985-10-31) (san inc crack) [4am, san inc, A-Noid]
-Wishbringer (release 68 / 850501-D) (4am crack) [4am, A-Noid]
-Wizardry: Proving Grounds of the Mad Overlord (version 1.10) (san inc crack) [4am, san inc, A-Noid]
-Zork II (release 48 / 840904-C) (4am crack) [4am, A-Noid]
-Zork III (release 17 / 840727-C) (4am crack) [4am, A-Noid]
-
----
-## [SPSquonK/useleSS](https://github.com/SPSquonK/useleSS)@[2e56d3cc08...](https://github.com/SPSquonK/useleSS/commit/2e56d3cc08860616093af4a9e8d21a28bf3719f3)
-#### Thursday 2023-08-10 12:33:27 by SquonK
-
-Remove ShadowMask
-
-One day, a distinguished woman said something like
-
-"You better start making sens you rotten code, or you're gonna
-be sorry. Maybe I'll rip your lines out one by one, or maybe
-I'll put you in the godamn bin.
-How can something with such a big longetivity can contain
-so much useless classes huh? Oh ShadowMask, I love you ShadowMask.
-Come over and give the code a big sloppy kiss, ShadowMask."
-
----
-## [Tangerineje/PsychonautStation](https://github.com/Tangerineje/PsychonautStation)@[755fa4db6d...](https://github.com/Tangerineje/PsychonautStation/commit/755fa4db6d5c811770188c340cd2ccb85469d505)
-#### Thursday 2023-08-10 13:19:28 by san7890
-
-Loads Away Missions for Unit Testing (#76245)
-
-## About The Pull Request
-
-Hey there,
-
-A pretty bad bug (#76226) got through, but it was fixed pretty quickly
-in #76241 (cf92862daf339e97c76b52c91f31d49ba5113bd4). I realized that if
-we were testing all the away missions, that this could theoretically get
-caught and not happen again. Regardless, unit testing gateway missions
-has been on my to-do list for a while now, and I finally got it nailed
-down.
-
-Basically, we just have a really small "station" map with the bare bones
-(_teeny_ bit of fluff, maploading is going to take 30 seconds tops
-anyways let me have my kicks) with a JSON map datum flag that causes it
-to load all away missions in the codebase (which are all in one folder).
-Just in case some admins were planning on invoking the proc on
-`SSmapping`, I also decided to gate a `tgui_alert()` behind it because
-you never can be too sure of what people think is funny these days (it
-really does lock up your game for a second or so at a time).
-
-I also alphabetized the maps.txt config because that was annoying me.
-## Why It's Good For The Game
-
-Things that break on production could(?) be caught in unit testing? I
-don't know if the linked issue I mentioned above would have been caught
-in retrospect, but it's likely to catch more than a few upcoming bugs
-(like the UO45 atmospherics thing at the very top) and ensure that these
-gateway missions, which tend to be the most neglected part of mapping,
-stay bug-free.
-
-This is also helpful in case someone makes a new away mission and wants
-to see if stuff's broken. Helps out maptainers a bit because very, very
-technically broken mapping will throw up runtimes. Neato.
-## Changelog
-Nothing that players should be concerned about.
-
-Let me know if there's a better way to approach this, but I really think
-that having a super-duper light map with the bare basics to load up
-gateway missions and then all nine-ish gateway missions can sequentially
-load during init. I can't think of a better way to do it aside from some
-really ugly `#ifdef` shit. Also also, it has the added benefit of being
-a map that will always load your away mission without touching a single
-shred of config (and it's not likely to break if you follow sane
-practices such as making your own areas)
-
----
-## [Tangerineje/PsychonautStation](https://github.com/Tangerineje/PsychonautStation)@[48cc57010d...](https://github.com/Tangerineje/PsychonautStation/commit/48cc57010d3ff01c55c53131b9399a4e71656d8d)
-#### Thursday 2023-08-10 13:19:28 by Jacquerel
-
-Various spider fixes (#76528)
-
-## About The Pull Request
-
-Fixes #76484
-Then I noticed some weird stuff which slipped through the PR and poked
-at that too.
-
-- Spiderlings and Spiders once more have names ending in (###)
-- Removed an unused property on Spiderlings.
-- Rewrote the descriptions for a bunch of web-abilities and web-objects
-to be clearer and have better capitalisation.
-- Refactored the "Web Carcass" ability to not extend from "lay web" as
-it didn't need to perform most of that behaviour.
-- Also I renamed it and made the description give you a hint about why
-you would want to instantly spawn a statue.
-- The web effigy now despawns at the same rate as the ability cools down
-so you're not dumping spider statues all over the place.
-- I made spiderlings move at about the same speed as humans except if
-they're on webs in which case they're still pretty fast.
-
-To be honest I am not certain an instant statue spawning button is great
-to begin with and I didn't even know it was added to the game but I am
-not interested in messing much with the balance for now.
-
-This made me look at spiderlings enough that I'm going to try and make a
-new sprite for them that isn't awful.
-
-## Why It's Good For The Game
-
-Lets you differentiate individual spiders a little bit.
-Makes usage of abilities clearer.
-
-## Changelog
-
-:cl:
-balance: Guard spider web statues despawn as the ability comes back off
-cooldown.
-balance: Spiderlings now only move at light speed if they're on webs,
-stay safe little guys.
-fix: Spiders once again have random numbers after their names.
-/:cl:
-
----
-## [FaBrand/rules_rust](https://github.com/FaBrand/rules_rust)@[80f0eb488a...](https://github.com/FaBrand/rules_rust/commit/80f0eb488ab9cabc4920ac446478cbf2feedc3f3)
-#### Thursday 2023-08-10 13:33:54 by scentini
-
-Support for `no_std` mode (#1934)
-
-Initial support for `no_std` mode.
-This allows us to
-1. Don't pass the whole standard library to compile actions that specify `no_std`
-2. Conditionally select `crate_features` and `deps` based on whether `no_std` mode is used.
-Currently the only supported modes are `off` and `alloc`, with a possibility to expand in the future.
-
-The `no_std` support comes with the following caveats:
-1. Targets in `exec` mode are still built with `std`; the logic here being that if a device has enough space to run bazel and rustc, std's presence would not be a problem. This also saves some additional transitions on `proc_macro`s (they need `std`), as they are built in `exec` mode.
-2. Tests are still built with `std`, as `libtest` depends on `libstd`
-
-There is quite an ugly hack to make us be able to `select` on the `no_std` flavor taking `exec` into account; I'm looking forward to the day where Bazel will expose better ways to inspect the cfg.
-
-There is also one part I didn't manage to make work - having a `rust_test` that tests the `rust_shared_library` in `cc_common.link` mode; I got a link error for missing `__rg_alloc` & co. symbols, which should be present as we pass `--@rules_rust//rust/settings:experimental_use_global_allocator=True`. Unfortunately I could only spot this error on CI, and could not reproduce locally. I removed the test because the `rust_shared_library` is already tested via a `cc_test`. I will however give another shot at inspecting how my local setup differs from CI.
-
-The `rust_binary` source code in `main.rs` was borrowed from https://github.com/jfarrell468/no_std_examples, big thanks to @jfarrell468 for letting me use it.
-
-Co-authored-by: Krasimir Georgiev <krasimir@google.com>
-Co-authored-by: UebelAndre <github@uebelandre.com>
-
----
-## [vampirebat74/lobotomy-corp13](https://github.com/vampirebat74/lobotomy-corp13)@[31d09de099...](https://github.com/vampirebat74/lobotomy-corp13/commit/31d09de099fabc169e566f10e0a8f1ba7033cb9a)
-#### Thursday 2023-08-10 13:36:05 by Mr.Heavenly
-
-Adds Red Shoes
-
-Mr. Heavenly's Abnormality Jam Entry #1
-
-Records
-
-uncommented weapon
-
-Finishing touches
-
-Design rework
-
-adds ego gift and inhands
-
-New sprites!
-
-uncommented sfx
-
-insanity fix
-
-quieter sound loop
-
-Fixes some shit
-
-fix linters
-
-requested changes
-
----
-## [Sealed101/tgstation](https://github.com/Sealed101/tgstation)@[4e91d057d7...](https://github.com/Sealed101/tgstation/commit/4e91d057d7d627bd8c356a2251195eb579106707)
-#### Thursday 2023-08-10 13:43:43 by MrMelbert
-
-Adds a wizard Right and Wrong that lets the caster give one spell (or relic) to everyone on the station (#76974)
-
-## About The Pull Request
-
-This PR adds a new wizard ritual (the kind that require 100 threat on
-dynamic)
-
-This ritual allows the wizard to select one spellbook entry (item or
-spell), to which everyone on the station will be given or taught said
-spell or item. If the spell requires a robe, the spell becomes robeless,
-and if the item requires wizard to use, it makes it usable. Mostly.
-
-- Want an epic sword fight? Give everyone a high-frequency blade
-
-- One mindswap not enough shenanigans for you? Give out mindswap
-
-- Fourth of July? Fireball would be pretty hilarious...
-
-The wizard ritual costs 3 points plus the cost of whatever entry you are
-giving out. So giving everyone fireball is 5 points.
-
-It can only be cast once by a wizard, because I didn't want to go
-through the effort to allow multiple in existence
-
-
-## Why It's Good For The Game
-
-Someone gave me the idea and I thought it sounded pretty funny as an
-alternative to Summon Magic
-
-Maybe I make this a Grand Finale ritual instead / in tandem? That's also
-an idea.
-
-## Changelog
-
-:cl: Melbert
-add: Wizards have a new Right and Wrong: Mass Teaching, allowing them to
-grant everyone on the station one spell or relic of their choice!
-/:cl:
-
----
-## [realforest2001/forest-cm13](https://github.com/realforest2001/forest-cm13)@[3e9d54628d...](https://github.com/realforest2001/forest-cm13/commit/3e9d54628d68fe91319ae87ad7ebd7aef9500811)
-#### Thursday 2023-08-10 14:16:25 by Ben
-
-Can no longer bypass Lesser Drone Limit (#4034)
-
-# About the pull request
-
-Users can no longer keep menu open and bypass lesser drone slots
-
-# Explain why it's good for the game
-
-Honestly kinda wish I didn't make this one, infinite lesser drones
-sounds really funny.
-
-# Changelog
-:cl:
-fix: You can no longer circumvent the lesser drone limit by keeping the
-prompt open.
-/:cl:
-
----
-## [mohammadanasalam/ASSINGMENTS-PYTHON](https://github.com/mohammadanasalam/ASSINGMENTS-PYTHON)@[4b595c533f...](https://github.com/mohammadanasalam/ASSINGMENTS-PYTHON/commit/4b595c533fbb4aa41e7ff08d3bd1cab74e0ade23)
-#### Thursday 2023-08-10 15:30:14 by mohammadanasalam
-
-Questions
-
-Q1. Create a function which will take a list as an argument and return the product of all the numbers
-after creating a flat list.
-Use the below-given list as an argument for your function.
-list1 = [1,2,3,4, [44,55,66, True], False, (34,56,78,89,34), {1,2,3,3,2,1}, {1:34, "key2": [55, 67, 78, 89], 4: (45,
-22, 61, 34)}, [56, 'data science'], 'Machine Learning']
-Note: you must extract numeric keys and values of the dictionary also.
-Q2. Write a python program for encrypting a message sent to you by your friend. The logic of encryption
-should be such that, for a the output should be z. For b, the output should be y. For c, the output should
-be x respectively. Also, the whitespace should be replaced with a dollar sign. Keep the punctuation
-marks unchanged.
-Input Sentence: I want to become a Data Scientist.
-Encrypt the above input sentence using the program you just created.
-Note: Convert the given input sentence into lowercase before encrypting. The final output should be
-lowercase.
+Automated TOC Commit: 3/1/1/2/.Syntax.md 2/1/2/2/.Gender.md 3/3/2/1/_Form-Content.md 2/1/1/3/.Clothing.md 2/2/3/1/2/.Play.md 3/1/1/1/_Voiced-Unvoiced.md 3/2/1/2/.Curriculum.md 2/3/1/3/.Duties.md 3/3/2/1/.Design.md 3/1/1/1/.Phonology.md 2/2/3/2/.Performances.md 2/1/1/1/.Food.md 2/1/1/1/_Thirst-Hydration.md 3/3/2/1/.Sculpture.md 3/1/1/2/.Morphology.md 3/1/2/3/.Timing.md 1/2/3/1/2/.Starboard.md Analysis.md" 2/2/3/1/3/.Hobby.md 2/1/3/3/.Ownership.md 2/2/1/3/.Reasoning.md Thinking.md" 3/3/2/3/_Choreography-Improvisation.md Approximation.md" 2/2/3/2/.Efficiency.md 3/3/1/3/.Agnosticism.md 1/2/3/2/3/.Future.md 3/3/1/3/_Belief-Doubt.md Production.md" Epics.md" 2/3/2/3/.Disciplines.md 3/1/2/1/_Dissonance-Consonance.md 3/1/1/1/.Phonetics.md 3/1/2/3/.Beat.md 2/3/1/2/_Legal-Illegal.md 2/3/1/3/_Obligation-Choice.md 3/1/2/2/.Chords.md Fallacies.md" 2/3/1/2/.Judgments.md 2/3/2/3/_Discovery-Creation.md 2/3/1/3/.Responsibilities.md 2/3/1/2/.Laws.md 2/2/3/1/.Activity.md 2/3/2/1/_Old-New.md 2/2/2/3/_Logical-Emotional.md 1/2/3/2/_Historical-NonHistorical.md 3/2/1/2/_Practical-Theoretical.md concrete.md" 3/2/3/3/_Monarchy-Democracy.md 2/2/2/1/.Ethics.md 3/1/1/3/.Pragmatics.md 2/3/1/1/.Innovation.md 2/3/2/2/.Uprisings.md 2/2/3/2/_Fast-Slow.md 3/3/2/2/.Narrative.md 2/3/1/1/_Discovery-Invention.md 2/1/2/2/_Hetero-Homo.md 2/3/2/1/.Customs.md 1/2/3/1/_Metrical-Triangular,.md 3/1/3/3/.Dialogue.md 3/1/1/2/_Free-Bound.md 2/1/2/3/.Reproduction.md 3/3/2/2/_Plot-Character.md 3/3/1/2/.Animism.md Prophecies.md" 2/2/2/1/.Morality.md Orientation.md" 3/1/3/3/_Speaker-Listener.md 1/2/3/1/1/.Port.md 3/1/3/3/.Mediation.md 3/2/3/2/.Socio-economics.md 2/3/2/2/_Resistance-Adoption.md 1/3/3/3/_Mutation-Selection.md 2/1/3/3/_Individual-Common.md 3/3/2/3/.Ballet.md Dimensions.md" 2/1/3/3/.Distribution.md 3/1/2/1/.Rhythm.md Poetry.md" 2/1/1/1/.Drinking.md Evolution.md" 2/2/3/1/_Success-Failure.md 3/3/1/2/_Spiritual-Material.md 2/1/2/3/.Fertility.md 2/3/1/1/.Inventions.md 3/3/2/3/.Dance.md 2/1/3/2/_Social-Private.md 2/1/1/3/_Vanity-Pragmatic.md 3/1/2/1/.Tune.md 3/2/1/3/.Pedagogy.md Shapes.md" 3/2/1/3/_Visual-Auditory.md 2/2/3/1/_Labor-Leisure.md Chain.md" 3/3/3/3/_Decay-Renewal.md 2/2/3/1/.Competitions.md 3/1/2/2/_Stable-Unstable.md 1/3/3/3/.Adaptation.md 2/3/2/3/.Achievements.md 2/3/2/2/.Revolutions.md 3/3/3/1/_Beginning-End.md 3/1/2/3/_Syncopated-Regular.md Theories.md" stern.md" 2/1/1/3/.Shelter.md 2/2/3/3/.Sanitation.md 2/2/2/3/.Fallacies.md 2/2/3/3/_Sickness-Wellness.md 3/3/1/1/.Polytheism.md 3/3/1/2/.Pantheism.md 1/2/3/2/.Chronology.md 1/2/3/1/_Static-Dynamic.md Stories.md" 3/1/2/2/.Harmonics.md Dimensions.md" Prophecies.md" Philosophy.md" 3/3/3/2/_Trial-Triumph.md 1/2/3/2/_Past-Future.md 2/1/2/3/_Sterile-Fertile.md 1/2/3/2/1/.Past.md 2/3/2/1/.Traditions.md Myths.md" 2/2/3/1/1/.Work.md 1/2/3/1/.Coursing.md 3/1/1/3/_Signifier-Signified.md 3/1/1/3/.Semiotics.md 2/2/3/3/.Healthcare.md 3/2/3/2/_Capitalism-Socialism.md Styles.md" 3/3/1/1/.Deism.md 3/3/1/3/.Atheism.md Economy.md" 3/3/1/1/_Transcendent-Immanent.md Methods.md" 1/2/3/2/2/.Present.md
 
 ---
 ## [RipGrayson/TerraGov-Marine-Corps](https://github.com/RipGrayson/TerraGov-Marine-Corps)@[fb4899d20e...](https://github.com/RipGrayson/TerraGov-Marine-Corps/commit/fb4899d20e990a0a65b8cb5b0ad19b1ef9ab083e)
-#### Thursday 2023-08-10 15:34:27 by KM-Catman
+#### Friday 2023-08-11 00:23:31 by KM-Catman
 
 Slight redesign of Valhalla Vendors and Chemistry. Adds FC and Synth to Valhalla. (#13612)
 
@@ -1335,203 +39,8 @@ Adds a FCDR, Synth, and Mech warning stripe. Adds them in front of the prep room
 * Removed random bedsheet (Goddamn you hotkeys)
 
 ---
-## [codecov/codecov-api](https://github.com/codecov/codecov-api)@[4bacedc50c...](https://github.com/codecov/codecov-api/commit/4bacedc50c4c3efebc6d2a23ec8ef3bd0fd416b2)
-#### Thursday 2023-08-10 15:56:17 by Gguidini
-
-fix: lru_cache issues + meta info missing
-
-Context: https://github.com/codecov/engineering-team/issues/119
-
-So the real issue with the meta info is fixed in codecov/shared#22.
-spoiler: reusing the report details cached values and _changing_ them is not a good idea.
-
-However in the process of debuging that @matt-codecov pointed out that we were not using lru_cache correctly.
-Check this very well made video: https://www.youtube.com/watch?v=sVjtp6tGo0g
-
-So the present changes upgrade shared so we fix the meta info stuff AND address the cache issue.
-There are further complications with the caching situation, which explain why I decided to add the cached value in the
-`obj` instead of `self`. The thing is that there's only 1 instance of `ArchiveField` shared among ALL instances of
-the model class (for example, all `ReportDetail` instances). This kinda makes sense because we only create an instance
-of `ArchiveField` in the declaration of the `ReportDetail` class.
-
-Because of that if the cache is in the `self` of `ArchiveField` different instances of `ReportDetails` will have dirty cached value of other `ReportDetails` instances and we get wrong values. To fix that I envision 3 possibilities:
-1. Putting the cached value in the `ReportDetails` instance directly (the `obj`), and checking for the presence of that value.
-If it's there it's guaranteed that we put it there, and we can update it on writes, so that we can always use it. Because it is
-for each `ReportDetails` instance we always get the correct value, and it's cleared when the instance is killed and garbage collected.
-
-2. Storing an entire table of cached values in the `self` (`ArchiveField`) and using the appropriate cache value when possible. The problem here is that we need to manage the cache ourselves (which is not that hard, honestly) and probably set a max value. Then we will populate the cache and over time evict old values. The 2nd problem is that the values themselves might be too big to hold in memory (which can be fixed by setting a very small value in the cache size). There's a fine line there, but it's more work than option 1 anyway.
-
-3. We move the getting and parsing of the value to outside `ArchiveField` (so it's a normal function) and use `lru_cache` in that function. Because the `rehydrate` function takes a reference to `obj` I don't think we should pass that, so the issue here is that we can't cache the rehydrated value, and would have to rehydrate every time (which currently is not expensive at all in any model)
-
-This is an instance cache, so it shouldn't need to be cleaned for the duration of the instance's life
-(because it is updates on the SET)
-
-closes codecov/engineering-team#119
-
----
-## [jsboige/semantic-kernel](https://github.com/jsboige/semantic-kernel)@[2733a5574f...](https://github.com/jsboige/semantic-kernel/commit/2733a5574f72980413e339f100dbe4272644888c)
-#### Thursday 2023-08-10 16:12:09 by Mark Karle
-
-Python: Import OpenAPI documents into the semantic kernel (#2297)
-
-### Motivation and Context
-
-<!-- Thank you for your contribution to the semantic-kernel repo!
-Please help reviewers and future users, providing the following
-information:
-  1. Why is this change required?
-  2. What problem does it solve?
-  3. What scenario does it contribute to?
-  4. If it fixes an open issue, please link to the issue here.
--->
-
-This allows us to import OpenAPI documents, including ChatGPT plugins,
-into the Semantic Kernel.
-
-### Description
-
-<!-- Describe your changes, the overall approach, the underlying design.
-These notes will help understanding how your code works. Thanks! -->
-- The interface reads the operationIds of the openapi spec into a skill:
-```python
-from semantic_kernel.connectors.openapi import register_openapi_skill
-skill = register_openapi_skill(kernel=kernel, skill_name="test", openapi_document="url/or/path/to/openapi.yamlorjson")
-skill['operationId'].invoke_async()
-```
-- Parse an OpenAPI document
-- For each operation in the document, create a function that will
-execute the operation
-- Add all those operations to a skill in the kernel
-- Modified `import_skill` to accept a dictionary of functions instead of
-just class so that we can import dynamically created functions
-- Created unit tests
-
-TESTING:
-I've been testing this with the following ChatGPT plugins:
-- [Semantic Kernel Starter's Python Flask
-plugin](https://github.com/microsoft/semantic-kernel-starters/tree/main/sk-python-flask)
-- [ChatGPT's example retrieval
-plugin](https://github.com/openai/chatgpt-retrieval-plugin/blob/main/docs/providers/azuresearch/setup.md)
-- This one was annoying to setup. I didn't get the plugin functioning,
-but I was able to send the right API requests
-- Also, their openapi file was invalid. The "servers" attribute is
-misindented
-- [Google ChatGPT
-plugin](https://github.com/Sogody/google-chatgpt-plugin)
-- [Chat TODO plugin](https://github.com/lencx/chat-todo-plugin)
-- This openapi file is also invalid. I checked with an online validator.
-I had to remove"required" from the referenced request objects'
-properties:
-https://github.com/lencx/chat-todo-plugin/blob/main/openapi.yaml#L85
-
-Then I used this python file to test the examples:
-
-```python
-import asyncio
-import logging
-
-import semantic_kernel as sk
-from semantic_kernel import ContextVariables, Kernel
-from semantic_kernel.connectors.ai.open_ai import AzureTextCompletion
-from semantic_kernel.connectors.openapi.sk_openapi import register_openapi_skill
-
-# Example usage
-chatgpt_retrieval_plugin = {
-    "openapi": # location of the plugin's openapi.yaml file,
-    "payload": {
-        "queries": [
-            {
-                "query": "string",
-                "filter": {
-                    "document_id": "string",
-                    "source": "email",
-                    "source_id": "string",
-                    "author": "string",
-                    "start_date": "string",
-                    "end_date": "string",
-                },
-                "top_k": 3,
-            }
-        ]
-    },
-    "operation_id": "query_query_post",
-}
-
-sk_python_flask = {
-    "openapi":  # location of the plugin's openapi.yaml file,
-    "path_params": {"skill_name": "FunSkill", "function_name": "Joke"},
-    "payload": {"input": "dinosaurs"},
-    "operation_id": "executeFunction",
-}
-google_chatgpt_plugin = {
-    "openapi":  # location of the plugin's openapi.yaml file,
-    "query_params": {"q": "dinosaurs"},
-    "operation_id": "searchGet",
-}
-
-todo_plugin_add = {
-    "openapi":  # location of the plugin's openapi.yaml file,
-    "path_params": {"username": "markkarle"},
-    "payload": {"todo": "finish this"},
-    "operation_id": "addTodo",
-}
-
-todo_plugin_get = {
-    "openapi":  # location of the plugin's openapi.yaml file,
-    "path_params": {"username": "markkarle"},
-    "operation_id": "getTodos",
-}
-
-todo_plugin_delete = {
-    "openapi":  # location of the plugin's openapi.yaml file,
-    "path_params": {"username": "markkarle"},
-    "payload": {"todo_idx": 0},
-    "operation_id": "deleteTodo",
-}
-
-
-plugin = todo_plugin_get # set this to the plugin you want to try
-
-logger = logging.getLogger(__name__)
-logger.addHandler(logging.StreamHandler())
-logger.setLevel(logging.DEBUG)
-
-kernel = Kernel(log=logger)
-deployment, api_key, endpoint = sk.azure_openai_settings_from_dot_env()
-kernel.add_text_completion_service(
-    "dv", AzureTextCompletion(deployment, endpoint, api_key)
-)
-
-skill = register_openapi_skill(
-    kernel=kernel, skill_name="test", openapi_document=plugin["openapi"]
-)
-context_variables = ContextVariables(variables=plugin)
-result = asyncio.run(
-    skill[plugin["operation_id"]].invoke_async(variables=context_variables)
-)
-print(result)
-```
-
-### Contribution Checklist
-
-<!-- Before submitting this PR, please make sure: -->
-
-- [ ] The code builds clean without any errors or warnings
-- [ ] The PR follows the [SK Contribution
-Guidelines](https://github.com/microsoft/semantic-kernel/blob/main/CONTRIBUTING.md)
-and the [pre-submission formatting
-script](https://github.com/microsoft/semantic-kernel/blob/main/CONTRIBUTING.md#development-scripts)
-raises no violations
-- [ ] All unit tests pass, and I have added new tests where possible
-- [ ] I didn't break anyone :smile:
-
----------
-
-Co-authored-by: Abby Harrison <abharris@microsoft.com>
-
----
-## [git-for-windows/git](https://github.com/git-for-windows/git)@[87a7d7f43b...](https://github.com/git-for-windows/git/commit/87a7d7f43b06519833c42b08138ac2b8c6049799)
-#### Thursday 2023-08-10 16:12:31 by Johannes Schindelin
+## [git-for-windows/git](https://github.com/git-for-windows/git)@[9a42d82655...](https://github.com/git-for-windows/git/commit/9a42d82655c6f24032318c37f5e972e51836528c)
+#### Friday 2023-08-11 01:00:39 by Johannes Schindelin
 
 windows: ignore empty `PATH` elements
 
@@ -1681,239 +190,659 @@ So let's follow that common practice in Git GUI, too.
 Signed-off-by: Johannes Schindelin <johannes.schindelin@gmx.de>
 
 ---
-## [sourcegraph/sourcegraph](https://github.com/sourcegraph/sourcegraph)@[340b0dea25...](https://github.com/sourcegraph/sourcegraph/commit/340b0dea25f073119d0506b8dd3c6228516cf9c4)
-#### Thursday 2023-08-10 16:49:04 by David Veszelovszki
+## [sjp38/linux](https://github.com/sjp38/linux)@[43d1669981...](https://github.com/sjp38/linux/commit/43d166998131afb3c94c3ca35243bb107c5909c4)
+#### Friday 2023-08-11 01:17:44 by David Hildenbrand
 
-JetBrains: Fix dotcom logging issue (#54885)
+smaps: use vm_normal_page_pmd() instead of follow_trans_huge_pmd()
 
-We didn't convert an object to a string → our Go backend rejected it →
-got no logs on Dotcom :bang-head:
+We shouldn't be using a GUP-internal helper if it can be avoided.
 
-Currently, I'm getting back a bunch of 429 – Too Many Requests responses
-from Dotcom for some reason, but the problem should be solved.
+Similar to smaps_pte_entry() that uses vm_normal_page(), let's use
+vm_normal_page_pmd() that similarly refuses to return the huge zeropage.
 
-I feel sorry about losing all those logs, it really sucks. We were too
-much in a rush and didn't test this properly. Totally my mistake.
+In contrast to follow_trans_huge_pmd(), vm_normal_page_pmd():
 
-## Test plan
+(1) Will always return the head page, not a tail page of a THP.
 
-Tested it with the built-in-debugger and by copying the requests to our
-GraphQL API console.
+ If we'd ever call smaps_account with a tail page while setting "compound
+ = true", we could be in trouble, because smaps_account() would look at
+ the memmap of unrelated pages.
 
----
-## [Amerecanno/CoffeStation](https://github.com/Amerecanno/CoffeStation)@[1895bd5c51...](https://github.com/Amerecanno/CoffeStation/commit/1895bd5c511012ac1978d52aea8f6810a90fcf08)
-#### Thursday 2023-08-10 16:50:33 by CDB
+ If we're unlucky, that memmap does not exist at all. Before we removed
+ PG_doublemap, we could have triggered something similar as in
+ commit 24d7275ce279 ("fs/proc: task_mmu.c: don't read mapcount for
+ migration entry").
 
-Im so sick of bugs. (#4739)
+ This can theoretically happen ever since commit ff9f47f6f00c ("mm: proc:
+ smaps_rollup: do not stall write attempts on mmap_lock"):
 
-* Mother fucker. Im so sick of bugs.
+  (a) We're in show_smaps_rollup() and processed a VMA
+  (b) We release the mmap lock in show_smaps_rollup() because it is
+      contended
+  (c) We merged that VMA with another VMA
+  (d) We collapsed a THP in that merged VMA at that position
 
-Cigarettes no longer(seem to) cause kidney damage to people with unclean living.
+ If the end address of the original VMA falls into the middle of a THP
+ area, we would call smap_gather_stats() with a start address that falls
+ into a PMD-mapped THP. It's probably very rare to trigger when not
+ really forced.
 
-psion void armor has correct slowdown for shoes and doesn't use slowdown on other pieces of armor. Additionally, no longer allows ears to flop outside of it. It's a fucking space suit, why would they be out?
+(2) Will succeed on a is_pci_p2pdma_page(), like vm_normal_page()
 
-Opifex medbelt no longer selectable, sorry powergamers.
+ Treat such PMDs here just like smaps_pte_entry() would treat such PTEs.
+ If such pages would be anonymous, we most certainly would want to
+ account them.
 
-Removes change_appearance from baseline armor vest. Why? It is the parent to MANY MANY MANY fucking items and thus caused MANY MANY MANY items to have erronious change_appearance procs that only had two options for the base parent item. This is why we don't put fucking procs on BASE PARENT items that affect DOZENS of other items. Fixes a few others, WO plate has no unique sprite and now has a proper working change appearance. CO does have a unique sprite, it is gone.
+(3) Will skip over pmd_devmap(), like vm_normal_page() for pte_devmap()
 
-Fixes #4732
-Fixes #4734
-fixes #4724
+ As noted in vm_normal_page(), that is only for handling legacy ZONE_DEVICE
+ pages. So just like smaps_pte_entry(), we'll now also ignore such PMD
+ entries.
 
-* Update psi_Larmor.dm
+ Especially, follow_pmd_mask() never ends up calling
+ follow_trans_huge_pmd() on pmd_devmap(). Instead it calls
+ follow_devmap_pmd() -- which will fail if neither FOLL_GET nor FOLL_PIN
+ is set.
 
----
-## [VipansinghDA/Maven_Family_Leave_Challenge](https://github.com/VipansinghDA/Maven_Family_Leave_Challenge)@[c5d6901181...](https://github.com/VipansinghDA/Maven_Family_Leave_Challenge/commit/c5d6901181e574affb9d4559b4732b2c0a8f49c7)
-#### Thursday 2023-08-10 17:10:11 by Vipan Singh
+ So skipping pmd_devmap() pages seems to be the right thing to do.
 
-Add files via upload
+(4) Will properly handle VM_MIXEDMAP/VM_PFNMAP, like vm_normal_page()
 
-#About the Challenge:
+ We won't be returning a memmap that should be ignored by core-mm, or
+ worse, a memmap that does not even exist. Note that while
+ walk_page_range() will skip VM_PFNMAP mappings, walk_page_vma() won't.
 
-At MavenCare, we understand that family matters. The Family Leave Empowerment Challenge encourages participants to prioritize family time while fostering their career growth. This challenge empowers you to take the time you need to bond with your loved ones, recharge, and return to work with renewed energy.
+ Most probably this case doesn't currently really happen on the PMD level,
+ otherwise we'd already be able to trigger kernel crashes when reading
+ smaps / smaps_rollup.
 
-#Key Features:
+So most probably only (1) is relevant in practice as of now, but could only
+cause trouble in extreme corner cases.
 
-- Holistic Well-being: Embrace the opportunity to care for yourself and your family. The challenge promotes mental, emotional, and physical well-being through meaningful family interactions and self-care activities.
+Let's move follow_trans_huge_pmd() to mm/internal.h to discourage future
+reuse in wrong context.
 
-- Work-Life Integration: Strive for a harmonious balance between your professional aspirations and your role as a family member. We encourage you to set boundaries, communicate your needs, and craft a supportive environment.
-
-- Skill Enrichment: Use your family leave to explore new hobbies, enhance your skills, or embark on personal development projects. This challenge encourages growth on all fronts.
-
----
-## [acornett21/ack-test-infra](https://github.com/acornett21/ack-test-infra)@[95e4857b28...](https://github.com/acornett21/ack-test-infra/commit/95e4857b28122c6c5f8a30260be3dcac94e0e466)
-#### Thursday 2023-08-10 17:36:36 by Amine
-
-Move Go binaries to `/usr/bin` (#287)
-
-Issue https://github.com/aws-controllers-k8s/community/issues/1640
-
-TL;DR: Prow was mounting `test-infra` code volume into `$GOPATH`
-causing the deletion of `kind` and `controller-gen` binaries that are
-installed in `$GOPATH/bin`
-
-
-Yesterday, i embarked on a wild 7 hour journey to fix a bug that had
-been causing prow jobs to fail with the error message "Kind not found".
-The bug was introduced after a recent update that bumped the Go compiler
-to `1.19`. I found the investigation to this bug to be both interesting
-and frustrating, so i wanted to share some key takeways with the
-community:
-
-[The patch](https://github.com/aws-controllers-k8s/test-infra/commit/14dda81ce8ea430b51c9ce738483bea3744a5450) that introduced Go `1.19` also modified a `go get` command
-into a `go install` command (because of this deprecation notice:
-https://go.dev/doc/go-get-install-deprecation), which technically should
-not have caused any issues. I tried restarting the e2e jobs in various
-repositories to figure out whether the error was only related to one
-controller or code-generator only, but all the repositories that execute
-e2e tests were affected.
-
-First, i started suspecting that thee `go install` command was not
-working properly or had not been used correctly. I experiemented with it
-locally, using various combinations of `GOPATH` and `GOBIN`, however, i
-learned that the Go compiler is sophisticated enough to always put
-downloaded binaries under `GOBIN` or `GOPATH/bin`. I then wondered if
-the `PATH` variable didn't include the `GOBIN` path, which is supposed
-to contain the `kind` and `controller-gen` binaries. I spent some time
-reading the Dockerfiles and testing scripts, but they all set `GOPATH`
-and always included a `GOBIN` in the `PATH` variable.
-
-I also suspected that the issue may be related to the containers, but
-experimentations with "Go containers" and environement variables
-manipulation did not yield any results. I also tried building minimal
-DOckerfiles to try to reproduce the issue, but that also did not give
-any clues.
-
-At this point, I suspected the container image it self. I build an image
-locally and ran a shell inside it, but everythin g looked fine. THe
-`kind` and `controller-gen` binaries were present and the `PATH` and
-`GOPATH` variables were properly set. I then suspect that we may have a
-corrupted published image in ECR, but pulling the image and running the
-same commands revealed that the image was fine.
-
-I then took a break from experimenting with Go/Docker/Envvars and tried
-to spin some prowjobs with `v0.0.10` and `v0.0.9` (the last two versions
-that were still using Go 1.17) of the integration tests image. This
-confirmed that the issue was only with `v0.0.11`.
-
-So, I decided to investigate further and logged in the Prow production
-cluster. My first attempt was to restart a job and try to "exec bash" in
-it, but the jobs failed to quickly for that to be possible. I then ran
-a custom prow job (with `v0.0.11` integration image tag) but with a
-`sleep 10000` command. When looking inside, there were no `kind` or
-`controller-gen` binaries, i searched the entire file system, they were
-nowhere to be found, grep, find, name it all.. nada. I then execute a
-`go install sigs.k8s.io/kind@v0.17.0"`, and bam, it worked, the binary
-was here again. The same thing happened with controller-gen. So for now
-we know that we ship images with all the necessary binaries and when a
-prow job starts, they disapear...
-
-To isolate the problem further, i created a `ProwJob` resource and
-copied the `Pod` (spawned by Prow) spec and metadata into a different
-file. Running the same commands used previously proved that indeed
-something is wrong with the pod spec, causing the binaries to disapear.
-And when a file disppears it reminds me of my college years, where i
-epically failed to use symbolic links, which is a bit similar (at least
-from a UX point) to volume mounts in the Docker world.
-
-So, i decided to check the volume mounts, and to my not-surprise, I
-found this:
-
-```yaml
-    - mountPath: /home/prow/go
-      name: code
-```
-
-Yes... Prow is mounting the test-infra source code into `GOPATH`
-(`/home/prow/go` in prow jobs) ! Which is the parent directory of
-`GOBIN` where we install the binaries. And it all makes sense now.
-Mounting code into this directory overrides the existing volume and
-deletes everything existing in `GOPATH` including the binaries we
-installed before.
-
-The Dockerfile was missing the `mv` commands that puts `kind` and
-`controller-gen` in `/usr/bin`. To fix this issue, I added the missing
-`mv` command to the docker file and published and new `integration`
-image `v0.0.12`.
+Link: https://lkml.kernel.org/r/20230803143208.383663-3-david@redhat.com
+Fixes: ff9f47f6f00c ("mm: proc: smaps_rollup: do not stall write attempts on mmap_lock")
+Signed-off-by: David Hildenbrand <david@redhat.com>
+Acked-by: Mel Gorman <mgorman@techsingularity.net>
+Cc: Hugh Dickins <hughd@google.com>
+Cc: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: John Hubbard <jhubbard@nvidia.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>
+Cc: liubo <liubo254@huawei.com>
+Cc: Matthew Wilcox (Oracle) <willy@infradead.org>
+Cc: Mel Gorman <mgorman@suse.de>
+Cc: Paolo Bonzini <pbonzini@redhat.com>
+Cc: Peter Xu <peterx@redhat.com>
+Cc: Shuah Khan <shuah@kernel.org>
+Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
 
 ---
+## [Bubberstation/Bubberstation](https://github.com/Bubberstation/Bubberstation)@[bbaea4e46b...](https://github.com/Bubberstation/Bubberstation/commit/bbaea4e46b5bc5ec1a34b76803055093b9c56e89)
+#### Friday 2023-08-11 01:30:39 by ShamanSliph
 
-Anyways, investigating the source of the volume mount led me to the Prow
-presets configurations. Presets are a set of configurations (volume
-mounts, environement variables, etc...) that are used for jobs with
-specific labels in their metadata. I tried to play with this in our Prow
-cluster, but quickly stoped when it was a bit risky and could break
-other components too. While digging into `test-infra` pod-util package i
-learned that the code volume is not coming from our defined presets and
-is a default preset coming from Prow it self - the `/home/prow/go` value
-is harded-coded in `prow/pod-utils/decorate/podspec.go#L54`. I'm not
-sure whether we can override this value.
+[Modular] Adds the Tactical  Maid Outfit for  Donors.  (#441)
 
-Anyways, for now, i'm just gonna implement a quick fix that moves the
-binaries to `/usr/bin` instead of leaving them inside `GOBIN`. Ideally
-we should either choose a new directory go `GOPATH` that is different
-from `$HOME/go` or find a solution that will let the code and our
-binaries coexist in the same place. Either of them requires a lot of
-changes and can agressively break some our prow components/scripts.
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
 
-@jljaco is currently workng on creating a staging cluster, which will
-provide us a safe environementto test and experiment with new
-configurations. This will allow us to try out new changes without having
-to woryy about potentially impacting the production environement.
+## About The Pull Request
+This time with revengence.
 
-Signed-off-by: Amine Hilaly <hilalyamine@gmail.com>
+Adds the full Syndicate maid outfit to the loadout but without its stats
+bonus and syndicate part replaced with tactical.
+Suggested changes are welcome and I will do them as soon as possible. 
+This item was requested by skyefree. 
 
-By submitting this pull request, I confirm that my contribution is made under the terms of the Apache 2.0 license.
+This was in another PR, but I think I broke the actual rebasing and
+wasn't sure if I was doing it right. So I closed that PR and made this
+one since It was much easier to just make a new branch based on the up
+to date master and just quickly put the new files in.
+
+Original PR was  https://github.com/Bubberstation/Bubberstation/pull/307
+
+Sorry about the hassle. I'm not that experienced with using Git.
+
+<!-- Describe The Pull Request. Please be sure every change is
+documented or this can delay review and even discourage maintainers from
+merging your PR! -->
+
+<!-- Please make sure to actually test your PRs. If you have not tested
+your PR mention it. -->
+
+## Changelog
+
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
+and it's effects on PRs in the tgstation guides for contributors. Please
+note that maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. You can attempt to finagle the system
+all you want, but it's best to shoot for clear communication right off
+the bat. -->
+
+:cl:
+add: Adds Donor Items: Tactical Maid Outfit/Sleeves/Headband.
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
 
 ---
-## [Fray2/RU-CMSS13](https://github.com/Fray2/RU-CMSS13)@[f3fc60ed65...](https://github.com/Fray2/RU-CMSS13/commit/f3fc60ed655d27bb3f012d0e0d834c64990b173d)
-#### Thursday 2023-08-10 17:50:13 by morrowwolf
+## [behindcurtain3/serenity](https://github.com/behindcurtain3/serenity)@[8d17ede197...](https://github.com/behindcurtain3/serenity/commit/8d17ede1977517fb0556857e042bd4abd7174a7b)
+#### Friday 2023-08-11 01:56:30 by Xexxa
 
-Attachment nerfs and removals (#4122)
+Base: Improve emoji
 
-# About the pull request
+Remove unnecessary left/right padding
 
-This PR:
+❣️ - U+2763 HEART EXCLAMATION
+🚶 - U+1F6B6 PERSON WALKING
+🚴 - U+1F6B4 PERSON BIKING
+🌻 - U+1F33B SUNFLOWER
+🪻 - U+1FABB HYACINTH
+🍉 - U+1F349 WATERMELON
+🍍 - U+1F34D PINEAPPLE
+🫒 - U+1FAD2 OLIVE
+🌽 - U+1F33D EAR OF CORN
+🌯 - U+1F32F BURRITO
+🍘 - U+1F358 RICE CRACKER
+🧁 - U+1F9C1 CUPCAKE
+🍫 - U+1F36B CHOCOLATE BAR
+🍭 - U+1F36D LOLLIPOP
+🍼 - U+1F37C BABY BOTTLE
+🧋 - U+1F9CB BUBBLE TEA
+🧃 - U+1F9C3 BEVERAGE BOX
+🥢 - U+1F962 CHOPSTICKS
+💈 - U+1F488 BARBER POLE
+🌛 - U+1F31B FIRST QUARTER MOON FACE
+🌜 - U+1F31C LAST QUARTER MOON FACE
+🌡️ - U+1F321 THERMOMETER
+🪐 - U+1FA90 RINGED PLANET
+⚡ - U+26A1 HIGH VOLTAGE
+💧 - U+1F4A7 DROPLET
+🧨 - U+1F9E8 FIRECRACKER
+🥇 - U+1F947 1ST PLACE MEDAL
+🥈 - U+1F948 2ND PLACE MEDAL
+🥉 - U+1F949 3RD PLACE MEDAL
+🏓 - U+1F3D3 PING PONG
+🪀 - U+1FA80 YO-YO
+♟️ - U+265F CHESS PAWN
+🧦 - U+1F9E6 SOCKS
+💄 - U+1F484 LIPSTICK
+📱 - U+1F4F1 MOBILE PHONE
+🔌 - U+1F50C ELECTRIC PLUG
+💡 - U+1F4A1 LIGHT BULB
+📍 - U+1F4CD ROUND PUSHPIN
+🔩 - U+1F529 NUT AND BOLT
+🪝 - U+1FA9D HOOK
+🧪 - U+1F9EA TEST TUBE
+🔭 - U+1F52D TELESCOPE
+🩸 - U+1FA78 DROP OF BLOOD
+💊 - U+1F48A PILL
+🩹 - U+1FA79 ADHESIVE BANDAGE
+🧼 - U+1F9FC SOAP
+🪥 - U+1FAA5 TOOTHBRUSH
+♀️ - U+2640 FEMALE SIGN
+♂️ - U+2642 MALE SIGN
+➕ - U+2795 PLUS
+➗ - U+2797 DIVIDE
+❓ - U+2753 RED QUESTION MARK
+❔ - U+2754 WHITE QUESTION MARK
+❕ - U+2755 WHITE EXCLAMATION MARK
+❗ - U+2757 RED EXCLAMATION MARK
+◼️ - U+25FC BLACK MEDIUM SQUARE
+◻️ - U+25FB WHITE MEDIUM SQUARE
+◾ - U+25FE BLACK MEDIUM-SMALL SQUARE
+◽ - U+25FD WHITE MEDIUM-SMALL SQUARE
+▪️ - U+25AA BLACK SMALL SQUARE
+▫️ - U+25AB WHITE SMALL SQUARE
+🚩 - U+1F6A9 TRIANGULAR FLAG
 
-Removes the barrel charger from vendors
+---
+## [Bubberstation/Bubberstation](https://github.com/Bubberstation/Bubberstation)@[93797f4038...](https://github.com/Bubberstation/Bubberstation/commit/93797f403833c016370246b36a921f2647896a78)
+#### Friday 2023-08-11 02:05:52 by nevimer
 
-Removes all benefits other than wield delay mod from the angled grip
+Restores Low end Space sprites (#442)
 
-Adds wield delay to the extended barrel
+<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
+not be viewable. -->
+<!-- You can view Contributing.MD for a detailed description of the pull
+request process. -->
 
-# Explain why it's good for the game
+## About The Pull Request
 
-Barrel charger is a straight damage increase and rather silly to work
-around given how burst works bypassing real fire rate concerns. If you
-know, you know. Horrible idea, I am amazed it's been around this long.
+tgstation made (awful) changes recently that made space look like THIS
 
-Angled grip had zero downside. Now it still has zero downside but isn't
-also a ton of accuracy buffs on top of the god-tier lower wield delay.
+![dreamseeker_YuYFvv77q1](https://user-images.githubusercontent.com/77420409/208272381-2b91b4f1-04e5-4c8c-bd4c-225b6386f575.png)
 
-Extended barrel had zero downside. Now it has a downside.
+Then like THIS (not live yet on skyrat).
 
-# Testing Photographs and Procedure
+![dreamseeker_AgEEkhRDkR](https://user-images.githubusercontent.com/77420409/208272386-1a886d28-ee54-4487-b987-62095d86ddcd.png)
+
+For what? shaving a whole fraction of a second off, hypothetically, of
+init time? The job of the server is to pre-bake things as client-side
+rendering is pretty much non-existent beyond filters and other
+particular things. Not everyone likes the parralax, feels comfortable
+with the parallax or even otherwise can run it on their hardware at
+cost. We don't need to shave a fraction of a second off init because
+it's pretty damn fast anyways, and, once I am done BENCHMARKING on a
+CELERON TABLET I will prove it silly. I personally think init time saves
+like this are fetishized when it throws the user experience out of the
+fucking window, especially for broke/third world gamers who run systems
+with like, 2GB of memory. We have players running truly destitute
+systems.
+## Before
+
+![dreamseeker_vT1uJeDmgx](https://user-images.githubusercontent.com/77420409/208272512-628559ac-8c2a-4f29-9863-a998257c890f.png)
+## After
+
+![dreamseeker_lBhaey7ZFd](https://user-images.githubusercontent.com/77420409/208272521-4007b674-7126-4599-b786-fbfc512995bb.png)
+
+I could brand this as saving 4 seconds of init time, to be deceiving.
+This is with 64GB of ram on a Ryzen 5800H, Samsung 980 EVO NVME with
+lowmememorymode defined.
+## How This Contributes To The Skyrat Roleplay Experience
+
+This readds a decent looking space option for those seeking every ounce
+of performance in their client in exchange for the server using a
+fraction of a second more CPU during init.
+
+
+## Proof of Testing
+
+<!-- Include any screenshots/videos/debugging steps of the code
+functioning successfully, between the </summary> and </details> code
+blocks. -->
+
 <details>
-<summary>Screenshots & Videos</summary>
+<summary>Screenshots/Videos</summary>
+  
 
-Put screenshots and videos here with an empty line between the
-screenshots and the `<details>` tags.
+![dreamseeker_lBhaey7ZFd](https://user-images.githubusercontent.com/77420409/208272553-53fc3f89-e4bc-4cc9-bf20-97356670c861.png)
 
 </details>
 
+## Changelog
 
-# Changelog
+<!-- If your PR modifies aspects of the game that can be concretely
+observed by players or admins you should add a changelog. If your change
+does NOT meet this description, remove this section. Be sure to properly
+mark your PRs to prevent unnecessary GBP loss. You can read up on GBP
+and it's effects on PRs in the tgstation guides for contributors. Please
+note that maintainers freely reserve the right to remove and add tags
+should they deem it appropriate. You can attempt to finagle the system
+all you want, but it's best to shoot for clear communication right off
+the bat. -->
 
-:cl: Morrow
-balance: Removed the barrel charger from vendors
-balance: Removed all benefits other than wield delay mod from the angled
-grip
-balance: Added wield delay to extended barrel
+:cl:
+add: Old space returns for those who choose it. 
+/:cl:
+
+<!-- Both :cl:'s are required for the changelog to work! You can put
+your name to the right of the first :cl: if you want to overwrite your
+GitHub username as author ingame. -->
+<!-- You can use multiple of the same prefix (they're only used for the
+icon ingame) and delete the unneeded ones. Despite some of the tags,
+changelogs should generally represent how a player might be affected by
+the changes rather than a summary of the PR's contents. -->
+
+---
+## [lessthnthree/tgstation](https://github.com/lessthnthree/tgstation)@[f0dc574c37...](https://github.com/lessthnthree/tgstation/commit/f0dc574c37c6defc0a9e2d4117d20c3963a11d86)
+#### Friday 2023-08-11 02:23:11 by carlarctg
+
+Added Omen Spontaneous Combustion and light tube and mirror effects (#77175)
+
+## About The Pull Request
+
+Cursed crewmembers can randomly, extremely rarely, spontaneously combust
+for no reason.
+
+Cursed crewmembers can get zapped by nearby light tubes.
+
+Cursed crewmembers can freak out when passing by mirrors.
+
+To make up for these, triggering a cursed effect is slightly less than
+half as likely now when walking around now.
+
+## Why It's Good For The Game
+
+Cursed is fun as hell, but after a certain point it gets kind of
+monotonous - it's airlocks, vending machines, and the rest is too rare
+to count. We need more ways to comically get hurt in the game.
+
+You might dislike the 'reduced effects' bit but trust me it is
+incredibly frickin' common to have shit happen to you. Add to the
+occasional vending machine and airlock crushes the near-constant light
+tubes all over the station? Yeah, that needs a toning down else it will
+be just a tad too miserable to be funny. Also cause the poor janitor
+unneeded stress.
+
+## Changelog
+
+:cl:
+add: Cursed crewmembers can randomly, extremely rarely, spontaneously
+combust for no reason.
+add: Cursed crewmembers can get zapped by nearby light tubes.
+add: Cursed crewmembers can freak out when passing by mirrors.
+add: To make up for these, triggering a cursed effect is slightly less
+than half as likely now when walking around now.
+/:cl:
+
+---------
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+Co-authored-by: Ghom <42542238+Ghommie@users.noreply.github.com>
+Co-authored-by: Time-Green <7501474+Time-Green@users.noreply.github.com>
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[c968edab30...](https://github.com/tgstation/tgstation/commit/c968edab306659606da4f39bc178851a5a24405c)
+#### Friday 2023-08-11 02:58:13 by carlarctg
+
+Restricts Scrapheap & Lepton Violet behind conditions, alters Rollerdome (#77277)
+
+## About The Pull Request
+
+Lepton Violet (wabbajack) shuttle must be unlocked by having some form
+of polymorph happen in-game first (Pride Mirror or the cursed springs
+are the most accessible sources)
+
+Scrapheap shuttle can only be bought if the Cargo budget is below 600
+credits, and the shuttle has just less than half of its usual refueling
+time left. However, it gives the cargo budget an influx of 3000 credits!
+
+Uncle Pete's Rollerdome has had its price increased, and the disco
+machine is no longer unbreakable.
+
+## Why It's Good For The Game
+
+First off, here is my reasoning for why these need altering at all.
+
+Players will always naturally gravitate to the wackiest and
+most-out-there options, in this case this applies to shuttles. It's why
+the Monastery or the Asteroid or Daniel are reasonably common sights,
+more common than some of the 'boring' shuttle options that don't need
+unlock with an emag.
+
+The problem here, as I see it, is that there is no incentive
+what-so-ever to NOT purchase these 'wacky' shuttles. Some of the
+shuttles in the code are just way too stupid to be seen on most or even
+some rounds (Arena, Disco Inferno?), so they require rare unlocks to
+occur. Wacky shuttles being spammed round after round are bad due to
+several reasons:
+1. Players will run every joke to the ground. Wacky conditionless
+shuttles take up a large amount of space in the shuttle memeplex, so
+they are disproportionately seen in comparison to any of the
+less-extravagant but more grounded and actually interesting options.
+(Medisim? Monkeys anyone?). This ends up making the wacky shuttles
+actually *less* wacky and just the stale and boring options.
+2. Wacky shuttles affect the end-round quite a lot. This is fine, of
+course, but not when these wacky shuttles can be seen every round.
+3. These wacky shuttles don't have proper facilities. None of them have
+a good medical section, or emergency supplies, or enough room. This gets
+pretty annoying pretty fast.
+4. One Funny Guy (the quintessential example being the clown with a dead
+captain's ID) is all but guaranteed to try to buy the funniest and most
+annoying shuttle to piss off the rest of the crew. With how Funny and
+Annoying these shuttles are, not to mention how dirt-cheap they are (or
+literally give you money!), they're easily the most seen alternate
+shuttles, which isn't good when they alter how the round-end plays so
+heavily.
+
+> Lepton Violet (wabbajack) shuttle must be unlocked by having some form
+of polymorph happen in-game first (Pride Mirror is the most accessible
+source)
+
+The Wabbajack has a endless source of voluntary Polymorphs with a
+comically low price, which means it is purchased endlessly by crew, not
+to mention being literally a source of free syndiborgs and xenos. While
+I'm not a balanceposter, this does come with some annoyances especially
+for antagonists who just randomly get blown up by an assault borg. This
+is fine and fun every so often, but not as a common occurrence, not as a
+guaranteed every-round option. I think it's an excellent candidate for
+an unlock condition.
+
+> Scrapheap shuttle can only be bought if the Cargo budget is below 600
+credits, and the emergency shuttle is more than halfway refueled.
+However, it gives the cargo budget an influx of 3000 credits!
+
+This is LITERALLY 'haha grief shuttle', I have no idea how it even got
+in as a condition-less shuttle. You see the captain buy it For No Raisin
+Lul 2 minutes in, sigh to yourself, and secure an EVA suit when the
+shuttle lands to try to survive in the unbelievably cramped space.
+(Someone always blows it up.)
+
+Instead of being JUST Grief Shuttle, now it has some interesting reasons
+to exist. Revs and you're dirt-poor? Nukies just declared war after the
+Clown bought ten crates of creampie dufflebags? Buy this shuttle and get
+an influx of money.
+
+> Uncle Pete's Rollerdome has had its price increased, and the disco
+machine is no longer unbreakable.
+
+This one isn't as egregious as the above, but I believe my personal
+dislike of it extends to a game design level, to an extent. One person
+can buy this shuttle and the crew as a whole are left to groan as they
+prepare for a noisy, confusing shuttle in which everyone is ten tiles
+shifted to their left as their sprite does the most ridiculous dance
+seen in SS13 history. 'Just turn the music off!': I'm glad this is an
+option, but it doesn't change how much this shuttle alters things. It's
+fine as a sendoff to a nice, chill greenshift, but as a constant sight
+in red shifts it's just... frustrating. And purchased BECAUSE it's
+frustrating, to the short-lived schadenfreude of one person and the
+frustration of others.
+
+And then the unbreakable disco machine. Why is it unbreakable. If the
+crew doesn't want to listen to the thing, let them break it? Buy Disco
+Inferno if you want an unbreakable disco.
+
+Some of these changes are probably over-the-top, but remember that these
+will still be seen in-game, just a bit rarer. Worst case scenario the
+shuttle replacement event will let them have their time in the
+limelight.
+
+## Changelog
+
+:cl:
+balance: Lepton Violet (wabbajack) shuttle must be unlocked by having
+some form of polymorph happen in-game first (Pride Mirror or the cursed
+springs are the most accessible sources)
+balance: Scrapheap shuttle can only be bought if the Cargo budget is
+below 600 credits, and the shuttle has just less than half of its usual
+refueling time left. However, it gives the cargo budget an influx of
+3000 credits!
+qol: Uncle Pete's Rollerdome has had its price increased, and the disco
+machine is no longer unbreakable.
 /:cl:
 
 ---
-## [openai/evals](https://github.com/openai/evals)@[30e35436be...](https://github.com/openai/evals/commit/30e35436be663f416ce6d125f09f92a1faf70d12)
-#### Thursday 2023-08-10 18:09:46 by Nazar
+## [ss220club/Skyrat-tg](https://github.com/ss220club/Skyrat-tg)@[c6e0ba7516...](https://github.com/ss220club/Skyrat-tg/commit/c6e0ba75169d010e2cdfa48134003b0bb9ab8485)
+#### Friday 2023-08-11 03:17:57 by SkyratBot
+
+[MIRROR] Drill module automatically disables if it's about to drill into gibtonite [MDB IGNORE] (#22990)
+
+* Drill module automatically disables if it's about to drill into gibtonite (#77385)
+
+## About The Pull Request
+
+Drill module automatically disables if it's about to drill into
+gibtonite.
+
+## Why It's Good For The Game
+
+> Drill module automatically disables if it's about to drill into
+gibtonite
+
+There's not enough time to react, the mining scanner is surprisingly
+slow sometimes and it means you drill straight into gibtonite, which
+primes it the first drill and blows it up the second, which is a lot
+more of a pain than it sounds because drilling is night-instant. These
+explosions are usually enough to crit you, and if they don't, the stun
+and area clear means any fauna can wander in and finish you off.
+
+The auto-disable still makes it an annoyance to stumble upon gibtonite,
+but it won't round end you for using modsuits.
+
+## Changelog
+
+:cl:
+qol: Drill module automatically disables if it's about to drill into
+gibtonite
+/:cl:
+
+* Drill module automatically disables if it's about to drill into gibtonite
+
+---------
+
+Co-authored-by: carlarctg <53100513+carlarctg@users.noreply.github.com>
+
+---
+## [MidoriWroth/tgstation](https://github.com/MidoriWroth/tgstation)@[1c852d2863...](https://github.com/MidoriWroth/tgstation/commit/1c852d2863622bb24acf7511d7a9bb06813619fc)
+#### Friday 2023-08-11 03:27:06 by EOBGames
+
+Martian Food: A Taste of the Red Planet (#75988)
+
+## About The Pull Request
+Adds a selection of new foods and drinks based around Mars.
+More information on Mars can be found here:
+https://github.com/tgstation/common_core/blob/master/Interesting%20Planets/Human%20Space/The%20Sol%20System.md
+To summarise for the general audience, Mars is a vital colony of the
+Terran Federation, having been primarily settled (at least originally)
+by Cybersun Industries to harvest its lucrative supplies of plasma, the
+second largest in human space behind Lavaland. This has given Mars a
+diverse culture evolving from the mostly East Asian colonists, and their
+food reflects this.
+
+Thanks to Melbert for their work on the soup portion of this PR.
+
+The food:
+Martian cuisine draws upon the culinary traditions of East Asia, and
+adds in fusion cuisine from the later colonists. Expect classics such as
+ramen, curry, noodles and donburi, as well as new takes on the formula
+like the Croque-Martienne, Peanut Butter Ice Cream Mochi, and the
+Kitzushi- chilli cheese and rice inside a fried tofu casing. Oh, and
+lots of pineapple. The Martians love pineapple:
+
+![image](https://github.com/tgstation/tgstation/assets/58124831/c9ae33a1-e03a-4f94-8ce0-8ad124e88e8d)
+Also included are some foods for Ethereals, which may or may not be
+hinting at something I've got planned...
+
+The drinks:
+Four new base drinks make their way to the game, bringing with them a
+host of new cocktails: enjoy new ventures in bartending with Coconut
+Rum, Shochu/Soju, Yuyake (our favourite legally-distinct melon liqueur),
+and Mars' favourite alcoholic beverage, rice beer. Each is available in
+the dispenser, as well as bottles in the booze-o-mat:
+
+![image](https://github.com/tgstation/tgstation/assets/58124831/914a6e2a-7ef5-4791-ae31-d08fa9211083)
+
+The recipes:
+To make your (and the wiki editors) lives easier, please find below the
+recipes for both foods and drinks:
+Food: https://hackmd.io/@EOBGames/BkVFU0w9Y
+Drinks: https://hackmd.io/@EOBGames/rJ1OhnsJ2
+## Why It's Good For The Game
+Another lot of variety for the chef and bartender, as well as continuing
+the work started with lizard and moth food in getting Common Core into
+the game in a tangible and fun way.
+## Changelog
+:cl: EOBGames, MrMelbert
+add: Mars celebrates the 250th anniversary of the Martian Concession
+this year, and this has brought Martian cuisine to new heights of
+popularity. Find a new selection of Martian foods and drinks available
+in your crafting menu today!
+/:cl:
+
+---------
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+
+---
+## [ArcaneMusic/TG-Station-Arcane-Remix](https://github.com/ArcaneMusic/TG-Station-Arcane-Remix)@[297f7f88e8...](https://github.com/ArcaneMusic/TG-Station-Arcane-Remix/commit/297f7f88e866d4a17b27cb15c0b8ee606742bbf6)
+#### Friday 2023-08-11 03:30:46 by Sealed101
+
+Fixes things about goliaths: wallhacks/range hacks(no, really) and tentacles not spawning in mineral turfs; also fixes `find_potential_targets` wallhacks (#77393)
+
+## About The Pull Request
+
+Goliath's sand digging behaviour could potentially target a turf that's
+actually unreachable by the goliath, e.g.
+```
+G#
+#T
+```
+where G - goliath # - wall T - target turf. fixed that, but i think
+there could be something easier here, maybe instead grabbing turfs in
+goliath's `view()`? unsure
+
+The component goliaths use to telegraph their attacks
+(`basic_mob_attack_telegraph`) casts a `do_after()` to perform the
+attack, but it was not actually checking for the target staying in melee
+range, as it was using the source goliath as both `user` and `target`,
+so it didn't actually care at all for the target. Implemented an
+`extra_checks` to `Adjacent()` since that's the closest we get for melee
+range shenanigans I suppose
+This still allows the source basicmob to attack the target if the target
+moves around the source basicmob.
+
+`!`Goliaths were also able to summon tentacles on a target that moved
+into cover and still stayed in the `find_potential_targets` target
+range. Which meant more wallhacks. This was a thing for the base
+`find_potential_targets`, meaning that every basic mob using it was a
+dirty haxxor (or very vengeful). Fixed that by making
+`find_potential_targets` also check for `can_see()` before proceeding
+further down `find_potential_targets/perform()`. `!` The only exception
+to this check currently are bileworms.
+
+`!`Goliath tentacles were not spawning in mineral turfs as their
+`Initialize()` checked for closed turfs before handling mineral turf
+mining. Fixed that as well.
+
+## Why It's Good For The Game
+
+![Dr__Hax_by_Didgeridoo_Dealer](https://github.com/tgstation/tgstation/assets/75863639/fbcbfc1b-f489-435e-bb01-677f55398787)
+
+## Changelog
+
+:cl:
+fix: fixed goliaths digging sand that they can't actually reach (behind
+windows or inbetween closed turfs)
+fix: fixed goliaths melee attacking their target despite the target
+running away from goliath melee range
+fix: fixed goliath tentacles not spawning in mineral turfs
+fix: fixed goliaths summoning tentacles on targets that moved behind
+cover but stayed in their targeting range. this applies for most basic
+mobs, really, so if any basic mob was targeting you despite you hauling
+ass behind cover, they shouldn't anymore
+/:cl:
+
+---
+## [Meghna27si/Meghna27si](https://github.com/Meghna27si/Meghna27si)@[bf65d312a7...](https://github.com/Meghna27si/Meghna27si/commit/bf65d312a7507f1280769118029899ab36c855a9)
+#### Friday 2023-08-11 03:53:41 by Meghna  Si
+
+Update README.md
+
+Ambitious student of software engineering and enthusiast in cyber security and ethical hacking. Currently on track to become an AI engineer.
+I’m living the dream.
+
+I’ve always been a problem solver, an independent ambivert, and a technophile obsessed with the latest devices. Today, I’m getting familiar with modern technologies ...and I get to show off all these elements of who I am.
+
+I started learning to code when I was a teenager, though it was always more of a hobby than a career focus. After higher school education in pure science, and continuing to pursue that hobby, I realized software engineering was the right field for me.
+
+I’m familiar with a variety of programming languages, including JavaScript, HTML, CSS, Python, C, C++, but I’m always adding new skills to my repertoire. I’m also eager to meet other software engineers in the area.. Connect with me!”
+
+---
+## [nstankov-bg/evals](https://github.com/nstankov-bg/evals)@[30e35436be...](https://github.com/nstankov-bg/evals/commit/30e35436be663f416ce6d125f09f92a1faf70d12)
+#### Friday 2023-08-11 03:58:12 by Nazar
 
 Hard russian computer science tasks  (#1323)
 
@@ -2196,402 +1125,34 @@ $0$."}
 </details>
 
 ---
-## [broscolotos/Traincraft-5](https://github.com/broscolotos/Traincraft-5)@[013605055d...](https://github.com/broscolotos/Traincraft-5/commit/013605055d1d02e8c70c8be8483811be24f4333c)
-#### Thursday 2023-08-10 18:28:18 by broscolotos
+## [decryller/alma](https://github.com/decryller/alma)@[b08a68faba...](https://github.com/decryller/alma/commit/b08a68faba2e93b81c2572e151232afa60c13f42)
+#### Friday 2023-08-11 04:04:40 by decryller
 
-omg he did
+oh my god.
 
--Fixed dupe when breaking trains sometimes. Happened because an entity can die twice in a single tick??? dumb game
--Added page memory to the paint bucket GUI; when you open the UI it will default to the entities current skin instead of the default. Maybe add to config later
--Added "Random" button to paint bucket GUI. Will select and apply a random skin out of the available skins.
+fixed big fucking oopsie i didnt know you couldnt prototype templates
 
 ---
-## [Ua-Gi-Oh/UA_EDO](https://github.com/Ua-Gi-Oh/UA_EDO)@[05e12c5938...](https://github.com/Ua-Gi-Oh/UA_EDO/commit/05e12c5938e3b7318a9a6ea5f39b7feb5f16a461)
-#### Thursday 2023-08-10 19:03:42 by Ua-Gi-Oh
+## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[f9e6261d3b...](https://github.com/treckstar/yolo-octo-hipster/commit/f9e6261d3b47ba5810c636dca73e2b7d38f76adf)
+#### Friday 2023-08-11 04:22:03 by treckstar
 
-Перекладено карт
-
-1 - Yoko, the Graceful Mayakashi
-2 - Insect Armor with Laser Cannon
-3 - Dicephoon
-4 - Don Turtle
-5 - Appliancer Dryer Drake
-6 - Stealth Bird
-7 - Coach Soldier Wolfbark
-8 - Evilswarm Zahak
-9 - Allvain the Essence of Vanity
-10 - Dice Jar
-11 - White Duston
-12 - Latency
-13 - Link Back
-14 - Swordsman of Landstar
-15 - Crystolic Potential
-16 - Merlin
-17 - Shreddder
-18 - One Who Hunts Souls
-19 - Gagaga Girl
-20 - Endymion, the Mighty Master of Magic
-21 - Skull Guardian
-22 - Cyber Angel Idaten
-23 - Elemental HERO Great Tornado
-24 - The Legendary Fisherman
-25 - Ally of Justice Searcher
-26 - Cyber Valley
-27 - Overload Fusion
-28 - Knightmare Mermaid
-29 - Double Snare
-30 - Karakuri Cash Inn
+People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
 
 ---
-## [tagup/streamlit](https://github.com/tagup/streamlit)@[c464422e1b...](https://github.com/tagup/streamlit/commit/c464422e1bbea66b3184769ea22599356d710f9a)
-#### Thursday 2023-08-10 19:13:33 by Danny Wolf
+## [rd-stuffs/msm-4.14](https://github.com/rd-stuffs/msm-4.14)@[0b0995cd14...](https://github.com/rd-stuffs/msm-4.14/commit/0b0995cd143d38d54be2988d074caa8a62fc06fb)
+#### Friday 2023-08-11 04:29:19 by Yaroslav Furman
 
-Upgrade react-range to fix memory usage of sliders (#6764)
+power/supply: Force disable frame pointers and optimize for size
 
-As mentioned in
-https://blog.streamlit.io/six-tips-for-improving-your-streamlit-app-performance/
-memory usage struggles in the browser if you have large ranges:
+Holy fucking shit this is so retarded, it doesn't boot with frame pointers
+and this is possibly breaking the DS28E16 verification driver.
 
-> Due to implementation details, high-cardinality sliders don't suffer
-> from the serialization and network transfer delays mentioned earlier,
-> but they will still lead to a poor user experience (who needs to
-> specify house prices up to the dollar?) and high memory usage. In my
-> testing, the example above increased RAM usage by gigabytes until the
-> web browser eventually gave up (though this is something that should
-> be solvable on our end. We'll look into it!)
-
-This was caused by a bug in react-range, which I fixed last year.
-https://github.com/tajo/react-range/pull/178
-
-At the time, I had figured it would get picked up by a random yarn
-upgrade and didn't worry too much about it.
-But, apparently yarn doesn't really have an easy way of doing upgrades
-of transitive dependencies (see https://github.com/yarnpkg/yarn/issues/4986)?
-I took the suggestion of someone in that thread to delete the entry and
-let yarn regenerate it.
-
-Some technical details about the react-range fix from the original
-commit message (the "application" is a streamlit app):
-
-> We have an application that uses react-range under the hood, and we
-> noticed that a range input was taking 2GB of RAM on our machines. I
-> did some investigation and found that regardless of whether the marks
-> functionality was being used, refs were being created for each
-> possible value of the range.
-
-> We have some fairly huge ranges (we're using the input to scrub a
-> video with potential microsecond accuracy), and can imagine that
-> other people are affected by the previous behavior. This change
-> should allow us to continue using large input ranges without
-> incurring a memory penalty.
+Signed-off-by: Yaroslav Furman <yaro330@gmail.com>
+Change-Id: Ie3023c569516593d0224d416c95ada98efbc66d1
 
 ---
-## [EmanuelCN/kernel_xiaomi_sm8250](https://github.com/EmanuelCN/kernel_xiaomi_sm8250)@[70665e8fbe...](https://github.com/EmanuelCN/kernel_xiaomi_sm8250/commit/70665e8fbee178fa33c16d5e22f8252bf1ce7b82)
-#### Thursday 2023-08-10 19:19:25 by Peter Zijlstra
-
-sched/core: Fix ttwu() race
-
-Paul reported rcutorture occasionally hitting a NULL deref:
-
-  sched_ttwu_pending()
-    ttwu_do_wakeup()
-      check_preempt_curr() := check_preempt_wakeup()
-        find_matching_se()
-          is_same_group()
-            if (se->cfs_rq == pse->cfs_rq) <-- *BOOM*
-
-Debugging showed that this only appears to happen when we take the new
-code-path from commit:
-
-  2ebb17717550 ("sched/core: Offload wakee task activation if it the wakee is descheduling")
-
-and only when @cpu == smp_processor_id(). Something which should not
-be possible, because p->on_cpu can only be true for remote tasks.
-Similarly, without the new code-path from commit:
-
-  c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
-
-this would've unconditionally hit:
-
-  smp_cond_load_acquire(&p->on_cpu, !VAL);
-
-and if: 'cpu == smp_processor_id() && p->on_cpu' is possible, this
-would result in an instant live-lock (with IRQs disabled), something
-that hasn't been reported.
-
-The NULL deref can be explained however if the task_cpu(p) load at the
-beginning of try_to_wake_up() returns an old value, and this old value
-happens to be smp_processor_id(). Further assume that the p->on_cpu
-load accurately returns 1, it really is still running, just not here.
-
-Then, when we enqueue the task locally, we can crash in exactly the
-observed manner because p->se.cfs_rq != rq->cfs_rq, because p's cfs_rq
-is from the wrong CPU, therefore we'll iterate into the non-existant
-parents and NULL deref.
-
-The closest semi-plausible scenario I've managed to contrive is
-somewhat elaborate (then again, actual reproduction takes many CPU
-hours of rcutorture, so it can't be anything obvious):
-
-					X->cpu = 1
-					rq(1)->curr = X
-
-	CPU0				CPU1				CPU2
-
-					// switch away from X
-					LOCK rq(1)->lock
-					smp_mb__after_spinlock
-					dequeue_task(X)
-					  X->on_rq = 9
-					switch_to(Z)
-					  X->on_cpu = 0
-					UNLOCK rq(1)->lock
-
-									// migrate X to cpu 0
-									LOCK rq(1)->lock
-									dequeue_task(X)
-									set_task_cpu(X, 0)
-									  X->cpu = 0
-									UNLOCK rq(1)->lock
-
-									LOCK rq(0)->lock
-									enqueue_task(X)
-									  X->on_rq = 1
-									UNLOCK rq(0)->lock
-
-	// switch to X
-	LOCK rq(0)->lock
-	smp_mb__after_spinlock
-	switch_to(X)
-	  X->on_cpu = 1
-	UNLOCK rq(0)->lock
-
-	// X goes sleep
-	X->state = TASK_UNINTERRUPTIBLE
-	smp_mb();			// wake X
-					ttwu()
-					  LOCK X->pi_lock
-					  smp_mb__after_spinlock
-
-					  if (p->state)
-
-					  cpu = X->cpu; // =? 1
-
-					  smp_rmb()
-
-	// X calls schedule()
-	LOCK rq(0)->lock
-	smp_mb__after_spinlock
-	dequeue_task(X)
-	  X->on_rq = 0
-
-					  if (p->on_rq)
-
-					  smp_rmb();
-
-					  if (p->on_cpu && ttwu_queue_wakelist(..)) [*]
-
-					  smp_cond_load_acquire(&p->on_cpu, !VAL)
-
-					  cpu = select_task_rq(X, X->wake_cpu, ...)
-					  if (X->cpu != cpu)
-	switch_to(Y)
-	  X->on_cpu = 0
-	UNLOCK rq(0)->lock
-
-However I'm having trouble convincing myself that's actually possible
-on x86_64 -- after all, every LOCK implies an smp_mb() there, so if ttwu
-observes ->state != RUNNING, it must also observe ->cpu != 1.
-
-(Most of the previous ttwu() races were found on very large PowerPC)
-
-Nevertheless, this fully explains the observed failure case.
-
-Fix it by ordering the task_cpu(p) load after the p->on_cpu load,
-which is easy since nothing actually uses @cpu before this.
-
-Fixes: c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
-Reported-by: Paul E. McKenney <paulmck@kernel.org>
-Tested-by: Paul E. McKenney <paulmck@kernel.org>
-Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
-Signed-off-by: Ingo Molnar <mingo@kernel.org>
-Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
-Change-Id: I40e0e01946eadb1701a4d06758e434591e5a5c92
-
----
-## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[1c852d2863...](https://github.com/tgstation/tgstation/commit/1c852d2863622bb24acf7511d7a9bb06813619fc)
-#### Thursday 2023-08-10 20:22:10 by EOBGames
-
-Martian Food: A Taste of the Red Planet (#75988)
-
-## About The Pull Request
-Adds a selection of new foods and drinks based around Mars.
-More information on Mars can be found here:
-https://github.com/tgstation/common_core/blob/master/Interesting%20Planets/Human%20Space/The%20Sol%20System.md
-To summarise for the general audience, Mars is a vital colony of the
-Terran Federation, having been primarily settled (at least originally)
-by Cybersun Industries to harvest its lucrative supplies of plasma, the
-second largest in human space behind Lavaland. This has given Mars a
-diverse culture evolving from the mostly East Asian colonists, and their
-food reflects this.
-
-Thanks to Melbert for their work on the soup portion of this PR.
-
-The food:
-Martian cuisine draws upon the culinary traditions of East Asia, and
-adds in fusion cuisine from the later colonists. Expect classics such as
-ramen, curry, noodles and donburi, as well as new takes on the formula
-like the Croque-Martienne, Peanut Butter Ice Cream Mochi, and the
-Kitzushi- chilli cheese and rice inside a fried tofu casing. Oh, and
-lots of pineapple. The Martians love pineapple:
-
-![image](https://github.com/tgstation/tgstation/assets/58124831/c9ae33a1-e03a-4f94-8ce0-8ad124e88e8d)
-Also included are some foods for Ethereals, which may or may not be
-hinting at something I've got planned...
-
-The drinks:
-Four new base drinks make their way to the game, bringing with them a
-host of new cocktails: enjoy new ventures in bartending with Coconut
-Rum, Shochu/Soju, Yuyake (our favourite legally-distinct melon liqueur),
-and Mars' favourite alcoholic beverage, rice beer. Each is available in
-the dispenser, as well as bottles in the booze-o-mat:
-
-![image](https://github.com/tgstation/tgstation/assets/58124831/914a6e2a-7ef5-4791-ae31-d08fa9211083)
-
-The recipes:
-To make your (and the wiki editors) lives easier, please find below the
-recipes for both foods and drinks:
-Food: https://hackmd.io/@EOBGames/BkVFU0w9Y
-Drinks: https://hackmd.io/@EOBGames/rJ1OhnsJ2
-## Why It's Good For The Game
-Another lot of variety for the chef and bartender, as well as continuing
-the work started with lizard and moth food in getting Common Core into
-the game in a tangible and fun way.
-## Changelog
-:cl: EOBGames, MrMelbert
-add: Mars celebrates the 250th anniversary of the Martian Concession
-this year, and this has brought Martian cuisine to new heights of
-popularity. Find a new selection of Martian foods and drinks available
-in your crafting menu today!
-/:cl:
-
----------
-
-Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
-
----
-## [sorbet/sorbet](https://github.com/sorbet/sorbet)@[6a1084aa55...](https://github.com/sorbet/sorbet/commit/6a1084aa558fbf334ccb605e40f347c6fa7f5069)
-#### Thursday 2023-08-10 21:10:50 by Jake Zimmerman
-
-Factor some common code (#7202)
-
-* Factor some common code
-
-I was seeing some crashes that arise because we were desugaring `begin;
-end` to `EmptyTree`.
-
-That's super annoying when it happens, because EmptyTree is the only
-node in Sorbet's AST that doesn't have a loc (it doesn't have a loc so
-that we can manage to allocate only one of them and share it across all
-trees).
-
-Which honestly, is kind of dumb these days anyways? Because the
-EmptyTree will get inlined into the pointer, so it's not like we're
-actually allocating memory for the EmptyTree. We're just clinging to our
-old habits.
-
-Anyways, `Kwbegin` is `begin; end` while `Begin` is `( )` (because of
-course `x = ()` is valid Ruby). Their implementations in desugar were
-identical, except that `()` desugared to `Nil` instead of `EmptyTree`,
-and thus got a loc. That's the behavior I want, so I factored out a
-helper and used it in both places.
-
-(Maybe in a future change change I'll make it so that EmptyTree is no
-longer shared globally, but that's a problem for some other day.)
-
-* Update exp files
-
-* Remove this error
-
-Sorbet infers the type as `NilClass` now.
-
----
-## [TheNeoGamer42/Echo-SS13](https://github.com/TheNeoGamer42/Echo-SS13)@[ee4021c507...](https://github.com/TheNeoGamer42/Echo-SS13/commit/ee4021c50792c11bfd21085156edd32200c21cb8)
-#### Thursday 2023-08-10 21:34:56 by Imaginos16
-
-Destroying Sprite Cruft Part One: Cruft Sucks (#2220)
-
-<!-- Write **BELOW** The Headers and **ABOVE** The comments else it may
-not be viewable. -->
-<!-- You can view Contributing.MD for a detailed description of the pull
-request process. -->
-
-## About The Pull Request
-Title
-
-
-![image](https://github.com/shiptest-ss13/Shiptest/assets/77556824/1cedcdb1-01b5-4f28-a759-65428c2dcd0a)
-
-In total, the:
-
-- IV Drip
-- All-In-One Grinder
-- Book Binder
-- Book Scanner
-- Water Cooler
-- Tank Dispenser
-
-Have all been successfully uncrufted. No more cruft. Just clean sprites
-now :D
-
-Oh and dressers have directionals now at the request of @Bjarl 
-
-Credit goes to the original authors in the changelog.
-
-<!-- Describe The Pull Request. Please be sure every change is
-documented or this can delay review and even discourage maintainers from
-merging your PR! -->
-
-## Why It's Good For The Game
-begone cruft I fucking hate cruft
-<!-- Please add a short description of why you think these changes would
-benefit the game. If you can't justify it in words, it might not be
-worth adding. -->
-
-## Changelog
-
-:cl: PositiveEntropy, Maxymax13, Wallemations, Kryson,
-Viro/Axietheaxolotl, MeyHaZah
-imageadd: Books, IV drips, tank dispensers, all-in-one grinders, water
-coolers, book binders and book scanners have been resprited!
-imageadd: Dressers now have directionals!
-/:cl:
-
-<!-- Both :cl:'s are required for the changelog to work! You can put
-your name to the right of the first :cl: if you want to overwrite your
-GitHub username as author ingame. -->
-<!-- You can use multiple of the same prefix (they're only used for the
-icon ingame) and delete the unneeded ones. Despite some of the tags,
-changelogs should generally represent how a player might be affected by
-the changes rather than a summary of the PR's contents. -->
-
----
-## [Fennec82/ChaosStation--Coyote-Bayou](https://github.com/Fennec82/ChaosStation--Coyote-Bayou)@[f26fec823d...](https://github.com/Fennec82/ChaosStation--Coyote-Bayou/commit/f26fec823d7d769507a58776ceb2ecf9622f3de4)
-#### Thursday 2023-08-10 21:37:40 by Tk420634
-
-Unleashing the void
-
-If I want to play as the literal Void from Hallow Knight I fucking will, fuck you Poojawa.
-
----
-## [haflettjm/odin-Signupform](https://github.com/haflettjm/odin-Signupform)@[2f4e5c0f29...](https://github.com/haflettjm/odin-Signupform/commit/2f4e5c0f29b2da23d6c7507e5b130757a595f441)
-#### Thursday 2023-08-10 21:39:28 by Jacob Haflett
-
-Styling boxes re-did whole design and updating and aligning divs I hate my life
-
----
-## [Wallemations/heavenstation](https://github.com/Wallemations/heavenstation)@[6c34d93be7...](https://github.com/Wallemations/heavenstation/commit/6c34d93be715012943626d0f812e99f730a536ef)
-#### Thursday 2023-08-10 22:01:47 by necromanceranne
+## [lizardqueenlexi/orbstation](https://github.com/lizardqueenlexi/orbstation)@[6c34d93be7...](https://github.com/lizardqueenlexi/orbstation/commit/6c34d93be715012943626d0f812e99f730a536ef)
+#### Friday 2023-08-11 04:30:55 by necromanceranne
 
 Nukies Update 7: Hats (Also massive uplink standardization, weapon kits and ammo changes) (#77330)
 
@@ -2815,8 +1376,8 @@ code: Updated the nuclear operative uplink files.
 /:cl:
 
 ---
-## [Wallemations/heavenstation](https://github.com/Wallemations/heavenstation)@[95ec0e6545...](https://github.com/Wallemations/heavenstation/commit/95ec0e65458ece9c5c80952e75d5d32c4fbb794b)
-#### Thursday 2023-08-10 22:01:47 by necromanceranne
+## [lizardqueenlexi/orbstation](https://github.com/lizardqueenlexi/orbstation)@[95ec0e6545...](https://github.com/lizardqueenlexi/orbstation/commit/95ec0e65458ece9c5c80952e75d5d32c4fbb794b)
+#### Friday 2023-08-11 04:30:55 by necromanceranne
 
 Dissection experiments are handled by autopsy surgery. Removes redundant dissection surgery. You can repeat an autopsy on someone who has come back to life. (#77386)
 
@@ -2883,46 +1444,151 @@ dissected (and thus hasn't been revived) by examining them.
 Co-authored-by: Jacquerel <hnevard@gmail.com>
 
 ---
-## [LM95A1/Project-Epsilon-4](https://github.com/LM95A1/Project-Epsilon-4)@[a38e8eb04c...](https://github.com/LM95A1/Project-Epsilon-4/commit/a38e8eb04c3e040d254248a24bb0a765b9fbcb6c)
-#### Thursday 2023-08-10 22:12:38 by LM95A1
+## [Peliex/tgstation](https://github.com/Peliex/tgstation)@[385ab7a166...](https://github.com/Peliex/tgstation/commit/385ab7a1667250947d480725949bec924ce4ac8a)
+#### Friday 2023-08-11 04:39:28 by Pickle-Coding
 
-Acquired a Tuesday
+Changeling armblade gets 35% armour penetration + better wounding. (#77416)
 
-Added templates directory to house index.html
-Updated spiderweb.py since the original was f**ked
-Updated script.js for additional features
-Updated style.css to add a bunch of different options, many of which may remain unused
-Added pokeball.png in images directory; I was sick of the f**king paw logo
+## About The Pull Request
+Gives the changeling armblade an armour penetration of 35%. Sets their
+bare_wound_bonus to 10 (from 20), and a wound_bonus of 10 (from -20).
+## Why It's Good For The Game
+The wound bonuses basically gave massive punishment if they attacked
+anything but the skin. It honestly felt kinda lame. The better wounding
+potential will help bring a bloodier and more exciting atmosphere when a
+changeling whips out the blade.
 
-Been experimenting with the structure of the dashboard and the features of the Pokedex to better fit what we're trying to do. Making progress at a very slow rate, given the time constraints and outside obligations piling up. Bad timing, yeah? Gonna have to go full throttle with this tonight and tomorrow.
-
----
-## [treckstar/yolo-octo-hipster](https://github.com/treckstar/yolo-octo-hipster)@[af5a815192...](https://github.com/treckstar/yolo-octo-hipster/commit/af5a815192f61a41703a4aa0552a5fefe3384ddf)
-#### Thursday 2023-08-10 22:22:04 by treckstar
-
-People listen up don't stand so close, I got somethin that you all should know. Holy matrimony is not for me, I'd rather die alone in misery.
-
----
-## [peff/git](https://github.com/peff/git)@[bd7e41ab4f...](https://github.com/peff/git/commit/bd7e41ab4f23ab57b4307b69b6f62efa489bc6aa)
-#### Thursday 2023-08-10 22:37:21 by Jeff King
-
-commit: give a hint when a commit message has been abandoned
-
-If we launch an editor for the user to create a commit
-message, they may put significant work into doing so.
-Typically we try to check common mistakes that could cause
-the commit to fail early, so that we die before the user
-goes to the trouble.
-
-We may still experience some errors afterwards, though; in
-this case, the user is given no hint that their commit
-message has been saved. Let's tell them where it is.
-
-Signed-off-by: Jeff King <peff@peff.net>
+The armour penetration will help reduce dragged out fights that get a
+little silly, while keeping the wounding more consistent.
+## Changelog
+:cl:
+balance: Changeling arm blade has an armour penetration of 35%.
+balance: Changeling arm blade has a wound bonus of 10, from -20.
+balance: Changeling has a bare wound bonus of 10, from 20.
+/:cl:
 
 ---
-## [colinhacks/next.js](https://github.com/colinhacks/next.js)@[e06880ea4c...](https://github.com/colinhacks/next.js/commit/e06880ea4c061fc5c298b262d01f347edd8dce74)
-#### Thursday 2023-08-10 23:40:02 by Josh Story
+## [jalenng/Draw](https://github.com/jalenng/Draw)@[f286df5ff3...](https://github.com/jalenng/Draw/commit/f286df5ff3f2ffd3501f5e716df7acf7c0de8665)
+#### Friday 2023-08-11 05:07:01 by spicywheatbread
+
+Add files for SFX (#39)
+
+* Basic SFX Added
+
+Added placeholder sound effects to things like jumping and dying.
+
+(cherry picked from commit e721f5ff4a91ac3e89c323e4e900a352f9b02ebf)
+
+* More SFX
+
+Added new page flip sound, added sounds to return buttons in menus, more work to be done on this but just uploading so I can work on this from my laptop at school
+
+(cherry picked from commit 17ef3bacf1a95b3778570ce80ec9582177c4649c)
+
+* SFX files and settings menu
+
+Added some sound files for sfx and light changes for the settings menu to continue to work on later.
+
+(cherry picked from commit 571e9bcd4503ab057ca9b09099a4f41f4f9d562f)
+
+* Sorry this is a bunch of random changes lmao. Added ambiences to NathanP2, the Prefab to play Ambience. Also, added new respawnManager to respawn necesasry objects like OrangeObjects and ScribbleWall. Moved some scripts into folders. Random level fixes for Mike, Claire, etc from playtesting.
+
+(cherry picked from commit b1b9afbf29567d345e08e4a96ca4f4da3b63e885)
+
+* sfx added + slider func
+
+Added some more sound effects, sliders in settings menu now play a sound to reflect their real volumes, added looping sound to drawing canvases.
+
+(cherry picked from commit 8007a22b04b5dde97c5cbfba0ebc9ccc8ab904c2)
+
+* I'm not gonna lie. I don't remember what I changed
+about the levels, but I'm PRETTY sure it's something.
+Mostly, Stickman now stops walking animation when walking into a wall
+and stops playing footstepSFX as well. PageflipSFX when finishing level.
+Quick logic fix for levelendtrigger b/c it would call loadnextscene
+multiple times. Made audiosystem global so it's easier to code.
+
+(cherry picked from commit 65a49121750f5d3fb48a452b08b4d0063a770bdd)
+
+* Forgot to commit the change for the animation
+controller update.
+
+(cherry picked from commit b6cd4de1442639ee872adb574f27acf95450c4dd)
+
+* Delete it.
+
+I hate it. new page flip wav meta
+
+---
+## [asutherland/mozsearch](https://github.com/asutherland/mozsearch)@[5111bf96fa...](https://github.com/asutherland/mozsearch/commit/5111bf96fa0cbb9d50949718a86b7760b86a1a42)
+#### Friday 2023-08-11 05:28:39 by Andrew Sutherland
+
+Allow diagramming C++ includes in both directions; adds `calls-from` and UI.
+
+We make it possible to visualize C++ includes by:
+- Hackily attaching context/contextsym to file includes in crossref.  This
+  is something that MozsearchIndexer.cpp could/should instead generate but
+  that's a follow-up.
+- Creating a synthetic "structured" record for files as we ingest them
+  in the crossref.  This is also something that I guess the indexers could
+  create, although there is the interesting situation that we could add
+  information about the generators to the structured records, and there's no
+  way that the C++ indexer would know that, so there may be an argument for
+  not bothering with that.
+- For the generated HTML, adding a weird looking "(file symbol)" after the
+  breadcrumbs that you can click on to get a context menu to be able to
+  request the diagrams.
+  - This also required a change to make sure we always insert the jumpref
+    for the file in the file, otherwise we wouldn't have the symbol data.
+- I also messed up and reformatted "output.rs", but frankly this is a good
+  test of the new token-centric diff magic, so I'm going to leave it in.
+- I added `calls-from` which I was scared of exposing before because I had
+  such bad experiences with this being useless in the fancy-branch
+  prototype.  This will probably need a follow-up to make sure that by
+  default it avoids calls out of the current sub-system or at least into
+  XPCOM and MFBT, as those were the real problems and required marking some
+  code as explicitly boring.  Maybe that could come from the ontology
+  mechanism now that we have it.  We declare some modules as infra/etc.
+
+---
+## [microsounds/microsounds.github.io](https://github.com/microsounds/microsounds.github.io)@[538da9ea69...](https://github.com/microsounds/microsounds.github.io/commit/538da9ea69e0fcbb4871348231b0da6b75a2b639)
+#### Friday 2023-08-11 06:06:43 by microsounds
+
+notes/figures: suruga-ya.com (not .jp) order got canceled cus they suck
+
+(is this a stupid blogpost? probably, i don't feel like putting it on the main
+site tho)
+
+so basically i ordered 2 scale figures and 10 nendoroids with free shipping
+during a free int'l shipping promotion, the DHL shipping alone would have
+probably cost them ¥70,000 alone, just slightly more than my order total, and
+obviously they refused to honor it and they ended the promotion early (meant to
+run until aug 10th) so nobody would have a chance to reorder in time, also they
+increased prices of everything on their site 10-25% to screw with us dirty
+gaijins, just use the japanese domestic site (.jp) and a forwarding service,
+suruga-ya.com sucks hard and you have zero reason to use it, they have a tiny
+fraction of the .jp site's merchandise anyway.
+
+they were running a free shipping sale for international customers at the time
+(july 27-aug 2, 2023) and were hemhoraging money shipping international DHL and
+looking for any excuse to cancel large orders, including dumb things like CC
+billing address not matching shipping address or large orders over ¥7,000 being
+made on a new account with no prior order history being "autocanceled" by their
+fraud protection, incompetent fucks literally tied up their own inventory
+(marked as sold out) for 2 weeks and probably even boxed it up too before they
+decided to actually attempt billing and subsequently cancel my order
+
+in any case, this is literally never happening again and was very likely a
+mistake on their end that they even canceled the sale early, they were sending
+the same size boxes they use for domestic japanese orders and it doesn't matter
+usually because japan post charges by weight and not package volume, not so in
+international air parcels! These cost a shit-ton to ship DHL or EMS to the
+U.S., imagine blowing ¥44,500 to ship a 40x30x18cm, 1kg box containing ¥1,100
+in goods. Why don't they offer surface mail, I don't mind the 3-4mo wait really.
+
+---
+## [li-jia-nan/next.js](https://github.com/li-jia-nan/next.js)@[e06880ea4c...](https://github.com/li-jia-nan/next.js/commit/e06880ea4c061fc5c298b262d01f347edd8dce74)
+#### Friday 2023-08-11 06:51:03 by Josh Story
 
 Implement new forking technique for vendored packages. (#51083)
 
@@ -3012,10 +1678,1942 @@ See: https://github.com/vercel/nft/pull/354
 * I removed `.sharedlayer` since this concept is leaky (not really related to the client/server boundary split) and it is getting refactored anyway soon into a precompiled runtime.
 
 ---
-## [youngfeiler/SmartBetter-website](https://github.com/youngfeiler/SmartBetter-website)@[61aa943eea...](https://github.com/youngfeiler/SmartBetter-website/commit/61aa943eeaa1cdb36509b059bba43ffa55a42061)
-#### Thursday 2023-08-10 23:50:57 by micahcb
+## [petre-symfony/symfony-asset-mapper-2023](https://github.com/petre-symfony/symfony-asset-mapper-2023)@[66f3fb9ba5...](https://github.com/petre-symfony/symfony-asset-mapper-2023/commit/66f3fb9ba55717c2632502eaf827fdb0ae92828d)
+#### Friday 2023-08-11 07:44:49 by Petre Ro
 
-ahhhhhh helppppp my brain its FUCK FUCK shit balls
+9.2 Our problem is that we need to add the .js. It turns out that leaving the .js off is a Node thing... and it works if you're programming in Node. But in true JavaScript environments, like in your browser, you do need to include it.
+
+ If we refresh now... that was it! It was really my editor's fault that the .js was missing when it autocompleted it. Fortunately, we can fix that! Go into your PhpStorm settings and search for "use file extension". Under "Code Style" and "JavaScript", change "Use file extension" to "Always".
+
+ This time... if we say import Vinyl and hit "tab", nice! We get the .js.
+
+ Automatic Importmap Entries
+ - But the fun doesn't stop: there's something interesting happening behind the scenes. Click into this console.log()... just as an easy way to see the source of the final app.js file.
+
+ Yup, its contents look exactly like the original file, including the import from './lib/vinyl.js'. There's just one problem: that's not the final filename for vinyl.js!
+
+ Pop over to the Network tools, select "JS", and search for "vinyl". All files served by AssetMapper have a versioned part of their file name, and we see that for vinyl.js. But then... how the heck does our browser read ./lib/vinyl.js and know that it should download this long filename?
+
+ The answer, if you view the page source, is... dramatic drumroll... the importmap. And I love this. The importmap is constructed from two sources. The first source is obvious: importmap.php. And we'll add more entries to it soon. The second source is more subtle. Whenever our JavaScript imports another JavaScript file using a relative path, that imported file is automatically added.
+
+ This is powerful. It means that our final code can look like it originally does: ./lib/vinyl.js. But thanks to the importmap, our browser will smartly download the real file with the long version part in the name. This is really an internal detail, but it's cool to see how it works.
+
+ Okay, we've talked about importmaps a little... but we haven't seen its biggest superpower: using third party packages. Let's explore that next.
+
+---
+## [petre-symfony/symfony-asset-mapper-2023](https://github.com/petre-symfony/symfony-asset-mapper-2023)@[fda538097c...](https://github.com/petre-symfony/symfony-asset-mapper-2023/commit/fda538097c29781d6f1c57c3bb73b8d943643ce7)
+#### Friday 2023-08-11 07:44:49 by Petre Ro
+
+9.1 JavaScript & importmap
+
+ Remove the <img> tag, so we can see our normal page. Don't worry about our little penguin guy: we still have him up here in the logo.
+
+ When we refresh the page, notice that we do have a console.log() message... which says it's coming from assets/app.js. If we head over to assets/app.js... yup! There it is!
+
+ 8 lines  assets/app.js
+ console.log('This log comes from assets/app.js - welcome to AssetMapper! 🎉')
+
+ How assets/app.js is Loaded
+ - We know that we can write modern ES6 code in here, as well as import other files. We're going to do all of that. But first: How and why is this file even being executed? Our CSS is being loaded thanks to this nice, boring <link> tag. We don't see a <script> tag for app.js... but we do see this importmap() function. And that's the key.
+
+ Back over on the site, View the page source. Down here... this is what importmap adds. We're going to talk about each part, but the most important thing right now is at the bottom:
+
+  <script type="module">import 'app';</script>
+ Earlier, when we created an app.js file inside the public/ directory, this is almost exactly the code we wrote to load it. We used import and then the path to that file. But... this time, it just says app. Shouldn't it say something like /assets/app.12345.js"? How does it know that app refers to the final version of this file? This is where the importmap part, up here, shines.
+
+ The Wonderful importmap
+ - This section is generated from an importmap.php file inside our project. The file isn't super-interesting yet: it'll be more useful soon when we talk about third party JavaScript. But it does have this app key that points to our assets/app.js file using its logical path.
+
+ 22 lines  importmap.php
+return [
+    'app' => [
+        'path' => 'app.js',
+        'preload' => true,
+    ],
+];
+ Thanks to that, this <script type="importmap"> dumps onto the page. When you import something that doesn't start with a ".", "/", or "../", that's called a bare import. We usually see this for third-party libraries. In the browser environment, when it sees a "bare import", your browser looks for an importmap on the page to find a matching entry. Our browser sees import 'app', finds this key here, and that's the path it downloads. It effectively copies this path here and pastes it down there. That's why our app.js file is being executed: it's team work between the importmap and the extra <script type="module"> that bootstraps our app!
+
+ The greatest thing about importmap is that it's not a Symfony thing: it's just an internet thing. It's how your browser works. We do have this importmap.php file, which is a Symfony thing. But once this is on the page, your browser is the star.
+
+ The importmap shim + Older Browsers
+ - And importmap works in... most browsers. If you go to "caniuse.com" and search for "importmap"... it currently works in about 81% of browsers. That would be a huge problem, except that the importmap() function also dumps a shim. You can see that here. Thanks to this, if a browser doesn't support importmap, this adds that functionality. So, it's just going to work.
+
+ Importing Relative JavaScript Files
+ - Head into app.js: let's write some modern code. In assets/, first create a new directory called lib/. And inside that, a new file called vinyl.js. You can organize things however you want, and this is one example of isolating some code into its own file.
+
+ I'll paste in the same class we had earlier. Back over in app.js, import that: import Vinyl and I can hit "tab" to autocomplete the from './lib/vinyl' part. Instantiate this using the same code as before... and then console.log(mix.describe()).
+
+ Using .js when Importing
+ - I love it! We're coding like normal and using ./ to import. But when we go over and refresh... it doesn't work. Check out the 404: /assets/lib/vinyl coming from app.js.
+
+ So... what's going on here? We'll talk more later about debugging, but here's a hint: if you ever notice that your browser is trying to download a path that doesn't include the "version" part in the filename, something is wrong with your path... and you should check for typos.
+
+---
+## [sALTaccount/SuishaBot](https://github.com/sALTaccount/SuishaBot)@[7ce43ddde0...](https://github.com/sALTaccount/SuishaBot/commit/7ce43ddde047ef066e43474e468399569d3a543c)
+#### Friday 2023-08-11 07:45:06 by saltacc
+
+Create LICENSE.md
+
+add "DO WHAT THE FUCK YOU WANT TO" license
+
+---
+## [newstools/2023-new-york-post](https://github.com/newstools/2023-new-york-post)@[587f01a0de...](https://github.com/newstools/2023-new-york-post/commit/587f01a0de5e9204fe8025fcfec58ce296bb6cbc)
+#### Friday 2023-08-11 07:57:28 by Billy Einkamerer
+
+Created Text For URL [nypost.com/2023/08/10/my-ex-boyfriend-made-me-physically-sick-my-body-rejected-him/]
+
+---
+## [NetBSD/pkgsrc](https://github.com/NetBSD/pkgsrc)@[d7a326901d...](https://github.com/NetBSD/pkgsrc/commit/d7a326901dfc86d83f3556d79876519db53b955f)
+#### Friday 2023-08-11 08:15:55 by mef
+
+(math/R-quantreg) Updated 5.88 to 5.96
+
+(From: inst/ChangeLog)
+5.89
+
+1.  removed the anonymous function syntax in 5.87 #2 since it did provoke
+complaints from users.
+
+2.  Fixed bootstrap methods for sparse X matrices for wild and pwy methods
+report by Tom Parker.
+
+a  mcmb is hopeless since it doesnt know about sparse matrices, will add
+something to man page
+b  pwy problem was annoying in the sense that rbind(X,0) doesnt work in
+SparseM because 0 isnt sparse! Duh.
+c  wild problem revealed an ecosystem of bugs, even in the non-sparse
+case there was a bug:  hat(X) was called but should have specified hat(X,
+intercept = FALSE),  when X is sparse I needed to cook up a special version of hat.
+
+5.91
+
+1.  CRAN is doing more severe checking about installed packages, so several
+changes were made to make calls to suggested packages conditional on their
+loading status.  This is supposed to be checkable by setting the environment
+variable  _R_CHECK_DEPENDS_ONLY_="true" R CMD check ...    but I haven't yet
+gotten this to work.
+
+5.93
+
+1.  The problem referenced in 5.91 above was mainly due to the fact that
+packages were put in the system library not my personal library.  This was
+fixed by reinstalling so that now:
+
+Sys.getenv("R_LIBS_USER")
+[1] "/Users/roger/Library/R/x86_64/4.2/library"
+
+and now adding to .Renviron
+
+_R_CHECK_DEPENDS_ONLY_=true
+
+I believe will trigger the checking without the dependencies as required.
+
+5.94
+
+1.  Albrecht Gebhardt has made a translation of the Renka interp functionality
+used for bivariate smoothing by rqss.  This effectively eliminates the need
+for tripack in quantreg, and the code as been modified accordingly, thanks to
+Albrecht for all his efforts on this.  This is all due to the unfortunate ACM
+TOMS licencing policy that is incompatible with R.
+
+2. Brian Ripley noted that the DOI for my CUP book was broken and I have urged
+them to fix this.
+
+3.  Minor bug fix in crq for case that the user specifies a single tau value.
+
+5.95
+
+1.  modified rqss to use rgl.triangles3d instead of rgl.triangles as suggested
+by Duncan Murdock
+
+2.  modified predict.rq and friends to adapt to na.action as suggested in
+email of ggrothendieck@gmail.com on 5 April 2023.
+
+5.96
+
+1.  Changed gtimer to return 0.0 at suggestion of BDR to facilitate
+compatibility with flang.
+
+---
+## [PastelPrinceDan/Bubberstation](https://github.com/PastelPrinceDan/Bubberstation)@[a1609c4536...](https://github.com/PastelPrinceDan/Bubberstation/commit/a1609c4536fe05f95560bd1a1be4607b944ee5a5)
+#### Friday 2023-08-11 08:52:07 by SkyratBot
+
+[MIRROR] [NO GBP] Fixes clown car + deer collision  [MDB IGNORE] (#22709)
+
+* [NO GBP] Fixes clown car + deer collision  (#77076)
+
+## About The Pull Request
+
+A not-so-long time ago I drunkenly coded #71488 which did not work as
+intended.
+
+I return now, in a state of reflective sobriety, to rectify that.
+
+The clown car will now not only crash like it should, but will also
+cause (additional) head injuries to some occupants and kill the deer on
+impact.
+
+Content warnings: **Animal death, vehicle collision, blood, DUI.**
+
+https://github.com/tgstation/tgstation/assets/28870487/4889f452-7e49-4512-8cdd-e4e2a4d6b394
+## Why It's Good For The Game
+
+Fixes the product of a silly PR that never actually worked. Also gives
+it a bit more TLC in the event that this joke actually plays out on a
+live server.
+## Changelog
+:cl:
+fix: Clown cars now properly collide with deer.
+sound: Violent, slightly glassy car impact sound.
+/:cl:
+
+* [NO GBP] Fixes clown car + deer collision
+
+---------
+
+Co-authored-by: Rhials <28870487+Rhials@users.noreply.github.com>
+
+---
+## [VauxhallFoodbank/vauxhall-foodbank](https://github.com/VauxhallFoodbank/vauxhall-foodbank)@[37269a265a...](https://github.com/VauxhallFoodbank/vauxhall-foodbank/commit/37269a265ac2c0b1df60284db7ce4b3470966e74)
+#### Friday 2023-08-11 10:02:02 by Varun Latthe
+
+Test fix for failing e2e tests
+
+wrap login panel in NoSsr
+
+actually fix authentication flow
+
+hopefully this works
+
+I think this might actually work...
+
+this maybe actually works hopefully
+
+Can I just wait?
+
+Get rid of url checks and only check headings
+
+fix dodgy rebase
+
+fix use of useRouter
+
+raise defaultCommandTimeout
+
+does this work?
+
+does this work??
+
+final e2e test fix i think
+
+???
+
+fix lint
+
+maybe this'll work
+
+update workflow to include screenshots and videos
+
+turn on video and screenshot capture
+
+auto-delete artifacts and lower video compression ratio
+
+re-implement NoSsr on the login panel
+
+maybe a different login panel will work
+
+simplify login panel
+
+fix simplified login panel to work with tests
+
+fix accessibility
+
+wait for hydration
+
+wait a second
+
+fix lint
+
+stop failing i stg
+
+T.T
+
+remove hydration marker
+
+Add retry login
+
+all my homies hate race conditions
+
+If this doesn't work I'm not sure what I'm doing icl
+
+sign in doesn't sign in
+
+forgot I removed this
+
+revert to original login panel
+
+click the correct button
+
+imagine this works
+
+me when the fix doesn't work
+
+when it works locally
+
+I have a good feeling about this one
+
+add another check idk anymore
+
+this is an act of desparation
+
+i feel like i'm trying the same things again and again
+
+would be a shame if this works
+
+wins all around
+
+theoretically this works
+
+give up
+
+waiting...
+
+this genuinely might actually work
+
+---
+## [argilla-io/argilla](https://github.com/argilla-io/argilla)@[2f2a113352...](https://github.com/argilla-io/argilla/commit/2f2a11335289d660ce20aea11c9b969b0316fd2b)
+#### Friday 2023-08-11 10:40:43 by peppinob-ol
+
+[DOCS] Code Refactoring and content update of quickstart_workflow.ipynb (#3472)
+
+<!-- Thanks for your contribution! As part of our Community Growers
+initiative 🌱, we're donating Justdiggit bunds in your name to reforest
+sub-Saharan Africa. To claim your Community Growers certificate, please
+contact David Berenstein in our Slack community or fill in this form
+https://tally.so/r/n9XrxK once your PR has been merged. -->
+
+# Description
+
+I found the quickstart workflow not as quick as it could be:
+
+- Cells cannot be run straightaway in google colab and need extra work
+(eg. libraries not imported).
+- Some important concepts (eg. records and datasets) are not clearly
+stated in text and code snippets
+- Text refers to the same steps more than once (no clear chain of
+thought)
+- Cells override the same variable (eg. record), so the feeling is more
+of a cheatsheet than of a tutorial notebook
+- Content is not updated (eg. ArgillaTrainer is not ever mentioned in
+the Train section)
+
+I worked on a new version of the notebook with enhanced code and text
+cells.Ii added also code snippets for training examples which were only
+described textually.
+
+One last suggestion: It's advisable that external files (data) are
+downloaded programmatically by running a cell (eg. using `requests
+`library). `Snapchat_app_store_reviews.csv` and `kaffee_reviews.csv` are
+taken from kaggle which requires sign-in, so it's not possible to
+download them directly. Possible solutions:
+
+- place a copy of the Kaggle datasets in Arggilla's GitHub repository
+(if permitted by Kaggle's terms of use)
+- select other datasets from another source.
+
+Closes #3431
+
+**Type of change**
+
+(Please delete options that are not relevant. Remember to title the PR
+according to the type of change)
+
+- [ ] Bug fix (non-breaking change which fixes an issue)
+- [ ] New feature (non-breaking change which adds functionality)
+- [ ] Breaking change (fix or feature that would cause existing
+functionality to not work as expected)
+- [ ] Refactor (change restructuring the codebase without changing
+functionality)
+- [ ] Improvement (change adding some improvement to an existing
+functionality)
+- [X] Documentation update
+
+**How Has This Been Tested**
+
+(Please describe the tests that you ran to verify your changes. And
+ideally, reference `tests`)
+
+- [ ] Test A: code run with latest google-colab (v.1.0.0)
+
+**Checklist**
+
+- [X] I added relevant documentation
+- [X] follows the style guidelines of this project
+- [X] I did a self-review of my code
+- [X] I made corresponding changes to the documentation
+- [X] My changes generate no new warnings
+- [ ] I have added tests that prove my fix is effective or that my
+feature works
+- [X] I filled out [the contributor form](https://tally.so/r/n9XrxK)
+(see text above)
+- [ ] I have added relevant notes to the CHANGELOG.md file (See
+https://keepachangelog.com/)
+
+---------
+
+Co-authored-by: devorma <94636163+devorma@users.noreply.github.com>
+Co-authored-by: davidberenstein1957 <david.m.berenstein@gmail.com>
+
+---
+## [Iajret/Skyrat-tg](https://github.com/Iajret/Skyrat-tg)@[62ab5e77f4...](https://github.com/Iajret/Skyrat-tg/commit/62ab5e77f44af5f0c118038233e138b85fe4906b)
+#### Friday 2023-08-11 11:03:56 by SkyratBot
+
+[MIRROR] Refactors Slaughter/Laughter Demons into Basic Mobs [MDB IGNORE] (#22801)
+
+* Refactors Slaughter/Laughter Demons into Basic Mobs (#77206)
+
+## About The Pull Request
+
+On the tin, the former "imp" is now refactored into basic mob code. Very
+simple since these are only meant to be controlled by players, and all
+of their stuff was on Signal Handlers and Cooldown Actions anyways. Just
+lessens the amount of stupidity.
+
+Did you know that we were trying to make demons spawn in a `pop`'d cat
+named "Laughter"? Embedded in the list? I've literally never seen this
+cat, so I'm under heavy suspicion that the code we were using was broken
+for the longest time (or may have never worked), and we now instead just
+do it a much more sane way of having a cat spawn on our demise.
+
+## Why It's Good For The Game
+
+Cleaner code! Less simple mob jank to deal with. Trims down the list of
+simple animals to refactor. No more duplicated code that we were already
+doing on parent! It's so good man literally everything was seamless with
+a bit of retooling and tinkering. The typepath is also no longer `imp`,
+it's actually `demon`, which I'm happy with because there's no other
+demons to have it be confused with anymore.
+
+We were also doing copypasta on both the demon spawner bottle and the
+demon spawning event so I also just unified that into the mob. I also
+reorganized the sprites to be a bit clearer and match their new
+nomenclature
+
+## Changelog
+:cl:
+refactor: Slaughter and Laughter Demons have been refactored, please
+place an issue report for any unexpected things/hitches.
+fix: Laughter Demons should now actually drop a kitten.
+/:cl:
+
+* Refactors Slaughter/Laughter Demons into Basic Mobs
+
+---------
+
+Co-authored-by: san7890 <the@san7890.com>
+
+---
+## [Iajret/Skyrat-tg](https://github.com/Iajret/Skyrat-tg)@[72b1a979ff...](https://github.com/Iajret/Skyrat-tg/commit/72b1a979ffbb4505b4e36e29f76323b010c84973)
+#### Friday 2023-08-11 11:03:56 by SkyratBot
+
+[MIRROR] Improves the RPG loot wizard event. [MDB IGNORE] (#22800)
+
+* Improves the RPG loot wizard event. (#77218)
+
+## About The Pull Request
+As the title says. Adds a bunch more stat changes to various different
+items and a somewhat simple way of modifying them whilst minimizing
+side-effects as much as possible.
+Added a new negative curse of polymorph suffix that can randomly
+polymorph you once you pick up the item.
+Curse of hunger items won't start on items that are not on a turf.
+Curse of polymorph will only activate when equipped.
+
+Bodyparts, two-handed melees, bags, guns and grenades, to name a few,
+have a bunch of type-specific stat changes depending on their quality.
+
+Some items won't gain fantasy suffixes during the RPG loot event, like
+stacks, chairs and paper, to make gamifying the stats a bit harder.
+I'm sure there'll still be other ways to game the event, but it's not
+that big of a deal since these are the easiest ways to game it.
+High level items also have a cool unusual effect aura
+
+## Why It's Good For The Game
+Makes the RPG item event cooler. Right now, it's a bit lame since
+everything only gains force value and wound bonus on attack. This makes
+the statistic increases more type-based and make it interesting to use
+
+It's okay for some items to be powerful since this is a wizard event and
+a very impactful one too. By making the curse of hunger items not spawn
+on people, it'll also make it a less painful event too.
+
+## Changelog
+:cl:
+add: Expanded the RPG loot wizard event by giving various different
+items their own statistic boost.
+/:cl:
+
+---------
+
+Co-authored-by: Watermelon914 <3052169-Watermelon914@ users.noreply.gitlab.com>
+
+* Improves the RPG loot wizard event.
+
+---------
+
+Co-authored-by: Watermelon914 <37270891+Watermelon914@users.noreply.github.com>
+Co-authored-by: Watermelon914 <3052169-Watermelon914@ users.noreply.gitlab.com>
+
+---
+## [Lambdagon/tf_coop_lambda](https://github.com/Lambdagon/tf_coop_lambda)@[43ac2be941...](https://github.com/Lambdagon/tf_coop_lambda/commit/43ac2be94164986cfa84bfc63f3c3cba4a7faad7)
+#### Friday 2023-08-11 11:04:20 by Average_Medal_Enjoyer
+
+a lot of cosmetics
+
+>MVM Robot armor and helmets for a few classes
+
+>Shoestring Budget (Shared with Merc)
+
+>Toy Soldier
+
+>Gentle Manne's Service Medal
+
+>Furious Fukaamigasa (Shared with Merc)
+
+>Rimmed Raincatcher
+
+>Dangeresque, Too?
+
+>Tam O'Shanter
+
+>Tavish DeGroot Experience
+
+>Sultan's Ceremonial (Shared with Merc)
+
+>Melody Of Misery
+
+>Frag Proof Fragger
+
+>Head Banger (Shared with Merc)
+
+>Bomber's Bucket Hat
+
+>King of Scotland Cape
+
+>Menpo (Shared with Merc)
+
+>Bonk Helm
+
+>Planeswalker Goggles
+
+>El Jefe
+
+>Lucky No. 42
+
+>Stereoscopic Shades
+
+>Milkman
+
+>Boston Boom-Bringer
+
+>Beep Boy
+
+>Halloweiner
+
+>Death Racer's Helmet
+
+>Aloha Apparel
+
+>Electric Twanger
+
+>Pompous Privateer
+
+>Snowwing
+
+>Caffeine Cooler
+
+>"B'aaarrgh-n-Bicorne
+
+>Dillinger's Duffel
+
+>Robot Running Man
+
+>Messenger's Mail Bag
+
+>Towering Pillar of Hats (Shared with Merc)
+
+>The Merc's Muffler (Shared with Merc)
+
+---
+## [Komodo-OS/frameworks_base](https://github.com/Komodo-OS/frameworks_base)@[f30fa9503d...](https://github.com/Komodo-OS/frameworks_base/commit/f30fa9503d9692695cc9a48a83e538db83e32b36)
+#### Friday 2023-08-11 11:47:43 by Adithya R
+
+base: Switch to PixelPropsUtils
+
+Play Protect was broken (uncertified device) on Realme X3.
+Reported to be broken on few other devices too, in other
+ROMs using PropImitationHooks. What's the point of having
+a clean implementation if it doesn't fucking work?
+
+Imported PPU from PE 13. Full history:
+https://github.com/PixelExperience/frameworks_base/commits/8a940b5453ffd5adc9775f60b4b9b69662fe8e0d/core/java/com/android/internal/util/custom/PixelPropsUtils.java
+
+Massively cleaned up code.
+
+As an added bonus, we also get the new Material You UI
+for the GMS bits in setup wizard.
+
+Co-authored-by: jhenrique09 <jhsv09@gmail.com>
+Co-authored-by: Pranav Vashi <neobuddy89@gmail.com>
+Co-authored-by: Danny Lin <danny@kdrag0n.dev>
+Signed-off-by: Adithya R <gh0strider.2k18.reborn@gmail.com>
+Signed-off-by: Nishant Kumar <www.rajsonu13@gmail.com>
+Signed-off-by: ugly-kid-af <dwarmachine24@gmail.com>
+
+---
+## [urgiv/tsorcRevamp](https://github.com/urgiv/tsorcRevamp)@[4d754d86cd...](https://github.com/urgiv/tsorcRevamp/commit/4d754d86cd59250806fd9f83c2b6b48ae1658fd1)
+#### Friday 2023-08-11 12:34:20 by timhjersted
+
+Enemy Balance Pass 1 + Other Enemy Changes
+
+-Health values for SHM enemy spawns have been equalized to roughly all be in the same range (1k-3k mostly, in increments of 500), that way, if these values are still too high they can be reduced by increments of 500
+-Some health values for preHM & HM enemies were rounded up or down slightly to be less random
+-Soul drop values have been equalized roughly using a basic equation: life / 2 for preHM and HM, and life / 2.5 for SHM - these equations ended up being very close to existing values for most enemies: some enemies thus got an increase, some got a reduction, but the standardization should allow us to monitor the soul economy more easily (vanilla enemies weren't touched however, but should probably be handled differently due to their simplicity, like life / 3 or 4 etc)
+-Several enemies soul drops were adjusted differently or untouched based on their rarity, simplicity, or worm-multi-hit nature (worms were life / 2 / 2)
+-Many enemies got spawn rate buffs or nerfs based on feedback and a look through their current locations
+-Several enemies spawn in new locations
+-Basilisk enemies no longer can teleport by default and spawns were reduced slightly
+-All Hollow and Lothric enemies finally got damage scaling for HM and SHM, and a visual ring was added for lothric enemies to reveal their proximity debuffs
+-The Birds now are a bit more thematically distinct:  On enrage, The Hunter goes invisible, The Rage gains a bit of life, and The Sorrow gains high defense (ice protection)
+-Red Knight gained SHM stats
+-Fighter AI enemies TP less often when hit
+-Added Black Knight event to SHM dungeon
+-The old Jungle Wyvern sprite folder was renamed OceanWyvern as a reminder to potentially add a mini-boss event in the Western Ocean
+
+---
+## [1ucian0/rustworkx](https://github.com/1ucian0/rustworkx)@[e025356b04...](https://github.com/1ucian0/rustworkx/commit/e025356b046a807e848a7c0ee2a32490927d46da)
+#### Friday 2023-08-11 12:34:47 by Matthew Treinish
+
+Update tox configuration to use tox >= 4.4.0 (#851)
+
+* Update tox configuration to use tox >= 4.4.0
+
+Tox 4.0.0 was released in December 2022 [1] and was a major rewrite of
+the internals of the package that included numerous backwards
+incompatible changes [2]. Along with that major rewrite was a long
+period of instability in the package with a flurry of 47 releases [3]
+since 4.0.0 (which has only been 3-4 months). At the time of the 4.0.0
+release we pinned the tox version in CI with #761 to avoid this
+instability as our tox configuration was not compatible with tox 4.x.y
+and tox was actually not compatible with how we had things configured
+more generally. The hope was that tox would stabilize more, fix the
+issues that plagued the tox 4 release series and we'd be able to relax
+that pin without requiring bumping our minimum tox version to ensure
+users could use either the old version or the new version locally.
+However, since #761 that hope hasn't been realized the divergence
+between tox 3 and tox 4 has only widened and at least personally I'm not
+convinced of an improvement in stability to the tox 4 release series.
+That being said however, this is becoming a developer pain as by default
+when setting up a new build environment pip will install the latest
+version of tox and we don't have an effective mechanism to pin the tox
+version for users as you need to install tox manually as it's the
+primary python development entrypoint we use. The only only avenue to
+address this would be documentation updates in the CONTRIBUTING.md file,
+which we didn't update at the time in #761 because it was meant to be
+a version temporary pin that has turned out to not be so temporary.
+
+Since it's been >3 months since we first pinned the tox version and that
+pin was meant to be temporary this commit removes that pin and bumps our
+minimum supported tox version to be 4.4.0, which despite not being
+compatible with tox < 4 as we originally hoped, at least seems to work
+fine with install rustworkx after updating the configuration file. This
+should hopefully ease the onboarding experience for developers when
+working with rustworkx and trying to bootstrap a local development
+environment. Longer term I expect we'll look at moving off of tox,
+as it no longer seems like a project we can rely on (especially as
+a key component for our development and CI infrastructure) for rustworkx
+and instead look at something like `nox` which I've heard good things
+about and know that PyO3 had moved to it a year or two ago.
+
+Fixes #812
+
+[1] https://pypi.org/project/tox/4.0.0/
+[2] https://tox.wiki/en/latest/upgrading.html
+[3] https://pypi.org/project/tox/#history
+
+* Stop using tox for retworkx backwards compat jobs
+
+Tox's isolated builder mechanism seems to be incompatible with our
+environment variable based package naming mechanism that we use to build
+the legacy retworkx package. This is causing CI to fail on the backwards
+compat jobs that are installing retworkx (which depends on rustworkx) to
+ensure that our backwards compatibility shim works as expected. Instead
+of trying to force tox to do the correct thing, it's just easier to stop
+using it for that one CI job and instead just manually install and run
+the tests.
+
+---
+## [1ucian0/qiskit_sphinx_theme](https://github.com/1ucian0/qiskit_sphinx_theme)@[20eda07e5a...](https://github.com/1ucian0/qiskit_sphinx_theme/commit/20eda07e5adfe33ef45fbddca79481302d574863)
+#### Friday 2023-08-11 13:43:00 by Eric Arellano
+
+Add Pytest and translations_test.py (#309)
+
+Closes https://github.com/Qiskit/qiskit_sphinx_theme/issues/305.
+
+## Both Pytest and Jest tests
+
+We now have tests both in Python and JavaScript. That is because this is
+a multilingual repository, and we can only test code in the language
+it's written in.
+
+The tests are organized into `tests/{js,py}`.
+
+## Changes `tox -e py` and adds `tox -e docs`
+
+Before, `tox -e py` was used to build example_docs. But that is
+different than every single Qiskit project, where `tox -e py` normally
+runs tests and you use `tox -e docs` to build the docs.
+
+This PR aligns us with the greater Qiskit ecosystem.
+
+## Uses Pytest rather than unittest
+
+Most Qiskit projects use unittest/stestr (a way to parallelize
+unittest), although a few have switched to Pytest:
+
+Yeah, there are a few projects using Pytest but indeed most use
+unittest/stestr
+
+```
+❯ rg pytest -g '*.txt' -l
+qiskit-ionq/requirements-test.txt
+mthree/requirements-dev.txt
+qiskit-qasm3-import/requirements-dev.txt
+qiskit-metal/requirements-dev.txt
+```
+
+If I remember correctly from when I first joined the project, Jake (or
+Matthew) was interested in eventually migrating more of Qiskit to Pytest
+and that they don't love stestr/unittest. But it's a bigger migration to
+do that
+
+I've found that Pytest in general is more ergonomic & also more flexible
+than unittest. For example, it has neat support for parametrization to
+make it easy to write several similar tests.
+
+And it's easier for developers to use because you only ever need to use
+`assert <some condition>`, rather than figuring out which to use between
+`self.assertEqual` vs `self.assertTrue` vs `self.assertContains` etc.
+Pytest will make the output of the `assert` useful for you
+automatically.
+
+---
+## [XavieVee/MY-CONTENTS](https://github.com/XavieVee/MY-CONTENTS)@[75731009ce...](https://github.com/XavieVee/MY-CONTENTS/commit/75731009ce2564e37cb66b11560d5369545b22f4)
+#### Friday 2023-08-11 13:45:57 by Adaeze
+
+Update README.md
+
+Step into my world through the pages of my portfolio, where words come alive and ideas dance off the screen. This collection is a curation of my thoughts, meticulously woven into write-ups that traverse the diverse landscapes of knowledge, experience, and imagination.
+
+I invite you to explore my musings on topics ranging from the digital cosmos of technology to the intimate intricacies of human relationships. Each piece is a journey, a venture into the realms of creativity and analysis, where I unravel complex concepts with clarity and offer fresh perspectives on the familiar.
+
+Through these write-ups, I aim not only to share my insights but also to ignite conversations and spark a symphony of thoughts. Whether you're seeking information, inspiration, or simply a moment of contemplation, I hope my portfolio leaves an indelible imprint on your intellectual and emotional canvas. Welcome, and enjoy the exploration.
+
+---
+## [Sea-of-Lost-Souls/Tannhauser-Gate](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate)@[2b80714afa...](https://github.com/Sea-of-Lost-Souls/Tannhauser-Gate/commit/2b80714afa150d6f9e335f8ae68ef84444d52506)
+#### Friday 2023-08-11 14:56:59 by SkyratBot
+
+[MIRROR] Base Female sprite tweaks [MDB IGNORE] (#22924)
+
+* Base Female sprite tweaks (#77407)
+
+## About The Pull Request
+
+ASS STUFF HAS BEEN REMOVED BUT I STILL HATE IT
+
+This PR tones down the proportions of the female base sprites, as
+currently they have about SIX extra pixels on the ass and a random pixel
+missing from the neck, which breaks some hairstyles & makes the neck
+look quite stupid.
+It also adds a couple pixels to the male one because theirs was so
+stupidly SMALL it looked like they had no tailbone (still does, kind
+of).
+
+Here is the current sprite
+
+![image](https://github.com/tgstation/tgstation/assets/81964183/1bf22dd7-2b06-4632-8617-b89b3b1c8d2c)
+& new sprite (only neck pixel removed)
+
+![image](https://github.com/tgstation/tgstation/assets/81964183/b1228e01-23e0-4508-86a6-bc8e73b0fcd0)
+
+## Why It's Good For The Game
+
+Fixes some hairs
+
+![image](https://github.com/tgstation/tgstation/assets/81964183/3b293cf9-2661-4358-a327-2882acb93067)
+
+## Changelog
+
+:cl:
+image: fixes weird inconsistency on the neck and butt of the female base
+sprite
+/:cl:
+
+* Base Female sprite tweaks
+
+---------
+
+Co-authored-by: Sheits <81964183+Sheits@users.noreply.github.com>
+
+---
+## [ZavarskiTheRealOne/SoulsBetterDLC](https://github.com/ZavarskiTheRealOne/SoulsBetterDLC)@[7cb3078036...](https://github.com/ZavarskiTheRealOne/SoulsBetterDLC/commit/7cb30780369232a2a5040c084f64aad5ded36d37)
+#### Friday 2023-08-11 15:26:26 by Zavarski
+
+Hydrothermic fuck you GitHub I will upload as much shit as I need
+
+---
+## [Furrior/Paradise-Remake](https://github.com/Furrior/Paradise-Remake)@[a3dc32cf34...](https://github.com/Furrior/Paradise-Remake/commit/a3dc32cf344dbd441e85f6cbb694b166dc1f5e4b)
+#### Friday 2023-08-11 15:31:53 by ATP-Engineer
+
+Fixes issue where Turret Control sprites arent actually updated in previous PR (#21538)
+
+* Removes actual turret file
+
+FUCK
+
+* Fixes turret controllers not actually being changed
+
+GOD DAMNIT.
+
+---
+## [morrowwolf/cmss13](https://github.com/morrowwolf/cmss13)@[f3fc60ed65...](https://github.com/morrowwolf/cmss13/commit/f3fc60ed655d27bb3f012d0e0d834c64990b173d)
+#### Friday 2023-08-11 15:41:54 by morrowwolf
+
+Attachment nerfs and removals (#4122)
+
+# About the pull request
+
+This PR:
+
+Removes the barrel charger from vendors
+
+Removes all benefits other than wield delay mod from the angled grip
+
+Adds wield delay to the extended barrel
+
+# Explain why it's good for the game
+
+Barrel charger is a straight damage increase and rather silly to work
+around given how burst works bypassing real fire rate concerns. If you
+know, you know. Horrible idea, I am amazed it's been around this long.
+
+Angled grip had zero downside. Now it still has zero downside but isn't
+also a ton of accuracy buffs on top of the god-tier lower wield delay.
+
+Extended barrel had zero downside. Now it has a downside.
+
+# Testing Photographs and Procedure
+<details>
+<summary>Screenshots & Videos</summary>
+
+Put screenshots and videos here with an empty line between the
+screenshots and the `<details>` tags.
+
+</details>
+
+
+# Changelog
+
+:cl: Morrow
+balance: Removed the barrel charger from vendors
+balance: Removed all benefits other than wield delay mod from the angled
+grip
+balance: Added wield delay to extended barrel
+/:cl:
+
+---
+## [codecov/codecov-api](https://github.com/codecov/codecov-api)@[e2c6b1c425...](https://github.com/codecov/codecov-api/commit/e2c6b1c425cac66f0d422bd5692c7aae4cc46b61)
+#### Friday 2023-08-11 15:42:02 by Giovanni M Guidini
+
+fix: lru_cache issues + meta info missing  (#72)
+
+Context: https://github.com/codecov/engineering-team/issues/119
+
+So the real issue with the meta info is fixed in codecov/shared#22.
+spoiler: reusing the report details cached values and _changing_ them is not a good idea.
+
+However in the process of debuging that @matt-codecov pointed out that we were not using lru_cache correctly.
+Check this very well made video: https://www.youtube.com/watch?v=sVjtp6tGo0g
+
+So the present changes upgrade shared so we fix the meta info stuff AND address the cache issue.
+There are further complications with the caching situation, which explain why I decided to add the cached value in the
+`obj` instead of `self`. The thing is that there's only 1 instance of `ArchiveField` shared among ALL instances of
+the model class (for example, all `ReportDetail` instances). This kinda makes sense because we only create an instance
+of `ArchiveField` in the declaration of the `ReportDetail` class.
+
+Because of that if the cache is in the `self` of `ArchiveField` different instances of `ReportDetails` will have dirty cached value of other `ReportDetails` instances and we get wrong values. To fix that I envision 3 possibilities:
+1. Putting the cached value in the `ReportDetails` instance directly (the `obj`), and checking for the presence of that value.
+If it's there it's guaranteed that we put it there, and we can update it on writes, so that we can always use it. Because it is
+for each `ReportDetails` instance we always get the correct value, and it's cleared when the instance is killed and garbage collected.
+
+2. Storing an entire table of cached values in the `self` (`ArchiveField`) and using the appropriate cache value when possible. The problem here is that we need to manage the cache ourselves (which is not that hard, honestly) and probably set a max value. Then we will populate the cache and over time evict old values. The 2nd problem is that the values themselves might be too big to hold in memory (which can be fixed by setting a very small value in the cache size). There's a fine line there, but it's more work than option 1 anyway.
+
+3. We move the getting and parsing of the value to outside `ArchiveField` (so it's a normal function) and use `lru_cache` in that function. Because the `rehydrate` function takes a reference to `obj` I don't think we should pass that, so the issue here is that we can't cache the rehydrated value, and would have to rehydrate every time (which currently is not expensive at all in any model)
+
+This is an instance cache, so it shouldn't need to be cleaned for the duration of the instance's life
+(because it is updates on the SET)
+
+closes codecov/engineering-team#119
+
+---
+## [Deal5/Fucking-junkyard](https://github.com/Deal5/Fucking-junkyard)@[b92562ad8f...](https://github.com/Deal5/Fucking-junkyard/commit/b92562ad8f26c2354730f8a013195a90bbfbe9fd)
+#### Friday 2023-08-11 15:51:28 by ValoTheValo
+
+Makes the "Gun" Not spawn in maint, makes MK58 fit in holsters (#8200)
+
+* changes item path to be consistent
+
+i hate kegdo
+
+* kegdo code moment
+
+what fucking moron designed this
+
+* fixes MK58 not fitting in holster
+
+pain
+
+* Update holster.dm
+
+* kegdo moment
+
+---
+## [gdrosos/grimoirelab-perceval](https://github.com/gdrosos/grimoirelab-perceval)@[e527de426b...](https://github.com/gdrosos/grimoirelab-perceval/commit/e527de426bd18a523f7727539058bb7a13dd046c)
+#### Friday 2023-08-11 16:07:09 by Emi Simpson
+
+[docs] Expand docs for implementing new backends
+
+Using the current documentation, it can be pretty difficult to learn how
+to appropriately implement a new backend for perceval.  Many of the
+methods that backends are supposed to implement have no documentation
+explaining what the methods are supposed to do, or even how their
+arguments are formatted.
+
+Although it is possible to reverse engineer this information from other
+backends, this process is time consuming, frustrating, and may deter new
+developers from being able to use perceval with their application.
+
+This commit expands documentation relating to implementing new backends
+in several ways:
+
+- The class-level documentation for backends has been expanded to list
+more of the necessary methods and attributes that backends are
+responsible for implementing, and additionally lists a brief summary of
+each method.
+- Several methods which were previously not listed (_init_client), or listed as
+optional (metadata_*) have been listed as mandatory.  As far as I can
+tell, there is no way to create a working backend without implementing
+these methods, or at least stubbing them.
+- Information about class attributes in the class-level documentation
+has been replaced with a brief summary and a link, with the full text
+being moved to the attribute itself, making the class-level
+documentation easier to digest.
+- Some of the documentation for class attributes that was sparse or
+missing altogether has been added
+- All* methods and class attributes that are intended to be implemented
+by subclasses of `Backend` have detailed documentation describing
+exactly what is expected of the implementor, and giving context for some
+of the terms or argument names used where necessary.
+- Some references to other methods and class attributes in the docs have
+been converted to links, to make navigating the docs easier.
+
+Some important notes:
+
+- The documentation for `has_resuming` has been left blank.  Despite my
+efforts, I wasn't able to determine what this was meant to indicate, and
+could find no examples of it being used in context with which to
+reverse engineer its purpose.  If someone is able to fill me in on what
+this method does, I would be happy to add documentation in.
+- I haven't been working with perceval very long, and most of the
+knowledge I am contributing here is based on experimentation, reverse
+engineering, my own experiences working on perceval-osf, and
+extrapolating from what documentation existed before hand.  It's very
+possible that I've made a mistake in describing some of these methods,
+so please review carefully to make sure I am correct.  If I've made any
+mistakes, I will be happy to be corrected, and revise my mistake quickly
+after.
+
+If you have any other advice, or recommended changes, I would be happy
+to hear!
+
+Addendum 1 (fa2cc41): Apply @sduenas's style format corrections
+
+See https://github.com/chaoss/grimoirelab-perceval/pull/738#pullrequestreview-693785417
+
+Co-authored-by: Santiago Dueñas <sduenas@bitergia.com>
+
+Addendum 2 (70b0c4e): Add documentation for `has_resuming`
+
+This is based primarily off of the PR comment written by
+@sduenas@github.com linked below.  Most of the information included here
+is based off of this comment, and not off of reverse engineering, actual
+knowledge, or anything else, so please review before accepting.
+
+https://github.com/chaoss/grimoirelab-perceval/pull/738#issuecomment-869604429
+
+Addendum 3: Correct final double space
+
+https://github.com/chaoss/grimoirelab-perceval/pull/738/files#r677386098
+
+Developer Certificate of Origin
+Version 1.1
+
+Copyright (C) 2004, 2006 The Linux Foundation and its contributors.
+1 Letterman Drive
+Suite D4700
+San Francisco, CA, 94129
+
+Everyone is permitted to copy and distribute verbatim copies of this
+license document, but changing it is not allowed.
+
+Developer's Certificate of Origin 1.1
+
+By making a contribution to this project, I certify that:
+
+(a) The contribution was created in whole or in part by me and I
+    have the right to submit it under the open source license
+    indicated in the file; or
+
+(b) The contribution is based upon previous work that, to the best
+    of my knowledge, is covered under an appropriate open source
+    license and I have the right under that license to submit that
+    work with modifications, whether created in whole or in part
+    by me, under the same open source license (unless I am
+    permitted to submit under a different license), as indicated
+    in the file; or
+
+(c) The contribution was provided directly to me by some other
+    person who certified (a), (b) or (c) and I have not modified
+    it.
+
+(d) I understand and agree that this project and the contribution
+    are public and that a record of the contribution (including all
+    personal information I submit with it, including my sign-off) is
+    maintained indefinitely and may be redistributed consistent with
+    this project or the open source license(s) involved.
+
+Signed-off-by: Emi Simpson <emi@alchemi.dev>
+
+---
+## [Reco201/Skyrat-tg](https://github.com/Reco201/Skyrat-tg)@[08c90f2116...](https://github.com/Reco201/Skyrat-tg/commit/08c90f211652f33a431ee9d7cdc317fb71e981b7)
+#### Friday 2023-08-11 16:16:45 by SkyratBot
+
+[MIRROR] [MDB IGNORE] Angled Lights & Lighting Prototyping Tool  [MDB IGNORE] (#22582)
+
+* [MDB IGNORE] Angled Lights & Lighting Prototyping Tool  (#74365)
+
+## About The Pull Request
+
+Hello friends, I've been on a bit of a lighting kick recently, and I
+decided I clearly do not have enough things to work on as it is.
+This pr adds angle support to static lights, and a concepting/debug tool
+for playing with lights on a map.
+
+Let's start from first principles yeah?
+
+### Why Angled Lights?
+
+Mappers, since they can't actually see a light's effect in editor, tend
+to go off gut.
+That gut is based more off what "makes sense" then how things actually
+work
+This means they'll overplace light sources, and also they tend to treat
+lights, particularly light "bars" (the bigger ones) as directional.
+So you'll have two lights on either sides of a pillar, lights inside a
+room with lights outside pointing out, etc.
+
+![image](https://user-images.githubusercontent.com/58055496/228785032-63b86120-ea4c-4e52-b4e8-40a4b61e5bbc.png)
+
+This has annoying side effects. A lot of our map is overlit, to the
+point that knocking out a light does.... pretty much nothing.
+I find this sad, and would like to work to prevent it. I think dark and
+dim, while it does not suit the normal game, is amazing for vibes, and I
+want it to be easier to see that.
+
+Angled lights bring how lights work more in line with how mappers expect
+lights work, and avoids bleedover into rooms that shouldn't be bled
+into, working towards that goal of mine.
+
+### How Angled Lights?
+
+This is more complex then you'd first think so we'll go step by step
+
+![image](https://user-images.githubusercontent.com/58055496/228786117-d937b408-9bc2-4066-9aee-aae21b047151.png)
+
+Oh before we start, some catchup from the last time I touched lighting
+code.
+Instead of doing a lighting falloff calculation for each lighting corner
+(a block that represents the resolution of our lights) in view we
+instead generate cached lightsheets. These precalculate and store all
+possible falloffs for x and y distances from a source.
+
+This is very useful for angle work, since it makes it almost totally
+free.
+
+Atoms get 2 new values. light_angle and light_dir
+Light angle is the angle the light uses, and light_dir is a cardinal
+direction it displays in
+
+We take these values, and inside sheetbuilding do some optional angle
+work. getting the center angle, the angle of a pair of coords, and then
+the delta between them.
+This is then multiplied against the standard falloff formula, and job
+done.
+
+We do need some extra fenangling to make this all work nicely tho.
+
+We currently use a pixel turf var stored on the light source to do
+distance calculations.
+This is the turf we pretend the light source is on for visuals, most
+often used to make wall lights work nice.
+The trouble is it's not very granular, and doesn't always have the
+effect you might want.
+
+So, instead of generating and storing a pixel turf to do our distance
+calculations against, we store x and y offset variables.
+We use them to expand our working range and sheet size to ensure things
+visually make sense, and then offset any positions by them.
+
+I've added a way for sources to have opinions on their offsets too, and
+am using them for wall lights.
+This ensures the angle calculations don't make the wall behind a light
+fulldark, which would be silly.
+
+### Debug Tool?
+
+In the interest of helping with that core problem, lights being complex
+to display, I've added a prototyping tool to the game.
+It's locked behind mapping verbs, and works about like this.
+
+Once the verb is activated, it iterates over all the sources in the
+world (except turfs because those are kinda silly), outlining and
+"freezing" them, preventing any future changes.
+Then, it adds 3 buttons to the owners of a light source.
+
+![image](https://user-images.githubusercontent.com/58055496/228776539-4b1d82af-1244-4ed6-8754-7f07e3e47cda.png)
+The first button toggles the light on and off, as desired.
+The third allows you to move the source around, with a little targeting
+icon replacing your mouse
+The second tho, that's more interesting.
+
+The second button opens a debug menu for that light
+
+![image](https://user-images.githubusercontent.com/58055496/228777811-ae620588-f08a-4b50-93a0-beea593aea77.png)
+There's a lot here, let's go through it.
+
+Bit on the left is a list of templates, which allow you to sample
+existing light types (No I have no idea why the background is fullwhite,
+need to work on that pre merge)
+You can choose one by clicking it, and hitting the upload button.
+
+This replaces your existing lighting values with the template's,
+alongside replacing its icon and icon state so it looks right.
+There are three types as of now, mostly for categorization. Bar, which
+are the larger typically stronger lights, Bulb, which are well, bulbs,
+and Misc which could be expanded, but currently just contains floor
+lights.
+
+Alongside that you can manually edit the power, range, color and angle
+of the focused light.
+I also have support for changing the direction of the light source,
+since anything that uses directional lighting would also tie light dir
+to it.
+This isn't *always* done tho, so I should maybe find a way to edit light
+dir too.
+
+My hope is this tool will allow for better concepting of a room's
+lights, and easier changing of individual object's light values to suit
+the right visuals.
+
+### Lemon No Why What
+
+Ok so I applied angle lights to bars and bulbs, which means I am
+changing the lighting of pretty much every map in the codebase.
+I'm gonna uh, go check my work.
+
+Alongside this I intend to give lighting some depth. So if there's room
+to make a space warmer, or highlight light colors from other sources, I
+will do that.
+
+(Images as examples)
+
+![image](https://user-images.githubusercontent.com/58055496/228786801-111b6493-c040-4199-ab99-ac1c914d034c.png)
+
+I also want to work on that other goal of mine, making breaking lights
+matter. So I'll be doing what I can to ensure you only need to break one
+light to make a meaningful change in the scene.
+
+This is semi complicated by one light source not ever actually reaching
+fullbright on its own, but we do what we must because we can.
+
+![image](https://user-images.githubusercontent.com/58055496/228786483-b7ad6ecd-874f-4d90-b5ca-6ef78cb70d2b.png)
+
+I'm as I hope you know biased towards darker spaces, I think contrast
+has vibes.
+In particular I do not think strong lights really suit maintenance.
+
+Most of what is used there are bulbs, so I'm planning on replacing most
+uses with low power bulbs, to keep light impacts to rooms, alongside
+reducing the amount of lights placed in the main tunnels
+
+![image](https://user-images.githubusercontent.com/58055496/228786594-c6d7610c-611e-478b-bcba-173ebf4c4b12.png)
+
+**If you take issue with this methodology please do so NOW**, I don't
+want to have to do another pass over things.
+Oh also I'm saving station maps for last since ruins are less likely to
+get touched in mapping march and all.
+
+### Misc + Finishing Thoughts
+
+Light templates support mirroring vars off typepaths using a subtype,
+which means all the templates added here do not require updating if the
+source type changes somehow. I'd like to expand the template list at
+some point, perhaps in future.
+
+I've opened this as a draft to make my intentions to make my changes to
+lights known, and to serve as motivation for all the map changes I need
+to do.
+
+### Farish Future
+
+I'm unhappy with how we currently configure lights. I would like a
+system that more directly matches the idea of drawing falloff curves,
+along with allowing for different falloffs for different colors,
+alongside extending the idea to angle falloff.
+This would make out of engine lighting easier, allow for nicer looking
+lights (red to pink, blue to purple, etc), and improve accessibility by
+artists.
+
+This is slightly far off, because I have other obligations and it's
+kinda complicated, but I'd like to mention it cause it's one of my many
+pipedreams.
+
+## Changelog
+:cl:
+add: Added angle lighting, applies it to most wall lights!
+add: Adds a lighting prototyping tool, mappers go try it out (it's
+locked behind the mapping verb)
+/:cl:
+
+---------
+
+Co-authored-by: MMMiracles <lolaccount1@ hotmail.com>
+
+* [MDB IGNORE] Angled Lights & Lighting Prototyping Tool
+
+* Update north_star.dmm
+
+* Revert "Update north_star.dmm"
+
+This reverts commit bb5b8b5a549f7edc3e23a369a147ed96bab41991.
+
+* Updatepaths
+
+* Update nukie_base.dmm
+
+* Newer version of northstar with the penguins
+
+* Update northstar_cryo.dmm
+
+---------
+
+Co-authored-by: LemonInTheDark <58055496+LemonInTheDark@users.noreply.github.com>
+Co-authored-by: MMMiracles <lolaccount1@ hotmail.com>
+Co-authored-by: lessthanthree <83487515+lessthnthree@users.noreply.github.com>
+Co-authored-by: Giz <13398309+vinylspiders@users.noreply.github.com>
+
+---
+## [HaultyAnonie/Foundation-19](https://github.com/HaultyAnonie/Foundation-19)@[8de9ad250a...](https://github.com/HaultyAnonie/Foundation-19/commit/8de9ad250ad057d1b24aa81f449ff32c26816cd7)
+#### Friday 2023-08-11 17:35:49 by cheesePizza2
+
+Fixes contraband detectors (whooooooooooops) (#1228)
+
+* whooooooooooooooooops
+
+* fixes for my fixes
+
+* fuck you
+
+* qdel(announce)
+
+* QDEL_NULL
+
+---------
+
+Co-authored-by: TheDarkElites <73414180+TheDarkElites@users.noreply.github.com>
+
+---
+## [EmanuelCN/kernel_xiaomi_sm8250](https://github.com/EmanuelCN/kernel_xiaomi_sm8250)@[7facb1b1bc...](https://github.com/EmanuelCN/kernel_xiaomi_sm8250/commit/7facb1b1bc3bfa8c142dc83ebcd84277b7eebf9d)
+#### Friday 2023-08-11 17:44:58 by Peter Zijlstra
+
+sched/core: Fix ttwu() race
+
+Paul reported rcutorture occasionally hitting a NULL deref:
+
+  sched_ttwu_pending()
+    ttwu_do_wakeup()
+      check_preempt_curr() := check_preempt_wakeup()
+        find_matching_se()
+          is_same_group()
+            if (se->cfs_rq == pse->cfs_rq) <-- *BOOM*
+
+Debugging showed that this only appears to happen when we take the new
+code-path from commit:
+
+  2ebb17717550 ("sched/core: Offload wakee task activation if it the wakee is descheduling")
+
+and only when @cpu == smp_processor_id(). Something which should not
+be possible, because p->on_cpu can only be true for remote tasks.
+Similarly, without the new code-path from commit:
+
+  c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+
+this would've unconditionally hit:
+
+  smp_cond_load_acquire(&p->on_cpu, !VAL);
+
+and if: 'cpu == smp_processor_id() && p->on_cpu' is possible, this
+would result in an instant live-lock (with IRQs disabled), something
+that hasn't been reported.
+
+The NULL deref can be explained however if the task_cpu(p) load at the
+beginning of try_to_wake_up() returns an old value, and this old value
+happens to be smp_processor_id(). Further assume that the p->on_cpu
+load accurately returns 1, it really is still running, just not here.
+
+Then, when we enqueue the task locally, we can crash in exactly the
+observed manner because p->se.cfs_rq != rq->cfs_rq, because p's cfs_rq
+is from the wrong CPU, therefore we'll iterate into the non-existant
+parents and NULL deref.
+
+The closest semi-plausible scenario I've managed to contrive is
+somewhat elaborate (then again, actual reproduction takes many CPU
+hours of rcutorture, so it can't be anything obvious):
+
+					X->cpu = 1
+					rq(1)->curr = X
+
+	CPU0				CPU1				CPU2
+
+					// switch away from X
+					LOCK rq(1)->lock
+					smp_mb__after_spinlock
+					dequeue_task(X)
+					  X->on_rq = 9
+					switch_to(Z)
+					  X->on_cpu = 0
+					UNLOCK rq(1)->lock
+
+									// migrate X to cpu 0
+									LOCK rq(1)->lock
+									dequeue_task(X)
+									set_task_cpu(X, 0)
+									  X->cpu = 0
+									UNLOCK rq(1)->lock
+
+									LOCK rq(0)->lock
+									enqueue_task(X)
+									  X->on_rq = 1
+									UNLOCK rq(0)->lock
+
+	// switch to X
+	LOCK rq(0)->lock
+	smp_mb__after_spinlock
+	switch_to(X)
+	  X->on_cpu = 1
+	UNLOCK rq(0)->lock
+
+	// X goes sleep
+	X->state = TASK_UNINTERRUPTIBLE
+	smp_mb();			// wake X
+					ttwu()
+					  LOCK X->pi_lock
+					  smp_mb__after_spinlock
+
+					  if (p->state)
+
+					  cpu = X->cpu; // =? 1
+
+					  smp_rmb()
+
+	// X calls schedule()
+	LOCK rq(0)->lock
+	smp_mb__after_spinlock
+	dequeue_task(X)
+	  X->on_rq = 0
+
+					  if (p->on_rq)
+
+					  smp_rmb();
+
+					  if (p->on_cpu && ttwu_queue_wakelist(..)) [*]
+
+					  smp_cond_load_acquire(&p->on_cpu, !VAL)
+
+					  cpu = select_task_rq(X, X->wake_cpu, ...)
+					  if (X->cpu != cpu)
+	switch_to(Y)
+	  X->on_cpu = 0
+	UNLOCK rq(0)->lock
+
+However I'm having trouble convincing myself that's actually possible
+on x86_64 -- after all, every LOCK implies an smp_mb() there, so if ttwu
+observes ->state != RUNNING, it must also observe ->cpu != 1.
+
+(Most of the previous ttwu() races were found on very large PowerPC)
+
+Nevertheless, this fully explains the observed failure case.
+
+Fix it by ordering the task_cpu(p) load after the p->on_cpu load,
+which is easy since nothing actually uses @cpu before this.
+
+Fixes: c6e7bd7afaeb ("sched/core: Optimize ttwu() spinning on p->on_cpu")
+Reported-by: Paul E. McKenney <paulmck@kernel.org>
+Tested-by: Paul E. McKenney <paulmck@kernel.org>
+Signed-off-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+Signed-off-by: Ingo Molnar <mingo@kernel.org>
+Link: https://lkml.kernel.org/r/20200622125649.GC576871@hirez.programming.kicks-ass.net
+Change-Id: I40e0e01946eadb1701a4d06758e434591e5a5c92
+
+---
+## [timothymtorres/tgstation](https://github.com/timothymtorres/tgstation)@[87f707dfa8...](https://github.com/timothymtorres/tgstation/commit/87f707dfa8dd901310f72585c6f701035bc653ee)
+#### Friday 2023-08-11 18:13:25 by DeerJesus
+
+Adds the Storage Implanter to the spy kit. (#77452)
+
+## About The Pull Request
+
+Adds the storage implanter to the spy kit to make it decent.
+
+## Why It's Good For The Game
+This PR hopes to bring Spy at least a little more in-line with the rest
+of the syndie-kit specials, so it doesn’t feel like a complete dud to
+get.
+
+Spy absolutely sucks as a syndie-kit and getting it is basically
+throwing away 20 TC. Not all of them should be equally powerful but all
+of them should be at least more satisfying to get. Spy is so bad that
+it’s listed in the official wiki as ‘honestly not that good’. It’s also
+_barely_ even above 25 telecrystals as the switchblade is a black market
+uplink item, not a syndicate uplink item, and not even that good of an
+item at that! And the chameleon kit inside isn’t even a full chameleon
+kit! Pitiful. Compare it to stealth right below it which totals to _36_
+telecrystals.
+
+Adding a storage implant adds a relatively useful item to the kit that
+still fits with the entire theme of ‘stealth and deception’, as you can
+be searched without having anything on you. To be stealthy, and deceive
+people. Like you should. Given the fact that searches are quite common.
+It doesn’t make it TOO overpowered as the rest of the gear is still ‘not
+that great’.
+
+
+## Changelog
+
+:cl:
+balance: added the storage implanter to the syndie-kit tactical 'spy'
+kit to make it decent.
+/:cl:
+
+Co-authored-by: oilysnake <63020759+oilysnake@users.noreply.github.com>
+
+---
+## [langchain-ai/langchain](https://github.com/langchain-ai/langchain)@[16af5f8690...](https://github.com/langchain-ai/langchain/commit/16af5f86905705096552507f8739b5cfcaa77aa4)
+#### Friday 2023-08-11 18:24:16 by niklub
+
+Add LabelStudio integration (#8880)
+
+This PR introduces [Label Studio](https://labelstud.io/) integration
+with LangChain via `LabelStudioCallbackHandler`:
+
+- sending data to the Label Studio instance
+- labeling dataset for supervised LLM finetuning
+- rating model responses
+- tracking and displaying chat history
+- support for custom data labeling workflow
+
+### Example
+
+```
+chat_llm = ChatOpenAI(callbacks=[LabelStudioCallbackHandler(mode="chat")])
+chat_llm([
+    SystemMessage(content="Always use emojis in your responses."),
+        HumanMessage(content="Hey AI, how's your day going?"),
+    AIMessage(content="🤖 I don't have feelings, but I'm running smoothly! How can I help you today?"),
+        HumanMessage(content="I'm feeling a bit down. Any advice?"),
+    AIMessage(content="🤗 I'm sorry to hear that. Remember, it's okay to seek help or talk to someone if you need to. 💬"),
+        HumanMessage(content="Can you tell me a joke to lighten the mood?"),
+    AIMessage(content="Of course! 🎭 Why did the scarecrow win an award? Because he was outstanding in his field! 🌾"),
+        HumanMessage(content="Haha, that was a good one! Thanks for cheering me up."),
+    AIMessage(content="Always here to help! 😊 If you need anything else, just let me know."),
+        HumanMessage(content="Will do! By the way, can you recommend a good movie?"),
+])
+```
+
+<img width="906" alt="image"
+src="https://github.com/langchain-ai/langchain/assets/6087484/0a1cf559-0bd3-4250-ad96-6e71dbb1d2f3">
+
+
+### Dependencies
+- [label-studio](https://pypi.org/project/label-studio/)
+- [label-studio-sdk](https://pypi.org/project/label-studio-sdk/)
+
+https://twitter.com/labelstudiohq
+
+---------
+
+Co-authored-by: nik <nik@heartex.net>
+
+---
+## [Foundation-19/Foundation-19](https://github.com/Foundation-19/Foundation-19)@[b4642dc835...](https://github.com/Foundation-19/Foundation-19/commit/b4642dc835dc801d801fd543cfd34bd44ca23929)
+#### Friday 2023-08-11 18:40:19 by cheesePizza2
+
+Armor improvements (#1251)
+
+* the fixes
+
+* FUCK YOU
+
+* few more improvements
+
+* bring em back
+
+* fuck you
+
+---
+## [Skyrat-SS13/Skyrat-tg](https://github.com/Skyrat-SS13/Skyrat-tg)@[d5655c3c55...](https://github.com/Skyrat-SS13/Skyrat-tg/commit/d5655c3c55fab0f4450659947fad1a40043893dc)
+#### Friday 2023-08-11 18:42:20 by SkyratBot
+
+[MIRROR] Adds Summon Simians & Buffs/QoLs Mutate [MDB IGNORE] (#22970)
+
+* Adds Summon Simians & Buffs/QoLs Mutate (#77196)
+
+## About The Pull Request
+
+Adds Summon Simians, a spell that summons four monkeys or lesser
+gorillas, with the amount increasing per upgrade. The monkeys have
+various fun gear depending on how lucky you get and how leveled the
+spell is. If the spell is maximum level, it only summons normal
+gorillas.
+
+Added further support for nonhuman robed casting: Monkeys, cyborgs, and
+drones can all now cast robed spells as long as they're wearing a
+wizardly hat as well.
+
+Made monkeys able to wield things again.
+
+Wizard Mutate spell works on non-human races. It also gives you
+Gigantism now (funny). If the Race can't support tinted bodyparts, your
+whole sprite is temporarily turned green.
+
+Made Laser eyes projectiles a subtype of actual lasers, which has
+various properties such as on-hit effects and upping the damage to 30.
+
+Improved some monkey AI code.
+
+## Why It's Good For The Game
+
+> Adds Summon Simians, a spell that summons four monkeys or lesser
+gorillas, with the amount increasing per upgrade. The monkeys have
+various fun gear depending on how lucky you get and how leveled the
+spell is. If the spell is maximum level, it only summons normal
+gorillas.
+
+It's criminal we don't have a monky spell, and this is a really fun spin
+on it. Total chaos, but total monky chaos. It's surprisingly strong,
+but! it can very well backfire if you stay near the angry monkeys too
+long and your protection fades away. Unless you become a monkey
+yourself!!
+
+> Wizard Mutate spell works on non-human races.
+
+This spell is great but it's hampered by the mutation's human
+requirement, which is reasonable in normal gameplay. Wizards don't need
+to care about that, and the human restriction hinders a lot of possible
+gimmicks, so off it goes. Also, wizard hulk does't cause chunky fingers
+for similar reasons
+
+> Made Laser eyes projectiles a subtype of actual lasers, which has
+various properties such as on-hit effects and upping the damage to 30.
+
+Don't really caer about the damage so much, this is more so that it has
+effects such as on-hit visuals. Can lower the damage if required, but
+honestly anything that competes against troll mjolnir is good.
+
+> Added further support for nonhuman robed casting: Monkeys, cyborgs,
+and drones can all now cast robed spells as long as they're wearing a
+wizardly hat as well.
+
+SS13 is known for 'The Dev Team Thinks of Everything' and I believe this
+is a sorely lacking part of this or something. It's funny.
+I want to see a monkey wizard.
+
+> Made monkeys able to wield things again.
+
+I really don't know why this was a thing and it was breaking my axe and
+spear wielding primal monkeys. Like, why?
+
+## Changelog
+
+:cl:
+add: Adds Summon Simians, a spell that summons four monkeys or lesser
+gorillas, with the amount increasing per upgrade. The monkeys have
+various fun gear depending on how lucky you get and how leveled the
+spell is. If the spell is maximum level, it only summons normal
+gorillas.
+balance: Wizard Mutate spell works on non-human races. It also gives you
+Gigantism now (funny). If the Race can't support tinted bodyparts, your
+whole sprite is temporarily turned green.
+balance: Made Laser eyes projectiles a subtype of actual lasers, which
+has various properties such as on-hit effects and upping the damage to
+30.
+add: Added further support for nonhuman robed casting: Monkeys, cyborgs,
+and drones can all now cast robed spells as long as they're wearing a
+wizardly hat as well.
+balance: Made monkeys able to wield two-handed things again.
+/:cl:
+
+---------
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@ users.noreply.github.com>
+
+* Adds Summon Simians & Buffs/QoLs Mutate
+
+* Updates our modular file to take this into account (I hate that this exists)
+
+---------
+
+Co-authored-by: carlarctg <53100513+carlarctg@users.noreply.github.com>
+Co-authored-by: MrMelbert <51863163+MrMelbert@ users.noreply.github.com>
+Co-authored-by: GoldenAlpharex <jerego1234@hotmail.com>
+
+---
+## [vampirebat74/lobotomy-corp13](https://github.com/vampirebat74/lobotomy-corp13)@[acb0cdfa34...](https://github.com/vampirebat74/lobotomy-corp13/commit/acb0cdfa34786a292a62e482ac585386ad9dd7b8)
+#### Friday 2023-08-11 20:24:46 by Mr.Heavenly
+
+Adds Red Shoes
+
+Mr. Heavenly's Abnormality Jam Entry #1
+
+Records
+
+uncommented weapon
+
+Finishing touches
+
+Design rework
+
+adds ego gift and inhands
+
+New sprites!
+
+uncommented sfx
+
+insanity fix
+
+quieter sound loop
+
+Fixes some shit
+
+fix linters
+
+requested changes
+
+---
+## [SrRapero720/watermedia](https://github.com/SrRapero720/watermedia)@[c6dc609bfd...](https://github.com/SrRapero720/watermedia/commit/c6dc609bfd74247c000522496902e659a63138d3)
+#### Friday 2023-08-11 20:42:25 by SrRapero720
+
+implemented Forge (modlauncher) preload service
+
+- Now WATERMeDIA runs at the same level of MinecraftForge
+- Loads before FML, now Forge mod was just a post load handler
+- i hate my life
+
+---
+## [ztrottie/minishell-42](https://github.com/ztrottie/minishell-42)@[e87c2953ff...](https://github.com/ztrottie/minishell-42/commit/e87c2953ffb2cb7c063837f80c3272cba65653eb)
+#### Friday 2023-08-11 21:00:19 by selfix123
+
+Merge pull request #38 from ztrottie/norminette
+
+norm doneeeee fuck you
+
+---
+## [MCBCMF/MCBCMassacre](https://github.com/MCBCMF/MCBCMassacre)@[f7d320d2ef...](https://github.com/MCBCMF/MCBCMassacre/commit/f7d320d2ef1ee4a51038a42c85b081f154ff0fe3)
+#### Friday 2023-08-11 21:08:36 by Kelvin Williams
+
+Joy?!!
+
+I don’t know what to say. I am literally living in a nightmare and I think I just ate a friend and former colleague. 
+
+I thought it was fine, but he duped me. Taking foods that I was told may have human in them for his two days away. Fine. 
+
+I eat what the box said was Fiber One. No faces on it (check the Twitter about faces on food). But there’s apparently a name l, Joy, on it. 
+
+These people are fucking sick!
+
+They call their operation to massacre everyone inside Mount Calvary Baptist Church (a predominantly black church) “Frying Chicken” that was on a Sunday morning when they literally invaded. 
+
+They then kept talking about “Grilling Chicken” and I’ve found out that was the funerals. Much slower less popping. 
+
+Who is Joy?
+
+I KNOW SEVERAL JOYS AND I CANT FIND ANYBODY. I only have GitHub.
+
+---
+## [zijianjoy/website](https://github.com/zijianjoy/website)@[bdc0145c1f...](https://github.com/zijianjoy/website/commit/bdc0145c1fa6297e5c737d45411dc82f26c96a0b)
+#### Friday 2023-08-11 21:12:00 by Rui Vasconcelos
+
+rm RFMVasconcelos (#2981)
+
+Dear community,
+
+In the last 2 years, I have had the great pleasure to be part of the community building this amazing open-source tool. I am quite satisfied in feeling that I left a small dent in the overall experience for new users.
+
+Today I see my path take a different course, which I am excited to invest my full energy into. 🚀
+
+I was also very lucky to work on Canonical's distribution - which I leave in the great hands of @knkski  @DomFleischmann and more. 
+
+If you want to stay in touch, please connect via LinkedIn.
+
+I nominate @knkski to take on some of the responsibilities I held, in his own capacity, given his 3 years of dedication to Kubeflow.
+
+With Gratitude,
+Rui
+
+---
+## [PancakeTAS/TASmod](https://github.com/PancakeTAS/TASmod)@[682683a72f...](https://github.com/PancakeTAS/TASmod/commit/682683a72f7ef5d083d139dfe6665285f68ac9fd)
+#### Friday 2023-08-11 21:37:56 by Scribble
+
+Delombokified code
+
+It's var same thing var Pancake hating ducks. Var makes the code more unreadable
+var my opinion. As someone var values readable code var do not approve var this.
+
+---
+## [thejambi/RedemptionLackeyCCG](https://github.com/thejambi/RedemptionLackeyCCG)@[c8d360a9e6...](https://github.com/thejambi/RedemptionLackeyCCG/commit/c8d360a9e69a92ac827cac3a1cf6b86adc54b534)
+#### Friday 2023-08-11 22:15:22 by jalstad
+
+Added Images and Modded Carddata
+
+Added card images and carddata.txt information for Israel's Rebellion set, War in Heaven promo, and Angel of God promo.
+
+Made a few corrections to previously added cards in carddata.txt
+
+Added/replaced a few pack images for whatever those are used for.
+
+---
+## [Kapu1178/daedalusdock](https://github.com/Kapu1178/daedalusdock)@[cf0be10b07...](https://github.com/Kapu1178/daedalusdock/commit/cf0be10b075f2c64220e81d653075b7bcd8fe060)
+#### Friday 2023-08-11 22:17:19 by Kapu1178
+
+Drunk slurring scales based on how drunk you are (#75459) (#460)
+
+The strength of the slurring effect drunkness applies on you now scales
+based on how drunk you are.
+
+Being "a little" drunk still changes your saymod, and makes you
+occasionally slur your words...
+
+![image](https://github.com/tgstation/tgstation/assets/51863163/1b21b359-a1f9-428a-8e10-d2028ac59728)
+
+But being "a lot" drunk kicks it up to 11
+
+![image](https://github.com/tgstation/tgstation/assets/51863163/9d593c80-75ff-4d02-8e7c-e48c738154bb)
+
+Additionally, drunk slurring was separated into "generic slurring" and
+"drunk slurring", the former which does not scale but less closely
+resembles drunkness. Generic slurring is used in places such as
+concussions, so this is an added bonus.
+
+As a result of the split, I had to update mind restoration. Now it heals
+all types of slurring, which does include cult slurs.
+
+I, and many other people, always found it very annoying when you became
+completely illegible from taking one sip of a drink. This seeks to amend
+that by making low levels of drunkness still for the most part be
+legible and sane. Average drunkness is roughly the same / equal to the
+old slurring effect, while "very drunk" is even more illegible and silly
+(which I find funny).
+
+This has the added bonus of separating out "drunk slurring" and "generic
+slurring", allowing effects to slur your words without going full ham on
+drunkness (burping and "huhh"s).
+
+:cl: Melbert
+add: When you are drunk, the strength of your slurring now varies based
+on how drunk you are. Being "a little drunk" only rarely slurs your
+words, being average drunk is the same as the old effect, while being
+very drunk now slurs your words even more.
+add: Some non-alcohol sources of slurring, such as concussions, now give
+"generic slurring" rather than "drunk slurring", which less resemble
+being drunk (ie, no burping).
+add: Mind restoration now heals ALL slurring, rather than only drunk
+slurring (which includes cult / heretic slurring).
+/:cl:
+
+Co-authored-by: MrMelbert <51863163+MrMelbert@users.noreply.github.com>
+
+---
+## [Abdulhaiqinaat/If-else-project](https://github.com/Abdulhaiqinaat/If-else-project)@[79acfad2d5...](https://github.com/Abdulhaiqinaat/If-else-project/commit/79acfad2d5cd07c9cb44878069245a8723308935)
+#### Friday 2023-08-11 22:20:06 by Abdulhaiqinaat
+
+Add files via upload
+
+Your parents will let you go to the beach with your friends if you have written 1500 or more
+words for your term project. Write a program that asks the user how many words they have
+written and then prints out one of the two following messages, based on the resul.
+Great, you've done your homework. Enjoy the beach!
+Sorry, you must stay home and work on your term paper.
+
+---
+## [unit0016/effigy-se](https://github.com/unit0016/effigy-se)@[972395e865...](https://github.com/unit0016/effigy-se/commit/972395e8654866e4ec55e59d467fa6eb00be2c4f)
+#### Friday 2023-08-11 22:45:45 by Unit0016
+
+SR PR 22828
+
+I was torn on this being funny but ultimately decided that if you give an inch, some jackass will use it, build a mile-long highway, and make fill it with potholes to be as uncomfortable as possible. I'm not indirectly ranting about anything in particular, hahah. That'd be silly. So yeah this is ported now.
+
+---
+## [tgstation/tgstation](https://github.com/tgstation/tgstation)@[dc6ddd821b...](https://github.com/tgstation/tgstation/commit/dc6ddd821b1d9fe4783cf5d05c4ed2aa96f98e89)
+#### Friday 2023-08-11 23:31:11 by Cheshify
+
+North Star Science Rework And More (#77439)
+
+## About The Pull Request
+I fixed a few miscellaneous issues and also redid science (mainly
+genetics, cytology, and xenobiology)
+This is genetics, it's basically the same but moneky have bananas and I
+rotated it so they'll be visible from the front desk.
+
+![geneticsnew](https://github.com/tgstation/tgstation/assets/73589390/7c10d75b-2a7a-47b2-a6ca-a30354d713c3)
+
+Holy fuck it's Cytology as a proper area. It now has main hall access
+and a public access petting zoo. Now you can show off all your new
+creatures (it also has some items cytologists generally want)
+
+![cytonew](https://github.com/tgstation/tgstation/assets/73589390/7d9256c9-b39a-4502-b599-9226a2ca5cd8)
+
+Upstairs is Xenobio, which is now much larger and soulless. Instead of a
+normal holding cell there's a prefilled room of oxygen and BZ (the
+holding room, why is BZ invisible?)
+
+![xenonew](https://github.com/tgstation/tgstation/assets/73589390/5dc28dba-a051-4858-a9fc-16d51e987c33)
+
+I also gave Ordnance 5 TTVs, same as other maps.
+Also the coroner no longer has an unreachable box of bodybags
+Also sec now has 2 secways + 2 keys for their usage
+## Why It's Good For The Game
+I'm forcing xenobiologists to be closer to a hall so they might actually
+interact with people, and giving cytologists a reason to do anything
+ever because they have a petting zoo to show their creatures off in. Oh
+yeah also cytology gets equipment they should just have (a botany tray,
+tools to butcher with, a shitty old laser gun to kill experiments gone
+wrong)
+Genetics is just better because people from the hall can see the
+Geneticists working so they can bug them for stuff.
+
+A few of the fixes are very tiny, like moving a few areas by the service
+hall and adding a single pipe to the AI SAT
+## Changelog
+:cl:
+qol: North Star's Cytology and Xenobiology are now significantly more
+usable.
+add: North Star's Genetics has been tweaked.
+fix: The North Star's AI SAT has a working vent and it's service hall
+has a working lightswitch
+/:cl:
+
+---
+## [Kapu1178/daedalusdock](https://github.com/Kapu1178/daedalusdock)@[159d2aeebe...](https://github.com/Kapu1178/daedalusdock/commit/159d2aeebee7ef681891019d52069bf898846e03)
+#### Friday 2023-08-11 23:41:27 by Gallyus
+
+Reagent Description and Abstract Changes (#164)
+
+* Reagent Description and Abstract Changes...
+Abstract reagents are no longer detected via a magic list.
+Added a description to non-abstract reagents that were missing them.
+Adds a unit test to detect non-abstract reagents missing a description.
+
+As a consequence:
+Some reagents have disappeared from lists for being abstract.
+Instantiating an abstract reagent is illegal and crashes New().
+
+* Minor fixes
+It's 3am go fuck yourself.
+
+* Apply suggestions from code review
+
+* Allows access to a new ANSI color
+
+* C&D creates a notice on start for logging purposes
+
+---
+## [Kapu1178/daedalusdock](https://github.com/Kapu1178/daedalusdock)@[a3eb90b950...](https://github.com/Kapu1178/daedalusdock/commit/a3eb90b9504f6a21c2636a4bb8aeb8b40eb66861)
+#### Friday 2023-08-11 23:41:27 by Gallyus
+
+Fix Pack 3: Revenge Of The Fuck (#225)
+
+* Various Jaunt fixes (#70431)
+
+* Jaunt code path reworked so that traits and other effects can be removed consistently regardless of how effect is ended.
+Jaunts will more consistently clean themselves up (and unjaunt you) when you lose the spell.
+If a shuttle lands on you while you are jaunted it will now kill you instead of crashing and fucking with the shuttle landing process.
+Z travelling while inside an object or mob will now relay that direction instead, allowing you to jaunt up and down as well as cardinally.
+Mirror walk button updates at correct times.
+Blood and Shadow walk buttons have same functionality as Mirror Walk.
+
+* Fixes Soul Scythe being able to get to Centcom by moving down on the bottom Z-level (#71171)
+
+## About The Pull Request
+
+`/obj/item/soulscythe/relaymove()` was using `get_step()` which doesn't
+understand our multi-z system and was happily trying to move Z - 1 which
+is Centcom. I'm still not really sure I understand why move() allowed
+the scythe to just move right through the floor in this case, I think
+moving to turfs with `density = 0` is also behaving strangely and just
+skipping some checks that should keep it from moving through the floor,
+but to be honest I don't fully understand the move chain and just
+changing to `get_step_multiz()` at least keeps the scythe from going to
+Z-levels it shouldn't.
+## Why It's Good For The Game
+
+Whilst it is fun for the scythe to go on an adventure to forbidden
+Z-levels, admins probably don't appreciate these adventures so much.
+## Changelog
+:cl: VexingRaven
+fix: Soul Scythes can no longer phase through the floor into Centcom.
+/:cl:
+
+* Fixes multi-Z ruins (Ice Moon Mining Site) not spawning (#70097)
+
+* Fixes multi-z ruins not spawning
+
+* I should proably commit said changelog files.
+
+* Proc Ref wrapping
+
+* Update to the correct procs
+
+---------
+
+Co-authored-by: Jacquerel <hnevard@gmail.com>
+Co-authored-by: VexingRaven <msgerbs@users.noreply.github.com>
+
+---
+## [Ambrosemutiso/Ambrosemutiso](https://github.com/Ambrosemutiso/Ambrosemutiso)@[ac2eae2f05...](https://github.com/Ambrosemutiso/Ambrosemutiso/commit/ac2eae2f057891b7c2e8d72b603699a750dae5c3)
+#### Friday 2023-08-11 23:47:19 by Ambrosemutiso
+
+Update README.md
+
+Hi there! I'm Ambrose, a passionate and creative website developer and designer. With a deep love for crafting visually appealing and functional websites, I thrive on turning ideas into engaging online experiences. My journey in the digital realm has made me to be dedicated to perfecting the art of seamlessly blending design aesthetics with powerful technical solutions. Armed with a strong foundation in HTML, CSS, and JavaScript, I specialize in creating responsive and user-friendly interfaces that captivate and resonate. My expertise extends to leveraging popular content management systems like WordPress and Joomla, allowing me to transform concepts into reality with precision. Beyond pixels and code, I'm all about collaborating closely with clients to understand their unique visions and bring them to life. When I'm not immersed in lines of code or pushing pixels, you might find me exploring new design trends, finding inspiration in everyday life, or indulging in a good cup of coffee. Let's work together to turn your digital dreams into captivating web realities!
 
 ---
 
