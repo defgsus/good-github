@@ -1538,4 +1538,5 @@
 [03](good-messages/2023/2023-09-03.md)
 [05](good-messages/2023/2023-09-05.md)
 [06](good-messages/2023/2023-09-06.md)
+[07](good-messages/2023/2023-09-07.md)
 
