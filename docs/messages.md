@@ -1541,4 +1541,5 @@
 [07](good-messages/2023/2023-09-07.md)
 [08](good-messages/2023/2023-09-08.md)
 [09](good-messages/2023/2023-09-09.md)
+[10](good-messages/2023/2023-09-10.md)
 
