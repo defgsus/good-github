@@ -1596,4 +1596,5 @@
 [20](good-messages/2023/2023-11-20.md)
 [21](good-messages/2023/2023-11-21.md)
 [22](good-messages/2023/2023-11-22.md)
+[23](good-messages/2023/2023-11-23.md)
 
